@@ -20,6 +20,40 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  line-height: 1.7;
+  overflow-x: clip;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+main {
+  min-width: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+p,
+li {
+  text-wrap: pretty;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+a,
+code {
+  overflow-wrap: anywhere;
+}
+
+img,
+svg {
+  max-width: 100%;
 }
 
 ::selection {
@@ -31,6 +65,9 @@ body {
   color: #334155;
   font-size: 1.0625rem;
   line-height: 1.85;
+  max-width: 100%;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .prose-biz2lab h2 {
@@ -72,6 +109,32 @@ body {
 
 .prose-biz2lab a {
   color: #0f766e;
+  overflow-wrap: anywhere;
+}
+
+.prose-biz2lab table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.prose-biz2lab th,
+.prose-biz2lab td {
+  min-width: 10rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+
+.prose-biz2lab pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.prose-biz2lab code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .line-clamp-2,

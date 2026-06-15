@@ -4,12 +4,14 @@ import path from "node:path";
 import { forbiddenPublicRoutePrefixes } from "@/lib/locales";
 import { getPublicPosts } from "@/lib/posts";
 import { staticPublicRoutes } from "@/lib/seo";
+import { siteSettings } from "@/lib/site-settings";
 
 const root = process.cwd();
 const errors: string[] = [];
 const checked: string[] = [];
 
 const sourceRoots = ["app", "components", path.join("content", "ko")];
+const sourceFiles = [path.join("lib", "site-settings.ts")];
 const sourceExtensions = new Set([".ts", ".tsx", ".md", ".mdx"]);
 const availableRoutes = new Set<string>([
   ...staticPublicRoutes,
@@ -130,7 +132,8 @@ function validateSearchFallback() {
   if (
     envExample.includes("NEXT_PUBLIC_PAGEFIND_ENABLED=false") &&
     (!searchBox.includes("DisabledSearchBox") ||
-      !searchBox.includes("검색은 승인 후 활성화 예정입니다.") ||
+      !searchBox.includes("siteSettings.messages.disabledSearch") ||
+      siteSettings.messages.disabledSearch !== "검색은 승인 후 활성화 예정입니다." ||
       !searchBox.includes("disabled"))
   ) {
     errors.push("components/search/SearchBox.tsx: disabled Pagefind fallback is missing");
@@ -170,11 +173,24 @@ for (const sourceRoot of sourceRoots) {
     validateLinksAndButtons(filePath);
   }
 }
+for (const filePath of sourceFiles) {
+  validateLinksAndButtons(path.join(root, filePath));
+}
 checked.push("public source links, buttons, and downloads");
 
 validateSearchFallback();
 validateContactFallback();
 validatePostNextSteps();
+
+if (
+  siteSettings.featureFlags.adminEnabled ||
+  siteSettings.featureFlags.commerceEnabled ||
+  siteSettings.featureFlags.aiEnabled ||
+  siteSettings.featureFlags.multilingualEnabled
+) {
+  errors.push("lib/site-settings.ts: AdSense-unsafe feature flag is enabled");
+}
+checked.push("settings feature flags");
 
 if (errors.length > 0) {
   console.error(errors.join("\n"));

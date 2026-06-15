@@ -10,8 +10,8 @@ export const metadata: Metadata = createMetadata({
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-4xl px-5 py-14">
-      <h1 className="text-4xl font-bold tracking-normal text-slate-950">Biz2Lab 소개</h1>
+    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-5 sm:py-14">
+      <h1 className="text-3xl font-bold tracking-normal text-slate-950 sm:text-4xl">Biz2Lab 소개</h1>
       <div className="mt-8 grid gap-6 text-lg leading-8 text-slate-600">
         <p>
           Biz2Lab은 소상공인, 영업팀, 1인 사업자를 위한 현장형 AI 업무 자동화

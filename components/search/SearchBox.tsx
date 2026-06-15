@@ -3,6 +3,8 @@
 import { Search } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
+import { siteSettings } from "@/lib/site-settings";
+
 type PagefindResult = {
   id: string;
   data: () => Promise<{
@@ -22,10 +24,11 @@ type SearchResult = {
   excerpt: string;
 };
 
-const SEARCH_INDEX_PENDING_MESSAGE =
-  "검색 색인은 정적 배포 색인 생성 후 활성화됩니다.";
-const PAGEFIND_ENABLED = process.env.NEXT_PUBLIC_PAGEFIND_ENABLED === "true";
-const SEARCH_DISABLED_MESSAGE = "검색은 승인 후 활성화 예정입니다.";
+const SEARCH_INDEX_PENDING_MESSAGE = siteSettings.messages.searchIndexPending;
+const PAGEFIND_ENABLED =
+  siteSettings.featureFlags.searchEnabled &&
+  process.env.NEXT_PUBLIC_PAGEFIND_ENABLED === "true";
+const SEARCH_DISABLED_MESSAGE = siteSettings.messages.disabledSearch;
 
 function toPlainTextExcerpt(excerpt: string) {
   return excerpt.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
@@ -47,12 +50,12 @@ export function SearchBox() {
 
 function DisabledSearchBox() {
   return (
-    <div className="relative w-full md:w-56" aria-label="검색 상태">
+    <div className="relative w-full max-w-full" aria-label="검색 상태">
       <label className="sr-only" htmlFor="site-search-disabled">
         검색 상태
       </label>
       <Search
-        className="pointer-events-none absolute left-3 top-5 h-4 w-4 text-slate-400"
+        className="pointer-events-none absolute left-3 top-3 h-4 w-4 text-slate-400"
         aria-hidden
       />
       <input
@@ -173,7 +176,7 @@ function EnabledSearchBox() {
     query.trim().length >= 2 && indexUnavailable && !showResults;
 
   return (
-    <div className="relative w-full md:w-56">
+    <div className="relative w-full max-w-full">
       <label className="sr-only" htmlFor="site-search">
         글 검색
       </label>

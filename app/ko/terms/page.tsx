@@ -10,8 +10,8 @@ export const metadata: Metadata = createMetadata({
 
 export default function TermsPage() {
   return (
-    <div className="mx-auto max-w-4xl px-5 py-14">
-      <h1 className="text-4xl font-bold tracking-normal text-slate-950">이용약관</h1>
+    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-5 sm:py-14">
+      <h1 className="text-3xl font-bold tracking-normal text-slate-950 sm:text-4xl">이용약관</h1>
       <div className="mt-8 grid gap-7 leading-8 text-slate-600">
         <section>
           <h2 className="text-2xl font-bold tracking-normal text-slate-950">콘텐츠 성격</h2>
@@ -45,4 +45,3 @@ export default function TermsPage() {
     </div>
   );
 }
-

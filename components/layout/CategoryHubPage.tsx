@@ -12,9 +12,9 @@ export function CategoryHubPage({ category, posts }: { category: Category; posts
   return (
     <div className="bg-white">
       <section className="border-b border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-6xl px-5 py-14">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-14">
           <p className="text-sm font-semibold text-teal-700">{category.name}</p>
-          <h1 className="mt-3 max-w-3xl text-4xl font-bold leading-tight tracking-normal text-slate-950">
+          <h1 className="mt-3 max-w-3xl text-3xl font-bold leading-tight tracking-normal text-slate-950 sm:text-4xl">
             {category.title}
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
@@ -23,15 +23,15 @@ export function CategoryHubPage({ category, posts }: { category: Category; posts
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-12">
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-5">
+        <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <div className="min-w-0">
             <h2 className="text-2xl font-bold tracking-normal text-slate-950">
               {category.pillarIdea}
             </h2>
             <div className="mt-5">{pillar ? <ArticleCard post={pillar} /> : null}</div>
           </div>
-          <aside className="rounded-md border border-amber-200 bg-amber-50 p-5">
+          <aside className="min-w-0 rounded-md border border-amber-200 bg-amber-50 p-5">
             <h2 className="text-xl font-bold tracking-normal text-slate-950">어디서 시작할까</h2>
             <p className="mt-3 leading-7 text-slate-700">{category.startGuide}</p>
           </aside>
@@ -39,9 +39,9 @@ export function CategoryHubPage({ category, posts }: { category: Category; posts
       </section>
 
       <section className="border-y border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-6xl px-5 py-12">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-5">
           <h2 className="text-2xl font-bold tracking-normal text-slate-950">클러스터 글</h2>
-          <div className="mt-6 grid gap-5 md:grid-cols-2">
+          <div className="mt-6 grid min-w-0 gap-5 md:grid-cols-2">
             {clusters.map((post) => (
               <ArticleCard key={post.slug} post={post} />
             ))}
@@ -49,14 +49,14 @@ export function CategoryHubPage({ category, posts }: { category: Category; posts
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-12">
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-5">
         <h2 className="text-2xl font-bold tracking-normal text-slate-950">관련 허브</h2>
         <div className="mt-5 flex flex-wrap gap-3">
           {otherHubs.map((hub) => (
             <Link
               key={hub.slug}
               href={`/ko/${hub.slug}`}
-              className="rounded-md border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-teal-300 hover:text-teal-700"
+              className="max-w-full rounded-md border border-slate-200 px-4 py-2 text-sm font-semibold leading-6 text-slate-700 transition hover:border-teal-300 hover:text-teal-700"
             >
               {hub.name}
             </Link>
@@ -66,4 +66,3 @@ export function CategoryHubPage({ category, posts }: { category: Category; posts
     </div>
   );
 }
-

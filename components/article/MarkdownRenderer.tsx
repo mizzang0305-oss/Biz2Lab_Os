@@ -6,7 +6,7 @@ import { slugifyHeading } from "@/lib/posts";
 
 export function MarkdownRenderer({ content }: { content: string }) {
   return (
-    <div className="prose-biz2lab">
+    <div className="prose-biz2lab min-w-0 max-w-full">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
@@ -47,4 +47,3 @@ export function MarkdownRenderer({ content }: { content: string }) {
     </div>
   );
 }
-

@@ -2,6 +2,8 @@
 
 import { useMemo, useState, type FormEvent } from "react";
 
+import { siteSettings } from "@/lib/site-settings";
+
 type ContactPayload = {
   name: string;
   email: string;
@@ -77,8 +79,7 @@ export function ContactForm() {
       if (response.status === 503 || data?.error === "SUPABASE_NOT_CONFIGURED") {
         setState({
           kind: "warning",
-          message:
-            "현재 문의 저장 기능이 설정되지 않아 자동 제출할 수 없습니다. 입력 내용은 보존되며, 연락처가 연결되면 제출 기능이 활성화됩니다.",
+          message: siteSettings.messages.contactUnavailable,
           payload,
         });
         return;
@@ -109,7 +110,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mt-8 grid gap-5 rounded-md border border-slate-200 bg-white p-6"
+      className="mt-8 grid min-w-0 gap-5 rounded-md border border-slate-200 bg-white p-4 sm:p-6"
     >
       <div className="grid gap-2">
         <label htmlFor="name" className="text-sm font-semibold text-slate-800">
@@ -119,7 +120,7 @@ export function ContactForm() {
           id="name"
           name="name"
           required
-          className="rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
+          className="min-w-0 rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
         />
       </div>
       <div className="grid gap-2">
@@ -131,7 +132,7 @@ export function ContactForm() {
           name="email"
           type="email"
           required
-          className="rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
+          className="min-w-0 rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
         />
       </div>
       <div className="grid gap-2">
@@ -142,7 +143,7 @@ export function ContactForm() {
           id="topic"
           name="topic"
           required
-          className="rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
+          className="min-w-0 rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
         />
       </div>
       <div className="grid gap-2">
@@ -154,7 +155,7 @@ export function ContactForm() {
           name="message"
           required
           rows={7}
-          className="rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
+          className="min-w-0 rounded-md border border-slate-300 px-3 py-2 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
         />
       </div>
       <p className="text-sm leading-6 text-slate-500">
@@ -164,20 +165,20 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex w-fit items-center justify-center rounded-md bg-teal-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-teal-800 disabled:cursor-not-allowed disabled:bg-slate-400"
+        className="inline-flex w-full items-center justify-center rounded-md bg-teal-700 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-teal-800 disabled:cursor-not-allowed disabled:bg-slate-400 sm:w-fit"
       >
         {isSubmitting ? "문의 보내는 중" : "문의 보내기"}
       </button>
       {state.kind !== "idle" && state.kind !== "submitting" ? (
         <div
           role={state.kind === "error" ? "alert" : "status"}
-          className="rounded-md border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700"
+          className="min-w-0 rounded-md border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700"
         >
           <p>{state.message}</p>
           {state.kind === "warning" && mailtoHref ? (
             <a
               href={mailtoHref}
-              className="mt-3 inline-flex w-fit items-center justify-center rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-teal-600 hover:text-teal-700"
+              className="mt-3 inline-flex max-w-full items-center justify-center rounded-md border border-slate-300 bg-white px-4 py-2 text-center text-sm font-semibold leading-6 text-slate-800 transition hover:border-teal-600 hover:text-teal-700"
             >
               이메일 앱으로 문의 열기
             </a>
