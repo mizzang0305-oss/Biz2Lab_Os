@@ -25,6 +25,7 @@ type SearchResult = {
 const SEARCH_INDEX_PENDING_MESSAGE =
   "검색 색인은 정적 배포 색인 생성 후 활성화됩니다.";
 const PAGEFIND_ENABLED = process.env.NEXT_PUBLIC_PAGEFIND_ENABLED === "true";
+const SEARCH_DISABLED_MESSAGE = "검색은 승인 후 활성화 예정입니다.";
 
 function toPlainTextExcerpt(excerpt: string) {
   return excerpt.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
@@ -37,9 +38,43 @@ declare global {
 }
 
 export function SearchBox() {
+  if (!PAGEFIND_ENABLED) {
+    return <DisabledSearchBox />;
+  }
+
+  return <EnabledSearchBox />;
+}
+
+function DisabledSearchBox() {
+  return (
+    <div className="relative w-full md:w-56" aria-label="검색 상태">
+      <label className="sr-only" htmlFor="site-search-disabled">
+        검색 상태
+      </label>
+      <Search
+        className="pointer-events-none absolute left-3 top-5 h-4 w-4 text-slate-400"
+        aria-hidden
+      />
+      <input
+        id="site-search-disabled"
+        type="search"
+        value=""
+        disabled
+        aria-describedby="site-search-disabled-note"
+        placeholder={SEARCH_DISABLED_MESSAGE}
+        className="h-10 w-full rounded-md border border-slate-200 bg-slate-100 pl-9 pr-3 text-sm text-slate-500 outline-none placeholder:text-slate-500 disabled:cursor-not-allowed"
+      />
+      <p id="site-search-disabled-note" className="mt-1 text-xs leading-5 text-slate-500">
+        {SEARCH_DISABLED_MESSAGE}
+      </p>
+    </div>
+  );
+}
+
+function EnabledSearchBox() {
   const [query, setQuery] = useState("");
   const [ready, setReady] = useState(false);
-  const [indexUnavailable, setIndexUnavailable] = useState(!PAGEFIND_ENABLED);
+  const [indexUnavailable, setIndexUnavailable] = useState(false);
   const [results, setResults] = useState<SearchResult[]>([]);
 
   useEffect(() => {

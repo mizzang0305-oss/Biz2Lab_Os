@@ -16,6 +16,7 @@ npm run lint
 npm run typecheck
 npm run validate:posts
 npm run validate:seo
+npm run audit:interactions
 npm run check:links
 npm run build
 ```

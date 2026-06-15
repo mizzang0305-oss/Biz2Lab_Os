@@ -1,4 +1,4 @@
-import { Download } from "lucide-react";
+import { FileText } from "lucide-react";
 
 export function TemplateCTA({ label }: { label?: string }) {
   if (!label) {
@@ -16,7 +16,7 @@ export function TemplateCTA({ label }: { label?: string }) {
           </p>
         </div>
         <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-amber-400 text-slate-950">
-          <Download className="h-5 w-5" aria-hidden="true" />
+          <FileText className="h-5 w-5" aria-hidden="true" />
         </span>
       </div>
     </section>

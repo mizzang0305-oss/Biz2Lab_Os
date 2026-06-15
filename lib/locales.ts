@@ -19,9 +19,10 @@ export const forbiddenPublicRoutePrefixes = [
   "/crawler",
   "/commerce",
   "/affiliate",
+  "/products",
+  "/shop",
 ] as const;
 
 export function isPublicLocale(locale: string): locale is PublicLocale {
   return publicLocales.includes(locale as PublicLocale);
 }
-
