@@ -1,0 +1,4 @@
+interface:
+  display_name: "Biz2Lab Image Creator"
+  short_description: "Create safe Biz2Lab image prompt packages"
+  default_prompt: "Use $biz2lab-image-creator to turn this Biz2Lab article image idea into a local prompt package."

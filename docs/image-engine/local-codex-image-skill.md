@@ -1,17 +1,25 @@
 # Local Codex Image Skill Workflow
 
 Date: 2026-06-15
-Status: local deterministic generator available
+Status: prompt/brief workflow plus local deterministic generator available
 
 ## Purpose
 
 Biz2Lab article images should be generated and reviewed locally before they are added to public article content. This keeps the AdSense MVP free of external hotlinks, scraped images, product imagery, and public AI image generation surfaces.
 
+Phase 3.8-SKILL adds a repo-local Codex skill:
+
+```text
+.codex/skills/biz2lab-image-creator/SKILL.md
+```
+
+This skill creates image production packages from natural language descriptions. It produces prompts, briefs, filenames, paths, Korean alt/caption text, manifest drafts, article update plans, and validation checklists. It does not configure ComfyUI, Stable Diffusion, or any public AI image feature.
+
 ## Manual Workflow
 
 1. Read `image-briefs/biz2lab-article-image-briefs.json`.
 2. Select a small batch of briefs to generate.
-3. Generate images locally using the local Codex image skill or another explicitly approved local-only image workflow.
+3. Use the Codex image skill to create a prompt package, or use another explicitly approved local-only image workflow.
 4. Save raw images to `assets/images/raw/`.
 5. Do not upload prompts, raw images, or private project files to external services unless explicitly approved.
 6. Do not use copyrighted logos, product images, Amazon images, fake customer data, or sensitive documents.
@@ -64,6 +72,14 @@ npm run images:generate:local
 
 Do not replace this package script unless the replacement remains local-only and deterministic.
 
+Current prompt package commands:
+
+```bash
+npm run image-request:create -- --slug ai-business-automation-guide --usage hero --description "반복 업무를 AI 자동화 후보로 분류하고 실행 우선순위를 보여주는 대표 이미지"
+npm run image-skill:codex -- --request image-requests/generated/ai-business-automation-guide-hero.md
+npm run audit:image-briefs
+```
+
 Expected future behavior:
 
 ```bash
@@ -108,6 +124,7 @@ public/images/posts/manifest.json
 - `altKo` and `captionKo` are Korean and descriptive.
 - `npm run validate:images` passes.
 - No public AI, upload, admin, login, commerce, affiliate, product, review, Amazon, or lottery route is added.
+- Each generated prompt package includes a visual differentiation hint to prevent repeating the same fallback composition.
 
 ## Phase 3.8 Status
 

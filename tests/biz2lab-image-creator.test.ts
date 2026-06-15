@@ -1,0 +1,289 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import test from "node:test";
+
+import { buildImagePromptPackage } from "@/lib/image-generation/prompt-builder";
+import { createImageRequestPackage } from "@/scripts/create-image-request";
+import { runBiz2LabImageSkill } from "@/scripts/run-biz2lab-image-skill";
+
+function makeTempDir() {
+  return fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-image-skill-"));
+}
+
+function walkFiles(dir: string): string[] {
+  if (!fs.existsSync(dir)) {
+    return [];
+  }
+
+  return fs
+    .readdirSync(dir, { withFileTypes: true })
+    .flatMap((entry) => {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        return walkFiles(fullPath);
+      }
+      return entry.isFile() ? [fullPath] : [];
+    })
+    .sort();
+}
+
+test("prompt builder creates a Korean-first safe prompt package", () => {
+  const promptPackage = buildImagePromptPackage({
+    slug: "ai-business-automation-guide",
+    articleTitle: "AI 업무 자동화 가이드",
+    category: "automation",
+    usage: "hero",
+    userDescription: "반복 업무를 AI 자동화 후보로 분류하고 실행 우선순위를 보여주는 대표 이미지",
+    targetFeeling: "차분한 프리미엄 SaaS 에디토리얼",
+    mustInclude: ["업무 흐름", "우선순위"],
+    mustAvoid: ["로고", "사람 얼굴"],
+  });
+
+  assert.equal(promptPackage.filename, "ai-business-automation-guide-hero.png");
+  assert.equal(promptPackage.rawPath, "assets/images/raw/ai-business-automation-guide-hero.png");
+  assert.equal(promptPackage.optimizedPath, "public/images/posts/ai-business-automation-guide-1200.webp");
+  assert.match(promptPackage.providerPromptKo, /반복 업무/);
+  assert.match(promptPackage.providerPromptKo, /프리미엄/);
+  assert.doesNotMatch(promptPackage.providerPromptKo, /Article workflow/i);
+  assert.match(promptPackage.negativePromptKo, /Amazon/);
+  assert.match(promptPackage.negativePromptKo, /로고/);
+  assert.match(promptPackage.altKo, /자동화/);
+  assert.match(promptPackage.captionKo, /업무/);
+  assert.ok(promptPackage.categoryStyle.length > 20);
+  assert.ok(promptPackage.visualDifferentiationHint.length > 20);
+});
+
+test("prompt builder rejects external URLs and product image requests", () => {
+  assert.throws(
+    () =>
+      buildImagePromptPackage({
+        slug: "ai-business-automation-guide",
+        articleTitle: "AI 업무 자동화 가이드",
+        category: "automation",
+        usage: "hero",
+        userDescription: "https://example.com 이미지를 참고한 대표 이미지",
+      }),
+    /external URL/i,
+  );
+
+  assert.throws(
+    () =>
+      buildImagePromptPackage({
+        slug: "ai-business-automation-guide",
+        articleTitle: "AI 업무 자동화 가이드",
+        category: "automation",
+        usage: "hero",
+        userDescription: "Amazon product card처럼 보이는 이미지",
+      }),
+    /product|Amazon/i,
+  );
+});
+
+test("request creation writes request and generated brief for a known slug without article mutation", () => {
+  const tempDir = makeTempDir();
+  const requestDir = path.join(tempDir, "image-requests", "generated");
+  const briefDir = path.join(tempDir, "image-briefs", "generated");
+  const articlePath = path.join(
+    process.cwd(),
+    "content",
+    "ko",
+    "automation",
+    "ai-business-automation-guide.md",
+  );
+  const beforeArticle = fs.readFileSync(articlePath, "utf8");
+
+  const result = createImageRequestPackage({
+    rootDir: process.cwd(),
+    slug: "ai-business-automation-guide",
+    usage: "hero",
+    description: "반복 업무를 AI 자동화 후보로 분류하고 실행 우선순위를 보여주는 대표 이미지",
+    mode: "prompt-only",
+    requestDir,
+    briefDir,
+  });
+
+  assert.equal(fs.existsSync(result.requestPath), true);
+  assert.equal(fs.existsSync(result.briefPath), true);
+  assert.equal(fs.readFileSync(articlePath, "utf8"), beforeArticle);
+
+  const requestMarkdown = fs.readFileSync(result.requestPath, "utf8");
+  const briefJson = JSON.parse(fs.readFileSync(result.briefPath, "utf8")) as {
+    providerPromptKo?: string;
+    manifestEntry?: { rawPath?: string; src?: string };
+  };
+
+  assert.match(requestMarkdown, /Biz2Lab Image Request/);
+  assert.match(requestMarkdown, /ai-business-automation-guide/);
+  assert.match(briefJson.providerPromptKo ?? "", /반복 업무/);
+  assert.equal(briefJson.manifestEntry?.rawPath, "assets/images/raw/ai-business-automation-guide-hero.png");
+  assert.equal(briefJson.manifestEntry?.src, "/images/posts/ai-business-automation-guide-1200.webp");
+});
+
+test("skill runner prompt-only creates prompt package and generated brief without raw image output", () => {
+  const tempDir = makeTempDir();
+  const requestPath = path.join(tempDir, "ai-business-automation-guide-hero.md");
+  const briefDir = path.join(tempDir, "image-briefs", "generated");
+  fs.writeFileSync(
+    requestPath,
+    `# Biz2Lab Image Request
+
+## Article
+- slug: ai-business-automation-guide
+- title: AI 업무 자동화 가이드
+- category: automation
+- usage: hero
+
+## User Description
+반복 업무를 AI 자동화 후보로 분류하고 실행 우선순위를 보여주는 대표 이미지
+
+## Business Context
+반복 업무 자동화 우선순위를 정리한다.
+
+## Visual Direction
+- mood: 차분한 프리미엄 SaaS 에디토리얼
+- layout idea: 중앙 업무 흐름과 우측 우선순위 패널
+- color: teal, navy, warm amber
+- must include: 업무 흐름, 우선순위
+- must avoid: 로고, 사람 얼굴
+
+## Output Mode
+- prompt-only
+`,
+    "utf8",
+  );
+
+  const result = runBiz2LabImageSkill({
+    rootDir: process.cwd(),
+    requestPath,
+    mode: "prompt-only",
+    briefDir,
+    apply: false,
+  });
+
+  assert.equal(fs.existsSync(result.promptPath), true);
+  assert.equal(fs.existsSync(result.briefPath), true);
+  assert.equal(result.rawOutputPath, null);
+  assert.match(fs.readFileSync(result.promptPath, "utf8"), /Negative Prompt/);
+});
+
+test("skill runner local-diagram mode stays local and writes only an SVG raw asset", () => {
+  const tempDir = makeTempDir();
+  const requestPath = path.join(tempDir, "ai-business-automation-guide-hero.md");
+  const briefDir = path.join(tempDir, "image-briefs", "generated");
+  const rawDir = path.join(tempDir, "assets", "images", "raw");
+  fs.writeFileSync(
+    requestPath,
+    `# Biz2Lab Image Request
+
+## Article
+- slug: ai-business-automation-guide
+- title: AI 업무 자동화 가이드
+- category: automation
+- usage: hero
+
+## User Description
+반복 업무를 AI 자동화 후보로 분류하고 실행 우선순위를 보여주는 간단한 로컬 다이어그램
+
+## Output Mode
+- local-diagram
+`,
+    "utf8",
+  );
+
+  const result = runBiz2LabImageSkill({
+    rootDir: process.cwd(),
+    requestPath,
+    mode: "local-diagram",
+    briefDir,
+    rawDir,
+    apply: false,
+  });
+
+  assert.ok(result.rawOutputPath?.startsWith(rawDir));
+  assert.equal(path.extname(result.rawOutputPath ?? ""), ".svg");
+  assert.match(fs.readFileSync(result.rawOutputPath ?? "", "utf8"), /<svg/);
+  assert.equal(walkFiles(path.join(tempDir, "public")).length, 0);
+});
+
+test("skill runner apply updates hero frontmatter only when optimized local image exists", () => {
+  const tempDir = makeTempDir();
+  const articleDir = path.join(tempDir, "content", "ko", "automation");
+  const publicImageDir = path.join(tempDir, "public", "images", "posts");
+  const requestPath = path.join(tempDir, "demo-automation-hero.md");
+  fs.mkdirSync(articleDir, { recursive: true });
+  fs.mkdirSync(publicImageDir, { recursive: true });
+  fs.writeFileSync(path.join(publicImageDir, "demo-automation-1200.webp"), "", "utf8");
+  fs.writeFileSync(
+    path.join(articleDir, "demo-automation.md"),
+    `---
+title: "기존 제목"
+description: "기존 설명"
+slug: "demo-automation"
+locale: "ko"
+category: "automation"
+cluster: "automation-basics"
+type: "how-to"
+status: "published"
+draft: false
+author: "Biz2Lab"
+publishedAt: "2026-06-15"
+updatedAt: "2026-06-15"
+tags:
+  - "AI 업무 자동화"
+heroImage: "/images/posts/old-image.webp"
+heroAlt: "기존 이미지"
+canonical: "https://biz2lab.com/ko/automation/demo-automation"
+noindex: false
+relatedPosts:
+  - "other-post"
+---
+
+본문
+`,
+    "utf8",
+  );
+  fs.writeFileSync(
+    requestPath,
+    `# Biz2Lab Image Request
+
+## Article
+- slug: demo-automation
+- title: AI 업무 자동화 가이드
+- category: automation
+- usage: hero
+
+## User Description
+반복 업무를 자동화 후보로 분류하는 대표 이미지
+
+## Output Mode
+- prompt-only
+`,
+    "utf8",
+  );
+
+  const result = runBiz2LabImageSkill({
+    rootDir: tempDir,
+    requestPath,
+    briefDir: path.join(tempDir, "image-briefs", "generated"),
+    apply: true,
+  });
+
+  const article = fs.readFileSync(path.join(articleDir, "demo-automation.md"), "utf8");
+  assert.equal(result.articleMutated, true);
+  assert.match(article, /heroImage:\s+["']?\/images\/posts\/demo-automation-1200\.webp["']?/);
+  assert.match(article, /heroAlt:/);
+  assert.doesNotMatch(article, /old-image/);
+});
+
+test("image creator feature does not add public app routes", () => {
+  const appFiles = walkFiles(path.join(process.cwd(), "app")).map((filePath) =>
+    path.relative(process.cwd(), filePath).replaceAll("\\", "/"),
+  );
+
+  assert.equal(appFiles.some((filePath) => filePath.includes("/admin/")), false);
+  assert.equal(appFiles.some((filePath) => filePath.includes("/api/image")), false);
+  assert.equal(appFiles.some((filePath) => filePath.includes("/ai/")), false);
+  assert.equal(appFiles.some((filePath) => filePath.includes("/chat/")), false);
+});

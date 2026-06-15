@@ -44,6 +44,13 @@ Optional future fields:
 - `notes`
 - `status`
 - `failureReason`
+- `providerPromptKo`
+- `providerPromptEn`
+- `negativePromptKo`
+- `categoryStyle`
+- `visualDifferentiationHint`
+- `textPolicy`
+- `manifestEntry`
 
 ## Validation Rules
 
@@ -52,6 +59,7 @@ Optional future fields:
 - `optimizedPath` must end with `.webp`.
 - `altKo`, `captionKo`, and `promptKo` must contain Korean text.
 - No brief may request real logos, real customer data, product images, Amazon images, or private documents.
+- Generated prompt packages must include `negativePromptKo`, `categoryStyle`, and `visualDifferentiationHint`.
 - Missing raw files are warnings until image generation is explicitly run.
 - Missing optimized files are warnings until `npm run optimize-images` is explicitly run.
 - A missing local-only generation command means every brief remains pending; do not mark a brief failed unless a real local generation attempt was made.

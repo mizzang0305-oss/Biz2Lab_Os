@@ -7,6 +7,7 @@ Status: Phase 3.8-0 provider bridge
 
 Biz2Lab needs better article visuals, but the image workflow must stay local and AdSense-safe. This bridge separates three different paths:
 
+- Codex Image Skill: internal prompt, brief, filename, manifest draft, and manual handoff package.
 - Real local image provider: optional localhost engine such as ComfyUI or Stable Diffusion WebUI.
 - Manual drop workflow: user creates images with any local tool and saves raw files under `assets/images/raw`.
 - Deterministic fallback: existing SVG/Sharp diagrams, labeled as fallback only.
@@ -29,12 +30,17 @@ Core library:
 
 CLI scripts:
 
+- `npm run image-request:create`
+- `npm run image-skill:codex`
+- `npm run audit:image-briefs`
 - `npm run image-skill:detect`
 - `npm run image-skill:plan`
 - `npm run image-skill:generate`
 - `npm run image-skill:validate`
 
 ## Providers
+
+`biz2lab-image-creator` is not a provider. It creates prompt packages and handoff instructions for Codex to use locally.
 
 `manual-drop` is always available. It checks whether expected raw files exist and gives the user the next validation command.
 
@@ -62,3 +68,20 @@ Before AdSense approval, Biz2Lab must stay a narrow Korean content site. A publi
 ## Why External APIs Are Forbidden
 
 External image APIs can introduce paid API calls, prompt upload, data retention, copyright uncertainty, and undisclosed third-party processing. This phase is local-only until the user explicitly approves a later production-safe provider review.
+
+## Phase 3.8-SKILL Addition
+
+The repo now includes a Codex Image Skill document at `.codex/skills/biz2lab-image-creator/SKILL.md`.
+
+Use it to turn a natural language visual direction into:
+
+- image request markdown
+- prompt package markdown
+- generated brief JSON
+- Korean alt/caption
+- raw and optimized path plan
+- manifest draft
+- article update plan
+- validation checklist
+
+It does not render a real AI image. Real rendering still requires a user-approved manual tool, ChatGPT image generation outside the public site, or a later local provider.

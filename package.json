@@ -21,6 +21,9 @@
     "image-skill:plan": "tsx scripts/image-skill-plan.ts",
     "image-skill:generate": "tsx scripts/image-skill-generate.ts",
     "image-skill:validate": "tsx scripts/image-skill-validate-outputs.ts",
+    "image-request:create": "tsx scripts/create-image-request.ts",
+    "image-skill:codex": "tsx scripts/run-biz2lab-image-skill.ts",
+    "audit:image-briefs": "tsx scripts/audit-image-brief-quality.ts",
     "generate-content-index": "tsx scripts/generate-content-index.ts"
   },
   "dependencies": {
