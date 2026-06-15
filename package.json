@@ -11,6 +11,7 @@
     "test": "tsx --test tests/**/*.test.ts",
     "validate:posts": "tsx scripts/validate-posts.ts",
     "validate:seo": "tsx scripts/validate-seo.ts",
+    "validate:images": "tsx scripts/validate-images.ts",
     "audit:interactions": "tsx scripts/audit-public-interactions.ts",
     "check:links": "tsx scripts/check-links.ts",
     "build-search": "tsx scripts/build-search.ts",

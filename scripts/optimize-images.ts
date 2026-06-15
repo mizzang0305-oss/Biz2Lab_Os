@@ -3,11 +3,12 @@ import path from "node:path";
 
 import sharp from "sharp";
 
-import { getPublicPosts } from "@/lib/posts";
 import { imageWidths } from "@/lib/image";
+import { getPublicPosts } from "@/lib/posts";
 
 const rawDir = path.join(process.cwd(), "assets", "images", "raw");
 const outputDir = path.join(process.cwd(), "public", "images", "posts");
+const rawExtensions = [".png", ".jpg", ".jpeg", ".webp"] as const;
 
 function escapeSvg(value: string) {
   return value
@@ -18,13 +19,19 @@ function escapeSvg(value: string) {
 }
 
 function findRawImage(slug: string) {
-  for (const ext of [".png", ".jpg", ".jpeg", ".webp"]) {
-    const candidate = path.join(rawDir, `${slug}${ext}`);
-    if (fs.existsSync(candidate)) {
-      return candidate;
+  for (const basename of [`${slug}-hero`, slug]) {
+    for (const ext of rawExtensions) {
+      const candidate = path.join(rawDir, `${basename}${ext}`);
+      if (fs.existsSync(candidate)) {
+        return candidate;
+      }
     }
   }
   return null;
+}
+
+function toRepoPath(filePath: string | null) {
+  return filePath ? path.relative(process.cwd(), filePath).replaceAll(path.sep, "/") : null;
 }
 
 function placeholderSvg(title: string, category: string) {
@@ -63,10 +70,15 @@ async function main() {
         .webp({ quality: 82 })
         .toFile(outputPath);
       manifest.push({
-        slug: post.slug,
+        id: `${post.slug}-${width}`,
+        project: "biz2lab",
+        postSlug: post.slug,
+        usage: "hero",
         width,
+        height: Math.round((width * 9) / 16),
         output: `/images/posts/${post.slug}-${width}.webp`,
         source: rawImage ? "raw" : "placeholder",
+        rawPath: toRepoPath(rawImage),
       });
     }
   }
