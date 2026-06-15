@@ -15,7 +15,7 @@ tags:
   - "카드 결제"
   - "PG VAN"
 heroImage: "/images/posts/offline-card-payment-pg-van-1200.webp"
-heroAlt: "카드 키인 결제와 PG VAN 흐름을 비교한 표"
+heroAlt: "오프라인 카드 결제와 PG VAN 흐름을 비교한 다이어그램"
 canonical: "https://biz2lab.com/ko/contracts-payments/offline-card-payment-pg-van"
 noindex: false
 relatedPosts:

@@ -16,6 +16,7 @@
     "check:links": "tsx scripts/check-links.ts",
     "build-search": "tsx scripts/build-search.ts",
     "optimize-images": "tsx scripts/optimize-images.ts",
+    "generate:diagrams": "tsx scripts/generate-local-diagram-images.ts",
     "generate-content-index": "tsx scripts/generate-content-index.ts"
   },
   "dependencies": {

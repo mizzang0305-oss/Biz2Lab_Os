@@ -1,7 +1,7 @@
 # Biz2Lab Article Image Strategy
 
-Date: 2026-06-15
-Status: Phase 3.8 local image pipeline audit and safe non-generation hardening
+Date: 2026-06-16
+Status: Phase 3.8A local deterministic diagram generation complete
 
 ## Current Image State
 
@@ -10,21 +10,21 @@ Status: Phase 3.8 local image pipeline audit and safe non-generation hardening
 - Posts missing `heroImage`: 0
 - Posts with `heroAlt`: 25
 - Posts missing `heroAlt`: 0
-- Posts with inline images: 0
-- Posts without inline images: 25
+- Posts with inline images: 5
+- Posts without inline images: 20
 - Missing current hero files: 0
 - External image references in public post content: 0
-- Current local post image files: 25 hero image sets, each with 400/800/1200 WebP derivatives
-- Current limitation: hero images are deterministic local placeholders until a real local-only generator exists
-- Local raw generated images: 0
+- Current local post image files: 25 hero image sets, each with 400/800/1200 WebP derivatives, plus 5 inline WebP images and 4 hub summary WebP images
+- Current limitation: generated diagrams still need manual visual review before push/deploy
+- Local raw generated images: 34
 - Machine-readable image briefs: 34 total
   - 25 hero briefs
   - 4 hub summary briefs
   - 5 inline explanatory briefs
-- Local-only generation command discovered in this repository: no
+- Local-only generation command discovered in this repository: yes, `npm run generate:diagrams`
 - External image generation services remain disallowed for this phase
 
-The current state is valid for build and AdSense safety, but it is visually thin. The next improvement should generate more purposeful local visuals rather than add external images or decorative stock-style art.
+The current state is valid for build and AdSense safety, with locally generated conceptual diagrams. The next improvement should be manual visual review rather than external image sourcing.
 
 ## AdSense-Safe Image Policy
 
@@ -156,3 +156,18 @@ This does not create CommerceAuto routes, product routes, affiliate routes, or p
 - Current public hero placeholders were kept because every referenced file exists and validates.
 - `next/image` usage was updated for Next 16 by using `preload` instead of deprecated `priority` on the article hero image.
 - The next image phase needs a real local-only command before any new raw files can be produced.
+
+## Phase 3.8A Decision
+
+- Added `scripts/generate-local-diagram-images.ts`.
+- Added `npm run generate:diagrams`.
+- Generated 34 raw PNG source images under `assets/images/raw/`.
+- Generated 25 unique hero image sets under `public/images/posts/`.
+- Generated 5 inline article images and added them only to the approved target posts.
+- Generated 4 hub summary images for future safe use; no public hub layout changes were made.
+- Updated `data/image-assets.json` to 34 active `local-generated-diagram` entries.
+- Kept image generation local-only and deterministic.
+- Used no external image APIs, no paid APIs, no scraped images, no hotlinks, and no product/Amazon imagery.
+- Kept public routes unchanged; no AI, chat, auth, admin, commerce, affiliate, product, review, lottery, upload, or tool route was added.
+
+Manual visual review remains required before push/deploy.

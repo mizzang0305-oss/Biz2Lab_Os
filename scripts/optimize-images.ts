@@ -8,7 +8,7 @@ import { getPublicPosts } from "@/lib/posts";
 
 const rawDir = path.join(process.cwd(), "assets", "images", "raw");
 const outputDir = path.join(process.cwd(), "public", "images", "posts");
-const rawExtensions = [".png", ".jpg", ".jpeg", ".webp"] as const;
+const rawExtensions = [".png", ".svg", ".jpg", ".jpeg", ".webp"] as const;
 
 function escapeSvg(value: string) {
   return value
@@ -45,9 +45,9 @@ function placeholderSvg(title: string, category: string) {
   <text x="96" y="300" fill="#475569" font-family="Arial, sans-serif" font-size="30">${escapeSvg(category)}</text>
   <rect x="96" y="398" width="1008" height="2" fill="#e2e8f0"/>
   <circle cx="100" cy="482" r="10" fill="#f59e0b"/>
-  <text x="128" y="492" fill="#334155" font-family="Arial, sans-serif" font-size="26">현장 적용 체크리스트</text>
+  <text x="128" y="492" fill="#334155" font-family="Arial, sans-serif" font-size="26">Local business workflow checklist</text>
   <circle cx="100" cy="542" r="10" fill="#0f766e"/>
-  <text x="128" y="552" fill="#334155" font-family="Arial, sans-serif" font-size="26">관련 글과 다음 단계 연결</text>
+  <text x="128" y="552" fill="#334155" font-family="Arial, sans-serif" font-size="26">Article concept diagram placeholder</text>
 </svg>`);
 }
 

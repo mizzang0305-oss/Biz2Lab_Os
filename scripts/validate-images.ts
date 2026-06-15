@@ -6,6 +6,7 @@ import { getPublicPosts } from "@/lib/posts";
 
 type ImageManifestEntry = {
   id?: string;
+  project?: string;
   postSlug?: string;
   usage?: string;
   src?: string;
@@ -16,6 +17,7 @@ type ImageManifestEntry = {
   height?: number;
   format?: string;
   licenseStatus?: string;
+  commerceAutoReusable?: boolean;
   status?: string;
 };
 
@@ -35,7 +37,18 @@ type ImageBrief = {
 const root = process.cwd();
 const errors: string[] = [];
 const warnings: string[] = [];
-const forbiddenPathSegments = ["/amazon", "/products", "/shop", "/affiliate"];
+const allowedManifestUsages = new Set(["hero", "inline", "hub"]);
+const allowedBriefUsages = new Set(["hero", "inline", "hub-summary"]);
+const forbiddenImageTerms = [
+  "amazon",
+  "products",
+  "product",
+  "shop",
+  "affiliate",
+  "commerce",
+  "reviews",
+  "lotto",
+];
 
 function readJsonFile<T>(filePath: string): T | null {
   if (!fs.existsSync(filePath)) {
@@ -46,11 +59,15 @@ function readJsonFile<T>(filePath: string): T | null {
 }
 
 function hasKorean(value: string) {
-  return /[가-힣]/.test(value);
+  return /[\uAC00-\uD7A3]/u.test(value);
 }
 
 function isDescriptiveKorean(value: string) {
   return value.trim().length >= 8 && hasKorean(value);
+}
+
+function normalizeRepoPath(filePath: string) {
+  return filePath.replaceAll("\\", "/");
 }
 
 function publicFileExists(src: string) {
@@ -66,9 +83,10 @@ function imageReferencesFromContent(content: string) {
 }
 
 function checkForbiddenPath(label: string, src: string) {
-  for (const segment of forbiddenPathSegments) {
-    if (src.includes(segment)) {
-      errors.push(`${label}: forbidden image path segment ${segment}`);
+  const normalized = src.toLowerCase();
+  for (const term of forbiddenImageTerms) {
+    if (normalized.includes(term)) {
+      errors.push(`${label}: forbidden image path term ${term}`);
     }
   }
 }
@@ -132,6 +150,7 @@ for (const [src, slugs] of heroUsage.entries()) {
 const manifestPath = path.join(root, "data", "image-assets.json");
 const manifestJson = readJsonFile<ImageManifestEntry[] | { assets: ImageManifestEntry[] }>(manifestPath);
 const manifestEntries = Array.isArray(manifestJson) ? manifestJson : (manifestJson?.assets ?? []);
+const manifestIds = new Set<string>();
 
 if (!manifestJson) {
   errors.push("data/image-assets.json is required");
@@ -156,10 +175,24 @@ for (const entry of manifestEntries) {
     errors.push(`${label}: id, postSlug, usage, and src are required`);
   }
 
+  if (entry.id) {
+    if (manifestIds.has(entry.id)) {
+      errors.push(`${label}: duplicate manifest id`);
+    }
+    manifestIds.add(entry.id);
+  }
+
+  if (entry.usage && !allowedManifestUsages.has(entry.usage)) {
+    errors.push(`${label}: manifest usage must be hero, inline, or hub`);
+  }
+
   if (!entry.src || !isLocalPostImage(entry.src)) {
     errors.push(`${label}: manifest src must be a safe local WebP path under /images/posts`);
-  } else if (entry.status !== "planned" && !publicFileExists(entry.src)) {
-    errors.push(`${label}: manifest src file is missing: ${entry.src}`);
+  } else {
+    if (entry.status !== "planned" && !publicFileExists(entry.src)) {
+      errors.push(`${label}: manifest src file is missing: ${entry.src}`);
+    }
+    checkForbiddenPath(`${label} manifest src`, entry.src);
   }
 
   if (!entry.width || !entry.height || entry.width <= 0 || entry.height <= 0) {
@@ -170,6 +203,14 @@ for (const entry of manifestEntries) {
     errors.push(`${label}: manifest format must be webp`);
   }
 
+  if (entry.status === "active" && entry.licenseStatus !== "local-generated-diagram") {
+    errors.push(`${label}: active generated image must use local-generated-diagram licenseStatus`);
+  }
+
+  if (entry.status === "active" && entry.commerceAutoReusable !== true) {
+    errors.push(`${label}: active generated image must set commerceAutoReusable true`);
+  }
+
   if (!entry.altKo || !isDescriptiveKorean(entry.altKo)) {
     errors.push(`${label}: manifest altKo must be descriptive Korean text`);
   }
@@ -178,14 +219,28 @@ for (const entry of manifestEntries) {
     errors.push(`${label}: manifest captionKo must be Korean when present`);
   }
 
-  if (entry.rawPath?.startsWith("public/")) {
-    errors.push(`${label}: rawPath must not point to a public route`);
+  if (entry.rawPath) {
+    const normalizedRawPath = normalizeRepoPath(entry.rawPath);
+    if (/^https?:\/\//i.test(normalizedRawPath)) {
+      errors.push(`${label}: rawPath must not be an external URL`);
+    }
+
+    if (normalizedRawPath.startsWith("public/")) {
+      errors.push(`${label}: rawPath must not point to a public route`);
+    }
+
+    if (!normalizedRawPath.startsWith("assets/images/raw/")) {
+      errors.push(`${label}: rawPath must be under assets/images/raw`);
+    } else if (entry.status !== "planned" && !fs.existsSync(path.join(root, normalizedRawPath))) {
+      errors.push(`${label}: rawPath file is missing: ${normalizedRawPath}`);
+    }
   }
 }
 
 const briefsPath = path.join(root, "image-briefs", "biz2lab-article-image-briefs.json");
 const briefsJson = readJsonFile<ImageBrief[] | { briefs: ImageBrief[] }>(briefsPath);
 const briefs = Array.isArray(briefsJson) ? briefsJson : (briefsJson?.briefs ?? []);
+const briefIds = new Set<string>();
 
 if (!briefsJson) {
   errors.push("image-briefs/biz2lab-article-image-briefs.json is required");
@@ -198,12 +253,27 @@ for (const brief of briefs) {
     errors.push(`${label}: id, postSlug, category, and usage are required`);
   }
 
+  if (brief.id) {
+    if (briefIds.has(brief.id)) {
+      errors.push(`${label}: duplicate brief id`);
+    }
+    briefIds.add(brief.id);
+  }
+
+  if (brief.usage && !allowedBriefUsages.has(brief.usage)) {
+    errors.push(`${label}: brief usage must be hero, inline, or hub-summary`);
+  }
+
   if (!brief.targetPath?.startsWith("assets/images/raw/")) {
     errors.push(`${label}: targetPath must be under assets/images/raw`);
   }
 
   if (!brief.optimizedPath?.startsWith("public/images/posts/") || !brief.optimizedPath.endsWith(".webp")) {
     errors.push(`${label}: optimizedPath must be a public/images/posts WebP path`);
+  }
+
+  if (brief.optimizedPath) {
+    checkForbiddenPath(`${label} optimizedPath`, brief.optimizedPath);
   }
 
   if (!brief.altKo || !isDescriptiveKorean(brief.altKo)) {

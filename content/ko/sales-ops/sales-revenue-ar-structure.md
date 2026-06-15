@@ -15,7 +15,7 @@ tags:
   - "매출 관리"
   - "미수금 관리"
 heroImage: "/images/posts/sales-revenue-ar-structure-1200.webp"
-heroAlt: "매출과 미수금을 함께 보여주는 영업관리 구조"
+heroAlt: "매출과 미수금을 함께 보는 영업 관리 구조"
 canonical: "https://biz2lab.com/ko/sales-ops/sales-revenue-ar-structure"
 noindex: false
 relatedPosts:

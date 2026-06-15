@@ -1,7 +1,7 @@
 # Local Codex Image Skill Workflow
 
 Date: 2026-06-15
-Status: command not available
+Status: local deterministic generator available
 
 ## Purpose
 
@@ -29,9 +29,9 @@ npm run validate:images
 
 9. Run the full Biz2Lab validation set before commit.
 
-## Phase 3.8 Discovery Result
+## Phase 3.8 Discovery Result (Historical)
 
-No repository-local image generation command exists yet.
+At the Phase 3.8 discovery point, no repository-local image generation command existed yet.
 
 Checked locations:
 
@@ -46,7 +46,7 @@ The installed Codex image generation skills are not acceptable for this phase be
 
 ## Next Command Needed
 
-Add a real local-only command only after the local generator exists and has been approved. The command should satisfy all of these conditions:
+The Phase 3.8A implementation added the approved local-only command. Any replacement command should still satisfy all of these conditions:
 
 - Runs from this repository with no web upload.
 - Does not require `OPENAI_API_KEY` or any paid image API key.
@@ -62,7 +62,7 @@ Suggested future package script name:
 npm run images:generate:local
 ```
 
-Do not add this package script until a real local-only generator exists and is approved.
+Do not replace this package script unless the replacement remains local-only and deterministic.
 
 Expected future behavior:
 
@@ -118,3 +118,30 @@ public/images/posts/manifest.json
 - Pending brief IDs: 9 hub or inline briefs
 - Failed brief IDs: none, because generation was not attempted
 - Reason pending: no approved local-only image generation command exists
+
+## Phase 3.8A Status
+
+- Local generator command: `npm run generate:diagrams`
+- Generator script: `scripts/generate-local-diagram-images.ts`
+- Raw PNG sources generated: 34
+- Public hero WebP derivatives: 75
+- Public inline WebP images: 5
+- Public hub summary WebP images: 4
+- Active manifest entries: 34
+- External image services used: none
+- Paid APIs used: none
+- Scraped or hotlinked images used: none
+
+The generated images are deterministic local SVG/Sharp diagrams. The command may be re-run safely; existing files are skipped unless `--force` is passed.
+
+Regenerate missing files:
+
+```bash
+npm run generate:diagrams
+```
+
+Force regeneration:
+
+```bash
+npm run generate:diagrams -- --force
+```

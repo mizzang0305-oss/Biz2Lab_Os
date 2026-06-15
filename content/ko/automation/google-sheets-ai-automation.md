@@ -15,7 +15,7 @@ tags:
   - "구글시트"
   - "업무 자동화"
 heroImage: "/images/posts/google-sheets-ai-automation-1200.webp"
-heroAlt: "구글시트 업무표와 AI 요약 흐름"
+heroAlt: "구글시트 업무표와 AI 요약을 연결한 자동화 흐름"
 canonical: "https://biz2lab.com/ko/automation/google-sheets-ai-automation"
 noindex: false
 relatedPosts:
@@ -39,6 +39,8 @@ faq:
 ## 시트와 AI를 함께 쓰는 이유
 
 구글시트는 작은 팀이 가장 빨리 업무 상태를 모을 수 있는 도구입니다. AI는 시트에 쌓인 내용을 요약하고 분류하는 데 강합니다. 두 가지를 함께 쓰려면 시트가 먼저 안정되어야 합니다.
+
+![구글시트와 AI를 함께 쓰는 업무 자동화 구조](/images/posts/google-sheets-ai-automation-inline-structure-1200.webp "업무표 입력값이 AI 요약과 알림으로 이어지는 자동화 구조")
 
 ## 핵심 요약
 

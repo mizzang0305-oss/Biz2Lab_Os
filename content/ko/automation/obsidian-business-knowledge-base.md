@@ -15,7 +15,7 @@ tags:
   - "Obsidian"
   - "업무 지식창고"
 heroImage: "/images/posts/obsidian-business-knowledge-base-1200.webp"
-heroAlt: "업무 지식창고를 연결하는 노트 구조"
+heroAlt: "업무 지식창고 노트가 서로 연결된 구조"
 canonical: "https://biz2lab.com/ko/automation/obsidian-business-knowledge-base"
 noindex: false
 relatedPosts:

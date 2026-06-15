@@ -15,7 +15,7 @@ tags:
   - "전자계약"
   - "결제 관리"
 heroImage: "/images/posts/electronic-contract-system-basics-1200.webp"
-heroAlt: "전자계약 상태와 결제 확인 흐름"
+heroAlt: "전자계약 시스템의 기본 상태 흐름 다이어그램"
 canonical: "https://biz2lab.com/ko/contracts-payments/electronic-contract-system-basics"
 noindex: false
 relatedPosts:
@@ -39,6 +39,8 @@ faq:
 ## 전자계약은 서명 링크 이상의 시스템입니다
 
 전자계약을 도입할 때 흔히 서명 링크 발송만 생각합니다. 하지만 운영 관점에서는 누가 받았고, 누가 열람했고, 누가 서명하지 않았고, 결제는 되었는지까지 연결되어야 합니다.
+
+![전자계약 시스템에 필요한 기본 기능 묶음](/images/posts/electronic-contract-system-basics-inline-features-1200.webp "템플릿, 서명 요청, 본인확인, 결제 확인, 보관 기능을 묶은 전자계약 기본 구조")
 
 ## 핵심 요약
 

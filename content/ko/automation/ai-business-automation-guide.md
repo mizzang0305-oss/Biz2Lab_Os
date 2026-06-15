@@ -15,7 +15,7 @@ tags:
   - "AI 업무 자동화"
   - "업무 시스템"
 heroImage: "/images/posts/ai-business-automation-guide-1200.webp"
-heroAlt: "업무 흐름을 정리하는 노트와 자동화 체크리스트"
+heroAlt: "AI 업무 자동화 흐름을 보여주는 업무 시스템 다이어그램"
 canonical: "https://biz2lab.com/ko/automation/ai-business-automation-guide"
 noindex: false
 relatedPosts:
@@ -39,6 +39,8 @@ faq:
 ## AI 업무 자동화의 출발점
 
 AI 업무 자동화는 사람을 대체하는 프로젝트가 아니라 매일 반복되는 기록, 분류, 초안 작성 시간을 줄여 운영자가 판단에 집중하도록 돕는 방식입니다. 소상공인이나 작은 영업팀은 거대한 시스템보다 "어떤 업무가 반복되는가"를 먼저 봐야 합니다.
+
+![AI 업무 자동화가 입력 정리와 실행 점검으로 이어지는 흐름](/images/posts/ai-business-automation-guide-inline-flow-1200.webp "입력 자료 정리에서 자동 실행과 결과 점검까지 이어지는 AI 업무 자동화 구조")
 
 ## 핵심 요약
 
