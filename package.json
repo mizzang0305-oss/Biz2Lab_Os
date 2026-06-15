@@ -17,6 +17,10 @@
     "build-search": "tsx scripts/build-search.ts",
     "optimize-images": "tsx scripts/optimize-images.ts",
     "generate:diagrams": "tsx scripts/generate-local-diagram-images.ts",
+    "image-skill:detect": "tsx scripts/image-skill-detect.ts",
+    "image-skill:plan": "tsx scripts/image-skill-plan.ts",
+    "image-skill:generate": "tsx scripts/image-skill-generate.ts",
+    "image-skill:validate": "tsx scripts/image-skill-validate-outputs.ts",
     "generate-content-index": "tsx scripts/generate-content-index.ts"
   },
   "dependencies": {

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "project": "biz2lab",
+  "providers": {
+    "comfyui": {
+      "enabledByEnvOnly": true,
+      "endpoint": "http://127.0.0.1:8188",
+      "workflowPath": "config/comfyui-workflow.local.json",
+      "notes": "Example only. User must install and run ComfyUI locally. Codex must not download models."
+    },
+    "sd-webui": {
+      "enabledByEnvOnly": true,
+      "endpoint": "http://127.0.0.1:7860",
+      "notes": "Example only. User must install and run Stable Diffusion WebUI locally. Codex must not download models."
+    },
+    "manual-drop": {
+      "enabled": true,
+      "rawDirectory": "assets/images/raw",
+      "notes": "Safe default workflow. User creates images locally and drops raw files into the repo."
+    },
+    "deterministic-fallback": {
+      "enabledExplicitlyOnly": true,
+      "command": "npm run generate:diagrams",
+      "notes": "Fallback diagrams only. Do not describe these as real image model output."
+    }
+  }
+}
