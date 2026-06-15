@@ -29,7 +29,7 @@ The fallback diagrams are visually repetitive. They use similar cards, arrows, s
 
 ## Phase 3.8-SKILL Clarification
 
-`npm run image-skill:codex` creates prompt/brief/handoff packages. It does not render a premium final image. `--mode local-diagram` creates a safe SVG fallback only when explicitly suitable, and that fallback should remain labeled as a local diagram rather than a final AI image.
+`npm run image-skill:codex` creates prompt/brief/handoff packages. It does not render a premium final image. `--mode local-diagram-fallback` creates a safe SVG fallback only when explicitly suitable and explicitly requested, and that fallback should remain labeled as a local diagram rather than a final AI image.
 
 Every generated prompt package should include:
 

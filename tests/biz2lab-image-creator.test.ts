@@ -165,10 +165,13 @@ test("skill runner prompt-only creates prompt package and generated brief withou
   assert.equal(fs.existsSync(result.promptPath), true);
   assert.equal(fs.existsSync(result.briefPath), true);
   assert.equal(result.rawOutputPath, null);
-  assert.match(fs.readFileSync(result.promptPath, "utf8"), /Negative Prompt/);
+  const promptMarkdown = fs.readFileSync(result.promptPath, "utf8");
+  assert.match(promptMarkdown, /Negative Prompt/);
+  assert.match(promptMarkdown, /Manual Creation Instructions/);
+  assert.match(promptMarkdown, /Validation Commands/);
 });
 
-test("skill runner local-diagram mode stays local and writes only an SVG raw asset", () => {
+test("skill runner local-diagram-fallback mode stays local and writes only an SVG raw asset", () => {
   const tempDir = makeTempDir();
   const requestPath = path.join(tempDir, "ai-business-automation-guide-hero.md");
   const briefDir = path.join(tempDir, "image-briefs", "generated");
@@ -187,7 +190,7 @@ test("skill runner local-diagram mode stays local and writes only an SVG raw ass
 반복 업무를 AI 자동화 후보로 분류하고 실행 우선순위를 보여주는 간단한 로컬 다이어그램
 
 ## Output Mode
-- local-diagram
+- local-diagram-fallback
 `,
     "utf8",
   );
@@ -195,7 +198,7 @@ test("skill runner local-diagram mode stays local and writes only an SVG raw ass
   const result = runBiz2LabImageSkill({
     rootDir: process.cwd(),
     requestPath,
-    mode: "local-diagram",
+    mode: "local-diagram-fallback",
     briefDir,
     rawDir,
     apply: false,
@@ -286,4 +289,36 @@ test("image creator feature does not add public app routes", () => {
   assert.equal(appFiles.some((filePath) => filePath.includes("/api/image")), false);
   assert.equal(appFiles.some((filePath) => filePath.includes("/ai/")), false);
   assert.equal(appFiles.some((filePath) => filePath.includes("/chat/")), false);
+});
+
+test("Codex image creator skill ships required templates, docs, and canonical output modes", () => {
+  const requiredFiles = [
+    ".codex/skills/biz2lab-image-creator/SKILL.md",
+    "image-requests/README.md",
+    "image-requests/_template.md",
+    "image-requests/examples/ai-business-automation-guide-hero.md",
+    "image-requests/examples/accounts-receivable-tracker-hero.md",
+    "image-requests/examples/electronic-contract-system-basics-hero.md",
+    "image-requests/examples/ai-business-automation-guide-hero.prompt.md",
+    "docs/image-engine/codex-image-skill-workflow.md",
+    "docs/image-engine/local-codex-image-skill.md",
+    "docs/image-engine/deterministic-fallback-limitations.md",
+    "docs/image-engine/premium-visual-guidelines.md",
+  ];
+
+  for (const filePath of requiredFiles) {
+    assert.equal(fs.existsSync(path.join(process.cwd(), filePath)), true, `${filePath} must exist`);
+  }
+
+  const skill = fs.readFileSync(
+    path.join(process.cwd(), ".codex", "skills", "biz2lab-image-creator", "SKILL.md"),
+    "utf8",
+  );
+  const template = fs.readFileSync(path.join(process.cwd(), "image-requests", "_template.md"), "utf8");
+
+  assert.match(skill, /prompt-only/);
+  assert.match(skill, /manual-drop/);
+  assert.match(skill, /local-diagram-fallback/);
+  assert.doesNotMatch(skill, /`local-diagram`/);
+  assert.match(template, /prompt-only \| manual-drop \| local-diagram-fallback/);
 });

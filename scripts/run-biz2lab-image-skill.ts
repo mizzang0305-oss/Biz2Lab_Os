@@ -7,6 +7,7 @@ import matter from "gray-matter";
 import {
   buildImagePromptPackage,
   imagePromptPackageToBrief,
+  normalizeBiz2LabImageOutputMode,
   type Biz2LabImageOutputMode,
   type Biz2LabImagePromptPackage,
   type Biz2LabImageUsage,
@@ -54,7 +55,6 @@ const allowedCategories = new Set<ImageBriefCategory>([
   "contracts-payments",
 ]);
 const allowedUsages = new Set<Biz2LabImageUsage>(["hero", "inline", "hub", "og"]);
-const allowedModes = new Set<Biz2LabImageOutputMode>(["prompt-only", "manual-drop", "local-diagram"]);
 
 function normalizeRepoPath(filePath: string) {
   return filePath.replaceAll("\\", "/");
@@ -93,8 +93,8 @@ function readBullet(markdown: string, key: string) {
 
 function readOutputMode(markdown: string) {
   const section = readSection(markdown, "Output Mode");
-  const match = /(?:^|\n)-\s*(prompt-only|manual-drop|local-diagram)\s*$/im.exec(section);
-  return (match?.[1] as Biz2LabImageOutputMode | undefined) ?? "prompt-only";
+  const match = /(?:^|\n)-\s*(prompt-only|manual-drop|local-diagram-fallback|local-diagram)\s*$/im.exec(section);
+  return normalizeBiz2LabImageOutputMode(match?.[1]);
 }
 
 function normalizeUsage(value: string): Biz2LabImageUsage {
@@ -106,10 +106,7 @@ function normalizeUsage(value: string): Biz2LabImageUsage {
 }
 
 function normalizeMode(value: string): Biz2LabImageOutputMode {
-  if (!allowedModes.has(value as Biz2LabImageOutputMode)) {
-    throw new Error(`Unsupported output mode: ${value}`);
-  }
-  return value as Biz2LabImageOutputMode;
+  return normalizeBiz2LabImageOutputMode(value);
 }
 
 export function parseImageRequestMarkdown(markdown: string): ParsedImageRequest {
@@ -139,7 +136,7 @@ export function parseImageRequestMarkdown(markdown: string): ParsedImageRequest 
     businessContext: readSection(markdown, "Business Context"),
     mood: readBullet(visualDirection, "mood"),
     layoutIdea: readBullet(visualDirection, "layout idea"),
-    color: readBullet(visualDirection, "color"),
+    color: readBullet(visualDirection, "color direction") ?? readBullet(visualDirection, "color"),
     mustInclude: splitList(readBullet(visualDirection, "must include")),
     mustAvoid: splitList(readBullet(visualDirection, "must avoid")),
     outputMode: readOutputMode(markdown),
@@ -170,6 +167,17 @@ function promptPackageMarkdown(promptPackage: Biz2LabImagePromptPackage) {
 - category: ${promptPackage.category}
 - usage: ${promptPackage.usage}
 - outputMode: ${promptPackage.outputMode}
+
+## Image Goal
+Create a safe, premium Biz2Lab ${promptPackage.usage} image package for the article without generating or replacing production images in this step.
+
+## Article Context
+- articleTitle: ${promptPackage.articleTitle}
+- categoryStyle: ${promptPackage.categoryStyle}
+- visualDifferentiationHint: ${promptPackage.visualDifferentiationHint}
+
+## Recommended Image Type
+Premium SaaS/editorial business illustration with category-specific workflow structure and minimal in-image text.
 
 ## Image Brief
 ${promptPackage.userDescription}
@@ -202,8 +210,22 @@ ${JSON.stringify(promptPackage.manifestEntry, null, 2)}
 ## Article Update Plan
 ${promptPackage.articleUpdatePlan.map((item) => `- ${item}`).join("\n")}
 
+## Manual Creation Instructions
+- Copy the Korean provider prompt into ChatGPT image generation or another explicitly approved manual/local image tool.
+- Keep the negative prompt rules active: no logos, people/faces, product/Amazon imagery, private data, fake screenshots, hotlinks, or copyrighted characters.
+- Save the raw image to ${promptPackage.rawPath}.
+- Optimize to ${promptPackage.optimizedPath} only after manual review.
+- Do not mutate article files unless the optimized local WebP exists and --apply is explicitly requested.
+
 ## Validation Checklist
 ${promptPackage.validationChecklist.map((item) => `- ${item}`).join("\n")}
+
+## Validation Commands
+\`\`\`bash
+npm run optimize-images
+npm run validate:images
+npm run audit:image-briefs
+\`\`\`
 `;
 }
 
@@ -303,7 +325,8 @@ export function runBiz2LabImageSkill(options: RunBiz2LabImageSkillOptions): RunB
     referenceText: parsed.businessContext,
     outputMode: mode,
   });
-  const promptPackage = mode === "local-diagram" ? withSvgRawPath(promptPackageBase) : promptPackageBase;
+  const promptPackage =
+    mode === "local-diagram-fallback" ? withSvgRawPath(promptPackageBase) : promptPackageBase;
   const requestBase = path.basename(requestPath, path.extname(requestPath));
   const promptPath = options.promptPath ?? path.join(path.dirname(requestPath), `${requestBase}.prompt.md`);
   const briefDir = options.briefDir ?? path.join(rootDir, "image-briefs", "generated");
@@ -317,7 +340,7 @@ export function runBiz2LabImageSkill(options: RunBiz2LabImageSkillOptions): RunB
   fs.writeFileSync(briefPath, `${JSON.stringify(imagePromptPackageToBrief(promptPackage), null, 2)}\n`, "utf8");
 
   let rawOutputPath: string | null = null;
-  if (mode === "local-diagram") {
+  if (mode === "local-diagram-fallback") {
     const rawDir = options.rawDir ?? path.join(rootDir, "assets", "images", "raw");
     rawOutputPath = path.join(rawDir, promptPackage.filename);
     assertWritable(rawOutputPath, rootDir, options.force);
@@ -382,7 +405,7 @@ function parseArgs(argv: string[]): RunBiz2LabImageSkillOptions {
     }
 
     if (key === "request") options.requestPath = value;
-    if (key === "mode") options.mode = value as Biz2LabImageOutputMode;
+    if (key === "mode") options.mode = normalizeBiz2LabImageOutputMode(value);
   }
 
   if (!options.requestPath) {
@@ -398,11 +421,11 @@ function printHelp() {
 Usage:
   npm run image-skill:codex -- --request image-requests/generated/example.md
   npm run image-skill:codex -- --request image-requests/generated/example.md --mode prompt-only
-  npm run image-skill:codex -- --request image-requests/generated/example.md --mode local-diagram
+  npm run image-skill:codex -- --request image-requests/generated/example.md --mode local-diagram-fallback
 
 Options:
   --request <path>                 Image request markdown file
-  --mode <prompt-only|manual-drop|local-diagram>
+  --mode <prompt-only|manual-drop|local-diagram-fallback>
   --force
   --apply                          Update hero frontmatter only after the optimized local WebP exists
 

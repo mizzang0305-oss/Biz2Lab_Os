@@ -5,9 +5,35 @@ description: Turn Biz2Lab article content or natural-language visual direction i
 
 # Biz2Lab Image Creator
 
+## Skill Name
+
+Biz2Lab Image Creator
+
 ## Purpose
 
-Create a local production package for a Biz2Lab article image. Do not create a public image generator, provider setup, upload feature, route, auth flow, admin surface, ecommerce surface, or external API call.
+Turn a user's natural-language visual request into a safe, premium, AdSense-friendly image production package for Biz2Lab. Create local production-package files only; do not create a public image generator, provider setup, upload feature, route, auth flow, admin surface, ecommerce surface, or external API call.
+
+## What this skill does
+
+- understands article/category/use-case
+- creates image request markdown
+- creates image brief JSON
+- creates image prompt
+- creates negative prompt
+- suggests filename/path
+- creates `altKo` and `captionKo`
+- creates manifest draft
+- creates article insertion plan
+- creates validation checklist
+
+## What this skill does not do
+
+- does not call external APIs
+- does not upload images
+- does not use Amazon/product images
+- does not create public image generation UI
+- does not guarantee a rendered AI image without an image tool
+- does not treat deterministic SVG fallback as premium output
 
 ## Inputs
 
@@ -21,7 +47,7 @@ Collect or infer:
 - must include
 - must avoid
 - optional reference text from the article
-- output mode: `prompt-only`, `manual-drop`, or `local-diagram`
+- output mode: `prompt-only`, `manual-drop`, or `local-diagram-fallback`
 
 If the slug exists, read the article frontmatter before inventing title/category values.
 
@@ -67,6 +93,14 @@ Avoid repetitive fallback visuals:
 - avoid repeating the same three-box flow or bar-chart block across articles
 - include a visual differentiation hint in every generated brief
 
+## Supported Modes
+
+Default mode: `prompt-only`.
+
+1. `prompt-only`: request, brief, and prompt package only.
+2. `manual-drop`: handoff package for a manually produced local image.
+3. `local-diagram-fallback`: explicit local SVG fallback only when the user asks for it.
+
 ## Workflow
 
 1. Inspect the existing article and image context:
@@ -93,7 +127,7 @@ npm run image-skill:codex -- --request image-requests/generated/ai-business-auto
 5. For a safe local diagram only when explicitly suitable, run:
 
 ```bash
-npm run image-skill:codex -- --request image-requests/generated/ai-business-automation-guide-hero.md --mode local-diagram
+npm run image-skill:codex -- --request image-requests/generated/ai-business-automation-guide-hero.md --mode local-diagram-fallback
 ```
 
 6. After a real raw image exists, run:
@@ -123,4 +157,4 @@ npm run audit:image-briefs
 
 `manual-drop`: Prepare paths, prompt, alt/caption, and validation instructions for a manually produced image.
 
-`local-diagram`: Create a local SVG fallback under `assets/images/raw` only when a diagram is suitable. Label it as fallback, not premium final artwork.
+`local-diagram-fallback`: Create a local SVG fallback under `assets/images/raw` only when a diagram is suitable and explicitly requested. Label it as fallback, not premium final artwork.

@@ -41,12 +41,12 @@ npm run optimize-images
 npm run validate:images
 ```
 
-## Mode 3: Local Diagram
+## Mode 3: Local Diagram Fallback
 
-Use only when a safe SVG/diagram fallback is suitable. This output is local and deterministic, but it is not the premium final image path.
+Use only when a safe SVG/diagram fallback is suitable and explicitly requested. This output is local and deterministic, but it is not the premium final image path.
 
 ```bash
-npm run image-skill:codex -- --request image-requests/generated/ai-business-automation-guide-hero.md --mode local-diagram
+npm run image-skill:codex -- --request image-requests/generated/ai-business-automation-guide-hero.md --mode local-diagram-fallback
 ```
 
 ## Example 1

@@ -15,14 +15,12 @@ What problem does the article solve?
 ## Visual Direction
 - mood:
 - layout idea:
-- color:
+- color direction:
 - must include:
 - must avoid:
 
 ## Output Mode
-- prompt-only
-- manual-drop
-- local-diagram
+- prompt-only | manual-drop | local-diagram-fallback
 
 ## Expected Output
 - filename:

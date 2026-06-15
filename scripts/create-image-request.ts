@@ -7,6 +7,7 @@ import matter from "gray-matter";
 import {
   buildImagePromptPackage,
   imagePromptPackageToBrief,
+  normalizeBiz2LabImageOutputMode,
   type Biz2LabImageOutputMode,
   type Biz2LabImageUsage,
   type Biz2LabImagePromptPackage,
@@ -52,7 +53,6 @@ const allowedCategories = new Set<ImageBriefCategory>([
   "contracts-payments",
 ]);
 const allowedUsages = new Set<Biz2LabImageUsage>(["hero", "inline", "hub", "og"]);
-const allowedModes = new Set<Biz2LabImageOutputMode>(["prompt-only", "manual-drop", "local-diagram"]);
 
 function normalizeRepoPath(filePath: string) {
   return filePath.replaceAll("\\", "/");
@@ -135,7 +135,7 @@ ${article?.description ?? "기사의 핵심 업무 문제를 안전한 비즈니
 ## Visual Direction
 - mood: ${promptPackage.targetFeeling}
 - layout idea: ${promptPackage.composition}
-- color: ${promptPackage.visualStyle}
+- color direction: ${promptPackage.visualStyle}
 - must include: ${promptPackage.mustInclude.join(", ") || "업무 맥락, 실행 흐름"}
 - must avoid: ${promptPackage.mustAvoid.join(", ") || "로고, 사람 얼굴, 제품 사진, 실제 개인정보"}
 
@@ -164,8 +164,8 @@ function assertAllowedOptions(options: CreateImageRequestOptions) {
     throw new Error("--description is required");
   }
 
-  if (options.mode && !allowedModes.has(options.mode)) {
-    throw new Error(`Unsupported output mode: ${options.mode}`);
+  if (options.mode) {
+    normalizeBiz2LabImageOutputMode(options.mode);
   }
 }
 
@@ -191,7 +191,7 @@ export function createImageRequestPackage(options: CreateImageRequestOptions): C
     mustInclude: options.mustInclude,
     mustAvoid: options.mustAvoid,
     referenceText: article?.description,
-    outputMode: options.mode ?? "prompt-only",
+    outputMode: normalizeBiz2LabImageOutputMode(options.mode),
   });
   const requestDir = options.requestDir ?? path.join(rootDir, "image-requests", "generated");
   const briefDir = options.briefDir ?? path.join(rootDir, "image-briefs", "generated");
@@ -262,7 +262,7 @@ function parseArgs(argv: string[]): CreateImageRequestOptions {
     if (key === "slug") options.slug = value;
     if (key === "usage") options.usage = value as Biz2LabImageUsage;
     if (key === "description") options.description = value;
-    if (key === "mode" || key === "output-mode") options.mode = value as Biz2LabImageOutputMode;
+    if (key === "mode" || key === "output-mode") options.mode = normalizeBiz2LabImageOutputMode(value);
     if (key === "category") options.category = value as ImageBriefCategory;
     if (key === "title") options.title = value;
     if (key === "target-feeling") options.targetFeeling = value;
@@ -283,7 +283,7 @@ Options:
   --slug <slug>                 Article slug
   --usage <hero|inline|hub|og>  Image usage
   --description <text>          User visual direction
-  --mode <prompt-only|manual-drop|local-diagram>
+  --mode <prompt-only|manual-drop|local-diagram-fallback>
   --target-feeling <text>
   --must-include <a,b,c>
   --must-avoid <a,b,c>

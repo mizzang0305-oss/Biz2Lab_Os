@@ -1,7 +1,7 @@
 import type { ImageBriefCategory } from "@/lib/image-generation/types";
 
 export type Biz2LabImageUsage = "hero" | "inline" | "hub" | "og";
-export type Biz2LabImageOutputMode = "prompt-only" | "manual-drop" | "local-diagram";
+export type Biz2LabImageOutputMode = "prompt-only" | "manual-drop" | "local-diagram-fallback";
 
 export type BuildImagePromptPackageInput = {
   slug: string;
@@ -110,6 +110,22 @@ const categoryStyles: Record<ImageBriefCategory, CategoryStyle> = {
     motifs: ["계약 상태", "서명 확인", "결제 검증", "보관 모듈"],
   },
 };
+
+export function normalizeBiz2LabImageOutputMode(value?: string): Biz2LabImageOutputMode {
+  if (!value || value === "prompt-only") {
+    return "prompt-only";
+  }
+
+  if (value === "manual-drop") {
+    return "manual-drop";
+  }
+
+  if (value === "local-diagram-fallback" || value === "local-diagram") {
+    return "local-diagram-fallback";
+  }
+
+  throw new Error(`Unsupported output mode: ${value}`);
+}
 
 const compositionVariants = [
   "중앙에는 핵심 업무 흐름을 두고, 우측에는 결과 상태 패널을 배치한다.",
@@ -258,7 +274,7 @@ export function buildImagePromptPackage(input: BuildImagePromptPackageInput): Bi
   assertSafeInput(input);
 
   const style = categoryStyles[input.category];
-  const outputMode = input.outputMode ?? "prompt-only";
+  const outputMode = normalizeBiz2LabImageOutputMode(input.outputMode);
   const mustInclude = uniqueList(input.mustInclude ?? []);
   const mustAvoid = uniqueList(input.mustAvoid ?? []);
   const hash = hashString(`${input.slug}:${input.usage}:${input.userDescription}`);
@@ -336,7 +352,7 @@ export function buildImagePromptPackage(input: BuildImagePromptPackageInput): Bi
       width,
       height,
       format: "webp",
-      licenseStatus: outputMode === "local-diagram" ? "local-generated-diagram" : "local-prompt-package",
+      licenseStatus: outputMode === "local-diagram-fallback" ? "local-generated-diagram" : "local-prompt-package",
       commerceAutoReusable: true,
       status: "planned",
     },
