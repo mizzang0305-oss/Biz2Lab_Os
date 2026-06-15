@@ -14,7 +14,7 @@ updatedAt: "2026-06-15"
 tags:
   - "계약 결제 연결"
   - "거래처 관리"
-heroImage: "/images/posts/manage-unsigned-contracts-1200.webp"
+heroImage: "/images/posts/connect-contract-payment-customer-management-1200.webp"
 heroAlt: "계약서 결제 거래처 관리를 연결한 운영 흐름"
 canonical: "https://biz2lab.com/ko/contracts-payments/connect-contract-payment-customer-management"
 noindex: false

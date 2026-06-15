@@ -14,7 +14,7 @@ updatedAt: "2026-06-15"
 tags:
   - "거래처 관리"
   - "주문 채널"
-heroImage: "/images/posts/accounts-receivable-tracker-1200.webp"
+heroImage: "/images/posts/unify-order-channels-for-sales-1200.webp"
 heroAlt: "거래처 주문 채널을 하나의 관리표로 통합하는 흐름"
 canonical: "https://biz2lab.com/ko/sales-ops/unify-order-channels-for-sales"
 noindex: false

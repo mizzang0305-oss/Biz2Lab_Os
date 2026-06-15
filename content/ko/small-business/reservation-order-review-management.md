@@ -14,7 +14,7 @@ updatedAt: "2026-06-15"
 tags:
   - "예약 관리"
   - "주문 관리"
-heroImage: "/images/posts/unify-order-channels-1200.webp"
+heroImage: "/images/posts/reservation-order-review-management-1200.webp"
 heroAlt: "예약 주문 리뷰 상태를 한곳에서 관리하는 운영표"
 canonical: "https://biz2lab.com/ko/small-business/reservation-order-review-management"
 noindex: false

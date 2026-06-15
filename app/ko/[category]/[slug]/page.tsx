@@ -130,7 +130,7 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
             src={post.frontmatter.heroImage}
             alt={post.frontmatter.heroAlt}
             fill
-            priority
+            preload
             sizes="(min-width: 768px) 896px, 100vw"
             className="object-cover"
           />

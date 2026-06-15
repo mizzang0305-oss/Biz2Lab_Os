@@ -14,7 +14,7 @@ updatedAt: "2026-06-15"
 tags:
   - "AI 점장"
   - "소상공인 운영"
-heroImage: "/images/posts/daily-numbers-for-small-business-1200.webp"
+heroImage: "/images/posts/ai-knowledge-store-for-small-business-1200.webp"
 heroAlt: "소상공인 운영 기준을 모은 AI 점장 구조"
 canonical: "https://biz2lab.com/ko/small-business/ai-knowledge-store-for-small-business"
 noindex: false

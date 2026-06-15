@@ -1,146 +1,827 @@
 [
   {
-    "slug": "ai-business-automation-guide",
+    "id": "ai-business-automation-guide-1200",
+    "project": "biz2lab",
+    "postSlug": "ai-business-automation-guide",
+    "usage": "hero",
     "width": 1200,
+    "height": 675,
     "output": "/images/posts/ai-business-automation-guide-1200.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "ai-business-automation-guide",
+    "id": "ai-business-automation-guide-800",
+    "project": "biz2lab",
+    "postSlug": "ai-business-automation-guide",
+    "usage": "hero",
     "width": 800,
+    "height": 450,
     "output": "/images/posts/ai-business-automation-guide-800.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "ai-business-automation-guide",
+    "id": "ai-business-automation-guide-400",
+    "project": "biz2lab",
+    "postSlug": "ai-business-automation-guide",
+    "usage": "hero",
     "width": 400,
+    "height": 225,
     "output": "/images/posts/ai-business-automation-guide-400.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "reduce-repetitive-work-with-ai",
+    "id": "automation-priority-method-1200",
+    "project": "biz2lab",
+    "postSlug": "automation-priority-method",
+    "usage": "hero",
     "width": 1200,
+    "height": 675,
+    "output": "/images/posts/automation-priority-method-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "automation-priority-method-800",
+    "project": "biz2lab",
+    "postSlug": "automation-priority-method",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/automation-priority-method-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "automation-priority-method-400",
+    "project": "biz2lab",
+    "postSlug": "automation-priority-method",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/automation-priority-method-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "chatgpt-document-cleanup-1200",
+    "project": "biz2lab",
+    "postSlug": "chatgpt-document-cleanup",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/chatgpt-document-cleanup-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "chatgpt-document-cleanup-800",
+    "project": "biz2lab",
+    "postSlug": "chatgpt-document-cleanup",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/chatgpt-document-cleanup-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "chatgpt-document-cleanup-400",
+    "project": "biz2lab",
+    "postSlug": "chatgpt-document-cleanup",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/chatgpt-document-cleanup-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "google-sheets-ai-automation-1200",
+    "project": "biz2lab",
+    "postSlug": "google-sheets-ai-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/google-sheets-ai-automation-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "google-sheets-ai-automation-800",
+    "project": "biz2lab",
+    "postSlug": "google-sheets-ai-automation",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/google-sheets-ai-automation-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "google-sheets-ai-automation-400",
+    "project": "biz2lab",
+    "postSlug": "google-sheets-ai-automation",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/google-sheets-ai-automation-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "obsidian-business-knowledge-base-1200",
+    "project": "biz2lab",
+    "postSlug": "obsidian-business-knowledge-base",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/obsidian-business-knowledge-base-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "obsidian-business-knowledge-base-800",
+    "project": "biz2lab",
+    "postSlug": "obsidian-business-knowledge-base",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/obsidian-business-knowledge-base-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "obsidian-business-knowledge-base-400",
+    "project": "biz2lab",
+    "postSlug": "obsidian-business-knowledge-base",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/obsidian-business-knowledge-base-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "pre-automation-task-list-1200",
+    "project": "biz2lab",
+    "postSlug": "pre-automation-task-list",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/pre-automation-task-list-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "pre-automation-task-list-800",
+    "project": "biz2lab",
+    "postSlug": "pre-automation-task-list",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/pre-automation-task-list-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "pre-automation-task-list-400",
+    "project": "biz2lab",
+    "postSlug": "pre-automation-task-list",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/pre-automation-task-list-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "reduce-repetitive-work-with-ai-1200",
+    "project": "biz2lab",
+    "postSlug": "reduce-repetitive-work-with-ai",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
     "output": "/images/posts/reduce-repetitive-work-with-ai-1200.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "reduce-repetitive-work-with-ai",
+    "id": "reduce-repetitive-work-with-ai-800",
+    "project": "biz2lab",
+    "postSlug": "reduce-repetitive-work-with-ai",
+    "usage": "hero",
     "width": 800,
+    "height": 450,
     "output": "/images/posts/reduce-repetitive-work-with-ai-800.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "reduce-repetitive-work-with-ai",
+    "id": "reduce-repetitive-work-with-ai-400",
+    "project": "biz2lab",
+    "postSlug": "reduce-repetitive-work-with-ai",
+    "usage": "hero",
     "width": 400,
+    "height": 225,
     "output": "/images/posts/reduce-repetitive-work-with-ai-400.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "electronic-contract-system-basics",
+    "id": "connect-contract-payment-customer-management-1200",
+    "project": "biz2lab",
+    "postSlug": "connect-contract-payment-customer-management",
+    "usage": "hero",
     "width": 1200,
+    "height": 675,
+    "output": "/images/posts/connect-contract-payment-customer-management-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "connect-contract-payment-customer-management-800",
+    "project": "biz2lab",
+    "postSlug": "connect-contract-payment-customer-management",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/connect-contract-payment-customer-management-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "connect-contract-payment-customer-management-400",
+    "project": "biz2lab",
+    "postSlug": "connect-contract-payment-customer-management",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/connect-contract-payment-customer-management-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "e-signature-identity-check-1200",
+    "project": "biz2lab",
+    "postSlug": "e-signature-identity-check",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/e-signature-identity-check-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "e-signature-identity-check-800",
+    "project": "biz2lab",
+    "postSlug": "e-signature-identity-check",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/e-signature-identity-check-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "e-signature-identity-check-400",
+    "project": "biz2lab",
+    "postSlug": "e-signature-identity-check",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/e-signature-identity-check-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "electronic-contract-system-basics-1200",
+    "project": "biz2lab",
+    "postSlug": "electronic-contract-system-basics",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
     "output": "/images/posts/electronic-contract-system-basics-1200.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "electronic-contract-system-basics",
+    "id": "electronic-contract-system-basics-800",
+    "project": "biz2lab",
+    "postSlug": "electronic-contract-system-basics",
+    "usage": "hero",
     "width": 800,
+    "height": 450,
     "output": "/images/posts/electronic-contract-system-basics-800.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "electronic-contract-system-basics",
+    "id": "electronic-contract-system-basics-400",
+    "project": "biz2lab",
+    "postSlug": "electronic-contract-system-basics",
+    "usage": "hero",
     "width": 400,
+    "height": 225,
     "output": "/images/posts/electronic-contract-system-basics-400.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "manage-unsigned-contracts",
+    "id": "manage-unsigned-contracts-1200",
+    "project": "biz2lab",
+    "postSlug": "manage-unsigned-contracts",
+    "usage": "hero",
     "width": 1200,
+    "height": 675,
     "output": "/images/posts/manage-unsigned-contracts-1200.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "manage-unsigned-contracts",
+    "id": "manage-unsigned-contracts-800",
+    "project": "biz2lab",
+    "postSlug": "manage-unsigned-contracts",
+    "usage": "hero",
     "width": 800,
+    "height": 450,
     "output": "/images/posts/manage-unsigned-contracts-800.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "manage-unsigned-contracts",
+    "id": "manage-unsigned-contracts-400",
+    "project": "biz2lab",
+    "postSlug": "manage-unsigned-contracts",
+    "usage": "hero",
     "width": 400,
+    "height": 225,
     "output": "/images/posts/manage-unsigned-contracts-400.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "accounts-receivable-tracker",
+    "id": "offline-card-payment-pg-van-1200",
+    "project": "biz2lab",
+    "postSlug": "offline-card-payment-pg-van",
+    "usage": "hero",
     "width": 1200,
+    "height": 675,
+    "output": "/images/posts/offline-card-payment-pg-van-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "offline-card-payment-pg-van-800",
+    "project": "biz2lab",
+    "postSlug": "offline-card-payment-pg-van",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/offline-card-payment-pg-van-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "offline-card-payment-pg-van-400",
+    "project": "biz2lab",
+    "postSlug": "offline-card-payment-pg-van",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/offline-card-payment-pg-van-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "accounts-receivable-tracker-1200",
+    "project": "biz2lab",
+    "postSlug": "accounts-receivable-tracker",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
     "output": "/images/posts/accounts-receivable-tracker-1200.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "accounts-receivable-tracker",
+    "id": "accounts-receivable-tracker-800",
+    "project": "biz2lab",
+    "postSlug": "accounts-receivable-tracker",
+    "usage": "hero",
     "width": 800,
+    "height": 450,
     "output": "/images/posts/accounts-receivable-tracker-800.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "accounts-receivable-tracker",
+    "id": "accounts-receivable-tracker-400",
+    "project": "biz2lab",
+    "postSlug": "accounts-receivable-tracker",
+    "usage": "hero",
     "width": 400,
+    "height": 225,
     "output": "/images/posts/accounts-receivable-tracker-400.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "daily-sales-goal-breakdown",
+    "id": "daily-sales-goal-breakdown-1200",
+    "project": "biz2lab",
+    "postSlug": "daily-sales-goal-breakdown",
+    "usage": "hero",
     "width": 1200,
+    "height": 675,
     "output": "/images/posts/daily-sales-goal-breakdown-1200.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "daily-sales-goal-breakdown",
+    "id": "daily-sales-goal-breakdown-800",
+    "project": "biz2lab",
+    "postSlug": "daily-sales-goal-breakdown",
+    "usage": "hero",
     "width": 800,
+    "height": 450,
     "output": "/images/posts/daily-sales-goal-breakdown-800.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "daily-sales-goal-breakdown",
+    "id": "daily-sales-goal-breakdown-400",
+    "project": "biz2lab",
+    "postSlug": "daily-sales-goal-breakdown",
+    "usage": "hero",
     "width": 400,
+    "height": 225,
     "output": "/images/posts/daily-sales-goal-breakdown-400.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "daily-numbers-for-small-business",
+    "id": "daily-sales-report-1200",
+    "project": "biz2lab",
+    "postSlug": "daily-sales-report",
+    "usage": "hero",
     "width": 1200,
+    "height": 675,
+    "output": "/images/posts/daily-sales-report-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "daily-sales-report-800",
+    "project": "biz2lab",
+    "postSlug": "daily-sales-report",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/daily-sales-report-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "daily-sales-report-400",
+    "project": "biz2lab",
+    "postSlug": "daily-sales-report",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/daily-sales-report-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "payment-reminder-message-1200",
+    "project": "biz2lab",
+    "postSlug": "payment-reminder-message",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/payment-reminder-message-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "payment-reminder-message-800",
+    "project": "biz2lab",
+    "postSlug": "payment-reminder-message",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/payment-reminder-message-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "payment-reminder-message-400",
+    "project": "biz2lab",
+    "postSlug": "payment-reminder-message",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/payment-reminder-message-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "sales-achievement-rate-1200",
+    "project": "biz2lab",
+    "postSlug": "sales-achievement-rate",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/sales-achievement-rate-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "sales-achievement-rate-800",
+    "project": "biz2lab",
+    "postSlug": "sales-achievement-rate",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/sales-achievement-rate-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "sales-achievement-rate-400",
+    "project": "biz2lab",
+    "postSlug": "sales-achievement-rate",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/sales-achievement-rate-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "sales-revenue-ar-structure-1200",
+    "project": "biz2lab",
+    "postSlug": "sales-revenue-ar-structure",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/sales-revenue-ar-structure-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "sales-revenue-ar-structure-800",
+    "project": "biz2lab",
+    "postSlug": "sales-revenue-ar-structure",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/sales-revenue-ar-structure-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "sales-revenue-ar-structure-400",
+    "project": "biz2lab",
+    "postSlug": "sales-revenue-ar-structure",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/sales-revenue-ar-structure-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "unify-order-channels-for-sales-1200",
+    "project": "biz2lab",
+    "postSlug": "unify-order-channels-for-sales",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/unify-order-channels-for-sales-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "unify-order-channels-for-sales-800",
+    "project": "biz2lab",
+    "postSlug": "unify-order-channels-for-sales",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/unify-order-channels-for-sales-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "unify-order-channels-for-sales-400",
+    "project": "biz2lab",
+    "postSlug": "unify-order-channels-for-sales",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/unify-order-channels-for-sales-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "ai-knowledge-store-for-small-business-1200",
+    "project": "biz2lab",
+    "postSlug": "ai-knowledge-store-for-small-business",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/ai-knowledge-store-for-small-business-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "ai-knowledge-store-for-small-business-800",
+    "project": "biz2lab",
+    "postSlug": "ai-knowledge-store-for-small-business",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/ai-knowledge-store-for-small-business-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "ai-knowledge-store-for-small-business-400",
+    "project": "biz2lab",
+    "postSlug": "ai-knowledge-store-for-small-business",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/ai-knowledge-store-for-small-business-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "customer-memory-system-1200",
+    "project": "biz2lab",
+    "postSlug": "customer-memory-system",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/customer-memory-system-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "customer-memory-system-800",
+    "project": "biz2lab",
+    "postSlug": "customer-memory-system",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/customer-memory-system-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "customer-memory-system-400",
+    "project": "biz2lab",
+    "postSlug": "customer-memory-system",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/customer-memory-system-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "daily-numbers-for-small-business-1200",
+    "project": "biz2lab",
+    "postSlug": "daily-numbers-for-small-business",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
     "output": "/images/posts/daily-numbers-for-small-business-1200.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "daily-numbers-for-small-business",
+    "id": "daily-numbers-for-small-business-800",
+    "project": "biz2lab",
+    "postSlug": "daily-numbers-for-small-business",
+    "usage": "hero",
     "width": 800,
+    "height": 450,
     "output": "/images/posts/daily-numbers-for-small-business-800.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "daily-numbers-for-small-business",
+    "id": "daily-numbers-for-small-business-400",
+    "project": "biz2lab",
+    "postSlug": "daily-numbers-for-small-business",
+    "usage": "hero",
     "width": 400,
+    "height": 225,
     "output": "/images/posts/daily-numbers-for-small-business-400.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "unify-order-channels",
+    "id": "reservation-order-review-management-1200",
+    "project": "biz2lab",
+    "postSlug": "reservation-order-review-management",
+    "usage": "hero",
     "width": 1200,
-    "output": "/images/posts/unify-order-channels-1200.webp",
-    "source": "placeholder"
+    "height": 675,
+    "output": "/images/posts/reservation-order-review-management-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "unify-order-channels",
+    "id": "reservation-order-review-management-800",
+    "project": "biz2lab",
+    "postSlug": "reservation-order-review-management",
+    "usage": "hero",
     "width": 800,
-    "output": "/images/posts/unify-order-channels-800.webp",
-    "source": "placeholder"
+    "height": 450,
+    "output": "/images/posts/reservation-order-review-management-800.webp",
+    "source": "placeholder",
+    "rawPath": null
   },
   {
-    "slug": "unify-order-channels",
+    "id": "reservation-order-review-management-400",
+    "project": "biz2lab",
+    "postSlug": "reservation-order-review-management",
+    "usage": "hero",
     "width": 400,
+    "height": 225,
+    "output": "/images/posts/reservation-order-review-management-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "solo-business-systemization-1200",
+    "project": "biz2lab",
+    "postSlug": "solo-business-systemization",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/solo-business-systemization-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "solo-business-systemization-800",
+    "project": "biz2lab",
+    "postSlug": "solo-business-systemization",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/solo-business-systemization-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "solo-business-systemization-400",
+    "project": "biz2lab",
+    "postSlug": "solo-business-systemization",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/solo-business-systemization-400.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "unify-order-channels-1200",
+    "project": "biz2lab",
+    "postSlug": "unify-order-channels",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/unify-order-channels-1200.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "unify-order-channels-800",
+    "project": "biz2lab",
+    "postSlug": "unify-order-channels",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/unify-order-channels-800.webp",
+    "source": "placeholder",
+    "rawPath": null
+  },
+  {
+    "id": "unify-order-channels-400",
+    "project": "biz2lab",
+    "postSlug": "unify-order-channels",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
     "output": "/images/posts/unify-order-channels-400.webp",
-    "source": "placeholder"
+    "source": "placeholder",
+    "rawPath": null
   }
 ]

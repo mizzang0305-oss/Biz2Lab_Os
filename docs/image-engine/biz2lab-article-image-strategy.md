@@ -1,7 +1,7 @@
 # Biz2Lab Article Image Strategy
 
 Date: 2026-06-15
-Status: Phase 3.7 local image pipeline plan and safe integration baseline
+Status: Phase 3.8 local image pipeline audit and safe non-generation hardening
 
 ## Current Image State
 
@@ -14,8 +14,15 @@ Status: Phase 3.7 local image pipeline plan and safe integration baseline
 - Posts without inline images: 25
 - Missing current hero files: 0
 - External image references in public post content: 0
-- Current local post image files: 8 hero image sets, each with 400/800/1200 WebP derivatives
-- Current limitation: several posts reuse the same placeholder-style hero image
+- Current local post image files: 25 hero image sets, each with 400/800/1200 WebP derivatives
+- Current limitation: hero images are deterministic local placeholders until a real local-only generator exists
+- Local raw generated images: 0
+- Machine-readable image briefs: 34 total
+  - 25 hero briefs
+  - 4 hub summary briefs
+  - 5 inline explanatory briefs
+- Local-only generation command discovered in this repository: no
+- External image generation services remain disallowed for this phase
 
 The current state is valid for build and AdSense safety, but it is visually thin. The next improvement should generate more purposeful local visuals rather than add external images or decorative stock-style art.
 
@@ -90,7 +97,7 @@ Recommended first inline targets:
 7. Run `npm run validate:images`.
 8. Add only generated raw files, optimized WebP files, manifest updates, and safe content references.
 
-If the local image generation tool is unavailable, stop at briefs and documentation.
+If the local image generation tool is unavailable, stop at briefs and documentation. Do not use hosted image generation, API-backed image generation, web upload, scraped images, or external asset services as a substitute.
 
 ## CommerceAuto Future Sharing Policy
 
@@ -136,3 +143,16 @@ This does not create CommerceAuto routes, product routes, affiliate routes, or p
 - Add briefs for 5 future inline explanatory images.
 - Add `ArticleImage` for future safe inline rendering.
 - Do not insert inline images until optimized files exist.
+
+## Phase 3.8 Decision
+
+- Baseline validation passed locally before image generation discovery.
+- No repository-local, local-only image generation command was found.
+- The installed Codex image generation skills require hosted built-in generation or OpenAI API fallback, so they are outside this phase's allowed scope.
+- No raw images were generated.
+- `npm run optimize-images` generated deterministic local placeholder WebP derivatives for all 25 public post slugs.
+- All 25 public posts now use unique slug-based local hero WebP paths.
+- No inline article image references were inserted.
+- Current public hero placeholders were kept because every referenced file exists and validates.
+- `next/image` usage was updated for Next 16 by using `preload` instead of deprecated `priority` on the article hero image.
+- The next image phase needs a real local-only command before any new raw files can be produced.

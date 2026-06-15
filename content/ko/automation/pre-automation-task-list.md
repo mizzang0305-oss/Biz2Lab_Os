@@ -14,7 +14,7 @@ updatedAt: "2026-06-15"
 tags:
   - "자동화 준비"
   - "업무 목록"
-heroImage: "/images/posts/ai-business-automation-guide-1200.webp"
+heroImage: "/images/posts/pre-automation-task-list-1200.webp"
 heroAlt: "자동화 시작 전 업무 목록을 분류한 체크리스트"
 canonical: "https://biz2lab.com/ko/automation/pre-automation-task-list"
 noindex: false

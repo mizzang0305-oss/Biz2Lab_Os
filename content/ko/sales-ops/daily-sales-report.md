@@ -14,7 +14,7 @@ updatedAt: "2026-06-15"
 tags:
   - "일일 보고서"
   - "영업 운영"
-heroImage: "/images/posts/daily-sales-goal-breakdown-1200.webp"
+heroImage: "/images/posts/daily-sales-report-1200.webp"
 heroAlt: "영업팀 일일 보고서 항목을 정리한 대시보드"
 canonical: "https://biz2lab.com/ko/sales-ops/daily-sales-report"
 noindex: false

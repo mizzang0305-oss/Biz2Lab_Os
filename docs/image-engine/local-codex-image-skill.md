@@ -1,7 +1,7 @@
 # Local Codex Image Skill Workflow
 
 Date: 2026-06-15
-Status: documentation only
+Status: command not available
 
 ## Purpose
 
@@ -29,16 +29,48 @@ npm run validate:images
 
 9. Run the full Biz2Lab validation set before commit.
 
-## Command Placeholder
+## Phase 3.8 Discovery Result
 
 No repository-local image generation command exists yet.
 
+Checked locations:
+
+- `package.json` scripts
+- `docs/image-engine/local-codex-image-skill.md`
+- `scripts/`
+- `tools/`
+- `.codex/`
+- installed Codex image generation skill documentation
+
+The installed Codex image generation skills are not acceptable for this phase because they use hosted built-in image generation or OpenAI API fallback. This phase requires a local-only command that does not upload prompts, call paid APIs, or require `OPENAI_API_KEY`.
+
+## Next Command Needed
+
+Add a real local-only command only after the local generator exists and has been approved. The command should satisfy all of these conditions:
+
+- Runs from this repository with no web upload.
+- Does not require `OPENAI_API_KEY` or any paid image API key.
+- Reads approved jobs from `image-briefs/biz2lab-article-image-briefs.json`.
+- Writes raw image files only under `assets/images/raw/`.
+- Refuses real logos, branded platform marks, people/faces, product images, Amazon-like ecommerce imagery, private data, and unreadable business text.
+- Emits a machine-readable result with generated IDs, failed IDs, and skipped IDs.
+- Leaves public optimized files to `npm run optimize-images`.
+
+Suggested future package script name:
+
 ```bash
-# Example only. Replace with the actual local image skill command after it exists.
 npm run images:generate:local
 ```
 
 Do not add this package script until a real local-only generator exists and is approved.
+
+Expected future behavior:
+
+```bash
+npm run images:generate:local -- --brief image-briefs/biz2lab-article-image-briefs.json --out assets/images/raw
+```
+
+The exact flags may differ, but the implementation must keep all inputs and outputs local.
 
 ## Output Locations
 
@@ -76,3 +108,13 @@ public/images/posts/manifest.json
 - `altKo` and `captionKo` are Korean and descriptive.
 - `npm run validate:images` passes.
 - No public AI, upload, admin, login, commerce, affiliate, product, review, Amazon, or lottery route is added.
+
+## Phase 3.8 Status
+
+- Raw images generated: 0
+- Raw images present: 0
+- Optimized 1200px hero placeholders present: 25
+- Active unique post hero images: 25
+- Pending brief IDs: 9 hub or inline briefs
+- Failed brief IDs: none, because generation was not attempted
+- Reason pending: no approved local-only image generation command exists

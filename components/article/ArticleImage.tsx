@@ -8,7 +8,7 @@ type ArticleImageProps = {
   caption?: string;
   width?: number;
   height?: number;
-  priority?: boolean;
+  preload?: boolean;
   className?: string;
 };
 
@@ -18,7 +18,7 @@ export function ArticleImage({
   caption,
   width = 1200,
   height = 675,
-  priority = false,
+  preload = false,
   className,
 }: ArticleImageProps) {
   assertLocalPostImage(src);
@@ -41,7 +41,7 @@ export function ArticleImage({
         alt={alt}
         width={width}
         height={height}
-        priority={priority}
+        preload={preload}
         sizes="(min-width: 768px) 896px, 100vw"
         className="h-auto w-full object-cover"
       />

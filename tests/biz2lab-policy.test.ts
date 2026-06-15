@@ -109,6 +109,31 @@ test("each public post is a connected information node", () => {
   }
 });
 
+test("public posts use unique slug-based local hero images", () => {
+  const publicPosts = getPublicPosts();
+  const heroImages = new Set(publicPosts.map((post) => post.frontmatter.heroImage));
+  const imageAssets = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), "data", "image-assets.json"), "utf8"),
+  ) as Array<{ id?: string; postSlug?: string; usage?: string; src?: string; status?: string }>;
+  const activeHeroAssets = imageAssets.filter(
+    (asset) => asset.usage === "hero" && asset.status === "active",
+  );
+  const activeHeroIds = new Set(activeHeroAssets.map((asset) => asset.id));
+
+  assert.equal(heroImages.size, publicPosts.length);
+  assert.equal(activeHeroAssets.length, publicPosts.length);
+  assert.equal(activeHeroIds.size, activeHeroAssets.length);
+
+  for (const post of publicPosts) {
+    const expectedHero = `/images/posts/${post.slug}-1200.webp`;
+    const asset = activeHeroAssets.find((candidate) => candidate.postSlug === post.slug);
+
+    assert.equal(post.frontmatter.heroImage, expectedHero);
+    assert.ok(fs.existsSync(path.join(process.cwd(), "public", expectedHero.replace(/^\//, ""))));
+    assert.equal(asset?.src, expectedHero);
+  }
+});
+
 test("Supabase admin client is disabled gracefully when env vars are missing", () => {
   const previousUrl = process.env.SUPABASE_URL;
   const previousKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -200,4 +225,20 @@ test("static settings keep future admin and feature surfaces disabled", () => {
     assert.equal(route.startsWith("/en"), false);
     assert.equal(route.startsWith("/ja"), false);
   }
+});
+
+test("article images follow Next 16 image loading API", () => {
+  const articlePageSource = fs.readFileSync(
+    path.join(process.cwd(), "app", "ko", "[category]", "[slug]", "page.tsx"),
+    "utf8",
+  );
+  const articleImageSource = fs.readFileSync(
+    path.join(process.cwd(), "components", "article", "ArticleImage.tsx"),
+    "utf8",
+  );
+
+  assert.match(articlePageSource, /\bpreload\b/);
+  assert.doesNotMatch(articlePageSource, /\bpriority\b/);
+  assert.match(articleImageSource, /\bpreload\b/);
+  assert.doesNotMatch(articleImageSource, /\bpriority\b/);
 });
