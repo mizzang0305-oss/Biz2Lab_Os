@@ -1,0 +1,38 @@
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+import type { Post } from "@/lib/posts";
+
+export function ArticleCard({ post, compact = false }: { post: Post; compact?: boolean }) {
+  return (
+    <article className="group overflow-hidden rounded-md border border-slate-200 bg-white transition hover:border-teal-300 hover:shadow-sm">
+      {!compact ? (
+        <div className="relative aspect-[16/9] bg-slate-100">
+          <Image
+            src={post.frontmatter.heroImage}
+            alt={post.frontmatter.heroAlt}
+            fill
+            sizes="(min-width: 768px) 33vw, 100vw"
+            className="object-cover"
+          />
+        </div>
+      ) : null}
+      <div className="p-5">
+        <div className="text-xs font-medium text-teal-700">{post.categoryName}</div>
+        <h3 className="mt-2 text-lg font-semibold leading-7 tracking-normal text-slate-950">
+          <Link href={post.route} className="after:absolute after:inset-0">
+            {post.frontmatter.title}
+          </Link>
+        </h3>
+        <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600">
+          {post.frontmatter.description}
+        </p>
+        <div className="mt-4 flex items-center gap-2 text-sm font-medium text-slate-700 group-hover:text-teal-700">
+          읽기 <ArrowRight className="h-4 w-4" />
+        </div>
+      </div>
+    </article>
+  );
+}
+

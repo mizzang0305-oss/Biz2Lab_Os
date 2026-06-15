@@ -6,12 +6,27 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/**/*.test.ts",
+    "validate:posts": "tsx scripts/validate-posts.ts",
+    "validate:seo": "tsx scripts/validate-seo.ts",
+    "check:links": "tsx scripts/check-links.ts",
+    "build-search": "tsx scripts/build-search.ts",
+    "optimize-images": "tsx scripts/optimize-images.ts",
+    "generate-content-index": "tsx scripts/generate-content-index.ts"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.108.1",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^1.18.0",
     "next": "16.2.9",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-markdown": "^10.1.0",
+    "reading-time": "^1.5.0",
+    "remark-gfm": "^4.0.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -20,7 +35,10 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+    "pagefind": "^1.5.2",
+    "sharp": "^0.35.1",
     "tailwindcss": "^4",
+    "tsx": "^4.22.4",
     "typescript": "^5"
   }
 }

@@ -1,0 +1,50 @@
+import Link from "next/link";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
+import { slugifyHeading } from "@/lib/posts";
+
+export function MarkdownRenderer({ content }: { content: string }) {
+  return (
+    <div className="prose-biz2lab">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={{
+          a: ({ href, children }) => {
+            if (href?.startsWith("/")) {
+              return (
+                <Link href={href} className="font-medium text-teal-700 underline-offset-4 hover:underline">
+                  {children}
+                </Link>
+              );
+            }
+            return (
+              <a href={href} rel="noopener noreferrer" target="_blank">
+                {children}
+              </a>
+            );
+          },
+          h2: ({ children }) => {
+            const text = String(children);
+            return (
+              <h2 id={slugifyHeading(text)} className="scroll-mt-28">
+                {children}
+              </h2>
+            );
+          },
+          h3: ({ children }) => {
+            const text = String(children);
+            return (
+              <h3 id={slugifyHeading(text)} className="scroll-mt-28">
+                {children}
+              </h3>
+            );
+          },
+        }}
+      >
+        {content}
+      </ReactMarkdown>
+    </div>
+  );
+}
+

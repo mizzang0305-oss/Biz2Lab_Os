@@ -1,0 +1,352 @@
+[
+  {
+    "title": "AI 업무 자동화란 무엇인가: 소상공인과 영업팀을 위한 실전 가이드",
+    "slug": "ai-business-automation-guide",
+    "route": "/ko/automation/ai-business-automation-guide",
+    "category": "automation",
+    "cluster": "automation-basics",
+    "type": "pillar",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "reduce-repetitive-work-with-ai",
+      "pre-automation-task-list",
+      "automation-priority-method"
+    ]
+  },
+  {
+    "title": "업무 자동화 우선순위를 정하는 방법",
+    "slug": "automation-priority-method",
+    "route": "/ko/automation/automation-priority-method",
+    "category": "automation",
+    "cluster": "automation-basics",
+    "type": "checklist",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "pre-automation-task-list",
+      "google-sheets-ai-automation",
+      "sales-revenue-ar-structure"
+    ]
+  },
+  {
+    "title": "ChatGPT로 업무 문서를 정리하는 방법",
+    "slug": "chatgpt-document-cleanup",
+    "route": "/ko/automation/chatgpt-document-cleanup",
+    "category": "automation",
+    "cluster": "automation-basics",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "obsidian-business-knowledge-base",
+      "google-sheets-ai-automation",
+      "reduce-repetitive-work-with-ai"
+    ]
+  },
+  {
+    "title": "구글시트와 AI를 함께 쓰는 업무 자동화 구조",
+    "slug": "google-sheets-ai-automation",
+    "route": "/ko/automation/google-sheets-ai-automation",
+    "category": "automation",
+    "cluster": "automation-basics",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "chatgpt-document-cleanup",
+      "automation-priority-method",
+      "daily-sales-report"
+    ]
+  },
+  {
+    "title": "Obsidian으로 회사 업무 지식창고를 만드는 방법",
+    "slug": "obsidian-business-knowledge-base",
+    "route": "/ko/automation/obsidian-business-knowledge-base",
+    "category": "automation",
+    "cluster": "automation-basics",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "chatgpt-document-cleanup",
+      "customer-memory-system",
+      "ai-knowledge-store-for-small-business"
+    ]
+  },
+  {
+    "title": "AI 자동화를 시작하기 전에 정리해야 할 업무 목록",
+    "slug": "pre-automation-task-list",
+    "route": "/ko/automation/pre-automation-task-list",
+    "category": "automation",
+    "cluster": "automation-basics",
+    "type": "checklist",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "ai-business-automation-guide",
+      "reduce-repetitive-work-with-ai",
+      "automation-priority-method"
+    ]
+  },
+  {
+    "title": "반복 업무를 AI로 줄이는 5단계",
+    "slug": "reduce-repetitive-work-with-ai",
+    "route": "/ko/automation/reduce-repetitive-work-with-ai",
+    "category": "automation",
+    "cluster": "automation-basics",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "ai-business-automation-guide",
+      "google-sheets-ai-automation",
+      "daily-sales-report"
+    ]
+  },
+  {
+    "title": "계약서, 결제, 거래처 관리를 연결하는 방법",
+    "slug": "connect-contract-payment-customer-management",
+    "route": "/ko/contracts-payments/connect-contract-payment-customer-management",
+    "category": "contracts-payments",
+    "cluster": "contracts-payment-basics",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "electronic-contract-system-basics",
+      "offline-card-payment-pg-van",
+      "sales-revenue-ar-structure"
+    ]
+  },
+  {
+    "title": "전자서명과 본인확인의 차이 쉽게 이해하기",
+    "slug": "e-signature-identity-check",
+    "route": "/ko/contracts-payments/e-signature-identity-check",
+    "category": "contracts-payments",
+    "cluster": "contracts-payment-basics",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "electronic-contract-system-basics",
+      "manage-unsigned-contracts",
+      "offline-card-payment-pg-van"
+    ]
+  },
+  {
+    "title": "전자계약 시스템에 필요한 기본 기능",
+    "slug": "electronic-contract-system-basics",
+    "route": "/ko/contracts-payments/electronic-contract-system-basics",
+    "category": "contracts-payments",
+    "cluster": "contracts-payment-basics",
+    "type": "pillar",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "manage-unsigned-contracts",
+      "e-signature-identity-check",
+      "connect-contract-payment-customer-management"
+    ]
+  },
+  {
+    "title": "거래처 계약서 미작성 업체를 관리하는 방법",
+    "slug": "manage-unsigned-contracts",
+    "route": "/ko/contracts-payments/manage-unsigned-contracts",
+    "category": "contracts-payments",
+    "cluster": "contracts-payment-basics",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "electronic-contract-system-basics",
+      "payment-reminder-message",
+      "connect-contract-payment-customer-management"
+    ]
+  },
+  {
+    "title": "카드 키인 결제와 PG/VAN 차이",
+    "slug": "offline-card-payment-pg-van",
+    "route": "/ko/contracts-payments/offline-card-payment-pg-van",
+    "category": "contracts-payments",
+    "cluster": "contracts-payment-basics",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "connect-contract-payment-customer-management",
+      "electronic-contract-system-basics",
+      "sales-revenue-ar-structure"
+    ]
+  },
+  {
+    "title": "미수금 관리표를 만드는 방법",
+    "slug": "accounts-receivable-tracker",
+    "route": "/ko/sales-ops/accounts-receivable-tracker",
+    "category": "sales-ops",
+    "cluster": "sales-ops-basics",
+    "type": "checklist",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "payment-reminder-message",
+      "daily-sales-goal-breakdown",
+      "manage-unsigned-contracts"
+    ]
+  },
+  {
+    "title": "월 매출 목표를 일일 목표로 나누는 방법",
+    "slug": "daily-sales-goal-breakdown",
+    "route": "/ko/sales-ops/daily-sales-goal-breakdown",
+    "category": "sales-ops",
+    "cluster": "sales-ops-basics",
+    "type": "pillar",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "sales-achievement-rate",
+      "daily-sales-report",
+      "accounts-receivable-tracker"
+    ]
+  },
+  {
+    "title": "영업팀 일일 보고서 작성법",
+    "slug": "daily-sales-report",
+    "route": "/ko/sales-ops/daily-sales-report",
+    "category": "sales-ops",
+    "cluster": "sales-ops-basics",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "daily-sales-goal-breakdown",
+      "sales-achievement-rate",
+      "google-sheets-ai-automation"
+    ]
+  },
+  {
+    "title": "거래처 독촉 문자를 부드럽게 작성하는 방법",
+    "slug": "payment-reminder-message",
+    "route": "/ko/sales-ops/payment-reminder-message",
+    "category": "sales-ops",
+    "cluster": "sales-ops-basics",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "accounts-receivable-tracker",
+      "sales-revenue-ar-structure",
+      "manage-unsigned-contracts"
+    ]
+  },
+  {
+    "title": "목표 대비 매출 달성률을 계산하는 방법",
+    "slug": "sales-achievement-rate",
+    "route": "/ko/sales-ops/sales-achievement-rate",
+    "category": "sales-ops",
+    "cluster": "sales-ops-basics",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "daily-sales-goal-breakdown",
+      "sales-revenue-ar-structure",
+      "daily-sales-report"
+    ]
+  },
+  {
+    "title": "매출과 미수금을 함께 보는 영업관리 구조",
+    "slug": "sales-revenue-ar-structure",
+    "route": "/ko/sales-ops/sales-revenue-ar-structure",
+    "category": "sales-ops",
+    "cluster": "sales-ops-basics",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "daily-sales-goal-breakdown",
+      "accounts-receivable-tracker",
+      "connect-contract-payment-customer-management"
+    ]
+  },
+  {
+    "title": "거래처 관리에서 주문 채널 통일이 중요한 이유",
+    "slug": "unify-order-channels-for-sales",
+    "route": "/ko/sales-ops/unify-order-channels-for-sales",
+    "category": "sales-ops",
+    "cluster": "sales-ops-basics",
+    "type": "case-study",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "customer-memory-system",
+      "sales-revenue-ar-structure",
+      "unify-order-channels"
+    ]
+  },
+  {
+    "title": "소상공인에게 AI 점장이 필요한 이유",
+    "slug": "ai-knowledge-store-for-small-business",
+    "route": "/ko/small-business/ai-knowledge-store-for-small-business",
+    "category": "small-business",
+    "cluster": "small-business-operations",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "customer-memory-system",
+      "unify-order-channels",
+      "ai-business-automation-guide"
+    ]
+  },
+  {
+    "title": "고객 정보를 기억하는 시스템이 중요한 이유",
+    "slug": "customer-memory-system",
+    "route": "/ko/small-business/customer-memory-system",
+    "category": "small-business",
+    "cluster": "small-business-operations",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "reservation-order-review-management",
+      "ai-knowledge-store-for-small-business",
+      "unify-order-channels-for-sales"
+    ]
+  },
+  {
+    "title": "소상공인이 매일 확인해야 할 숫자 5가지",
+    "slug": "daily-numbers-for-small-business",
+    "route": "/ko/small-business/daily-numbers-for-small-business",
+    "category": "small-business",
+    "cluster": "small-business-operations",
+    "type": "pillar",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "unify-order-channels",
+      "customer-memory-system",
+      "sales-achievement-rate"
+    ]
+  },
+  {
+    "title": "예약, 주문, 리뷰 관리를 한 번에 정리하는 방법",
+    "slug": "reservation-order-review-management",
+    "route": "/ko/small-business/reservation-order-review-management",
+    "category": "small-business",
+    "cluster": "small-business-operations",
+    "type": "how-to",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "unify-order-channels",
+      "customer-memory-system",
+      "ai-knowledge-store-for-small-business"
+    ]
+  },
+  {
+    "title": "1인 사업자가 업무를 시스템화하는 방법",
+    "slug": "solo-business-systemization",
+    "route": "/ko/small-business/solo-business-systemization",
+    "category": "small-business",
+    "cluster": "small-business-operations",
+    "type": "checklist",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "daily-numbers-for-small-business",
+      "pre-automation-task-list",
+      "customer-memory-system"
+    ]
+  },
+  {
+    "title": "식당 사장님을 위한 주문 관리 자동화 구조",
+    "slug": "unify-order-channels",
+    "route": "/ko/small-business/unify-order-channels",
+    "category": "small-business",
+    "cluster": "small-business-operations",
+    "type": "case-study",
+    "updatedAt": "2026-06-15",
+    "relatedPosts": [
+      "daily-numbers-for-small-business",
+      "reservation-order-review-management",
+      "reduce-repetitive-work-with-ai"
+    ]
+  }
+]
