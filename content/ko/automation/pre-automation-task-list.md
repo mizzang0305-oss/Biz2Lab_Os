@@ -16,7 +16,7 @@ tags:
   - "업무 목록"
 heroImage: "/images/posts/ai-business-automation-guide-1200.webp"
 heroAlt: "자동화 시작 전 업무 목록을 분류한 체크리스트"
-canonical: "https://biz2lab.com/ko/automation/pre-automation-task-list"
+canonical: "https://www.biz2lab.com/ko/automation/pre-automation-task-list"
 noindex: false
 relatedPosts:
   - "ai-business-automation-guide"

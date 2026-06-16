@@ -16,7 +16,7 @@ tags:
   - "소상공인 자동화"
 heroImage: "/images/posts/unify-order-channels-1200.webp"
 heroAlt: "여러 주문 채널을 하나의 운영표로 모으는 흐름"
-canonical: "https://biz2lab.com/ko/small-business/unify-order-channels"
+canonical: "https://www.biz2lab.com/ko/small-business/unify-order-channels"
 noindex: false
 relatedPosts:
   - "daily-numbers-for-small-business"

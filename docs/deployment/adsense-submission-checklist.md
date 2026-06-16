@@ -33,11 +33,11 @@ Must remain true:
 
 ## Required Manual Checks
 
-- [ ] Site is publicly accessible at `https://biz2lab.com`.
+- [ ] Site is publicly accessible at `https://www.biz2lab.com`.
 - [ ] HTTPS certificate is valid.
-- [ ] `https://biz2lab.com/sitemap.xml` loads.
-- [ ] `https://biz2lab.com/robots.txt` loads.
-- [ ] `https://biz2lab.com/rss.xml` loads.
+- [ ] `https://www.biz2lab.com/sitemap.xml` loads.
+- [ ] `https://www.biz2lab.com/robots.txt` loads.
+- [ ] `https://www.biz2lab.com/rss.xml` loads.
 - [ ] `/ko/about`, `/ko/contact`, `/ko/privacy`, and `/ko/terms` load.
 - [ ] 5 representative articles load on desktop and mobile.
 - [ ] Korean tone is natural and not mechanically repeated.
@@ -78,7 +78,7 @@ Manual future steps:
 - [ ] Obtain the real Google AdSense publisher ID.
 - [ ] Create `public/ads.txt` with the exact Google-provided line.
 - [ ] Deploy.
-- [ ] Confirm `https://biz2lab.com/ads.txt` returns the expected text.
+- [ ] Confirm `https://www.biz2lab.com/ads.txt` returns the expected text.
 
 ## Submission Gate
 

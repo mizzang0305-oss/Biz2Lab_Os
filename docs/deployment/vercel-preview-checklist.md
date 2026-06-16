@@ -13,7 +13,7 @@ Scope: local documentation, no deploy
 - Local Git remote: not configured at the time of this check.
 - Framework: Next.js App Router.
 - Public build does not require Supabase env vars because API routes have safe fallback behavior.
-- Canonical site URL uses `NEXT_PUBLIC_SITE_URL` with fallback `https://biz2lab.com`.
+- Canonical site URL is fixed to the official production domain `https://www.biz2lab.com`; `NEXT_PUBLIC_SITE_URL` must match that value if configured.
 
 ## Vercel Project Setup
 
@@ -33,7 +33,7 @@ Required for public build:
 
 Recommended explicit values:
 
-- `NEXT_PUBLIC_SITE_URL=https://biz2lab.com`
+- `NEXT_PUBLIC_SITE_URL=https://www.biz2lab.com`
 - `NEXT_PUBLIC_PAGEFIND_ENABLED=false`
 
 Optional future server-side values:

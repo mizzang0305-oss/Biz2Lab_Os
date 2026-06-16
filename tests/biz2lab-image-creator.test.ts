@@ -249,7 +249,7 @@ tags:
   - "AI 업무 자동화"
 heroImage: "/images/posts/old-image.webp"
 heroAlt: "기존 이미지"
-canonical: "https://biz2lab.com/ko/automation/demo-automation"
+canonical: "https://www.biz2lab.com/ko/automation/demo-automation"
 noindex: false
 relatedPosts:
   - "other-post"

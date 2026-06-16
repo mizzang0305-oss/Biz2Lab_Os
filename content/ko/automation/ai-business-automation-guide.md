@@ -16,7 +16,7 @@ tags:
   - "업무 시스템"
 heroImage: "/images/posts/ai-business-automation-guide-hero.webp"
 heroAlt: "주문, 미수금, 전자계약, 고객문의, 매출 리포트가 하나의 AI 자동화 허브로 정리되는 업무 흐름"
-canonical: "https://biz2lab.com/ko/automation/ai-business-automation-guide"
+canonical: "https://www.biz2lab.com/ko/automation/ai-business-automation-guide"
 noindex: false
 relatedPosts:
   - "reduce-repetitive-work-with-ai"

@@ -16,7 +16,7 @@ tags:
   - "PG VAN"
 heroImage: "/images/posts/electronic-contract-system-basics-1200.webp"
 heroAlt: "카드 키인 결제와 PG VAN 흐름을 비교한 표"
-canonical: "https://biz2lab.com/ko/contracts-payments/offline-card-payment-pg-van"
+canonical: "https://www.biz2lab.com/ko/contracts-payments/offline-card-payment-pg-van"
 noindex: false
 relatedPosts:
   - "connect-contract-payment-customer-management"

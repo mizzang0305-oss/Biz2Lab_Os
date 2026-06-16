@@ -242,6 +242,40 @@ function registerOutput(label: string, brief: BriefLike) {
   outputNames.set(normalized, { label, brief });
 }
 
+function isCanonicalOnlyContentDiff(changedPath: string) {
+  if (!changedPath.startsWith("content/ko/") || !changedPath.endsWith(".md")) {
+    return false;
+  }
+
+  try {
+    const diff = execFileSync(
+      "git",
+      ["diff", "--unified=0", "origin/master", "--", changedPath],
+      {
+        cwd: root,
+        encoding: "utf8",
+      },
+    );
+    const changedLines = diff
+      .split(/\r?\n/)
+      .filter(
+        (line) =>
+          (line.startsWith("+") || line.startsWith("-")) &&
+          !line.startsWith("+++") &&
+          !line.startsWith("---"),
+      );
+
+    return (
+      changedLines.length > 0 &&
+      changedLines.every((line) =>
+        /^[-+]canonical: "https:\/\/(?:www\.)?biz2lab\.com\/ko\//.test(line),
+      )
+    );
+  } catch {
+    return false;
+  }
+}
+
 function promptFingerprint(text: string) {
   return text
     .replace(/"[^"]+"/g, "\"\"")
@@ -353,7 +387,11 @@ function checkProductionPathDiffAgainstOrigin() {
         .filter((line) => {
           const parts = line.split(/\t/);
           const paths = parts.slice(1).map(normalizeRepoPath);
-          return paths.some((changedPath) => !allowedTop3ProductionDiffPaths.has(changedPath));
+          return paths.some(
+            (changedPath) =>
+              !allowedTop3ProductionDiffPaths.has(changedPath) &&
+              !isCanonicalOnlyContentDiff(changedPath),
+          );
         });
 
       if (unapprovedDiffs.length > 0) {

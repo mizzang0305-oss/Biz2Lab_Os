@@ -16,7 +16,7 @@ tags:
   - "거래처 관리"
 heroImage: "/images/posts/manage-unsigned-contracts-1200.webp"
 heroAlt: "계약서 결제 거래처 관리를 연결한 운영 흐름"
-canonical: "https://biz2lab.com/ko/contracts-payments/connect-contract-payment-customer-management"
+canonical: "https://www.biz2lab.com/ko/contracts-payments/connect-contract-payment-customer-management"
 noindex: false
 relatedPosts:
   - "electronic-contract-system-basics"

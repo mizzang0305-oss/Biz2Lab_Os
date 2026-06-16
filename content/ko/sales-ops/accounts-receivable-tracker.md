@@ -16,7 +16,7 @@ tags:
   - "거래처 관리"
 heroImage: "/images/posts/accounts-receivable-tracker-hero.webp"
 heroAlt: "미수금 aging board와 후속 연락 일정, 회수 진행률이 함께 정리된 영업 운영 화면"
-canonical: "https://biz2lab.com/ko/sales-ops/accounts-receivable-tracker"
+canonical: "https://www.biz2lab.com/ko/sales-ops/accounts-receivable-tracker"
 noindex: false
 relatedPosts:
   - "payment-reminder-message"

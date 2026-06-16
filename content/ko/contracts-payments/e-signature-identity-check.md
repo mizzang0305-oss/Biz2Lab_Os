@@ -16,7 +16,7 @@ tags:
   - "본인확인"
 heroImage: "/images/posts/electronic-contract-system-basics-1200.webp"
 heroAlt: "전자서명과 본인확인 절차를 비교한 계약 흐름"
-canonical: "https://biz2lab.com/ko/contracts-payments/e-signature-identity-check"
+canonical: "https://www.biz2lab.com/ko/contracts-payments/e-signature-identity-check"
 noindex: false
 relatedPosts:
   - "electronic-contract-system-basics"

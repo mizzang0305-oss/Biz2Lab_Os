@@ -97,11 +97,11 @@ Representative articles:
 
 ## SEO Smoke
 
-- [ ] Canonical tags use `https://biz2lab.com`.
-- [ ] Open Graph URL uses `https://biz2lab.com`.
-- [ ] Sitemap URLs use `https://biz2lab.com`.
-- [ ] RSS links use `https://biz2lab.com`.
-- [ ] Robots sitemap points to `https://biz2lab.com/sitemap.xml`.
+- [ ] Canonical tags use `https://www.biz2lab.com`.
+- [ ] Open Graph URL uses `https://www.biz2lab.com`.
+- [ ] Sitemap URLs use `https://www.biz2lab.com`.
+- [ ] RSS links use `https://www.biz2lab.com`.
+- [ ] Robots sitemap points to `https://www.biz2lab.com/sitemap.xml`.
 - [ ] No preview URL is hardcoded as canonical.
 
 ## Manual Browser Checks

@@ -16,7 +16,7 @@ tags:
   - "계약서 미작성"
 heroImage: "/images/posts/manage-unsigned-contracts-1200.webp"
 heroAlt: "계약서 미작성 업체와 다음 조치일을 관리하는 표"
-canonical: "https://biz2lab.com/ko/contracts-payments/manage-unsigned-contracts"
+canonical: "https://www.biz2lab.com/ko/contracts-payments/manage-unsigned-contracts"
 noindex: false
 relatedPosts:
   - "electronic-contract-system-basics"

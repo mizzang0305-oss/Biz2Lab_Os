@@ -16,7 +16,7 @@ tags:
   - "운영 지표"
 heroImage: "/images/posts/daily-numbers-for-small-business-1200.webp"
 heroAlt: "매장 운영자가 매일 확인하는 숫자 대시보드"
-canonical: "https://biz2lab.com/ko/small-business/daily-numbers-for-small-business"
+canonical: "https://www.biz2lab.com/ko/small-business/daily-numbers-for-small-business"
 noindex: false
 relatedPosts:
   - "unify-order-channels"

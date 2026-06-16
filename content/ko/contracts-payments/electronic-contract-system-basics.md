@@ -16,7 +16,7 @@ tags:
   - "결제 관리"
 heroImage: "/images/posts/electronic-contract-system-basics-hero.webp"
 heroAlt: "전자계약의 본인확인, 서명 요청, 문서 보관, 결제 확인이 보안 프로세스로 연결된 구조"
-canonical: "https://biz2lab.com/ko/contracts-payments/electronic-contract-system-basics"
+canonical: "https://www.biz2lab.com/ko/contracts-payments/electronic-contract-system-basics"
 noindex: false
 relatedPosts:
   - "manage-unsigned-contracts"

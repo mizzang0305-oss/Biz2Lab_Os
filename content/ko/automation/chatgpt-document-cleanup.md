@@ -16,7 +16,7 @@ tags:
   - "문서 정리"
 heroImage: "/images/posts/ai-business-automation-guide-1200.webp"
 heroAlt: "업무 문서를 항목별로 정리하는 노트와 체크리스트"
-canonical: "https://biz2lab.com/ko/automation/chatgpt-document-cleanup"
+canonical: "https://www.biz2lab.com/ko/automation/chatgpt-document-cleanup"
 noindex: false
 relatedPosts:
   - "obsidian-business-knowledge-base"

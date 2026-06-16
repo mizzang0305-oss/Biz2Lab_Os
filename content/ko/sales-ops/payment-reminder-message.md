@@ -16,7 +16,7 @@ tags:
   - "거래처 응대"
 heroImage: "/images/posts/accounts-receivable-tracker-1200.webp"
 heroAlt: "거래처 독촉 문구를 일정 확인 중심으로 정리한 메시지 초안"
-canonical: "https://biz2lab.com/ko/sales-ops/payment-reminder-message"
+canonical: "https://www.biz2lab.com/ko/sales-ops/payment-reminder-message"
 noindex: false
 relatedPosts:
   - "accounts-receivable-tracker"

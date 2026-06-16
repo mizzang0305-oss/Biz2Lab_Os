@@ -16,7 +16,7 @@ tags:
   - "AI 자동화"
 heroImage: "/images/posts/reduce-repetitive-work-with-ai-1200.webp"
 heroAlt: "반복 업무를 단계별로 줄이는 작업 보드"
-canonical: "https://biz2lab.com/ko/automation/reduce-repetitive-work-with-ai"
+canonical: "https://www.biz2lab.com/ko/automation/reduce-repetitive-work-with-ai"
 noindex: false
 relatedPosts:
   - "ai-business-automation-guide"

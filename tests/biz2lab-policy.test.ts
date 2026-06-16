@@ -16,6 +16,7 @@ import {
   getSitemapPosts,
 } from "@/lib/posts";
 import { createMetadata, staticPublicRoutes } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 import { getSupabaseAdmin } from "@/lib/supabase";
 import { siteSettings } from "@/lib/site-settings";
 
@@ -66,7 +67,7 @@ test("frontmatter schema enforces Korean-only approval categories", () => {
     tags: ["AI 업무 자동화"],
     heroImage: "/images/posts/test-post-1200.webp",
     heroAlt: "테스트 글 대표 이미지",
-    canonical: "https://biz2lab.com/ko/automation/test-post",
+    canonical: "https://www.biz2lab.com/ko/automation/test-post",
     noindex: false,
     relatedPosts: ["other-post", "another-post"],
   });
@@ -219,6 +220,18 @@ test("metadata titles avoid duplicate Biz2Lab branding", () => {
   assert.equal(contactMetadata.title, "문의");
   assert.equal(contactMetadata.openGraph?.title, "문의 | Biz2Lab");
   assert.deepEqual(homeMetadata.title, { absolute: "Biz2Lab" });
+});
+
+test("official canonical metadata uses the www production domain", () => {
+  const metadata = createMetadata({
+    title: "Biz2Lab",
+    description: "Biz2Lab metadata smoke",
+    path: "/ko",
+  });
+
+  assert.equal(siteConfig.url, "https://www.biz2lab.com");
+  assert.equal(metadata.alternates?.canonical, "https://www.biz2lab.com/ko");
+  assert.equal(metadata.openGraph?.url, "https://www.biz2lab.com/ko");
 });
 
 test("Pagefind search is explicit about index availability and avoids HTML excerpt injection", () => {

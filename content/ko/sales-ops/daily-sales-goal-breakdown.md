@@ -16,7 +16,7 @@ tags:
   - "영업 관리"
 heroImage: "/images/posts/daily-sales-goal-breakdown-1200.webp"
 heroAlt: "월 매출 목표를 일일 행동으로 나누는 표"
-canonical: "https://biz2lab.com/ko/sales-ops/daily-sales-goal-breakdown"
+canonical: "https://www.biz2lab.com/ko/sales-ops/daily-sales-goal-breakdown"
 noindex: false
 relatedPosts:
   - "sales-achievement-rate"

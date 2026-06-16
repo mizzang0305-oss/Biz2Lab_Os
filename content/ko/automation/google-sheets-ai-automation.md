@@ -16,7 +16,7 @@ tags:
   - "업무 자동화"
 heroImage: "/images/posts/reduce-repetitive-work-with-ai-1200.webp"
 heroAlt: "구글시트 업무표와 AI 요약 흐름"
-canonical: "https://biz2lab.com/ko/automation/google-sheets-ai-automation"
+canonical: "https://www.biz2lab.com/ko/automation/google-sheets-ai-automation"
 noindex: false
 relatedPosts:
   - "chatgpt-document-cleanup"

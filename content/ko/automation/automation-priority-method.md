@@ -16,7 +16,7 @@ tags:
   - "업무 개선"
 heroImage: "/images/posts/reduce-repetitive-work-with-ai-1200.webp"
 heroAlt: "업무 자동화 우선순위를 점수화한 표"
-canonical: "https://biz2lab.com/ko/automation/automation-priority-method"
+canonical: "https://www.biz2lab.com/ko/automation/automation-priority-method"
 noindex: false
 relatedPosts:
   - "pre-automation-task-list"

@@ -4,6 +4,7 @@ import path from "node:path";
 import { forbiddenPublicRoutePrefixes } from "@/lib/locales";
 import { getSitemapPosts } from "@/lib/posts";
 import { staticPublicRoutes } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 
 const errors: string[] = [];
 const routes: readonly string[] = staticPublicRoutes;
@@ -33,6 +34,14 @@ for (const post of getSitemapPosts()) {
 }
 
 const envExample = fs.readFileSync(path.join(process.cwd(), ".env.example"), "utf8");
+if (siteConfig.url !== "https://www.biz2lab.com") {
+  errors.push(`siteConfig.url must be https://www.biz2lab.com, found ${siteConfig.url}`);
+}
+
+if (!/^NEXT_PUBLIC_SITE_URL=https:\/\/www\.biz2lab\.com$/m.test(envExample)) {
+  errors.push(".env.example must set NEXT_PUBLIC_SITE_URL=https://www.biz2lab.com");
+}
+
 for (const line of envExample.split(/\r?\n/)) {
   if (/KEY=.+[A-Za-z0-9]{12,}/.test(line) && !line.startsWith("NEXT_PUBLIC_SITE_URL=")) {
     errors.push(`.env.example may contain a secret-like value: ${line.split("=")[0]}`);

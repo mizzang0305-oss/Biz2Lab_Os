@@ -6,20 +6,21 @@ Scope: biz2lab.com
 
 ## Domain Target
 
-- Primary domain: `biz2lab.com`
-- Canonical URL: `https://biz2lab.com`
-- Sitemap URL: `https://biz2lab.com/sitemap.xml`
-- RSS URL: `https://biz2lab.com/rss.xml`
-- Robots URL: `https://biz2lab.com/robots.txt`
+- Apex domain: `biz2lab.com`
+- Primary serving host: `www.biz2lab.com`
+- Canonical URL: `https://www.biz2lab.com`
+- Sitemap URL: `https://www.biz2lab.com/sitemap.xml`
+- RSS URL: `https://www.biz2lab.com/rss.xml`
+- Robots URL: `https://www.biz2lab.com/robots.txt`
 
-The code currently builds absolute URLs through `NEXT_PUBLIC_SITE_URL` with fallback `https://biz2lab.com`. Do not hardcode a Vercel preview URL as canonical.
+The code currently builds absolute URLs from the official canonical URL `https://www.biz2lab.com`. If `NEXT_PUBLIC_SITE_URL` is configured, it must match `https://www.biz2lab.com`; do not use an apex, localhost, or Vercel preview URL as canonical.
 
 ## Apex and WWW Strategy
 
 Recommended:
 
-- Use apex domain `biz2lab.com` as canonical.
-- Redirect `www.biz2lab.com` to `biz2lab.com`.
+- Use `https://www.biz2lab.com` as canonical.
+- Keep the existing apex `https://biz2lab.com` to `https://www.biz2lab.com` redirect.
 - Keep one canonical host in Search Console and AdSense checks.
 
 Manual decisions:
@@ -51,28 +52,28 @@ Manual decisions:
 
 - [ ] Confirm `https://biz2lab.com` loads without certificate errors.
 - [ ] Confirm `http://biz2lab.com` redirects to HTTPS.
-- [ ] Confirm `https://www.biz2lab.com` redirects to `https://biz2lab.com`.
-- [ ] Confirm canonical tags use `https://biz2lab.com`, not preview URLs.
+- [ ] Confirm `https://biz2lab.com` redirects to `https://www.biz2lab.com`.
+- [ ] Confirm canonical tags use `https://www.biz2lab.com`, not apex or preview URLs.
 
 ## Post-Domain Smoke
 
 Expected `200`:
 
-- `https://biz2lab.com/`
-- `https://biz2lab.com/ko`
-- `https://biz2lab.com/ko/automation`
-- `https://biz2lab.com/ko/sales-ops`
-- `https://biz2lab.com/ko/small-business`
-- `https://biz2lab.com/ko/contracts-payments`
-- `https://biz2lab.com/sitemap.xml`
-- `https://biz2lab.com/robots.txt`
-- `https://biz2lab.com/rss.xml`
+- `https://www.biz2lab.com/`
+- `https://www.biz2lab.com/ko`
+- `https://www.biz2lab.com/ko/automation`
+- `https://www.biz2lab.com/ko/sales-ops`
+- `https://www.biz2lab.com/ko/small-business`
+- `https://www.biz2lab.com/ko/contracts-payments`
+- `https://www.biz2lab.com/sitemap.xml`
+- `https://www.biz2lab.com/robots.txt`
+- `https://www.biz2lab.com/rss.xml`
 
 Expected `404`:
 
-- `https://biz2lab.com/en`
-- `https://biz2lab.com/ja`
-- `https://biz2lab.com/admin`
-- `https://biz2lab.com/ai`
-- `https://biz2lab.com/amazon`
-- `https://biz2lab.com/lotto`
+- `https://www.biz2lab.com/en`
+- `https://www.biz2lab.com/ja`
+- `https://www.biz2lab.com/admin`
+- `https://www.biz2lab.com/ai`
+- `https://www.biz2lab.com/amazon`
+- `https://www.biz2lab.com/lotto`

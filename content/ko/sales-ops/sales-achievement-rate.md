@@ -16,7 +16,7 @@ tags:
   - "영업 지표"
 heroImage: "/images/posts/daily-sales-goal-breakdown-1200.webp"
 heroAlt: "목표 대비 매출 달성률을 계산하는 영업 관리표"
-canonical: "https://biz2lab.com/ko/sales-ops/sales-achievement-rate"
+canonical: "https://www.biz2lab.com/ko/sales-ops/sales-achievement-rate"
 noindex: false
 relatedPosts:
   - "daily-sales-goal-breakdown"

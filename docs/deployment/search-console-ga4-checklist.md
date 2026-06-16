@@ -9,7 +9,7 @@ Scope: Search Console and GA4 preparation
 Recommended property type:
 
 - Domain property for `biz2lab.com` if DNS verification is available.
-- URL-prefix property for `https://biz2lab.com/` if DNS access is delayed.
+- URL-prefix property for `https://www.biz2lab.com/` if DNS access is delayed.
 
 Ownership verification options:
 
@@ -19,7 +19,7 @@ Ownership verification options:
 
 Sitemap submission:
 
-- Submit `https://biz2lab.com/sitemap.xml`.
+- Submit `https://www.biz2lab.com/sitemap.xml`.
 - Confirm submitted sitemap shows 25 Korean article URLs plus approved static routes.
 - Confirm `/en`, `/ja`, admin, AI, commerce, affiliate, product, Amazon, review, and lottery routes are absent.
 
@@ -29,13 +29,13 @@ Manual Search Console checks:
 - [ ] Sitemap submitted.
 - [ ] Coverage/indexing status monitored.
 - [ ] Inspect `/ko` and 3 representative article URLs.
-- [ ] Confirm canonical host is `https://biz2lab.com`.
+- [ ] Confirm canonical host is `https://www.biz2lab.com`.
 
 ## GA4
 
 Setup notes:
 
-- Create a GA4 web data stream for `https://biz2lab.com`.
+- Create a GA4 web data stream for `https://www.biz2lab.com`.
 - Use only basic pageview measurement before AdSense review.
 - Do not enable session replay before AdSense review.
 - Do not add intrusive tracking, heatmaps, popups, or identity stitching before review.

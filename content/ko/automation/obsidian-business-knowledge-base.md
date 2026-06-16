@@ -16,7 +16,7 @@ tags:
   - "업무 지식창고"
 heroImage: "/images/posts/ai-business-automation-guide-1200.webp"
 heroAlt: "업무 지식창고를 연결하는 노트 구조"
-canonical: "https://biz2lab.com/ko/automation/obsidian-business-knowledge-base"
+canonical: "https://www.biz2lab.com/ko/automation/obsidian-business-knowledge-base"
 noindex: false
 relatedPosts:
   - "chatgpt-document-cleanup"

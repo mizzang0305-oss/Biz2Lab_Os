@@ -16,7 +16,7 @@ tags:
   - "소상공인 운영"
 heroImage: "/images/posts/daily-numbers-for-small-business-1200.webp"
 heroAlt: "소상공인 운영 기준을 모은 AI 점장 구조"
-canonical: "https://biz2lab.com/ko/small-business/ai-knowledge-store-for-small-business"
+canonical: "https://www.biz2lab.com/ko/small-business/ai-knowledge-store-for-small-business"
 noindex: false
 relatedPosts:
   - "customer-memory-system"
