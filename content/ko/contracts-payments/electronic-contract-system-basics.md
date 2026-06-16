@@ -14,8 +14,8 @@ updatedAt: "2026-06-15"
 tags:
   - "전자계약"
   - "결제 관리"
-heroImage: "/images/posts/electronic-contract-system-basics-1200.webp"
-heroAlt: "전자계약 상태와 결제 확인 흐름"
+heroImage: "/images/posts/electronic-contract-system-basics-hero.webp"
+heroAlt: "전자계약의 본인확인, 서명 요청, 문서 보관, 결제 확인이 보안 프로세스로 연결된 구조"
 canonical: "https://biz2lab.com/ko/contracts-payments/electronic-contract-system-basics"
 noindex: false
 relatedPosts:

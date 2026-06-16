@@ -14,8 +14,8 @@ updatedAt: "2026-06-15"
 tags:
   - "AI 업무 자동화"
   - "업무 시스템"
-heroImage: "/images/posts/ai-business-automation-guide-1200.webp"
-heroAlt: "업무 흐름을 정리하는 노트와 자동화 체크리스트"
+heroImage: "/images/posts/ai-business-automation-guide-hero.webp"
+heroAlt: "주문, 미수금, 전자계약, 고객문의, 매출 리포트가 하나의 AI 자동화 허브로 정리되는 업무 흐름"
 canonical: "https://biz2lab.com/ko/automation/ai-business-automation-guide"
 noindex: false
 relatedPosts:

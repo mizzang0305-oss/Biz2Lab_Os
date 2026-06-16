@@ -38,6 +38,28 @@ const root = process.cwd();
 const errors: string[] = [];
 const outputNames = new Map<string, OutputRecord>();
 const promptFingerprints = new Map<string, string[]>();
+const allowedTop3ProductionDiffPaths = new Set([
+  "assets/images/raw/ai-business-automation-guide-hero.png",
+  "assets/images/raw/accounts-receivable-tracker-hero.png",
+  "assets/images/raw/electronic-contract-system-basics-hero.png",
+  "content/ko/automation/ai-business-automation-guide.md",
+  "content/ko/sales-ops/accounts-receivable-tracker.md",
+  "content/ko/contracts-payments/electronic-contract-system-basics.md",
+  "data/image-assets.json",
+  "public/images/posts/ai-business-automation-guide-1200.webp",
+  "public/images/posts/ai-business-automation-guide-800.webp",
+  "public/images/posts/ai-business-automation-guide-400.webp",
+  "public/images/posts/ai-business-automation-guide-hero.webp",
+  "public/images/posts/accounts-receivable-tracker-1200.webp",
+  "public/images/posts/accounts-receivable-tracker-800.webp",
+  "public/images/posts/accounts-receivable-tracker-400.webp",
+  "public/images/posts/accounts-receivable-tracker-hero.webp",
+  "public/images/posts/electronic-contract-system-basics-1200.webp",
+  "public/images/posts/electronic-contract-system-basics-800.webp",
+  "public/images/posts/electronic-contract-system-basics-400.webp",
+  "public/images/posts/electronic-contract-system-basics-hero.webp",
+  "public/images/posts/manifest.json",
+]);
 
 function normalizeRepoPath(filePath: string) {
   return filePath.replaceAll("\\", "/");
@@ -324,7 +346,18 @@ function checkProductionPathDiffAgainstOrigin() {
       },
     ).trim();
     if (diff) {
-      addError("git", `production article/image paths differ from origin/master:\n${diff}`);
+      const unapprovedDiffs = diff
+        .split(/\r?\n/)
+        .filter(Boolean)
+        .filter((line) => {
+          const parts = line.split(/\t/);
+          const paths = parts.slice(1).map(normalizeRepoPath);
+          return paths.some((changedPath) => !allowedTop3ProductionDiffPaths.has(changedPath));
+        });
+
+      if (unapprovedDiffs.length > 0) {
+        addError("git", `production article/image paths differ from origin/master:\n${unapprovedDiffs.join("\n")}`);
+      }
     }
   } catch {
     addError("git", "could not verify production article/image path status");

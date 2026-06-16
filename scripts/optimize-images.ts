@@ -6,79 +6,96 @@ import sharp from "sharp";
 import { imageWidths } from "@/lib/image";
 import { getPublicPosts } from "@/lib/posts";
 
-const rawDir = path.join(process.cwd(), "assets", "images", "raw");
-const outputDir = path.join(process.cwd(), "public", "images", "posts");
-const rawExtensions = [".png", ".svg", ".jpg", ".jpeg", ".webp"] as const;
+const root = process.cwd();
+const rawDir = path.join(root, "assets", "images", "raw");
+const outputDir = path.join(root, "public", "images", "posts");
+const rawExtensions = new Set([".png", ".svg", ".jpg", ".jpeg", ".webp"]);
 
-function escapeSvg(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
+type RawImageTarget = {
+  postSlug: string;
+  rawPath: string;
+  createHeroAlias: boolean;
+};
+
+function normalizeRepoPath(filePath: string) {
+  return path.relative(root, filePath).replaceAll(path.sep, "/");
 }
 
-function findRawImage(slug: string) {
-  for (const basename of [`${slug}-hero`, slug]) {
-    for (const ext of rawExtensions) {
-      const candidate = path.join(rawDir, `${basename}${ext}`);
-      if (fs.existsSync(candidate)) {
-        return candidate;
-      }
-    }
+function rawImageTargets(): RawImageTarget[] {
+  if (!fs.existsSync(rawDir)) {
+    return [];
   }
-  return null;
+
+  const publicSlugs = new Set(getPublicPosts().map((post) => post.slug));
+  return fs
+    .readdirSync(rawDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && rawExtensions.has(path.extname(entry.name).toLowerCase()))
+    .map((entry) => {
+      const basename = path.basename(entry.name, path.extname(entry.name));
+      const postSlug = basename.endsWith("-hero") ? basename.slice(0, -"-hero".length) : basename;
+      return {
+        postSlug,
+        rawPath: path.join(rawDir, entry.name),
+        createHeroAlias: basename.endsWith("-hero"),
+      };
+    })
+    .filter((target) => publicSlugs.has(target.postSlug))
+    .sort((a, b) => a.postSlug.localeCompare(b.postSlug));
 }
 
-function toRepoPath(filePath: string | null) {
-  return filePath ? path.relative(process.cwd(), filePath).replaceAll(path.sep, "/") : null;
+async function writeWebp(input: sharp.Sharp, outputPath: string, width: number) {
+  await input
+    .clone()
+    .resize({ width, withoutEnlargement: true })
+    .webp({ quality: 82 })
+    .toFile(outputPath);
 }
-
-function placeholderSvg(title: string, category: string) {
-  return Buffer.from(`
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
-  <rect width="1200" height="675" fill="#f8fafc"/>
-  <rect x="56" y="56" width="1088" height="563" rx="22" fill="#ffffff" stroke="#dbe4e8" stroke-width="2"/>
-  <rect x="96" y="96" width="168" height="44" rx="8" fill="#0f766e"/>
-  <text x="120" y="125" fill="#ffffff" font-family="Arial, sans-serif" font-size="22" font-weight="700">Biz2Lab</text>
-  <text x="96" y="226" fill="#0f172a" font-family="Arial, sans-serif" font-size="54" font-weight="800">${escapeSvg(title.slice(0, 30))}</text>
-  <text x="96" y="300" fill="#475569" font-family="Arial, sans-serif" font-size="30">${escapeSvg(category)}</text>
-  <rect x="96" y="398" width="1008" height="2" fill="#e2e8f0"/>
-  <circle cx="100" cy="482" r="10" fill="#f59e0b"/>
-  <text x="128" y="492" fill="#334155" font-family="Arial, sans-serif" font-size="26">Local business workflow checklist</text>
-  <circle cx="100" cy="542" r="10" fill="#0f766e"/>
-  <text x="128" y="552" fill="#334155" font-family="Arial, sans-serif" font-size="26">Article concept diagram placeholder</text>
-</svg>`);
-}
-
-fs.mkdirSync(outputDir, { recursive: true });
 
 async function main() {
+  fs.mkdirSync(outputDir, { recursive: true });
+  const targets = rawImageTargets();
+  if (targets.length === 0) {
+    throw new Error("No local raw post images found under assets/images/raw. Refusing to generate placeholders.");
+  }
+
   const manifest = [];
 
-  for (const post of getPublicPosts()) {
-    const rawImage = findRawImage(post.slug);
-    const input = rawImage
-      ? sharp(rawImage)
-      : sharp(placeholderSvg(post.frontmatter.title, post.categoryName));
+  for (const target of targets) {
+    const input = sharp(target.rawPath);
+    const metadata = await input.metadata();
+    const aspectHeight = metadata.width && metadata.height
+      ? (width: number) => Math.round((width * metadata.height) / metadata.width)
+      : (width: number) => Math.round((width * 9) / 16);
 
     for (const width of imageWidths) {
-      const outputPath = path.join(outputDir, `${post.slug}-${width}.webp`);
-      await input
-        .clone()
-        .resize({ width, withoutEnlargement: true })
-        .webp({ quality: 82 })
-        .toFile(outputPath);
+      const outputPath = path.join(outputDir, `${target.postSlug}-${width}.webp`);
+      await writeWebp(input, outputPath, width);
       manifest.push({
-        id: `${post.slug}-${width}`,
+        id: `${target.postSlug}-${width}`,
         project: "biz2lab",
-        postSlug: post.slug,
+        postSlug: target.postSlug,
         usage: "hero",
         width,
-        height: Math.round((width * 9) / 16),
-        output: `/images/posts/${post.slug}-${width}.webp`,
-        source: rawImage ? "raw" : "placeholder",
-        rawPath: toRepoPath(rawImage),
+        height: aspectHeight(width),
+        output: `/images/posts/${target.postSlug}-${width}.webp`,
+        source: "raw",
+        rawPath: normalizeRepoPath(target.rawPath),
+      });
+    }
+
+    if (target.createHeroAlias) {
+      const outputPath = path.join(outputDir, `${target.postSlug}-hero.webp`);
+      await writeWebp(input, outputPath, 1200);
+      manifest.push({
+        id: `${target.postSlug}-hero`,
+        project: "biz2lab",
+        postSlug: target.postSlug,
+        usage: "hero",
+        width: 1200,
+        height: aspectHeight(1200),
+        output: `/images/posts/${target.postSlug}-hero.webp`,
+        source: "raw",
+        rawPath: normalizeRepoPath(target.rawPath),
       });
     }
   }
@@ -89,7 +106,7 @@ async function main() {
     "utf8",
   );
 
-  console.log(`optimize-images PASS (${manifest.length} webp files)`);
+  console.log(`optimize-images PASS (${manifest.length} webp files from ${targets.length} raw files)`);
 }
 
 main().catch((error) => {
