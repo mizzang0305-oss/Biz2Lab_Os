@@ -1,12 +1,20 @@
 # Biz2Lab Image Production Queue
 
-Status as of Phase 3.8-SKILL-MASTER: prompt packages are ready only. No real images were generated, no raw assets were saved, no optimized images were created, no articles or hub pages were changed, and nothing was pushed.
+Status as of Phase 3.9: prompt packages are ready only. The first three hero images are selected for manual premium generation. No real images were generated, no raw assets were saved, no optimized images were created, no articles or hub pages were changed, and nothing was pushed.
 
 Recommended manual generation order:
 
 1. Priority 1: the 5 key inline explanatory images.
 2. Priority 2: the 25 public Korean post hero images.
 3. Priority 3: the 4 category hub images.
+
+Phase 3.9 first manual generation selection:
+
+| Slug | Usage | Selection status |
+| --- | --- | --- |
+| ai-business-automation-guide | hero | selected_for_first_manual_generation |
+| accounts-receivable-tracker | hero | selected_for_first_manual_generation |
+| electronic-contract-system-basics | hero | selected_for_first_manual_generation |
 
 | Priority | Slug | Usage | Request | Prompt | Brief | Raw path | Optimized path | prompt_ready | image_created | raw_saved | optimized | validated | visually_approved | applied_to_article | pushed |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
