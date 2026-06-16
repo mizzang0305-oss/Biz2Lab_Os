@@ -14,7 +14,7 @@ updatedAt: "2026-06-15"
 tags:
   - "고객 관리"
   - "운영 기록"
-heroImage: "/images/posts/customer-memory-system-1200.webp"
+heroImage: "/images/posts/daily-numbers-for-small-business-1200.webp"
 heroAlt: "고객 이력과 다음 응대 내용을 정리한 관리표"
 canonical: "https://biz2lab.com/ko/small-business/customer-memory-system"
 noindex: false

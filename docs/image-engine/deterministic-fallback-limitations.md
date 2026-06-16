@@ -1,7 +1,7 @@
 # Deterministic Fallback Limitations
 
 Date: 2026-06-16
-Status: fallback only
+Status: fallback only; rejected for current public article application
 
 ## What Exists
 
@@ -10,6 +10,8 @@ Status: fallback only
 ## Limitation
 
 The fallback diagrams are visually repetitive. They use similar cards, arrows, simple labels, and dashboard shapes across many posts. They are useful as safe placeholders, but they should not be presented as final premium visuals or real local image model output.
+
+Phase 3.8-CLEANUP removed the earlier public application of these fallback diagrams. Keep this workflow available only as an explicit fallback reference.
 
 ## Policy
 

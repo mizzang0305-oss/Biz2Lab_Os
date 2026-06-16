@@ -14,8 +14,8 @@ updatedAt: "2026-06-15"
 tags:
   - "자동화 우선순위"
   - "업무 개선"
-heroImage: "/images/posts/automation-priority-method-1200.webp"
-heroAlt: "자동화 우선순위를 점수화하는 업무 평가 매트릭스"
+heroImage: "/images/posts/reduce-repetitive-work-with-ai-1200.webp"
+heroAlt: "업무 자동화 우선순위를 점수화한 표"
 canonical: "https://biz2lab.com/ko/automation/automation-priority-method"
 noindex: false
 relatedPosts:

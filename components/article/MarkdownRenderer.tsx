@@ -2,7 +2,6 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-import { ArticleImage } from "@/components/article/ArticleImage";
 import { slugifyHeading } from "@/lib/posts";
 
 export function MarkdownRenderer({ content }: { content: string }) {
@@ -41,13 +40,6 @@ export function MarkdownRenderer({ content }: { content: string }) {
               </h3>
             );
           },
-          img: ({ src, alt, title }) => (
-            <ArticleImage
-              src={typeof src === "string" ? src : ""}
-              alt={typeof alt === "string" ? alt : ""}
-              caption={typeof title === "string" ? title : undefined}
-            />
-          ),
         }}
       >
         {content}

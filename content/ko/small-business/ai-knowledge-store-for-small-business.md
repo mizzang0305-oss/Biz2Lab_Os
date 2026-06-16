@@ -14,7 +14,7 @@ updatedAt: "2026-06-15"
 tags:
   - "AI 점장"
   - "소상공인 운영"
-heroImage: "/images/posts/ai-knowledge-store-for-small-business-1200.webp"
+heroImage: "/images/posts/daily-numbers-for-small-business-1200.webp"
 heroAlt: "소상공인 운영 기준을 모은 AI 점장 구조"
 canonical: "https://biz2lab.com/ko/small-business/ai-knowledge-store-for-small-business"
 noindex: false
@@ -39,8 +39,6 @@ faq:
 ## AI 점장은 기준 자료가 있어야 운영을 돕습니다
 
 AI 점장을 업무에 쓰려면 매장이나 사업장의 기준을 알려줘야 합니다. 운영 시간, 예약 규칙, 주문 변경 기준, 자주 묻는 질문, 고객 응대 톤이 정리되어 있지 않으면 AI는 일반적인 답변만 만들게 됩니다.
-
-![소상공인 AI 점장이 운영 기준과 고객 질문을 참조하는 구조](/images/posts/ai-knowledge-store-for-small-business-inline-manager-1200.webp "운영 기준, 메뉴 기준, 고객 질문을 AI 점장 답변 기준으로 연결하는 구조")
 
 ## 핵심 요약
 

@@ -14,7 +14,7 @@ updatedAt: "2026-06-15"
 tags:
   - "1인 사업자"
   - "업무 시스템화"
-heroImage: "/images/posts/solo-business-systemization-1200.webp"
+heroImage: "/images/posts/daily-numbers-for-small-business-1200.webp"
 heroAlt: "1인 사업자의 반복 업무를 시스템화한 체크리스트"
 canonical: "https://biz2lab.com/ko/small-business/solo-business-systemization"
 noindex: false

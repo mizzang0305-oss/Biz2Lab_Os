@@ -109,28 +109,35 @@ test("each public post is a connected information node", () => {
   }
 });
 
-test("public posts use unique slug-based local hero images", () => {
+test("public posts use approved local hero images without requiring generated fallback assets", () => {
   const publicPosts = getPublicPosts();
-  const heroImages = new Set(publicPosts.map((post) => post.frontmatter.heroImage));
-  const imageAssets = JSON.parse(
-    fs.readFileSync(path.join(process.cwd(), "data", "image-assets.json"), "utf8"),
-  ) as Array<{ id?: string; postSlug?: string; usage?: string; src?: string; status?: string }>;
-  const activeHeroAssets = imageAssets.filter(
-    (asset) => asset.usage === "hero" && asset.status === "active",
-  );
-  const activeHeroIds = new Set(activeHeroAssets.map((asset) => asset.id));
-
-  assert.equal(heroImages.size, publicPosts.length);
-  assert.equal(activeHeroAssets.length, publicPosts.length);
-  assert.equal(activeHeroIds.size, activeHeroAssets.length);
+  const optionalAssetManifestPath = path.join(process.cwd(), "data", "image-assets.json");
 
   for (const post of publicPosts) {
-    const expectedHero = `/images/posts/${post.slug}-1200.webp`;
-    const asset = activeHeroAssets.find((candidate) => candidate.postSlug === post.slug);
+    const heroImage = post.frontmatter.heroImage;
 
-    assert.equal(post.frontmatter.heroImage, expectedHero);
-    assert.ok(fs.existsSync(path.join(process.cwd(), "public", expectedHero.replace(/^\//, ""))));
-    assert.equal(asset?.src, expectedHero);
+    assert.match(heroImage, /^\/images\/posts\/[a-z0-9][a-z0-9-]*\.webp$/);
+    assert.equal(heroImage.includes(".."), false);
+    assert.equal(heroImage.includes("?"), false);
+    assert.equal(heroImage.includes("#"), false);
+    assert.equal(/^https?:\/\//i.test(heroImage), false);
+    assert.ok(fs.existsSync(path.join(process.cwd(), "public", heroImage.replace(/^\//, ""))));
+  }
+
+  if (fs.existsSync(optionalAssetManifestPath)) {
+    const imageAssets = JSON.parse(fs.readFileSync(optionalAssetManifestPath, "utf8")) as Array<{
+      id?: string;
+      licenseStatus?: string;
+      status?: string;
+    }>;
+
+    for (const asset of imageAssets) {
+      assert.notEqual(
+        `${asset.status}:${asset.licenseStatus}`,
+        "active:local-generated-diagram",
+        `${asset.id ?? "asset"} must not keep rejected fallback visuals active`,
+      );
+    }
   }
 });
 
@@ -227,18 +234,19 @@ test("static settings keep future admin and feature surfaces disabled", () => {
   }
 });
 
-test("article images follow Next 16 image loading API", () => {
+test("article hero image follows Next 16 image loading API", () => {
   const articlePageSource = fs.readFileSync(
     path.join(process.cwd(), "app", "ko", "[category]", "[slug]", "page.tsx"),
     "utf8",
   );
-  const articleImageSource = fs.readFileSync(
-    path.join(process.cwd(), "components", "article", "ArticleImage.tsx"),
-    "utf8",
+  const articleImagePath = path.join(
+    process.cwd(),
+    "components",
+    "article",
+    "ArticleImage.tsx",
   );
 
   assert.match(articlePageSource, /\bpreload\b/);
   assert.doesNotMatch(articlePageSource, /\bpriority\b/);
-  assert.match(articleImageSource, /\bpreload\b/);
-  assert.doesNotMatch(articleImageSource, /\bpriority\b/);
+  assert.equal(fs.existsSync(articleImagePath), false);
 });

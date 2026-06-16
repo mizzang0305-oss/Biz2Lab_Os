@@ -1,88 +1,28 @@
 # Generated Diagram Images
 
 Date: 2026-06-16
-Status: Phase 3.8A local deterministic generation complete
+Status: deterministic fallback reference only; not public final output
 
-## Summary
+`scripts/generate-local-diagram-images.ts` can create deterministic local diagrams from image briefs. This path exists only as an explicit fallback workflow.
 
-Biz2Lab now has a repository-local diagram generator for article visuals:
+## Cleanup Decision
 
-```bash
-npm run generate:diagrams
-```
+The deterministic diagrams generated earlier were visually rejected as too bland and repetitive. Their public article application was removed:
 
-The command reads `image-briefs/biz2lab-article-image-briefs.json`, creates deterministic SVG diagrams in memory, writes raw PNG sources under `assets/images/raw/`, writes optimized WebP files under `public/images/posts/`, and updates `data/image-assets.json`.
+- Raw fallback files under `assets/images/raw`: removed from the final cleanup tree.
+- Generated public fallback WebP files that did not exist in the approved origin state: removed.
+- Inline fallback references in article markdown: removed.
+- `data/image-assets.json` active `local-generated-diagram` manifest: removed.
+- Prompt packages, briefs, and manual-drop workflow docs: retained.
 
-## Generated Count
+## Allowed Use
 
-- Briefs processed: 34
-- Raw PNG sources: 34
-- Public hero WebP derivatives: 75
-- Public inline WebP images: 5
-- Public hub summary WebP images: 4
-- Manifest entries in `data/image-assets.json`: 34
-- Public posts with unique hero images: 25
-- Inline image references added to posts: 5
+Only use deterministic diagrams when the user explicitly chooses `local-diagram-fallback`. Do not silently use this mode when the user requested real local generation, manual premium image creation, or final article imagery.
 
-## Safety Method
+## Replacement Path
 
-- No external image API is called.
-- No paid API is called.
-- No web scraping or hotlinking is used.
-- No real logos, product shots, people, screenshots, customer data, contract data, or payment data are used.
-- SVG text is intentionally short and generic.
-- Alt text and captions come from the approved local brief file.
-- Public output stays under `/images/posts/*.webp`.
-- Raw source output stays under `assets/images/raw/`.
-
-## Commands
-
-Generate missing diagrams:
-
-```bash
-npm run generate:diagrams
-```
-
-Force regenerate all diagrams:
-
-```bash
-npm run generate:diagrams -- --force
-```
-
-Rebuild hero derivatives from raw sources:
-
-```bash
-npm run optimize-images
-```
-
-Validate image contracts:
-
-```bash
-npm run validate:images
-```
-
-## Manifest Reuse
-
-`data/image-assets.json` is the stable asset manifest for Biz2Lab and future CommerceAuto reuse. The metadata-only reuse fields are:
-
-- `project`
-- `postSlug`
-- `usage`
-- `src`
-- `rawPath`
-- `altKo`
-- `captionKo`
-- `licenseStatus`
-- `commerceAutoReusable`
-
-This does not add CommerceAuto routes, product pages, affiliate pages, shopping features, auth, admin, upload, or public image generation UI.
-
-## Manual Visual Review Checklist
-
-- The diagram explains the article concept.
-- No image contains a real brand logo or product visual.
-- No image appears to show private data, real contracts, or real payment data.
-- Text inside the image remains sparse and readable.
-- Mobile article pages have no horizontal overflow.
-- Inline captions wrap naturally.
-- Hero cards remain visually distinct across the 25 posts.
+1. Use the prompt package as the source of truth.
+2. Create a real premium image manually or with an explicitly approved image tool.
+3. Save the raw file to the package `rawPath`.
+4. Optimize and validate locally.
+5. Apply to public article content only after visual approval.

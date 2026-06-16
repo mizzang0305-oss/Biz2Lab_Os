@@ -1,6 +1,6 @@
 # Manual Image Creation Handoff
 
-Prompt packages are production instructions, not generated images. A prompt package does not mean the raw image already exists, and article image replacement requires an actual local file.
+Prompt packages are the current source of truth for future image production. They are production instructions, not generated images. A prompt package does not mean the raw image already exists, and article image replacement requires an actual local file.
 
 ## Workflow
 
@@ -35,4 +35,6 @@ npm run build
 - Do not commit broken image references.
 - Do not mark queue fields as complete until the actual step has happened.
 - Do not write to `content/ko`, `public/images/posts`, `assets/images/raw`, or `data/image-assets.json` unless the raw image exists and the user has approved the apply step.
+- Do not treat deterministic fallback diagrams as final premium visuals.
+- Do not use `local-diagram-fallback` unless the user explicitly asks for that fallback mode.
 - Do not push without explicit user approval.

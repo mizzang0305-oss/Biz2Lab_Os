@@ -14,8 +14,8 @@ updatedAt: "2026-06-15"
 tags:
   - "ChatGPT"
   - "문서 정리"
-heroImage: "/images/posts/chatgpt-document-cleanup-1200.webp"
-heroAlt: "흩어진 업무 문서를 항목별 노트로 정리하는 흐름"
+heroImage: "/images/posts/ai-business-automation-guide-1200.webp"
+heroAlt: "업무 문서를 항목별로 정리하는 노트와 체크리스트"
 canonical: "https://biz2lab.com/ko/automation/chatgpt-document-cleanup"
 noindex: false
 relatedPosts:

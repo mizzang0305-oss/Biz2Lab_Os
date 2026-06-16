@@ -300,18 +300,31 @@ function checkPromptMarkdown(label: string, markdown: string, brief: BriefLike) 
   }
 }
 
-function checkProductionPathGitStatus() {
+function checkProductionPathDiffAgainstOrigin() {
   if (!fs.existsSync(path.join(root, ".git"))) {
     return;
   }
 
   try {
-    const status = execFileSync("git", ["status", "--short", "--", "content/ko", "public/images/posts", "assets/images/raw", "data/image-assets.json"], {
-      cwd: root,
-      encoding: "utf8",
-    }).trim();
-    if (status) {
-      addError("git", `production article/image paths have uncommitted changes:\n${status}`);
+    const diff = execFileSync(
+      "git",
+      [
+        "diff",
+        "--name-status",
+        "origin/master",
+        "--",
+        "content/ko",
+        "public/images/posts",
+        "assets/images/raw",
+        "data/image-assets.json",
+      ],
+      {
+        cwd: root,
+        encoding: "utf8",
+      },
+    ).trim();
+    if (diff) {
+      addError("git", `production article/image paths differ from origin/master:\n${diff}`);
     }
   } catch {
     addError("git", "could not verify production article/image path status");
@@ -358,7 +371,7 @@ for (const [fingerprint, labels] of promptFingerprints.entries()) {
   }
 }
 
-checkProductionPathGitStatus();
+checkProductionPathDiffAgainstOrigin();
 
 if (errors.length > 0) {
   console.error(errors.join("\n"));
