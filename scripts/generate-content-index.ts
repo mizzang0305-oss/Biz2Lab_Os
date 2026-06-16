@@ -11,10 +11,11 @@ const payload = getPublicPosts().map((post) => ({
   category: post.frontmatter.category,
   cluster: post.frontmatter.cluster,
   type: post.frontmatter.type,
+  heroImage: post.frontmatter.heroImage,
+  heroAlt: post.frontmatter.heroAlt,
   updatedAt: post.frontmatter.updatedAt,
   relatedPosts: post.frontmatter.relatedPosts,
 }));
 
 fs.writeFileSync(output, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 console.log(`generate-content-index PASS (${payload.length} posts)`);
-

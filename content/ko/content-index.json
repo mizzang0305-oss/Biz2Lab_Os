@@ -6,6 +6,8 @@
     "category": "automation",
     "cluster": "automation-basics",
     "type": "pillar",
+    "heroImage": "/images/posts/ai-business-automation-guide-hero.webp",
+    "heroAlt": "주문, 미수금, 전자계약, 고객문의, 매출 리포트가 하나의 AI 자동화 허브로 정리되는 업무 흐름",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "reduce-repetitive-work-with-ai",
@@ -20,6 +22,8 @@
     "category": "automation",
     "cluster": "automation-basics",
     "type": "checklist",
+    "heroImage": "/images/posts/reduce-repetitive-work-with-ai-1200.webp",
+    "heroAlt": "업무 자동화 우선순위를 점수화한 표",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "pre-automation-task-list",
@@ -34,6 +38,8 @@
     "category": "automation",
     "cluster": "automation-basics",
     "type": "how-to",
+    "heroImage": "/images/posts/ai-business-automation-guide-1200.webp",
+    "heroAlt": "업무 문서를 항목별로 정리하는 노트와 체크리스트",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "obsidian-business-knowledge-base",
@@ -48,6 +54,8 @@
     "category": "automation",
     "cluster": "automation-basics",
     "type": "how-to",
+    "heroImage": "/images/posts/reduce-repetitive-work-with-ai-1200.webp",
+    "heroAlt": "구글시트 업무표와 AI 요약 흐름",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "chatgpt-document-cleanup",
@@ -62,6 +70,8 @@
     "category": "automation",
     "cluster": "automation-basics",
     "type": "how-to",
+    "heroImage": "/images/posts/ai-business-automation-guide-1200.webp",
+    "heroAlt": "업무 지식창고를 연결하는 노트 구조",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "chatgpt-document-cleanup",
@@ -76,6 +86,8 @@
     "category": "automation",
     "cluster": "automation-basics",
     "type": "checklist",
+    "heroImage": "/images/posts/ai-business-automation-guide-1200.webp",
+    "heroAlt": "자동화 시작 전 업무 목록을 분류한 체크리스트",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "ai-business-automation-guide",
@@ -90,6 +102,8 @@
     "category": "automation",
     "cluster": "automation-basics",
     "type": "how-to",
+    "heroImage": "/images/posts/reduce-repetitive-work-with-ai-1200.webp",
+    "heroAlt": "반복 업무를 단계별로 줄이는 작업 보드",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "ai-business-automation-guide",
@@ -104,6 +118,8 @@
     "category": "contracts-payments",
     "cluster": "contracts-payment-basics",
     "type": "how-to",
+    "heroImage": "/images/posts/manage-unsigned-contracts-1200.webp",
+    "heroAlt": "계약서 결제 거래처 관리를 연결한 운영 흐름",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "electronic-contract-system-basics",
@@ -118,6 +134,8 @@
     "category": "contracts-payments",
     "cluster": "contracts-payment-basics",
     "type": "how-to",
+    "heroImage": "/images/posts/electronic-contract-system-basics-1200.webp",
+    "heroAlt": "전자서명과 본인확인 절차를 비교한 계약 흐름",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "electronic-contract-system-basics",
@@ -132,6 +150,8 @@
     "category": "contracts-payments",
     "cluster": "contracts-payment-basics",
     "type": "pillar",
+    "heroImage": "/images/posts/electronic-contract-system-basics-hero.webp",
+    "heroAlt": "전자계약의 본인확인, 서명 요청, 문서 보관, 결제 확인이 보안 프로세스로 연결된 구조",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "manage-unsigned-contracts",
@@ -146,6 +166,8 @@
     "category": "contracts-payments",
     "cluster": "contracts-payment-basics",
     "type": "how-to",
+    "heroImage": "/images/posts/manage-unsigned-contracts-1200.webp",
+    "heroAlt": "계약서 미작성 업체와 다음 조치일을 관리하는 표",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "electronic-contract-system-basics",
@@ -160,6 +182,8 @@
     "category": "contracts-payments",
     "cluster": "contracts-payment-basics",
     "type": "how-to",
+    "heroImage": "/images/posts/electronic-contract-system-basics-1200.webp",
+    "heroAlt": "카드 키인 결제와 PG VAN 흐름을 비교한 표",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "connect-contract-payment-customer-management",
@@ -174,6 +198,8 @@
     "category": "sales-ops",
     "cluster": "sales-ops-basics",
     "type": "checklist",
+    "heroImage": "/images/posts/accounts-receivable-tracker-hero.webp",
+    "heroAlt": "미수금 aging board와 후속 연락 일정, 회수 진행률이 함께 정리된 영업 운영 화면",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "payment-reminder-message",
@@ -188,6 +214,8 @@
     "category": "sales-ops",
     "cluster": "sales-ops-basics",
     "type": "pillar",
+    "heroImage": "/images/posts/daily-sales-goal-breakdown-1200.webp",
+    "heroAlt": "월 매출 목표를 일일 행동으로 나누는 표",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "sales-achievement-rate",
@@ -202,6 +230,8 @@
     "category": "sales-ops",
     "cluster": "sales-ops-basics",
     "type": "how-to",
+    "heroImage": "/images/posts/daily-sales-goal-breakdown-1200.webp",
+    "heroAlt": "영업팀 일일 보고서 항목을 정리한 대시보드",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "daily-sales-goal-breakdown",
@@ -216,6 +246,8 @@
     "category": "sales-ops",
     "cluster": "sales-ops-basics",
     "type": "how-to",
+    "heroImage": "/images/posts/accounts-receivable-tracker-1200.webp",
+    "heroAlt": "거래처 독촉 문구를 일정 확인 중심으로 정리한 메시지 초안",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "accounts-receivable-tracker",
@@ -230,6 +262,8 @@
     "category": "sales-ops",
     "cluster": "sales-ops-basics",
     "type": "how-to",
+    "heroImage": "/images/posts/daily-sales-goal-breakdown-1200.webp",
+    "heroAlt": "목표 대비 매출 달성률을 계산하는 영업 관리표",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "daily-sales-goal-breakdown",
@@ -244,6 +278,8 @@
     "category": "sales-ops",
     "cluster": "sales-ops-basics",
     "type": "how-to",
+    "heroImage": "/images/posts/accounts-receivable-tracker-1200.webp",
+    "heroAlt": "매출과 미수금을 함께 보여주는 영업관리 구조",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "daily-sales-goal-breakdown",
@@ -258,6 +294,8 @@
     "category": "sales-ops",
     "cluster": "sales-ops-basics",
     "type": "case-study",
+    "heroImage": "/images/posts/accounts-receivable-tracker-1200.webp",
+    "heroAlt": "거래처 주문 채널을 하나의 관리표로 통합하는 흐름",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "customer-memory-system",
@@ -272,6 +310,8 @@
     "category": "small-business",
     "cluster": "small-business-operations",
     "type": "how-to",
+    "heroImage": "/images/posts/daily-numbers-for-small-business-1200.webp",
+    "heroAlt": "소상공인 운영 기준을 모은 AI 점장 구조",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "customer-memory-system",
@@ -286,6 +326,8 @@
     "category": "small-business",
     "cluster": "small-business-operations",
     "type": "how-to",
+    "heroImage": "/images/posts/daily-numbers-for-small-business-1200.webp",
+    "heroAlt": "고객 이력과 다음 응대 내용을 정리한 관리표",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "reservation-order-review-management",
@@ -300,6 +342,8 @@
     "category": "small-business",
     "cluster": "small-business-operations",
     "type": "pillar",
+    "heroImage": "/images/posts/daily-numbers-for-small-business-1200.webp",
+    "heroAlt": "매장 운영자가 매일 확인하는 숫자 대시보드",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "unify-order-channels",
@@ -314,6 +358,8 @@
     "category": "small-business",
     "cluster": "small-business-operations",
     "type": "how-to",
+    "heroImage": "/images/posts/unify-order-channels-1200.webp",
+    "heroAlt": "예약 주문 리뷰 상태를 한곳에서 관리하는 운영표",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "unify-order-channels",
@@ -328,6 +374,8 @@
     "category": "small-business",
     "cluster": "small-business-operations",
     "type": "checklist",
+    "heroImage": "/images/posts/daily-numbers-for-small-business-1200.webp",
+    "heroAlt": "1인 사업자의 반복 업무를 시스템화한 체크리스트",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "daily-numbers-for-small-business",
@@ -342,6 +390,8 @@
     "category": "small-business",
     "cluster": "small-business-operations",
     "type": "case-study",
+    "heroImage": "/images/posts/unify-order-channels-1200.webp",
+    "heroAlt": "여러 주문 채널을 하나의 운영표로 모으는 흐름",
     "updatedAt": "2026-06-15",
     "relatedPosts": [
       "daily-numbers-for-small-business",

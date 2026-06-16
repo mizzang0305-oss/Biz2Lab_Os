@@ -11,6 +11,7 @@ import {
 import { categorySlugs, postFrontmatterSchema } from "@/lib/schema";
 import {
   getAllPosts,
+  getFeaturedHomePosts,
   getPublicPosts,
   getSitemapPosts,
 } from "@/lib/posts";
@@ -139,6 +140,54 @@ test("public posts use approved local hero images without requiring generated fa
       );
     }
   }
+});
+
+test("content index carries hero image metadata for visual audits", () => {
+  const indexPath = path.join(process.cwd(), "content", "ko", "content-index.json");
+  const indexRows = JSON.parse(fs.readFileSync(indexPath, "utf8")) as Array<{
+    slug?: string;
+    heroImage?: string;
+    heroAlt?: string;
+  }>;
+  const bySlug = new Map(indexRows.map((row) => [row.slug, row]));
+
+  for (const [slug, expectedHeroImage] of [
+    ["ai-business-automation-guide", "/images/posts/ai-business-automation-guide-hero.webp"],
+    ["accounts-receivable-tracker", "/images/posts/accounts-receivable-tracker-hero.webp"],
+    [
+      "electronic-contract-system-basics",
+      "/images/posts/electronic-contract-system-basics-hero.webp",
+    ],
+  ] as const) {
+    const row = bySlug.get(slug);
+
+    assert.ok(row, `${slug} must be listed in content-index.json`);
+    assert.equal(row.heroImage, expectedHeroImage);
+    assert.ok(row.heroAlt, `${slug} must keep image alt text in content-index.json`);
+  }
+});
+
+test("home article grid surfaces the three premium visual posts first", () => {
+  const homePosts = getFeaturedHomePosts();
+
+  assert.deepEqual(
+    homePosts.slice(0, 3).map((post) => post.slug),
+    [
+      "ai-business-automation-guide",
+      "accounts-receivable-tracker",
+      "electronic-contract-system-basics",
+    ],
+  );
+  assert.deepEqual(
+    homePosts.slice(0, 3).map((post) => post.frontmatter.heroImage),
+    [
+      "/images/posts/ai-business-automation-guide-hero.webp",
+      "/images/posts/accounts-receivable-tracker-hero.webp",
+      "/images/posts/electronic-contract-system-basics-hero.webp",
+    ],
+  );
+  assert.equal(homePosts.length, 6);
+  assert.equal(new Set(homePosts.map((post) => post.slug)).size, homePosts.length);
 });
 
 test("Supabase admin client is disabled gracefully when env vars are missing", () => {

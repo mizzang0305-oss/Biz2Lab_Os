@@ -4,11 +4,11 @@ import Link from "next/link";
 import { ArticleCard } from "@/components/cards/ArticleCard";
 import { CategoryHubCard } from "@/components/cards/CategoryHubCard";
 import { categoryList } from "@/lib/categories";
-import { getPublicPosts } from "@/lib/posts";
+import { getFeaturedHomePosts } from "@/lib/posts";
 import { siteSettings } from "@/lib/site-settings";
 
 export function HomePage() {
-  const posts = getPublicPosts().slice(0, 6);
+  const posts = getFeaturedHomePosts();
 
   return (
     <div className="bg-white">

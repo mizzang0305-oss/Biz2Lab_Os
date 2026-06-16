@@ -45,6 +45,7 @@ const allowedTop3ProductionDiffPaths = new Set([
   "content/ko/automation/ai-business-automation-guide.md",
   "content/ko/sales-ops/accounts-receivable-tracker.md",
   "content/ko/contracts-payments/electronic-contract-system-basics.md",
+  "content/ko/content-index.json",
   "data/image-assets.json",
   "public/images/posts/ai-business-automation-guide-1200.webp",
   "public/images/posts/ai-business-automation-guide-800.webp",

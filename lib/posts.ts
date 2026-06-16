@@ -26,6 +26,12 @@ export type Post = {
   headings: { id: string; text: string; level: number }[];
 };
 
+export const premiumVisualPostSlugs = [
+  "ai-business-automation-guide",
+  "accounts-receivable-tracker",
+  "electronic-contract-system-basics",
+] as const;
+
 function walkMarkdownFiles(dir: string): string[] {
   if (!fs.existsSync(dir)) {
     return [];
@@ -107,6 +113,18 @@ export function getPublicPosts() {
     );
 }
 
+export function getFeaturedHomePosts(limit = 6) {
+  const posts = getPublicPosts();
+  const featuredSlugSet = new Set<string>(premiumVisualPostSlugs);
+  const postBySlug = new Map(posts.map((post) => [post.slug, post]));
+  const featuredPosts = premiumVisualPostSlugs
+    .map((slug) => postBySlug.get(slug))
+    .filter((post): post is Post => Boolean(post));
+  const remainingPosts = posts.filter((post) => !featuredSlugSet.has(post.slug));
+
+  return [...featuredPosts, ...remainingPosts].slice(0, limit);
+}
+
 export function getSitemapPosts() {
   return getPublicPosts().filter((post) => !post.frontmatter.noindex);
 }
@@ -129,4 +147,3 @@ export function getRelatedPosts(post: Post) {
     .map((slug) => posts.find((candidate) => candidate.slug === slug))
     .filter((candidate): candidate is Post => Boolean(candidate));
 }
-
