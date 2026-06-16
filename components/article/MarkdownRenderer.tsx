@@ -36,8 +36,8 @@ export function MarkdownRenderer({ content }: { content: string }) {
             }
 
             return (
-              <figure className="not-prose my-8 min-w-0 max-w-full">
-                <div className="relative aspect-[3/2] min-w-0 overflow-hidden rounded-md border border-slate-200 bg-slate-100">
+              <span className="not-prose my-8 block min-w-0 max-w-full">
+                <span className="relative block aspect-[3/2] min-w-0 overflow-hidden rounded-md border border-slate-200 bg-slate-100">
                   <Image
                     src={imageSrc}
                     alt={imageAlt}
@@ -45,13 +45,13 @@ export function MarkdownRenderer({ content }: { content: string }) {
                     sizes="(min-width: 768px) 768px, 100vw"
                     className="object-cover"
                   />
-                </div>
+                </span>
                 {title ? (
-                  <figcaption className="mt-3 text-sm leading-6 text-slate-600">
+                  <span className="mt-3 block text-sm leading-6 text-slate-600">
                     {title}
-                  </figcaption>
+                  </span>
                 ) : null}
-              </figure>
+              </span>
             );
           },
           h2: ({ children }) => {

@@ -323,6 +323,7 @@ test("markdown inline images render through the Next Image component", () => {
   assert.match(markdownRendererSource, /\bimg:\s*\(/);
   assert.match(markdownRendererSource, /\bfill\b/);
   assert.match(markdownRendererSource, /sizes=/);
+  assert.doesNotMatch(markdownRendererSource, /<figure\b/);
 });
 
 test("Phase 4.0 content authority guard is wired and enforceable", () => {
