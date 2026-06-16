@@ -22,10 +22,15 @@ type ImageBriefLike = {
   manifestEntry?: { src?: string; rawPath?: string };
 };
 
+type OutputRecord = {
+  label: string;
+  brief: ImageBriefLike;
+};
+
 const root = process.cwd();
 const errors: string[] = [];
 const warnings: string[] = [];
-const outputNames = new Map<string, string>();
+const outputNames = new Map<string, OutputRecord>();
 const promptFingerprints = new Map<string, string[]>();
 const briefFiles = [
   path.join(root, "image-briefs", "biz2lab-article-image-briefs.json"),
@@ -138,11 +143,29 @@ function checkDuplicateOutput(label: string, brief: ImageBriefLike) {
   const normalized = output.toLowerCase();
   const previous = outputNames.get(normalized);
   if (previous) {
-    addError(label, `duplicate output filename with ${previous}: ${output}`);
+    if (isSameBriefIdentity(previous.brief, brief)) {
+      return;
+    }
+
+    addError(label, `duplicate output filename with ${previous.label}: ${output}`);
     return;
   }
 
-  outputNames.set(normalized, label);
+  outputNames.set(normalized, { label, brief });
+}
+
+function isSameBriefIdentity(left: ImageBriefLike, right: ImageBriefLike) {
+  return Boolean(
+    left.id &&
+      right.id &&
+      left.id === right.id &&
+      left.postSlug &&
+      right.postSlug &&
+      left.postSlug === right.postSlug &&
+      left.usage &&
+      right.usage &&
+      left.usage === right.usage,
+  );
 }
 
 function promptFingerprint(brief: ImageBriefLike) {

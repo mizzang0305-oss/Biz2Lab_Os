@@ -25,6 +25,8 @@ Turn a user's natural-language visual request into a safe, premium, AdSense-frie
 - creates manifest draft
 - creates article insertion plan
 - creates validation checklist
+- creates image production queue docs
+- creates manual image creation handoff docs
 
 ## What this skill does not do
 
@@ -67,6 +69,8 @@ Produce:
 - manifest draft entry
 - article update plan
 - validation checklist
+- image production queue entry
+- manual creation handoff status
 
 ## Safety Rules
 
@@ -136,9 +140,19 @@ npm run image-skill:codex -- --request image-requests/generated/ai-business-auto
 npm run optimize-images
 npm run validate:images
 npm run audit:image-briefs
+npm run audit:image-prompts
 ```
 
 7. Do not mutate article frontmatter or inline content unless the user explicitly requests the apply step and the optimized local WebP already exists.
+
+8. For batch prompt-only production, keep the queue current:
+
+```bash
+npm run image-prompts:generate
+npm run audit:image-prompts
+```
+
+Update `image-requests/generated/IMAGE_PRODUCTION_QUEUE.md` and `docs/image-engine/image-production-queue.md` after package generation. Leave downstream statuses as `no` until real images exist and are visually approved.
 
 ## File Map
 
@@ -149,7 +163,12 @@ npm run audit:image-briefs
 - Prompt builder: `lib/image-generation/prompt-builder.ts`
 - Request CLI: `scripts/create-image-request.ts`
 - Skill runner: `scripts/run-biz2lab-image-skill.ts`
+- Batch prompt generator: `scripts/generate-image-prompt-packages.ts`
 - Quality guard: `scripts/audit-image-brief-quality.ts`
+- Prompt package guard: `scripts/audit-image-prompt-packages.ts`
+- Production queue: `image-requests/generated/IMAGE_PRODUCTION_QUEUE.md`
+- Docs queue: `docs/image-engine/image-production-queue.md`
+- Manual handoff: `docs/image-engine/manual-image-creation-handoff.md`
 
 ## Modes
 

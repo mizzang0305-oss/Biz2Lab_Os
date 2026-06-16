@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -27,6 +28,17 @@ function walkFiles(dir: string): string[] {
       return entry.isFile() ? [fullPath] : [];
     })
     .sort();
+}
+
+function runTsxScript(scriptPath: string, cwd: string) {
+  return execFileSync(
+    process.execPath,
+    [
+      path.join(process.cwd(), "node_modules", "tsx", "dist", "cli.mjs"),
+      path.join(process.cwd(), scriptPath),
+    ],
+    { cwd, encoding: "utf8" },
+  );
 }
 
 test("prompt builder creates a Korean-first safe prompt package", () => {
@@ -304,6 +316,11 @@ test("Codex image creator skill ships required templates, docs, and canonical ou
     "docs/image-engine/local-codex-image-skill.md",
     "docs/image-engine/deterministic-fallback-limitations.md",
     "docs/image-engine/premium-visual-guidelines.md",
+    "docs/image-engine/image-production-queue.md",
+    "docs/image-engine/manual-image-creation-handoff.md",
+    "scripts/generate-image-prompt-packages.ts",
+    "scripts/audit-image-prompt-packages.ts",
+    "image-requests/generated/IMAGE_PRODUCTION_QUEUE.md",
   ];
 
   for (const filePath of requiredFiles) {
@@ -321,4 +338,178 @@ test("Codex image creator skill ships required templates, docs, and canonical ou
   assert.match(skill, /local-diagram-fallback/);
   assert.doesNotMatch(skill, /`local-diagram`/);
   assert.match(template, /prompt-only \| manual-drop \| local-diagram-fallback/);
+});
+
+test("image brief audit allows a generated draft to reuse the same output for the same brief identity", () => {
+  const tempDir = makeTempDir();
+  const briefDir = path.join(tempDir, "image-briefs");
+  const generatedDir = path.join(briefDir, "generated");
+  fs.mkdirSync(generatedDir, { recursive: true });
+
+  const brief = {
+    id: "ai-business-automation-guide-hero",
+    postSlug: "ai-business-automation-guide",
+    category: "automation",
+    usage: "hero",
+    optimizedPath: "public/images/posts/ai-business-automation-guide-1200.webp",
+    altKo: "AI 자동화 대시보드 흐름을 보여주는 대표 이미지",
+    captionKo: "반복 업무를 AI 자동화 대시보드로 정리하는 이미지 브리프",
+    providerPromptKo:
+      "소상공인의 주문, 미수금, 전자계약, 고객문의, 매출 리포트를 하나의 안전한 AI 자동화 대시보드 흐름으로 정리하는 프리미엄 SaaS 에디토리얼 이미지. 실제 고객 데이터나 로고 없이 업무 효율과 데이터 흐름을 중심으로 보여준다.",
+    negativePromptKo: "real logo, product package, Amazon, private data, fake screenshot",
+    categoryStyle: "업무 자동화: 문서와 데이터가 AI 자동화 후보로 분류되는 SaaS editorial style",
+    visualDifferentiationHint: "주문, 미수금, 계약, 고객문의, 매출 리포트를 서로 다른 운영 모듈로 배치한다.",
+    visualStyle: "teal, navy, soft cyan, warm amber",
+    composition: "중앙 대시보드와 주변 데이터 흐름을 조합한다.",
+    manifestEntry: {
+      src: "/images/posts/ai-business-automation-guide-1200.webp",
+      rawPath: "assets/images/raw/ai-business-automation-guide-hero.png",
+    },
+  };
+
+  fs.writeFileSync(
+    path.join(briefDir, "biz2lab-article-image-briefs.json"),
+    `${JSON.stringify({ briefs: [brief] }, null, 2)}\n`,
+    "utf8",
+  );
+  fs.writeFileSync(
+    path.join(generatedDir, "ai-business-automation-guide-hero.json"),
+    `${JSON.stringify({ ...brief, outputMode: "prompt-only" }, null, 2)}\n`,
+    "utf8",
+  );
+
+  const output = runTsxScript("scripts/audit-image-brief-quality.ts", tempDir);
+
+  assert.match(output, /audit:image-briefs PASS/);
+});
+
+test("prompt package audit passes generated packages for known slugs", () => {
+  const tempDir = makeTempDir();
+  const requestDir = path.join(tempDir, "image-requests", "generated");
+  const briefDir = path.join(tempDir, "image-briefs", "generated");
+  const articlePath = path.join(
+    process.cwd(),
+    "content",
+    "ko",
+    "sales-ops",
+    "accounts-receivable-tracker.md",
+  );
+  const beforeArticle = fs.readFileSync(articlePath, "utf8");
+
+  for (const [slug, usage, description] of [
+    [
+      "accounts-receivable-tracker",
+      "hero",
+      "미수금 상태, 약속일, 후속 조치 우선순위를 한눈에 비교하는 영업 운영 보드형 대표 이미지",
+    ],
+    [
+      "google-sheets-ai-automation",
+      "inline",
+      "스프레드시트 입력값이 AI 정리 규칙을 거쳐 검토용 표로 바뀌는 설명형 프로세스 다이어그램",
+    ],
+  ] as const) {
+    const request = createImageRequestPackage({
+      rootDir: process.cwd(),
+      slug,
+      usage,
+      description,
+      mode: "prompt-only",
+      requestDir,
+      briefDir,
+    });
+
+    runBiz2LabImageSkill({
+      rootDir: process.cwd(),
+      requestPath: request.requestPath,
+      mode: "prompt-only",
+      briefDir,
+      force: true,
+      apply: false,
+    });
+  }
+
+  const output = runTsxScript("scripts/audit-image-prompt-packages.ts", tempDir);
+
+  assert.match(output, /audit:image-prompts PASS/);
+  assert.equal(fs.readFileSync(articlePath, "utf8"), beforeArticle);
+});
+
+test("prompt package audit catches generic and unsafe generated prompts", () => {
+  const tempDir = makeTempDir();
+  const requestDir = path.join(tempDir, "image-requests", "generated");
+  const briefDir = path.join(tempDir, "image-briefs", "generated");
+  fs.mkdirSync(requestDir, { recursive: true });
+  fs.mkdirSync(briefDir, { recursive: true });
+
+  fs.writeFileSync(
+    path.join(requestDir, "generic-hero.md"),
+    `# Biz2Lab Image Request
+
+## Article
+- slug: generic
+- title: Generic
+- category: automation
+- usage: hero
+
+## User Description
+Article workflow
+
+## Output Mode
+- prompt-only
+`,
+    "utf8",
+  );
+  fs.writeFileSync(
+    path.join(requestDir, "generic-hero.prompt.md"),
+    `# Biz2Lab Image Prompt Package
+
+## Provider Prompt (Korean)
+Article workflow dashboard with people and Amazon product cards.
+
+## Negative Prompt
+
+## Filename And Paths
+- rawPath: https://example.com/raw.png
+- optimizedPath: public/images/posts/generic-1200.webp
+
+## Alt Text
+
+## Caption
+
+## Manual Creation Instructions
+- image was generated and uploaded.
+`,
+    "utf8",
+  );
+  fs.writeFileSync(
+    path.join(briefDir, "generic-hero.json"),
+    `${JSON.stringify(
+      {
+        id: "generic-hero",
+        postSlug: "generic",
+        category: "automation",
+        usage: "hero",
+        outputMode: "prompt-only",
+        rawOutput: "none",
+        rawPath: "https://example.com/raw.png",
+        optimizedPath: "public/images/posts/generic-1200.webp",
+        altKo: "",
+        captionKo: "",
+        providerPromptKo: "Article workflow dashboard with people and Amazon product cards.",
+        negativePromptKo: "",
+        manifestEntry: {
+          src: "/images/posts/generic-1200.webp",
+          rawPath: "https://example.com/raw.png",
+        },
+      },
+      null,
+      2,
+    )}\n`,
+    "utf8",
+  );
+
+  assert.throws(
+    () => runTsxScript("scripts/audit-image-prompt-packages.ts", tempDir),
+    /generic "Article workflow"|external URL|Amazon|negative prompt/i,
+  );
 });
