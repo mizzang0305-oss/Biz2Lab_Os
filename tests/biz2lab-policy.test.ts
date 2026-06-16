@@ -312,3 +312,55 @@ test("article hero image follows Next 16 image loading API", () => {
   assert.doesNotMatch(articlePageSource, /\bpriority\b/);
   assert.equal(fs.existsSync(articleImagePath), false);
 });
+
+test("markdown inline images render through the Next Image component", () => {
+  const markdownRendererSource = fs.readFileSync(
+    path.join(process.cwd(), "components", "article", "MarkdownRenderer.tsx"),
+    "utf8",
+  );
+
+  assert.match(markdownRendererSource, /import Image from "next\/image"/);
+  assert.match(markdownRendererSource, /\bimg:\s*\(/);
+  assert.match(markdownRendererSource, /\bfill\b/);
+  assert.match(markdownRendererSource, /sizes=/);
+});
+
+test("Phase 4.0 content authority guard is wired and enforceable", () => {
+  const packageJson = JSON.parse(fs.readFileSync(path.join(process.cwd(), "package.json"), "utf8")) as {
+    scripts?: Record<string, string>;
+  };
+  const auditScriptPath = path.join(process.cwd(), "scripts", "audit-content-authority.ts");
+  const top3 = new Set([
+    "ai-business-automation-guide",
+    "accounts-receivable-tracker",
+    "electronic-contract-system-basics",
+  ]);
+  const p1 = new Set([
+    "automation-priority-method",
+    "chatgpt-document-cleanup",
+    "google-sheets-ai-automation",
+    "sales-revenue-ar-structure",
+    "connect-contract-payment-customer-management",
+    "payment-reminder-message",
+    "unify-order-channels",
+    "customer-memory-system",
+  ]);
+
+  assert.equal(packageJson.scripts?.["audit:content-authority"], "tsx scripts/audit-content-authority.ts");
+  assert.ok(fs.existsSync(auditScriptPath));
+
+  for (const post of getPublicPosts()) {
+    const inlineImages = [...post.content.matchAll(/!\[[^\]]+\]\((\/images\/posts\/[^)\s]+\.webp)/g)];
+    const headings = post.headings.map((heading) => heading.text);
+
+    assert.ok([...post.content].length >= 1200, `${post.slug} needs practical depth`);
+    assert.ok(post.frontmatter.faq && post.frontmatter.faq.length >= 3, `${post.slug} needs FAQ coverage`);
+    assert.equal(new Set(headings).size, headings.length, `${post.slug} has duplicate headings`);
+
+    if (top3.has(post.slug)) {
+      assert.ok(inlineImages.length >= 3, `${post.slug} needs three Phase 4 inline images`);
+    } else if (p1.has(post.slug)) {
+      assert.ok(inlineImages.length >= 1, `${post.slug} needs a Phase 4 inline image`);
+    }
+  }
+});

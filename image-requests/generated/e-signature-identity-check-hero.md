@@ -7,24 +7,14 @@
 - usage: hero
 
 ## User Description
-전자서명, 본인확인, 인증 기록의 역할 차이를 세 개의 보안 모듈로 구분해 보여주는 대표 이미지
-
-## Business Context
-전자계약을 도입할 때 전자서명, 본인확인, 인증 기록이 각각 어떤 역할을 하는지 실무 관점에서 쉽게 정리합니다.
-
-## Visual Direction
-- mood: 차분하고 신뢰감 있는 프리미엄 Korean SaaS/editorial style
-- layout idea: 좌하단에서 우상단으로 흐르는 대각선 프로세스 위에 작은 상태 표식을 놓는다.
-- color direction: 계약서, 본인 확인, 서명, 결제 상태가 신뢰감 있게 연결되는 보안형 프로세스 모듈. 색상은 deep navy, teal, cool gray, restrained amber. 실제 브랜드나 서비스 화면이 아닌 추상 업무 시각화.
-- must include: 전자서명, 본인확인, 인증 기록
-- must avoid: 실제 로고, 사람 얼굴, 제품 사진, 실제 개인정보, 실제 서비스 화면, 외부 이미지 URL
+전자서명과 본인확인 구분을 설명하는 hero 이미지가 필요하다. 실제 업무 흐름, 상태, 담당자 확인 기준이 보여야 한다.
 
 ## Output Mode
 - prompt-only
 
 ## Expected Output
-- filename: e-signature-identity-check-hero.png
-- rawPath: assets/images/raw/e-signature-identity-check-hero.png
-- optimizedPath: public/images/posts/e-signature-identity-check-1200.webp
-- altKo: 전자서명, 본인확인, 인증 기록의 역할 차이를 세 개의 보안 모듈로 구분해 보여주는 대표 이미지를 설명하는 계약 결제 이미지
-- captionKo: 전자서명, 본인확인, 인증 기록의 역할 차이를 세 개의 보안 모듈로 구분해 보여주는 대표 이미지를 안전한 로컬 이미지 제작용 브리프로 정리합니다.
+- filename: e-signature-identity-check-hero.svg
+- rawPath: assets/images/raw/e-signature-identity-check-hero.svg
+- optimizedPath: public/images/posts/e-signature-identity-check-hero.webp
+- altKo: 전자서명과 본인확인 구분을 설명하는 대표 이미지
+- captionKo: 전자서명과 본인확인 구분에서 입력값, 담당자 확인, 다음 조치를 한눈에 보도록 정리한 대표 이미지입니다.

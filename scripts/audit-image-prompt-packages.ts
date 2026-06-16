@@ -276,6 +276,30 @@ function isCanonicalOnlyContentDiff(changedPath: string) {
   }
 }
 
+function isPhase40ContentAuthorityDiff(changedPath: string) {
+  if (!fs.existsSync(path.join(root, "docs", "content", "phase-4-0-content-authority-hardening.md"))) {
+    return false;
+  }
+
+  if (changedPath === "content/ko/content-index.json") {
+    return true;
+  }
+
+  if (changedPath.startsWith("content/ko/") && changedPath.endsWith(".md")) {
+    return true;
+  }
+
+  if (/^assets\/images\/raw\/[a-z0-9-]+-(?:hero|workflow|dashboard|risk-map|checklist)\.svg$/u.test(changedPath)) {
+    return true;
+  }
+
+  if (/^public\/images\/posts\/[a-z0-9-]+-(?:hero|workflow|dashboard|risk-map|checklist)\.webp$/u.test(changedPath)) {
+    return true;
+  }
+
+  return false;
+}
+
 function promptFingerprint(text: string) {
   return text
     .replace(/"[^"]+"/g, "\"\"")
@@ -390,6 +414,7 @@ function checkProductionPathDiffAgainstOrigin() {
           return paths.some(
             (changedPath) =>
               !allowedTop3ProductionDiffPaths.has(changedPath) &&
+              !isPhase40ContentAuthorityDiff(changedPath) &&
               !isCanonicalOnlyContentDiff(changedPath),
           );
         });

@@ -1,92 +1,26 @@
 # Biz2Lab Image Prompt Package
 
-## Source
-- slug: manage-unsigned-contracts
-- title: 거래처 계약서 미작성 업체를 관리하는 방법
-- category: contracts-payments
-- usage: hero
-- outputMode: prompt-only
-
-## Image Goal
-Create a safe, premium Biz2Lab hero image package for the article without generating or replacing production images in this step.
-
-## Article Context
-- articleTitle: 거래처 계약서 미작성 업체를 관리하는 방법
-- categoryStyle: 계약 결제: 계약서, 본인 확인, 서명, 결제 상태가 신뢰감 있게 연결되는 보안형 프로세스 모듈
-- visualDifferentiationHint: 서명 확인를 중심 모티프로 사용하고, 타임라인, 상태 노드, 검토 큐를 조합해 기존 3박스 반복 구성을 피한다.
-
-## Recommended Image Type
-Premium SaaS/editorial business illustration with category-specific workflow structure and minimal in-image text.
-
-## Image Brief
-미작성 사유, 마지막 연락일, 다음 조치일로 서명이 멈춘 거래처를 추적하는 계약 관리 레인 대표 이미지
-
 ## Provider Prompt (Korean)
-Biz2Lab 한국어 비즈니스 글 "거래처 계약서 미작성 업체를 관리하는 방법"에 사용할 대표 이미지. 사용자 설명: 미작성 사유, 마지막 연락일, 다음 조치일로 서명이 멈춘 거래처를 추적하는 계약 관리 레인 대표 이미지. 목표 톤: 차분하고 신뢰감 있는 프리미엄 Korean SaaS/editorial style. 계약서, 본인 확인, 서명, 결제 상태가 신뢰감 있게 연결되는 보안형 프로세스 모듈. 색상은 deep navy, teal, cool gray, restrained amber. 실제 브랜드나 서비스 화면이 아닌 추상 업무 시각화. 글 상단 대표 이미지로 사용할 수 있게 한눈에 주제가 잡히는 넓은 16:9 에디토리얼 구도로 만든다. 서명 확인를 중심 모티프로 사용하고, 타임라인, 상태 노드, 검토 큐를 조합해 기존 3박스 반복 구성을 피한다. 핵심 업무 맥락이 한눈에 보이게 한다. 실제 로고, 사람 얼굴, 제품 사진은 넣지 않는다. 이미지 안의 글자는 최소화하고, 읽어야 하는 설명은 alt/caption/본문에 둔다. 1200:675 비율에 맞춘 깔끔한 편집 이미지, 충분한 여백, 광고 친화적이고 신뢰감 있는 구성.
+미작성 계약 추적을 실제 업무 흐름 중심으로 설명하는 hero 인라인 이미지. 입력값, 상태값, 담당자 확인, 다음 조치가 보이되 실제 회사명, 고객명, 로고, 개인정보는 넣지 않는다. 작은 글자를 많이 넣지 말고 표, 카드, 화살표, 상태 칩을 사용한다.
 
 ## Provider Prompt (English)
-Create a Biz2Lab hero visual for a Korean business article titled "거래처 계약서 미작성 업체를 관리하는 방법". Direction: 미작성 사유, 마지막 연락일, 다음 조치일로 서명이 멈춘 거래처를 추적하는 계약 관리 레인 대표 이미지. Style: contract, verification, signature, payment status, trust, secure process modules; premium SaaS/editorial look; deep navy, teal, cool gray, restrained amber. 글 상단 대표 이미지로 사용할 수 있게 한눈에 주제가 잡히는 넓은 16:9 에디토리얼 구도로 만든다. Use abstract workflow modules and useful business-diagram structure, with minimal in-image text. No real logos, no people or faces, no product photography, no private data, no fake screenshots.
+Create a safe Biz2Lab inline hero image for 미작성 계약 추적. Use workflow cards, status chips, and clear operational structure. Avoid logos, people, private data, fake screenshots, and tiny unreadable text.
 
 ## Negative Prompt
-watermark, real logo, 브랜드 로고, photo-realistic people, 사람 얼굴, product package, Amazon, ecommerce, real company name, private data, fake screenshot, copyrighted character, external URL, hotlinked image, cluttered UI, unreadable small text, generic Article workflow label, stock photo
-
-## Filename And Paths
-- filename: manage-unsigned-contracts-hero.png
-- rawPath: assets/images/raw/manage-unsigned-contracts-hero.png
-- optimizedPath: public/images/posts/manage-unsigned-contracts-1200.webp
+실제 로고, 실명, 고객 정보, 계좌 정보, 카드 정보, 사람 얼굴, 외부 URL, 워터마크, 읽기 어려운 작은 글자
 
 ## Alt Text
-미작성 사유, 마지막 연락일, 다음 조치일로 서명이 멈춘 거래처를 추적하는 계약 관리 레인 대표 이미지를 설명하는 계약 결제 이미지
+미작성 계약 추적을 설명하는 대표 이미지
 
 ## Caption
-미작성 사유, 마지막 연락일, 다음 조치일로 서명이 멈춘 거래처를 추적하는 계약 관리 레인 대표 이미지를 안전한 로컬 이미지 제작용 브리프로 정리합니다.
+미작성 계약 추적에서 입력값, 담당자 확인, 다음 조치를 한눈에 보도록 정리한 대표 이미지입니다.
 
-## Manifest Draft
-```json
-{
-  "id": "manage-unsigned-contracts-hero",
-  "project": "biz2lab",
-  "postSlug": "manage-unsigned-contracts",
-  "usage": "hero",
-  "src": "/images/posts/manage-unsigned-contracts-1200.webp",
-  "rawPath": "assets/images/raw/manage-unsigned-contracts-hero.png",
-  "altKo": "미작성 사유, 마지막 연락일, 다음 조치일로 서명이 멈춘 거래처를 추적하는 계약 관리 레인 대표 이미지를 설명하는 계약 결제 이미지",
-  "captionKo": "미작성 사유, 마지막 연락일, 다음 조치일로 서명이 멈춘 거래처를 추적하는 계약 관리 레인 대표 이미지를 안전한 로컬 이미지 제작용 브리프로 정리합니다.",
-  "width": 1200,
-  "height": 675,
-  "format": "webp",
-  "licenseStatus": "local-prompt-package",
-  "commerceAutoReusable": true,
-  "status": "planned"
-}
-```
+## Output Paths
+- rawPath: assets/images/raw/manage-unsigned-contracts-hero.svg
+- optimizedPath: public/images/posts/manage-unsigned-contracts-hero.webp
 
-## Article Update Plan
-- 실제 이미지 승인 후 frontmatter heroImage 후보: /images/posts/manage-unsigned-contracts-1200.webp
-- 실제 이미지 승인 후 frontmatter heroAlt 후보: 미작성 사유, 마지막 연락일, 다음 조치일로 서명이 멈춘 거래처를 추적하는 계약 관리 레인 대표 이미지를 설명하는 계약 결제 이미지
-- 현재 단계에서는 기사 파일을 수정하지 않는다.
-- 적용 전 optimized WebP 파일 존재 여부와 시각 검수를 먼저 확인한다.
-
-## Manual Creation Instructions
-- Copy the Korean provider prompt into ChatGPT image generation or another explicitly approved manual/local image tool.
-- Keep the negative prompt rules active: no logos, people/faces, product/Amazon imagery, private data, fake screenshots, hotlinks, or copyrighted characters.
-- Save the raw image to assets/images/raw/manage-unsigned-contracts-hero.png.
-- Optimize to public/images/posts/manage-unsigned-contracts-1200.webp only after manual review.
-- Do not mutate article files unless the optimized local WebP exists and --apply is explicitly requested.
-
-## Validation Checklist
-- 외부 이미지 URL 없음
-- 실제 로고, 제품/Amazon 이미지, 사람 얼굴 없음
-- 개인정보와 실제 회사/고객 데이터 없음
-- 이미지 속 텍스트 최소화
-- assets/images/raw 원본과 public/images/posts WebP 경로 확인
-- npm run optimize-images
-- npm run validate:images
-- 브라우저에서 기사 또는 허브 이미지 수동 확인
-
-## Validation Commands
-```bash
-npm run optimize-images
-npm run validate:images
-npm run audit:image-briefs
-```
+## Validation
+- localOnly: true
+- outputMode: prompt-only
+- no external image URL
+- no private data
