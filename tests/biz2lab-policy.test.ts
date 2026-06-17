@@ -191,6 +191,72 @@ test("home article grid surfaces the three premium visual posts first", () => {
   assert.equal(new Set(homePosts.map((post) => post.slug)).size, homePosts.length);
 });
 
+test("article image concept map covers every public hero with distinct non-generic direction", () => {
+  const conceptMapPath = path.join(process.cwd(), "lib", "article-image-concepts.ts");
+
+  assert.equal(fs.existsSync(conceptMapPath), true, "slug-level image concept map is required");
+
+  const conceptMapSource = fs.readFileSync(conceptMapPath, "utf8");
+  const publicPosts = getPublicPosts();
+  const visualFamilies = new Set<string>();
+
+  for (const post of publicPosts) {
+    assert.match(conceptMapSource, new RegExp(`"${post.slug}"`), `${post.slug} missing from concept map`);
+    assert.match(post.frontmatter.heroImage, new RegExp(`${post.slug}-hero\\.webp$`));
+    assert.match(post.frontmatter.heroAlt, /[가-힣]/);
+    assert.ok(
+      post.frontmatter.heroAlt.length >= 16,
+      `${post.slug} needs descriptive Korean heroAlt`,
+    );
+  }
+
+  for (const match of conceptMapSource.matchAll(/visualFamily:\s*"([^"]+)"/g)) {
+    visualFamilies.add(match[1]);
+  }
+
+  assert.ok(visualFamilies.size >= 12, "25 posts need varied visual families");
+  assert.doesNotMatch(conceptMapSource, /Hero for practical operations|Article workflow/i);
+});
+
+test("non-premium hero SVGs do not expose article titles or the old generic workflow template", () => {
+  const premiumSlugs = new Set(["ai-business-automation-guide", "accounts-receivable-tracker", "electronic-contract-system-basics"]);
+  const genericTemplatePatterns = [
+    /Hero for practical operations/i,
+    /Article workflow/i,
+    /문제[\s\S]{0,500}기준[\s\S]{0,500}실행[\s\S]{0,500}검토[\s\S]{0,500}개선/,
+  ];
+
+  for (const post of getPublicPosts().filter((candidate) => !premiumSlugs.has(candidate.slug))) {
+    const rawPath = path.join(
+      process.cwd(),
+      "assets",
+      "images",
+      "raw",
+      `${post.slug}-hero.svg`,
+    );
+    assert.equal(fs.existsSync(rawPath), true, `${post.slug} needs a slug-specific raw SVG`);
+
+    const svg = fs.readFileSync(rawPath, "utf8");
+    assert.doesNotMatch(svg, new RegExp(post.frontmatter.title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    for (const pattern of genericTemplatePatterns) {
+      assert.doesNotMatch(svg, pattern, `${post.slug} still uses the old generic workflow template`);
+    }
+  }
+});
+
+test("image uniqueness audit protects all public hero images, not only the TOP3", () => {
+  const auditSource = fs.readFileSync(
+    path.join(process.cwd(), "scripts", "audit-image-uniqueness.ts"),
+    "utf8",
+  );
+
+  assert.match(auditSource, /getPublicPosts/);
+  assert.match(auditSource, /Hero for practical operations/);
+  assert.match(auditSource, /structural/i);
+  assert.match(auditSource, /visualFamily|concept/i);
+  assert.doesNotMatch(auditSource, /const targets = \[[\s\S]*ai-business-automation-guide[\s\S]*accounts-receivable-tracker[\s\S]*electronic-contract-system-basics[\s\S]*\] as const/);
+});
+
 test("Supabase admin client is disabled gracefully when env vars are missing", () => {
   const previousUrl = process.env.SUPABASE_URL;
   const previousKey = process.env.SUPABASE_SERVICE_ROLE_KEY;

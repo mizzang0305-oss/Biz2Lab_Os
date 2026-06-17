@@ -15,7 +15,7 @@ tags:
   - 소상공인
   - 운영 지표
 heroImage: /images/posts/daily-numbers-for-small-business-hero.webp
-heroAlt: 소상공인 일일 숫자을 설명하는 대표 이미지
+heroAlt: 소상공인이 매일 확인할 매출과 주문, 객단가, 미처리 업무 대시보드
 canonical: 'https://www.biz2lab.com/ko/small-business/daily-numbers-for-small-business'
 noindex: false
 relatedPosts:

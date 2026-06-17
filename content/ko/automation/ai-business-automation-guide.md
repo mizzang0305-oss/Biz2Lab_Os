@@ -15,7 +15,7 @@ tags:
   - AI 업무 자동화
   - 업무 시스템
 heroImage: /images/posts/ai-business-automation-guide-hero.webp
-heroAlt: 'AI 업무 자동화 설계의 입력값, 상태, 담당자 확인, 다음 조치를 설명하는 업무 이미지'
+heroAlt: 반복 업무와 판단 업무를 분리해 사람 검토와 연결한 AI 자동화 설계 지도
 canonical: 'https://www.biz2lab.com/ko/automation/ai-business-automation-guide'
 noindex: false
 relatedPosts:

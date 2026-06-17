@@ -8,7 +8,7 @@ import { getFeaturedHomePosts } from "@/lib/posts";
 import { siteSettings } from "@/lib/site-settings";
 
 export function HomePage() {
-  const posts = getFeaturedHomePosts();
+  const posts = getFeaturedHomePosts(10);
 
   return (
     <div className="bg-white">

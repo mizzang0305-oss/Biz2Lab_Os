@@ -15,7 +15,7 @@ tags:
   - AI 점장
   - 소상공인 운영
 heroImage: /images/posts/ai-knowledge-store-for-small-business-hero.webp
-heroAlt: AI 점장 기준 자료을 설명하는 대표 이미지
+heroAlt: 운영 기준과 고객 질문을 AI 점장 답변 기준으로 연결한 소상공인 지식 카드
 canonical: >-
   https://www.biz2lab.com/ko/small-business/ai-knowledge-store-for-small-business
 noindex: false

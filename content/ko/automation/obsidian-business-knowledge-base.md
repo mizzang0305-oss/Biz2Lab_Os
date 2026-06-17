@@ -15,7 +15,7 @@ tags:
   - Obsidian
   - 업무 지식창고
 heroImage: /images/posts/obsidian-business-knowledge-base-hero.webp
-heroAlt: 회사 업무 지식창고을 설명하는 대표 이미지
+heroAlt: 업무 기준과 고객 응대 노트가 서로 연결된 회사 지식창고 그래프
 canonical: 'https://www.biz2lab.com/ko/automation/obsidian-business-knowledge-base'
 noindex: false
 relatedPosts:

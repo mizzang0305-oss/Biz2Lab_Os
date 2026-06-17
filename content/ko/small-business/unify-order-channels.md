@@ -15,7 +15,7 @@ tags:
   - 주문 관리
   - 소상공인 자동화
 heroImage: /images/posts/unify-order-channels-hero.webp
-heroAlt: 주문 채널 통합을 설명하는 대표 이미지
+heroAlt: 전화와 메신저, 플랫폼 주문을 한곳의 처리 상태판으로 모으는 매장 주문 흐름
 canonical: 'https://www.biz2lab.com/ko/small-business/unify-order-channels'
 noindex: false
 relatedPosts:

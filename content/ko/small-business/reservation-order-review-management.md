@@ -15,7 +15,7 @@ tags:
   - 예약 관리
   - 주문 관리
 heroImage: /images/posts/reservation-order-review-management-hero.webp
-heroAlt: 예약 주문 리뷰 통합 관리을 설명하는 대표 이미지
+heroAlt: 예약과 주문, 리뷰 응대를 같은 운영표에서 상태별로 관리하는 보드
 canonical: 'https://www.biz2lab.com/ko/small-business/reservation-order-review-management'
 noindex: false
 relatedPosts:

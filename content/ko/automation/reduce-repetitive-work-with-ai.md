@@ -15,7 +15,7 @@ tags:
   - 반복 업무
   - AI 자동화
 heroImage: /images/posts/reduce-repetitive-work-with-ai-hero.webp
-heroAlt: 반복 업무 축소을 설명하는 대표 이미지
+heroAlt: 반복 업무를 수집하고 분류해 AI 초안과 사람 승인으로 줄이는 칸반 보드
 canonical: 'https://www.biz2lab.com/ko/automation/reduce-repetitive-work-with-ai'
 noindex: false
 relatedPosts:

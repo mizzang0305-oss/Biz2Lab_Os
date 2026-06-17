@@ -15,7 +15,7 @@ tags:
   - 전자서명
   - 본인확인
 heroImage: /images/posts/e-signature-identity-check-hero.webp
-heroAlt: 전자서명과 본인확인 구분을 설명하는 대표 이미지
+heroAlt: 전자서명과 본인확인 절차를 나란히 비교한 계약 업무 흐름
 canonical: 'https://www.biz2lab.com/ko/contracts-payments/e-signature-identity-check'
 noindex: false
 relatedPosts:

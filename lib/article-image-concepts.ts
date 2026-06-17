@@ -1,0 +1,317 @@
+import type { PublicCategorySlug } from "@/lib/schema";
+
+export type ArticleImageConcept = {
+  slug: string;
+  category: Exclude<PublicCategorySlug, "pillar">;
+  visualFamily: string;
+  conceptKo: string;
+  altKo: string;
+  captionKo: string;
+  labels: readonly [string, string, string, string];
+  palette: {
+    accent: string;
+    deep: string;
+    soft: string;
+    warm: string;
+    paper: string;
+  };
+  retainedPremium?: boolean;
+};
+
+const automationPalette = {
+  accent: "#0f766e",
+  deep: "#102a43",
+  soft: "#d8f3ee",
+  warm: "#f59e0b",
+  paper: "#f8fafc",
+} as const;
+
+const salesPalette = {
+  accent: "#2563eb",
+  deep: "#172554",
+  soft: "#dbeafe",
+  warm: "#14b8a6",
+  paper: "#f8fafc",
+} as const;
+
+const smallBusinessPalette = {
+  accent: "#047857",
+  deep: "#1f2937",
+  soft: "#d1fae5",
+  warm: "#f97316",
+  paper: "#fbfdf8",
+} as const;
+
+const contractPalette = {
+  accent: "#334155",
+  deep: "#0f172a",
+  soft: "#e2e8f0",
+  warm: "#0d9488",
+  paper: "#f8fafc",
+} as const;
+
+export const articleImageConcepts: Record<string, ArticleImageConcept> = {
+  "ai-business-automation-guide": {
+    slug: "ai-business-automation-guide",
+    category: "automation",
+    visualFamily: "automation-orchestration-map",
+    conceptKo: "반복 업무, 판단 업무, 기록 업무가 사람 검토와 연결되는 자동화 설계 지도",
+    altKo: "반복 업무와 판단 업무를 분리해 사람 검토와 연결한 AI 자동화 설계 지도",
+    captionKo: "반복 업무, 기록 업무, 검토 업무를 구분해 안전한 자동화 흐름으로 연결한 이미지입니다.",
+    labels: ["반복", "판단", "기록", "검토"],
+    palette: automationPalette,
+    retainedPremium: true,
+  },
+  "automation-priority-method": {
+    slug: "automation-priority-method",
+    category: "automation",
+    visualFamily: "priority-matrix",
+    conceptKo: "업무 후보 목록을 점수표와 우선순위 매트릭스로 옮기는 장면",
+    altKo: "업무 후보를 반복 빈도와 실패 비용으로 나누는 자동화 우선순위 매트릭스",
+    captionKo: "업무 후보를 점수화해 먼저 자동화할 항목과 보류할 항목을 나누는 이미지입니다.",
+    labels: ["빈도", "위험", "효과", "대기"],
+    palette: automationPalette,
+  },
+  "chatgpt-document-cleanup": {
+    slug: "chatgpt-document-cleanup",
+    category: "automation",
+    visualFamily: "document-cleanup-board",
+    conceptKo: "회의 메모, 고객 요청, 보고 초안이 정리된 문서 보드로 바뀌는 장면",
+    altKo: "흩어진 회의 메모와 고객 요청을 정리된 업무 문서로 바꾸는 문서 정리 보드",
+    captionKo: "메모와 요청을 입력으로 모아 검토 가능한 문서 초안으로 정리하는 이미지입니다.",
+    labels: ["메모", "요청", "초안", "정리"],
+    palette: automationPalette,
+  },
+  "google-sheets-ai-automation": {
+    slug: "google-sheets-ai-automation",
+    category: "automation",
+    visualFamily: "spreadsheet-ai-panel",
+    conceptKo: "스프레드시트 상태 열과 AI 요약 패널, 알림 카드가 함께 보이는 화면",
+    altKo: "스프레드시트 상태 열에서 AI 요약과 알림 패널로 이어지는 자동화 구조",
+    captionKo: "표준화된 시트 입력값이 요약, 알림, 담당자 확인으로 이어지는 이미지입니다.",
+    labels: ["상태", "요약", "알림", "확인"],
+    palette: automationPalette,
+  },
+  "obsidian-business-knowledge-base": {
+    slug: "obsidian-business-knowledge-base",
+    category: "automation",
+    visualFamily: "knowledge-graph",
+    conceptKo: "업무 기준 노트, 고객 응대 노트, 반복 질문 노트가 연결된 지식 그래프",
+    altKo: "업무 기준과 고객 응대 노트가 서로 연결된 회사 지식창고 그래프",
+    captionKo: "업무 기준, 고객 응대, 반복 질문을 연결해 찾기 쉽게 만든 지식창고 이미지입니다.",
+    labels: ["기준", "응대", "질문", "연결"],
+    palette: automationPalette,
+  },
+  "pre-automation-task-list": {
+    slug: "pre-automation-task-list",
+    category: "automation",
+    visualFamily: "readiness-checklist",
+    conceptKo: "자동화 전 입력 원본, 예외, 고객 영향, 실행 범위를 점검하는 체크리스트",
+    altKo: "자동화 전에 입력 원본과 예외 상황을 확인하는 준비 체크리스트",
+    captionKo: "입력 자료, 예외 상황, 고객 영향 범위를 먼저 점검하는 이미지입니다.",
+    labels: ["원본", "예외", "영향", "범위"],
+    palette: automationPalette,
+  },
+  "reduce-repetitive-work-with-ai": {
+    slug: "reduce-repetitive-work-with-ai",
+    category: "automation",
+    visualFamily: "reduction-kanban",
+    conceptKo: "반복 업무 카드가 수집, 분류, 초안, 승인 칸반을 거쳐 줄어드는 장면",
+    altKo: "반복 업무를 수집하고 분류해 AI 초안과 사람 승인으로 줄이는 칸반 보드",
+    captionKo: "반복 업무를 줄이는 과정을 칸반 보드와 승인 흐름으로 표현한 이미지입니다.",
+    labels: ["수집", "분류", "초안", "승인"],
+    palette: automationPalette,
+  },
+  "connect-contract-payment-customer-management": {
+    slug: "connect-contract-payment-customer-management",
+    category: "contracts-payments",
+    visualFamily: "contract-payment-loop",
+    conceptKo: "계약, 결제, 거래처 후속 조치가 끊기지 않고 순환하는 운영 흐름",
+    altKo: "계약서 작성과 결제 확인, 거래처 후속 조치를 하나로 연결한 운영 흐름",
+    captionKo: "계약 상태와 결제 확인, 거래처 후속 조치를 같은 흐름으로 연결한 이미지입니다.",
+    labels: ["계약", "결제", "거래처", "후속"],
+    palette: contractPalette,
+  },
+  "e-signature-identity-check": {
+    slug: "e-signature-identity-check",
+    category: "contracts-payments",
+    visualFamily: "identity-signature-split",
+    conceptKo: "전자서명 절차와 본인확인 절차를 좌우로 나란히 비교하는 구성",
+    altKo: "전자서명과 본인확인 절차를 나란히 비교한 계약 업무 흐름",
+    captionKo: "서명 요청과 본인확인 기록이 다른 역할을 한다는 점을 비교한 이미지입니다.",
+    labels: ["서명", "확인", "기록", "완료"],
+    palette: contractPalette,
+  },
+  "electronic-contract-system-basics": {
+    slug: "electronic-contract-system-basics",
+    category: "contracts-payments",
+    visualFamily: "contract-status-timeline",
+    conceptKo: "초안, 서명 요청, 본인확인, 보관으로 이어지는 전자계약 상태 타임라인",
+    altKo: "전자계약의 초안 작성부터 서명 요청과 보관까지 이어지는 상태 타임라인",
+    captionKo: "전자계약 시스템의 기본 상태를 시간 흐름으로 정리한 이미지입니다.",
+    labels: ["초안", "요청", "확인", "보관"],
+    palette: contractPalette,
+    retainedPremium: true,
+  },
+  "manage-unsigned-contracts": {
+    slug: "manage-unsigned-contracts",
+    category: "contracts-payments",
+    visualFamily: "unsigned-follow-up-board",
+    conceptKo: "미작성 계약 목록과 담당자 확인, 재안내 일정이 함께 있는 후속 조치 보드",
+    altKo: "미작성 계약 목록을 사유와 담당자, 재안내 일정으로 관리하는 후속 조치 보드",
+    captionKo: "서명이 멈춘 거래처를 사유, 담당자, 다음 안내일로 추적하는 이미지입니다.",
+    labels: ["미작성", "사유", "담당", "재안내"],
+    palette: contractPalette,
+  },
+  "offline-card-payment-pg-van": {
+    slug: "offline-card-payment-pg-van",
+    category: "contracts-payments",
+    visualFamily: "pg-van-settlement-map",
+    conceptKo: "카드 키인 결제, PG, VAN, 정산 표가 분리되어 연결된 결제 확인 지도",
+    altKo: "카드 키인 결제와 PG, VAN, 정산 확인 흐름을 구분한 결제 지도",
+    captionKo: "결제 입력, 승인 경로, 정산 확인을 구분해 보는 이미지입니다.",
+    labels: ["키인", "PG", "VAN", "정산"],
+    palette: contractPalette,
+  },
+  "accounts-receivable-tracker": {
+    slug: "accounts-receivable-tracker",
+    category: "sales-ops",
+    visualFamily: "receivable-aging-board",
+    conceptKo: "미수금 aging 구간과 약속일, 담당자 후속 조치가 보이는 회수 상태판",
+    altKo: "미수금 aging 구간과 약속일, 담당자 후속 조치를 함께 보여주는 회수 상태판",
+    captionKo: "미수금 상태를 경과일과 다음 연락 기준으로 나누어 보는 이미지입니다.",
+    labels: ["0-7", "8-30", "31+", "연락"],
+    palette: salesPalette,
+    retainedPremium: true,
+  },
+  "daily-sales-goal-breakdown": {
+    slug: "daily-sales-goal-breakdown",
+    category: "sales-ops",
+    visualFamily: "sales-goal-chart",
+    conceptKo: "월 목표가 일 목표와 현재 매출, 잔여 목표 대시보드로 나뉘는 장면",
+    altKo: "월 매출 목표를 일일 목표와 현재 매출, 잔여 목표로 나눈 대시보드",
+    captionKo: "월 목표를 매일 확인할 숫자와 남은 행동량으로 나누는 이미지입니다.",
+    labels: ["월목표", "일목표", "현재", "잔여"],
+    palette: salesPalette,
+  },
+  "daily-sales-report": {
+    slug: "daily-sales-report",
+    category: "sales-ops",
+    visualFamily: "daily-report-dashboard",
+    conceptKo: "실적, 상담, 견적, 다음 행동을 한 장에 모은 일일 영업 보고 화면",
+    altKo: "실적과 상담, 견적, 다음 행동을 한 화면에 정리한 영업팀 일일 보고서",
+    captionKo: "하루 영업 활동을 짧은 지표와 다음 행동으로 정리한 이미지입니다.",
+    labels: ["실적", "상담", "견적", "다음"],
+    palette: salesPalette,
+  },
+  "payment-reminder-message": {
+    slug: "payment-reminder-message",
+    category: "sales-ops",
+    visualFamily: "reminder-approval-flow",
+    conceptKo: "부드러운 입금 안내문 초안이 검토와 승인 후 발송 대기열로 이동하는 흐름",
+    altKo: "입금 안내문 초안을 검토하고 승인 후 발송하는 메시지 승인 흐름",
+    captionKo: "거래처 안내문을 초안, 검토, 승인, 발송 단계로 나누어 표현한 이미지입니다.",
+    labels: ["초안", "검토", "승인", "발송"],
+    palette: salesPalette,
+  },
+  "sales-achievement-rate": {
+    slug: "sales-achievement-rate",
+    category: "sales-ops",
+    visualFamily: "achievement-gauge",
+    conceptKo: "목표 대비 실적 게이지와 부족분, 필요한 행동량이 함께 보이는 화면",
+    altKo: "목표 대비 실적 게이지와 부족분, 필요한 행동량을 보여주는 매출 달성률 화면",
+    captionKo: "현재 실적과 부족분을 행동 기준으로 바꾸어 보는 이미지입니다.",
+    labels: ["목표", "실적", "부족", "행동"],
+    palette: salesPalette,
+  },
+  "sales-revenue-ar-structure": {
+    slug: "sales-revenue-ar-structure",
+    category: "sales-ops",
+    visualFamily: "revenue-ar-map",
+    conceptKo: "매출, 청구, 입금, 대기 상태가 하나의 흐름으로 이어지는 영업 관리 지도",
+    altKo: "매출 목표와 청구, 입금, 미수금 대기 상태를 연결한 영업관리 지도",
+    captionKo: "매출과 미수금을 분리하지 않고 한 흐름으로 확인하는 이미지입니다.",
+    labels: ["매출", "청구", "입금", "대기"],
+    palette: salesPalette,
+  },
+  "unify-order-channels-for-sales": {
+    slug: "unify-order-channels-for-sales",
+    category: "sales-ops",
+    visualFamily: "order-channel-funnel",
+    conceptKo: "전화, 메일, 현장 요청이 하나의 거래처 주문 보드로 모이는 영업 운영 흐름",
+    altKo: "전화와 메일, 현장 요청을 하나의 거래처 주문 보드로 모으는 흐름",
+    captionKo: "흩어진 거래처 주문 채널을 한 기준의 주문 보드로 통합한 이미지입니다.",
+    labels: ["전화", "메일", "현장", "주문"],
+    palette: salesPalette,
+  },
+  "ai-knowledge-store-for-small-business": {
+    slug: "ai-knowledge-store-for-small-business",
+    category: "small-business",
+    visualFamily: "ai-store-knowledge-card",
+    conceptKo: "운영 기준, 메뉴 기준, 고객 질문이 AI 점장 답변 기준으로 연결된 카드",
+    altKo: "운영 기준과 고객 질문을 AI 점장 답변 기준으로 연결한 소상공인 지식 카드",
+    captionKo: "AI 점장이 참고할 운영 기준과 고객 질문을 한곳에 모은 이미지입니다.",
+    labels: ["운영", "메뉴", "질문", "답변"],
+    palette: smallBusinessPalette,
+  },
+  "customer-memory-system": {
+    slug: "customer-memory-system",
+    category: "small-business",
+    visualFamily: "customer-record-card",
+    conceptKo: "고객 요청, 선호, 이전 응대, 다음 조치가 정리된 고객 기록 카드",
+    altKo: "고객 요청과 선호, 응대 이력, 다음 조치를 정리한 고객 기록 카드",
+    captionKo: "고객별 요청과 이전 응대 이력을 다음 조치로 연결한 이미지입니다.",
+    labels: ["요청", "선호", "이력", "다음"],
+    palette: smallBusinessPalette,
+  },
+  "daily-numbers-for-small-business": {
+    slug: "daily-numbers-for-small-business",
+    category: "small-business",
+    visualFamily: "daily-numbers-dashboard",
+    conceptKo: "매출, 주문 수, 객단가, 재방문, 미처리 업무를 보는 일일 숫자 대시보드",
+    altKo: "소상공인이 매일 확인할 매출과 주문, 객단가, 미처리 업무 대시보드",
+    captionKo: "하루 운영 상태를 다섯 가지 숫자로 확인하는 이미지입니다.",
+    labels: ["매출", "주문", "객단가", "미처리"],
+    palette: smallBusinessPalette,
+  },
+  "reservation-order-review-management": {
+    slug: "reservation-order-review-management",
+    category: "small-business",
+    visualFamily: "service-triage-board",
+    conceptKo: "예약, 주문, 리뷰 응대가 같은 운영표에서 상태별로 정리된 보드",
+    altKo: "예약과 주문, 리뷰 응대를 같은 운영표에서 상태별로 관리하는 보드",
+    captionKo: "예약, 주문, 리뷰를 각각의 다음 행동과 함께 정리한 이미지입니다.",
+    labels: ["예약", "주문", "리뷰", "응대"],
+    palette: smallBusinessPalette,
+  },
+  "solo-business-systemization": {
+    slug: "solo-business-systemization",
+    category: "small-business",
+    visualFamily: "solo-system-loop",
+    conceptKo: "상담, 주문, 정산, 고객 기록이 작은 업무 시스템으로 순환하는 장면",
+    altKo: "1인 사업자의 상담과 주문, 정산, 고객 기록이 순환하는 업무 시스템",
+    captionKo: "혼자 처리하는 업무를 반복 가능한 시스템으로 묶어 보여주는 이미지입니다.",
+    labels: ["상담", "주문", "정산", "기록"],
+    palette: smallBusinessPalette,
+  },
+  "unify-order-channels": {
+    slug: "unify-order-channels",
+    category: "small-business",
+    visualFamily: "restaurant-order-pipeline",
+    conceptKo: "전화, 메신저, 플랫폼 주문이 접수와 처리 상태판으로 모이는 매장 주문 흐름",
+    altKo: "전화와 메신저, 플랫폼 주문을 한곳의 처리 상태판으로 모으는 매장 주문 흐름",
+    captionKo: "흩어진 주문을 접수, 준비, 완료 상태로 정리한 이미지입니다.",
+    labels: ["전화", "메신저", "플랫폼", "처리"],
+    palette: smallBusinessPalette,
+  },
+};
+
+export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);
+
+export const premiumArticleImageSlugs = articleImageConceptEntries
+  .filter((concept) => concept.retainedPremium)
+  .map((concept) => concept.slug);
+
+export function getArticleImageConcept(slug: string) {
+  return articleImageConcepts[slug];
+}

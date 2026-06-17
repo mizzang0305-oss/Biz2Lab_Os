@@ -3,6 +3,8 @@ import path from "node:path";
 
 import sharp from "sharp";
 
+import { getArticleImageConcept } from "@/lib/article-image-concepts";
+import { renderArticleHeroSvg } from "@/lib/article-image-renderer";
 import { imageWidths } from "@/lib/image";
 
 type BriefUsage = "hero" | "inline" | "hub-summary";
@@ -82,7 +84,7 @@ const categoryLabels: Record<ImageBrief["category"], string[]> = {
 };
 
 const usageLabels: Record<BriefUsage, string> = {
-  hero: "Article workflow",
+  hero: "Work overview",
   inline: "Detailed flow",
   "hub-summary": "Topic map",
 };
@@ -189,6 +191,11 @@ function baseSvg(width: number, height: number, body: string, palette: ReturnTyp
 }
 
 function heroSvg(brief: ImageBrief, width: number, height: number) {
+  const concept = getArticleImageConcept(brief.postSlug);
+  if (concept) {
+    return renderArticleHeroSvg(concept);
+  }
+
   const palette = colorForBrief(brief);
   const labels = categoryLabels[brief.category];
   const body = `

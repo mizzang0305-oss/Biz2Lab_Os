@@ -15,7 +15,7 @@ tags:
   - 구글시트
   - 업무 자동화
 heroImage: /images/posts/google-sheets-ai-automation-hero.webp
-heroAlt: 시트 기반 AI 자동화을 설명하는 대표 이미지
+heroAlt: 스프레드시트 상태 열에서 AI 요약과 알림 패널로 이어지는 자동화 구조
 canonical: 'https://www.biz2lab.com/ko/automation/google-sheets-ai-automation'
 noindex: false
 relatedPosts:

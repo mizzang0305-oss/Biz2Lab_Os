@@ -15,7 +15,7 @@ tags:
   - 독촉 문자
   - 거래처 응대
 heroImage: /images/posts/payment-reminder-message-hero.webp
-heroAlt: 입금 확인 메시지을 설명하는 대표 이미지
+heroAlt: 입금 안내문 초안을 검토하고 승인 후 발송하는 메시지 승인 흐름
 canonical: 'https://www.biz2lab.com/ko/sales-ops/payment-reminder-message'
 noindex: false
 relatedPosts:

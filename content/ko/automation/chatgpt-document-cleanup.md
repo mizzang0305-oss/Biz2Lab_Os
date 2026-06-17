@@ -15,7 +15,7 @@ tags:
   - ChatGPT
   - 문서 정리
 heroImage: /images/posts/chatgpt-document-cleanup-hero.webp
-heroAlt: 업무 문서 정리을 설명하는 대표 이미지
+heroAlt: 흩어진 회의 메모와 고객 요청을 정리된 업무 문서로 바꾸는 문서 정리 보드
 canonical: 'https://www.biz2lab.com/ko/automation/chatgpt-document-cleanup'
 noindex: false
 relatedPosts:

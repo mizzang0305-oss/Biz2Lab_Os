@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import { getArticleImageConcept } from "@/lib/article-image-concepts";
 import { isLocalPostImage, publicImagePath } from "@/lib/image";
 import { getPublicPosts } from "@/lib/posts";
 
@@ -171,11 +172,21 @@ for (const post of posts) {
     errors.push(`${post.slug}: heroImage is required`);
   } else {
     checkLocalPublicImage(`${post.slug} heroImage`, heroImage);
+    if (!heroImage.includes(`${post.slug}-`)) {
+      errors.push(`${post.slug}: heroImage path must include the slug`);
+    }
     heroUsage.set(heroImage, [...(heroUsage.get(heroImage) ?? []), post.slug]);
   }
 
   if (!isDescriptiveKorean(heroAlt)) {
     errors.push(`${post.slug}: heroAlt must be descriptive Korean text`);
+  }
+
+  const imageConcept = getArticleImageConcept(post.slug);
+  if (!imageConcept) {
+    errors.push(`${post.slug}: image concept is required`);
+  } else if (heroAlt !== imageConcept.altKo) {
+    errors.push(`${post.slug}: heroAlt must match image concept altKo`);
   }
 
   for (const src of imageReferencesFromContent(post.content)) {

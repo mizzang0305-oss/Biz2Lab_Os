@@ -15,7 +15,7 @@ tags:
   - 일일 보고서
   - 영업 운영
 heroImage: /images/posts/daily-sales-report-hero.webp
-heroAlt: 영업팀 일일 보고을 설명하는 대표 이미지
+heroAlt: 실적과 상담, 견적, 다음 행동을 한 화면에 정리한 영업팀 일일 보고서
 canonical: 'https://www.biz2lab.com/ko/sales-ops/daily-sales-report'
 noindex: false
 relatedPosts:

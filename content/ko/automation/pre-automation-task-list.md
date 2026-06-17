@@ -15,7 +15,7 @@ tags:
   - 자동화 준비
   - 업무 목록
 heroImage: /images/posts/pre-automation-task-list-hero.webp
-heroAlt: 자동화 전 업무 목록화을 설명하는 대표 이미지
+heroAlt: 자동화 전에 입력 원본과 예외 상황을 확인하는 준비 체크리스트
 canonical: 'https://www.biz2lab.com/ko/automation/pre-automation-task-list'
 noindex: false
 relatedPosts:

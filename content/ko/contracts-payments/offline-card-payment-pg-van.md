@@ -15,7 +15,7 @@ tags:
   - 카드 결제
   - PG VAN
 heroImage: /images/posts/offline-card-payment-pg-van-hero.webp
-heroAlt: 오프라인 카드결제와 PG/VAN 확인을 설명하는 대표 이미지
+heroAlt: 카드 키인 결제와 PG, VAN, 정산 확인 흐름을 구분한 결제 지도
 canonical: 'https://www.biz2lab.com/ko/contracts-payments/offline-card-payment-pg-van'
 noindex: false
 relatedPosts:

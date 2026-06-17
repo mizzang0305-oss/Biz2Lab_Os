@@ -15,7 +15,7 @@ tags:
   - 미수금
   - 거래처 관리
 heroImage: /images/posts/accounts-receivable-tracker-hero.webp
-heroAlt: '미수금 aging 관리의 입력값, 상태, 담당자 확인, 다음 조치를 설명하는 업무 이미지'
+heroAlt: 미수금 aging 구간과 약속일, 담당자 후속 조치를 함께 보여주는 회수 상태판
 canonical: 'https://www.biz2lab.com/ko/sales-ops/accounts-receivable-tracker'
 noindex: false
 relatedPosts:

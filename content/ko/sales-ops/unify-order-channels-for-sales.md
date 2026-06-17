@@ -15,7 +15,7 @@ tags:
   - 거래처 관리
   - 주문 채널
 heroImage: /images/posts/unify-order-channels-for-sales-hero.webp
-heroAlt: 영업 주문 채널 통합을 설명하는 대표 이미지
+heroAlt: 전화와 메일, 현장 요청을 하나의 거래처 주문 보드로 모으는 흐름
 canonical: 'https://www.biz2lab.com/ko/sales-ops/unify-order-channels-for-sales'
 noindex: false
 relatedPosts:

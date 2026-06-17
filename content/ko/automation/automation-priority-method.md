@@ -15,7 +15,7 @@ tags:
   - 자동화 우선순위
   - 업무 개선
 heroImage: /images/posts/automation-priority-method-hero.webp
-heroAlt: 자동화 우선순위 점수화을 설명하는 대표 이미지
+heroAlt: 업무 후보를 반복 빈도와 실패 비용으로 나누는 자동화 우선순위 매트릭스
 canonical: 'https://www.biz2lab.com/ko/automation/automation-priority-method'
 noindex: false
 relatedPosts:

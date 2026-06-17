@@ -15,7 +15,7 @@ tags:
   - 매출 관리
   - 미수금 관리
 heroImage: /images/posts/sales-revenue-ar-structure-hero.webp
-heroAlt: 매출과 미수금 연결 구조을 설명하는 대표 이미지
+heroAlt: 매출 목표와 청구, 입금, 미수금 대기 상태를 연결한 영업관리 지도
 canonical: 'https://www.biz2lab.com/ko/sales-ops/sales-revenue-ar-structure'
 noindex: false
 relatedPosts:

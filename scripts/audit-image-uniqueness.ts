@@ -2,7 +2,11 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
-import matter from "gray-matter";
+import {
+  getArticleImageConcept,
+  premiumArticleImageSlugs,
+} from "@/lib/article-image-concepts";
+import { getFeaturedHomePosts, getPublicPosts } from "@/lib/posts";
 
 type AssetEntry = {
   id?: string;
@@ -23,48 +27,16 @@ type FileRecord = {
   hash: string | null;
 };
 
-type ArticleHeroEntry = {
-  slug: string;
-  src?: string;
-};
-
 const root = process.cwd();
-const targets = [
-  {
-    slug: "ai-business-automation-guide",
-    id: "ai-business-automation-guide-hero",
-    articlePath: "content/ko/automation/ai-business-automation-guide.md",
-    rawPath: "assets/images/raw/ai-business-automation-guide-hero.png",
-    publicCandidates: [
-      "public/images/posts/ai-business-automation-guide-1200.webp",
-      "public/images/posts/ai-business-automation-guide-hero.webp",
-    ],
-  },
-  {
-    slug: "accounts-receivable-tracker",
-    id: "accounts-receivable-tracker-hero",
-    articlePath: "content/ko/sales-ops/accounts-receivable-tracker.md",
-    rawPath: "assets/images/raw/accounts-receivable-tracker-hero.png",
-    publicCandidates: [
-      "public/images/posts/accounts-receivable-tracker-1200.webp",
-      "public/images/posts/accounts-receivable-tracker-hero.webp",
-    ],
-  },
-  {
-    slug: "electronic-contract-system-basics",
-    id: "electronic-contract-system-basics-hero",
-    articlePath: "content/ko/contracts-payments/electronic-contract-system-basics.md",
-    rawPath: "assets/images/raw/electronic-contract-system-basics-hero.png",
-    publicCandidates: [
-      "public/images/posts/electronic-contract-system-basics-1200.webp",
-      "public/images/posts/electronic-contract-system-basics-hero.webp",
-    ],
-  },
-] as const;
-
 const errors: string[] = [];
 const warnings: string[] = [];
 const infos: string[] = [];
+const genericTemplatePatterns = [
+  /Hero for practical operations/i,
+  /Article workflow/i,
+  /문제[\s\S]{0,500}기준[\s\S]{0,500}실행[\s\S]{0,500}검토[\s\S]{0,500}개선/,
+];
+const premiumSlugSet = new Set<string>(premiumArticleImageSlugs);
 
 function repoPath(filePath: string) {
   return filePath.replaceAll("\\", "/");
@@ -84,6 +56,10 @@ function readJson<T>(filePath: string): T | null {
 
 function hashFile(filePath: string) {
   return crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
+}
+
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function fileRecord(label: string, slug: string, kind: FileRecord["kind"], candidatePath: string): FileRecord {
@@ -112,15 +88,6 @@ function fileRecord(label: string, slug: string, kind: FileRecord["kind"], candi
   };
 }
 
-function collectFileRecords() {
-  return targets.flatMap<FileRecord>((target) => [
-    fileRecord(target.id, target.slug, "raw", target.rawPath),
-    ...target.publicCandidates.map((candidate) =>
-      fileRecord(`${target.id}:${path.basename(candidate)}`, target.slug, "public", candidate),
-    ),
-  ]);
-}
-
 function groupBy<T>(items: T[], keyForItem: (item: T) => string | null) {
   const grouped = new Map<string, T[]>();
   for (const item of items) {
@@ -131,36 +98,6 @@ function groupBy<T>(items: T[], keyForItem: (item: T) => string | null) {
     grouped.set(key, [...(grouped.get(key) ?? []), item]);
   }
   return grouped;
-}
-
-function checkExactHashDuplicates(records: FileRecord[]) {
-  for (const [hash, matches] of groupBy(records.filter((record) => record.exists), (record) => record.hash)) {
-    const uniqueSlugs = new Set(matches.map((match) => match.slug));
-    if (uniqueSlugs.size > 1) {
-      errors.push(
-        `duplicate file hash ${hash}: ${matches.map((match) => `${match.slug}:${match.path}`).join(", ")}`,
-      );
-    }
-  }
-}
-
-function checkNearIdenticalSizes(records: FileRecord[]) {
-  const existingRaw = records.filter((record) => record.kind === "raw" && record.exists && record.size !== null);
-  for (let leftIndex = 0; leftIndex < existingRaw.length; leftIndex += 1) {
-    for (let rightIndex = leftIndex + 1; rightIndex < existingRaw.length; rightIndex += 1) {
-      const left = existingRaw[leftIndex];
-      const right = existingRaw[rightIndex];
-      const leftSize = left.size ?? 0;
-      const rightSize = right.size ?? 0;
-      const larger = Math.max(leftSize, rightSize);
-      const differenceRatio = larger === 0 ? 0 : Math.abs(leftSize - rightSize) / larger;
-      if (differenceRatio <= 0.01) {
-        warnings.push(
-          `near-identical raw file sizes: ${left.slug} (${leftSize}) and ${right.slug} (${rightSize})`,
-        );
-      }
-    }
-  }
 }
 
 function normalizeAssetEntries(raw: unknown): AssetEntry[] {
@@ -177,70 +114,180 @@ function normalizeAssetEntries(raw: unknown): AssetEntry[] {
   return [];
 }
 
-function readTop3ArticleHeroImages() {
-  const entries: ArticleHeroEntry[] = [];
+function rawPathForSlug(slug: string) {
+  const concept = getArticleImageConcept(slug);
+  const extension = concept?.retainedPremium ? "png" : "svg";
+  return `assets/images/raw/${slug}-hero.${extension}`;
+}
 
-  for (const target of targets) {
-    const fullPath = absolutePath(target.articlePath);
-    if (!fs.existsSync(fullPath)) {
+function publicCandidatesForSlug(slug: string) {
+  return [
+    `public/images/posts/${slug}-1200.webp`,
+    `public/images/posts/${slug}-800.webp`,
+    `public/images/posts/${slug}-400.webp`,
+    `public/images/posts/${slug}-hero.webp`,
+  ];
+}
+
+function collectFileRecords() {
+  return getPublicPosts().flatMap<FileRecord>((post) => [
+    fileRecord(`${post.slug}-raw`, post.slug, "raw", rawPathForSlug(post.slug)),
+    ...publicCandidatesForSlug(post.slug).map((candidate) =>
+      fileRecord(`${post.slug}:${path.basename(candidate)}`, post.slug, "public", candidate),
+    ),
+  ]);
+}
+
+function checkExactHashDuplicates(records: FileRecord[]) {
+  for (const [hash, matches] of groupBy(records.filter((record) => record.exists), (record) => record.hash)) {
+    const uniqueSlugs = new Set(matches.map((match) => match.slug));
+    if (uniqueSlugs.size > 1) {
+      errors.push(
+        `duplicate file hash ${hash}: ${matches.map((match) => `${match.slug}:${match.path}`).join(", ")}`,
+      );
+    }
+  }
+}
+
+function structuralSignature(svg: string) {
+  const family = svg.match(/data-family="([^"]+)"/)?.[1] ?? "no-family";
+  const tags = [...svg.matchAll(/<([a-zA-Z]+)\b/g)].map((match) => match[1]).join("-");
+  const rectCount = (svg.match(/<rect\b/g) ?? []).length;
+  const circleCount = (svg.match(/<circle\b/g) ?? []).length;
+  const pathCount = (svg.match(/<path\b/g) ?? []).length;
+  return `${family}:${rectCount}:${circleCount}:${pathCount}:${tags}`;
+}
+
+function checkRawSvgQuality() {
+  const posts = getPublicPosts();
+  const structuralRecords: { slug: string; signature: string }[] = [];
+
+  for (const post of posts) {
+    const concept = getArticleImageConcept(post.slug);
+    if (!concept) {
+      errors.push(`${post.slug}: missing image concept`);
       continue;
     }
-    const parsed = matter(fs.readFileSync(fullPath, "utf8"));
-    const src = typeof parsed.data.heroImage === "string" ? parsed.data.heroImage : undefined;
-    entries.push({
-      slug: target.slug,
-      src,
-    });
+
+    if (!post.frontmatter.heroImage.includes(`${post.slug}-`)) {
+      errors.push(`${post.slug}: heroImage path must include slug`);
+    }
+
+    if (post.frontmatter.heroAlt !== concept.altKo) {
+      errors.push(`${post.slug}: heroAlt does not match concept altKo`);
+    }
+
+    if (concept.retainedPremium) {
+      continue;
+    }
+
+    const rawPath = absolutePath(rawPathForSlug(post.slug));
+    if (!fs.existsSync(rawPath)) {
+      errors.push(`${post.slug}: missing raw SVG ${repoPath(path.relative(root, rawPath))}`);
+      continue;
+    }
+
+    const svg = fs.readFileSync(rawPath, "utf8");
+    structuralRecords.push({ slug: post.slug, signature: structuralSignature(svg) });
+
+    if (!svg.includes(`data-family="${concept.visualFamily}"`)) {
+      errors.push(`${post.slug}: raw SVG missing visual family ${concept.visualFamily}`);
+    }
+
+    for (const pattern of genericTemplatePatterns) {
+      if (pattern.test(svg)) {
+        errors.push(`${post.slug}: raw SVG still contains old generic workflow template`);
+      }
+    }
+
+    if (new RegExp(escapeRegExp(post.frontmatter.title)).test(svg)) {
+      errors.push(`${post.slug}: raw SVG contains the article title`);
+    }
   }
 
-  return entries;
+  for (const [signature, matches] of groupBy(structuralRecords, (record) => record.signature)) {
+    if (matches.length > 3) {
+      errors.push(
+        `structural duplicate risk: ${signature} shared by ${matches.map((match) => match.slug).join(", ")}`,
+      );
+    }
+  }
+}
+
+function checkConceptDiversity() {
+  const posts = getPublicPosts();
+  const familyCounts = new Map<string, string[]>();
+
+  for (const post of posts) {
+    const concept = getArticleImageConcept(post.slug);
+    if (!concept) {
+      errors.push(`${post.slug}: missing image concept`);
+      continue;
+    }
+    familyCounts.set(concept.visualFamily, [...(familyCounts.get(concept.visualFamily) ?? []), post.slug]);
+  }
+
+  const nonPremiumFamilies = new Set(
+    posts
+      .filter((post) => !premiumSlugSet.has(post.slug))
+      .map((post) => getArticleImageConcept(post.slug)?.visualFamily)
+      .filter(Boolean),
+  );
+
+  if (nonPremiumFamilies.size < 12) {
+    errors.push(`non-TOP3 visual family diversity too low: ${nonPremiumFamilies.size}`);
+  }
+
+  for (const [family, slugs] of familyCounts) {
+    if (slugs.length > 2) {
+      errors.push(`visualFamily ${family} reused too often: ${slugs.join(", ")}`);
+    }
+  }
+
+  const firstTen = getFeaturedHomePosts(10);
+  const firstTenFamilies = firstTen.map((post) => getArticleImageConcept(post.slug)?.visualFamily ?? "missing");
+  if (new Set(firstTenFamilies).size < 8) {
+    errors.push(`first 10 cards need more visual diversity: ${firstTenFamilies.join(", ")}`);
+  }
+
+  for (let index = 1; index < firstTenFamilies.length; index += 1) {
+    if (firstTenFamilies[index] === firstTenFamilies[index - 1]) {
+      errors.push(`adjacent first-card visual family repeated: ${firstTen[index - 1].slug}, ${firstTen[index].slug}`);
+    }
+  }
 }
 
 function checkDuplicateManifestFields(entries: AssetEntry[], sourceLabel: string) {
-  const top3Slugs = new Set<string>(targets.map((target) => target.slug));
-  const scoped = entries.filter((entry) => !entry.postSlug || top3Slugs.has(entry.postSlug));
+  const scoped = entries.filter((entry) => entry.postSlug && getArticleImageConcept(entry.postSlug));
 
   for (const [src, matches] of groupBy(scoped, (entry) => entry.src ?? entry.output ?? null)) {
     const slugs = new Set(matches.map((match) => match.postSlug).filter(Boolean));
     if (slugs.size > 1) {
-      errors.push(`${sourceLabel}: duplicate optimized src assigned to multiple TOP3 slugs: ${src}`);
+      errors.push(`${sourceLabel}: duplicate optimized src assigned to multiple slugs: ${src}`);
     }
   }
 
   for (const [rawPath, matches] of groupBy(scoped, (entry) => entry.rawPath ?? null)) {
     const slugs = new Set(matches.map((match) => match.postSlug).filter(Boolean));
     if (slugs.size > 1) {
-      errors.push(`${sourceLabel}: duplicate rawPath assigned to multiple TOP3 slugs: ${rawPath}`);
+      errors.push(`${sourceLabel}: duplicate rawPath assigned to multiple slugs: ${rawPath}`);
     }
-  }
-}
-
-function checkArticleHeroReuse(entries: ArticleHeroEntry[]) {
-  for (const [src, matches] of groupBy(entries, (entry) => entry.src ?? null)) {
-    const slugs = new Set(matches.map((match) => match.slug));
-    if (slugs.size > 1) {
-      errors.push(`article frontmatter: duplicate heroImage assigned to multiple TOP3 slugs: ${src}`);
-    }
-  }
-}
-
-function checkMissingRaw(records: FileRecord[]) {
-  for (const record of records.filter((item) => item.kind === "raw" && !item.exists)) {
-    warnings.push(`missing TOP3 raw image: ${record.path}`);
   }
 }
 
 const records = collectFileRecords();
-checkMissingRaw(records);
-checkExactHashDuplicates(records);
-checkNearIdenticalSizes(records);
+for (const record of records.filter((item) => !item.exists)) {
+  errors.push(`missing ${record.kind} image: ${record.path}`);
+}
 
+checkExactHashDuplicates(records);
+checkRawSvgQuality();
+checkConceptDiversity();
 checkDuplicateManifestFields(normalizeAssetEntries(readJson<unknown>("data/image-assets.json")), "data/image-assets.json");
 checkDuplicateManifestFields(
   normalizeAssetEntries(readJson<unknown>("public/images/posts/manifest.json")),
   "public/images/posts/manifest.json",
 );
-checkArticleHeroReuse(readTop3ArticleHeroImages());
 
 for (const record of records) {
   infos.push(
@@ -248,6 +295,16 @@ for (const record of records) {
       record.size === null ? "" : ` (${record.size} bytes)`
     }`,
   );
+}
+
+for (const [family, matches] of groupBy(
+  getPublicPosts().map((post) => ({
+    slug: post.slug,
+    family: getArticleImageConcept(post.slug)?.visualFamily ?? null,
+  })),
+  (record) => record.family,
+)) {
+  infos.push(`CONCEPT ${family}: ${matches.map((match) => match.slug).join(", ")}`);
 }
 
 for (const info of infos) {

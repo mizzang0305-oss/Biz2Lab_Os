@@ -300,6 +300,26 @@ function isPhase40ContentAuthorityDiff(changedPath: string) {
   return false;
 }
 
+function isPhase42A3ImageRepairDiff(changedPath: string) {
+  if (changedPath === "content/ko/content-index.json") {
+    return true;
+  }
+
+  if (/^assets\/images\/raw\/[a-z0-9-]+-hero\.svg$/u.test(changedPath)) {
+    return true;
+  }
+
+  if (/^public\/images\/posts\/[a-z0-9-]+-(?:1200|800|400|hero)\.webp$/u.test(changedPath)) {
+    return true;
+  }
+
+  if (changedPath === "public/images/posts/manifest.json") {
+    return true;
+  }
+
+  return false;
+}
+
 function promptFingerprint(text: string) {
   return text
     .replace(/"[^"]+"/g, "\"\"")
@@ -415,6 +435,7 @@ function checkProductionPathDiffAgainstOrigin() {
             (changedPath) =>
               !allowedTop3ProductionDiffPaths.has(changedPath) &&
               !isPhase40ContentAuthorityDiff(changedPath) &&
+              !isPhase42A3ImageRepairDiff(changedPath) &&
               !isCanonicalOnlyContentDiff(changedPath),
           );
         });

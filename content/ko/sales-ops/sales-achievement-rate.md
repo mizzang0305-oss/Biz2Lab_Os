@@ -15,7 +15,7 @@ tags:
   - 매출 달성률
   - 영업 지표
 heroImage: /images/posts/sales-achievement-rate-hero.webp
-heroAlt: 매출 달성률 해석을 설명하는 대표 이미지
+heroAlt: 목표 대비 실적 게이지와 부족분, 필요한 행동량을 보여주는 매출 달성률 화면
 canonical: 'https://www.biz2lab.com/ko/sales-ops/sales-achievement-rate'
 noindex: false
 relatedPosts:

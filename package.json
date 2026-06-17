@@ -28,7 +28,8 @@
     "audit:image-briefs": "tsx scripts/audit-image-brief-quality.ts",
     "audit:image-prompts": "tsx scripts/audit-image-prompt-packages.ts",
     "audit:image-uniqueness": "tsx scripts/audit-image-uniqueness.ts",
-    "generate-content-index": "tsx scripts/generate-content-index.ts"
+    "generate-content-index": "tsx scripts/generate-content-index.ts",
+    "repair:article-images": "tsx scripts/repair-article-hero-images.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.1",

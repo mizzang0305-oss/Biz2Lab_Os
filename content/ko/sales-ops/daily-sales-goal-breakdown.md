@@ -15,7 +15,7 @@ tags:
   - 매출 목표
   - 영업 관리
 heroImage: /images/posts/daily-sales-goal-breakdown-hero.webp
-heroAlt: 월 목표의 일일 행동 분해을 설명하는 대표 이미지
+heroAlt: 월 매출 목표를 일일 목표와 현재 매출, 잔여 목표로 나눈 대시보드
 canonical: 'https://www.biz2lab.com/ko/sales-ops/daily-sales-goal-breakdown'
 noindex: false
 relatedPosts:

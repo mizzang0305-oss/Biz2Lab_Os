@@ -15,7 +15,7 @@ tags:
   - 계약 결제 연결
   - 거래처 관리
 heroImage: /images/posts/connect-contract-payment-customer-management-hero.webp
-heroAlt: 계약 결제 고객관리 연결을 설명하는 대표 이미지
+heroAlt: 계약서 작성과 결제 확인, 거래처 후속 조치를 하나로 연결한 운영 흐름
 canonical: >-
   https://www.biz2lab.com/ko/contracts-payments/connect-contract-payment-customer-management
 noindex: false

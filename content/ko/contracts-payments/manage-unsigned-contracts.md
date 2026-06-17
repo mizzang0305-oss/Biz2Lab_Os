@@ -15,7 +15,7 @@ tags:
   - 계약 관리
   - 계약서 미작성
 heroImage: /images/posts/manage-unsigned-contracts-hero.webp
-heroAlt: 미작성 계약 추적을 설명하는 대표 이미지
+heroAlt: 미작성 계약 목록을 사유와 담당자, 재안내 일정으로 관리하는 후속 조치 보드
 canonical: 'https://www.biz2lab.com/ko/contracts-payments/manage-unsigned-contracts'
 noindex: false
 relatedPosts:

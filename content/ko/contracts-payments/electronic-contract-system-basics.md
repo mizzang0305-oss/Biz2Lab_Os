@@ -15,7 +15,7 @@ tags:
   - 전자계약
   - 결제 관리
 heroImage: /images/posts/electronic-contract-system-basics-hero.webp
-heroAlt: '전자계약 상태 관리의 입력값, 상태, 담당자 확인, 다음 조치를 설명하는 업무 이미지'
+heroAlt: 전자계약의 초안 작성부터 서명 요청과 보관까지 이어지는 상태 타임라인
 canonical: >-
   https://www.biz2lab.com/ko/contracts-payments/electronic-contract-system-basics
 noindex: false
