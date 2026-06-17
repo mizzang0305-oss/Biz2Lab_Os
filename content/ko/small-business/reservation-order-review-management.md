@@ -110,9 +110,3 @@ faq:
 ## 최신성 검토 메모
 
 이 글은 특정 법률, 세무, 금융 정책을 단정하지 않고 업무 운영 구조를 기준으로 설명합니다. 전자서명, 본인확인, 결제, 세무 처리처럼 공식 확인이 필요한 영역은 각 서비스의 최신 안내와 내부 담당자 검토를 별도로 거쳐야 합니다. 확인할 수 없는 수치나 정책은 자동화 기준으로 쓰지 않는 것이 안전합니다.
-
-## 관련 글
-
-- [unify-order-channels](/ko/small-business/unify-order-channels)
-- [customer-memory-system](/ko/small-business/customer-memory-system)
-- [ai-knowledge-store-for-small-business](/ko/small-business/ai-knowledge-store-for-small-business)

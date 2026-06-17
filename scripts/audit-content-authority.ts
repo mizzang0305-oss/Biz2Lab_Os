@@ -32,7 +32,6 @@ const requiredSectionHeadings = [
   "자동화 구조",
   "리스크와 방지책",
   "도입 순서",
-  "관련 글",
 ];
 
 const forbiddenContentPatterns = [
@@ -70,8 +69,10 @@ function duplicatedValues(values: string[]) {
 }
 
 const posts = getPublicPosts();
+const postsBySlug = new Map(posts.map((post) => [post.slug, post]));
 const heroUsage = new Map<string, string[]>();
 const summaryRows: string[] = [];
+const slugOnlyMarkdownLink = /\[([a-z0-9]+(?:-[a-z0-9]+)+)\]\(\/ko\/[^)]+\)/g;
 
 for (const post of posts) {
   const contentLength = [...post.content].length;
@@ -125,8 +126,26 @@ for (const post of posts) {
     errors.push(`${post.slug}: duplicate headings: ${duplicateHeadings.join(", ")}`);
   }
 
-  if (relatedHeadingCount > 1) {
-    errors.push(`${post.slug}: duplicate related section`);
+  if (relatedHeadingCount > 0) {
+    errors.push(`${post.slug}: markdown related section should be rendered by RelatedReadingBox`);
+  }
+
+  for (const relatedSlug of post.frontmatter.relatedPosts) {
+    const relatedPost = postsBySlug.get(relatedSlug);
+    if (!relatedPost) {
+      errors.push(`${post.slug}: unresolved related post ${relatedSlug}`);
+      continue;
+    }
+    if (relatedPost.frontmatter.title === relatedPost.slug || !/[가-힣]/.test(relatedPost.frontmatter.title)) {
+      errors.push(`${post.slug}: related post ${relatedSlug} does not resolve to a Korean title`);
+    }
+    if (!relatedPost.frontmatter.description.trim()) {
+      errors.push(`${post.slug}: related post ${relatedSlug} needs a description`);
+    }
+  }
+
+  for (const match of post.content.matchAll(slugOnlyMarkdownLink)) {
+    errors.push(`${post.slug}: slug-only markdown link label is public: ${match[1]}`);
   }
 
   for (const { pattern, label } of forbiddenContentPatterns) {

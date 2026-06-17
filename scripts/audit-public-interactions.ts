@@ -126,8 +126,13 @@ function validateLinksAndButtons(filePath: string) {
 }
 
 function validateSearchFallback() {
+  const siteHeader = readProjectFile(path.join("components", "layout", "SiteHeader.tsx"));
   const searchBox = readProjectFile(path.join("components", "search", "SearchBox.tsx"));
   const envExample = readProjectFile(".env.example");
+
+  if (siteHeader.includes("SearchBox")) {
+    errors.push("components/layout/SiteHeader.tsx: disabled search box must not be globally exposed in the article header");
+  }
 
   if (
     envExample.includes("NEXT_PUBLIC_PAGEFIND_ENABLED=false") &&
@@ -138,7 +143,58 @@ function validateSearchFallback() {
   ) {
     errors.push("components/search/SearchBox.tsx: disabled Pagefind fallback is missing");
   }
-  checked.push("Pagefind disabled search fallback");
+  checked.push("Pagefind disabled search fallback and article header exposure");
+}
+
+function validateResponsiveArticleTables() {
+  const markdownRenderer = readProjectFile(path.join("components", "article", "MarkdownRenderer.tsx"));
+  const responsiveTable = readProjectFile(path.join("components", "article", "ResponsiveTable.tsx"));
+  const globalCss = readProjectFile(path.join("app", "globals.css"));
+
+  if (!markdownRenderer.includes("ResponsiveTable") || !markdownRenderer.includes("table:")) {
+    errors.push("components/article/MarkdownRenderer.tsx: markdown tables must render through ResponsiveTable");
+  }
+  if (!responsiveTable.includes("md:hidden") || !responsiveTable.includes("md:block")) {
+    errors.push("components/article/ResponsiveTable.tsx: mobile card and desktop table modes are required");
+  }
+  if (/word-break:\s*break-all/.test(globalCss)) {
+    errors.push("app/globals.css: word-break break-all can split Korean table text one character at a time");
+  }
+  if (/\.prose-biz2lab table[\s\S]*overflow-x:\s*auto/.test(globalCss)) {
+    errors.push("app/globals.css: markdown tables must not rely only on horizontal overflow");
+  }
+  checked.push("responsive article tables");
+}
+
+function validateGoogleSetupStillAbsent() {
+  const forbiddenFiles = [
+    path.join(root, "public", "ads.txt"),
+    path.join(root, "public", "google-site-verification.html"),
+  ];
+  for (const forbiddenFile of forbiddenFiles) {
+    if (fs.existsSync(forbiddenFile)) {
+      errors.push(`forbidden Google setup file exists: ${toPosix(path.relative(root, forbiddenFile))}`);
+    }
+  }
+
+  const forbiddenPatterns = [
+    { pattern: /google-site-verification/, label: "Search Console verification" },
+    { pattern: /googletagmanager\.com\/gtag\/js|gtag\(|G-[A-Z0-9]{10}/, label: "GA4 script or measurement ID" },
+    { pattern: /adsbygoogle|pagead2\.googlesyndication\.com|ca-pub-\d{16}/, label: "AdSense script or client ID" },
+  ];
+
+  for (const sourceRoot of ["app", "components", "lib"]) {
+    for (const filePath of walkFiles(path.join(root, sourceRoot))) {
+      const relativePath = path.relative(root, filePath);
+      const source = fs.readFileSync(filePath, "utf8");
+      for (const { pattern, label } of forbiddenPatterns) {
+        if (pattern.test(source)) {
+          errors.push(`${toPosix(relativePath)}: forbidden ${label} detected before Google setup apply phase`);
+        }
+      }
+    }
+  }
+  checked.push("Google setup code remains absent");
 }
 
 function validateContactFallback() {
@@ -179,6 +235,8 @@ for (const filePath of sourceFiles) {
 checked.push("public source links, buttons, and downloads");
 
 validateSearchFallback();
+validateResponsiveArticleTables();
+validateGoogleSetupStillAbsent();
 validateContactFallback();
 validatePostNextSteps();
 

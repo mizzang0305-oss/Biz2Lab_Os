@@ -5,6 +5,10 @@ import Link from "next/link";
 import type { Post } from "@/lib/posts";
 
 export function ArticleCard({ post, compact = false }: { post: Post; compact?: boolean }) {
+  const headingClassName = compact
+    ? "mt-2 text-base font-semibold leading-7 tracking-normal text-slate-950"
+    : "mt-2 text-lg font-semibold leading-7 tracking-normal text-slate-950";
+
   return (
     <article className="group relative min-w-0 max-w-full overflow-hidden rounded-md border border-slate-200 bg-white transition hover:border-teal-300 hover:shadow-sm">
       {!compact ? (
@@ -18,9 +22,15 @@ export function ArticleCard({ post, compact = false }: { post: Post; compact?: b
           />
         </div>
       ) : null}
-      <div className="min-w-0 p-5">
-        <div className="text-xs font-medium leading-5 text-teal-700">{post.categoryName}</div>
-        <h3 className="mt-2 text-lg font-semibold leading-7 tracking-normal text-slate-950">
+      <div className={compact ? "min-w-0 p-4" : "min-w-0 p-5"}>
+        <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 text-xs font-medium leading-5 text-teal-700">
+          <span>{post.categoryName}</span>
+          <span aria-hidden="true" className="text-slate-300">
+            /
+          </span>
+          <span className="text-slate-500">{post.readingTime}</span>
+        </div>
+        <h3 className={headingClassName}>
           <Link href={post.route} className="after:absolute after:inset-0">
             {post.frontmatter.title}
           </Link>

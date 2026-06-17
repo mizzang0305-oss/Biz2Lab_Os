@@ -109,10 +109,10 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
       ) : null}
 
       <header className="border-b border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-4xl px-4 py-10 sm:px-5 sm:py-12">
+        <div className="mx-auto max-w-3xl px-4 py-8 sm:px-5 sm:py-10">
           <Breadcrumbs items={breadcrumbs} />
-          <p className="mt-8 text-sm font-semibold text-teal-700">{categoryInfo.name}</p>
-          <h1 className="mt-3 text-3xl font-bold leading-tight tracking-normal text-slate-950 sm:text-4xl md:text-5xl">
+          <p className="mt-6 text-sm font-semibold text-teal-700">{categoryInfo.name}</p>
+          <h1 className="mt-3 text-3xl font-bold leading-tight tracking-normal text-slate-950 sm:text-4xl">
             {post.frontmatter.title}
           </h1>
           <p className="mt-5 text-lg leading-8 text-slate-600">{post.frontmatter.description}</p>
@@ -124,7 +124,7 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
         </div>
       </header>
 
-      <div className="mx-auto max-w-4xl px-4 py-10 sm:px-5">
+      <div className="mx-auto max-w-4xl px-4 py-8 sm:px-5 sm:py-10">
         <div className="relative aspect-[16/9] overflow-hidden rounded-md border border-slate-200 bg-slate-100">
           <Image
             src={post.frontmatter.heroImage}
@@ -136,15 +136,15 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
           />
         </div>
 
-        <div className="mt-8 grid min-w-0 gap-8">
+        <div className="mx-auto mt-8 grid max-w-3xl min-w-0 gap-7">
           <SummaryBox summary={post.frontmatter.description} />
           <TableOfContents headings={post.headings} />
           <MarkdownRenderer content={post.content} />
+          <FAQBox faq={post.frontmatter.faq} />
           <ChecklistBox items={checklistForPost(post.frontmatter.title)} />
           <RelatedReadingBox posts={relatedPosts} />
-          <TemplateCTA label={post.frontmatter.templateCta} />
           <NextStepBox nextStep={post.frontmatter.nextStep} />
-          <FAQBox faq={post.frontmatter.faq} />
+          <TemplateCTA label={post.frontmatter.templateCta} />
         </div>
       </div>
     </article>

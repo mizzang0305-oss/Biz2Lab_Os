@@ -365,3 +365,90 @@ test("Phase 4.0 content authority guard is wired and enforceable", () => {
     }
   }
 });
+
+test("related reading labels resolve to Korean post metadata instead of slug text", () => {
+  const publicPosts = getPublicPosts();
+  const postsBySlug = new Map(publicPosts.map((post) => [post.slug, post]));
+  const slugLabelPattern = /^[a-z0-9]+(?:-[a-z0-9]+)+$/;
+
+  for (const post of publicPosts) {
+    for (const relatedSlug of post.frontmatter.relatedPosts) {
+      const relatedPost = postsBySlug.get(relatedSlug);
+      assert.ok(relatedPost, `${post.slug} references missing ${relatedSlug}`);
+      assert.notEqual(relatedPost.frontmatter.title, relatedPost.slug);
+      assert.match(relatedPost.frontmatter.title, /[가-힣]/);
+      assert.match(relatedPost.frontmatter.description, /[가-힣]/);
+      assert.match(relatedPost.categoryName, /[가-힣]/);
+      assert.ok(relatedPost.readingTime.includes("읽기"));
+    }
+
+    for (const match of post.content.matchAll(/\[([^\]]+)\]\(\/ko\/[^)]+\)/g)) {
+      assert.equal(
+        slugLabelPattern.test(match[1]),
+        false,
+        `${post.slug} exposes slug-only markdown link label: ${match[1]}`,
+      );
+    }
+  }
+});
+
+test("related reading cards expose category, Korean title, description, and reading time", () => {
+  const articleCardSource = fs.readFileSync(
+    path.join(process.cwd(), "components", "cards", "ArticleCard.tsx"),
+    "utf8",
+  );
+  const relatedReadingSource = fs.readFileSync(
+    path.join(process.cwd(), "components", "article", "RelatedReadingBox.tsx"),
+    "utf8",
+  );
+
+  assert.match(articleCardSource, /post\.categoryName/);
+  assert.match(articleCardSource, /post\.frontmatter\.title/);
+  assert.match(articleCardSource, /post\.frontmatter\.description/);
+  assert.match(articleCardSource, /post\.readingTime/);
+  assert.match(relatedReadingSource, /sm:grid-cols-2/);
+  assert.match(relatedReadingSource, /lg:grid-cols-3/);
+});
+
+test("markdown tables use responsive row cards instead of overflow-only table styling", () => {
+  const markdownRendererSource = fs.readFileSync(
+    path.join(process.cwd(), "components", "article", "MarkdownRenderer.tsx"),
+    "utf8",
+  );
+  const responsiveTablePath = path.join(
+    process.cwd(),
+    "components",
+    "article",
+    "ResponsiveTable.tsx",
+  );
+  const globalCssSource = fs.readFileSync(
+    path.join(process.cwd(), "app", "globals.css"),
+    "utf8",
+  );
+
+  assert.ok(fs.existsSync(responsiveTablePath));
+  const responsiveTableSource = fs.readFileSync(responsiveTablePath, "utf8");
+
+  assert.match(markdownRendererSource, /ResponsiveTable/);
+  assert.match(markdownRendererSource, /\btable:\s*\(/);
+  assert.match(responsiveTableSource, /md:hidden/);
+  assert.match(responsiveTableSource, /md:block/);
+  assert.match(responsiveTableSource, /word-break:\s*keep-all|break-keep/);
+  assert.doesNotMatch(globalCssSource, /word-break:\s*break-all/);
+  assert.doesNotMatch(globalCssSource, /\.prose-biz2lab table[\s\S]*overflow-x:\s*auto/);
+});
+
+test("article header does not globally expose the disabled search placeholder", () => {
+  const siteHeaderSource = fs.readFileSync(
+    path.join(process.cwd(), "components", "layout", "SiteHeader.tsx"),
+    "utf8",
+  );
+  const searchBoxSource = fs.readFileSync(
+    path.join(process.cwd(), "components", "search", "SearchBox.tsx"),
+    "utf8",
+  );
+
+  assert.doesNotMatch(siteHeaderSource, /SearchBox/);
+  assert.match(searchBoxSource, /DisabledSearchBox/);
+  assert.doesNotMatch(siteHeaderSource, /검색은 승인 후 활성화 예정입니다/);
+});

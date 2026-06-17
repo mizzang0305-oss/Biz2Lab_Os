@@ -3,6 +3,7 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+import { ResponsiveTable } from "@/components/article/ResponsiveTable";
 import { slugifyHeading } from "@/lib/posts";
 
 export function MarkdownRenderer({ content }: { content: string }) {
@@ -70,6 +71,9 @@ export function MarkdownRenderer({ content }: { content: string }) {
               </h3>
             );
           },
+          table: ({ children, node }) => (
+            <ResponsiveTable node={node}>{children}</ResponsiveTable>
+          ),
         }}
       >
         {content}

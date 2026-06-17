@@ -112,21 +112,6 @@ svg {
   overflow-wrap: anywhere;
 }
 
-.prose-biz2lab table {
-  display: block;
-  max-width: 100%;
-  overflow-x: auto;
-  border-collapse: collapse;
-}
-
-.prose-biz2lab th,
-.prose-biz2lab td {
-  min-width: 10rem;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #e2e8f0;
-  vertical-align: top;
-}
-
 .prose-biz2lab pre {
   max-width: 100%;
   overflow-x: auto;
@@ -150,4 +135,28 @@ svg {
 
 .line-clamp-3 {
   -webkit-line-clamp: 3;
+}
+
+.responsive-markdown-table {
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+  color: #334155;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.responsive-markdown-table th,
+.responsive-markdown-table td {
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+
+.responsive-markdown-table th {
+  background: #f8fafc;
+  color: #0f172a;
+  font-weight: 700;
 }
