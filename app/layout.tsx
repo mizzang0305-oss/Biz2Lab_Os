@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { googleSetup } from "@/lib/google-setup";
 import { jsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
@@ -30,6 +32,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteConfig.url,
   },
+  other: {
+    "google-adsense-account": googleSetup.adsenseClientId,
+  },
 };
 
 export default function RootLayout({
@@ -51,6 +56,26 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLd(websiteJsonLd()) }}
         />
+        <Script
+          id="biz2lab-adsense-client"
+          src={googleSetup.adsenseScriptUrl}
+          strategy="beforeInteractive"
+          async
+          crossOrigin="anonymous"
+        />
+        <Script
+          id="biz2lab-ga4-loader"
+          src={googleSetup.ga4ScriptUrl}
+          strategy="afterInteractive"
+        />
+        <Script id="biz2lab-ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${googleSetup.ga4MeasurementId}');
+          `}
+        </Script>
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

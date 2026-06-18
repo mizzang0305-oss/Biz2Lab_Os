@@ -126,11 +126,11 @@ for (const post of posts) {
   if (status !== "pending") {
     errors.push(`${post.slug}: non-TOP3 public post should stay pending until premium approval`);
   }
-  if (rendersCardImage) {
-    errors.push(`${post.slug}: non-premium image must not render in public card grids`);
+  if (!rendersCardImage) {
+    errors.push(`${post.slug}: non-TOP3 post should render its standard image in public card grids`);
   }
-  if (rendersArticleHero) {
-    errors.push(`${post.slug}: non-premium image must not render as article hero`);
+  if (!rendersArticleHero) {
+    errors.push(`${post.slug}: non-TOP3 post should render its standard article hero image`);
   }
 
   for (const entry of entriesForSlug(publicManifest, post.slug)) {
@@ -159,7 +159,7 @@ for (const post of posts) {
     }
   }
 
-  infos.push(`PENDING ${post.slug}: text-only public card and article hero`);
+  infos.push(`PENDING ${post.slug}: standard image renders in public card and article hero`);
 }
 
 const premiumSources = posts
@@ -179,7 +179,6 @@ for (const entry of publicManifest) {
 }
 
 const forbiddenFiles = [
-  path.join(root, "public", "ads.txt"),
   path.join(root, "public", "google-site-verification.html"),
 ];
 for (const filePath of forbiddenFiles) {
@@ -198,7 +197,7 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `audit:premium-images PASS (${approvedPremiumImageSlugs.length} approved, ${
+  `audit:premium-images PASS (${approvedPremiumImageSlugs.length} approved premium, ${
     posts.length - approvedPremiumImageSlugs.length
-  } pending)`,
+  } pending standard)`,
 );

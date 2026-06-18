@@ -11,6 +11,11 @@ import type { Post } from "@/lib/posts";
 export function ArticleCard({ post, compact = false }: { post: Post; compact?: boolean }) {
   const renderImage = !compact && shouldRenderCardImage(post);
   const premiumImageStatus = getPremiumImageStatus(post.slug);
+  const cardImageKind = renderImage
+    ? premiumImageStatus === "approved"
+      ? "premium"
+      : "standard"
+    : "text-only";
   const headingClassName = compact
     ? "mt-2 text-base font-semibold leading-7 tracking-normal text-slate-950"
     : "mt-2 text-lg font-semibold leading-7 tracking-normal text-slate-950";
@@ -24,7 +29,7 @@ export function ArticleCard({ post, compact = false }: { post: Post; compact?: b
   return (
     <article
       className={articleClassName}
-      data-card-image={renderImage ? "premium" : "text-only"}
+      data-card-image={cardImageKind}
       data-premium-image-status={premiumImageStatus}
     >
       {renderImage ? (
@@ -34,6 +39,7 @@ export function ArticleCard({ post, compact = false }: { post: Post; compact?: b
             alt={post.frontmatter.heroAlt}
             fill
             sizes="(min-width: 768px) 33vw, 100vw"
+            loading="eager"
             className="object-cover"
           />
         </div>

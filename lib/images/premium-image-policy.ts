@@ -58,9 +58,9 @@ export function isPremiumImageForPost(postSlug: string, imageSrc: string) {
 }
 
 export function shouldRenderCardImage(post: Pick<Post, "slug" | "frontmatter">) {
-  return isPremiumImageForPost(post.slug, post.frontmatter.heroImage);
+  return getPremiumImageStatus(post.slug) !== "none" && isLocalPostImage(post.frontmatter.heroImage);
 }
 
 export function shouldRenderArticleHeroImage(post: Pick<Post, "slug" | "frontmatter">) {
-  return isPremiumImageForPost(post.slug, post.frontmatter.heroImage);
+  return getPremiumImageStatus(post.slug) !== "none" && isLocalPostImage(post.frontmatter.heroImage);
 }

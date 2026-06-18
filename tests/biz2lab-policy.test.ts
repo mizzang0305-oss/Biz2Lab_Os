@@ -8,6 +8,7 @@ import {
   plannedLocales,
   publicLocales,
 } from "@/lib/locales";
+import { googleSetup } from "@/lib/google-setup";
 import { categorySlugs, postFrontmatterSchema } from "@/lib/schema";
 import {
   getAllPosts,
@@ -197,7 +198,7 @@ test("home article grid surfaces the three premium visual posts first", () => {
   assert.equal(new Set(homePosts.map((post) => post.slug)).size, homePosts.length);
 });
 
-test("premium image gate renders only approved TOP3 images publicly", () => {
+test("article image policy renders TOP3 as premium and other public images as standard", () => {
   const approvedSlugs = new Set<string>(approvedPremiumImageSlugs);
   const publicPosts = getPublicPosts();
 
@@ -216,8 +217,8 @@ test("premium image gate renders only approved TOP3 images publicly", () => {
     }
 
     assert.equal(getPremiumImageStatus(post.slug), "pending");
-    assert.equal(shouldRenderCardImage(post), false, `${post.slug} should use a text-only card`);
-    assert.equal(shouldRenderArticleHeroImage(post), false, `${post.slug} should use a text-first article hero`);
+    assert.equal(shouldRenderCardImage(post), true, `${post.slug} should render a standard card image`);
+    assert.equal(shouldRenderArticleHeroImage(post), true, `${post.slug} should render a standard article hero`);
   }
 });
 
@@ -328,6 +329,41 @@ test("official canonical metadata uses the www production domain", () => {
   assert.equal(siteConfig.url, "https://www.biz2lab.com");
   assert.equal(metadata.alternates?.canonical, "https://www.biz2lab.com/ko");
   assert.equal(metadata.openGraph?.url, "https://www.biz2lab.com/ko");
+});
+
+test("Google setup uses exact approved public values without Search Console meta", () => {
+  const adsTxtPath = path.join(process.cwd(), "public", "ads.txt");
+  const searchConsoleFilePath = path.join(process.cwd(), "public", "google-site-verification.html");
+  const layoutSource = fs.readFileSync(path.join(process.cwd(), "app", "layout.tsx"), "utf8");
+
+  assert.equal(googleSetup.ga4MeasurementId, "G-VGFVWF59M7");
+  assert.equal(googleSetup.adsenseClientId, "ca-pub-2021259826985155");
+  assert.equal(googleSetup.adsensePublisherId, "pub-2021259826985155");
+  assert.equal(
+    googleSetup.adsTxtLine,
+    "google.com, pub-2021259826985155, DIRECT, f08c47fec0942fa0",
+  );
+  assert.equal(
+    googleSetup.ga4ScriptUrl,
+    "https://www.googletagmanager.com/gtag/js?id=G-VGFVWF59M7",
+  );
+  assert.equal(
+    googleSetup.adsenseScriptUrl,
+    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2021259826985155",
+  );
+
+  assert.equal(fs.readFileSync(adsTxtPath, "utf8").trimEnd(), googleSetup.adsTxtLine);
+  assert.equal(fs.readFileSync(adsTxtPath, "utf8").trimEnd().split(/\r?\n/).length, 1);
+  assert.equal(fs.existsSync(searchConsoleFilePath), false);
+
+  assert.match(layoutSource, /"google-adsense-account": googleSetup\.adsenseClientId/);
+  assert.match(layoutSource, /next\/script/);
+  assert.match(layoutSource, /biz2lab-adsense-client/);
+  assert.match(layoutSource, /biz2lab-ga4-loader/);
+  assert.match(layoutSource, /biz2lab-ga4-init/);
+  assert.match(layoutSource, /strategy="beforeInteractive"/);
+  assert.match(layoutSource, /crossOrigin="anonymous"/);
+  assert.doesNotMatch(layoutSource, /google-site-verification/);
 });
 
 test("Pagefind search is explicit about index availability and avoids HTML excerpt injection", () => {

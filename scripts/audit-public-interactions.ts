@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { forbiddenPublicRoutePrefixes } from "@/lib/locales";
+import { googleSetup } from "@/lib/google-setup";
 import { getPublicPosts } from "@/lib/posts";
 import { staticPublicRoutes } from "@/lib/seo";
 import { siteSettings } from "@/lib/site-settings";
@@ -45,6 +46,10 @@ function readProjectFile(filePath: string) {
 
 function addError(filePath: string, message: string) {
   errors.push(`${toPosix(filePath)}: ${message}`);
+}
+
+function escapeRegex(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function isForbiddenRoute(route: string) {
@@ -166,35 +171,95 @@ function validateResponsiveArticleTables() {
   checked.push("responsive article tables");
 }
 
-function validateGoogleSetupStillAbsent() {
-  const forbiddenFiles = [
-    path.join(root, "public", "ads.txt"),
-    path.join(root, "public", "google-site-verification.html"),
-  ];
-  for (const forbiddenFile of forbiddenFiles) {
-    if (fs.existsSync(forbiddenFile)) {
-      errors.push(`forbidden Google setup file exists: ${toPosix(path.relative(root, forbiddenFile))}`);
+function validateGoogleSetupAppliedSafely() {
+  const adsTxtPath = path.join(root, "public", "ads.txt");
+  const searchConsoleFile = path.join(root, "public", "google-site-verification.html");
+
+  if (!fs.existsSync(adsTxtPath)) {
+    errors.push("public/ads.txt: required AdSense ads.txt file is missing");
+  } else {
+    const adsTxt = fs.readFileSync(adsTxtPath, "utf8");
+    const lines = adsTxt.trimEnd().split(/\r?\n/);
+    if (lines.length !== 1 || lines[0] !== googleSetup.adsTxtLine) {
+      errors.push("public/ads.txt: content must be exactly the approved single AdSense line");
     }
   }
 
-  const forbiddenPatterns = [
-    { pattern: /google-site-verification/, label: "Search Console verification" },
-    { pattern: /googletagmanager\.com\/gtag\/js|gtag\(|G-[A-Z0-9]{10}/, label: "GA4 script or measurement ID" },
-    { pattern: /adsbygoogle|pagead2\.googlesyndication\.com|ca-pub-\d{16}/, label: "AdSense script or client ID" },
-  ];
+  if (fs.existsSync(searchConsoleFile)) {
+    errors.push("public/google-site-verification.html: Search Console file verification must not be added");
+  }
+
+  const layout = readProjectFile(path.join("app", "layout.tsx"));
+  const setupConstants = readProjectFile(path.join("lib", "google-setup.ts"));
+
+  if (!layout.includes('"google-adsense-account": googleSetup.adsenseClientId')) {
+    errors.push("app/layout.tsx: google-adsense-account meta must use the approved AdSense client ID");
+  }
+  if (!layout.includes('from "next/script"')) {
+    errors.push("app/layout.tsx: Google scripts must use next/script");
+  }
+  if (!layout.includes("biz2lab-adsense-client") || !layout.includes("strategy=\"beforeInteractive\"")) {
+    errors.push("app/layout.tsx: AdSense script should be injected in the document head");
+  }
+  if (!layout.includes("crossOrigin=\"anonymous\"")) {
+    errors.push("app/layout.tsx: AdSense script needs crossorigin anonymous");
+  }
+  if (!layout.includes("biz2lab-ga4-loader") || !layout.includes("biz2lab-ga4-init")) {
+    errors.push("app/layout.tsx: GA4 loader and init scripts are required");
+  }
+  if (!setupConstants.includes("googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}")) {
+    errors.push("lib/google-setup.ts: GA4 script URL must be built from the approved Measurement ID");
+  }
+  if (!setupConstants.includes("adsbygoogle.js?client=${ADSENSE_CLIENT_ID}")) {
+    errors.push("lib/google-setup.ts: AdSense script URL must be built from the approved client ID");
+  }
+
+  const allowedMeasurementIds = new Set<string>([googleSetup.ga4MeasurementId]);
+  const allowedClientIds = new Set<string>([googleSetup.adsenseClientId]);
+  const allowedPublisherIds = new Set<string>([googleSetup.adsensePublisherId]);
+  const expectedGa4Occurrences = new RegExp(escapeRegex(googleSetup.ga4MeasurementId), "g");
+  const expectedClientOccurrences = new RegExp(escapeRegex(googleSetup.adsenseClientId), "g");
 
   for (const sourceRoot of ["app", "components", "lib"]) {
     for (const filePath of walkFiles(path.join(root, sourceRoot))) {
       const relativePath = path.relative(root, filePath);
       const source = fs.readFileSync(filePath, "utf8");
-      for (const { pattern, label } of forbiddenPatterns) {
-        if (pattern.test(source)) {
-          errors.push(`${toPosix(relativePath)}: forbidden ${label} detected before Google setup apply phase`);
+
+      if (/google-site-verification/.test(source)) {
+        errors.push(`${toPosix(relativePath)}: Search Console verification meta must not be added`);
+      }
+      for (const match of source.matchAll(/G-[A-Z0-9]{10}/g)) {
+        if (!allowedMeasurementIds.has(match[0])) {
+          errors.push(`${toPosix(relativePath)}: unexpected GA4 Measurement ID ${match[0]}`);
         }
+      }
+      for (const match of source.matchAll(/ca-pub-\d{16}/g)) {
+        if (!allowedClientIds.has(match[0])) {
+          errors.push(`${toPosix(relativePath)}: unexpected AdSense client ID ${match[0]}`);
+        }
+      }
+      for (const match of source.matchAll(/pub-\d{16}/g)) {
+        if (!allowedPublisherIds.has(match[0])) {
+          errors.push(`${toPosix(relativePath)}: unexpected AdSense publisher ID ${match[0]}`);
+        }
+      }
+      if (/googletagmanager\.com\/gtag\/js/.test(source) && !source.includes("GA4_MEASUREMENT_ID")) {
+        errors.push(`${toPosix(relativePath)}: GA4 script URL should be built from the approved constant`);
+      }
+      if (/pagead2\.googlesyndication\.com/.test(source) && !source.includes("ADSENSE_CLIENT_ID")) {
+        errors.push(`${toPosix(relativePath)}: AdSense script URL should be built from the approved constant`);
       }
     }
   }
-  checked.push("Google setup code remains absent");
+
+  if ((setupConstants.match(expectedGa4Occurrences) ?? []).length !== 1) {
+    errors.push("lib/google-setup.ts: GA4 Measurement ID should be declared exactly once");
+  }
+  if ((setupConstants.match(expectedClientOccurrences) ?? []).length !== 1) {
+    errors.push("lib/google-setup.ts: AdSense client ID should be declared exactly once");
+  }
+
+  checked.push("Google setup exact public values");
 }
 
 function validateContactFallback() {
@@ -236,7 +301,7 @@ checked.push("public source links, buttons, and downloads");
 
 validateSearchFallback();
 validateResponsiveArticleTables();
-validateGoogleSetupStillAbsent();
+validateGoogleSetupAppliedSafely();
 validateContactFallback();
 validatePostNextSteps();
 

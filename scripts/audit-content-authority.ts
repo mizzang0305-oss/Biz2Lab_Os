@@ -169,7 +169,7 @@ for (const [src, slugs] of heroUsage.entries()) {
 }
 
 const forbiddenPaths = [
-  path.join(root, "public", "ads.txt"),
+  path.join(root, "public", "google-site-verification.html"),
   path.join(root, "app", "admin"),
   path.join(root, "app", "login"),
   path.join(root, "app", "en"),
