@@ -13,6 +13,7 @@ import { TableOfContents } from "@/components/article/TableOfContents";
 import { NextStepBox } from "@/components/cta/NextStepBox";
 import { TemplateCTA } from "@/components/cta/TemplateCTA";
 import { categories } from "@/lib/categories";
+import { shouldRenderArticleHeroImage } from "@/lib/images/premium-image-policy";
 import { getPostBySlug, getPublicPosts, getRelatedPosts } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/site";
 import { breadcrumbJsonLd, createMetadata, jsonLd } from "@/lib/seo";
@@ -67,6 +68,7 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
 
   const categoryInfo = categories[post.category];
   const relatedPosts = getRelatedPosts(post);
+  const renderHeroImage = shouldRenderArticleHeroImage(post);
   const breadcrumbs = [
     { label: categoryInfo.name, href: `/ko/${categoryInfo.slug}` },
     { label: post.frontmatter.title, href: post.route },
@@ -125,18 +127,20 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
       </header>
 
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-5 sm:py-10">
-        <div className="relative aspect-[16/9] overflow-hidden rounded-md border border-slate-200 bg-slate-100">
-          <Image
-            src={post.frontmatter.heroImage}
-            alt={post.frontmatter.heroAlt}
-            fill
-            preload
-            sizes="(min-width: 768px) 896px, 100vw"
-            className="object-cover"
-          />
-        </div>
+        {renderHeroImage ? (
+          <div className="relative aspect-[16/9] overflow-hidden rounded-md border border-slate-200 bg-slate-100">
+            <Image
+              src={post.frontmatter.heroImage}
+              alt={post.frontmatter.heroAlt}
+              fill
+              preload
+              sizes="(min-width: 768px) 896px, 100vw"
+              className="object-cover"
+            />
+          </div>
+        ) : null}
 
-        <div className="mx-auto mt-8 grid max-w-3xl min-w-0 gap-7">
+        <div className={`mx-auto grid max-w-3xl min-w-0 gap-7 ${renderHeroImage ? "mt-8" : ""}`}>
           <SummaryBox summary={post.frontmatter.description} />
           <TableOfContents headings={post.headings} />
           <MarkdownRenderer content={post.content} />

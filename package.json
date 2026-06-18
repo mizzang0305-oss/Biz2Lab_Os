@@ -28,6 +28,7 @@
     "audit:image-briefs": "tsx scripts/audit-image-brief-quality.ts",
     "audit:image-prompts": "tsx scripts/audit-image-prompt-packages.ts",
     "audit:image-uniqueness": "tsx scripts/audit-image-uniqueness.ts",
+    "audit:premium-images": "tsx scripts/audit-premium-image-gate.ts",
     "generate-content-index": "tsx scripts/generate-content-index.ts",
     "repair:article-images": "tsx scripts/repair-article-hero-images.ts"
   },

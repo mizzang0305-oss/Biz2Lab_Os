@@ -15,6 +15,12 @@ import {
   getPublicPosts,
   getSitemapPosts,
 } from "@/lib/posts";
+import {
+  approvedPremiumImageSlugs,
+  getPremiumImageStatus,
+  shouldRenderArticleHeroImage,
+  shouldRenderCardImage,
+} from "@/lib/images/premium-image-policy";
 import { createMetadata, staticPublicRoutes } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import { getSupabaseAdmin } from "@/lib/supabase";
@@ -189,6 +195,30 @@ test("home article grid surfaces the three premium visual posts first", () => {
   );
   assert.equal(homePosts.length, 6);
   assert.equal(new Set(homePosts.map((post) => post.slug)).size, homePosts.length);
+});
+
+test("premium image gate renders only approved TOP3 images publicly", () => {
+  const approvedSlugs = new Set<string>(approvedPremiumImageSlugs);
+  const publicPosts = getPublicPosts();
+
+  assert.deepEqual([...approvedSlugs], [
+    "ai-business-automation-guide",
+    "accounts-receivable-tracker",
+    "electronic-contract-system-basics",
+  ]);
+
+  for (const post of publicPosts) {
+    if (approvedSlugs.has(post.slug)) {
+      assert.equal(getPremiumImageStatus(post.slug), "approved");
+      assert.equal(shouldRenderCardImage(post), true, `${post.slug} should render a premium card image`);
+      assert.equal(shouldRenderArticleHeroImage(post), true, `${post.slug} should render an article hero image`);
+      continue;
+    }
+
+    assert.equal(getPremiumImageStatus(post.slug), "pending");
+    assert.equal(shouldRenderCardImage(post), false, `${post.slug} should use a text-only card`);
+    assert.equal(shouldRenderArticleHeroImage(post), false, `${post.slug} should use a text-first article hero`);
+  }
 });
 
 test("article image concept map covers every public hero with distinct non-generic direction", () => {
@@ -375,6 +405,7 @@ test("article hero image follows Next 16 image loading API", () => {
   );
 
   assert.match(articlePageSource, /\bpreload\b/);
+  assert.match(articlePageSource, /shouldRenderArticleHeroImage/);
   assert.doesNotMatch(articlePageSource, /\bpriority\b/);
   assert.equal(fs.existsSync(articleImagePath), false);
 });
@@ -472,6 +503,7 @@ test("related reading cards expose category, Korean title, description, and read
   assert.match(articleCardSource, /post\.frontmatter\.title/);
   assert.match(articleCardSource, /post\.frontmatter\.description/);
   assert.match(articleCardSource, /post\.readingTime/);
+  assert.match(articleCardSource, /shouldRenderCardImage/);
   assert.match(relatedReadingSource, /sm:grid-cols-2/);
   assert.match(relatedReadingSource, /lg:grid-cols-3/);
 });
