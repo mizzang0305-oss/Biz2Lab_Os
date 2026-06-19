@@ -28,7 +28,7 @@ Phase 3.8-SKILL-MASTER created prompt-only packages for Biz2Lab image production
 - `applied_to_article`: no. Article and hub files were not changed.
 - `pushed`: no. This phase is local-only.
 
-OpenCut update: `opencut-free-open-source-video-editor-ai-content-automation` now has a user-provided raw JPG, optimized public WebP, validation pass, and article frontmatter already points to that public image. It has not been pushed or deployed.
+OpenCut update: `opencut-free-open-source-video-editor-ai-content-automation` now has a user-provided raw JPG, optimized public WebP, validation pass, and article frontmatter already points to that public image. It has been pushed only as part of the PR branch; no manual deployment was run.
 
 ## Queue Source
 

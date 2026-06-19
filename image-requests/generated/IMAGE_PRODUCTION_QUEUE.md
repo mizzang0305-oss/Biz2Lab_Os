@@ -1,6 +1,6 @@
 # Biz2Lab Image Production Queue
 
-Status as of the OpenCut content task: prompt packages are ready only for the OpenCut hero request. No real OpenCut image was generated, no OpenCut raw asset was saved, no OpenCut optimized image was created, and nothing was pushed.
+Status as of the OpenCut content task: most prompt packages remain prompt-only. The OpenCut hero is the exception: the user-provided generated image is saved as a raw JPG, optimized to the public WebP path, applied to the article, and validated. It has been pushed only as part of the PR branch, not manually deployed.
 
 Recommended manual generation order:
 
