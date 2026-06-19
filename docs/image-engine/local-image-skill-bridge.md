@@ -1,7 +1,7 @@
 # Local Image Skill Bridge
 
 Date: 2026-06-16
-Status: Phase 3.8-0 provider bridge
+Status: Phase 3.8-1 local provider runner bridge
 
 ## Purpose
 
@@ -46,9 +46,9 @@ CLI scripts:
 
 `deterministic-fallback` is not a real image model. It exists only to keep the old SVG/Sharp output clearly labeled as fallback.
 
-`comfyui-local` is an optional scaffold for a local ComfyUI instance. It is disabled unless explicitly configured.
+`comfyui-local` is an optional localhost ComfyUI runner. It is disabled unless explicitly configured with `LOCAL_IMAGE_PROVIDER=comfyui`, a localhost `LOCAL_IMAGE_ENDPOINT`, and a reviewed `LOCAL_IMAGE_WORKFLOW_PATH` JSON workflow template.
 
-`sd-webui-local` is an optional scaffold for local Stable Diffusion WebUI or Automatic1111. It is disabled unless explicitly configured.
+`sd-webui-local` is an optional localhost Stable Diffusion WebUI / Automatic1111 runner. It is disabled unless explicitly configured with `LOCAL_IMAGE_PROVIDER=sd-webui` and a localhost `LOCAL_IMAGE_ENDPOINT`.
 
 ## Safety Rules
 
@@ -60,6 +60,8 @@ CLI scripts:
 - No real logo, product, Amazon, ecommerce, private data, people, or fake screenshot imagery is allowed.
 - Public output remains `/images/posts/*.webp`.
 - Raw source input remains `assets/images/raw/*`.
+- Generated raw filenames must include the article slug.
+- Missing local providers, missing workflows, and missing raw files are blockers, not success states.
 
 ## Why Public AI UI Is Forbidden
 
@@ -84,4 +86,35 @@ Use it to turn a natural language visual direction into:
 - article update plan
 - validation checklist
 
-It does not render a real AI image. Real rendering still requires a user-approved manual tool, ChatGPT image generation outside the public site, or a later local provider.
+It can render real image bytes only when a reviewed localhost provider is configured. Without that provider, it remains a prompt/package and manual-drop workflow.
+
+## Real Local Provider Commands
+
+Detect local providers:
+
+```bash
+npm run image-skill:detect
+```
+
+Generate from the default brief set with ComfyUI:
+
+```bash
+LOCAL_IMAGE_PROVIDER=comfyui LOCAL_IMAGE_ENDPOINT=http://127.0.0.1:8188 LOCAL_IMAGE_WORKFLOW_PATH=config/comfyui-workflow.json npm run image-skill:generate -- --no-dry-run
+```
+
+Generate from a single generated brief with Stable Diffusion WebUI:
+
+```bash
+LOCAL_IMAGE_PROVIDER=sd-webui LOCAL_IMAGE_ENDPOINT=http://127.0.0.1:7860 npm run image-skill:generate -- --brief image-briefs/generated/example-hero.json --no-dry-run
+```
+
+Dry-run is the default. Add `--no-dry-run` only after the local provider is running and reviewed.
+
+## Failure States
+
+- `No real local image provider configured`: no provider was selected.
+- `LOCAL_IMAGE_ENDPOINT is required`: a real provider was selected without a localhost endpoint.
+- `COMFYUI_WORKFLOW_MISSING`: ComfyUI was selected without a reviewed workflow template.
+- `Manual drop mode: raw files are still missing`: manual-drop found no approved local raw image file.
+
+None of these states may be treated as generated image success.
