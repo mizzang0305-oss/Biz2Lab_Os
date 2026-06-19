@@ -1,0 +1,124 @@
+# Open Source Automation Series Orchestrator
+
+This document describes the safe local workflow for the Biz2Lab / MyBiz open-source automation tool series.
+
+## Purpose
+
+The orchestrator prepares the next article in the `free-open-source-automation-tools` series, but it refuses to publish unless a real, slug-mapped hero image artifact exists.
+
+It is designed for articles such as:
+
+- `node-red-local-business-automation-server`
+- `huginn-monitoring-automation-agent`
+- `baserow-open-source-database-automation`
+- `appsmith-internal-dashboard-automation`
+- `windmill-developer-workflow-automation`
+- `kestra-data-ai-workflow-orchestration`
+
+## Files
+
+- `data/content-series-state.json`: queue state, completed articles, safety gates, image policy, validation policy, merge policy.
+- `data/content-series-topics.json`: topic definitions, official sources, article outlines, image concepts, internal-link requirements, safety notes, license cautions.
+- `scripts/content-series-orchestrator.ts`: local orchestrator CLI and testable helpers.
+
+## Commands
+
+Preview the next topic:
+
+```bash
+npm run content:series:auto -- --plan-only
+```
+
+Preview Node-RED explicitly:
+
+```bash
+npm run content:series:auto -- --topic node-red --plan-only
+```
+
+Publish from an approved local Codex image artifact:
+
+```bash
+npm run content:series:auto -- --topic node-red --artifact artifacts/codex-images/node-red-local-business-automation-server-hero.png
+```
+
+Run publication without commit/PR creation:
+
+```bash
+npm run content:series:auto -- --topic node-red --no-commit --artifact artifacts/codex-images/node-red-local-business-automation-server-hero.png
+```
+
+## Image Gate
+
+The orchestrator only imports explicitly mapped image artifacts.
+
+Required raw output:
+
+```text
+assets/images/raw/<slug>-hero.jpg
+```
+
+Required public output after optimization:
+
+```text
+public/images/posts/<slug>-hero.webp
+```
+
+The artifact is rejected when:
+
+- it is missing
+- it is not a real JPG/PNG/WebP binary image
+- the filename does not include the target slug
+- the filename contains placeholder terms such as `placeholder`, `dummy`, `fake`, `sample`, `blank`, or `empty`
+- it uses an unsupported extension
+
+If no approved artifact exists, the orchestrator stops with:
+
+```text
+CODEX_GENERATED_IMAGE_ARTIFACT_MISSING
+```
+
+## Publication Gate
+
+The orchestrator does not publish draft routes. A non-plan run writes the article only after a real image artifact has been validated and imported.
+
+The current state also enforces the ordered topic queue. This prevents articles from linking to routes that are still draft or missing.
+
+## Validation Gate
+
+Publication runs the full validation list from `data/content-series-state.json`:
+
+```text
+npm run image-skill:plan
+npm run image-skill:validate
+npm run optimize-images
+npm run validate:posts
+npm run validate:images
+npm test
+npm run lint
+npm run typecheck
+npm run build
+npm run check:links
+npm run validate:seo
+npm run audit:image-briefs
+npm run audit:image-prompts
+npm run audit:content-authority
+git diff --check
+```
+
+`validate:posts` currently has intentional public post count expectations. When a future article is published, that count change must be explicit and reviewed. Do not bypass the validator.
+
+## Safety
+
+The orchestrator never:
+
+- deploys manually
+- merges a PR
+- calls databases
+- calls payment APIs
+- sends messages or notifications
+- commits `.codex-remote-attachments/`
+- commits `.codex/config.toml`
+- creates placeholder images
+- marks planned images as ready without real files
+
+When commit is enabled, it creates a topic branch and PR for owner review. The owner still performs merge and production smoke separately.
