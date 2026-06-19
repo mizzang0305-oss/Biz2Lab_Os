@@ -6,20 +6,20 @@ Phase 3.8-SKILL-MASTER created prompt-only packages for Biz2Lab image production
 
 ## Coverage
 
-- Hero prompt packages: 26
+- Hero prompt packages: 28
 - Inline prompt packages: 5
 - Hub prompt packages: 4
-- Total prompt packages: 35
+- Total prompt packages: 37
 
 ## Priority Order
 
 1. Priority 1: generate and review the 5 key inline explanatory images.
-2. Priority 2: generate and review the 26 public Korean post hero images.
+2. Priority 2: generate and review the 26 public Korean post hero images plus the 2 planned draft article hero images.
 3. Priority 3: generate and review the 4 category hub images.
 
 ## Status Columns
 
-- `prompt_ready`: yes for all 35 packages tracked in the queue.
+- `prompt_ready`: yes for all 37 packages tracked in the queue.
 - `image_created`: no. No image model or external image API was called.
 - `raw_saved`: no. No new raw files were written under `assets/images/raw`.
 - `optimized`: no. No new optimized WebP files were written under `public/images/posts`.
@@ -29,6 +29,8 @@ Phase 3.8-SKILL-MASTER created prompt-only packages for Biz2Lab image production
 - `pushed`: no. This phase is local-only.
 
 OpenCut update: `opencut-free-open-source-video-editor-ai-content-automation` now has a user-provided raw JPG, optimized public WebP, validation pass, and article frontmatter already points to that public image. It has been pushed only as part of the PR branch; no manual deployment was run.
+
+Open-source automation series update: `free-open-source-automation-tools-series` and `activepieces-ai-business-automation-n8n-alternative` are draft/noindex article packages with prompt-only hero image requests. No raw or public hero image has been created for them yet.
 
 ## Queue Source
 
