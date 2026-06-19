@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: pillar
-status: draft
-draft: true
+status: published
+draft: false
 author: Biz2Lab
 publishedAt: '2026-06-19'
 updatedAt: '2026-06-19'
@@ -22,11 +22,11 @@ tags:
 heroImage: /images/posts/free-open-source-automation-tools-series-hero.webp
 heroAlt: 무료 오픈소스 자동화 도구 지도를 Biz2Lab과 MyBiz 업무 흐름 관점에서 정리한 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/free-open-source-automation-tools-series'
-noindex: true
+noindex: false
 relatedPosts:
   - opencut-free-open-source-video-editor-ai-content-automation
+  - activepieces-ai-business-automation-n8n-alternative
   - ai-business-automation-guide
-  - reduce-repetitive-work-with-ai
 templateCta: 무료 자동화 도구 검증 체크리스트
 nextStep:
   label: 자동화 상담 문의
@@ -37,8 +37,8 @@ faq:
     answer: 단순 추천 목록이 아닙니다. 무료 사용 범위, 라이선스, 셀프호스팅, 데이터 소유권, 자동화 확장성을 실제 업무 적용 관점에서 검증하는 시리즈입니다.
   - question: n8n과 NocoDB도 오픈소스 도구로 다루나요?
     answer: 완전한 오픈소스라고 단정하지 않습니다. 공식 라이선스 기준으로 Sustainable Use License 계열 또는 source-available 성격을 분리해 설명합니다.
-  - question: 이미지가 없는데 왜 draft인가요?
-    answer: 이 글은 image request, brief, prompt만 준비한 상태입니다. 실제 public hero WebP가 승인되기 전까지는 noindex draft로 유지하는 것이 안전합니다.
+  - question: 이 글은 이제 검색 노출 가능한 공개 글인가요?
+    answer: 실제 대표 이미지가 raw JPG와 public WebP로 연결된 뒤 published와 noindex false 상태로 전환했습니다. 이후에도 이미지와 내부 링크 검증을 통과해야 공개 상태를 유지합니다.
 ---
 
 # 무료 오픈소스 자동화 도구 실전 분석
@@ -47,7 +47,7 @@ faq:
 
 그래서 이 시리즈는 "무료 툴 추천"이 아니라 "실제 업무 자동화에 붙일 수 있는 도구 검증"으로 접근합니다. 블로거, 소상공인, 1인 사업자, SaaS 운영자가 바로 써 볼 수 있는지, 그리고 장기적으로 콘텐츠 자동화 파이프라인에 연결할 수 있는지를 함께 봅니다.
 
-## 왜 이 시리즈를 시작하는가
+## 문제 정의
 
 자동화 도구는 많습니다. 문제는 대부분의 소개글이 가격표, 스크린샷, 기능 목록에서 멈춘다는 점입니다. 실제 사업자에게 필요한 기준은 조금 다릅니다.
 
@@ -55,7 +55,7 @@ faq:
 
 이 시리즈는 그 기준으로 도구를 하나씩 검토합니다. 첫 번째 완료 글은 [OpenCut 분석](/ko/automation/opencut-free-open-source-video-editor-ai-content-automation)입니다. 다음 검토 대상은 [Activepieces 분석](/ko/automation/activepieces-ai-business-automation-n8n-alternative)입니다.
 
-## 평가 기준
+## 핵심 개념
 
 | 기준 | 설명 |
 | --- | --- |
@@ -67,7 +67,13 @@ faq:
 | 소상공인 적용성 | 실제 매출, 시간 절감, 고객 응대, 콘텐츠 생산에 연결되는지 평가합니다. |
 | 리스크 | 유지보수, 라이선스, 보안, 커넥터 품질, 운영 안정성을 따로 봅니다. |
 
-## 시리즈 지도
+## 현장 시나리오
+
+이 시리즈에서 상정하는 현장은 거창한 엔터프라이즈 자동화가 아닙니다. 블로그 글을 쓰고, 상품 행사 자료를 정리하고, 고객 문의를 남기고, 매주 리포트를 만드는 작은 팀의 반복 업무입니다.
+
+예를 들어 전단 이미지와 가격표가 들어오면 블로그 소재를 만들고, 쇼츠 제작 요청을 남기고, 고객 문의가 생기면 CRM이나 시트에 기록하는 흐름을 봅니다. 도구 자체보다 이 흐름에 붙을 수 있는지가 핵심입니다.
+
+## 실행 절차
 
 ### OpenCut
 
@@ -109,17 +115,31 @@ n8n은 workflow automation 분야에서 인지도가 높은 도구입니다. 하
 
 NocoDB는 spreadsheet-style database 도구로 많이 언급됩니다. 다만 공식 LICENSE는 Sustainable Use License 계열입니다. 무료 사용 가능성과 오픈소스성은 분리해서 봐야 하며, 상업적 운영 전 공식 라이선스를 반드시 확인해야 합니다.
 
-## 먼저 봐야 할 글
+## 자동화 구조
+
+Biz2Lab / MyBiz 관점에서 무료 오픈소스 자동화 도구는 세 층으로 나눠 봅니다. 첫째는 입력층입니다. 블로그 원고, 상품 정보, 고객 문의, 시트 데이터처럼 반복해서 들어오는 자료입니다. 둘째는 처리층입니다. workflow, 영상 편집, 데이터베이스, 리포트 생성처럼 실제 작업이 실행되는 구간입니다. 셋째는 자산층입니다. 완성된 글, 쇼츠 제작 요청, 고객 기록, 리포트처럼 다시 활용할 수 있는 결과물입니다.
+
+도구를 평가할 때도 이 구조를 기준으로 봅니다. 입력을 안전하게 받을 수 있는지, 처리 과정이 사람 승인과 연결되는지, 결과물이 특정 플랫폼 안에만 갇히지 않는지를 확인합니다.
+
+## 도입 순서
+
+### 먼저 봐야 할 글
 
 첫 번째 완료 글은 [OpenCut 분석: 무료 오픈소스 영상 편집기, AI 콘텐츠 자동화에 쓸 수 있을까?](/ko/automation/opencut-free-open-source-video-editor-ai-content-automation)입니다.
 
 OpenCut 글은 영상 편집 도구를 단순 리뷰하지 않고, 상품 이미지와 9:16 쇼츠, 자막, BGM, 블로그와 SNS 배포 패키지까지 이어지는 콘텐츠 자동화 후보로 평가합니다.
 
-## 다음 분석 예정
+### 다음 분석 글
 
 다음 글은 [Activepieces 분석: n8n 대안이 될 수 있는 AI 업무 자동화 도구](/ko/automation/activepieces-ai-business-automation-n8n-alternative)입니다.
 
 Activepieces는 Zapier 대체재라는 표현만으로는 부족합니다. Biz2Lab 관점에서는 문의 접수, 고객 DB, 블로그 발행, SNS 요약, 이미지 생성 요청, 리포트 생성 같은 업무 흐름을 AI agent와 MCP 흐름에 붙일 수 있는지 확인해야 합니다.
+
+## 리스크와 방지책
+
+무료 도구를 공개 글에서 다룰 때 가장 큰 리스크는 과장입니다. 무료라고 해서 상업적 운영이 자동으로 안전해지는 것도 아니고, GitHub에 코드가 있다고 해서 모든 기능이 오픈소스라는 뜻도 아닙니다.
+
+그래서 이 시리즈는 공식 라이선스, self-host 범위, 데이터 처리 방식, 유지보수 상태를 분리해 씁니다. 확인되지 않은 로드맵이나 커뮤니티 평가는 단정하지 않고, 운영 핵심 도구로 넣기 전에는 샘플 업무로 먼저 검증하는 방식을 기본값으로 둡니다.
 
 ## 최종 판단
 

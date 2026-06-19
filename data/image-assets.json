@@ -77,17 +77,17 @@
     "postSlug": "free-open-source-automation-tools-series",
     "usage": "hero",
     "src": "/images/posts/free-open-source-automation-tools-series-hero.webp",
-    "rawPath": "assets/images/raw/free-open-source-automation-tools-series-hero.png",
+    "rawPath": "assets/images/raw/free-open-source-automation-tools-series-hero.jpg",
     "altKo": "무료 오픈소스 자동화 도구 지도를 Biz2Lab과 MyBiz 업무 흐름 관점에서 정리한 대표 이미지",
     "captionKo": "무료 자동화 도구를 콘텐츠, 업무, 데이터 자산화 흐름으로 연결해 보는 Biz2Lab 시리즈 대표 이미지입니다.",
     "width": 1200,
-    "height": 630,
+    "height": 675,
     "format": "webp",
-    "licenseStatus": "local-prompt-package",
-    "source": "prompt-only request",
-    "visualApprovalStatus": "pending-image-generation",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-checked",
     "commerceAutoReusable": true,
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "activepieces-ai-business-automation-n8n-alternative-hero",
@@ -95,16 +95,16 @@
     "postSlug": "activepieces-ai-business-automation-n8n-alternative",
     "usage": "hero",
     "src": "/images/posts/activepieces-ai-business-automation-n8n-alternative-hero.webp",
-    "rawPath": "assets/images/raw/activepieces-ai-business-automation-n8n-alternative-hero.png",
+    "rawPath": "assets/images/raw/activepieces-ai-business-automation-n8n-alternative-hero.jpg",
     "altKo": "Activepieces를 AI 업무 자동화와 n8n 대안 관점에서 분석한 대표 이미지",
     "captionKo": "Activepieces를 문의, 블로그, 쇼츠 요청, 데이터 흐름을 연결하는 AI 업무 자동화 후보로 분석한 이미지입니다.",
     "width": 1200,
-    "height": 630,
+    "height": 675,
     "format": "webp",
-    "licenseStatus": "local-prompt-package",
-    "source": "prompt-only request",
-    "visualApprovalStatus": "pending-image-generation",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-checked",
     "commerceAutoReusable": true,
-    "status": "planned"
+    "status": "active"
   }
 ]

@@ -31,8 +31,8 @@ Create a 16:9 premium Biz2Lab editorial hero image for a Korean article series a
 공식 로고, 실제 앱 화면 복제, 사람 얼굴, 개인정보, 고객 데이터, 워터마크, 외부 URL, 작은 글씨 과다, 특정 서비스 상표 강조, 과장 광고 배너
 
 ## Filename And Paths
-- filename: free-open-source-automation-tools-series-hero.png
-- rawPath: assets/images/raw/free-open-source-automation-tools-series-hero.png
+- filename: free-open-source-automation-tools-series-hero.jpg
+- rawPath: assets/images/raw/free-open-source-automation-tools-series-hero.jpg
 - optimizedPath: public/images/posts/free-open-source-automation-tools-series-hero.webp
 
 ## Alt Text
@@ -49,27 +49,27 @@ Create a 16:9 premium Biz2Lab editorial hero image for a Korean article series a
   "postSlug": "free-open-source-automation-tools-series",
   "usage": "hero",
   "src": "/images/posts/free-open-source-automation-tools-series-hero.webp",
-  "rawPath": "assets/images/raw/free-open-source-automation-tools-series-hero.png",
+  "rawPath": "assets/images/raw/free-open-source-automation-tools-series-hero.jpg",
   "altKo": "무료 오픈소스 자동화 도구 지도를 Biz2Lab과 MyBiz 업무 흐름 관점에서 정리한 대표 이미지",
   "captionKo": "무료 자동화 도구를 콘텐츠, 업무, 데이터 자산화 흐름으로 연결해 보는 Biz2Lab 시리즈 대표 이미지입니다.",
   "width": 1200,
-  "height": 630,
+  "height": 675,
   "format": "webp",
-  "licenseStatus": "local-prompt-package",
+  "licenseStatus": "codex-image-skill-generated",
   "commerceAutoReusable": true,
-  "status": "planned"
+  "status": "active"
 }
 ```
 
 ## Article Update Plan
 - 실제 이미지 승인 후 frontmatter heroImage 후보: /images/posts/free-open-source-automation-tools-series-hero.webp
 - 실제 이미지 승인 후 frontmatter heroAlt 후보: 무료 오픈소스 자동화 도구 지도를 Biz2Lab과 MyBiz 업무 흐름 관점에서 정리한 대표 이미지
-- 현재 글은 noindex draft 상태이며 public hero WebP가 생성되기 전까지 published로 전환하지 않는다.
+- raw JPG와 public hero WebP 생성 후 published/noindex false 상태로 전환한다.
 
 ## Manual Creation Instructions
 - Use this prompt only after explicit image generation approval.
 - Keep the negative prompt rules active: no official logos, no copied real UI, no people or faces, no private data, no watermarks.
-- Save the raw image to assets/images/raw/free-open-source-automation-tools-series-hero.png.
+- Save the raw image to assets/images/raw/free-open-source-automation-tools-series-hero.jpg.
 - Optimize to public/images/posts/free-open-source-automation-tools-series-hero.webp only after manual review.
 
 ## Validation Checklist

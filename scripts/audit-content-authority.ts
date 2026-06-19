@@ -184,8 +184,8 @@ for (const forbiddenPath of forbiddenPaths) {
   }
 }
 
-if (posts.length !== 26) {
-  errors.push(`expected 26 public posts, found ${posts.length}`);
+if (posts.length !== 28) {
+  errors.push(`expected 28 public posts, found ${posts.length}`);
 }
 
 if (errors.length > 0) {

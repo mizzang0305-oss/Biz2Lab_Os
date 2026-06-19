@@ -5,7 +5,7 @@
   "category": "automation",
   "usage": "hero",
   "outputMode": "prompt-only",
-  "targetPath": "assets/images/raw/free-open-source-automation-tools-series-hero.png",
+  "targetPath": "assets/images/raw/free-open-source-automation-tools-series-hero.jpg",
   "optimizedPath": "public/images/posts/free-open-source-automation-tools-series-hero.webp",
   "altKo": "무료 오픈소스 자동화 도구 지도를 Biz2Lab과 MyBiz 업무 흐름 관점에서 정리한 대표 이미지",
   "captionKo": "무료 자동화 도구를 콘텐츠, 업무, 데이터 자산화 흐름으로 연결해 보는 Biz2Lab 시리즈 대표 이미지입니다.",
@@ -18,29 +18,29 @@
   "categoryStyle": "automation 카테고리 전용 open-source-automation-map 구성",
   "visualDifferentiationHint": "도구 목록 나열이 아니라 콘텐츠·업무·데이터가 내 자산으로 모이는 구조를 보여준다.",
   "textPolicy": "이미지 안 텍스트는 제목과 보조 문구만 사용하고 세부 설명은 본문과 caption에서 제공한다.",
-  "filename": "free-open-source-automation-tools-series-hero.png",
-  "rawPath": "assets/images/raw/free-open-source-automation-tools-series-hero.png",
-  "rawOutput": "none",
+  "filename": "free-open-source-automation-tools-series-hero.jpg",
+  "rawPath": "assets/images/raw/free-open-source-automation-tools-series-hero.jpg",
+  "rawOutput": "codex-built-in-image-generation",
   "manifestEntry": {
     "id": "free-open-source-automation-tools-series-hero",
     "project": "biz2lab",
     "postSlug": "free-open-source-automation-tools-series",
     "usage": "hero",
     "src": "/images/posts/free-open-source-automation-tools-series-hero.webp",
-    "rawPath": "assets/images/raw/free-open-source-automation-tools-series-hero.png",
+    "rawPath": "assets/images/raw/free-open-source-automation-tools-series-hero.jpg",
     "altKo": "무료 오픈소스 자동화 도구 지도를 Biz2Lab과 MyBiz 업무 흐름 관점에서 정리한 대표 이미지",
     "captionKo": "무료 자동화 도구를 콘텐츠, 업무, 데이터 자산화 흐름으로 연결해 보는 Biz2Lab 시리즈 대표 이미지입니다.",
     "width": 1200,
-    "height": 630,
+    "height": 675,
     "format": "webp",
-    "licenseStatus": "local-prompt-package",
+    "licenseStatus": "codex-image-skill-generated",
     "commerceAutoReusable": true,
-    "status": "planned"
+    "status": "active"
   },
   "articleUpdatePlan": [
     "실제 이미지 승인 후 frontmatter heroImage 후보: /images/posts/free-open-source-automation-tools-series-hero.webp",
     "실제 이미지 승인 후 frontmatter heroAlt 후보: 무료 오픈소스 자동화 도구 지도를 Biz2Lab과 MyBiz 업무 흐름 관점에서 정리한 대표 이미지",
-    "현재 글은 noindex draft 상태이며 public hero WebP가 생성되기 전까지 published로 전환하지 않는다."
+    "raw JPG와 public hero WebP 생성 후 published/noindex false 상태로 전환한다."
   ],
   "validationChecklist": [
     "외부 이미지 URL 없음",

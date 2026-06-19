@@ -23,8 +23,8 @@
 - prompt-only
 
 ## Expected Output
-- filename: free-open-source-automation-tools-series-hero.png
-- rawPath: assets/images/raw/free-open-source-automation-tools-series-hero.png
+- filename: free-open-source-automation-tools-series-hero.jpg
+- rawPath: assets/images/raw/free-open-source-automation-tools-series-hero.jpg
 - optimizedPath: public/images/posts/free-open-source-automation-tools-series-hero.webp
 - altKo: 무료 오픈소스 자동화 도구 지도를 Biz2Lab과 MyBiz 업무 흐름 관점에서 정리한 대표 이미지
 - captionKo: 무료 자동화 도구를 콘텐츠, 업무, 데이터 자산화 흐름으로 연결해 보는 Biz2Lab 시리즈 대표 이미지입니다.

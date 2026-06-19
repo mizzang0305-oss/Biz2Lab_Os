@@ -5,7 +5,7 @@
   "category": "automation",
   "usage": "hero",
   "outputMode": "prompt-only",
-  "targetPath": "assets/images/raw/activepieces-ai-business-automation-n8n-alternative-hero.png",
+  "targetPath": "assets/images/raw/activepieces-ai-business-automation-n8n-alternative-hero.jpg",
   "optimizedPath": "public/images/posts/activepieces-ai-business-automation-n8n-alternative-hero.webp",
   "altKo": "Activepieces를 AI 업무 자동화와 n8n 대안 관점에서 분석한 대표 이미지",
   "captionKo": "Activepieces를 문의, 블로그, 쇼츠 요청, 데이터 흐름을 연결하는 AI 업무 자동화 후보로 분석한 이미지입니다.",
@@ -18,29 +18,29 @@
   "categoryStyle": "automation 카테고리 전용 ai-workflow-builder 구성",
   "visualDifferentiationHint": "특정 경쟁 도구 로고 비교가 아니라 AI 업무 흐름과 MCP 연결 가능성을 보여준다.",
   "textPolicy": "이미지 안 텍스트는 제목, 보조 문구, trigger, action, AI, MCP 같은 짧은 라벨만 사용한다.",
-  "filename": "activepieces-ai-business-automation-n8n-alternative-hero.png",
-  "rawPath": "assets/images/raw/activepieces-ai-business-automation-n8n-alternative-hero.png",
-  "rawOutput": "none",
+  "filename": "activepieces-ai-business-automation-n8n-alternative-hero.jpg",
+  "rawPath": "assets/images/raw/activepieces-ai-business-automation-n8n-alternative-hero.jpg",
+  "rawOutput": "codex-built-in-image-generation",
   "manifestEntry": {
     "id": "activepieces-ai-business-automation-n8n-alternative-hero",
     "project": "biz2lab",
     "postSlug": "activepieces-ai-business-automation-n8n-alternative",
     "usage": "hero",
     "src": "/images/posts/activepieces-ai-business-automation-n8n-alternative-hero.webp",
-    "rawPath": "assets/images/raw/activepieces-ai-business-automation-n8n-alternative-hero.png",
+    "rawPath": "assets/images/raw/activepieces-ai-business-automation-n8n-alternative-hero.jpg",
     "altKo": "Activepieces를 AI 업무 자동화와 n8n 대안 관점에서 분석한 대표 이미지",
     "captionKo": "Activepieces를 문의, 블로그, 쇼츠 요청, 데이터 흐름을 연결하는 AI 업무 자동화 후보로 분석한 이미지입니다.",
     "width": 1200,
-    "height": 630,
+    "height": 675,
     "format": "webp",
-    "licenseStatus": "local-prompt-package",
+    "licenseStatus": "codex-image-skill-generated",
     "commerceAutoReusable": true,
-    "status": "planned"
+    "status": "active"
   },
   "articleUpdatePlan": [
     "실제 이미지 승인 후 frontmatter heroImage 후보: /images/posts/activepieces-ai-business-automation-n8n-alternative-hero.webp",
     "실제 이미지 승인 후 frontmatter heroAlt 후보: Activepieces를 AI 업무 자동화와 n8n 대안 관점에서 분석한 대표 이미지",
-    "현재 글은 noindex draft 상태이며 public hero WebP가 생성되기 전까지 published로 전환하지 않는다."
+    "raw JPG와 public hero WebP 생성 후 published/noindex false 상태로 전환한다."
   ],
   "validationChecklist": [
     "외부 이미지 URL 없음",
