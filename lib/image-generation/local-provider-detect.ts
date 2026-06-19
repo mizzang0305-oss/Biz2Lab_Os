@@ -6,18 +6,20 @@ const defaultEndpointChecks = [
   {
     provider: "comfyui-local" as const,
     endpoint: "http://127.0.0.1:8188",
-    apiShape: "ComfyUI localhost service probe",
+    healthPath: "/system_stats",
+    apiShape: "ComfyUI /system_stats localhost service probe",
   },
   {
     provider: "sd-webui-local" as const,
     endpoint: "http://127.0.0.1:7860",
-    apiShape: "Stable Diffusion WebUI localhost service probe",
+    healthPath: "/sdapi/v1/options",
+    apiShape: "Stable Diffusion WebUI /sdapi/v1/options localhost service probe",
   },
 ];
 
-async function isReachable(endpoint: string) {
+async function isReachable(endpoint: string, healthPath: string) {
   try {
-    const response = await fetch(endpoint, { signal: AbortSignal.timeout(1500) });
+    const response = await fetch(`${endpoint}${healthPath}`, { signal: AbortSignal.timeout(1500) });
     return response.ok || response.status < 500;
   } catch {
     return false;
@@ -54,7 +56,7 @@ export async function detectLocalImageProviders(env = process.env) {
       }
     }
 
-    const reachable = endpointAllowed ? await isReachable(endpoint) : false;
+    const reachable = endpointAllowed ? await isReachable(endpoint, check.healthPath) : false;
     statuses.push({
       provider: check.provider,
       configured: configuredProvider === check.provider,

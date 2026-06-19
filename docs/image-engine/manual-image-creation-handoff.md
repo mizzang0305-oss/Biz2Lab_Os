@@ -2,6 +2,8 @@
 
 Prompt packages are the current source of truth for future image production. They are production instructions, not generated images. A prompt package does not mean the raw image already exists, and article image replacement requires an actual local file.
 
+If a real localhost provider is configured, Codex may use `npm run image-skill:generate -- --brief <brief.json> --no-dry-run` instead of manual copy/paste. Without a configured provider, manual-drop remains a detection workflow only; it does not generate images.
+
 ## Workflow
 
 1. Open a prompt package under `image-requests/generated/*.prompt.md`.
@@ -38,3 +40,13 @@ npm run build
 - Do not treat deterministic fallback diagrams as final premium visuals.
 - Do not use `local-diagram-fallback` unless the user explicitly asks for that fallback mode.
 - Do not push without explicit user approval.
+
+## PR #2 Finish Checklist
+
+For `free-open-source-automation-tools-series` and `activepieces-ai-business-automation-n8n-alternative`:
+
+1. Generate real raw images with an approved local provider, or place approved manual raw images under `assets/images/raw/`.
+2. Run `npm run optimize-images`.
+3. Confirm public WebP files exist under `public/images/posts/`.
+4. Only then publish the draft articles and add public OpenCut links.
+5. Run the full validation suite before pushing.

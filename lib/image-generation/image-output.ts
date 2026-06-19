@@ -62,6 +62,33 @@ export function validateLocalImagePath(label: string, repoPath: string) {
   return errors;
 }
 
+export function validateBriefOutputPaths(brief: ImageBrief) {
+  const errors: string[] = [];
+  const rawPath = normalizeRepoPath(brief.targetPath);
+  const optimizedPath = normalizeRepoPath(brief.optimizedPath);
+
+  errors.push(...validateLocalImagePath(`${brief.id} targetPath`, rawPath));
+  errors.push(...validateLocalImagePath(`${brief.id} optimizedPath`, optimizedPath));
+
+  if (!rawPath.startsWith("assets/images/raw/")) {
+    errors.push(`${brief.id}: targetPath must stay under assets/images/raw`);
+  }
+
+  if (!optimizedPath.startsWith("public/images/posts/")) {
+    errors.push(`${brief.id}: optimizedPath must stay under public/images/posts`);
+  }
+
+  if (!rawPath.includes(`${brief.postSlug}-`)) {
+    errors.push(`${brief.id}: targetPath filename must include the post slug`);
+  }
+
+  if (!optimizedPath.includes(`${brief.postSlug}-`)) {
+    errors.push(`${brief.id}: optimizedPath filename must include the post slug`);
+  }
+
+  return errors;
+}
+
 export function assertLocalhostEndpoint(endpoint: string) {
   let parsed: URL;
   try {
@@ -101,4 +128,34 @@ export function summarizeBriefs(briefs: ImageBrief[]) {
       rawMissing: 0,
     },
   );
+}
+
+export function dimensionsForImageBrief(brief: ImageBrief) {
+  if (brief.usage === "inline") {
+    return { width: 1200, height: 800 };
+  }
+
+  return { width: 1200, height: 630 };
+}
+
+export function promptForImageBrief(brief: ImageBrief) {
+  return [
+    brief.providerPromptKo,
+    brief.promptKo,
+    brief.composition,
+    brief.categoryStyle,
+    brief.visualReferenceStyle,
+  ]
+    .filter((value): value is string => Boolean(value?.trim()))
+    .join("\n\n")
+    .trim();
+}
+
+export function negativePromptForImageBrief(brief: ImageBrief) {
+  return brief.negativePromptKo?.trim() ?? "";
+}
+
+export function decodeBase64Image(value: string) {
+  const normalized = value.replace(/^data:image\/[a-zA-Z0-9.+-]+;base64,/, "");
+  return Buffer.from(normalized, "base64");
 }
