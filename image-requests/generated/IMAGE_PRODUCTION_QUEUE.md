@@ -1,11 +1,11 @@
 # Biz2Lab Image Production Queue
 
-Status as of Phase 3.9: prompt packages are ready only. The first three hero images are selected for manual premium generation. No real images were generated, no raw assets were saved, no optimized images were created, no articles or hub pages were changed, and nothing was pushed.
+Status as of the OpenCut content task: prompt packages are ready only for the OpenCut hero request. No real OpenCut image was generated, no OpenCut raw asset was saved, no OpenCut optimized image was created, and nothing was pushed.
 
 Recommended manual generation order:
 
 1. Priority 1: the 5 key inline explanatory images.
-2. Priority 2: the 25 public Korean post hero images.
+2. Priority 2: the 26 public Korean post hero images.
 3. Priority 3: the 4 category hub images.
 
 Phase 3.9 first manual generation selection:
@@ -38,6 +38,7 @@ Phase 3.9 first manual generation selection:
 | 2 | google-sheets-ai-automation | hero | image-requests/generated/google-sheets-ai-automation-hero.md | image-requests/generated/google-sheets-ai-automation-hero.prompt.md | image-briefs/generated/google-sheets-ai-automation-hero.json | assets/images/raw/google-sheets-ai-automation-hero.png | public/images/posts/google-sheets-ai-automation-1200.webp | yes | no | no | no | no | no | no | no |
 | 2 | manage-unsigned-contracts | hero | image-requests/generated/manage-unsigned-contracts-hero.md | image-requests/generated/manage-unsigned-contracts-hero.prompt.md | image-briefs/generated/manage-unsigned-contracts-hero.json | assets/images/raw/manage-unsigned-contracts-hero.png | public/images/posts/manage-unsigned-contracts-1200.webp | yes | no | no | no | no | no | no | no |
 | 2 | obsidian-business-knowledge-base | hero | image-requests/generated/obsidian-business-knowledge-base-hero.md | image-requests/generated/obsidian-business-knowledge-base-hero.prompt.md | image-briefs/generated/obsidian-business-knowledge-base-hero.json | assets/images/raw/obsidian-business-knowledge-base-hero.png | public/images/posts/obsidian-business-knowledge-base-1200.webp | yes | no | no | no | no | no | no | no |
+| 2 | opencut-free-open-source-video-editor-ai-content-automation | hero | image-requests/generated/opencut-free-open-source-video-editor-ai-content-automation-hero.md | image-requests/generated/opencut-free-open-source-video-editor-ai-content-automation-hero.prompt.md | image-briefs/generated/opencut-free-open-source-video-editor-ai-content-automation-hero.json | assets/images/raw/opencut-free-open-source-video-editor-ai-content-automation-hero.jpg | public/images/posts/opencut-free-open-source-video-editor-ai-content-automation-hero.webp | yes | yes | yes | yes | yes | provided-by-user | yes | no |
 | 2 | offline-card-payment-pg-van | hero | image-requests/generated/offline-card-payment-pg-van-hero.md | image-requests/generated/offline-card-payment-pg-van-hero.prompt.md | image-briefs/generated/offline-card-payment-pg-van-hero.json | assets/images/raw/offline-card-payment-pg-van-hero.png | public/images/posts/offline-card-payment-pg-van-1200.webp | yes | no | no | no | no | no | no | no |
 | 2 | payment-reminder-message | hero | image-requests/generated/payment-reminder-message-hero.md | image-requests/generated/payment-reminder-message-hero.prompt.md | image-briefs/generated/payment-reminder-message-hero.json | assets/images/raw/payment-reminder-message-hero.png | public/images/posts/payment-reminder-message-1200.webp | yes | no | no | no | no | no | no | no |
 | 2 | pre-automation-task-list | hero | image-requests/generated/pre-automation-task-list-hero.md | image-requests/generated/pre-automation-task-list-hero.prompt.md | image-briefs/generated/pre-automation-task-list-hero.json | assets/images/raw/pre-automation-task-list-hero.png | public/images/posts/pre-automation-task-list-1200.webp | yes | no | no | no | no | no | no | no |

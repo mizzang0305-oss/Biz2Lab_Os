@@ -267,6 +267,17 @@ for (const entry of optionalAssetEntries) {
     if (normalizedRawPath.startsWith("public/")) {
       errors.push(`${label}: rawPath must not point to a public route`);
     }
+    if (entry.status === "active") {
+      if (!normalizedRawPath.startsWith("assets/images/raw/")) {
+        errors.push(`${label}: active rawPath must stay under assets/images/raw`);
+      }
+      if (entry.postSlug && !normalizedRawPath.includes(`${entry.postSlug}-`)) {
+        errors.push(`${label}: active rawPath must include the post slug`);
+      }
+      if (!fs.existsSync(path.join(root, normalizedRawPath))) {
+        errors.push(`${label}: active rawPath file is missing: ${normalizedRawPath}`);
+      }
+    }
   }
 }
 

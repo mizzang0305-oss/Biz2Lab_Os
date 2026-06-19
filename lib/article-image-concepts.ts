@@ -102,6 +102,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["기준", "응대", "질문", "연결"],
     palette: automationPalette,
   },
+  "opencut-free-open-source-video-editor-ai-content-automation": {
+    slug: "opencut-free-open-source-video-editor-ai-content-automation",
+    category: "automation",
+    visualFamily: "video-automation-pipeline",
+    conceptKo: "상품 정보와 전단형 소재가 쇼츠 템플릿, 자막, 썸네일, 블로그/SNS 패키지로 이어지는 콘텐츠 자동화 파이프라인",
+    altKo: "OpenCut 무료 오픈소스 영상 편집기를 AI 콘텐츠 자동화 관점에서 분석한 대표 이미지",
+    captionKo: "OpenCut을 단순 무료 편집툴이 아니라 상품 정보와 쇼츠 제작을 연결하는 자동화 후보 도구로 분석한 이미지입니다.",
+    labels: ["소재", "쇼츠", "자막", "패키지"],
+    palette: automationPalette,
+  },
   "pre-automation-task-list": {
     slug: "pre-automation-task-list",
     category: "automation",

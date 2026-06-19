@@ -289,7 +289,7 @@ function isPhase40ContentAuthorityDiff(changedPath: string) {
     return true;
   }
 
-  if (/^assets\/images\/raw\/[a-z0-9-]+-(?:hero|workflow|dashboard|risk-map|checklist)\.svg$/u.test(changedPath)) {
+  if (/^assets\/images\/raw\/[a-z0-9-]+-(?:hero|workflow|dashboard|risk-map|checklist)\.(?:svg|png|jpe?g|webp)$/u.test(changedPath)) {
     return true;
   }
 
@@ -305,7 +305,7 @@ function isPhase42A3ImageRepairDiff(changedPath: string) {
     return true;
   }
 
-  if (/^assets\/images\/raw\/[a-z0-9-]+-hero\.svg$/u.test(changedPath)) {
+  if (/^assets\/images\/raw\/[a-z0-9-]+-hero\.(?:svg|png|jpe?g|webp)$/u.test(changedPath)) {
     return true;
   }
 

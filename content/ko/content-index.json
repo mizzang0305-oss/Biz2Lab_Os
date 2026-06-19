@@ -1,5 +1,21 @@
 [
   {
+    "title": "OpenCut 분석: 무료 오픈소스 영상 편집기, AI 콘텐츠 자동화에 쓸 수 있을까?",
+    "slug": "opencut-free-open-source-video-editor-ai-content-automation",
+    "route": "/ko/automation/opencut-free-open-source-video-editor-ai-content-automation",
+    "category": "automation",
+    "cluster": "content-automation",
+    "type": "how-to",
+    "heroImage": "/images/posts/opencut-free-open-source-video-editor-ai-content-automation-hero.webp",
+    "heroAlt": "OpenCut 무료 오픈소스 영상 편집기를 AI 콘텐츠 자동화 관점에서 분석한 대표 이미지",
+    "updatedAt": "2026-06-19",
+    "relatedPosts": [
+      "ai-business-automation-guide",
+      "reduce-repetitive-work-with-ai",
+      "google-sheets-ai-automation"
+    ]
+  },
+  {
     "title": "AI 업무 자동화란 무엇인가: 소상공인과 영업팀을 위한 실전 가이드",
     "slug": "ai-business-automation-guide",
     "route": "/ko/automation/ai-business-automation-guide",

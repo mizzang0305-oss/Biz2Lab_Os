@@ -82,13 +82,13 @@ test("frontmatter schema enforces Korean-only approval categories", () => {
   assert.equal(parsed.success, true);
 });
 
-test("Phase 2 content set has 25 public Korean posts and excludes drafts/noindex from sitemap", () => {
+test("Phase 2 content set has 26 public Korean posts and excludes drafts/noindex from sitemap", () => {
   const allPosts = getAllPosts();
   const publicPosts = getPublicPosts();
   const sitemapPosts = getSitemapPosts();
 
-  assert.equal(publicPosts.length, 25);
-  assert.equal(publicPosts.filter((post) => post.category === "automation").length, 7);
+  assert.equal(publicPosts.length, 26);
+  assert.equal(publicPosts.filter((post) => post.category === "automation").length, 8);
   assert.equal(publicPosts.filter((post) => post.category === "sales-ops").length, 7);
   assert.equal(publicPosts.filter((post) => post.category === "small-business").length, 6);
   assert.equal(publicPosts.filter((post) => post.category === "contracts-payments").length, 5);
@@ -245,32 +245,61 @@ test("article image concept map covers every public hero with distinct non-gener
     visualFamilies.add(match[1]);
   }
 
-  assert.ok(visualFamilies.size >= 12, "25 posts need varied visual families");
+  assert.ok(visualFamilies.size >= 12, "26 posts need varied visual families");
   assert.doesNotMatch(conceptMapSource, /Hero for practical operations|Article workflow/i);
 });
 
-test("non-premium hero SVGs do not expose article titles or the old generic workflow template", () => {
+test("non-premium hero source assets do not expose article titles or the old generic workflow template", () => {
   const premiumSlugs = new Set(["ai-business-automation-guide", "accounts-receivable-tracker", "electronic-contract-system-basics"]);
   const genericTemplatePatterns = [
     /Hero for practical operations/i,
     /Article workflow/i,
     /문제[\s\S]{0,500}기준[\s\S]{0,500}실행[\s\S]{0,500}검토[\s\S]{0,500}개선/,
   ];
+  const optionalAssetManifestPath = path.join(process.cwd(), "data", "image-assets.json");
+  const imageAssets = fs.existsSync(optionalAssetManifestPath)
+    ? JSON.parse(fs.readFileSync(optionalAssetManifestPath, "utf8")) as Array<{
+        postSlug?: string;
+        usage?: string;
+        src?: string;
+        rawPath?: string;
+      }>
+    : [];
 
   for (const post of getPublicPosts().filter((candidate) => !premiumSlugs.has(candidate.slug))) {
-    const rawPath = path.join(
+    const defaultSvgPath = path.join(
       process.cwd(),
       "assets",
       "images",
       "raw",
       `${post.slug}-hero.svg`,
     );
-    assert.equal(fs.existsSync(rawPath), true, `${post.slug} needs a slug-specific raw SVG`);
+    const assetEntry = imageAssets.find(
+      (asset) =>
+        asset.postSlug === post.slug &&
+        asset.usage === "hero" &&
+        asset.src === post.frontmatter.heroImage &&
+        asset.rawPath?.includes(`${post.slug}-hero`),
+    );
+    const rawPath = fs.existsSync(defaultSvgPath)
+      ? defaultSvgPath
+      : assetEntry?.rawPath
+        ? path.join(process.cwd(), assetEntry.rawPath)
+        : "";
 
-    const svg = fs.readFileSync(rawPath, "utf8");
-    assert.doesNotMatch(svg, new RegExp(post.frontmatter.title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-    for (const pattern of genericTemplatePatterns) {
-      assert.doesNotMatch(svg, pattern, `${post.slug} still uses the old generic workflow template`);
+    assert.ok(rawPath, `${post.slug} needs a slug-specific raw source asset`);
+    assert.equal(fs.existsSync(rawPath), true, `${post.slug} raw source asset is missing`);
+
+    const relativeRawPath = path.relative(process.cwd(), rawPath).replaceAll(path.sep, "/");
+    assert.match(relativeRawPath, /^assets\/images\/raw\//);
+    assert.match(relativeRawPath, new RegExp(`${post.slug}-hero\\.(svg|png|jpe?g|webp)$`));
+
+    if (path.extname(rawPath).toLowerCase() === ".svg") {
+      const svg = fs.readFileSync(rawPath, "utf8");
+      assert.doesNotMatch(svg, new RegExp(post.frontmatter.title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+      for (const pattern of genericTemplatePatterns) {
+        assert.doesNotMatch(svg, pattern, `${post.slug} still uses the old generic workflow template`);
+      }
     }
   }
 });

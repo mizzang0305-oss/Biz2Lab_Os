@@ -52,5 +52,23 @@
     "visualApprovalStatus": "pending-user-review",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "opencut-free-open-source-video-editor-ai-content-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "opencut-free-open-source-video-editor-ai-content-automation",
+    "usage": "hero",
+    "src": "/images/posts/opencut-free-open-source-video-editor-ai-content-automation-hero.webp",
+    "rawPath": "assets/images/raw/opencut-free-open-source-video-editor-ai-content-automation-hero.jpg",
+    "altKo": "OpenCut 무료 오픈소스 영상 편집기를 AI 콘텐츠 자동화 관점에서 분석한 대표 이미지",
+    "captionKo": "OpenCut을 단순 무료 편집툴이 아니라 상품 정보와 쇼츠 제작을 연결하는 자동화 후보 도구로 분석한 이미지입니다.",
+    "width": 1200,
+    "height": 630,
+    "format": "webp",
+    "licenseStatus": "user-provided-generated-image",
+    "source": "user-provided attachment",
+    "visualApprovalStatus": "provided-by-user",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]
