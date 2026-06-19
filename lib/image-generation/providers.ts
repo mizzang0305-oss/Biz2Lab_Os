@@ -40,10 +40,18 @@ export function normalizeProviderId(value?: string | null) {
   return envProviderMap[value] ?? null;
 }
 
-export function readProviderConfigFromEnv(env = process.env): LocalImageProviderConfig {
+export function readProviderConfigFromEnv(env: Record<string, string | undefined> = process.env): LocalImageProviderConfig {
+  const provider = normalizeProviderId(env.LOCAL_IMAGE_PROVIDER);
+  const defaultEndpoint =
+    provider === "comfyui-local"
+      ? "http://127.0.0.1:8188"
+      : provider === "sd-webui-local"
+        ? "http://127.0.0.1:7860"
+        : undefined;
+
   return {
     provider: env.LOCAL_IMAGE_PROVIDER,
-    endpoint: env.LOCAL_IMAGE_ENDPOINT,
+    endpoint: env.LOCAL_IMAGE_ENDPOINT ?? defaultEndpoint,
     workflowPath: env.LOCAL_IMAGE_WORKFLOW_PATH,
     dryRun: env.LOCAL_IMAGE_DRY_RUN !== "false",
   };

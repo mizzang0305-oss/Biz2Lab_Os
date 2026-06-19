@@ -15,10 +15,21 @@ function providerFromArgs() {
   return providerArg ? providerArg.split("=")[1] : null;
 }
 
+function valueForArg(name: string) {
+  const inline = process.argv.find((arg) => arg.startsWith(`--${name}=`));
+  if (inline) {
+    return inline.slice(inline.indexOf("=") + 1);
+  }
+
+  const index = process.argv.indexOf(`--${name}`);
+  return index >= 0 ? process.argv[index + 1] : undefined;
+}
+
 async function main() {
   const argProvider = normalizeProviderId(providerFromArgs());
   const configuredProvider = resolveConfiguredProvider();
   const providerId = argProvider ?? configuredProvider;
+  const briefPath = valueForArg("brief");
 
   if (!providerId) {
     console.log("No real local image provider configured. Use manual-drop or deterministic fallback.");
@@ -36,7 +47,7 @@ async function main() {
     assertLocalhostEndpoint(providerConfig.endpoint);
   }
 
-  const briefs = loadImageBriefs();
+  const briefs = loadImageBriefs(briefPath);
   const result = await provider.generate({
     briefs,
     providerConfig,
@@ -45,6 +56,7 @@ async function main() {
 
   console.log("image-skill:generate");
   console.log(`provider=${result.provider}`);
+  console.log(`briefSource=${briefPath ?? "image-briefs/biz2lab-article-image-briefs.json"}`);
   console.log(`generated=${result.generated.length}`);
   console.log(`skipped=${result.skipped.length}`);
   console.log(`failed=${result.failed.length}`);

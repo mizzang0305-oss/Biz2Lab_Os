@@ -7,14 +7,14 @@ Status: Phase 3.8-SKILL internal workflow
 
 The Biz2Lab Codex Image Skill turns an article image idea into a local production package: request markdown, prompt package, generated brief JSON, planned raw/optimized paths, Korean alt text, caption, manifest draft, article update plan, and validation checklist.
 
-It is not ComfyUI setup, Stable Diffusion setup, a public AI image feature, or a real image rendering provider.
+It is not a public AI image feature and it does not install models. Real image rendering is available only through an explicitly configured localhost provider runner or through manual-drop files that already exist locally.
 
 ## Workflow
 
 1. User describes the image need in natural language.
 2. Codex creates an image request with `npm run image-request:create`.
 3. Codex creates a prompt package with `npm run image-skill:codex`.
-4. User manually creates the image with ChatGPT image generation, another approved manual tool, or a local model outside the public site.
+4. Either generate with a reviewed localhost provider runner or manually create the image with an approved local/manual tool outside the public site.
 5. User saves the raw result to `assets/images/raw`.
 6. Codex runs `npm run optimize-images`.
 7. Codex runs `npm run validate:images`.
@@ -41,7 +41,30 @@ npm run optimize-images
 npm run validate:images
 ```
 
-## Mode 3: Local Diagram Fallback
+## Mode 3: Real Local Provider
+
+Use only when a localhost image provider is installed and running.
+
+Stable Diffusion WebUI:
+
+```bash
+LOCAL_IMAGE_PROVIDER=sd-webui LOCAL_IMAGE_ENDPOINT=http://127.0.0.1:7860 npm run image-skill:generate -- --brief image-briefs/generated/example-hero.json --no-dry-run
+```
+
+ComfyUI:
+
+```bash
+LOCAL_IMAGE_PROVIDER=comfyui LOCAL_IMAGE_ENDPOINT=http://127.0.0.1:8188 LOCAL_IMAGE_WORKFLOW_PATH=config/comfyui-workflow.json npm run image-skill:generate -- --brief image-briefs/generated/example-hero.json --no-dry-run
+```
+
+The runner saves raw files only under `assets/images/raw/`. After generation, run:
+
+```bash
+npm run optimize-images
+npm run validate:images
+```
+
+## Mode 4: Local Diagram Fallback
 
 Use only when a safe SVG/diagram fallback is suitable and explicitly requested. This output is local and deterministic, but it is not the premium final image path.
 
@@ -88,3 +111,5 @@ Expected direction:
 - No public upload or generator route
 - No DB, auth, admin, login, commerce, affiliate, product, review, Amazon, or lotto surface
 - No article mutation by default
+- No placeholder files
+- No generation success unless a real raw image file was written
