@@ -82,13 +82,14 @@ test("frontmatter schema enforces Korean-only approval categories", () => {
   assert.equal(parsed.success, true);
 });
 
-test("Phase 2 content set has 26 public Korean posts and excludes drafts/noindex from sitemap", () => {
+test("Phase 2 content set has 28 public Korean posts and excludes drafts/noindex from sitemap", () => {
   const allPosts = getAllPosts();
   const publicPosts = getPublicPosts();
   const sitemapPosts = getSitemapPosts();
+  const draftPosts = allPosts.filter((post) => post.frontmatter.draft);
 
-  assert.equal(publicPosts.length, 26);
-  assert.equal(publicPosts.filter((post) => post.category === "automation").length, 8);
+  assert.equal(publicPosts.length, 28);
+  assert.equal(publicPosts.filter((post) => post.category === "automation").length, 10);
   assert.equal(publicPosts.filter((post) => post.category === "sales-ops").length, 7);
   assert.equal(publicPosts.filter((post) => post.category === "small-business").length, 6);
   assert.equal(publicPosts.filter((post) => post.category === "contracts-payments").length, 5);
@@ -96,7 +97,7 @@ test("Phase 2 content set has 26 public Korean posts and excludes drafts/noindex
   assert.equal(publicPosts.every((post) => post.frontmatter.status === "published"), true);
   assert.equal(publicPosts.every((post) => post.frontmatter.draft === false), true);
   assert.equal(sitemapPosts.every((post) => post.frontmatter.noindex === false), true);
-  assert.equal(allPosts.some((post) => post.frontmatter.draft), false);
+  assert.deepEqual(draftPosts.map((post) => post.slug).sort(), []);
 });
 
 test("each public post is a connected information node", () => {
@@ -245,7 +246,7 @@ test("article image concept map covers every public hero with distinct non-gener
     visualFamilies.add(match[1]);
   }
 
-  assert.ok(visualFamilies.size >= 12, "26 posts need varied visual families");
+  assert.ok(visualFamilies.size >= 12, "28 posts need varied visual families");
   assert.doesNotMatch(conceptMapSource, /Hero for practical operations|Article workflow/i);
 });
 

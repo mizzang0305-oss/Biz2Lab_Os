@@ -1,5 +1,37 @@
 [
   {
+    "title": "Activepieces 분석: n8n 대안이 될 수 있는 AI 업무 자동화 도구",
+    "slug": "activepieces-ai-business-automation-n8n-alternative",
+    "route": "/ko/automation/activepieces-ai-business-automation-n8n-alternative",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/activepieces-ai-business-automation-n8n-alternative-hero.webp",
+    "heroAlt": "Activepieces를 AI 업무 자동화와 n8n 대안 관점에서 분석한 대표 이미지",
+    "updatedAt": "2026-06-19",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "opencut-free-open-source-video-editor-ai-content-automation",
+      "ai-business-automation-guide"
+    ]
+  },
+  {
+    "title": "무료 오픈소스 자동화 도구 실전 분석: 소상공인·블로거·SaaS 운영자를 위한 도구 지도",
+    "slug": "free-open-source-automation-tools-series",
+    "route": "/ko/automation/free-open-source-automation-tools-series",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "pillar",
+    "heroImage": "/images/posts/free-open-source-automation-tools-series-hero.webp",
+    "heroAlt": "무료 오픈소스 자동화 도구 지도를 Biz2Lab과 MyBiz 업무 흐름 관점에서 정리한 대표 이미지",
+    "updatedAt": "2026-06-19",
+    "relatedPosts": [
+      "opencut-free-open-source-video-editor-ai-content-automation",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "ai-business-automation-guide"
+    ]
+  },
+  {
     "title": "OpenCut 분석: 무료 오픈소스 영상 편집기, AI 콘텐츠 자동화에 쓸 수 있을까?",
     "slug": "opencut-free-open-source-video-editor-ai-content-automation",
     "route": "/ko/automation/opencut-free-open-source-video-editor-ai-content-automation",
