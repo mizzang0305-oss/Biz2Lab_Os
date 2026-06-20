@@ -1,5 +1,6 @@
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 
 import sharp from "sharp";
@@ -99,6 +100,8 @@ type CliOptions = {
   noCommit?: boolean;
   noPr?: boolean;
   artifact?: string;
+  artifactDir?: string;
+  useLatestCodexArtifact?: boolean;
 };
 
 type ImagePaths = {
@@ -417,6 +420,206 @@ function collectFiles(directory: string): string[] {
   });
 }
 
+type ArtifactSelectionOptions = {
+  explicitArtifact?: string;
+  artifactDir?: string;
+  useLatestCodexArtifact?: boolean;
+};
+
+type ArtifactValidationOptions = {
+  allowSingleImageDirectoryMatch?: boolean;
+  requireAllowedDiscoveryLocation?: boolean;
+  rootDir?: string;
+};
+
+type ArtifactMatch = {
+  filePath: string;
+  matchedBy: "filename" | "manifest" | "single-image-directory";
+  mtimeMs: number;
+};
+
+const artifactManifestNames = [
+  "manifest.json",
+  "codex-image-manifest.json",
+  "image-manifest.json",
+] as const;
+
+const localOnlyCommitPathPrefixes = [
+  ".codex-remote-attachments/",
+  ".codex/generated_images/",
+  "artifacts/codex-images/",
+  "generated/",
+  "output/",
+  "tmp/",
+] as const;
+
+function normalizeAbsolutePath(filePath: string) {
+  return path.resolve(filePath);
+}
+
+function resolveArtifactPath(rootDir: string, inputPath: string) {
+  return path.isAbsolute(inputPath)
+    ? normalizeAbsolutePath(inputPath)
+    : normalizeAbsolutePath(absolutePath(rootDir, inputPath.replaceAll("\\", "/")));
+}
+
+function pathIsInside(candidatePath: string, rootPath: string) {
+  const candidate = normalizeAbsolutePath(candidatePath);
+  const root = normalizeAbsolutePath(rootPath);
+  const relativePath = path.relative(root, candidate);
+  return relativePath === "" || (!relativePath.startsWith("..") && !path.isAbsolute(relativePath));
+}
+
+function uniquePaths(filePaths: string[]) {
+  return Array.from(new Set(filePaths.map((filePath) => normalizeAbsolutePath(filePath))));
+}
+
+export function codexArtifactDiscoveryRoots(rootDir = process.cwd(), state?: ContentSeriesState) {
+  void rootDir;
+  void state;
+  const configuredCodexGeneratedRoot = process.env.CODEX_GENERATED_IMAGE_ROOT ?? process.env.CODEX_GENERATED_IMAGES_DIR;
+  const homeGeneratedImages = configuredCodexGeneratedRoot
+    ? path.resolve(configuredCodexGeneratedRoot)
+    : path.join(os.homedir(), ".codex", "generated_images");
+  return uniquePaths([homeGeneratedImages]);
+}
+
+function isSupportedArtifactExtension(filePath: string, state: ContentSeriesState) {
+  const ext = path.extname(filePath).toLowerCase();
+  return state.imagePolicy.allowedArtifactExtensions
+    .map((value) => value.toLowerCase())
+    .includes(ext);
+}
+
+function isManifestFile(filePath: string) {
+  return artifactManifestNames.includes(path.basename(filePath) as (typeof artifactManifestNames)[number]);
+}
+
+function looksLikeImagePath(value: string) {
+  return /\.(jpe?g|png|webp)$/i.test(value);
+}
+
+function normalizeManifestSlug(value: string) {
+  return value.endsWith("-hero") ? value.slice(0, -"-hero".length) : value;
+}
+
+function slugMatches(value: string | undefined, topic: ContentSeriesTopic) {
+  if (!value) {
+    return false;
+  }
+  return normalizeManifestSlug(value.trim()) === topic.slug;
+}
+
+function readJsonIfExists(filePath: string) {
+  if (!fs.existsSync(filePath)) {
+    return null;
+  }
+  try {
+    return JSON.parse(fs.readFileSync(filePath, "utf8")) as unknown;
+  } catch {
+    return null;
+  }
+}
+
+function manifestRecords(payload: unknown): Record<string, unknown>[] {
+  if (Array.isArray(payload)) {
+    return payload.filter((item): item is Record<string, unknown> => Boolean(item) && typeof item === "object" && !Array.isArray(item));
+  }
+
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    return [];
+  }
+
+  const record = payload as Record<string, unknown>;
+  for (const key of ["images", "artifacts", "files", "items"]) {
+    if (Array.isArray(record[key])) {
+      return manifestRecords(record[key]);
+    }
+  }
+
+  const records: Record<string, unknown>[] = [];
+  for (const [key, value] of Object.entries(record)) {
+    if (typeof value === "string") {
+      if (looksLikeImagePath(key)) {
+        records.push({ file: key, slug: value });
+      } else if (looksLikeImagePath(value)) {
+        records.push({ file: value, slug: key });
+      } else {
+        records.push({ key, slug: value });
+      }
+    } else if (value && typeof value === "object" && !Array.isArray(value)) {
+      records.push({ key, ...(value as Record<string, unknown>) });
+    }
+  }
+  return records;
+}
+
+function manifestFileValue(record: Record<string, unknown>) {
+  for (const key of ["file", "filename", "path", "src", "artifact", "output"]) {
+    const value = record[key];
+    if (typeof value === "string" && value.trim()) {
+      return value;
+    }
+  }
+  return undefined;
+}
+
+function manifestSlugValue(record: Record<string, unknown>) {
+  for (const key of ["slug", "postSlug", "topicSlug", "targetSlug"]) {
+    const value = record[key];
+    if (typeof value === "string" && value.trim()) {
+      return value;
+    }
+  }
+  const key = record.key;
+  if (typeof key === "string" && !looksLikeImagePath(key) && key.trim()) {
+    return key;
+  }
+  const id = record.id;
+  if (typeof id === "string" && id.trim()) {
+    return normalizeManifestSlug(id);
+  }
+  return undefined;
+}
+
+function manifestSlugForArtifact(filePath: string) {
+  const directory = path.dirname(filePath);
+  const basename = path.basename(filePath);
+
+  for (const manifestName of artifactManifestNames) {
+    const payload = readJsonIfExists(path.join(directory, manifestName));
+    if (!payload) {
+      continue;
+    }
+    for (const record of manifestRecords(payload)) {
+      const fileValue = manifestFileValue(record);
+      if (!fileValue || path.basename(fileValue) !== basename) {
+        continue;
+      }
+      const slug = manifestSlugValue(record);
+      if (slug) {
+        return normalizeManifestSlug(slug);
+      }
+    }
+  }
+
+  return null;
+}
+
+function artifactFilenameMatchesTopic(filePath: string, topic: ContentSeriesTopic) {
+  return path.basename(filePath).toLowerCase().includes(topic.slug.toLowerCase());
+}
+
+function assertAllowedDiscoveryLocation(rootDir: string, state: ContentSeriesState, filePath: string) {
+  const allowedRoots = codexArtifactDiscoveryRoots(rootDir, state);
+  if (!allowedRoots.some((allowedRoot) => pathIsInside(filePath, allowedRoot))) {
+    throw new ContentSeriesError(
+      "CODEX_ARTIFACT_PROVENANCE_REJECTED",
+      `${filePath}: artifact path is outside the approved local Codex generated image root (${allowedRoots.join(", ")})`,
+    );
+  }
+}
+
 function hasImageMagic(filePath: string) {
   const buffer = fs.readFileSync(filePath);
   if (buffer.length < 12) {
@@ -434,9 +637,14 @@ export function assertValidCodexImageArtifact(
   filePath: string,
   topic: ContentSeriesTopic,
   state: ContentSeriesState,
+  options: ArtifactValidationOptions = {},
 ) {
   if (!fs.existsSync(filePath)) {
     throw new ContentSeriesError("CODEX_GENERATED_IMAGE_ARTIFACT_MISSING", `Image artifact does not exist: ${filePath}`);
+  }
+
+  if (options.requireAllowedDiscoveryLocation) {
+    assertAllowedDiscoveryLocation(options.rootDir ?? process.cwd(), state, filePath);
   }
 
   const stat = fs.statSync(filePath);
@@ -445,72 +653,234 @@ export function assertValidCodexImageArtifact(
   const allowedExtensions = new Set(state.imagePolicy.allowedArtifactExtensions.map((value) => value.toLowerCase()));
 
   if (!allowedExtensions.has(ext)) {
-    throw new ContentSeriesError("INVALID_CODEX_IMAGE_ARTIFACT", `${filePath}: unsupported artifact extension ${ext}`);
+    throw new ContentSeriesError("CODEX_ARTIFACT_UNSUPPORTED_FORMAT", `${filePath}: unsupported artifact extension ${ext}`);
   }
 
   if (stat.size < 4096) {
-    throw new ContentSeriesError("INVALID_CODEX_IMAGE_ARTIFACT", `${filePath}: artifact is too small to be a real hero image`);
-  }
-
-  if (state.imagePolicy.requireSlugInFilename && !basename.includes(topic.slug)) {
-    throw new ContentSeriesError("INVALID_CODEX_IMAGE_ARTIFACT", `${filePath}: artifact filename must include ${topic.slug}`);
+    throw new ContentSeriesError("CODEX_ARTIFACT_PLACEHOLDER_REJECTED", `${filePath}: artifact is too small to be a real hero image`);
   }
 
   for (const term of state.imagePolicy.rejectPlaceholderTerms) {
     if (basename.includes(term.toLowerCase())) {
-      throw new ContentSeriesError("PLACEHOLDER_IMAGE_REJECTED", `${filePath}: placeholder term rejected: ${term}`);
+      throw new ContentSeriesError("CODEX_ARTIFACT_PLACEHOLDER_REJECTED", `${filePath}: placeholder term rejected: ${term}`);
     }
   }
 
   if (!hasImageMagic(filePath)) {
-    throw new ContentSeriesError("INVALID_CODEX_IMAGE_ARTIFACT", `${filePath}: artifact is not a supported binary image`);
+    throw new ContentSeriesError("CODEX_ARTIFACT_UNSUPPORTED_FORMAT", `${filePath}: artifact is not a supported binary image`);
   }
+
+  const manifestSlug = manifestSlugForArtifact(filePath);
+  if (manifestSlug && !slugMatches(manifestSlug, topic)) {
+    throw new ContentSeriesError(
+      "CODEX_ARTIFACT_SLUG_MISMATCH",
+      `${filePath}: manifest maps artifact to ${manifestSlug}, not ${topic.slug}`,
+    );
+  }
+
+  if (
+    state.imagePolicy.requireSlugInFilename &&
+    !options.allowSingleImageDirectoryMatch &&
+    !manifestSlug &&
+    !artifactFilenameMatchesTopic(filePath, topic)
+  ) {
+    throw new ContentSeriesError("CODEX_ARTIFACT_SLUG_MISMATCH", `${filePath}: artifact filename or manifest must match ${topic.slug}`);
+  }
+}
+
+function artifactMatchForFile(
+  rootDir: string,
+  topic: ContentSeriesTopic,
+  state: ContentSeriesState,
+  filePath: string,
+  options: ArtifactValidationOptions = {},
+): ArtifactMatch | null {
+  const manifestSlug = manifestSlugForArtifact(filePath);
+  const matchedBy = manifestSlug && slugMatches(manifestSlug, topic)
+      ? "manifest"
+      : artifactFilenameMatchesTopic(filePath, topic)
+        ? "filename"
+        : options.allowSingleImageDirectoryMatch
+          ? "single-image-directory"
+          : null;
+
+  if (!matchedBy) {
+    if (manifestSlug && !slugMatches(manifestSlug, topic)) {
+      throw new ContentSeriesError(
+        "CODEX_ARTIFACT_SLUG_MISMATCH",
+        `${filePath}: manifest maps artifact to ${manifestSlug}, not ${topic.slug}`,
+      );
+    }
+    return null;
+  }
+
+  if (options.requireAllowedDiscoveryLocation) {
+    assertAllowedDiscoveryLocation(rootDir, state, filePath);
+  }
+  assertValidCodexImageArtifact(filePath, topic, state, {
+    ...options,
+    requireAllowedDiscoveryLocation: false,
+  });
+  return {
+    filePath,
+    matchedBy,
+    mtimeMs: fs.statSync(filePath).mtimeMs,
+  };
+}
+
+function collectArtifactDirectoryMatches(
+  rootDir: string,
+  topic: ContentSeriesTopic,
+  state: ContentSeriesState,
+  directoryPath: string,
+) {
+  const directory = resolveArtifactPath(rootDir, directoryPath);
+  assertAllowedDiscoveryLocation(rootDir, state, directory);
+  if (!fs.existsSync(directory) || !fs.statSync(directory).isDirectory()) {
+    throw new ContentSeriesError("CODEX_GENERATED_IMAGE_ARTIFACT_MISSING", `${directoryPath}: artifact directory does not exist`);
+  }
+
+  const files = collectFiles(directory).filter((filePath) => !isManifestFile(filePath));
+  const imageFiles = files.filter((filePath) => isSupportedArtifactExtension(filePath, state));
+  const unsupportedFiles = files.filter((filePath) => !isSupportedArtifactExtension(filePath, state));
+
+  if (imageFiles.length === 0) {
+    if (unsupportedFiles.length > 0) {
+      throw new ContentSeriesError("CODEX_ARTIFACT_UNSUPPORTED_FORMAT", `${directoryPath}: no supported image files found`);
+    }
+    throw new ContentSeriesError("CODEX_GENERATED_IMAGE_ARTIFACT_MISSING", `${directoryPath}: no image artifacts found`);
+  }
+
+  if (imageFiles.length === 1) {
+    const match = artifactMatchForFile(rootDir, topic, state, imageFiles[0], {
+      allowSingleImageDirectoryMatch: true,
+    });
+    return match ? [match] : [];
+  }
+
+  const matches: ArtifactMatch[] = [];
+  let firstSlugMismatch: ContentSeriesError | null = null;
+  for (const imageFile of imageFiles) {
+    try {
+      const match = artifactMatchForFile(rootDir, topic, state, imageFile);
+      if (match) {
+        matches.push(match);
+      }
+    } catch (error) {
+      if (error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_SLUG_MISMATCH") {
+        firstSlugMismatch ??= error;
+      } else if (error instanceof ContentSeriesError) {
+        throw error;
+      } else {
+        throw error;
+      }
+    }
+  }
+  if (matches.length === 0 && firstSlugMismatch) {
+    throw firstSlugMismatch;
+  }
+  return matches;
+}
+
+function findArtifactInDirectory(
+  rootDir: string,
+  topic: ContentSeriesTopic,
+  state: ContentSeriesState,
+  directoryPath: string,
+) {
+  const matches = collectArtifactDirectoryMatches(rootDir, topic, state, directoryPath);
+  if (matches.length === 0) {
+    throw new ContentSeriesError("CODEX_GENERATED_IMAGE_ARTIFACT_MISSING", `${directoryPath}: no artifact matched ${topic.slug}`);
+  }
+  if (matches.length > 1) {
+    throw new ContentSeriesError(
+      "CODEX_ARTIFACT_AUTO_DISCOVERY_AMBIGUOUS",
+      `Multiple matching artifacts found for ${topic.slug}: ${matches.map((match) => match.filePath).join(", ")}`,
+    );
+  }
+  return matches[0].filePath;
+}
+
+function findLatestCodexArtifact(rootDir: string, topic: ContentSeriesTopic, state: ContentSeriesState) {
+  const roots = codexArtifactDiscoveryRoots(rootDir, state).filter((directory) => fs.existsSync(directory));
+  const allFiles = roots.flatMap((directory) => collectFiles(directory)).filter((filePath) => !isManifestFile(filePath));
+  const slugNamedUnsupported = allFiles.filter(
+    (filePath) => artifactFilenameMatchesTopic(filePath, topic) && !isSupportedArtifactExtension(filePath, state),
+  );
+  if (slugNamedUnsupported.length > 0) {
+    throw new ContentSeriesError(
+      "CODEX_ARTIFACT_UNSUPPORTED_FORMAT",
+      `${slugNamedUnsupported[0]}: unsupported artifact extension`,
+    );
+  }
+
+  const matches: ArtifactMatch[] = [];
+  for (const filePath of allFiles.filter((candidate) => isSupportedArtifactExtension(candidate, state))) {
+    try {
+      const match = artifactMatchForFile(rootDir, topic, state, filePath, {
+        requireAllowedDiscoveryLocation: true,
+      });
+      if (match) {
+        matches.push(match);
+      }
+    } catch (error) {
+      if (
+        error instanceof ContentSeriesError &&
+        error.code === "CODEX_ARTIFACT_SLUG_MISMATCH" &&
+        artifactFilenameMatchesTopic(filePath, topic)
+      ) {
+        throw error;
+      }
+      if (error instanceof ContentSeriesError && error.code !== "CODEX_ARTIFACT_SLUG_MISMATCH") {
+        throw error;
+      }
+    }
+  }
+
+  if (matches.length === 0) {
+    throw new ContentSeriesError(
+      "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
+      `No approved Codex image artifact found for ${topic.slug}. Searched: ${roots.join(", ") || "no existing discovery roots"}`,
+    );
+  }
+  if (matches.length > 1) {
+    throw new ContentSeriesError(
+      "CODEX_ARTIFACT_AUTO_DISCOVERY_AMBIGUOUS",
+      `Multiple matching artifacts found for ${topic.slug}: ${matches.map((match) => match.filePath).join(", ")}`,
+    );
+  }
+
+  return matches[0].filePath;
+}
+
+function findConfiguredRootArtifact(rootDir: string, topic: ContentSeriesTopic, state: ContentSeriesState) {
+  return findLatestCodexArtifact(rootDir, topic, state);
 }
 
 export function findCodexImageArtifact(
   rootDir: string,
   topic: ContentSeriesTopic,
   state: ContentSeriesState,
-  explicitArtifact?: string,
+  selection: ArtifactSelectionOptions = {},
 ) {
-  if (explicitArtifact) {
-    const artifactPath = path.isAbsolute(explicitArtifact)
-      ? explicitArtifact
-      : absolutePath(rootDir, explicitArtifact.replaceAll("\\", "/"));
-    assertValidCodexImageArtifact(artifactPath, topic, state);
+  if (selection.explicitArtifact) {
+    const artifactPath = resolveArtifactPath(rootDir, selection.explicitArtifact);
+    assertValidCodexImageArtifact(artifactPath, topic, state, {
+      requireAllowedDiscoveryLocation: true,
+      rootDir,
+    });
     return artifactPath;
   }
 
-  const candidates = state.imagePolicy.artifactSearchRoots.flatMap((searchRoot) => {
-    const directory = absolutePath(rootDir, searchRoot);
-    return collectFiles(directory).filter((filePath) => {
-      const basename = path.basename(filePath).toLowerCase();
-      return basename.includes(topic.slug) && state.imagePolicy.allowedArtifactExtensions.includes(path.extname(filePath).toLowerCase());
-    });
-  });
-
-  if (candidates.length === 0) {
-    return null;
+  if (selection.artifactDir) {
+    return findArtifactInDirectory(rootDir, topic, state, selection.artifactDir);
   }
 
-  const validCandidates = candidates.filter((candidate) => {
-    try {
-      assertValidCodexImageArtifact(candidate, topic, state);
-      return true;
-    } catch {
-      return false;
-    }
-  });
-
-  if (validCandidates.length === 0) {
-    throw new ContentSeriesError("INVALID_CODEX_IMAGE_ARTIFACT", `Found ${candidates.length} candidate artifact(s), but none passed policy validation`);
+  if (selection.useLatestCodexArtifact) {
+    return findLatestCodexArtifact(rootDir, topic, state);
   }
 
-  if (validCandidates.length > 1) {
-    throw new ContentSeriesError("CODEX_IMAGE_ARTIFACT_AMBIGUOUS", `Multiple matching artifacts found for ${topic.slug}: ${validCandidates.join(", ")}`);
-  }
-
-  return validCandidates[0];
+  return findConfiguredRootArtifact(rootDir, topic, state);
 }
 
 export async function importCodexImageArtifact(
@@ -678,6 +1048,16 @@ function isProtectedCodexPath(filePath: string) {
   return filePath.startsWith(".codex-remote-attachments/") || filePath === ".codex/config.toml";
 }
 
+export function filterCommittablePaths(filePaths: string[]) {
+  return filePaths.filter((filePath) => {
+    const normalized = filePath.replaceAll("\\", "/");
+    return (
+      !isProtectedCodexPath(normalized) &&
+      !localOnlyCommitPathPrefixes.some((prefix) => normalized.startsWith(prefix))
+    );
+  });
+}
+
 function listUnsafeWorkingTreeEntries(rootDir: string) {
   if (!fs.existsSync(path.join(rootDir, ".git"))) {
     return [];
@@ -686,7 +1066,7 @@ function listUnsafeWorkingTreeEntries(rootDir: string) {
     .split(/\r?\n/)
     .map((line) => line.slice(3).trim())
     .filter(Boolean)
-    .filter((filePath) => !isProtectedCodexPath(filePath));
+    .filter((filePath) => filterCommittablePaths([filePath]).length > 0);
 }
 
 function assertCleanWorktreeExceptProtected(rootDir: string) {
@@ -726,7 +1106,7 @@ function commitAndMaybeCreatePr(rootDir: string, plan: ContentSeriesPlan, option
     .split(/\r?\n/)
     .map((line) => line.slice(3).trim())
     .filter(Boolean)
-    .filter((filePath) => !isProtectedCodexPath(filePath));
+    .filter((filePath) => filterCommittablePaths([filePath]).length > 0);
   if (changedPaths.length === 0) {
     throw new ContentSeriesError("NO_CHANGES_TO_COMMIT", "No safe changed files found to commit");
   }
@@ -770,7 +1150,16 @@ export async function runContentSeriesOrchestrator(options: CliOptions = {}): Pr
     return { status: "PLAN", plan };
   }
 
-  const artifactPath = findCodexImageArtifact(rootDir, topic, state, options.artifact);
+  const artifactSelectors = [options.artifact, options.artifactDir, options.useLatestCodexArtifact].filter(Boolean);
+  if (artifactSelectors.length > 1) {
+    throw new ContentSeriesError("INVALID_ARGS", "Use only one artifact selector: --artifact, --artifact-dir, or --use-latest-codex-artifact");
+  }
+
+  const artifactPath = findCodexImageArtifact(rootDir, topic, state, {
+    explicitArtifact: options.artifact,
+    artifactDir: options.artifactDir,
+    useLatestCodexArtifact: options.useLatestCodexArtifact,
+  });
   if (!artifactPath) {
     throw new ContentSeriesError(
       "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
@@ -818,6 +1207,11 @@ function parseArgs(argv: string[]): CliOptions & { help?: boolean } {
     } else if (arg === "--artifact") {
       options.artifact = argv[index + 1];
       index += 1;
+    } else if (arg === "--artifact-dir") {
+      options.artifactDir = argv[index + 1];
+      index += 1;
+    } else if (arg === "--use-latest-codex-artifact") {
+      options.useLatestCodexArtifact = true;
     } else if (arg === "--help" || arg === "-h") {
       options.help = true;
     } else {
@@ -828,7 +1222,7 @@ function parseArgs(argv: string[]): CliOptions & { help?: boolean } {
 }
 
 function printHelp() {
-  console.log(`Usage:\n  npm run content:series:auto -- --topic node-red --plan-only\n  npm run content:series:auto -- --topic node-red --no-commit --artifact artifacts/codex-images/node-red-local-business-automation-server-hero.png\n\nOptions:\n  --topic <id-or-slug>   Topic id or slug from data/content-series-topics.json\n  --plan-only            Print the plan without writing files\n  --no-commit            Run publication without committing or creating a PR\n  --no-pr                Commit and push, but do not create a PR\n  --artifact <path>      Explicit Codex-generated image artifact to import\n`);
+  console.log(`Usage:\n  npm run content:series:auto -- --topic node-red --plan-only\n  npm run content:series:auto -- --topic node-red --no-commit --artifact "%USERPROFILE%\\.codex\\generated_images\\node-red-local-business-automation-server-hero.png"\n  npm run content:series:auto -- --topic node-red --no-commit --artifact-dir "%USERPROFILE%\\.codex\\generated_images\\node-red-review"\n  npm run content:series:auto -- --topic node-red --use-latest-codex-artifact\n\nOptions:\n  --topic <id-or-slug>        Topic id or slug from data/content-series-topics.json\n  --plan-only                 Print the plan without writing files\n  --no-commit                 Run publication without committing or creating a PR\n  --no-pr                     Commit and push, but do not create a PR\n  --artifact <path>           Explicit local Codex-generated image artifact under the approved Codex root\n  --artifact-dir <path>       Search one Codex-generated artifact directory under the approved Codex root\n  --use-latest-codex-artifact Search the approved local Codex generated image root for one matching image\n`);
 }
 
 async function main() {

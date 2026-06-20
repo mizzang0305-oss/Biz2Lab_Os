@@ -35,21 +35,53 @@ Preview Node-RED explicitly:
 npm run content:series:auto -- --topic node-red --plan-only
 ```
 
-Publish from an approved local Codex image artifact:
+Publish from an explicit local Codex-generated image artifact:
 
 ```bash
-npm run content:series:auto -- --topic node-red --artifact artifacts/codex-images/node-red-local-business-automation-server-hero.png
+npm run content:series:auto -- --topic node-red --artifact "C:\Users\LOVE\.codex\generated_images\node-red-local-business-automation-server-hero.png"
+```
+
+Publish from a Codex-generated artifact directory under the approved local Codex root:
+
+```bash
+npm run content:series:auto -- --topic node-red --artifact-dir "C:\Users\LOVE\.codex\generated_images\node-red-review"
+```
+
+Publish from the latest approved local Codex artifact root:
+
+```bash
+npm run content:series:auto -- --topic node-red --use-latest-codex-artifact
 ```
 
 Run publication without commit/PR creation:
 
 ```bash
-npm run content:series:auto -- --topic node-red --no-commit --artifact artifacts/codex-images/node-red-local-business-automation-server-hero.png
+npm run content:series:auto -- --topic node-red --no-commit --artifact "C:\Users\LOVE\.codex\generated_images\node-red-local-business-automation-server-hero.png"
 ```
 
 ## Image Gate
 
-The orchestrator only imports explicitly mapped image artifacts.
+The orchestrator only imports real local Codex-generated image artifacts. Manual image drops, Downloads/Desktop files, random external image files, and arbitrary local images are rejected before publication.
+
+Allowed source root:
+
+```text
+C:\Users\LOVE\.codex\generated_images\
+%USERPROFILE%\.codex\generated_images\
+```
+
+The `CODEX_GENERATED_IMAGE_ROOT` environment variable may override that root for local testing. Any import path outside the approved local Codex generated-image root is rejected.
+
+Allowed flow:
+
+```text
+local Codex image skill
+-> C:\Users\LOVE\.codex\generated_images\...
+-> artifact auto-discovery/import
+-> assets/images/raw/<slug>-hero.jpg
+-> public/images/posts/<slug>-hero.webp
+-> publish
+```
 
 Required raw output:
 
@@ -66,15 +98,65 @@ public/images/posts/<slug>-hero.webp
 The artifact is rejected when:
 
 - it is missing
+- it is outside the approved local Codex generated-image root
 - it is not a real JPG/PNG/WebP binary image
-- the filename does not include the target slug
+- the filename does not include the target slug, unless a manifest maps the file to the slug, or `--artifact-dir` contains exactly one image for exactly one target topic
 - the filename contains placeholder terms such as `placeholder`, `dummy`, `fake`, `sample`, `blank`, or `empty`
 - it uses an unsupported extension
+- a manifest maps the image to a different slug
+- more than one matching target image is discovered
 
 If no approved artifact exists, the orchestrator stops with:
 
 ```text
 CODEX_GENERATED_IMAGE_ARTIFACT_MISSING
+```
+
+Other artifact failure codes:
+
+```text
+CODEX_ARTIFACT_AUTO_DISCOVERY_AMBIGUOUS
+CODEX_ARTIFACT_PROVENANCE_REJECTED
+CODEX_ARTIFACT_SLUG_MISMATCH
+CODEX_ARTIFACT_UNSUPPORTED_FORMAT
+CODEX_ARTIFACT_PLACEHOLDER_REJECTED
+```
+
+## Artifact Discovery
+
+`--artifact <path>` means an explicit local Codex-generated artifact path. The path must be inside the approved Codex generated-image root and must match the target slug by filename or manifest. Manual image drops, Downloads/Desktop files, and arbitrary local images are rejected with `CODEX_ARTIFACT_PROVENANCE_REJECTED`.
+
+`--artifact-dir <path>` searches only that directory, and the directory itself must be inside the approved Codex generated-image root. It is accepted only when one of these is true:
+
+- the directory contains exactly one supported image and the current run has exactly one target topic
+- the directory contains a supported image whose filename includes the target slug
+- the directory contains a manifest mapping a supported image to the target slug
+
+Supported manifest filenames:
+
+```text
+manifest.json
+codex-image-manifest.json
+image-manifest.json
+```
+
+`--use-latest-codex-artifact` searches only the approved local Codex generated-image root:
+
+```text
+C:\Users\LOVE\.codex\generated_images\
+```
+
+It imports only when there is exactly one validated artifact for the target slug. Multiple matching images block as ambiguous. Unrelated images are ignored unless they appear to target the same slug or a manifest maps them incorrectly.
+
+Do not commit local artifact or scratch directories. The orchestrator filters these paths out of commit staging, but they are not valid publication import roots unless they are inside the approved Codex generated-image root:
+
+```text
+.codex-remote-attachments/
+.codex/generated_images/
+artifacts/codex-images/
+generated/
+output/
+tmp/
 ```
 
 ## Publication Gate
@@ -122,3 +204,23 @@ The orchestrator never:
 - marks planned images as ready without real files
 
 When commit is enabled, it creates a topic branch and PR for owner review. The owner still performs merge and production smoke separately.
+
+## Node-RED Example
+
+Plan the article:
+
+```bash
+npm run content:series:auto -- --topic node-red --plan-only
+```
+
+After Codex produces a real Node-RED hero image artifact, run:
+
+```bash
+npm run content:series:auto -- --topic node-red --use-latest-codex-artifact
+```
+
+If the latest-discovery path finds multiple candidates, move the intended Codex-generated artifact to a clean directory under the approved Codex root and run:
+
+```bash
+npm run content:series:auto -- --topic node-red --artifact-dir "C:\Users\LOVE\.codex\generated_images\node-red-review"
+```
