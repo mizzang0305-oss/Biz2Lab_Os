@@ -190,6 +190,31 @@ test("existing topic PR blocks duplicate publication", () => {
   assert.equal(result.status, "EXISTING_TOPIC_PR");
 });
 
+test("explicit topic with latest artifact selector still respects existing topic PR gate", () => {
+  const root = tempSchedulerRoot();
+  const openPrs = [{ number: 7, title: "Node-RED article", headRefName: `codex/${nodeRedSlug}-automation-series-article` }];
+
+  const result = runContentSeriesScheduler(
+    { rootDir: root, dryRun: true, topic: "node-red", useLatestCodexArtifact: true, now: activeNow },
+    schedulerDeps(openPrs).deps,
+  );
+
+  assert.equal(result.status, "EXISTING_TOPIC_PR");
+  assert.equal(result.topic, nodeRedSlug);
+});
+
+test("explicit later topic cannot bypass queue order", () => {
+  const root = tempSchedulerRoot();
+
+  const result = runContentSeriesScheduler(
+    { rootDir: root, dryRun: true, topic: "huginn-monitoring-automation-agent", useLatestCodexArtifact: true, now: activeNow },
+    schedulerDeps().deps,
+  );
+
+  assert.equal(result.status, "TOPIC_ORDER_BLOCKED");
+  assert.equal(result.topic, "huginn-monitoring-automation-agent");
+});
+
 test("max open PRs blocks scheduler", () => {
   const root = tempSchedulerRoot();
   const openPrs = [{ number: 9, title: "unrelated", headRefName: "codex/unrelated" }];

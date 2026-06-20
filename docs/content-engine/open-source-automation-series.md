@@ -247,6 +247,18 @@ Run with a one-time cadence override:
 npm run content:series:scheduler -- --cadence 180
 ```
 
+Dry-run the exact 3-hour cadence gate:
+
+```bash
+npm run content:series:scheduler -- --cadence 180 --dry-run
+```
+
+Run an explicit topic check using the approved latest local Codex artifact root:
+
+```bash
+npm run content:series:scheduler -- --topic node-red --use-latest-codex-artifact
+```
+
 Force a check only when you want to bypass the cadence timer. This does not bypass image, duplicate, lock, active-hours, daily-limit, PR-limit, merge, or deploy gates:
 
 ```bash
@@ -256,8 +268,7 @@ npm run content:series:scheduler -- --force-check
 Recommended Windows Task Scheduler action:
 
 ```bat
-cd C:\Users\LOVE\MyProjects\Biz2Lab_Os
-npm run content:series:scheduler
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "cd 'C:\Users\LOVE\MyProjects\Biz2Lab_Os'; git fetch origin; git checkout master; git pull --ff-only origin master; npm run content:series:scheduler -- --cadence 180 --use-latest-codex-artifact >> .tmp\content-series-scheduler.log 2>&1"
 ```
 
 Recommended schedule:
@@ -270,6 +281,7 @@ Scheduler guardrails:
 
 - checks every 3 hours by default, with `data/content-series-schedule.json` as the source of truth
 - processes at most one topic per run
+- can target a specific queued topic with `--topic <id-or-slug>`, but queue order and previous-article gates still apply
 - creates at most one publication PR per successful run
 - requires a real local Codex-generated image artifact under `C:\Users\LOVE\.codex\generated_images\`
 - blocks manual image drops, placeholder images, missing images, slug mismatches, and ambiguous artifacts

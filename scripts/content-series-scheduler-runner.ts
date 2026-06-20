@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import {
+  assertTopicCanPublish,
   buildImagePaths,
   ContentSeriesError,
   findCodexImageArtifact,
@@ -49,6 +50,8 @@ type SchedulerOptions = {
   dryRun?: boolean;
   forceCheck?: boolean;
   cadenceMinutes?: number;
+  topic?: string;
+  useLatestCodexArtifact?: boolean;
   now?: Date;
 };
 
@@ -300,9 +303,13 @@ export function runContentSeriesScheduler(options: SchedulerOptions = {}, deps: 
 
     const contentState = readContentSeriesState(rootDir);
     const topicFile = readContentSeriesTopics(rootDir);
-    const topic = resolveContentSeriesTopic(topicFile.topics, contentState, contentState.next[0]);
+    const topic = resolveContentSeriesTopic(topicFile.topics, contentState, options.topic ?? contentState.next[0]);
     if (contentState.completed.includes(topic.slug)) {
       return result("TOPIC_ALREADY_COMPLETED", dryRun, topic);
+    }
+    const publicationBlockers = assertTopicCanPublish(contentState, topic, { planOnly: true });
+    if (publicationBlockers.length > 0) {
+      return result("TOPIC_ORDER_BLOCKED", dryRun, topic, publicationBlockers.join("; "));
     }
     if (articleExists(rootDir, topic)) {
       return result("ARTICLE_ALREADY_PUBLISHED", dryRun, topic);
@@ -323,7 +330,9 @@ export function runContentSeriesScheduler(options: SchedulerOptions = {}, deps: 
     }
 
     try {
-      findCodexImageArtifact(rootDir, topic, contentState, { useLatestCodexArtifact: true });
+      findCodexImageArtifact(rootDir, topic, contentState, {
+        useLatestCodexArtifact: options.useLatestCodexArtifact ?? true,
+      });
     } catch (error) {
       const status =
         error instanceof ContentSeriesError && error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING"
@@ -368,6 +377,15 @@ function parseArgs(argv: string[]): SchedulerOptions & { help?: boolean } {
       }
       options.cadenceMinutes = value;
       index += 1;
+    } else if (arg === "--topic") {
+      const value = argv[index + 1];
+      if (!value || value.startsWith("--")) {
+        throw new ContentSeriesError("INVALID_ARGS", "--topic requires a topic id or slug");
+      }
+      options.topic = value;
+      index += 1;
+    } else if (arg === "--use-latest-codex-artifact") {
+      options.useLatestCodexArtifact = true;
     } else if (arg === "--help" || arg === "-h") {
       options.help = true;
     } else {
@@ -382,11 +400,15 @@ function printHelp() {
   npm run content:series:scheduler -- --dry-run
   npm run content:series:scheduler -- --force-check
   npm run content:series:scheduler -- --cadence 180
+  npm run content:series:scheduler -- --topic node-red --use-latest-codex-artifact
 
 Options:
   --dry-run       Check gates without writing state, publishing, committing, or creating a PR
   --force-check   Bypass cadence only; all safety, duplicate, and Codex artifact gates remain active
   --cadence <n>   Override cadence minutes for this run only
+  --topic <key>   Topic id or slug from data/content-series-topics.json
+  --use-latest-codex-artifact
+                  Explicitly use the latest approved local Codex image artifact root
 `);
 }
 
