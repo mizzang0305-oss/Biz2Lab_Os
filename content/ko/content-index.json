@@ -13,7 +13,9 @@
       "free-open-source-automation-tools-series",
       "baserow-open-source-database-automation",
       "activepieces-ai-business-automation-n8n-alternative",
-      "opencut-free-open-source-video-editor-ai-content-automation"
+      "opencut-free-open-source-video-editor-ai-content-automation",
+      "node-red-local-business-automation-server",
+      "huginn-monitoring-automation-agent"
     ]
   },
   {
@@ -65,6 +67,25 @@
       "free-open-source-automation-tools-series",
       "activepieces-ai-business-automation-n8n-alternative",
       "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
+    "title": "Windmill 분석: 개발자용 워크플로 자동화, 내부 운영에 쓸 수 있을까?",
+    "slug": "windmill-developer-workflow-automation",
+    "route": "/ko/automation/windmill-developer-workflow-automation",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/windmill-developer-workflow-automation-hero.webp",
+    "heroAlt": "Windmill을 개발자용 업무 자동화 관점에서 분석한 대표 이미지",
+    "updatedAt": "2026-06-20",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "appsmith-internal-dashboard-automation",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "node-red-local-business-automation-server",
+      "huginn-monitoring-automation-agent",
+      "baserow-open-source-database-automation"
     ]
   },
   {

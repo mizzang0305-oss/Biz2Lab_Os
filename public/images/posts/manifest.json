@@ -1406,5 +1406,49 @@
     "output": "/images/posts/unify-order-channels-for-sales-hero.webp",
     "source": "raw",
     "rawPath": "assets/images/raw/unify-order-channels-for-sales-hero.svg"
+  },
+  {
+    "id": "windmill-developer-workflow-automation-1200",
+    "project": "biz2lab",
+    "postSlug": "windmill-developer-workflow-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/windmill-developer-workflow-automation-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/windmill-developer-workflow-automation-hero.jpg"
+  },
+  {
+    "id": "windmill-developer-workflow-automation-800",
+    "project": "biz2lab",
+    "postSlug": "windmill-developer-workflow-automation",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/windmill-developer-workflow-automation-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/windmill-developer-workflow-automation-hero.jpg"
+  },
+  {
+    "id": "windmill-developer-workflow-automation-400",
+    "project": "biz2lab",
+    "postSlug": "windmill-developer-workflow-automation",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/windmill-developer-workflow-automation-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/windmill-developer-workflow-automation-hero.jpg"
+  },
+  {
+    "id": "windmill-developer-workflow-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "windmill-developer-workflow-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/windmill-developer-workflow-automation-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/windmill-developer-workflow-automation-hero.jpg"
   }
 ]

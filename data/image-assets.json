@@ -178,5 +178,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "windmill-developer-workflow-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "windmill-developer-workflow-automation",
+    "usage": "hero",
+    "src": "/images/posts/windmill-developer-workflow-automation-hero.webp",
+    "rawPath": "assets/images/raw/windmill-developer-workflow-automation-hero.jpg",
+    "altKo": "Windmill을 개발자용 업무 자동화 관점에서 분석한 대표 이미지",
+    "captionKo": "Windmill은 스크립트와 워크플로를 묶어 내부 자동화를 실행하는 개발자형 후보 도구다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]

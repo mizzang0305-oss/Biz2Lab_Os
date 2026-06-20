@@ -1,0 +1,23 @@
+{
+  "id": "windmill-developer-workflow-automation-hero",
+  "postSlug": "windmill-developer-workflow-automation",
+  "category": "automation",
+  "usage": "hero",
+  "targetPath": "assets/images/raw/windmill-developer-workflow-automation-hero.jpg",
+  "optimizedPath": "public/images/posts/windmill-developer-workflow-automation-hero.webp",
+  "altKo": "Windmill을 개발자용 업무 자동화 관점에서 분석한 대표 이미지",
+  "captionKo": "Windmill은 스크립트와 워크플로를 묶어 내부 자동화를 실행하는 개발자형 후보 도구다.",
+  "style": "developer-workflow-control-room, Korean business editorial raster hero, minimal text, no title inside image",
+  "promptKo": "코드 스크립트, 워크플로 타임라인, 내부 앱 패널, 실행 로그, 승인 게이트가 결합된 업무 자동화 컨트롤룸 이미지.",
+  "providerPromptKo": "Windmill 분석: 개발자형 업무 자동화와 내부 앱에 쓸 수 있을까? 대표 이미지. 코드 스크립트, 워크플로 타임라인, 내부 앱 패널, 실행 로그, 승인 게이트가 결합된 업무 자동화 컨트롤룸 이미지. Include: script runner, workflow timeline, internal app panel, execution log, approval gate. No official logos, no real customer data, no placeholder elements.",
+  "negativePromptKo": "official Windmill logo, real code secrets, terminal-only screenshot, dense text, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+  "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+  "composition": "코드 스크립트, 워크플로 타임라인, 내부 앱 패널, 실행 로그, 승인 게이트가 결합된 업무 자동화 컨트롤룸 이미지.",
+  "categoryStyle": "automation category visual, developer-workflow-control-room",
+  "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+  "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+  "localOnly": true,
+  "visualDifferentiationHint": "windmill-developer-workflow-automation: developer-workflow-control-room",
+  "filename": "windmill-developer-workflow-automation-hero.jpg",
+  "rawPath": "assets/images/raw/windmill-developer-workflow-automation-hero.jpg"
+}
