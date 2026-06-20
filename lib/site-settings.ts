@@ -61,7 +61,7 @@ export const siteSettings = {
       "반복 업무를 자동화 후보로 분류",
       "매출·미수금·계약 상태를 연결",
       "글마다 관련 글과 다음 행동을 제공",
-      "구글 애드센스 승인 전 공개 범위 최소화",
+      "필요한 기능만 안전하게 단계 공개",
     ],
     primaryCta: { label: "처음 시작하기", href: "/ko/automation" },
     secondaryCta: { label: "문의하기", href: "/ko/contact" },
