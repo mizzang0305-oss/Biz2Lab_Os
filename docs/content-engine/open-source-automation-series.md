@@ -224,3 +224,75 @@ If the latest-discovery path finds multiple candidates, move the intended Codex-
 ```bash
 npm run content:series:auto -- --topic node-red --artifact-dir "C:\Users\LOVE\.codex\generated_images\node-red-review"
 ```
+
+## 3-Hour Local Scheduler
+
+The scheduler is a local safety gate for the content series queue. It does not publish every 3 hours unconditionally. It checks whether one queued topic can proceed, and it creates at most one PR only when every gate passes.
+
+Run a safe dry run:
+
+```bash
+npm run content:series:scheduler -- --dry-run
+```
+
+Run with the default 3-hour cadence:
+
+```bash
+npm run content:series:scheduler
+```
+
+Run with a one-time cadence override:
+
+```bash
+npm run content:series:scheduler -- --cadence 180
+```
+
+Dry-run the exact 3-hour cadence gate:
+
+```bash
+npm run content:series:scheduler -- --cadence 180 --dry-run
+```
+
+Run an explicit topic check using the approved latest local Codex artifact root:
+
+```bash
+npm run content:series:scheduler -- --topic node-red --use-latest-codex-artifact
+```
+
+Force a check only when you want to bypass the cadence timer. This does not bypass image, duplicate, lock, active-hours, daily-limit, PR-limit, merge, or deploy gates:
+
+```bash
+npm run content:series:scheduler -- --force-check
+```
+
+Recommended Windows Task Scheduler action:
+
+```bat
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "cd 'C:\Users\LOVE\MyProjects\Biz2Lab_Os'; git fetch origin; git checkout master; git pull --ff-only origin master; npm run content:series:scheduler -- --cadence 180 --use-latest-codex-artifact >> .tmp\content-series-scheduler.log 2>&1"
+```
+
+Recommended schedule:
+
+```text
+Repeat every 3 hours
+```
+
+Scheduler guardrails:
+
+- checks every 3 hours by default, with `data/content-series-schedule.json` as the source of truth
+- processes at most one topic per run
+- can target a specific queued topic with `--topic <id-or-slug>`, but queue order and previous-article gates still apply
+- creates at most one publication PR per successful run
+- requires a real local Codex-generated image artifact under `C:\Users\LOVE\.codex\generated_images\`
+- blocks manual image drops, placeholder images, missing images, slug mismatches, and ambiguous artifacts
+- blocks completed topics, existing article files, content-index duplicates, existing topic PRs, max open PRs, daily limits, and concurrent runs
+- uses `.tmp/content-series-scheduler.lock` to prevent concurrent local runs
+- never merges PRs
+- never deploys manually
+- never calls DB, payment, message, notification, or external business APIs
+
+If the matching Codex hero image does not exist yet, the safe status is:
+
+```text
+WAITING_FOR_CODEX_IMAGE_ARTIFACT
+```
