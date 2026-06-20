@@ -94,7 +94,8 @@ test("content series state parses and keeps safety gates closed", () => {
     "activepieces-ai-business-automation-n8n-alternative",
   ]);
   assert.ok(state.completed.includes("node-red-local-business-automation-server"));
-  assert.equal(state.currentTopic, "huginn-monitoring-automation-agent");
+  assert.ok(state.completed.includes("huginn-monitoring-automation-agent"));
+  assert.equal(state.currentTopic, "baserow-open-source-database-automation");
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
   assert.equal(state.gates.dbWrite, false);
@@ -132,7 +133,7 @@ test("missing Codex image artifact blocks publication without writing article", 
   const root = tempSeriesRoot();
 
   await assert.rejects(
-    () => runContentSeriesOrchestrator({ rootDir: root, topic: "huginn", noCommit: true }),
+    () => runContentSeriesOrchestrator({ rootDir: root, topic: "baserow", noCommit: true }),
     (error) =>
       error instanceof ContentSeriesError &&
       error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
@@ -453,10 +454,10 @@ test("validation command list includes all required gates", () => {
 test("plan-only can inspect a later topic but reports publication blockers", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
-  const topic = resolveContentSeriesTopic(topics.topics, state, "baserow");
+  const topic = resolveContentSeriesTopic(topics.topics, state, "appsmith");
   const plan = buildContentSeriesPlan(state, topic, { planOnly: true });
 
-  assert.equal(plan.topic.slug, "baserow-open-source-database-automation");
+  assert.equal(plan.topic.slug, "appsmith-internal-dashboard-automation");
   assert.ok(plan.publicationBlockers.some((blocker) => blocker.includes("previous article is not public yet")));
 });
 

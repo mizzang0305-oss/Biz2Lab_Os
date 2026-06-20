@@ -11,7 +11,7 @@ import {
   type OpenPullRequest,
 } from "@/scripts/content-series-scheduler-runner";
 
-const currentTopicSlug = "huginn-monitoring-automation-agent";
+const currentTopicSlug = "baserow-open-source-database-automation";
 
 function writeJson(filePath: string, value: unknown) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -183,7 +183,7 @@ test("content index slug duplicate blocks publication", () => {
 
 test("existing topic PR blocks duplicate publication", () => {
   const root = tempSchedulerRoot();
-  const openPrs = [{ number: 7, title: "Huginn article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
+  const openPrs = [{ number: 7, title: "Baserow article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
 
   const result = runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, schedulerDeps(openPrs).deps);
 
@@ -192,10 +192,10 @@ test("existing topic PR blocks duplicate publication", () => {
 
 test("explicit topic with latest artifact selector still respects existing topic PR gate", () => {
   const root = tempSchedulerRoot();
-  const openPrs = [{ number: 7, title: "Huginn article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
+  const openPrs = [{ number: 7, title: "Baserow article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
 
   const result = runContentSeriesScheduler(
-    { rootDir: root, dryRun: true, topic: "huginn", useLatestCodexArtifact: true, now: activeNow },
+    { rootDir: root, dryRun: true, topic: "baserow", useLatestCodexArtifact: true, now: activeNow },
     schedulerDeps(openPrs).deps,
   );
 
@@ -207,12 +207,12 @@ test("explicit later topic cannot bypass queue order", () => {
   const root = tempSchedulerRoot();
 
   const result = runContentSeriesScheduler(
-    { rootDir: root, dryRun: true, topic: "baserow-open-source-database-automation", useLatestCodexArtifact: true, now: activeNow },
+    { rootDir: root, dryRun: true, topic: "appsmith-internal-dashboard-automation", useLatestCodexArtifact: true, now: activeNow },
     schedulerDeps().deps,
   );
 
   assert.equal(result.status, "TOPIC_ORDER_BLOCKED");
-  assert.equal(result.topic, "baserow-open-source-database-automation");
+  assert.equal(result.topic, "appsmith-internal-dashboard-automation");
 });
 
 test("max open PRs blocks scheduler", () => {

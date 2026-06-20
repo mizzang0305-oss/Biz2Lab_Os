@@ -790,6 +790,29 @@
       "visualDifferentiationHint": "node-red-local-business-automation-server: local-automation-flow-map",
       "filename": "node-red-local-business-automation-server-hero.jpg",
       "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
+    },
+    {
+      "id": "huginn-monitoring-automation-agent-hero",
+      "postSlug": "huginn-monitoring-automation-agent",
+      "category": "automation",
+      "usage": "hero",
+      "targetPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg",
+      "optimizedPath": "public/images/posts/huginn-monitoring-automation-agent-hero.webp",
+      "altKo": "Huginn을 웹 모니터링 자동화 에이전트 관점에서 분석한 대표 이미지",
+      "captionKo": "Huginn은 웹 변화와 이벤트를 수집해 콘텐츠와 업무 자동화 소재로 넘기는 후보 도구다.",
+      "style": "monitoring-agent-map, Korean business editorial raster hero, minimal text, no title inside image",
+      "promptKo": "웹 페이지 변화, RSS, 가격 카드, 이벤트 에이전트, 승인 게이트가 연결된 업무 모니터링 자동화 지도형 히어로 이미지.",
+      "providerPromptKo": "Huginn 분석: 웹 모니터링 자동화 에이전트를 업무에 붙일 수 있을까? 대표 이미지. 웹 페이지 변화, RSS, 가격 카드, 이벤트 에이전트, 승인 게이트가 연결된 업무 모니터링 자동화 지도형 히어로 이미지. Include: web monitoring, agent cards, RSS feed, price change, approval gate. No official logos, no real customer data, no placeholder elements.",
+      "negativePromptKo": "official Huginn logo, spider or crawler mascot, scraped brand pages, dense text, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+      "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+      "composition": "웹 페이지 변화, RSS, 가격 카드, 이벤트 에이전트, 승인 게이트가 연결된 업무 모니터링 자동화 지도형 히어로 이미지.",
+      "categoryStyle": "automation category visual, monitoring-agent-map",
+      "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+      "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+      "localOnly": true,
+      "visualDifferentiationHint": "huginn-monitoring-automation-agent: monitoring-agent-map",
+      "filename": "huginn-monitoring-automation-agent-hero.jpg",
+      "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
     }
   ]
 }

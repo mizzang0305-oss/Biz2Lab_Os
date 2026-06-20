@@ -19,7 +19,7 @@ Phase 3.8-SKILL-MASTER created prompt-only packages for Biz2Lab image production
 
 ## Status Columns
 
-- `prompt_ready`: yes for all 37 packages tracked in the queue.
+- `prompt_ready`: yes for all 38 packages tracked in the queue.
 - `image_created`: yes only for rows with real generated/imported raster assets.
 - `raw_saved`: yes only after a matching file exists under `assets/images/raw`.
 - `optimized`: yes only after the matching public WebP exists under `public/images/posts`.
@@ -33,6 +33,8 @@ OpenCut update: `opencut-free-open-source-video-editor-ai-content-automation` no
 Open-source automation series update: `free-open-source-automation-tools-series` and `activepieces-ai-business-automation-n8n-alternative` now have Codex-generated raster artifacts imported as raw JPG files, optimized public hero WebP files, and published/noindex false article frontmatter. They remain unpushed until the PR branch is validated and pushed.
 
 Node-RED series update: `node-red-local-business-automation-server` now has a Codex-generated raster artifact imported as a raw JPG, an optimized public WebP hero, article-ready metadata, and series links prepared for validation. No manual deploy was run.
+
+Huginn series update: `huginn-monitoring-automation-agent` now has a Codex-generated raster artifact imported as a raw JPG, an optimized public WebP hero, article-ready metadata, and series links prepared for validation. No manual deploy was run.
 
 ## Queue Source
 

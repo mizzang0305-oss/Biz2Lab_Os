@@ -142,6 +142,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["파일", "API", "일정", "리포트"],
     palette: automationPalette,
   },
+  "huginn-monitoring-automation-agent": {
+    slug: "huginn-monitoring-automation-agent",
+    category: "automation",
+    visualFamily: "monitoring-agent-map",
+    conceptKo: "웹 페이지 변화, RSS, 가격 카드, 이벤트 에이전트, 승인 게이트가 연결된 업무 모니터링 자동화 지도",
+    altKo: "Huginn을 웹 모니터링 자동화 에이전트 관점에서 분석한 대표 이미지",
+    captionKo: "Huginn은 웹 변화와 이벤트를 수집해 콘텐츠와 업무 자동화 소재로 넘기는 후보 도구다.",
+    labels: ["웹", "RSS", "가격", "승인"],
+    palette: automationPalette,
+  },
   "pre-automation-task-list": {
     slug: "pre-automation-task-list",
     category: "automation",
