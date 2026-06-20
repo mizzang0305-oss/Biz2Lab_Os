@@ -82,14 +82,14 @@ test("frontmatter schema enforces Korean-only approval categories", () => {
   assert.equal(parsed.success, true);
 });
 
-test("Phase 2 content set has 33 public Korean posts and excludes drafts/noindex from sitemap", () => {
+test("Phase 2 content set has 34 public Korean posts and excludes drafts/noindex from sitemap", () => {
   const allPosts = getAllPosts();
   const publicPosts = getPublicPosts();
   const sitemapPosts = getSitemapPosts();
   const draftPosts = allPosts.filter((post) => post.frontmatter.draft);
 
-  assert.equal(publicPosts.length, 33);
-  assert.equal(publicPosts.filter((post) => post.category === "automation").length, 15);
+  assert.equal(publicPosts.length, 34);
+  assert.equal(publicPosts.filter((post) => post.category === "automation").length, 16);
   assert.equal(publicPosts.filter((post) => post.category === "sales-ops").length, 7);
   assert.equal(publicPosts.filter((post) => post.category === "small-business").length, 6);
   assert.equal(publicPosts.filter((post) => post.category === "contracts-payments").length, 5);

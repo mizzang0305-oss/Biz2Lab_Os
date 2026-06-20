@@ -882,6 +882,29 @@
       "visualDifferentiationHint": "windmill-developer-workflow-automation: developer-workflow-control-room",
       "filename": "windmill-developer-workflow-automation-hero.jpg",
       "rawPath": "assets/images/raw/windmill-developer-workflow-automation-hero.jpg"
+    },
+    {
+      "id": "kestra-data-ai-workflow-orchestration-hero",
+      "postSlug": "kestra-data-ai-workflow-orchestration",
+      "category": "automation",
+      "usage": "hero",
+      "targetPath": "assets/images/raw/kestra-data-ai-workflow-orchestration-hero.jpg",
+      "optimizedPath": "public/images/posts/kestra-data-ai-workflow-orchestration-hero.webp",
+      "altKo": "Kestra를 데이터와 AI 워크플로 오케스트레이션 관점에서 분석한 대표 이미지",
+      "captionKo": "Kestra는 여러 자동화 흐름이 커졌을 때 중앙에서 실행과 이력을 관리하는 후보 도구다.",
+      "style": "data-ai-orchestration-map, Korean business editorial raster hero, minimal text, no title inside image",
+      "promptKo": "데이터 파이프라인, AI 작업, 콘텐츠 생성, 리포트, 실행 이력이 중앙 오케스트레이터로 연결된 고급 업무 자동화 히어로 이미지.",
+      "providerPromptKo": "Kestra 분석: 데이터와 AI 워크플로 오케스트레이션에 쓸 수 있을까? 대표 이미지. 데이터 파이프라인, AI 작업, 콘텐츠 생성, 리포트, 실행 이력이 중앙 오케스트레이터로 연결된 고급 업무 자동화 히어로 이미지. Include: workflow orchestration, data pipeline, AI task, content output, execution history. No official logos, no real customer data, no placeholder elements.",
+      "negativePromptKo": "official Kestra logo, cloud vendor logos, fake monitoring data, dense code, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+      "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+      "composition": "데이터 파이프라인, AI 작업, 콘텐츠 생성, 리포트, 실행 이력이 중앙 오케스트레이터로 연결된 고급 업무 자동화 히어로 이미지.",
+      "categoryStyle": "automation category visual, data-ai-orchestration-map",
+      "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+      "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+      "localOnly": true,
+      "visualDifferentiationHint": "kestra-data-ai-workflow-orchestration: data-ai-orchestration-map",
+      "filename": "kestra-data-ai-workflow-orchestration-hero.jpg",
+      "rawPath": "assets/images/raw/kestra-data-ai-workflow-orchestration-hero.jpg"
     }
   ]
 }

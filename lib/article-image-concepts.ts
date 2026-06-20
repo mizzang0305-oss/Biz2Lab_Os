@@ -384,6 +384,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["script runner", "workflow timeline", "internal app panel", "execution log"],
     palette: automationPalette,
   },
+  "kestra-data-ai-workflow-orchestration": {
+    slug: "kestra-data-ai-workflow-orchestration",
+    category: "automation",
+    visualFamily: "data-ai-orchestration-map",
+    conceptKo: "데이터 파이프라인, AI 작업, 콘텐츠 생성, 리포트, 실행 이력이 중앙 오케스트레이터로 연결된 고급 업무 자동화 히어로 이미지.",
+    altKo: "Kestra를 데이터와 AI 워크플로 오케스트레이션 관점에서 분석한 대표 이미지",
+    captionKo: "Kestra는 여러 자동화 흐름이 커졌을 때 중앙에서 실행과 이력을 관리하는 후보 도구다.",
+    labels: ["workflow orchestration", "data pipeline", "AI task", "content output"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

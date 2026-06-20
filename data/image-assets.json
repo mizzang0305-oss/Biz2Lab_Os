@@ -196,5 +196,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "kestra-data-ai-workflow-orchestration-hero",
+    "project": "biz2lab",
+    "postSlug": "kestra-data-ai-workflow-orchestration",
+    "usage": "hero",
+    "src": "/images/posts/kestra-data-ai-workflow-orchestration-hero.webp",
+    "rawPath": "assets/images/raw/kestra-data-ai-workflow-orchestration-hero.jpg",
+    "altKo": "Kestra를 데이터와 AI 워크플로 오케스트레이션 관점에서 분석한 대표 이미지",
+    "captionKo": "Kestra는 여러 자동화 흐름이 커졌을 때 중앙에서 실행과 이력을 관리하는 후보 도구다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]

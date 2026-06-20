@@ -11,7 +11,7 @@ import {
   type OpenPullRequest,
 } from "@/scripts/content-series-scheduler-runner";
 
-const currentTopicSlug = "windmill-developer-workflow-automation";
+const currentTopicSlug = "kestra-data-ai-workflow-orchestration";
 
 function writeJson(filePath: string, value: unknown) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -183,7 +183,7 @@ test("content index slug duplicate blocks publication", () => {
 
 test("existing topic PR blocks duplicate publication", () => {
   const root = tempSchedulerRoot();
-  const openPrs = [{ number: 7, title: "Windmill article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
+  const openPrs = [{ number: 7, title: "Kestra article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
 
   const result = runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, schedulerDeps(openPrs).deps);
 
@@ -192,10 +192,10 @@ test("existing topic PR blocks duplicate publication", () => {
 
 test("explicit topic with latest artifact selector still respects existing topic PR gate", () => {
   const root = tempSchedulerRoot();
-  const openPrs = [{ number: 7, title: "Windmill article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
+  const openPrs = [{ number: 7, title: "Kestra article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
 
   const result = runContentSeriesScheduler(
-    { rootDir: root, dryRun: true, topic: "windmill", useLatestCodexArtifact: true, now: activeNow },
+    { rootDir: root, dryRun: true, topic: "kestra", useLatestCodexArtifact: true, now: activeNow },
     schedulerDeps(openPrs).deps,
   );
 
@@ -203,16 +203,16 @@ test("explicit topic with latest artifact selector still respects existing topic
   assert.equal(result.topic, currentTopicSlug);
 });
 
-test("explicit later topic cannot bypass queue order", () => {
+test("explicit completed topic cannot bypass duplicate gate", () => {
   const root = tempSchedulerRoot();
 
   const result = runContentSeriesScheduler(
-    { rootDir: root, dryRun: true, topic: "kestra-data-ai-workflow-orchestration", useLatestCodexArtifact: true, now: activeNow },
+    { rootDir: root, dryRun: true, topic: "windmill-developer-workflow-automation", useLatestCodexArtifact: true, now: activeNow },
     schedulerDeps().deps,
   );
 
-  assert.equal(result.status, "TOPIC_ORDER_BLOCKED");
-  assert.equal(result.topic, "kestra-data-ai-workflow-orchestration");
+  assert.equal(result.status, "TOPIC_ALREADY_COMPLETED");
+  assert.equal(result.topic, "windmill-developer-workflow-automation");
 });
 
 test("max open PRs blocks scheduler", () => {
