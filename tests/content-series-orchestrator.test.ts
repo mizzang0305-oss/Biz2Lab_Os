@@ -100,7 +100,8 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes("node-red-local-business-automation-server"));
   assert.ok(state.completed.includes("huginn-monitoring-automation-agent"));
   assert.ok(state.completed.includes("baserow-open-source-database-automation"));
-  assert.equal(state.currentTopic, "appsmith-internal-dashboard-automation");
+  assert.ok(state.completed.includes("appsmith-internal-dashboard-automation"));
+  assert.equal(state.currentTopic, "windmill-developer-workflow-automation");
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
   assert.equal(state.gates.dbWrite, false);
@@ -139,7 +140,7 @@ test("missing Codex image artifact blocks publication without writing article", 
 
   await withIsolatedGeneratedImagesDir(root, async () => {
     await assert.rejects(
-      () => runContentSeriesOrchestrator({ rootDir: root, topic: "appsmith", noCommit: true }),
+      () => runContentSeriesOrchestrator({ rootDir: root, topic: "windmill", noCommit: true }),
       (error) =>
         error instanceof ContentSeriesError &&
         error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
@@ -422,7 +423,7 @@ test("internal link generation includes series hub and existing public articles"
 test("generated article markdown includes authority sections and Korean related labels", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
-  const topic = resolveContentSeriesTopic(topics.topics, state, "appsmith");
+  const topic = resolveContentSeriesTopic(topics.topics, state, "windmill");
   const markdown = buildArticleMarkdown(topic, "2026-06-20");
 
   for (const heading of ["문제 정의", "핵심 개념", "현장 시나리오", "실행 절차", "자동화 구조", "리스크와 방지책", "도입 순서"]) {
@@ -473,12 +474,25 @@ test("optimized hero metadata derives public WebP dimensions without reading the
 test("article image concept insertion preserves typed entries export", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
-  const topic = resolveContentSeriesTopic(topics.topics, state, "appsmith");
+  const baseTopic = resolveContentSeriesTopic(topics.topics, state, "windmill");
+  const topic = {
+    ...baseTopic,
+    slug: "test-generated-topic",
+    imageConcept: {
+      ...baseTopic.imageConcept,
+      visualFamily: "test-visual-family",
+      promptSummaryKo: "테스트 자동화 이미지 콘셉트",
+      altKo: "테스트 자동화 대표 이미지",
+      captionKo: "테스트 자동화 대표 이미지 설명",
+      mustInclude: ["workflow", "approval", "dashboard"],
+      mustAvoid: ["official logo"],
+    },
+  };
   const current = fs.readFileSync(path.join(process.cwd(), "lib", "article-image-concepts.ts"), "utf8");
 
   const next = insertArticleImageConceptEntry(current, topic);
 
-  assert.match(next, /"appsmith-internal-dashboard-automation":/);
+  assert.match(next, /"test-generated-topic":/);
   assert.match(next, /export const articleImageConceptEntries: ArticleImageConcept\[\] = Object\.values\(articleImageConcepts\);/);
 });
 
@@ -524,10 +538,10 @@ test("validation command list includes all required gates", () => {
 test("plan-only can inspect a later topic but reports publication blockers", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
-  const topic = resolveContentSeriesTopic(topics.topics, state, "windmill");
+  const topic = resolveContentSeriesTopic(topics.topics, state, "kestra");
   const plan = buildContentSeriesPlan(state, topic, { planOnly: true });
 
-  assert.equal(plan.topic.slug, "windmill-developer-workflow-automation");
+  assert.equal(plan.topic.slug, "kestra-data-ai-workflow-orchestration");
   assert.ok(plan.publicationBlockers.some((blocker) => blocker.includes("previous article is not public yet")));
 });
 
