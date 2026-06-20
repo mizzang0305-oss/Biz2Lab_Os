@@ -54,6 +54,25 @@
     ]
   },
   {
+    "title": "Kestra 분석: 데이터·AI 워크플로 오케스트레이션, 자동화 운영에 쓸 수 있을까?",
+    "slug": "kestra-data-ai-workflow-orchestration",
+    "route": "/ko/automation/kestra-data-ai-workflow-orchestration",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/kestra-data-ai-workflow-orchestration-hero.webp",
+    "heroAlt": "Kestra를 데이터와 AI 워크플로 오케스트레이션 관점에서 분석한 대표 이미지",
+    "updatedAt": "2026-06-20",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "windmill-developer-workflow-automation",
+      "appsmith-internal-dashboard-automation",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "node-red-local-business-automation-server",
+      "huginn-monitoring-automation-agent"
+    ]
+  },
+  {
     "title": "Node-RED 분석: 로컬 서버 자동화와 소상공인 업무 연결에 쓸 수 있을까?",
     "slug": "node-red-local-business-automation-server",
     "route": "/ko/automation/node-red-local-business-automation-server",

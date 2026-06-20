@@ -101,7 +101,8 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes("huginn-monitoring-automation-agent"));
   assert.ok(state.completed.includes("baserow-open-source-database-automation"));
   assert.ok(state.completed.includes("appsmith-internal-dashboard-automation"));
-  assert.equal(state.currentTopic, "windmill-developer-workflow-automation");
+  assert.ok(state.completed.includes("windmill-developer-workflow-automation"));
+  assert.equal(state.currentTopic, "kestra-data-ai-workflow-orchestration");
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
   assert.equal(state.gates.dbWrite, false);
@@ -140,7 +141,7 @@ test("missing Codex image artifact blocks publication without writing article", 
 
   await withIsolatedGeneratedImagesDir(root, async () => {
     await assert.rejects(
-      () => runContentSeriesOrchestrator({ rootDir: root, topic: "windmill", noCommit: true }),
+      () => runContentSeriesOrchestrator({ rootDir: root, topic: "kestra", noCommit: true }),
       (error) =>
         error instanceof ContentSeriesError &&
         error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
@@ -535,14 +536,14 @@ test("validation command list includes all required gates", () => {
   ]);
 });
 
-test("plan-only can inspect a later topic but reports publication blockers", () => {
+test("plan-only can inspect the current stacked topic without publication blockers", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
   const topic = resolveContentSeriesTopic(topics.topics, state, "kestra");
   const plan = buildContentSeriesPlan(state, topic, { planOnly: true });
 
   assert.equal(plan.topic.slug, "kestra-data-ai-workflow-orchestration");
-  assert.ok(plan.publicationBlockers.some((blocker) => blocker.includes("previous article is not public yet")));
+  assert.deepEqual(plan.publicationBlockers, []);
 });
 
 test("orchestrator source does not contain merge or manual deploy commands", () => {
