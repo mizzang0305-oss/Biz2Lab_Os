@@ -458,6 +458,48 @@ test("static settings keep future admin and feature surfaces disabled", () => {
   }
 });
 
+test("content automation admin route is protected and not registered as public content", () => {
+  const routes: readonly string[] = staticPublicRoutes;
+  const pagePath = path.join(process.cwd(), "app", "admin", "content-automation", "page.tsx");
+  const authPath = path.join(process.cwd(), "lib", "admin", "content-automation-auth.ts");
+  const actionsPath = path.join(process.cwd(), "lib", "admin", "content-automation-actions.ts");
+  const proxyPath = path.join(process.cwd(), "proxy.ts");
+  const routeRoot = path.join(process.cwd(), "app", "api", "admin", "content-automation");
+
+  assert.equal(routes.includes("/admin/content-automation"), false);
+  assert.ok(forbiddenPublicRoutePrefixes.includes("/admin"));
+  assert.ok(fs.existsSync(pagePath));
+  assert.ok(fs.existsSync(authPath));
+
+  const pageSource = fs.readFileSync(pagePath, "utf8");
+  const authSource = fs.readFileSync(authPath, "utf8");
+  const actionsSource = fs.readFileSync(actionsPath, "utf8");
+  const proxySource = fs.readFileSync(proxyPath, "utf8");
+  const routeFiles = fs
+    .readdirSync(routeRoot, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => path.join(routeRoot, entry.name, "route.ts"));
+
+  assert.match(pageSource, /isContentAutomationAdminEnabled/);
+  assert.match(pageSource, /notFound\(\)/);
+  assert.match(pageSource, /index:\s*false/);
+  assert.match(pageSource, /follow:\s*false/);
+  assert.match(authSource, /BIZ2LAB_ADMIN_TOKEN/);
+  assert.match(authSource, /timingSafeEqual/);
+  assert.match(authSource, /Basic/);
+  assert.match(proxySource, /matcher:\s*"\/admin\/content-automation\/:path\*"/);
+  assert.match(proxySource, /WWW-Authenticate/);
+  assert.match(actionsSource, /WEB_PUBLICATION_DISABLED/);
+  assert.doesNotMatch(actionsSource, /dryRun:\s*false/);
+  assert.doesNotMatch(actionsSource, /gh\s+pr\s+merge|vercel\s+deploy/);
+
+  for (const routeFile of routeFiles) {
+    const source = fs.readFileSync(routeFile, "utf8");
+    assert.match(source, /requireAdminRequest/, `${routeFile} must require admin auth`);
+    assert.match(source, /dynamic\s*=\s*"force-dynamic"/, `${routeFile} must not be cached`);
+  }
+});
+
 test("article hero image follows Next 16 image loading API", () => {
   const articlePageSource = fs.readFileSync(
     path.join(process.cwd(), "app", "ko", "[category]", "[slug]", "page.tsx"),

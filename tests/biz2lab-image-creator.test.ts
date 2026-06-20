@@ -296,8 +296,14 @@ test("image creator feature does not add public app routes", () => {
   const appFiles = walkFiles(path.join(process.cwd(), "app")).map((filePath) =>
     path.relative(process.cwd(), filePath).replaceAll("\\", "/"),
   );
+  const unexpectedAdminFiles = appFiles.filter(
+    (filePath) =>
+      filePath.includes("/admin/") &&
+      !filePath.startsWith("app/admin/content-automation/") &&
+      !filePath.startsWith("app/api/admin/content-automation/"),
+  );
 
-  assert.equal(appFiles.some((filePath) => filePath.includes("/admin/")), false);
+  assert.deepEqual(unexpectedAdminFiles, []);
   assert.equal(appFiles.some((filePath) => filePath.includes("/api/image")), false);
   assert.equal(appFiles.some((filePath) => filePath.includes("/ai/")), false);
   assert.equal(appFiles.some((filePath) => filePath.includes("/chat/")), false);

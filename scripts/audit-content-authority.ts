@@ -6,6 +6,9 @@ import { getPublicPosts } from "@/lib/posts";
 const root = process.cwd();
 const errors: string[] = [];
 const warnings: string[] = [];
+const protectedAdminRoot = path.join(root, "app", "admin");
+const protectedAdminRoute = path.join(protectedAdminRoot, "content-automation");
+const protectedAdminApiRoot = path.join(root, "app", "api", "admin", "content-automation");
 
 const top3Slugs = new Set([
   "ai-business-automation-guide",
@@ -168,9 +171,54 @@ for (const [src, slugs] of heroUsage.entries()) {
   }
 }
 
+function validateProtectedAdminRoute() {
+  if (!fs.existsSync(protectedAdminRoot)) {
+    return;
+  }
+
+  const entries = fs.readdirSync(protectedAdminRoot).map((entry) => entry);
+  const unexpected = entries.filter((entry) => entry !== "content-automation");
+  for (const entry of unexpected) {
+    errors.push(`forbidden admin path exists: app/admin/${entry}`);
+  }
+
+  const pagePath = path.join(protectedAdminRoute, "page.tsx");
+  if (!fs.existsSync(pagePath)) {
+    errors.push("app/admin/content-automation/page.tsx is required for the protected admin exception");
+    return;
+  }
+
+  const pageSource = fs.readFileSync(pagePath, "utf8");
+  const proxyPath = path.join(root, "proxy.ts");
+  if (!pageSource.includes("isContentAutomationAdminEnabled") || !pageSource.includes("notFound()")) {
+    errors.push("app/admin/content-automation/page.tsx must stay env-gated and return notFound when disabled");
+  }
+  if (!pageSource.includes("index: false") || !pageSource.includes("follow: false")) {
+    errors.push("app/admin/content-automation/page.tsx must keep noindex/nofollow metadata");
+  }
+  if (!fs.existsSync(proxyPath) || !fs.readFileSync(proxyPath, "utf8").includes("/admin/content-automation/:path*")) {
+    errors.push("proxy.ts must gate /admin/content-automation before rendering");
+  }
+
+  const apiRouteFiles = fs.existsSync(protectedAdminApiRoot)
+    ? fs
+        .readdirSync(protectedAdminApiRoot, { withFileTypes: true })
+        .filter((entry) => entry.isDirectory())
+        .map((entry) => path.join(protectedAdminApiRoot, entry.name, "route.ts"))
+    : [];
+  if (apiRouteFiles.length === 0) {
+    errors.push("app/api/admin/content-automation requires authenticated route handlers");
+  }
+  for (const routePath of apiRouteFiles) {
+    const source = fs.readFileSync(routePath, "utf8");
+    if (!source.includes("requireAdminRequest")) {
+      errors.push(`${path.relative(root, routePath).replaceAll("\\", "/")} must require admin auth`);
+    }
+  }
+}
+
 const forbiddenPaths = [
   path.join(root, "public", "google-site-verification.html"),
-  path.join(root, "app", "admin"),
   path.join(root, "app", "login"),
   path.join(root, "app", "en"),
   path.join(root, "app", "ja"),
@@ -183,6 +231,7 @@ for (const forbiddenPath of forbiddenPaths) {
     errors.push(`forbidden path exists: ${path.relative(root, forbiddenPath).replaceAll("\\", "/")}`);
   }
 }
+validateProtectedAdminRoute();
 
 if (posts.length !== 28) {
   errors.push(`expected 28 public posts, found ${posts.length}`);

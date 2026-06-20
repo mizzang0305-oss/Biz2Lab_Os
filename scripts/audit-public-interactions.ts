@@ -10,6 +10,9 @@ import { siteSettings } from "@/lib/site-settings";
 const root = process.cwd();
 const errors: string[] = [];
 const checked: string[] = [];
+const protectedAdminRoot = path.join(root, "app", "admin");
+const protectedAdminRoute = path.join(protectedAdminRoot, "content-automation");
+const protectedAdminApiRoot = path.join(root, "app", "api", "admin", "content-automation");
 
 const sourceRoots = ["app", "components", path.join("content", "ko")];
 const sourceFiles = [path.join("lib", "site-settings.ts")];
@@ -84,13 +87,59 @@ function validateForbiddenRouteDirectories() {
     const rootRoute = path.join(root, "app", segment);
     const koRoute = path.join(root, "app", "ko", segment);
     if (fs.existsSync(rootRoute)) {
-      errors.push(`app/${segment}: forbidden public route directory exists`);
+      if (segment === "admin") {
+        validateProtectedAdminRouteDirectory(rootRoute);
+      } else {
+        errors.push(`app/${segment}: forbidden public route directory exists`);
+      }
     }
     if (fs.existsSync(koRoute)) {
       errors.push(`app/ko/${segment}: forbidden Korean route directory exists`);
     }
   }
   checked.push("forbidden route directories");
+}
+
+function validateProtectedAdminRouteDirectory(rootRoute: string) {
+  const entries = fs.readdirSync(rootRoute).map((entry) => entry);
+  const unexpected = entries.filter((entry) => entry !== "content-automation");
+  for (const entry of unexpected) {
+    errors.push(`app/admin/${entry}: forbidden public admin route directory exists`);
+  }
+
+  const pagePath = path.join(protectedAdminRoute, "page.tsx");
+  if (!fs.existsSync(pagePath)) {
+    errors.push("app/admin/content-automation/page.tsx: protected admin exception is incomplete");
+    return;
+  }
+
+  const pageSource = fs.readFileSync(pagePath, "utf8");
+  const proxyPath = path.join(root, "proxy.ts");
+  if (!pageSource.includes("isContentAutomationAdminEnabled") || !pageSource.includes("notFound()")) {
+    errors.push("app/admin/content-automation/page.tsx: admin UI must be env-gated and hidden when disabled");
+  }
+  if (!pageSource.includes("index: false") || !pageSource.includes("follow: false")) {
+    errors.push("app/admin/content-automation/page.tsx: admin UI must keep noindex/nofollow metadata");
+  }
+  if (!fs.existsSync(proxyPath) || !fs.readFileSync(proxyPath, "utf8").includes("/admin/content-automation/:path*")) {
+    errors.push("proxy.ts: protected admin matcher is missing");
+  }
+
+  const routeFiles = fs.existsSync(protectedAdminApiRoot)
+    ? fs
+        .readdirSync(protectedAdminApiRoot, { withFileTypes: true })
+        .filter((entry) => entry.isDirectory())
+        .map((entry) => path.join(protectedAdminApiRoot, entry.name, "route.ts"))
+    : [];
+  if (routeFiles.length === 0) {
+    errors.push("app/api/admin/content-automation: admin API route handlers are missing");
+  }
+  for (const routeFile of routeFiles) {
+    const source = fs.readFileSync(routeFile, "utf8");
+    if (!source.includes("requireAdminRequest")) {
+      errors.push(`${toPosix(path.relative(root, routeFile))}: missing server-side admin auth guard`);
+    }
+  }
 }
 
 function validateLinksAndButtons(filePath: string) {
