@@ -10,6 +10,7 @@ import {
   buildContentIndexEntry,
   buildContentSeriesPlan,
   buildImageAssetEntry,
+  buildOptimizedHeroImageMetadata,
   buildImagePaths,
   buildInternalLinkRoutes,
   CONTENT_SERIES_VALIDATION_COMMANDS,
@@ -19,6 +20,7 @@ import {
   insertArticleImageConceptEntry,
   readContentSeriesState,
   readContentSeriesTopics,
+  resolveExecFileInvocation,
   resolveContentSeriesTopic,
   runContentSeriesOrchestrator,
 } from "@/scripts/content-series-orchestrator";
@@ -397,6 +399,7 @@ test("local Codex artifact source directories are excluded from commit staging",
       ".codex/config.toml",
       ".codex/generated_images/node-red-local-business-automation-server-hero.png",
       "artifacts/codex-images/node-red-local-business-automation-server-hero.png",
+      "data/content-series-run-state.json",
       "generated/node-red-local-business-automation-server-hero.png",
       "output/node-red-local-business-automation-server-hero.png",
       "tmp/node-red-local-business-automation-server-hero.png",
@@ -435,6 +438,23 @@ test("image registry helper keeps raw and public paths in guarded directories", 
   assert.equal(entry.status, "active");
 });
 
+test("optimized hero metadata derives public WebP dimensions without reading the output file", () => {
+  const { topic } = nodeRedTopic();
+
+  assert.deepEqual(buildOptimizedHeroImageMetadata(topic, { width: 1600, height: 900 }), {
+    path: `public/images/posts/${topic.slug}-hero.webp`,
+    width: 1200,
+    height: 675,
+    format: "webp",
+  });
+  assert.deepEqual(buildOptimizedHeroImageMetadata(topic, { width: 800, height: 600 }), {
+    path: `public/images/posts/${topic.slug}-hero.webp`,
+    width: 800,
+    height: 600,
+    format: "webp",
+  });
+});
+
 test("article image concept insertion preserves typed entries export", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
@@ -445,6 +465,25 @@ test("article image concept insertion preserves typed entries export", () => {
 
   assert.match(next, /"appsmith-internal-dashboard-automation":/);
   assert.match(next, /export const articleImageConceptEntries: ArticleImageConcept\[\] = Object\.values\(articleImageConcepts\);/);
+});
+
+test("Windows npm script execution resolves through cmd.exe", () => {
+  assert.deepEqual(resolveExecFileInvocation("npm", ["--version"], "win32"), {
+    program: "cmd.exe",
+    args: ["/d", "/s", "/c", "npm", "--version"],
+  });
+  assert.deepEqual(resolveExecFileInvocation("npx", ["tsx", "--version"], "win32"), {
+    program: "cmd.exe",
+    args: ["/d", "/s", "/c", "npx", "tsx", "--version"],
+  });
+  assert.deepEqual(resolveExecFileInvocation("gh", ["--version"], "win32"), {
+    program: "gh",
+    args: ["--version"],
+  });
+  assert.deepEqual(resolveExecFileInvocation("npm", ["--version"], "linux"), {
+    program: "npm",
+    args: ["--version"],
+  });
 });
 
 test("validation command list includes all required gates", () => {

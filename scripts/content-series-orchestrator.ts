@@ -175,6 +175,20 @@ function repoPath(...parts: string[]) {
   return parts.join("/").replaceAll("\\", "/");
 }
 
+export function resolveExecFileInvocation(
+  program: string,
+  args: string[],
+  platform: NodeJS.Platform = process.platform,
+) {
+  if (platform === "win32" && path.extname(program) === "" && ["npm", "npx", "pnpm", "yarn"].includes(program)) {
+    return {
+      program: "cmd.exe",
+      args: ["/d", "/s", "/c", program, ...args],
+    };
+  }
+  return { program, args };
+}
+
 function absolutePath(rootDir: string, repoRelativePath: string) {
   return path.join(rootDir, ...repoRelativePath.split("/"));
 }
@@ -448,6 +462,7 @@ const localOnlyCommitPathPrefixes = [
   ".codex-remote-attachments/",
   ".codex/generated_images/",
   "artifacts/codex-images/",
+  "data/content-series-run-state.json",
   "generated/",
   "output/",
   "tmp/",
@@ -895,7 +910,13 @@ export async function importCodexImageArtifact(
     .rotate()
     .jpeg({ quality: 92, mozjpeg: true })
     .toFile(targetAbsolutePath);
-  const metadata = await sharp(targetAbsolutePath).metadata();
+  const image = sharp(targetAbsolutePath);
+  let metadata: sharp.Metadata;
+  try {
+    metadata = await image.metadata();
+  } finally {
+    image.destroy();
+  }
   return {
     source: artifactPath,
     target: paths.rawRepoPath,
@@ -1051,7 +1072,8 @@ function appendQueueRow(rootDir: string, topic: ContentSeriesTopic) {
 
 function runCommand(rootDir: string, command: string) {
   const [program, ...args] = command.split(" ");
-  execFileSync(program, args, { cwd: rootDir, stdio: "inherit", env: process.env });
+  const invocation = resolveExecFileInvocation(program, args);
+  execFileSync(invocation.program, invocation.args, { cwd: rootDir, stdio: "inherit", env: process.env });
 }
 
 function runValidationCommands(rootDir: string) {
@@ -1095,18 +1117,27 @@ function assertCleanWorktreeExceptProtected(rootDir: string) {
   }
 }
 
-async function readImageMetadata(rootDir: string, repoRelativePath: string) {
+export function buildOptimizedHeroImageMetadata(
+  topic: ContentSeriesTopic,
+  importedImage: { width?: number; height?: number },
+) {
+  const rawWidth = importedImage.width ?? 0;
+  const rawHeight = importedImage.height ?? 0;
+  const width = rawWidth > 0 ? Math.min(1200, rawWidth) : 1200;
+  const height = rawWidth > 0 && rawHeight > 0 ? Math.round((width * rawHeight) / rawWidth) : 675;
+  return {
+    path: buildImagePaths(topic).publicRepoPath,
+    width,
+    height,
+    format: "webp",
+  };
+}
+
+function assertPublicHeroImageExists(rootDir: string, repoRelativePath: string) {
   const absoluteFilePath = absolutePath(rootDir, repoRelativePath);
   if (!fs.existsSync(absoluteFilePath)) {
     throw new ContentSeriesError("PUBLIC_HERO_IMAGE_MISSING", `${repoRelativePath} was not created`);
   }
-  const metadata = await sharp(absoluteFilePath).metadata();
-  return {
-    path: repoRelativePath,
-    width: metadata.width,
-    height: metadata.height,
-    format: metadata.format,
-  };
 }
 
 function commitAndMaybeCreatePr(rootDir: string, plan: ContentSeriesPlan, options: CliOptions) {
@@ -1193,7 +1224,8 @@ export async function runContentSeriesOrchestrator(options: CliOptions = {}): Pr
   updateInternalLinks(rootDir, topic);
   appendQueueRow(rootDir, topic);
   runCommand(rootDir, "npm run optimize-images");
-  const publicImage = await readImageMetadata(rootDir, plan.imagePaths.publicRepoPath);
+  assertPublicHeroImageExists(rootDir, plan.imagePaths.publicRepoPath);
+  const publicImage = buildOptimizedHeroImageMetadata(topic, importedImage);
   upsertImageAsset(rootDir, topic, publicImage);
   runCommand(rootDir, "npm run generate-content-index");
   runValidationCommands(rootDir);
