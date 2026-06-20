@@ -6,20 +6,20 @@ Phase 3.8-SKILL-MASTER created prompt-only packages for Biz2Lab image production
 
 ## Coverage
 
-- Hero prompt packages: 28
+- Hero prompt packages: 29
 - Inline prompt packages: 5
 - Hub prompt packages: 4
-- Total prompt packages: 37
+- Total prompt packages: 38
 
 ## Priority Order
 
 1. Priority 1: generate and review the 5 key inline explanatory images.
-2. Priority 2: generate and review the 29 public Korean post hero images.
+2. Priority 2: generate and review the 30 public Korean post hero images.
 3. Priority 3: generate and review the 4 category hub images.
 
 ## Status Columns
 
-- `prompt_ready`: yes for all 38 packages tracked in the queue.
+- `prompt_ready`: yes for all 39 packages tracked in the queue.
 - `image_created`: yes only for rows with real generated/imported raster assets.
 - `raw_saved`: yes only after a matching file exists under `assets/images/raw`.
 - `optimized`: yes only after the matching public WebP exists under `public/images/posts`.
@@ -35,6 +35,8 @@ Open-source automation series update: `free-open-source-automation-tools-series`
 Node-RED series update: `node-red-local-business-automation-server` now has a Codex-generated raster artifact imported as a raw JPG, an optimized public WebP hero, article-ready metadata, and series links prepared for validation. No manual deploy was run.
 
 Huginn series update: `huginn-monitoring-automation-agent` now has a Codex-generated raster artifact imported as a raw JPG, an optimized public WebP hero, article-ready metadata, and series links prepared for validation. No manual deploy was run.
+
+Baserow series update: `baserow-open-source-database-automation` now has a Codex-generated raster artifact imported as a raw JPG, an optimized public WebP hero, article-ready metadata, and series links prepared for validation. No manual deploy was run.
 
 ## Queue Source
 

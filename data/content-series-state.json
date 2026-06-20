@@ -1,16 +1,16 @@
 {
   "series": "free-open-source-automation-tools",
   "title": "무료 오픈소스 자동화 도구 시리즈",
-  "currentTopic": "baserow-open-source-database-automation",
+  "currentTopic": "appsmith-internal-dashboard-automation",
   "completed": [
     "opencut-free-open-source-video-editor-ai-content-automation",
     "free-open-source-automation-tools-series",
     "activepieces-ai-business-automation-n8n-alternative",
     "node-red-local-business-automation-server",
-    "huginn-monitoring-automation-agent"
+    "huginn-monitoring-automation-agent",
+    "baserow-open-source-database-automation"
   ],
   "next": [
-    "baserow-open-source-database-automation",
     "appsmith-internal-dashboard-automation",
     "windmill-developer-workflow-automation",
     "kestra-data-ai-workflow-orchestration"

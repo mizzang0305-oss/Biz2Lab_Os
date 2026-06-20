@@ -50,12 +50,12 @@ for (const post of publicPosts) {
   }
 }
 
-if (publicPosts.length !== 30) {
-  errors.push(`expected 30 public posts, found ${publicPosts.length}`);
+if (publicPosts.length !== 31) {
+  errors.push(`expected 31 public posts, found ${publicPosts.length}`);
 }
 
 const expectedCategoryCounts = {
-  automation: 12,
+  automation: 13,
   "sales-ops": 7,
   "small-business": 6,
   "contracts-payments": 5,

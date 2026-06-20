@@ -813,6 +813,29 @@
       "visualDifferentiationHint": "huginn-monitoring-automation-agent: monitoring-agent-map",
       "filename": "huginn-monitoring-automation-agent-hero.jpg",
       "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
+    },
+    {
+      "id": "baserow-open-source-database-automation-hero",
+      "postSlug": "baserow-open-source-database-automation",
+      "category": "automation",
+      "usage": "hero",
+      "targetPath": "assets/images/raw/baserow-open-source-database-automation-hero.jpg",
+      "optimizedPath": "public/images/posts/baserow-open-source-database-automation-hero.webp",
+      "altKo": "Baserow를 업무 데이터베이스 자동화 관점에서 분석한 대표 이미지",
+      "captionKo": "Baserow는 고객, 상품, 콘텐츠 데이터를 자동화 파이프라인에 넘기는 데이터 레이어 후보로 볼 수 있다.",
+      "style": "business-database-automation-board, Korean business editorial raster hero, minimal text, no title inside image",
+      "promptKo": "업무 데이터베이스 보드, 고객 목록, 상품 정보, 콘텐츠 캘린더, 자동화 연결선이 정돈된 16:9 히어로 이미지.",
+      "providerPromptKo": "Baserow 분석: Airtable 대체 오픈소스 데이터베이스로 업무 자동화에 쓸 수 있을까? 대표 이미지. 업무 데이터베이스 보드, 고객 목록, 상품 정보, 콘텐츠 캘린더, 자동화 연결선이 정돈된 16:9 히어로 이미지. Include: database grid, customer table, content calendar, automation connector, permission badge. No official logos, no real customer data, no placeholder elements.",
+      "negativePromptKo": "official Baserow logo, Airtable logo, real customer data, dense table text, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+      "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+      "composition": "업무 데이터베이스 보드, 고객 목록, 상품 정보, 콘텐츠 캘린더, 자동화 연결선이 정돈된 16:9 히어로 이미지.",
+      "categoryStyle": "automation category visual, business-database-automation-board",
+      "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+      "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+      "localOnly": true,
+      "visualDifferentiationHint": "baserow-open-source-database-automation: business-database-automation-board",
+      "filename": "baserow-open-source-database-automation-hero.jpg",
+      "rawPath": "assets/images/raw/baserow-open-source-database-automation-hero.jpg"
     }
   ]
 }

@@ -28,6 +28,7 @@ relatedPosts:
   - activepieces-ai-business-automation-n8n-alternative
   - node-red-local-business-automation-server
   - huginn-monitoring-automation-agent
+  - baserow-open-source-database-automation
   - ai-business-automation-guide
 templateCta: 무료 자동화 도구 검증 체크리스트
 nextStep:
@@ -103,7 +104,7 @@ Kestra는 데이터, AI, 인프라 workflow orchestration에 가까운 도구입
 
 ### Baserow
 
-Baserow는 Airtable 대안에 가까운 데이터베이스 UI 도구입니다. 고객 목록, 콘텐츠 캘린더, 상품 관리, 업무 보드를 직접 구성하는 데 유용할 수 있습니다. 공식 저장소 기준 open-source edition과 enterprise 구분을 함께 확인해야 합니다.
+[Baserow 분석](/ko/automation/baserow-open-source-database-automation)은 Airtable 대안에 가까운 오픈소스 데이터베이스 후보를 업무 자동화의 데이터 레이어 관점에서 다뤘습니다. 고객 목록, 콘텐츠 캘린더, 상품 관리, 문의 큐를 정리하는 데 유용할 수 있지만 cloud/self-hosted 범위, 유료 기능, 권한과 백업 정책은 별도 확인이 필요합니다.
 
 ### Appsmith
 

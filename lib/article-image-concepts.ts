@@ -142,6 +142,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["파일", "API", "일정", "리포트"],
     palette: automationPalette,
   },
+  "baserow-open-source-database-automation": {
+    slug: "baserow-open-source-database-automation",
+    category: "automation",
+    visualFamily: "business-database-automation-board",
+    conceptKo: "스프레드시트형 업무 DB, 콘텐츠 캘린더, 상품 데이터, 고객 문의 보드, 자동화 연결선과 승인 게이트가 정돈된 데이터 레이어 지도",
+    altKo: "Baserow를 업무 데이터베이스 자동화 관점에서 분석한 대표 이미지",
+    captionKo: "Baserow는 고객, 상품, 콘텐츠 데이터를 자동화 파이프라인에 넘기는 데이터 레이어 후보로 볼 수 있다.",
+    labels: ["DB", "콘텐츠", "상품", "승인"],
+    palette: automationPalette,
+  },
   "huginn-monitoring-automation-agent": {
     slug: "huginn-monitoring-automation-agent",
     category: "automation",
