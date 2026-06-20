@@ -41,3 +41,5 @@ Baserow series update: `baserow-open-source-database-automation` now has a Codex
 ## Queue Source
 
 Use `image-requests/generated/IMAGE_PRODUCTION_QUEUE.md` when selecting the next image to create manually. Do not edit article frontmatter, hub pages, `data/image-assets.json`, or production image paths until the corresponding raw and optimized files exist and the user has visually approved them.
+
+Content-series automation update: `appsmith-internal-dashboard-automation` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.

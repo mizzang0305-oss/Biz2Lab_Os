@@ -364,6 +364,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["전화", "메신저", "플랫폼", "처리"],
     palette: smallBusinessPalette,
   },
+  "appsmith-internal-dashboard-automation": {
+    slug: "appsmith-internal-dashboard-automation",
+    category: "automation",
+    visualFamily: "internal-dashboard-builder",
+    conceptKo: "운영자가 보는 내부 대시보드, 작업 승인 카드, 데이터 소스 연결, 자동화 로그가 정돈된 고급 업무형 히어로 이미지.",
+    altKo: "Appsmith를 내부 관리자 화면 자동화 관점에서 분석한 대표 이미지",
+    captionKo: "Appsmith는 자동화 결과를 사람이 검토하고 승인하는 내부 운영 화면 후보로 볼 수 있다.",
+    labels: ["internal dashboard", "approval cards", "data source", "automation log"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

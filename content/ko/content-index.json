@@ -1,5 +1,22 @@
 [
   {
+    "title": "Appsmith 분석: 내부 관리자 화면과 업무 자동화 대시보드에 쓸 수 있을까?",
+    "slug": "appsmith-internal-dashboard-automation",
+    "route": "/ko/automation/appsmith-internal-dashboard-automation",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/appsmith-internal-dashboard-automation-hero.webp",
+    "heroAlt": "Appsmith를 내부 관리자 화면 자동화 관점에서 분석한 대표 이미지",
+    "updatedAt": "2026-06-20",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "baserow-open-source-database-automation",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Baserow 분석: Airtable 대체 오픈소스 데이터베이스로 업무 자동화에 쓸 수 있을까?",
     "slug": "baserow-open-source-database-automation",
     "route": "/ko/automation/baserow-open-source-database-automation",

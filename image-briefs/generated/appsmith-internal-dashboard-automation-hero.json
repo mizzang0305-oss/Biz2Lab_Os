@@ -1,0 +1,23 @@
+{
+  "id": "appsmith-internal-dashboard-automation-hero",
+  "postSlug": "appsmith-internal-dashboard-automation",
+  "category": "automation",
+  "usage": "hero",
+  "targetPath": "assets/images/raw/appsmith-internal-dashboard-automation-hero.jpg",
+  "optimizedPath": "public/images/posts/appsmith-internal-dashboard-automation-hero.webp",
+  "altKo": "Appsmith를 내부 관리자 화면 자동화 관점에서 분석한 대표 이미지",
+  "captionKo": "Appsmith는 자동화 결과를 사람이 검토하고 승인하는 내부 운영 화면 후보로 볼 수 있다.",
+  "style": "internal-dashboard-builder, Korean business editorial raster hero, minimal text, no title inside image",
+  "promptKo": "운영자가 보는 내부 대시보드, 작업 승인 카드, 데이터 소스 연결, 자동화 로그가 정돈된 고급 업무형 히어로 이미지.",
+  "providerPromptKo": "Appsmith 분석: 내부 관리자 화면과 업무 자동화 대시보드에 쓸 수 있을까? 대표 이미지. 운영자가 보는 내부 대시보드, 작업 승인 카드, 데이터 소스 연결, 자동화 로그가 정돈된 고급 업무형 히어로 이미지. Include: internal dashboard, approval cards, data source, automation log, operator view. No official logos, no real customer data, no placeholder elements.",
+  "negativePromptKo": "official Appsmith logo, real company data, marketing hero split layout, dense tiny text, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+  "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+  "composition": "운영자가 보는 내부 대시보드, 작업 승인 카드, 데이터 소스 연결, 자동화 로그가 정돈된 고급 업무형 히어로 이미지.",
+  "categoryStyle": "automation category visual, internal-dashboard-builder",
+  "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+  "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+  "localOnly": true,
+  "visualDifferentiationHint": "appsmith-internal-dashboard-automation: internal-dashboard-builder",
+  "filename": "appsmith-internal-dashboard-automation-hero.jpg",
+  "rawPath": "assets/images/raw/appsmith-internal-dashboard-automation-hero.jpg"
+}
