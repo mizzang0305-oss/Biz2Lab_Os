@@ -30,8 +30,8 @@ test("image skill bridge loads the Biz2Lab brief set", () => {
   const briefs = loadImageBriefs();
   const summary = summarizeBriefs(briefs);
 
-  assert.equal(briefs.length, 38);
-  assert.equal(summary.byUsage.hero, 29);
+  assert.equal(briefs.length, 39);
+  assert.equal(summary.byUsage.hero, 30);
   assert.equal(summary.byUsage.inline, 5);
   assert.equal(summary.byUsage["hub-summary"], 4);
 });

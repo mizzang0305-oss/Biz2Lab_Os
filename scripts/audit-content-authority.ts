@@ -233,8 +233,8 @@ for (const forbiddenPath of forbiddenPaths) {
 }
 validateProtectedAdminRoute();
 
-if (posts.length !== 32) {
-  errors.push(`expected 32 public posts, found ${posts.length}`);
+if (posts.length !== 33) {
+  errors.push(`expected 33 public posts, found ${posts.length}`);
 }
 
 if (errors.length > 0) {

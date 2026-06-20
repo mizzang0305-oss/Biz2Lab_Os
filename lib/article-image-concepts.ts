@@ -374,6 +374,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["internal dashboard", "approval cards", "data source", "automation log"],
     palette: automationPalette,
   },
+  "windmill-developer-workflow-automation": {
+    slug: "windmill-developer-workflow-automation",
+    category: "automation",
+    visualFamily: "developer-workflow-control-room",
+    conceptKo: "코드 스크립트, 워크플로 타임라인, 내부 앱 패널, 실행 로그, 승인 게이트가 결합된 업무 자동화 컨트롤룸 이미지.",
+    altKo: "Windmill을 개발자용 업무 자동화 관점에서 분석한 대표 이미지",
+    captionKo: "Windmill은 스크립트와 워크플로를 묶어 내부 자동화를 실행하는 개발자형 후보 도구다.",
+    labels: ["script runner", "workflow timeline", "internal app panel", "execution log"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);
