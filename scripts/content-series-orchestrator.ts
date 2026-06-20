@@ -317,6 +317,23 @@ export function buildInternalLinkRoutes(topic: ContentSeriesTopic) {
   return uniqueSlugs.filter(Boolean).map((slug) => `/ko/automation/${slug}`);
 }
 
+const seriesLinkLabels: Record<string, string> = {
+  "free-open-source-automation-tools-series": "무료 오픈소스 자동화 도구 시리즈",
+  "activepieces-ai-business-automation-n8n-alternative": "Activepieces 업무 자동화 분석",
+  "opencut-free-open-source-video-editor-ai-content-automation": "OpenCut 콘텐츠 자동화 분석",
+  "node-red-local-business-automation-server": "Node-RED 로컬 업무 자동화 분석",
+  "huginn-monitoring-automation-agent": "Huginn 모니터링 자동화 에이전트 분석",
+  "baserow-open-source-database-automation": "Baserow 데이터베이스 자동화 분석",
+  "appsmith-internal-dashboard-automation": "Appsmith 내부 대시보드 자동화 분석",
+  "windmill-developer-workflow-automation": "Windmill 개발자 워크플로 자동화 분석",
+  "kestra-data-ai-workflow-orchestration": "Kestra 데이터·AI 워크플로 오케스트레이션 분석",
+};
+
+function labelForSeriesRoute(route: string, fallbackToolName: string) {
+  const slug = route.replace("/ko/automation/", "");
+  return seriesLinkLabels[slug] ?? `${fallbackToolName} 관련 자동화 글`;
+}
+
 export function buildContentSeriesPlan(
   state: ContentSeriesState,
   topic: ContentSeriesTopic,
@@ -363,10 +380,10 @@ export function buildArticleMarkdown(topic: ContentSeriesTopic, publishedAt: str
   const safetyNotes = markdownList(topic.safetyNotes);
   const licenseNotes = markdownList(topic.licenseCautionNotes);
   const internalLinks = buildInternalLinkRoutes(topic)
-    .map((route) => `- [${route.replace("/ko/automation/", "")}](${route})`)
+    .map((route) => `- [${labelForSeriesRoute(route, topic.toolName)}](${route})`)
     .join("\n");
 
-  return `---\ntitle: ${yamlString(topic.title)}\ndescription: ${yamlString(topic.description)}\nslug: ${topic.slug}\nlocale: ko\ncategory: automation\ncluster: open-source-automation-tools\ntype: ${topic.type}\nstatus: published\ndraft: false\nauthor: Biz2Lab\npublishedAt: '${publishedAt}'\nupdatedAt: '${publishedAt}'\ntags:\n${topic.tags.map((tag) => `  - ${tag}`).join("\n")}\nheroImage: /images/posts/${topic.slug}-hero.webp\nheroAlt: ${topic.imageConcept.altKo}\ncanonical: 'https://www.biz2lab.com/ko/automation/${topic.slug}'\nnoindex: false\nrelatedPosts:\n${relatedPosts.map((slug) => `  - ${slug}`).join("\n")}\ntemplateCta: 오픈소스 자동화 도구 검증 체크리스트\nnextStep:\n  label: 자동화 상담 문의\n  href: /ko/contact\n  description: 반복 업무와 콘텐츠 제작 흐름을 실제 운영 기준으로 점검합니다.\nfaq:\n  - question: ${topic.toolName}을 바로 실운영 핵심 도구로 써도 되나요?\n    answer: 바로 고정하기보다 로컬 테스트, 권한, 보안, 백업, 라이선스 확인을 거친 뒤 단계적으로 판단하는 편이 안전합니다.\n  - question: 무료 오픈소스라는 이유만으로 상업적 사용이 가능한가요?\n    answer: 아닙니다. 공식 저장소의 현재 라이선스와 hosted 또는 enterprise 약관을 별도로 확인해야 합니다.\n---\n\n# ${topic.title}\n\n${topic.description}\n\n이 글은 단순한 도구 추천이 아니라 Biz2Lab / MyBiz 관점에서 ${topic.toolName}을 실제 업무 자동화 파이프라인에 붙일 수 있는지 검토하는 분석 글입니다. 무료 여부보다 중요한 것은 라이선스, 운영 안정성, 데이터 보안, 반복 작업 감소 효과입니다.\n\n${outlineSections}\n\n## 공식 출처 확인 포인트\n\n${officialSources}\n\n## Biz2Lab / MyBiz 적용 기준\n\n${topic.toolName}은 자동화 후보 도구입니다. 다만 고객 데이터, 결제, 외부 메시지, 운영 서버에 직접 연결하는 단계는 별도의 승인과 보안 검토가 필요합니다.\n\n### 안전 게이트\n\n${safetyNotes}\n\n### 라이선스 확인 메모\n\n${licenseNotes}\n\n## 무료 오픈소스 자동화 도구 시리즈\n\n${internalLinks}\n\n한 줄 결론은 명확합니다. ${topic.toolName}은 지금 당장 모든 운영을 맡길 완성형 핵심 도구라기보다, Biz2Lab / MyBiz 자동화 파이프라인에 붙일 수 있는지 검증할 후보 도구입니다.\n`;
+  return `---\ntitle: ${yamlString(topic.title)}\ndescription: ${yamlString(topic.description)}\nslug: ${topic.slug}\nlocale: ko\ncategory: automation\ncluster: open-source-automation-tools\ntype: ${topic.type}\nstatus: published\ndraft: false\nauthor: Biz2Lab\npublishedAt: '${publishedAt}'\nupdatedAt: '${publishedAt}'\ntags:\n${topic.tags.map((tag) => `  - ${tag}`).join("\n")}\nheroImage: /images/posts/${topic.slug}-hero.webp\nheroAlt: ${topic.imageConcept.altKo}\ncanonical: 'https://www.biz2lab.com/ko/automation/${topic.slug}'\nnoindex: false\nrelatedPosts:\n${relatedPosts.map((slug) => `  - ${slug}`).join("\n")}\ntemplateCta: 오픈소스 자동화 도구 검증 체크리스트\nnextStep:\n  label: 자동화 상담 문의\n  href: /ko/contact\n  description: 반복 업무와 콘텐츠 제작 흐름을 실제 운영 기준으로 점검합니다.\nfaq:\n  - question: ${topic.toolName}을 바로 실운영 핵심 도구로 써도 되나요?\n    answer: 바로 고정하기보다 로컬 테스트, 권한, 보안, 백업, 라이선스 확인을 거친 뒤 단계적으로 판단하는 편이 안전합니다.\n  - question: 무료 오픈소스라는 이유만으로 상업적 사용이 가능한가요?\n    answer: 아닙니다. 공식 저장소의 현재 라이선스와 hosted 또는 enterprise 약관을 별도로 확인해야 합니다.\n  - question: ${topic.toolName}을 자동화 파이프라인에 붙일 때 먼저 확인할 기준은 무엇인가요?\n    answer: 실제 운영 데이터 대신 샘플 데이터로 권한, 로그, 백업, 반복 작업 감소 효과를 먼저 확인해야 합니다.\n---\n\n# ${topic.title}\n\n${topic.description}\n\n이 글은 단순한 도구 추천이 아니라 Biz2Lab / MyBiz 관점에서 ${topic.toolName}을 실제 업무 자동화 파이프라인에 붙일 수 있는지 검토하는 분석 글입니다. 무료 여부보다 중요한 것은 라이선스, 운영 안정성, 데이터 보안, 반복 작업 감소 효과입니다.\n\n${outlineSections}\n\n## 공식 출처 확인 포인트\n\n${officialSources}\n\n## Biz2Lab / MyBiz 적용 기준\n\n${topic.toolName}은 자동화 후보 도구입니다. 다만 고객 데이터, 결제, 외부 메시지, 운영 서버에 직접 연결하는 단계는 별도의 승인과 보안 검토가 필요합니다.\n\n### 안전 게이트\n\n${safetyNotes}\n\n### 라이선스 확인 메모\n\n${licenseNotes}\n\n## 무료 오픈소스 자동화 도구 시리즈\n\n${internalLinks}\n\n한 줄 결론은 명확합니다. ${topic.toolName}은 지금 당장 모든 운영을 맡길 완성형 핵심 도구라기보다, Biz2Lab / MyBiz 자동화 파이프라인에 붙일 수 있는지 검증할 후보 도구입니다.\n`;
 }
 
 function buildImageBrief(topic: ContentSeriesTopic): ImageBrief & {
