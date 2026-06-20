@@ -41,6 +41,18 @@ Publish from an approved local Codex image artifact:
 npm run content:series:auto -- --topic node-red --artifact artifacts/codex-images/node-red-local-business-automation-server-hero.png
 ```
 
+Publish from a directory that contains exactly one valid topic image, or a manifest mapping one image to the topic slug:
+
+```bash
+npm run content:series:auto -- --topic node-red --artifact-dir artifacts/codex-images
+```
+
+Publish from the latest approved local Codex artifact discovery locations:
+
+```bash
+npm run content:series:auto -- --topic node-red --use-latest-codex-artifact
+```
+
 Run publication without commit/PR creation:
 
 ```bash
@@ -67,14 +79,67 @@ The artifact is rejected when:
 
 - it is missing
 - it is not a real JPG/PNG/WebP binary image
-- the filename does not include the target slug
+- the filename does not include the target slug, unless the user passed `--artifact`, a manifest maps the file to the slug, or `--artifact-dir` contains exactly one image for exactly one target topic
 - the filename contains placeholder terms such as `placeholder`, `dummy`, `fake`, `sample`, `blank`, or `empty`
 - it uses an unsupported extension
+- a manifest maps the image to a different slug
+- more than one matching target image is discovered
 
 If no approved artifact exists, the orchestrator stops with:
 
 ```text
 CODEX_GENERATED_IMAGE_ARTIFACT_MISSING
+```
+
+Other artifact failure codes:
+
+```text
+CODEX_ARTIFACT_AUTO_DISCOVERY_AMBIGUOUS
+CODEX_ARTIFACT_SLUG_MISMATCH
+CODEX_ARTIFACT_UNSUPPORTED_FORMAT
+CODEX_ARTIFACT_PLACEHOLDER_REJECTED
+```
+
+## Artifact Discovery
+
+`--artifact <path>` is the strictest manual path. It can point outside the default artifact search roots because the operator selected that exact file. It still must be a real binary JPG/PNG/WebP image and cannot be placeholder-like.
+
+`--artifact-dir <path>` searches only that directory. It is accepted only when one of these is true:
+
+- the directory contains exactly one supported image and the current run has exactly one target topic
+- the directory contains a supported image whose filename includes the target slug
+- the directory contains a manifest mapping a supported image to the target slug
+
+Supported manifest filenames:
+
+```text
+manifest.json
+codex-image-manifest.json
+image-manifest.json
+```
+
+`--use-latest-codex-artifact` searches approved read-only local Codex artifact locations:
+
+```text
+C:\Users\LOVE\.codex\generated_images\
+.codex-remote-attachments/
+artifacts/codex-images/
+generated/
+output/
+tmp/
+```
+
+It imports only when there is exactly one validated artifact for the target slug. Multiple matching images block as ambiguous. Unrelated images are ignored unless they appear to target the same slug or a manifest maps them incorrectly.
+
+Do not commit the source artifact directories. The orchestrator filters these directories out of commit staging:
+
+```text
+.codex-remote-attachments/
+.codex/generated_images/
+artifacts/codex-images/
+generated/
+output/
+tmp/
 ```
 
 ## Publication Gate
@@ -122,3 +187,23 @@ The orchestrator never:
 - marks planned images as ready without real files
 
 When commit is enabled, it creates a topic branch and PR for owner review. The owner still performs merge and production smoke separately.
+
+## Node-RED Example
+
+Plan the article:
+
+```bash
+npm run content:series:auto -- --topic node-red --plan-only
+```
+
+After Codex produces a real Node-RED hero image artifact, run:
+
+```bash
+npm run content:series:auto -- --topic node-red --use-latest-codex-artifact
+```
+
+If the latest-discovery path finds multiple candidates, move the intended file to a clean directory and run:
+
+```bash
+npm run content:series:auto -- --topic node-red --artifact-dir artifacts/codex-images/node-red-review
+```

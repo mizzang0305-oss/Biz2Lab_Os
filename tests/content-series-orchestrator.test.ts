@@ -14,6 +14,8 @@ import {
   buildInternalLinkRoutes,
   CONTENT_SERIES_VALIDATION_COMMANDS,
   ContentSeriesError,
+  filterCommittablePaths,
+  findCodexImageArtifact,
   readContentSeriesState,
   readContentSeriesTopics,
   resolveContentSeriesTopic,
@@ -41,6 +43,28 @@ function nodeRedTopic() {
     state,
     topic: resolveContentSeriesTopic(topics.topics, state, "node-red"),
   };
+}
+
+function writeJpegLikeArtifact(filePath: string, size = 5000) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  const fakeJpeg = Buffer.alloc(size);
+  fakeJpeg[0] = 0xff;
+  fakeJpeg[1] = 0xd8;
+  fs.writeFileSync(filePath, fakeJpeg);
+}
+
+function withIsolatedGeneratedImagesDir<T>(root: string, callback: () => T) {
+  const previous = process.env.CODEX_GENERATED_IMAGES_DIR;
+  process.env.CODEX_GENERATED_IMAGES_DIR = path.join(root, "isolated-generated-images");
+  try {
+    return callback();
+  } finally {
+    if (previous === undefined) {
+      delete process.env.CODEX_GENERATED_IMAGES_DIR;
+    } else {
+      process.env.CODEX_GENERATED_IMAGES_DIR = previous;
+    }
+  }
 }
 
 test("content series state parses and keeps safety gates closed", () => {
@@ -112,7 +136,138 @@ test("placeholder-named artifacts are rejected before publication", () => {
 
   assert.throws(
     () => assertValidCodexImageArtifact(artifactPath, topic, state),
-    (error) => error instanceof ContentSeriesError && error.code === "PLACEHOLDER_IMAGE_REJECTED",
+    (error) => error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_PLACEHOLDER_REJECTED",
+  );
+});
+
+test("explicit artifact selector still accepts a real user-provided image", () => {
+  const root = tempSeriesRoot();
+  const { state, topic } = nodeRedTopic();
+  const artifactPath = path.join(root, "outside-user-drop", "user-selected-image.jpg");
+  writeJpegLikeArtifact(artifactPath);
+
+  const found = findCodexImageArtifact(root, topic, state, {
+    explicitArtifact: artifactPath,
+  });
+
+  assert.equal(found, artifactPath);
+});
+
+test("artifact-dir selector accepts one valid single-image directory", () => {
+  const root = tempSeriesRoot();
+  const { state, topic } = nodeRedTopic();
+  const artifactDir = path.join(root, "single-image-drop");
+  const artifactPath = path.join(artifactDir, "codex-output.jpg");
+  writeJpegLikeArtifact(artifactPath);
+
+  const found = findCodexImageArtifact(root, topic, state, {
+    artifactDir,
+  });
+
+  assert.equal(found, artifactPath);
+});
+
+test("artifact-dir selector accepts manifest-mapped image when filenames are not slugged", () => {
+  const root = tempSeriesRoot();
+  const { state, topic } = nodeRedTopic();
+  const artifactDir = path.join(root, "manifest-drop");
+  const artifactPath = path.join(artifactDir, "image-0001.png");
+  writeJpegLikeArtifact(artifactPath);
+  fs.writeFileSync(
+    path.join(artifactDir, "manifest.json"),
+    JSON.stringify({ images: [{ file: "image-0001.png", slug: topic.slug }] }, null, 2),
+    "utf8",
+  );
+
+  const found = findCodexImageArtifact(root, topic, state, {
+    artifactDir,
+  });
+
+  assert.equal(found, artifactPath);
+});
+
+test("latest Codex artifact selector finds one valid slug-matched image", () => {
+  const root = tempSeriesRoot();
+  const { state, topic } = nodeRedTopic();
+  const artifactPath = path.join(root, "artifacts", "codex-images", `${topic.slug}-hero.png`);
+  writeJpegLikeArtifact(artifactPath);
+
+  const found = withIsolatedGeneratedImagesDir(root, () =>
+    findCodexImageArtifact(root, topic, state, {
+      useLatestCodexArtifact: true,
+    }),
+  );
+
+  assert.equal(found, artifactPath);
+});
+
+test("artifact auto-discovery blocks ambiguous target matches", () => {
+  const root = tempSeriesRoot();
+  const { state, topic } = nodeRedTopic();
+  writeJpegLikeArtifact(path.join(root, "artifacts", "codex-images", `${topic.slug}-hero-a.jpg`));
+  writeJpegLikeArtifact(path.join(root, "artifacts", "codex-images", `${topic.slug}-hero-b.jpg`));
+
+  assert.throws(
+    () => withIsolatedGeneratedImagesDir(root, () => findCodexImageArtifact(root, topic, state, { useLatestCodexArtifact: true })),
+    (error) => error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_AUTO_DISCOVERY_AMBIGUOUS",
+  );
+});
+
+test("manifest slug mismatch blocks artifact-dir selection", () => {
+  const root = tempSeriesRoot();
+  const { state, topic } = nodeRedTopic();
+  const artifactDir = path.join(root, "mismatch-drop");
+  const artifactPath = path.join(artifactDir, `${topic.slug}-hero.png`);
+  writeJpegLikeArtifact(artifactPath);
+  fs.writeFileSync(
+    path.join(artifactDir, "manifest.json"),
+    JSON.stringify({ images: [{ file: path.basename(artifactPath), slug: "huginn-monitoring-automation-agent" }] }, null, 2),
+    "utf8",
+  );
+
+  assert.throws(
+    () => findCodexImageArtifact(root, topic, state, { artifactDir }),
+    (error) => error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_SLUG_MISMATCH",
+  );
+});
+
+test("unsupported artifact extension blocks selection", () => {
+  const root = tempSeriesRoot();
+  const { state, topic } = nodeRedTopic();
+  const artifactPath = path.join(root, "outside-user-drop", `${topic.slug}-hero.gif`);
+  writeJpegLikeArtifact(artifactPath);
+
+  assert.throws(
+    () => findCodexImageArtifact(root, topic, state, { explicitArtifact: artifactPath }),
+    (error) => error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_UNSUPPORTED_FORMAT",
+  );
+});
+
+test("tiny image-like artifacts are rejected as placeholder-like", () => {
+  const root = tempSeriesRoot();
+  const { state, topic } = nodeRedTopic();
+  const artifactPath = path.join(root, "artifacts", "codex-images", `${topic.slug}-hero.jpg`);
+  writeJpegLikeArtifact(artifactPath, 128);
+
+  assert.throws(
+    () => withIsolatedGeneratedImagesDir(root, () => findCodexImageArtifact(root, topic, state, { useLatestCodexArtifact: true })),
+    (error) => error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_PLACEHOLDER_REJECTED",
+  );
+});
+
+test("local Codex artifact source directories are excluded from commit staging", () => {
+  assert.deepEqual(
+    filterCommittablePaths([
+      ".codex-remote-attachments/image.png",
+      ".codex/config.toml",
+      ".codex/generated_images/node-red-local-business-automation-server-hero.png",
+      "artifacts/codex-images/node-red-local-business-automation-server-hero.png",
+      "generated/node-red-local-business-automation-server-hero.png",
+      "output/node-red-local-business-automation-server-hero.png",
+      "tmp/node-red-local-business-automation-server-hero.png",
+      "content/ko/automation/node-red-local-business-automation-server.md",
+    ]),
+    ["content/ko/automation/node-red-local-business-automation-server.md"],
   );
 });
 
