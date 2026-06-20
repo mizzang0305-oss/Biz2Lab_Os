@@ -1,5 +1,23 @@
 [
   {
+    "title": "Baserow 분석: Airtable 대체 오픈소스 데이터베이스로 업무 자동화에 쓸 수 있을까?",
+    "slug": "baserow-open-source-database-automation",
+    "route": "/ko/automation/baserow-open-source-database-automation",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/baserow-open-source-database-automation-hero.webp",
+    "heroAlt": "Baserow를 업무 데이터베이스 자동화 관점에서 분석한 대표 이미지",
+    "updatedAt": "2026-06-20",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "node-red-local-business-automation-server",
+      "huginn-monitoring-automation-agent",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Huginn 분석: 뉴스·가격·경쟁사 모니터링 자동화 에이전트로 쓸 수 있을까?",
     "slug": "huginn-monitoring-automation-agent",
     "route": "/ko/automation/huginn-monitoring-automation-agent",
@@ -63,6 +81,7 @@
       "activepieces-ai-business-automation-n8n-alternative",
       "node-red-local-business-automation-server",
       "huginn-monitoring-automation-agent",
+      "baserow-open-source-database-automation",
       "ai-business-automation-guide"
     ]
   },

@@ -142,5 +142,23 @@
     "visualApprovalStatus": "codex-visual-sanity-checked",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "baserow-open-source-database-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "baserow-open-source-database-automation",
+    "usage": "hero",
+    "src": "/images/posts/baserow-open-source-database-automation-hero.webp",
+    "rawPath": "assets/images/raw/baserow-open-source-database-automation-hero.jpg",
+    "altKo": "Baserow를 업무 데이터베이스 자동화 관점에서 분석한 대표 이미지",
+    "captionKo": "Baserow는 고객, 상품, 콘텐츠 데이터를 자동화 파이프라인에 넘기는 데이터 레이어 후보로 볼 수 있다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-checked",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]
