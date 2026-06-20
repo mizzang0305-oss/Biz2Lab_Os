@@ -14,6 +14,9 @@ It is designed for articles such as:
 - `appsmith-internal-dashboard-automation`
 - `windmill-developer-workflow-automation`
 - `kestra-data-ai-workflow-orchestration`
+- `n8n-workflow-automation-license-caution`
+- `nocodb-airtable-alternative-license-caution`
+- `crawl4ai-blog-research-automation`
 
 ## Files
 
@@ -164,6 +167,32 @@ tmp/
 The orchestrator does not publish draft routes. A non-plan run writes the article only after a real image artifact has been validated and imported.
 
 The current state also enforces the ordered topic queue. This prevents articles from linking to routes that are still draft or missing.
+
+## Current Queue State
+
+The first open-source automation batch is complete on `master`:
+
+- `opencut-free-open-source-video-editor-ai-content-automation`
+- `free-open-source-automation-tools-series`
+- `activepieces-ai-business-automation-n8n-alternative`
+- `node-red-local-business-automation-server`
+- `huginn-monitoring-automation-agent`
+- `baserow-open-source-database-automation`
+- `appsmith-internal-dashboard-automation`
+- `windmill-developer-workflow-automation`
+- `kestra-data-ai-workflow-orchestration`
+
+The stale candidate slug `appsmith-internal-tool-admin-dashboard` is not the published Appsmith route. The published route is `appsmith-internal-dashboard-automation`.
+
+After Kestra, the next owner-reviewed queue is:
+
+1. `n8n-workflow-automation-license-caution`
+2. `nocodb-airtable-alternative-license-caution`
+3. `crawl4ai-blog-research-automation`
+
+These are queue definitions only. They do not create article markdown, raw images, public WebP files, PRs, or deployments.
+
+Each queued topic must still pass the real Codex hero artifact gate before publication. A scheduler dry-run should stop at `WAITING_FOR_CODEX_IMAGE_ARTIFACT` until the matching `<slug>-hero` artifact exists under the approved Codex generated-image root.
 
 ## Validation Gate
 
