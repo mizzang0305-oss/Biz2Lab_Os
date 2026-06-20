@@ -45,6 +45,15 @@ function nodeRedTopic() {
   };
 }
 
+function currentSeriesTopic() {
+  const state = readContentSeriesState();
+  const topics = readContentSeriesTopics();
+  return {
+    state,
+    topic: resolveContentSeriesTopic(topics.topics, state, state.currentTopic),
+  };
+}
+
 function writeJpegLikeArtifact(filePath: string, size = 5000) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   const fakeJpeg = Buffer.alloc(size);
@@ -84,6 +93,8 @@ test("content series state parses and keeps safety gates closed", () => {
     "free-open-source-automation-tools-series",
     "activepieces-ai-business-automation-n8n-alternative",
   ]);
+  assert.ok(state.completed.includes("node-red-local-business-automation-server"));
+  assert.equal(state.currentTopic, "huginn-monitoring-automation-agent");
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
   assert.equal(state.gates.dbWrite, false);
@@ -121,13 +132,13 @@ test("missing Codex image artifact blocks publication without writing article", 
   const root = tempSeriesRoot();
 
   await assert.rejects(
-    () => runContentSeriesOrchestrator({ rootDir: root, topic: "node-red", noCommit: true }),
+    () => runContentSeriesOrchestrator({ rootDir: root, topic: "huginn", noCommit: true }),
     (error) =>
       error instanceof ContentSeriesError &&
       error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
   );
 
-  const { topic } = nodeRedTopic();
+  const { topic } = currentSeriesTopic();
   assert.equal(fs.existsSync(path.join(root, ...buildImagePaths(topic).articleRepoPath.split("/"))), false);
 });
 
@@ -442,10 +453,10 @@ test("validation command list includes all required gates", () => {
 test("plan-only can inspect a later topic but reports publication blockers", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
-  const topic = resolveContentSeriesTopic(topics.topics, state, "huginn");
+  const topic = resolveContentSeriesTopic(topics.topics, state, "baserow");
   const plan = buildContentSeriesPlan(state, topic, { planOnly: true });
 
-  assert.equal(plan.topic.slug, "huginn-monitoring-automation-agent");
+  assert.equal(plan.topic.slug, "baserow-open-source-database-automation");
   assert.ok(plan.publicationBlockers.some((blocker) => blocker.includes("previous article is not public yet")));
 });
 

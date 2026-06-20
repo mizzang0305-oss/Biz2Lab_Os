@@ -1,14 +1,14 @@
 {
   "series": "free-open-source-automation-tools",
   "title": "무료 오픈소스 자동화 도구 시리즈",
-  "currentTopic": "node-red-local-business-automation-server",
+  "currentTopic": "huginn-monitoring-automation-agent",
   "completed": [
     "opencut-free-open-source-video-editor-ai-content-automation",
     "free-open-source-automation-tools-series",
-    "activepieces-ai-business-automation-n8n-alternative"
+    "activepieces-ai-business-automation-n8n-alternative",
+    "node-red-local-business-automation-server"
   ],
   "next": [
-    "node-red-local-business-automation-server",
     "huginn-monitoring-automation-agent",
     "baserow-open-source-database-automation",
     "appsmith-internal-dashboard-automation",

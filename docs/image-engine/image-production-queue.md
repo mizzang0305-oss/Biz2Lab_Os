@@ -14,7 +14,7 @@ Phase 3.8-SKILL-MASTER created prompt-only packages for Biz2Lab image production
 ## Priority Order
 
 1. Priority 1: generate and review the 5 key inline explanatory images.
-2. Priority 2: generate and review the 28 public Korean post hero images.
+2. Priority 2: generate and review the 29 public Korean post hero images.
 3. Priority 3: generate and review the 4 category hub images.
 
 ## Status Columns
@@ -31,6 +31,8 @@ Phase 3.8-SKILL-MASTER created prompt-only packages for Biz2Lab image production
 OpenCut update: `opencut-free-open-source-video-editor-ai-content-automation` now has a user-provided raw JPG, optimized public WebP, validation pass, and article frontmatter already points to that public image. It has been pushed only as part of the PR branch; no manual deployment was run.
 
 Open-source automation series update: `free-open-source-automation-tools-series` and `activepieces-ai-business-automation-n8n-alternative` now have Codex-generated raster artifacts imported as raw JPG files, optimized public hero WebP files, and published/noindex false article frontmatter. They remain unpushed until the PR branch is validated and pushed.
+
+Node-RED series update: `node-red-local-business-automation-server` now has a Codex-generated raster artifact imported as a raw JPG, an optimized public WebP hero, article-ready metadata, and series links prepared for validation. No manual deploy was run.
 
 ## Queue Source
 

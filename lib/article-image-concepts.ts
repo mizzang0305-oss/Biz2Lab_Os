@@ -132,6 +132,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["trigger", "AI", "MCP", "action"],
     palette: automationPalette,
   },
+  "node-red-local-business-automation-server": {
+    slug: "node-red-local-business-automation-server",
+    category: "automation",
+    visualFamily: "local-automation-flow-map",
+    conceptKo: "회사 PC와 로컬 서버에서 파일, API, 일정, 알림, 리포트 흐름이 연결되는 자동화 지도",
+    altKo: "Node-RED를 로컬 서버 업무 자동화 관점에서 분석한 대표 이미지",
+    captionKo: "Node-RED를 회사 PC와 로컬 서버의 이벤트 흐름을 연결하는 자동화 후보로 분석한 이미지입니다.",
+    labels: ["파일", "API", "일정", "리포트"],
+    palette: automationPalette,
+  },
   "pre-automation-task-list": {
     slug: "pre-automation-task-list",
     category: "automation",

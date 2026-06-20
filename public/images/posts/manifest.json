@@ -1098,5 +1098,49 @@
     "output": "/images/posts/unify-order-channels-for-sales-hero.webp",
     "source": "raw",
     "rawPath": "assets/images/raw/unify-order-channels-for-sales-hero.svg"
+  },
+  {
+    "id": "node-red-local-business-automation-server-1200",
+    "project": "biz2lab",
+    "postSlug": "node-red-local-business-automation-server",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/node-red-local-business-automation-server-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
+  },
+  {
+    "id": "node-red-local-business-automation-server-800",
+    "project": "biz2lab",
+    "postSlug": "node-red-local-business-automation-server",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/node-red-local-business-automation-server-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
+  },
+  {
+    "id": "node-red-local-business-automation-server-400",
+    "project": "biz2lab",
+    "postSlug": "node-red-local-business-automation-server",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/node-red-local-business-automation-server-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
+  },
+  {
+    "id": "node-red-local-business-automation-server-hero",
+    "project": "biz2lab",
+    "postSlug": "node-red-local-business-automation-server",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/node-red-local-business-automation-server-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
   }
 ]

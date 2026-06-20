@@ -26,6 +26,7 @@ noindex: false
 relatedPosts:
   - opencut-free-open-source-video-editor-ai-content-automation
   - activepieces-ai-business-automation-n8n-alternative
+  - node-red-local-business-automation-server
   - ai-business-automation-guide
 templateCta: 무료 자동화 도구 검증 체크리스트
 nextStep:
@@ -53,7 +54,7 @@ faq:
 
 도구가 무료인지보다 중요한 것은 무료로 어디까지 운영할 수 있는지입니다. 오픈소스인지보다 중요한 것은 상업적 실험, 셀프호스팅, 데이터 보관, 보안 검토가 가능한지입니다. AI 자동화에 맞는지도 단순히 "AI 기능이 있다"가 아니라 API, webhook, script, MCP, headless 실행 같은 확장 구조로 봐야 합니다.
 
-이 시리즈는 그 기준으로 도구를 하나씩 검토합니다. 첫 번째 완료 글은 [OpenCut 분석](/ko/automation/opencut-free-open-source-video-editor-ai-content-automation)입니다. 다음 검토 대상은 [Activepieces 분석](/ko/automation/activepieces-ai-business-automation-n8n-alternative)입니다.
+이 시리즈는 그 기준으로 도구를 하나씩 검토합니다. 먼저 [OpenCut 분석](/ko/automation/opencut-free-open-source-video-editor-ai-content-automation)과 [Activepieces 분석](/ko/automation/activepieces-ai-business-automation-n8n-alternative)을 공개했고, 이제 [Node-RED 분석](/ko/automation/node-red-local-business-automation-server)까지 로컬 자동화 관점으로 연결합니다.
 
 ## 핵심 개념
 
@@ -85,7 +86,7 @@ Activepieces는 AI 업무 자동화와 workflow builder 관점에서 볼 만한 
 
 ### Node-RED
 
-Node-RED는 이벤트 기반 흐름을 시각적으로 연결하는 도구입니다. IoT, 내부 시스템, 간단한 webhook 자동화에 강점이 있습니다. 공식 GitHub 기준 Apache-2.0 라이선스 계열로 확인됩니다.
+Node-RED는 이벤트 기반 흐름을 시각적으로 연결하는 도구입니다. IoT, 내부 시스템, 간단한 webhook 자동화에 강점이 있습니다. Biz2Lab에서는 [Node-RED 분석](/ko/automation/node-red-local-business-automation-server)에서 회사 PC 파일 감시, 내부 리포트, 로컬 서버 자동화 후보로 따로 검토했습니다. 공식 GitHub 기준 Apache-2.0 라이선스 계열로 확인됩니다.
 
 ### Huginn
 
