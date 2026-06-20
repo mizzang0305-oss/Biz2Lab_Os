@@ -7,6 +7,7 @@ import test from "node:test";
 import {
   assertTopicCanPublish,
   assertValidCodexImageArtifact,
+  buildArticleMarkdown,
   buildContentIndexEntry,
   buildContentSeriesPlan,
   buildImageAssetEntry,
@@ -416,6 +417,20 @@ test("internal link generation includes series hub and existing public articles"
   assert.ok(routes.includes("/ko/automation/free-open-source-automation-tools-series"));
   assert.ok(routes.includes("/ko/automation/activepieces-ai-business-automation-n8n-alternative"));
   assert.ok(routes.includes("/ko/automation/opencut-free-open-source-video-editor-ai-content-automation"));
+});
+
+test("generated article markdown includes authority sections and Korean related labels", () => {
+  const state = readContentSeriesState();
+  const topics = readContentSeriesTopics();
+  const topic = resolveContentSeriesTopic(topics.topics, state, "appsmith");
+  const markdown = buildArticleMarkdown(topic, "2026-06-20");
+
+  for (const heading of ["문제 정의", "핵심 개념", "현장 시나리오", "실행 절차", "자동화 구조", "리스크와 방지책", "도입 순서"]) {
+    assert.ok(markdown.includes(`## ${heading}`), `missing ${heading}`);
+  }
+  assert.ok((markdown.match(/question:/g) ?? []).length >= 3);
+  assert.match(markdown, /\[무료 오픈소스 자동화 도구 시리즈\]\(\/ko\/automation\/free-open-source-automation-tools-series\)/);
+  assert.doesNotMatch(markdown, /\[free-open-source-automation-tools-series\]\(\/ko\/automation\/free-open-source-automation-tools-series\)/);
 });
 
 test("content index helper emits the expected public route and hero image", () => {
