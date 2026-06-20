@@ -12,6 +12,16 @@ import {
 } from "@/scripts/content-series-scheduler-runner";
 
 const currentTopicSlug = "kestra-data-ai-workflow-orchestration";
+const partialQueueTopicSlug = "windmill-developer-workflow-automation";
+const partialQueueCompleted = [
+  "opencut-free-open-source-video-editor-ai-content-automation",
+  "free-open-source-automation-tools-series",
+  "activepieces-ai-business-automation-n8n-alternative",
+  "node-red-local-business-automation-server",
+  "huginn-monitoring-automation-agent",
+  "baserow-open-source-database-automation",
+  "appsmith-internal-dashboard-automation",
+];
 
 function writeJson(filePath: string, value: unknown) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -70,6 +80,19 @@ function updateSchedule(root: string, patch: Record<string, unknown>) {
 function updateRunState(root: string, patch: Record<string, unknown>) {
   const statePath = path.join(root, "data", "content-series-run-state.json");
   writeJson(statePath, { ...readJson<Record<string, unknown>>(statePath), ...patch });
+}
+
+function updateContentSeriesState(root: string, patch: Record<string, unknown>) {
+  const statePath = path.join(root, "data", "content-series-state.json");
+  writeJson(statePath, { ...readJson<Record<string, unknown>>(statePath), ...patch });
+}
+
+function usePartialQueueState(root: string) {
+  updateContentSeriesState(root, {
+    currentTopic: partialQueueTopicSlug,
+    completed: partialQueueCompleted,
+    next: [partialQueueTopicSlug, currentTopicSlug],
+  });
 }
 
 function withGeneratedRoot<T>(root: string, callback: (generatedRoot: string) => T) {
@@ -152,18 +175,20 @@ test("outside active hours exits safely", () => {
 
 test("completed topic blocks duplicate publication", () => {
   const root = tempSchedulerRoot();
-  const statePath = path.join(root, "data", "content-series-state.json");
-  const state = readJson<{ completed: string[] }>(statePath);
-  writeJson(statePath, { ...state, completed: [...state.completed, currentTopicSlug] });
+  usePartialQueueState(root);
 
-  const result = runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, schedulerDeps().deps);
+  const result = runContentSeriesScheduler(
+    { rootDir: root, dryRun: true, topic: "node-red-local-business-automation-server", now: activeNow },
+    schedulerDeps().deps,
+  );
 
   assert.equal(result.status, "TOPIC_ALREADY_COMPLETED");
 });
 
 test("already published article file blocks duplicate publication", () => {
   const root = tempSchedulerRoot();
-  const articlePath = path.join(root, "content", "ko", "automation", `${currentTopicSlug}.md`);
+  usePartialQueueState(root);
+  const articlePath = path.join(root, "content", "ko", "automation", `${partialQueueTopicSlug}.md`);
   fs.mkdirSync(path.dirname(articlePath), { recursive: true });
   fs.writeFileSync(articlePath, "---\nstatus: published\ndraft: false\n---\n", "utf8");
 
@@ -174,11 +199,50 @@ test("already published article file blocks duplicate publication", () => {
 
 test("content index slug duplicate blocks publication", () => {
   const root = tempSchedulerRoot();
-  writeJson(path.join(root, "content", "ko", "content-index.json"), [{ slug: currentTopicSlug }]);
+  usePartialQueueState(root);
+  writeJson(path.join(root, "content", "ko", "content-index.json"), [{ slug: partialQueueTopicSlug }]);
 
   const result = runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, schedulerDeps().deps);
 
   assert.equal(result.status, "CONTENT_INDEX_DUPLICATE");
+});
+
+test("all configured topics completed returns explicit queue exhausted state", () => {
+  const root = tempSchedulerRoot();
+  const topicFile = readJson<{ topics: { slug: string }[] }>(path.join(root, "data", "content-series-topics.json"));
+  updateContentSeriesState(root, {
+    completed: topicFile.topics.map((topic) => topic.slug),
+    next: [currentTopicSlug],
+  });
+
+  const result = runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, schedulerDeps().deps);
+
+  assert.equal(result.status, "CONTENT_SERIES_QUEUE_EXHAUSTED");
+  assert.equal(result.topic, undefined);
+});
+
+test("final published article is terminal queue exhaustion, not active work", () => {
+  const root = tempSchedulerRoot();
+  const articlePath = path.join(root, "content", "ko", "automation", `${currentTopicSlug}.md`);
+  fs.mkdirSync(path.dirname(articlePath), { recursive: true });
+  fs.writeFileSync(articlePath, "---\nstatus: published\ndraft: false\n---\n", "utf8");
+
+  const result = runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, schedulerDeps().deps);
+
+  assert.equal(result.status, "CONTENT_SERIES_QUEUE_EXHAUSTED");
+  assert.equal(result.topic, undefined);
+});
+
+test("partial queue still selects the next incomplete topic", () => {
+  const root = tempSchedulerRoot();
+  usePartialQueueState(root);
+
+  const result = withGeneratedRoot(root, () =>
+    runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, schedulerDeps().deps),
+  );
+
+  assert.equal(result.status, "WAITING_FOR_CODEX_IMAGE_ARTIFACT");
+  assert.equal(result.topic, partialQueueTopicSlug);
 });
 
 test("existing topic PR blocks duplicate publication", () => {

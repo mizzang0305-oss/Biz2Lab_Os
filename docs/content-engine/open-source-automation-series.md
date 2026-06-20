@@ -296,3 +296,11 @@ If the matching Codex hero image does not exist yet, the safe status is:
 ```text
 WAITING_FOR_CODEX_IMAGE_ARTIFACT
 ```
+
+When every configured topic in `data/content-series-topics.json` is already completed or published, the safe terminal status is:
+
+```text
+CONTENT_SERIES_QUEUE_EXHAUSTED
+```
+
+This means the scheduler found no remaining configured article to prepare. The Windows Task Scheduler can continue to log this state safely; it must not invent a new topic, publish a duplicate of the final article, relax `maxOpenPrs`, or bypass the Codex hero artifact gate. To continue the series later, add the next topic through an owner-reviewed PR that updates the topic queue and state files deliberately.
