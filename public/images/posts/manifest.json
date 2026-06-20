@@ -44,6 +44,50 @@
     "rawPath": "assets/images/raw/accounts-receivable-tracker-hero.png"
   },
   {
+    "id": "activepieces-ai-business-automation-n8n-alternative-1200",
+    "project": "biz2lab",
+    "postSlug": "activepieces-ai-business-automation-n8n-alternative",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/activepieces-ai-business-automation-n8n-alternative-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/activepieces-ai-business-automation-n8n-alternative-hero.jpg"
+  },
+  {
+    "id": "activepieces-ai-business-automation-n8n-alternative-800",
+    "project": "biz2lab",
+    "postSlug": "activepieces-ai-business-automation-n8n-alternative",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/activepieces-ai-business-automation-n8n-alternative-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/activepieces-ai-business-automation-n8n-alternative-hero.jpg"
+  },
+  {
+    "id": "activepieces-ai-business-automation-n8n-alternative-400",
+    "project": "biz2lab",
+    "postSlug": "activepieces-ai-business-automation-n8n-alternative",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/activepieces-ai-business-automation-n8n-alternative-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/activepieces-ai-business-automation-n8n-alternative-hero.jpg"
+  },
+  {
+    "id": "activepieces-ai-business-automation-n8n-alternative-hero",
+    "project": "biz2lab",
+    "postSlug": "activepieces-ai-business-automation-n8n-alternative",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/activepieces-ai-business-automation-n8n-alternative-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/activepieces-ai-business-automation-n8n-alternative-hero.jpg"
+  },
+  {
     "id": "ai-business-automation-guide-1200",
     "project": "biz2lab",
     "postSlug": "ai-business-automation-guide",
@@ -132,6 +176,50 @@
     "rawPath": "assets/images/raw/ai-knowledge-store-for-small-business-hero.svg"
   },
   {
+    "id": "appsmith-internal-dashboard-automation-1200",
+    "project": "biz2lab",
+    "postSlug": "appsmith-internal-dashboard-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/appsmith-internal-dashboard-automation-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/appsmith-internal-dashboard-automation-hero.jpg"
+  },
+  {
+    "id": "appsmith-internal-dashboard-automation-800",
+    "project": "biz2lab",
+    "postSlug": "appsmith-internal-dashboard-automation",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/appsmith-internal-dashboard-automation-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/appsmith-internal-dashboard-automation-hero.jpg"
+  },
+  {
+    "id": "appsmith-internal-dashboard-automation-400",
+    "project": "biz2lab",
+    "postSlug": "appsmith-internal-dashboard-automation",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/appsmith-internal-dashboard-automation-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/appsmith-internal-dashboard-automation-hero.jpg"
+  },
+  {
+    "id": "appsmith-internal-dashboard-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "appsmith-internal-dashboard-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/appsmith-internal-dashboard-automation-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/appsmith-internal-dashboard-automation-hero.jpg"
+  },
+  {
     "id": "automation-priority-method-1200",
     "project": "biz2lab",
     "postSlug": "automation-priority-method",
@@ -174,6 +262,50 @@
     "output": "/images/posts/automation-priority-method-hero.webp",
     "source": "raw",
     "rawPath": "assets/images/raw/automation-priority-method-hero.svg"
+  },
+  {
+    "id": "baserow-open-source-database-automation-1200",
+    "project": "biz2lab",
+    "postSlug": "baserow-open-source-database-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/baserow-open-source-database-automation-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/baserow-open-source-database-automation-hero.jpg"
+  },
+  {
+    "id": "baserow-open-source-database-automation-800",
+    "project": "biz2lab",
+    "postSlug": "baserow-open-source-database-automation",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/baserow-open-source-database-automation-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/baserow-open-source-database-automation-hero.jpg"
+  },
+  {
+    "id": "baserow-open-source-database-automation-400",
+    "project": "biz2lab",
+    "postSlug": "baserow-open-source-database-automation",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/baserow-open-source-database-automation-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/baserow-open-source-database-automation-hero.jpg"
+  },
+  {
+    "id": "baserow-open-source-database-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "baserow-open-source-database-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/baserow-open-source-database-automation-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/baserow-open-source-database-automation-hero.jpg"
   },
   {
     "id": "chatgpt-document-cleanup-1200",
@@ -528,6 +660,50 @@
     "rawPath": "assets/images/raw/electronic-contract-system-basics-hero.png"
   },
   {
+    "id": "free-open-source-automation-tools-series-1200",
+    "project": "biz2lab",
+    "postSlug": "free-open-source-automation-tools-series",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/free-open-source-automation-tools-series-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/free-open-source-automation-tools-series-hero.jpg"
+  },
+  {
+    "id": "free-open-source-automation-tools-series-800",
+    "project": "biz2lab",
+    "postSlug": "free-open-source-automation-tools-series",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/free-open-source-automation-tools-series-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/free-open-source-automation-tools-series-hero.jpg"
+  },
+  {
+    "id": "free-open-source-automation-tools-series-400",
+    "project": "biz2lab",
+    "postSlug": "free-open-source-automation-tools-series",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/free-open-source-automation-tools-series-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/free-open-source-automation-tools-series-hero.jpg"
+  },
+  {
+    "id": "free-open-source-automation-tools-series-hero",
+    "project": "biz2lab",
+    "postSlug": "free-open-source-automation-tools-series",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/free-open-source-automation-tools-series-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/free-open-source-automation-tools-series-hero.jpg"
+  },
+  {
     "id": "google-sheets-ai-automation-1200",
     "project": "biz2lab",
     "postSlug": "google-sheets-ai-automation",
@@ -572,6 +748,50 @@
     "rawPath": "assets/images/raw/google-sheets-ai-automation-hero.svg"
   },
   {
+    "id": "huginn-monitoring-automation-agent-1200",
+    "project": "biz2lab",
+    "postSlug": "huginn-monitoring-automation-agent",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/huginn-monitoring-automation-agent-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
+  },
+  {
+    "id": "huginn-monitoring-automation-agent-800",
+    "project": "biz2lab",
+    "postSlug": "huginn-monitoring-automation-agent",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/huginn-monitoring-automation-agent-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
+  },
+  {
+    "id": "huginn-monitoring-automation-agent-400",
+    "project": "biz2lab",
+    "postSlug": "huginn-monitoring-automation-agent",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/huginn-monitoring-automation-agent-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
+  },
+  {
+    "id": "huginn-monitoring-automation-agent-hero",
+    "project": "biz2lab",
+    "postSlug": "huginn-monitoring-automation-agent",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/huginn-monitoring-automation-agent-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
+  },
+  {
     "id": "manage-unsigned-contracts-1200",
     "project": "biz2lab",
     "postSlug": "manage-unsigned-contracts",
@@ -614,6 +834,50 @@
     "output": "/images/posts/manage-unsigned-contracts-hero.webp",
     "source": "raw",
     "rawPath": "assets/images/raw/manage-unsigned-contracts-hero.svg"
+  },
+  {
+    "id": "node-red-local-business-automation-server-1200",
+    "project": "biz2lab",
+    "postSlug": "node-red-local-business-automation-server",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/node-red-local-business-automation-server-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
+  },
+  {
+    "id": "node-red-local-business-automation-server-800",
+    "project": "biz2lab",
+    "postSlug": "node-red-local-business-automation-server",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/node-red-local-business-automation-server-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
+  },
+  {
+    "id": "node-red-local-business-automation-server-400",
+    "project": "biz2lab",
+    "postSlug": "node-red-local-business-automation-server",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/node-red-local-business-automation-server-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
+  },
+  {
+    "id": "node-red-local-business-automation-server-hero",
+    "project": "biz2lab",
+    "postSlug": "node-red-local-business-automation-server",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/node-red-local-business-automation-server-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
   },
   {
     "id": "obsidian-business-knowledge-base-1200",
@@ -702,6 +966,50 @@
     "output": "/images/posts/offline-card-payment-pg-van-hero.webp",
     "source": "raw",
     "rawPath": "assets/images/raw/offline-card-payment-pg-van-hero.svg"
+  },
+  {
+    "id": "opencut-free-open-source-video-editor-ai-content-automation-1200",
+    "project": "biz2lab",
+    "postSlug": "opencut-free-open-source-video-editor-ai-content-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 630,
+    "output": "/images/posts/opencut-free-open-source-video-editor-ai-content-automation-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/opencut-free-open-source-video-editor-ai-content-automation-hero.jpg"
+  },
+  {
+    "id": "opencut-free-open-source-video-editor-ai-content-automation-800",
+    "project": "biz2lab",
+    "postSlug": "opencut-free-open-source-video-editor-ai-content-automation",
+    "usage": "hero",
+    "width": 800,
+    "height": 420,
+    "output": "/images/posts/opencut-free-open-source-video-editor-ai-content-automation-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/opencut-free-open-source-video-editor-ai-content-automation-hero.jpg"
+  },
+  {
+    "id": "opencut-free-open-source-video-editor-ai-content-automation-400",
+    "project": "biz2lab",
+    "postSlug": "opencut-free-open-source-video-editor-ai-content-automation",
+    "usage": "hero",
+    "width": 400,
+    "height": 210,
+    "output": "/images/posts/opencut-free-open-source-video-editor-ai-content-automation-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/opencut-free-open-source-video-editor-ai-content-automation-hero.jpg"
+  },
+  {
+    "id": "opencut-free-open-source-video-editor-ai-content-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "opencut-free-open-source-video-editor-ai-content-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 630,
+    "output": "/images/posts/opencut-free-open-source-video-editor-ai-content-automation-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/opencut-free-open-source-video-editor-ai-content-automation-hero.jpg"
   },
   {
     "id": "payment-reminder-message-1200",
@@ -1098,137 +1406,5 @@
     "output": "/images/posts/unify-order-channels-for-sales-hero.webp",
     "source": "raw",
     "rawPath": "assets/images/raw/unify-order-channels-for-sales-hero.svg"
-  },
-  {
-    "id": "node-red-local-business-automation-server-1200",
-    "project": "biz2lab",
-    "postSlug": "node-red-local-business-automation-server",
-    "usage": "hero",
-    "width": 1200,
-    "height": 675,
-    "output": "/images/posts/node-red-local-business-automation-server-1200.webp",
-    "source": "raw",
-    "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
-  },
-  {
-    "id": "node-red-local-business-automation-server-800",
-    "project": "biz2lab",
-    "postSlug": "node-red-local-business-automation-server",
-    "usage": "hero",
-    "width": 800,
-    "height": 450,
-    "output": "/images/posts/node-red-local-business-automation-server-800.webp",
-    "source": "raw",
-    "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
-  },
-  {
-    "id": "node-red-local-business-automation-server-400",
-    "project": "biz2lab",
-    "postSlug": "node-red-local-business-automation-server",
-    "usage": "hero",
-    "width": 400,
-    "height": 225,
-    "output": "/images/posts/node-red-local-business-automation-server-400.webp",
-    "source": "raw",
-    "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
-  },
-  {
-    "id": "node-red-local-business-automation-server-hero",
-    "project": "biz2lab",
-    "postSlug": "node-red-local-business-automation-server",
-    "usage": "hero",
-    "width": 1200,
-    "height": 675,
-    "output": "/images/posts/node-red-local-business-automation-server-hero.webp",
-    "source": "raw",
-    "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
-  },
-  {
-    "id": "huginn-monitoring-automation-agent-1200",
-    "project": "biz2lab",
-    "postSlug": "huginn-monitoring-automation-agent",
-    "usage": "hero",
-    "width": 1200,
-    "height": 675,
-    "output": "/images/posts/huginn-monitoring-automation-agent-1200.webp",
-    "source": "raw",
-    "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
-  },
-  {
-    "id": "huginn-monitoring-automation-agent-800",
-    "project": "biz2lab",
-    "postSlug": "huginn-monitoring-automation-agent",
-    "usage": "hero",
-    "width": 800,
-    "height": 450,
-    "output": "/images/posts/huginn-monitoring-automation-agent-800.webp",
-    "source": "raw",
-    "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
-  },
-  {
-    "id": "huginn-monitoring-automation-agent-400",
-    "project": "biz2lab",
-    "postSlug": "huginn-monitoring-automation-agent",
-    "usage": "hero",
-    "width": 400,
-    "height": 225,
-    "output": "/images/posts/huginn-monitoring-automation-agent-400.webp",
-    "source": "raw",
-    "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
-  },
-  {
-    "id": "huginn-monitoring-automation-agent-hero",
-    "project": "biz2lab",
-    "postSlug": "huginn-monitoring-automation-agent",
-    "usage": "hero",
-    "width": 1200,
-    "height": 675,
-    "output": "/images/posts/huginn-monitoring-automation-agent-hero.webp",
-    "source": "raw",
-    "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
-  },
-  {
-    "id": "baserow-open-source-database-automation-1200",
-    "project": "biz2lab",
-    "postSlug": "baserow-open-source-database-automation",
-    "usage": "hero",
-    "width": 1200,
-    "height": 675,
-    "output": "/images/posts/baserow-open-source-database-automation-1200.webp",
-    "source": "raw",
-    "rawPath": "assets/images/raw/baserow-open-source-database-automation-hero.jpg"
-  },
-  {
-    "id": "baserow-open-source-database-automation-800",
-    "project": "biz2lab",
-    "postSlug": "baserow-open-source-database-automation",
-    "usage": "hero",
-    "width": 800,
-    "height": 450,
-    "output": "/images/posts/baserow-open-source-database-automation-800.webp",
-    "source": "raw",
-    "rawPath": "assets/images/raw/baserow-open-source-database-automation-hero.jpg"
-  },
-  {
-    "id": "baserow-open-source-database-automation-400",
-    "project": "biz2lab",
-    "postSlug": "baserow-open-source-database-automation",
-    "usage": "hero",
-    "width": 400,
-    "height": 225,
-    "output": "/images/posts/baserow-open-source-database-automation-400.webp",
-    "source": "raw",
-    "rawPath": "assets/images/raw/baserow-open-source-database-automation-hero.jpg"
-  },
-  {
-    "id": "baserow-open-source-database-automation-hero",
-    "project": "biz2lab",
-    "postSlug": "baserow-open-source-database-automation",
-    "usage": "hero",
-    "width": 1200,
-    "height": 675,
-    "output": "/images/posts/baserow-open-source-database-automation-hero.webp",
-    "source": "raw",
-    "rawPath": "assets/images/raw/baserow-open-source-database-automation-hero.jpg"
   }
 ]

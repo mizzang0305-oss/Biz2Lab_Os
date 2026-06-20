@@ -7,17 +7,21 @@ import test from "node:test";
 import {
   assertTopicCanPublish,
   assertValidCodexImageArtifact,
+  buildArticleMarkdown,
   buildContentIndexEntry,
   buildContentSeriesPlan,
   buildImageAssetEntry,
+  buildOptimizedHeroImageMetadata,
   buildImagePaths,
   buildInternalLinkRoutes,
   CONTENT_SERIES_VALIDATION_COMMANDS,
   ContentSeriesError,
   filterCommittablePaths,
   findCodexImageArtifact,
+  insertArticleImageConceptEntry,
   readContentSeriesState,
   readContentSeriesTopics,
+  resolveExecFileInvocation,
   resolveContentSeriesTopic,
   runContentSeriesOrchestrator,
 } from "@/scripts/content-series-orchestrator";
@@ -96,7 +100,8 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes("node-red-local-business-automation-server"));
   assert.ok(state.completed.includes("huginn-monitoring-automation-agent"));
   assert.ok(state.completed.includes("baserow-open-source-database-automation"));
-  assert.equal(state.currentTopic, "appsmith-internal-dashboard-automation");
+  assert.ok(state.completed.includes("appsmith-internal-dashboard-automation"));
+  assert.equal(state.currentTopic, "windmill-developer-workflow-automation");
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
   assert.equal(state.gates.dbWrite, false);
@@ -133,12 +138,14 @@ test("duplicate completed topics are rejected", () => {
 test("missing Codex image artifact blocks publication without writing article", async () => {
   const root = tempSeriesRoot();
 
-  await assert.rejects(
-    () => runContentSeriesOrchestrator({ rootDir: root, topic: "appsmith", noCommit: true }),
-    (error) =>
-      error instanceof ContentSeriesError &&
-      error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
-  );
+  await withIsolatedGeneratedImagesDir(root, async () => {
+    await assert.rejects(
+      () => runContentSeriesOrchestrator({ rootDir: root, topic: "windmill", noCommit: true }),
+      (error) =>
+        error instanceof ContentSeriesError &&
+        error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
+    );
+  });
 
   const { topic } = currentSeriesTopic();
   assert.equal(fs.existsSync(path.join(root, ...buildImagePaths(topic).articleRepoPath.split("/"))), false);
@@ -394,6 +401,7 @@ test("local Codex artifact source directories are excluded from commit staging",
       ".codex/config.toml",
       ".codex/generated_images/node-red-local-business-automation-server-hero.png",
       "artifacts/codex-images/node-red-local-business-automation-server-hero.png",
+      "data/content-series-run-state.json",
       "generated/node-red-local-business-automation-server-hero.png",
       "output/node-red-local-business-automation-server-hero.png",
       "tmp/node-red-local-business-automation-server-hero.png",
@@ -410,6 +418,20 @@ test("internal link generation includes series hub and existing public articles"
   assert.ok(routes.includes("/ko/automation/free-open-source-automation-tools-series"));
   assert.ok(routes.includes("/ko/automation/activepieces-ai-business-automation-n8n-alternative"));
   assert.ok(routes.includes("/ko/automation/opencut-free-open-source-video-editor-ai-content-automation"));
+});
+
+test("generated article markdown includes authority sections and Korean related labels", () => {
+  const state = readContentSeriesState();
+  const topics = readContentSeriesTopics();
+  const topic = resolveContentSeriesTopic(topics.topics, state, "windmill");
+  const markdown = buildArticleMarkdown(topic, "2026-06-20");
+
+  for (const heading of ["문제 정의", "핵심 개념", "현장 시나리오", "실행 절차", "자동화 구조", "리스크와 방지책", "도입 순서"]) {
+    assert.ok(markdown.includes(`## ${heading}`), `missing ${heading}`);
+  }
+  assert.ok((markdown.match(/question:/g) ?? []).length >= 3);
+  assert.match(markdown, /\[무료 오픈소스 자동화 도구 시리즈\]\(\/ko\/automation\/free-open-source-automation-tools-series\)/);
+  assert.doesNotMatch(markdown, /\[free-open-source-automation-tools-series\]\(\/ko\/automation\/free-open-source-automation-tools-series\)/);
 });
 
 test("content index helper emits the expected public route and hero image", () => {
@@ -430,6 +452,67 @@ test("image registry helper keeps raw and public paths in guarded directories", 
   assert.equal(entry.rawPath, `assets/images/raw/${topic.slug}-hero.jpg`);
   assert.equal(entry.src, `/images/posts/${topic.slug}-hero.webp`);
   assert.equal(entry.status, "active");
+});
+
+test("optimized hero metadata derives public WebP dimensions without reading the output file", () => {
+  const { topic } = nodeRedTopic();
+
+  assert.deepEqual(buildOptimizedHeroImageMetadata(topic, { width: 1600, height: 900 }), {
+    path: `public/images/posts/${topic.slug}-hero.webp`,
+    width: 1200,
+    height: 675,
+    format: "webp",
+  });
+  assert.deepEqual(buildOptimizedHeroImageMetadata(topic, { width: 800, height: 600 }), {
+    path: `public/images/posts/${topic.slug}-hero.webp`,
+    width: 800,
+    height: 600,
+    format: "webp",
+  });
+});
+
+test("article image concept insertion preserves typed entries export", () => {
+  const state = readContentSeriesState();
+  const topics = readContentSeriesTopics();
+  const baseTopic = resolveContentSeriesTopic(topics.topics, state, "windmill");
+  const topic = {
+    ...baseTopic,
+    slug: "test-generated-topic",
+    imageConcept: {
+      ...baseTopic.imageConcept,
+      visualFamily: "test-visual-family",
+      promptSummaryKo: "테스트 자동화 이미지 콘셉트",
+      altKo: "테스트 자동화 대표 이미지",
+      captionKo: "테스트 자동화 대표 이미지 설명",
+      mustInclude: ["workflow", "approval", "dashboard"],
+      mustAvoid: ["official logo"],
+    },
+  };
+  const current = fs.readFileSync(path.join(process.cwd(), "lib", "article-image-concepts.ts"), "utf8");
+
+  const next = insertArticleImageConceptEntry(current, topic);
+
+  assert.match(next, /"test-generated-topic":/);
+  assert.match(next, /export const articleImageConceptEntries: ArticleImageConcept\[\] = Object\.values\(articleImageConcepts\);/);
+});
+
+test("Windows npm script execution resolves through cmd.exe", () => {
+  assert.deepEqual(resolveExecFileInvocation("npm", ["--version"], "win32"), {
+    program: "cmd.exe",
+    args: ["/d", "/s", "/c", "npm", "--version"],
+  });
+  assert.deepEqual(resolveExecFileInvocation("npx", ["tsx", "--version"], "win32"), {
+    program: "cmd.exe",
+    args: ["/d", "/s", "/c", "npx", "tsx", "--version"],
+  });
+  assert.deepEqual(resolveExecFileInvocation("gh", ["--version"], "win32"), {
+    program: "gh",
+    args: ["--version"],
+  });
+  assert.deepEqual(resolveExecFileInvocation("npm", ["--version"], "linux"), {
+    program: "npm",
+    args: ["--version"],
+  });
 });
 
 test("validation command list includes all required gates", () => {
@@ -455,10 +538,10 @@ test("validation command list includes all required gates", () => {
 test("plan-only can inspect a later topic but reports publication blockers", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
-  const topic = resolveContentSeriesTopic(topics.topics, state, "windmill");
+  const topic = resolveContentSeriesTopic(topics.topics, state, "kestra");
   const plan = buildContentSeriesPlan(state, topic, { planOnly: true });
 
-  assert.equal(plan.topic.slug, "windmill-developer-workflow-automation");
+  assert.equal(plan.topic.slug, "kestra-data-ai-workflow-orchestration");
   assert.ok(plan.publicationBlockers.some((blocker) => blocker.includes("previous article is not public yet")));
 });
 

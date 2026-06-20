@@ -160,5 +160,23 @@
     "visualApprovalStatus": "codex-visual-sanity-checked",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "appsmith-internal-dashboard-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "appsmith-internal-dashboard-automation",
+    "usage": "hero",
+    "src": "/images/posts/appsmith-internal-dashboard-automation-hero.webp",
+    "rawPath": "assets/images/raw/appsmith-internal-dashboard-automation-hero.jpg",
+    "altKo": "Appsmith를 내부 관리자 화면 자동화 관점에서 분석한 대표 이미지",
+    "captionKo": "Appsmith는 자동화 결과를 사람이 검토하고 승인하는 내부 운영 화면 후보로 볼 수 있다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]

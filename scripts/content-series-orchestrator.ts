@@ -175,6 +175,20 @@ function repoPath(...parts: string[]) {
   return parts.join("/").replaceAll("\\", "/");
 }
 
+export function resolveExecFileInvocation(
+  program: string,
+  args: string[],
+  platform: NodeJS.Platform = process.platform,
+) {
+  if (platform === "win32" && path.extname(program) === "" && ["npm", "npx", "pnpm", "yarn"].includes(program)) {
+    return {
+      program: "cmd.exe",
+      args: ["/d", "/s", "/c", program, ...args],
+    };
+  }
+  return { program, args };
+}
+
 function absolutePath(rootDir: string, repoRelativePath: string) {
   return path.join(rootDir, ...repoRelativePath.split("/"));
 }
@@ -303,6 +317,23 @@ export function buildInternalLinkRoutes(topic: ContentSeriesTopic) {
   return uniqueSlugs.filter(Boolean).map((slug) => `/ko/automation/${slug}`);
 }
 
+const seriesLinkLabels: Record<string, string> = {
+  "free-open-source-automation-tools-series": "무료 오픈소스 자동화 도구 시리즈",
+  "activepieces-ai-business-automation-n8n-alternative": "Activepieces 업무 자동화 분석",
+  "opencut-free-open-source-video-editor-ai-content-automation": "OpenCut 콘텐츠 자동화 분석",
+  "node-red-local-business-automation-server": "Node-RED 로컬 업무 자동화 분석",
+  "huginn-monitoring-automation-agent": "Huginn 모니터링 자동화 에이전트 분석",
+  "baserow-open-source-database-automation": "Baserow 데이터베이스 자동화 분석",
+  "appsmith-internal-dashboard-automation": "Appsmith 내부 대시보드 자동화 분석",
+  "windmill-developer-workflow-automation": "Windmill 개발자 워크플로 자동화 분석",
+  "kestra-data-ai-workflow-orchestration": "Kestra 데이터·AI 워크플로 오케스트레이션 분석",
+};
+
+function labelForSeriesRoute(route: string, fallbackToolName: string) {
+  const slug = route.replace("/ko/automation/", "");
+  return seriesLinkLabels[slug] ?? `${fallbackToolName} 관련 자동화 글`;
+}
+
 export function buildContentSeriesPlan(
   state: ContentSeriesState,
   topic: ContentSeriesTopic,
@@ -341,6 +372,16 @@ export function buildArticleMarkdown(topic: ContentSeriesTopic, publishedAt: str
   const outlineSections = topic.articleOutline
     .map((section) => `## ${section.heading}\n\n${section.points.map((point) => `${point}`).join("\n\n")}`)
     .join("\n\n");
+  const scenarioPoints = topic.articleOutline.flatMap((section) => section.points).slice(0, 3);
+  const authoritySections = [
+    `## 문제 정의\n\n${topic.toolName}을 검토하는 이유는 새 도구를 하나 더 늘리기 위해서가 아닙니다. 반복되는 내부 업무를 줄이고, 운영자가 확인해야 하는 데이터와 승인 흐름을 한 화면에서 다룰 수 있는지 판단하기 위해서입니다.`,
+    `## 핵심 개념\n\n핵심은 ${topic.toolName} 자체보다 연결 구조입니다. 데이터 원천, 권한, 승인 화면, 자동화 로그, 예외 처리 기준이 분리되어 있어야 실제 운영에서 안전하게 테스트할 수 있습니다.`,
+    `## 현장 시나리오\n\n${scenarioPoints.join("\n\n")}`,
+    `## 실행 절차\n\n1. 공식 문서와 라이선스를 먼저 확인합니다.\n2. 샘플 데이터로 내부 화면 또는 자동화 흐름을 구성합니다.\n3. 권한, 로그, 백업, 장애 대응 기준을 검토합니다.\n4. 실제 고객 데이터 연결은 별도 승인 뒤에 진행합니다.`,
+    `## 자동화 구조\n\n입력 데이터, 내부 검토 화면, 승인 액션, 결과 기록을 분리해 설계합니다. 이 구조를 지켜야 Activepieces, Node-RED, Baserow 같은 다른 도구와 연결해도 책임 범위가 흐려지지 않습니다.`,
+    `## 리스크와 방지책\n\n가장 큰 리스크는 무료 오픈소스라는 이유로 운영 권한을 너무 빨리 넘기는 것입니다. 테스트 단계에서는 샘플 데이터, 제한 계정, 별도 로그, 백업 계획을 기준으로 검증해야 합니다.`,
+    `## 도입 순서\n\n먼저 읽기 전용 대시보드나 내부 검토 화면으로 시작합니다. 이후 반복 작업 감소 효과가 확인되면 승인 버튼, 알림, 외부 시스템 연결처럼 위험도가 높은 기능을 단계적으로 붙이는 편이 안전합니다.`,
+  ].join("\n\n");
 
   const officialSources = topic.officialSources
     .map((source) => `- [${source.label}](${source.url}) - ${source.usage}`)
@@ -349,10 +390,10 @@ export function buildArticleMarkdown(topic: ContentSeriesTopic, publishedAt: str
   const safetyNotes = markdownList(topic.safetyNotes);
   const licenseNotes = markdownList(topic.licenseCautionNotes);
   const internalLinks = buildInternalLinkRoutes(topic)
-    .map((route) => `- [${route.replace("/ko/automation/", "")}](${route})`)
+    .map((route) => `- [${labelForSeriesRoute(route, topic.toolName)}](${route})`)
     .join("\n");
 
-  return `---\ntitle: ${yamlString(topic.title)}\ndescription: ${yamlString(topic.description)}\nslug: ${topic.slug}\nlocale: ko\ncategory: automation\ncluster: open-source-automation-tools\ntype: ${topic.type}\nstatus: published\ndraft: false\nauthor: Biz2Lab\npublishedAt: '${publishedAt}'\nupdatedAt: '${publishedAt}'\ntags:\n${topic.tags.map((tag) => `  - ${tag}`).join("\n")}\nheroImage: /images/posts/${topic.slug}-hero.webp\nheroAlt: ${topic.imageConcept.altKo}\ncanonical: 'https://www.biz2lab.com/ko/automation/${topic.slug}'\nnoindex: false\nrelatedPosts:\n${relatedPosts.map((slug) => `  - ${slug}`).join("\n")}\ntemplateCta: 오픈소스 자동화 도구 검증 체크리스트\nnextStep:\n  label: 자동화 상담 문의\n  href: /ko/contact\n  description: 반복 업무와 콘텐츠 제작 흐름을 실제 운영 기준으로 점검합니다.\nfaq:\n  - question: ${topic.toolName}을 바로 실운영 핵심 도구로 써도 되나요?\n    answer: 바로 고정하기보다 로컬 테스트, 권한, 보안, 백업, 라이선스 확인을 거친 뒤 단계적으로 판단하는 편이 안전합니다.\n  - question: 무료 오픈소스라는 이유만으로 상업적 사용이 가능한가요?\n    answer: 아닙니다. 공식 저장소의 현재 라이선스와 hosted 또는 enterprise 약관을 별도로 확인해야 합니다.\n---\n\n# ${topic.title}\n\n${topic.description}\n\n이 글은 단순한 도구 추천이 아니라 Biz2Lab / MyBiz 관점에서 ${topic.toolName}을 실제 업무 자동화 파이프라인에 붙일 수 있는지 검토하는 분석 글입니다. 무료 여부보다 중요한 것은 라이선스, 운영 안정성, 데이터 보안, 반복 작업 감소 효과입니다.\n\n${outlineSections}\n\n## 공식 출처 확인 포인트\n\n${officialSources}\n\n## Biz2Lab / MyBiz 적용 기준\n\n${topic.toolName}은 자동화 후보 도구입니다. 다만 고객 데이터, 결제, 외부 메시지, 운영 서버에 직접 연결하는 단계는 별도의 승인과 보안 검토가 필요합니다.\n\n### 안전 게이트\n\n${safetyNotes}\n\n### 라이선스 확인 메모\n\n${licenseNotes}\n\n## 무료 오픈소스 자동화 도구 시리즈\n\n${internalLinks}\n\n한 줄 결론은 명확합니다. ${topic.toolName}은 지금 당장 모든 운영을 맡길 완성형 핵심 도구라기보다, Biz2Lab / MyBiz 자동화 파이프라인에 붙일 수 있는지 검증할 후보 도구입니다.\n`;
+  return `---\ntitle: ${yamlString(topic.title)}\ndescription: ${yamlString(topic.description)}\nslug: ${topic.slug}\nlocale: ko\ncategory: automation\ncluster: open-source-automation-tools\ntype: ${topic.type}\nstatus: published\ndraft: false\nauthor: Biz2Lab\npublishedAt: '${publishedAt}'\nupdatedAt: '${publishedAt}'\ntags:\n${topic.tags.map((tag) => `  - ${tag}`).join("\n")}\nheroImage: /images/posts/${topic.slug}-hero.webp\nheroAlt: ${topic.imageConcept.altKo}\ncanonical: 'https://www.biz2lab.com/ko/automation/${topic.slug}'\nnoindex: false\nrelatedPosts:\n${relatedPosts.map((slug) => `  - ${slug}`).join("\n")}\ntemplateCta: 오픈소스 자동화 도구 검증 체크리스트\nnextStep:\n  label: 자동화 상담 문의\n  href: /ko/contact\n  description: 반복 업무와 콘텐츠 제작 흐름을 실제 운영 기준으로 점검합니다.\nfaq:\n  - question: ${topic.toolName}을 바로 실운영 핵심 도구로 써도 되나요?\n    answer: 바로 고정하기보다 로컬 테스트, 권한, 보안, 백업, 라이선스 확인을 거친 뒤 단계적으로 판단하는 편이 안전합니다.\n  - question: 무료 오픈소스라는 이유만으로 상업적 사용이 가능한가요?\n    answer: 아닙니다. 공식 저장소의 현재 라이선스와 hosted 또는 enterprise 약관을 별도로 확인해야 합니다.\n  - question: ${topic.toolName}을 자동화 파이프라인에 붙일 때 먼저 확인할 기준은 무엇인가요?\n    answer: 실제 운영 데이터 대신 샘플 데이터로 권한, 로그, 백업, 반복 작업 감소 효과를 먼저 확인해야 합니다.\n---\n\n# ${topic.title}\n\n${topic.description}\n\n이 글은 단순한 도구 추천이 아니라 Biz2Lab / MyBiz 관점에서 ${topic.toolName}을 실제 업무 자동화 파이프라인에 붙일 수 있는지 검토하는 분석 글입니다. 무료 여부보다 중요한 것은 라이선스, 운영 안정성, 데이터 보안, 반복 작업 감소 효과입니다.\n\n${authoritySections}\n\n${outlineSections}\n\n## 공식 출처 확인 포인트\n\n${officialSources}\n\n## Biz2Lab / MyBiz 적용 기준\n\n${topic.toolName}은 자동화 후보 도구입니다. 다만 고객 데이터, 결제, 외부 메시지, 운영 서버에 직접 연결하는 단계는 별도의 승인과 보안 검토가 필요합니다.\n\n### 안전 게이트\n\n${safetyNotes}\n\n### 라이선스 확인 메모\n\n${licenseNotes}\n\n## 무료 오픈소스 자동화 도구 시리즈\n\n${internalLinks}\n\n한 줄 결론은 명확합니다. ${topic.toolName}은 지금 당장 모든 운영을 맡길 완성형 핵심 도구라기보다, Biz2Lab / MyBiz 자동화 파이프라인에 붙일 수 있는지 검증할 후보 도구입니다.\n`;
 }
 
 function buildImageBrief(topic: ContentSeriesTopic): ImageBrief & {
@@ -448,6 +489,7 @@ const localOnlyCommitPathPrefixes = [
   ".codex-remote-attachments/",
   ".codex/generated_images/",
   "artifacts/codex-images/",
+  "data/content-series-run-state.json",
   "generated/",
   "output/",
   "tmp/",
@@ -895,7 +937,13 @@ export async function importCodexImageArtifact(
     .rotate()
     .jpeg({ quality: 92, mozjpeg: true })
     .toFile(targetAbsolutePath);
-  const metadata = await sharp(targetAbsolutePath).metadata();
+  const image = sharp(targetAbsolutePath);
+  let metadata: sharp.Metadata;
+  try {
+    metadata = await image.metadata();
+  } finally {
+    image.destroy();
+  }
   return {
     source: artifactPath,
     target: paths.rawRepoPath,
@@ -971,20 +1019,36 @@ export function buildContentIndexEntry(topic: ContentSeriesTopic, updatedAt: str
   };
 }
 
-function upsertArticleImageConcept(rootDir: string, topic: ContentSeriesTopic) {
-  const conceptPath = "lib/article-image-concepts.ts";
-  const current = fs.readFileSync(absolutePath(rootDir, conceptPath), "utf8");
-  if (current.includes(`"${topic.slug}":`)) {
-    return;
-  }
+function buildArticleImageConceptEntry(topic: ContentSeriesTopic) {
   const labels = [...topic.imageConcept.mustInclude, "approval"].slice(0, 4);
   while (labels.length < 4) {
     labels.push("workflow");
   }
-  const entry = `  "${topic.slug}": {\n    slug: "${topic.slug}",\n    category: "automation",\n    visualFamily: "${topic.imageConcept.visualFamily}",\n    conceptKo: "${topic.imageConcept.promptSummaryKo.replaceAll('"', '\\"')}",\n    altKo: "${topic.imageConcept.altKo.replaceAll('"', '\\"')}",\n    captionKo: "${topic.imageConcept.captionKo.replaceAll('"', '\\"')}",\n    labels: [${labels.map((label) => `"${label.replaceAll('"', '\\"')}"`).join(", ")}],\n    palette: automationPalette,\n  },\n`;
-  const next = current.replace(/\n};\s*\n\nexport const articleImageConceptEntries/, `\n${entry}};\n\nexport const articleImageConceptEntries`);
+  return `  "${topic.slug}": {\n    slug: "${topic.slug}",\n    category: "automation",\n    visualFamily: "${topic.imageConcept.visualFamily}",\n    conceptKo: "${topic.imageConcept.promptSummaryKo.replaceAll('"', '\\"')}",\n    altKo: "${topic.imageConcept.altKo.replaceAll('"', '\\"')}",\n    captionKo: "${topic.imageConcept.captionKo.replaceAll('"', '\\"')}",\n    labels: [${labels.map((label) => `"${label.replaceAll('"', '\\"')}"`).join(", ")}],\n    palette: automationPalette,\n  },\n`;
+}
+
+export function insertArticleImageConceptEntry(current: string, topic: ContentSeriesTopic) {
+  if (current.includes(`"${topic.slug}":`)) {
+    return current;
+  }
+  const lineBreak = current.includes("\r\n") ? "\r\n" : "\n";
+  const entry = buildArticleImageConceptEntry(topic).replaceAll("\n", lineBreak);
+  const next = current.replace(
+    /(\r?\n)(};)(\r?\n\r?\nexport const articleImageConceptEntries(?=[:\s=]))/,
+    `${lineBreak}${entry}$2$3`,
+  );
   if (next === current) {
     throw new ContentSeriesError("CONCEPT_UPDATE_FAILED", "Could not locate articleImageConcepts object terminator");
+  }
+  return next;
+}
+
+function upsertArticleImageConcept(rootDir: string, topic: ContentSeriesTopic) {
+  const conceptPath = "lib/article-image-concepts.ts";
+  const current = fs.readFileSync(absolutePath(rootDir, conceptPath), "utf8");
+  const next = insertArticleImageConceptEntry(current, topic);
+  if (next === current) {
+    return;
   }
   fs.writeFileSync(absolutePath(rootDir, conceptPath), next, "utf8");
 }
@@ -1035,7 +1099,8 @@ function appendQueueRow(rootDir: string, topic: ContentSeriesTopic) {
 
 function runCommand(rootDir: string, command: string) {
   const [program, ...args] = command.split(" ");
-  execFileSync(program, args, { cwd: rootDir, stdio: "inherit", env: process.env });
+  const invocation = resolveExecFileInvocation(program, args);
+  execFileSync(invocation.program, invocation.args, { cwd: rootDir, stdio: "inherit", env: process.env });
 }
 
 function runValidationCommands(rootDir: string) {
@@ -1079,18 +1144,27 @@ function assertCleanWorktreeExceptProtected(rootDir: string) {
   }
 }
 
-async function readImageMetadata(rootDir: string, repoRelativePath: string) {
+export function buildOptimizedHeroImageMetadata(
+  topic: ContentSeriesTopic,
+  importedImage: { width?: number; height?: number },
+) {
+  const rawWidth = importedImage.width ?? 0;
+  const rawHeight = importedImage.height ?? 0;
+  const width = rawWidth > 0 ? Math.min(1200, rawWidth) : 1200;
+  const height = rawWidth > 0 && rawHeight > 0 ? Math.round((width * rawHeight) / rawWidth) : 675;
+  return {
+    path: buildImagePaths(topic).publicRepoPath,
+    width,
+    height,
+    format: "webp",
+  };
+}
+
+function assertPublicHeroImageExists(rootDir: string, repoRelativePath: string) {
   const absoluteFilePath = absolutePath(rootDir, repoRelativePath);
   if (!fs.existsSync(absoluteFilePath)) {
     throw new ContentSeriesError("PUBLIC_HERO_IMAGE_MISSING", `${repoRelativePath} was not created`);
   }
-  const metadata = await sharp(absoluteFilePath).metadata();
-  return {
-    path: repoRelativePath,
-    width: metadata.width,
-    height: metadata.height,
-    format: metadata.format,
-  };
 }
 
 function commitAndMaybeCreatePr(rootDir: string, plan: ContentSeriesPlan, options: CliOptions) {
@@ -1177,7 +1251,8 @@ export async function runContentSeriesOrchestrator(options: CliOptions = {}): Pr
   updateInternalLinks(rootDir, topic);
   appendQueueRow(rootDir, topic);
   runCommand(rootDir, "npm run optimize-images");
-  const publicImage = await readImageMetadata(rootDir, plan.imagePaths.publicRepoPath);
+  assertPublicHeroImageExists(rootDir, plan.imagePaths.publicRepoPath);
+  const publicImage = buildOptimizedHeroImageMetadata(topic, importedImage);
   upsertImageAsset(rootDir, topic, publicImage);
   runCommand(rootDir, "npm run generate-content-index");
   runValidationCommands(rootDir);

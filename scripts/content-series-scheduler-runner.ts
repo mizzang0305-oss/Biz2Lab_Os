@@ -9,6 +9,7 @@ import {
   findCodexImageArtifact,
   readContentSeriesState,
   readContentSeriesTopics,
+  resolveExecFileInvocation,
   resolveContentSeriesTopic,
   type ContentSeriesTopic,
 } from "@/scripts/content-series-orchestrator";
@@ -180,9 +181,17 @@ function defaultListOpenPullRequests(rootDir: string) {
 }
 
 function defaultRunPublication(topicSlug: string, rootDir: string): { prUrl?: string } {
+  const invocation = resolveExecFileInvocation("npm", [
+    "run",
+    "content:series:auto",
+    "--",
+    "--topic",
+    topicSlug,
+    "--use-latest-codex-artifact",
+  ]);
   execFileSync(
-    "npm",
-    ["run", "content:series:auto", "--", "--topic", topicSlug, "--use-latest-codex-artifact"],
+    invocation.program,
+    invocation.args,
     { cwd: rootDir, stdio: "inherit", env: process.env },
   );
   return {};
