@@ -220,6 +220,14 @@ function imageConflictExists(rootDir: string, topic: ContentSeriesTopic) {
   return fs.existsSync(absolutePath(rootDir, paths.rawRepoPath)) || fs.existsSync(absolutePath(rootDir, paths.publicRepoPath));
 }
 
+function topicIsCompletedOrPublished(rootDir: string, completed: string[], topic: ContentSeriesTopic) {
+  return completed.includes(topic.slug) || articleExists(rootDir, topic) || contentIndexIncludesSlug(rootDir, topic);
+}
+
+function contentSeriesQueueIsExhausted(rootDir: string, completed: string[], topics: ContentSeriesTopic[]) {
+  return topics.every((topic) => topicIsCompletedOrPublished(rootDir, completed, topic));
+}
+
 function writeRunAttempt(rootDir: string, state: ContentSeriesRunState, now: Date, status: string, topic: ContentSeriesTopic) {
   writeJsonFile(rootDir, runStatePath, {
     ...state,
@@ -312,6 +320,10 @@ export function runContentSeriesScheduler(options: SchedulerOptions = {}, deps: 
 
     const contentState = readContentSeriesState(rootDir);
     const topicFile = readContentSeriesTopics(rootDir);
+    if (!options.topic && contentSeriesQueueIsExhausted(rootDir, contentState.completed, topicFile.topics)) {
+      return result("CONTENT_SERIES_QUEUE_EXHAUSTED", dryRun);
+    }
+
     const topic = resolveContentSeriesTopic(topicFile.topics, contentState, options.topic ?? contentState.next[0]);
     if (contentState.completed.includes(topic.slug)) {
       return result("TOPIC_ALREADY_COMPLETED", dryRun, topic);
