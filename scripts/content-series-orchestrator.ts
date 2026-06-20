@@ -427,7 +427,6 @@ type ArtifactSelectionOptions = {
 };
 
 type ArtifactValidationOptions = {
-  allowExplicitPath?: boolean;
   allowSingleImageDirectoryMatch?: boolean;
   requireAllowedDiscoveryLocation?: boolean;
   rootDir?: string;
@@ -435,7 +434,7 @@ type ArtifactValidationOptions = {
 
 type ArtifactMatch = {
   filePath: string;
-  matchedBy: "filename" | "manifest" | "single-image-directory" | "explicit";
+  matchedBy: "filename" | "manifest" | "single-image-directory";
   mtimeMs: number;
 };
 
@@ -443,14 +442,6 @@ const artifactManifestNames = [
   "manifest.json",
   "codex-image-manifest.json",
   "image-manifest.json",
-] as const;
-
-const defaultRepoArtifactSearchRoots = [
-  ".codex-remote-attachments",
-  "artifacts/codex-images",
-  "generated",
-  "output",
-  "tmp",
 ] as const;
 
 const localOnlyCommitPathPrefixes = [
@@ -484,15 +475,13 @@ function uniquePaths(filePaths: string[]) {
 }
 
 export function codexArtifactDiscoveryRoots(rootDir = process.cwd(), state?: ContentSeriesState) {
-  const homeGeneratedImages = process.env.CODEX_GENERATED_IMAGES_DIR
-    ? path.resolve(process.env.CODEX_GENERATED_IMAGES_DIR)
+  void rootDir;
+  void state;
+  const configuredCodexGeneratedRoot = process.env.CODEX_GENERATED_IMAGE_ROOT ?? process.env.CODEX_GENERATED_IMAGES_DIR;
+  const homeGeneratedImages = configuredCodexGeneratedRoot
+    ? path.resolve(configuredCodexGeneratedRoot)
     : path.join(os.homedir(), ".codex", "generated_images");
-  const configuredRepoRoots = state?.imagePolicy.artifactSearchRoots ?? [];
-  return uniquePaths([
-    homeGeneratedImages,
-    ...defaultRepoArtifactSearchRoots.map((searchRoot) => absolutePath(rootDir, searchRoot)),
-    ...configuredRepoRoots.map((searchRoot) => absolutePath(rootDir, searchRoot)),
-  ]);
+  return uniquePaths([homeGeneratedImages]);
 }
 
 function isSupportedArtifactExtension(filePath: string, state: ContentSeriesState) {
@@ -625,8 +614,8 @@ function assertAllowedDiscoveryLocation(rootDir: string, state: ContentSeriesSta
   const allowedRoots = codexArtifactDiscoveryRoots(rootDir, state);
   if (!allowedRoots.some((allowedRoot) => pathIsInside(filePath, allowedRoot))) {
     throw new ContentSeriesError(
-      "CODEX_ARTIFACT_SLUG_MISMATCH",
-      `${filePath}: artifact path is outside allowed Codex discovery locations`,
+      "CODEX_ARTIFACT_PROVENANCE_REJECTED",
+      `${filePath}: artifact path is outside the approved local Codex generated image root (${allowedRoots.join(", ")})`,
     );
   }
 }
@@ -691,7 +680,6 @@ export function assertValidCodexImageArtifact(
 
   if (
     state.imagePolicy.requireSlugInFilename &&
-    !options.allowExplicitPath &&
     !options.allowSingleImageDirectoryMatch &&
     !manifestSlug &&
     !artifactFilenameMatchesTopic(filePath, topic)
@@ -708,9 +696,7 @@ function artifactMatchForFile(
   options: ArtifactValidationOptions = {},
 ): ArtifactMatch | null {
   const manifestSlug = manifestSlugForArtifact(filePath);
-  const matchedBy = options.allowExplicitPath
-    ? "explicit"
-    : manifestSlug && slugMatches(manifestSlug, topic)
+  const matchedBy = manifestSlug && slugMatches(manifestSlug, topic)
       ? "manifest"
       : artifactFilenameMatchesTopic(filePath, topic)
         ? "filename"
@@ -749,6 +735,7 @@ function collectArtifactDirectoryMatches(
   directoryPath: string,
 ) {
   const directory = resolveArtifactPath(rootDir, directoryPath);
+  assertAllowedDiscoveryLocation(rootDir, state, directory);
   if (!fs.existsSync(directory) || !fs.statSync(directory).isDirectory()) {
     throw new ContentSeriesError("CODEX_GENERATED_IMAGE_ARTIFACT_MISSING", `${directoryPath}: artifact directory does not exist`);
   }
@@ -867,25 +854,7 @@ function findLatestCodexArtifact(rootDir: string, topic: ContentSeriesTopic, sta
 }
 
 function findConfiguredRootArtifact(rootDir: string, topic: ContentSeriesTopic, state: ContentSeriesState) {
-  const matches = state.imagePolicy.artifactSearchRoots
-    .filter((searchRoot) => {
-      const directory = resolveArtifactPath(rootDir, searchRoot);
-      return fs.existsSync(directory) && fs.statSync(directory).isDirectory();
-    })
-    .flatMap((searchRoot) =>
-      collectArtifactDirectoryMatches(rootDir, topic, state, searchRoot),
-    );
-
-  if (matches.length === 0) {
-    return null;
-  }
-  if (matches.length > 1) {
-    throw new ContentSeriesError(
-      "CODEX_ARTIFACT_AUTO_DISCOVERY_AMBIGUOUS",
-      `Multiple matching artifacts found for ${topic.slug}: ${matches.map((match) => match.filePath).join(", ")}`,
-    );
-  }
-  return matches[0].filePath;
+  return findLatestCodexArtifact(rootDir, topic, state);
 }
 
 export function findCodexImageArtifact(
@@ -896,7 +865,10 @@ export function findCodexImageArtifact(
 ) {
   if (selection.explicitArtifact) {
     const artifactPath = resolveArtifactPath(rootDir, selection.explicitArtifact);
-    assertValidCodexImageArtifact(artifactPath, topic, state, { allowExplicitPath: true });
+    assertValidCodexImageArtifact(artifactPath, topic, state, {
+      requireAllowedDiscoveryLocation: true,
+      rootDir,
+    });
     return artifactPath;
   }
 
@@ -1250,7 +1222,7 @@ function parseArgs(argv: string[]): CliOptions & { help?: boolean } {
 }
 
 function printHelp() {
-  console.log(`Usage:\n  npm run content:series:auto -- --topic node-red --plan-only\n  npm run content:series:auto -- --topic node-red --no-commit --artifact artifacts/codex-images/node-red-local-business-automation-server-hero.png\n  npm run content:series:auto -- --topic node-red --no-commit --artifact-dir artifacts/codex-images\n  npm run content:series:auto -- --topic node-red --use-latest-codex-artifact\n\nOptions:\n  --topic <id-or-slug>        Topic id or slug from data/content-series-topics.json\n  --plan-only                 Print the plan without writing files\n  --no-commit                 Run publication without committing or creating a PR\n  --no-pr                     Commit and push, but do not create a PR\n  --artifact <path>           Explicit Codex-generated image artifact to import\n  --artifact-dir <path>       Search one explicit directory for a single/mapped topic image\n  --use-latest-codex-artifact Search approved local Codex artifact locations for one matching image\n`);
+  console.log(`Usage:\n  npm run content:series:auto -- --topic node-red --plan-only\n  npm run content:series:auto -- --topic node-red --no-commit --artifact "%USERPROFILE%\\.codex\\generated_images\\node-red-local-business-automation-server-hero.png"\n  npm run content:series:auto -- --topic node-red --no-commit --artifact-dir "%USERPROFILE%\\.codex\\generated_images\\node-red-review"\n  npm run content:series:auto -- --topic node-red --use-latest-codex-artifact\n\nOptions:\n  --topic <id-or-slug>        Topic id or slug from data/content-series-topics.json\n  --plan-only                 Print the plan without writing files\n  --no-commit                 Run publication without committing or creating a PR\n  --no-pr                     Commit and push, but do not create a PR\n  --artifact <path>           Explicit local Codex-generated image artifact under the approved Codex root\n  --artifact-dir <path>       Search one Codex-generated artifact directory under the approved Codex root\n  --use-latest-codex-artifact Search the approved local Codex generated image root for one matching image\n`);
 }
 
 async function main() {

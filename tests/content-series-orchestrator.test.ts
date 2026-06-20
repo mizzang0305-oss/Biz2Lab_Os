@@ -53,16 +53,24 @@ function writeJpegLikeArtifact(filePath: string, size = 5000) {
   fs.writeFileSync(filePath, fakeJpeg);
 }
 
-function withIsolatedGeneratedImagesDir<T>(root: string, callback: () => T) {
-  const previous = process.env.CODEX_GENERATED_IMAGES_DIR;
-  process.env.CODEX_GENERATED_IMAGES_DIR = path.join(root, "isolated-generated-images");
+function withIsolatedGeneratedImagesDir<T>(root: string, callback: (generatedRoot: string) => T) {
+  const previousRoot = process.env.CODEX_GENERATED_IMAGE_ROOT;
+  const previousDir = process.env.CODEX_GENERATED_IMAGES_DIR;
+  const generatedRoot = path.join(root, "isolated-generated-images");
+  process.env.CODEX_GENERATED_IMAGE_ROOT = generatedRoot;
+  delete process.env.CODEX_GENERATED_IMAGES_DIR;
   try {
-    return callback();
+    return callback(generatedRoot);
   } finally {
-    if (previous === undefined) {
+    if (previousRoot === undefined) {
+      delete process.env.CODEX_GENERATED_IMAGE_ROOT;
+    } else {
+      process.env.CODEX_GENERATED_IMAGE_ROOT = previousRoot;
+    }
+    if (previousDir === undefined) {
       delete process.env.CODEX_GENERATED_IMAGES_DIR;
     } else {
-      process.env.CODEX_GENERATED_IMAGES_DIR = previous;
+      process.env.CODEX_GENERATED_IMAGES_DIR = previousDir;
     }
   }
 }
@@ -140,75 +148,177 @@ test("placeholder-named artifacts are rejected before publication", () => {
   );
 });
 
-test("explicit artifact selector still accepts a real user-provided image", () => {
+test("explicit artifact selector accepts a slugged artifact under the approved Codex root", () => {
   const root = tempSeriesRoot();
   const { state, topic } = nodeRedTopic();
-  const artifactPath = path.join(root, "outside-user-drop", "user-selected-image.jpg");
-  writeJpegLikeArtifact(artifactPath);
 
-  const found = findCodexImageArtifact(root, topic, state, {
-    explicitArtifact: artifactPath,
+  const found = withIsolatedGeneratedImagesDir(root, (generatedRoot) => {
+    const artifactPath = path.join(generatedRoot, `${topic.slug}-hero.jpg`);
+    writeJpegLikeArtifact(artifactPath);
+
+    return findCodexImageArtifact(root, topic, state, {
+      explicitArtifact: artifactPath,
+    });
   });
 
-  assert.equal(found, artifactPath);
+  assert.equal(found, path.join(root, "isolated-generated-images", `${topic.slug}-hero.jpg`));
 });
 
-test("artifact-dir selector accepts one valid single-image directory", () => {
+test("explicit artifact selector rejects paths outside the approved Codex root", () => {
   const root = tempSeriesRoot();
   const { state, topic } = nodeRedTopic();
-  const artifactDir = path.join(root, "single-image-drop");
-  const artifactPath = path.join(artifactDir, "codex-output.jpg");
+  const artifactPath = path.join(root, "outside-user-drop", `${topic.slug}-hero.jpg`);
   writeJpegLikeArtifact(artifactPath);
 
-  const found = findCodexImageArtifact(root, topic, state, {
-    artifactDir,
+  assert.throws(
+    () =>
+      withIsolatedGeneratedImagesDir(root, () =>
+        findCodexImageArtifact(root, topic, state, {
+          explicitArtifact: artifactPath,
+        }),
+      ),
+    (error) => error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_PROVENANCE_REJECTED",
+  );
+});
+
+test("explicit artifact selector still requires slug or manifest matching", () => {
+  const root = tempSeriesRoot();
+  const { state, topic } = nodeRedTopic();
+
+  assert.throws(
+    () =>
+      withIsolatedGeneratedImagesDir(root, (generatedRoot) => {
+        const artifactPath = path.join(generatedRoot, "image-0001.jpg");
+        writeJpegLikeArtifact(artifactPath);
+        return findCodexImageArtifact(root, topic, state, {
+          explicitArtifact: artifactPath,
+        });
+      }),
+    (error) => error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_SLUG_MISMATCH",
+  );
+});
+
+test("manual drop and common desktop/download paths are rejected as non-Codex artifacts", () => {
+  const root = tempSeriesRoot();
+  const { state, topic } = nodeRedTopic();
+  const manualPaths = [
+    path.join(root, "outside-user-drop", "user-selected-image.jpg"),
+    path.join(root, "Downloads", `${topic.slug}-hero.png`),
+    path.join(root, "Desktop", `${topic.slug}-hero.webp`),
+  ];
+  for (const artifactPath of manualPaths) {
+    writeJpegLikeArtifact(artifactPath);
+    assert.throws(
+      () =>
+        withIsolatedGeneratedImagesDir(root, () =>
+          findCodexImageArtifact(root, topic, state, {
+            explicitArtifact: artifactPath,
+          }),
+        ),
+      (error) => error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_PROVENANCE_REJECTED",
+    );
+  }
+});
+
+test("artifact-dir selector accepts one valid single-image directory under the approved Codex root", () => {
+  const root = tempSeriesRoot();
+  const { state, topic } = nodeRedTopic();
+
+  const found = withIsolatedGeneratedImagesDir(root, (generatedRoot) => {
+    const artifactDir = path.join(generatedRoot, "single-image-drop");
+    const artifactPath = path.join(artifactDir, "codex-output.jpg");
+    writeJpegLikeArtifact(artifactPath);
+
+    return findCodexImageArtifact(root, topic, state, {
+      artifactDir,
+    });
   });
 
-  assert.equal(found, artifactPath);
+  assert.equal(found, path.join(root, "isolated-generated-images", "single-image-drop", "codex-output.jpg"));
+});
+
+test("artifact-dir selector rejects directories outside the approved Codex root", () => {
+  const root = tempSeriesRoot();
+  const { state, topic } = nodeRedTopic();
+  const artifactDir = path.join(root, "manual-image-folder");
+  writeJpegLikeArtifact(path.join(artifactDir, `${topic.slug}-hero.jpg`));
+
+  assert.throws(
+    () =>
+      withIsolatedGeneratedImagesDir(root, () =>
+        findCodexImageArtifact(root, topic, state, {
+          artifactDir,
+        }),
+      ),
+    (error) => error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_PROVENANCE_REJECTED",
+  );
 });
 
 test("artifact-dir selector accepts manifest-mapped image when filenames are not slugged", () => {
   const root = tempSeriesRoot();
   const { state, topic } = nodeRedTopic();
-  const artifactDir = path.join(root, "manifest-drop");
-  const artifactPath = path.join(artifactDir, "image-0001.png");
-  writeJpegLikeArtifact(artifactPath);
-  fs.writeFileSync(
-    path.join(artifactDir, "manifest.json"),
-    JSON.stringify({ images: [{ file: "image-0001.png", slug: topic.slug }] }, null, 2),
-    "utf8",
-  );
 
-  const found = findCodexImageArtifact(root, topic, state, {
-    artifactDir,
+  const found = withIsolatedGeneratedImagesDir(root, (generatedRoot) => {
+    const artifactDir = path.join(generatedRoot, "manifest-drop");
+    const artifactPath = path.join(artifactDir, "image-0001.png");
+    writeJpegLikeArtifact(artifactPath);
+    fs.writeFileSync(
+      path.join(artifactDir, "manifest.json"),
+      JSON.stringify({ images: [{ file: "image-0001.png", slug: topic.slug }] }, null, 2),
+      "utf8",
+    );
+
+    return findCodexImageArtifact(root, topic, state, {
+      artifactDir,
+    });
   });
 
-  assert.equal(found, artifactPath);
+  assert.equal(found, path.join(root, "isolated-generated-images", "manifest-drop", "image-0001.png"));
 });
 
 test("latest Codex artifact selector finds one valid slug-matched image", () => {
   const root = tempSeriesRoot();
   const { state, topic } = nodeRedTopic();
-  const artifactPath = path.join(root, "artifacts", "codex-images", `${topic.slug}-hero.png`);
-  writeJpegLikeArtifact(artifactPath);
 
-  const found = withIsolatedGeneratedImagesDir(root, () =>
-    findCodexImageArtifact(root, topic, state, {
+  const found = withIsolatedGeneratedImagesDir(root, (generatedRoot) => {
+    const artifactPath = path.join(generatedRoot, `${topic.slug}-hero.png`);
+    writeJpegLikeArtifact(artifactPath);
+
+    return findCodexImageArtifact(root, topic, state, {
       useLatestCodexArtifact: true,
-    }),
-  );
+    });
+  });
 
-  assert.equal(found, artifactPath);
+  assert.equal(found, path.join(root, "isolated-generated-images", `${topic.slug}-hero.png`));
+});
+
+test("latest Codex artifact selector ignores broad repo artifact folders", () => {
+  const root = tempSeriesRoot();
+  const { state, topic } = nodeRedTopic();
+  writeJpegLikeArtifact(path.join(root, "artifacts", "codex-images", `${topic.slug}-hero.png`));
+
+  assert.throws(
+    () =>
+      withIsolatedGeneratedImagesDir(root, () =>
+        findCodexImageArtifact(root, topic, state, {
+          useLatestCodexArtifact: true,
+        }),
+      ),
+    (error) => error instanceof ContentSeriesError && error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
+  );
 });
 
 test("artifact auto-discovery blocks ambiguous target matches", () => {
   const root = tempSeriesRoot();
   const { state, topic } = nodeRedTopic();
-  writeJpegLikeArtifact(path.join(root, "artifacts", "codex-images", `${topic.slug}-hero-a.jpg`));
-  writeJpegLikeArtifact(path.join(root, "artifacts", "codex-images", `${topic.slug}-hero-b.jpg`));
 
   assert.throws(
-    () => withIsolatedGeneratedImagesDir(root, () => findCodexImageArtifact(root, topic, state, { useLatestCodexArtifact: true })),
+    () =>
+      withIsolatedGeneratedImagesDir(root, (generatedRoot) => {
+        writeJpegLikeArtifact(path.join(generatedRoot, `${topic.slug}-hero-a.jpg`));
+        writeJpegLikeArtifact(path.join(generatedRoot, `${topic.slug}-hero-b.jpg`));
+        return findCodexImageArtifact(root, topic, state, { useLatestCodexArtifact: true });
+      }),
     (error) => error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_AUTO_DISCOVERY_AMBIGUOUS",
   );
 });
@@ -216,17 +326,20 @@ test("artifact auto-discovery blocks ambiguous target matches", () => {
 test("manifest slug mismatch blocks artifact-dir selection", () => {
   const root = tempSeriesRoot();
   const { state, topic } = nodeRedTopic();
-  const artifactDir = path.join(root, "mismatch-drop");
-  const artifactPath = path.join(artifactDir, `${topic.slug}-hero.png`);
-  writeJpegLikeArtifact(artifactPath);
-  fs.writeFileSync(
-    path.join(artifactDir, "manifest.json"),
-    JSON.stringify({ images: [{ file: path.basename(artifactPath), slug: "huginn-monitoring-automation-agent" }] }, null, 2),
-    "utf8",
-  );
 
   assert.throws(
-    () => findCodexImageArtifact(root, topic, state, { artifactDir }),
+    () =>
+      withIsolatedGeneratedImagesDir(root, (generatedRoot) => {
+        const artifactDir = path.join(generatedRoot, "mismatch-drop");
+        const artifactPath = path.join(artifactDir, `${topic.slug}-hero.png`);
+        writeJpegLikeArtifact(artifactPath);
+        fs.writeFileSync(
+          path.join(artifactDir, "manifest.json"),
+          JSON.stringify({ images: [{ file: path.basename(artifactPath), slug: "huginn-monitoring-automation-agent" }] }, null, 2),
+          "utf8",
+        );
+        return findCodexImageArtifact(root, topic, state, { artifactDir });
+      }),
     (error) => error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_SLUG_MISMATCH",
   );
 });
@@ -234,11 +347,14 @@ test("manifest slug mismatch blocks artifact-dir selection", () => {
 test("unsupported artifact extension blocks selection", () => {
   const root = tempSeriesRoot();
   const { state, topic } = nodeRedTopic();
-  const artifactPath = path.join(root, "outside-user-drop", `${topic.slug}-hero.gif`);
-  writeJpegLikeArtifact(artifactPath);
 
   assert.throws(
-    () => findCodexImageArtifact(root, topic, state, { explicitArtifact: artifactPath }),
+    () =>
+      withIsolatedGeneratedImagesDir(root, (generatedRoot) => {
+        const artifactPath = path.join(generatedRoot, `${topic.slug}-hero.gif`);
+        writeJpegLikeArtifact(artifactPath);
+        return findCodexImageArtifact(root, topic, state, { explicitArtifact: artifactPath });
+      }),
     (error) => error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_UNSUPPORTED_FORMAT",
   );
 });
@@ -246,11 +362,14 @@ test("unsupported artifact extension blocks selection", () => {
 test("tiny image-like artifacts are rejected as placeholder-like", () => {
   const root = tempSeriesRoot();
   const { state, topic } = nodeRedTopic();
-  const artifactPath = path.join(root, "artifacts", "codex-images", `${topic.slug}-hero.jpg`);
-  writeJpegLikeArtifact(artifactPath, 128);
 
   assert.throws(
-    () => withIsolatedGeneratedImagesDir(root, () => findCodexImageArtifact(root, topic, state, { useLatestCodexArtifact: true })),
+    () =>
+      withIsolatedGeneratedImagesDir(root, (generatedRoot) => {
+        const artifactPath = path.join(generatedRoot, `${topic.slug}-hero.jpg`);
+        writeJpegLikeArtifact(artifactPath, 128);
+        return findCodexImageArtifact(root, topic, state, { useLatestCodexArtifact: true });
+      }),
     (error) => error instanceof ContentSeriesError && error.code === "CODEX_ARTIFACT_PLACEHOLDER_REJECTED",
   );
 });
