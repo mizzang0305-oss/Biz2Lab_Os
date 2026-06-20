@@ -1,0 +1,84 @@
+{
+  "series": "free-open-source-automation-tools",
+  "title": "무료 오픈소스 자동화 도구 시리즈",
+  "currentTopic": "node-red-local-business-automation-server",
+  "completed": [
+    "opencut-free-open-source-video-editor-ai-content-automation",
+    "free-open-source-automation-tools-series",
+    "activepieces-ai-business-automation-n8n-alternative"
+  ],
+  "next": [
+    "node-red-local-business-automation-server",
+    "huginn-monitoring-automation-agent",
+    "baserow-open-source-database-automation",
+    "appsmith-internal-dashboard-automation",
+    "windmill-developer-workflow-automation",
+    "kestra-data-ai-workflow-orchestration"
+  ],
+  "gates": {
+    "manualDeploy": false,
+    "autoMerge": false,
+    "dbWrite": false,
+    "externalBusinessApi": false,
+    "placeholderImages": false,
+    "requireRealHeroImage": true,
+    "requireProductionSmokeAfterMerge": true
+  },
+  "imagePolicy": {
+    "rawDirectory": "assets/images/raw",
+    "publicDirectory": "public/images/posts",
+    "rawFilenamePattern": "<slug>-hero.jpg",
+    "publicFilenamePattern": "<slug>-hero.webp",
+    "requireSlugInFilename": true,
+    "rejectPlaceholderTerms": [
+      "placeholder",
+      "dummy",
+      "fake",
+      "sample",
+      "blank",
+      "empty"
+    ],
+    "allowedArtifactExtensions": [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".webp"
+    ],
+    "artifactSearchRoots": [
+      "artifacts/codex-images",
+      "artifacts/content-series",
+      "generated/content-series",
+      "tmp/content-series-images"
+    ]
+  },
+  "validationPolicy": {
+    "requiredCommands": [
+      "npm run image-skill:plan",
+      "npm run image-skill:validate",
+      "npm run optimize-images",
+      "npm run validate:posts",
+      "npm run validate:images",
+      "npm test",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build",
+      "npm run check:links",
+      "npm run validate:seo",
+      "npm run audit:image-briefs",
+      "npm run audit:image-prompts",
+      "npm run audit:content-authority",
+      "git diff --check"
+    ],
+    "allowValidationBypass": false,
+    "requireValidatePostsCountUpdateWhenPublishing": true
+  },
+  "mergePolicy": {
+    "branchPattern": "codex/<topic-slug>-automation-series-article",
+    "commitMessagePattern": "feat(content): publish <tool-name> automation analysis article",
+    "createPullRequest": true,
+    "targetBranch": "master",
+    "autoMerge": false,
+    "manualDeploy": false,
+    "requireOwnerMerge": true
+  }
+}

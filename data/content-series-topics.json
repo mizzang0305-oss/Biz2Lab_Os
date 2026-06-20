@@ -1,0 +1,604 @@
+{
+  "series": "free-open-source-automation-tools",
+  "topics": [
+    {
+      "id": "node-red",
+      "toolName": "Node-RED",
+      "slug": "node-red-local-business-automation-server",
+      "title": "Node-RED 분석: 로컬 서버 자동화와 소상공인 업무 연결에 쓸 수 있을까?",
+      "description": "Node-RED를 무료 오픈소스 자동화 도구 관점에서 분석합니다. 로컬 서버, 이벤트 흐름, 소상공인 업무 자동화 적용 가능성과 리스크를 정리합니다.",
+      "tags": [
+        "Node-RED",
+        "오픈소스",
+        "업무자동화",
+        "로컬서버",
+        "소상공인자동화",
+        "Biz2Lab",
+        "MyBiz"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Node-RED official website",
+          "url": "https://nodered.org/",
+          "usage": "product positioning and documentation entry point"
+        },
+        {
+          "label": "Node-RED GitHub repository",
+          "url": "https://github.com/node-red/node-red",
+          "usage": "source, activity, and license verification"
+        },
+        {
+          "label": "Node-RED documentation",
+          "url": "https://nodered.org/docs/",
+          "usage": "installation and flow-based programming verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: 로컬 업무 자동화 테스트 후보",
+          "points": [
+            "Node-RED는 이벤트와 작업 흐름을 시각적으로 연결하는 자동화 도구로 볼 수 있다.",
+            "회사 핵심 운영 서버로 바로 쓰기보다 로컬 서버와 내부 업무 자동화 실험부터 시작한다.",
+            "Biz2Lab 관점에서는 문의 수집, 파일 처리, 알림 전 단계, 콘텐츠 제작 요청 흐름에 붙일 수 있다."
+          ]
+        },
+        {
+          "heading": "Node-RED는 무엇인가?",
+          "points": [
+            "공식 문서와 저장소 기준으로 확인 가능한 범위에서 설명한다.",
+            "flow 기반 자동화, Node.js 런타임, 로컬 또는 서버 운영 가능성을 다룬다.",
+            "라이선스와 운영 방식은 공식 GitHub에서 확인한 내용만 단정한다."
+          ]
+        },
+        {
+          "heading": "소상공인 업무 자동화에 적용한다면",
+          "points": [
+            "전단 이미지, 문의 폼, Google Sheets, 파일 감지, 웹훅을 연결하는 흐름을 예로 든다.",
+            "MyBiz에서는 사람이 반복해서 넘기던 입력과 확인 작업을 줄이는 후보로 본다.",
+            "외부 발송이나 고객 메시지는 별도 승인 게이트가 필요하다고 명시한다."
+          ]
+        },
+        {
+          "heading": "리스크와 검증 체크리스트",
+          "points": [
+            "서버 보안, 접근 제어, credential 관리, 백업, 노드 의존성 유지보수를 점검한다.",
+            "상용 운영 전에는 인증, 로그, 장애 복구, 권한 분리를 검증한다.",
+            "무료 도구라는 이유만으로 핵심 운영에 바로 투입하지 않는다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "local-automation-flow-map",
+        "altKo": "Node-RED를 로컬 서버 업무 자동화 관점에서 분석한 대표 이미지",
+        "captionKo": "Node-RED는 로컬 서버와 내부 업무 흐름을 연결하는 자동화 테스트 후보로 볼 수 있다.",
+        "promptSummaryKo": "어두운 서버실이 아닌 밝은 업무 자동화 워크스페이스. 로컬 서버, 웹훅, 전단 이미지, 스프레드시트, 콘텐츠 요청, 검증 게이트가 흐름도로 연결된 16:9 고해상도 블로그 히어로 이미지.",
+        "mustInclude": [
+          "local server",
+          "flow nodes",
+          "business form",
+          "spreadsheet",
+          "content request",
+          "approval gate"
+        ],
+        "mustAvoid": [
+          "official Node-RED logo",
+          "third-party logos",
+          "dense UI text",
+          "placeholder graphics"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "activepieces-ai-business-automation-n8n-alternative",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "activepieces-ai-business-automation-n8n-alternative",
+          "opencut-free-open-source-video-editor-ai-content-automation"
+        ]
+      },
+      "safetyNotes": [
+        "Do not send customer messages or notifications from generated flows.",
+        "Do not expose credentials or environment variables in screenshots or article text.",
+        "Treat external API calls as a separate approval-gated implementation step."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current license from the official GitHub repository before publication.",
+        "Separate open-source software license from any hosted service terms.",
+        "Do not claim unlimited commercial usage without source-backed confirmation."
+      ]
+    },
+    {
+      "id": "huginn",
+      "toolName": "Huginn",
+      "slug": "huginn-monitoring-automation-agent",
+      "title": "Huginn 분석: 웹 모니터링 자동화 에이전트를 업무에 붙일 수 있을까?",
+      "description": "Huginn을 웹 모니터링과 조건 기반 자동화 도구로 분석합니다. 가격 변화, RSS, 페이지 변경 감지와 업무 자동화 적용 리스크를 정리합니다.",
+      "tags": [
+        "Huginn",
+        "오픈소스",
+        "모니터링자동화",
+        "업무자동화",
+        "소상공인자동화",
+        "Biz2Lab"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Huginn GitHub repository",
+          "url": "https://github.com/huginn/huginn",
+          "usage": "official source, setup, and license verification"
+        },
+        {
+          "label": "Huginn wiki",
+          "url": "https://github.com/huginn/huginn/wiki",
+          "usage": "agent examples and operating model verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: 감시와 수집 자동화 후보",
+          "points": [
+            "Huginn은 조건 기반 에이전트로 웹 변화와 이벤트를 감지하는 도구로 다룬다.",
+            "마케팅 소재 수집, 가격 변화 확인, RSS 요약 후보로 검증한다.",
+            "실운영 알림과 메시지 발송은 별도 승인 게이트로 분리한다."
+          ]
+        },
+        {
+          "heading": "Huginn은 무엇인가?",
+          "points": [
+            "공식 GitHub 저장소와 wiki 기준으로 agent 개념을 설명한다.",
+            "self-host 운영, 데이터 수집, 조건 처리 구조를 다룬다.",
+            "라이선스와 유지보수 상태는 공식 저장소 기준으로 확인한다."
+          ]
+        },
+        {
+          "heading": "Biz2Lab 적용 시나리오",
+          "points": [
+            "뉴스, 가격, 페이지 변경, RSS 감지 후 블로그 소재 후보로 정리한다.",
+            "사람이 확인한 뒤 콘텐츠 자동화 파이프라인에 넘기는 반자동 구조를 권장한다.",
+            "크롤링 정책과 사이트 약관을 준수해야 한다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "monitoring-agent-map",
+        "altKo": "Huginn을 웹 모니터링 자동화 에이전트 관점에서 분석한 대표 이미지",
+        "captionKo": "Huginn은 웹 변화와 이벤트를 수집해 콘텐츠와 업무 자동화 소재로 넘기는 후보 도구다.",
+        "promptSummaryKo": "웹 페이지 변화, RSS, 가격 카드, 이벤트 에이전트, 승인 게이트가 연결된 업무 모니터링 자동화 지도형 히어로 이미지.",
+        "mustInclude": [
+          "web monitoring",
+          "agent cards",
+          "RSS feed",
+          "price change",
+          "approval gate"
+        ],
+        "mustAvoid": [
+          "official Huginn logo",
+          "spider or crawler mascot",
+          "scraped brand pages",
+          "dense text"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "node-red-local-business-automation-server",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "node-red-local-business-automation-server",
+          "activepieces-ai-business-automation-n8n-alternative"
+        ]
+      },
+      "safetyNotes": [
+        "Do not encourage scraping that violates robots, terms, or access controls.",
+        "Do not send outbound alerts without a separate approval gate.",
+        "Do not store sensitive customer data in monitoring examples."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current repository license before publication.",
+        "Distinguish self-host usage from any third-party hosted wrapper.",
+        "Avoid implying that monitored third-party data can be reused commercially without permission."
+      ]
+    },
+    {
+      "id": "baserow",
+      "toolName": "Baserow",
+      "slug": "baserow-open-source-database-automation",
+      "title": "Baserow 분석: 오픈소스 데이터베이스 자동화 도구로 쓸 수 있을까?",
+      "description": "Baserow를 Airtable 대안과 업무 데이터베이스 자동화 관점에서 분석합니다. 고객 목록, 콘텐츠 캘린더, 상품 관리에 맞는지 검토합니다.",
+      "tags": [
+        "Baserow",
+        "오픈소스",
+        "데이터베이스자동화",
+        "Airtable대안",
+        "업무자동화",
+        "MyBiz"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Baserow official website",
+          "url": "https://baserow.io/",
+          "usage": "product positioning and edition verification"
+        },
+        {
+          "label": "Baserow GitHub repository",
+          "url": "https://github.com/baserow/baserow",
+          "usage": "source, activity, and license verification"
+        },
+        {
+          "label": "Baserow documentation",
+          "url": "https://baserow.io/docs",
+          "usage": "API, self-host, and database workflow verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: 작은 업무 DB 후보",
+          "points": [
+            "Baserow는 스프레드시트형 업무 데이터베이스 후보로 분석한다.",
+            "고객, 상품, 콘텐츠 캘린더, 요청 목록을 구조화하는 데 의미가 있다.",
+            "자동화 엔진이라기보다 자동화 파이프라인의 데이터 레이어로 본다."
+          ]
+        },
+        {
+          "heading": "Baserow는 무엇인가?",
+          "points": [
+            "공식 사이트, 문서, 저장소 기준으로 Airtable 대안 성격을 설명한다.",
+            "self-host, API, 권한, 데이터 모델을 실무 관점에서 확인한다.",
+            "오픈소스/유료 기능 범위를 구분한다."
+          ]
+        },
+        {
+          "heading": "MyBiz 적용 시나리오",
+          "points": [
+            "상품 정보, 행사 문구, 블로그 소재, 쇼츠 제작 요청의 단일 입력 테이블로 사용한다.",
+            "Activepieces, Node-RED, OpenCut 같은 도구와 연결되는 데이터 원천으로 평가한다.",
+            "백업, 권한, 개인정보 보관 정책을 먼저 설계한다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "business-database-automation-board",
+        "altKo": "Baserow를 업무 데이터베이스 자동화 관점에서 분석한 대표 이미지",
+        "captionKo": "Baserow는 고객, 상품, 콘텐츠 데이터를 자동화 파이프라인에 넘기는 데이터 레이어 후보로 볼 수 있다.",
+        "promptSummaryKo": "업무 데이터베이스 보드, 고객 목록, 상품 정보, 콘텐츠 캘린더, 자동화 연결선이 정돈된 16:9 히어로 이미지.",
+        "mustInclude": [
+          "database grid",
+          "customer table",
+          "content calendar",
+          "automation connector",
+          "permission badge"
+        ],
+        "mustAvoid": [
+          "official Baserow logo",
+          "Airtable logo",
+          "real customer data",
+          "dense table text"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "huginn-monitoring-automation-agent",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "huginn-monitoring-automation-agent",
+          "activepieces-ai-business-automation-n8n-alternative"
+        ]
+      },
+      "safetyNotes": [
+        "Do not include real customer data in examples.",
+        "Do not claim a database is privacy-safe without deployment and access-control verification.",
+        "Backups and permission roles must be treated as production gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify current open-source edition and hosted service terms before publication.",
+        "Separate community source code from paid cloud or enterprise features.",
+        "Do not imply every feature shown in marketing is included in a free self-host install."
+      ]
+    },
+    {
+      "id": "appsmith",
+      "toolName": "Appsmith",
+      "slug": "appsmith-internal-dashboard-automation",
+      "title": "Appsmith 분석: 내부 관리자 화면과 업무 자동화 대시보드에 쓸 수 있을까?",
+      "description": "Appsmith를 오픈소스 내부 도구 빌더 관점에서 분석합니다. 관리자 화면, 업무 대시보드, MyBiz 운영 자동화 적용 가능성을 정리합니다.",
+      "tags": [
+        "Appsmith",
+        "오픈소스",
+        "내부도구",
+        "대시보드자동화",
+        "업무자동화",
+        "Biz2Lab"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Appsmith official website",
+          "url": "https://www.appsmith.com/",
+          "usage": "product positioning and edition verification"
+        },
+        {
+          "label": "Appsmith GitHub repository",
+          "url": "https://github.com/appsmithorg/appsmith",
+          "usage": "source, license, and release verification"
+        },
+        {
+          "label": "Appsmith documentation",
+          "url": "https://docs.appsmith.com/",
+          "usage": "data source and app builder capability verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: 내부 운영 화면 후보",
+          "points": [
+            "Appsmith는 고객-facing 앱보다 내부 관리자 화면 후보로 먼저 본다.",
+            "MyBiz에서는 문의, 콘텐츠 요청, 작업 상태, 매출 보조 데이터를 보는 대시보드에 적합할 수 있다.",
+            "권한, 데이터 연결, 배포 보안을 검증하기 전에는 핵심 운영 화면으로 고정하지 않는다."
+          ]
+        },
+        {
+          "heading": "Appsmith는 무엇인가?",
+          "points": [
+            "공식 자료 기준으로 내부 도구 빌더와 데이터 소스 연결 방식을 설명한다.",
+            "오픈소스 저장소와 라이선스 정보를 확인한다.",
+            "유료 기능과 self-host 범위를 구분한다."
+          ]
+        },
+        {
+          "heading": "Biz2Lab 적용 시나리오",
+          "points": [
+            "콘텐츠 제작 요청, 고객 문의, 자동화 실행 로그를 한 화면에서 확인한다.",
+            "Baserow 또는 DB와 연결해 운영자가 승인해야 하는 작업을 정리한다.",
+            "자동 실행보다 운영자 확인과 승인 화면에 초점을 둔다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "internal-dashboard-builder",
+        "altKo": "Appsmith를 내부 관리자 화면 자동화 관점에서 분석한 대표 이미지",
+        "captionKo": "Appsmith는 자동화 결과를 사람이 검토하고 승인하는 내부 운영 화면 후보로 볼 수 있다.",
+        "promptSummaryKo": "운영자가 보는 내부 대시보드, 작업 승인 카드, 데이터 소스 연결, 자동화 로그가 정돈된 고급 업무형 히어로 이미지.",
+        "mustInclude": [
+          "internal dashboard",
+          "approval cards",
+          "data source",
+          "automation log",
+          "operator view"
+        ],
+        "mustAvoid": [
+          "official Appsmith logo",
+          "real company data",
+          "marketing hero split layout",
+          "dense tiny text"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "baserow-open-source-database-automation",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "baserow-open-source-database-automation",
+          "activepieces-ai-business-automation-n8n-alternative"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production databases in examples.",
+        "Do not expose admin secrets or customer records.",
+        "Treat authentication, role access, and audit logs as production gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify current repository license before publication.",
+        "Separate open-source code from cloud and enterprise features.",
+        "Avoid claiming every connector or permission feature is free."
+      ]
+    },
+    {
+      "id": "windmill",
+      "toolName": "Windmill",
+      "slug": "windmill-developer-workflow-automation",
+      "title": "Windmill 분석: 개발자형 업무 자동화와 내부 앱에 쓸 수 있을까?",
+      "description": "Windmill을 스크립트, 워크플로, 내부 앱 자동화 관점에서 분석합니다. 개발자 친화 자동화 도구가 Biz2Lab 업무에 맞는지 검토합니다.",
+      "tags": [
+        "Windmill",
+        "오픈소스",
+        "개발자자동화",
+        "워크플로자동화",
+        "내부앱",
+        "Biz2Lab"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Windmill official website",
+          "url": "https://www.windmill.dev/",
+          "usage": "product positioning and edition verification"
+        },
+        {
+          "label": "Windmill GitHub repository",
+          "url": "https://github.com/windmill-labs/windmill",
+          "usage": "source and license verification"
+        },
+        {
+          "label": "Windmill documentation",
+          "url": "https://www.windmill.dev/docs/intro",
+          "usage": "script, workflow, app, and self-host verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: 개발자형 자동화 후보",
+          "points": [
+            "Windmill은 no-code 추천 도구보다 개발자형 workflow와 script 운영에 가깝다.",
+            "반복 리포트, 내부 작업, 승인 흐름, 간단한 내부 앱에 맞는지 검증한다.",
+            "라이선스와 enterprise 기능 구분을 명확히 확인한다."
+          ]
+        },
+        {
+          "heading": "Windmill은 무엇인가?",
+          "points": [
+            "공식 문서 기준으로 script, flow, app 구조를 설명한다.",
+            "개발자 친화성이 높은 만큼 운영 난이도도 함께 다룬다.",
+            "오픈소스 라이선스와 상용 기능을 분리한다."
+          ]
+        },
+        {
+          "heading": "Biz2Lab 적용 시나리오",
+          "points": [
+            "매주 반복되는 리포트, 콘텐츠 상태 점검, 내부 승인 작업을 자동화 후보로 본다.",
+            "관리자 화면보다 자동 실행과 작업 큐에 강한 후보로 평가한다.",
+            "실패 재시도, 로그, 권한, 비밀값 관리를 먼저 검증한다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "developer-workflow-control-room",
+        "altKo": "Windmill을 개발자형 업무 자동화 관점에서 분석한 대표 이미지",
+        "captionKo": "Windmill은 스크립트와 워크플로를 묶어 내부 자동화를 실행하는 개발자형 후보 도구다.",
+        "promptSummaryKo": "코드 스크립트, 워크플로 타임라인, 내부 앱 패널, 실행 로그, 승인 게이트가 결합된 업무 자동화 컨트롤룸 이미지.",
+        "mustInclude": [
+          "script runner",
+          "workflow timeline",
+          "internal app panel",
+          "execution log",
+          "approval gate"
+        ],
+        "mustAvoid": [
+          "official Windmill logo",
+          "real code secrets",
+          "terminal-only screenshot",
+          "dense text"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "appsmith-internal-dashboard-automation",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "appsmith-internal-dashboard-automation",
+          "activepieces-ai-business-automation-n8n-alternative"
+        ]
+      },
+      "safetyNotes": [
+        "Do not include real secrets in scripts or screenshots.",
+        "Do not run production jobs from examples.",
+        "Treat logs, retries, permissions, and secret storage as required gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify current license by component before publication.",
+        "Windmill licensing and enterprise boundaries may differ by edition or feature.",
+        "Avoid claiming unrestricted commercial use without official-source confirmation."
+      ]
+    },
+    {
+      "id": "kestra",
+      "toolName": "Kestra",
+      "slug": "kestra-data-ai-workflow-orchestration",
+      "title": "Kestra 분석: 데이터와 AI 워크플로 오케스트레이션에 쓸 수 있을까?",
+      "description": "Kestra를 데이터, AI, 업무 워크플로 오케스트레이션 관점에서 분석합니다. 소상공인보다 SaaS 운영 자동화에 가까운지 검토합니다.",
+      "tags": [
+        "Kestra",
+        "오픈소스",
+        "워크플로오케스트레이션",
+        "데이터자동화",
+        "AI자동화",
+        "Biz2Lab"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Kestra official website",
+          "url": "https://kestra.io/",
+          "usage": "product positioning and edition verification"
+        },
+        {
+          "label": "Kestra GitHub repository",
+          "url": "https://github.com/kestra-io/kestra",
+          "usage": "source and license verification"
+        },
+        {
+          "label": "Kestra documentation",
+          "url": "https://kestra.io/docs",
+          "usage": "workflow orchestration and deployment verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: 고도화 단계의 오케스트레이션 후보",
+          "points": [
+            "Kestra는 단순 업무 자동화보다 데이터와 AI workflow orchestration에 가깝다.",
+            "소상공인 단독 도구보다 SaaS 운영자와 자동화 설계자에게 더 맞을 수 있다.",
+            "Biz2Lab에서는 콘텐츠 자동화가 데이터 파이프라인으로 커질 때 검토한다."
+          ]
+        },
+        {
+          "heading": "Kestra는 무엇인가?",
+          "points": [
+            "공식 문서 기준으로 workflow orchestration 개념을 설명한다.",
+            "데이터 파이프라인, 스케줄, 이벤트, 플러그인 구조를 실무 관점에서 다룬다.",
+            "라이선스와 cloud/enterprise 범위를 공식 출처로 확인한다."
+          ]
+        },
+        {
+          "heading": "Biz2Lab 적용 시나리오",
+          "points": [
+            "블로그, 쇼츠, CRM, 리포트 자동화가 여러 단계로 커질 때 중앙 오케스트레이터 후보로 본다.",
+            "작은 사업장에는 과할 수 있으므로 단계별 도입 기준을 제시한다.",
+            "모니터링, 재시도, 실행 이력, 권한 설계가 핵심 검증 항목이다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "data-ai-orchestration-map",
+        "altKo": "Kestra를 데이터와 AI 워크플로 오케스트레이션 관점에서 분석한 대표 이미지",
+        "captionKo": "Kestra는 여러 자동화 흐름이 커졌을 때 중앙에서 실행과 이력을 관리하는 후보 도구다.",
+        "promptSummaryKo": "데이터 파이프라인, AI 작업, 콘텐츠 생성, 리포트, 실행 이력이 중앙 오케스트레이터로 연결된 고급 업무 자동화 히어로 이미지.",
+        "mustInclude": [
+          "workflow orchestration",
+          "data pipeline",
+          "AI task",
+          "content output",
+          "execution history"
+        ],
+        "mustAvoid": [
+          "official Kestra logo",
+          "cloud vendor logos",
+          "fake monitoring data",
+          "dense code"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "windmill-developer-workflow-automation",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "windmill-developer-workflow-automation",
+          "activepieces-ai-business-automation-n8n-alternative"
+        ]
+      },
+      "safetyNotes": [
+        "Do not describe production data pipeline changes as one-click safe.",
+        "Do not expose secrets, customer data, or infrastructure identifiers.",
+        "Treat scheduled jobs and external integrations as approval-gated."
+      ],
+      "licenseCautionNotes": [
+        "Verify current Apache/community and paid-feature boundaries before publication.",
+        "Separate open-source repository claims from cloud service claims.",
+        "Avoid claiming small-business fit without qualifying operational complexity."
+      ]
+    }
+  ]
+}

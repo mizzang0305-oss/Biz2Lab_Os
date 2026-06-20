@@ -1,0 +1,854 @@
+import { execFileSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+
+import sharp from "sharp";
+
+import type { ImageBrief } from "@/lib/image-generation/types";
+
+type SeriesGates = {
+  manualDeploy: boolean;
+  autoMerge: boolean;
+  dbWrite: boolean;
+  externalBusinessApi: boolean;
+  placeholderImages: boolean;
+  requireRealHeroImage: boolean;
+  requireProductionSmokeAfterMerge: boolean;
+};
+
+type ImagePolicy = {
+  rawDirectory: string;
+  publicDirectory: string;
+  rawFilenamePattern: string;
+  publicFilenamePattern: string;
+  requireSlugInFilename: boolean;
+  rejectPlaceholderTerms: string[];
+  allowedArtifactExtensions: string[];
+  artifactSearchRoots: string[];
+};
+
+export type ContentSeriesState = {
+  series: string;
+  title: string;
+  currentTopic: string;
+  completed: string[];
+  next: string[];
+  gates: SeriesGates;
+  imagePolicy: ImagePolicy;
+  validationPolicy: {
+    requiredCommands: string[];
+    allowValidationBypass: boolean;
+    requireValidatePostsCountUpdateWhenPublishing: boolean;
+  };
+  mergePolicy: {
+    branchPattern: string;
+    commitMessagePattern: string;
+    createPullRequest: boolean;
+    targetBranch: string;
+    autoMerge: boolean;
+    manualDeploy: boolean;
+    requireOwnerMerge: boolean;
+  };
+};
+
+export type ContentSeriesTopic = {
+  id: string;
+  toolName: string;
+  slug: string;
+  title: string;
+  description: string;
+  tags: string[];
+  category: "automation";
+  cluster: "open-source-automation-tools";
+  type: "how-to" | "pillar" | "cluster" | "checklist" | "case-study";
+  officialSources: {
+    label: string;
+    url: string;
+    usage: string;
+  }[];
+  articleOutline: {
+    heading: string;
+    points: string[];
+  }[];
+  imageConcept: {
+    visualFamily: string;
+    altKo: string;
+    captionKo: string;
+    promptSummaryKo: string;
+    mustInclude: string[];
+    mustAvoid: string[];
+  };
+  internalLinks: {
+    seriesHub: string;
+    previous: string;
+    required: string[];
+  };
+  safetyNotes: string[];
+  licenseCautionNotes: string[];
+};
+
+type TopicFile = {
+  series: string;
+  topics: ContentSeriesTopic[];
+};
+
+type CliOptions = {
+  rootDir?: string;
+  topic?: string;
+  planOnly?: boolean;
+  noCommit?: boolean;
+  noPr?: boolean;
+  artifact?: string;
+};
+
+type ImagePaths = {
+  rawRepoPath: string;
+  publicRepoPath: string;
+  requestRepoPath: string;
+  promptRepoPath: string;
+  generatedBriefRepoPath: string;
+  articleRepoPath: string;
+};
+
+export type ContentSeriesPlan = {
+  topic: ContentSeriesTopic;
+  branchName: string;
+  commitMessage: string;
+  imagePaths: ImagePaths;
+  internalLinkRoutes: string[];
+  validationCommands: string[];
+  publicationBlockers: string[];
+};
+
+export type ContentSeriesResult = {
+  status: "PLAN" | "PASS";
+  plan: ContentSeriesPlan;
+  importedImage?: {
+    source: string;
+    target: string;
+    width: number;
+    height: number;
+    format?: string;
+  };
+  publicImage?: {
+    path: string;
+    width?: number;
+    height?: number;
+    format?: string;
+  };
+  commit?: string;
+  prUrl?: string;
+};
+
+export const CONTENT_SERIES_VALIDATION_COMMANDS = [
+  "npm run image-skill:plan",
+  "npm run image-skill:validate",
+  "npm run optimize-images",
+  "npm run validate:posts",
+  "npm run validate:images",
+  "npm test",
+  "npm run lint",
+  "npm run typecheck",
+  "npm run build",
+  "npm run check:links",
+  "npm run validate:seo",
+  "npm run audit:image-briefs",
+  "npm run audit:image-prompts",
+  "npm run audit:content-authority",
+  "git diff --check",
+] as const;
+
+export class ContentSeriesError extends Error {
+  code: string;
+
+  constructor(code: string, message: string) {
+    super(message);
+    this.name = "ContentSeriesError";
+    this.code = code;
+  }
+}
+
+function repoPath(...parts: string[]) {
+  return parts.join("/").replaceAll("\\", "/");
+}
+
+function absolutePath(rootDir: string, repoRelativePath: string) {
+  return path.join(rootDir, ...repoRelativePath.split("/"));
+}
+
+function readJsonFile<T>(rootDir: string, repoRelativePath: string): T {
+  return JSON.parse(fs.readFileSync(absolutePath(rootDir, repoRelativePath), "utf8")) as T;
+}
+
+function writeJsonFile(rootDir: string, repoRelativePath: string, value: unknown) {
+  const targetPath = absolutePath(rootDir, repoRelativePath);
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+  fs.writeFileSync(targetPath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+}
+
+function writeTextFile(rootDir: string, repoRelativePath: string, value: string) {
+  const targetPath = absolutePath(rootDir, repoRelativePath);
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+  fs.writeFileSync(targetPath, value, "utf8");
+}
+
+function appendTextFile(rootDir: string, repoRelativePath: string, value: string) {
+  const targetPath = absolutePath(rootDir, repoRelativePath);
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+  fs.appendFileSync(targetPath, value, "utf8");
+}
+
+function assertStringArray(label: string, value: unknown) {
+  if (!Array.isArray(value) || value.some((item) => typeof item !== "string" || item.length === 0)) {
+    throw new ContentSeriesError("INVALID_CONFIG", `${label} must be a non-empty string array`);
+  }
+}
+
+export function readContentSeriesState(rootDir = process.cwd()) {
+  const state = readJsonFile<ContentSeriesState>(rootDir, "data/content-series-state.json");
+  if (!state.series || !state.currentTopic) {
+    throw new ContentSeriesError("INVALID_CONFIG", "content-series-state requires series and currentTopic");
+  }
+  assertStringArray("completed", state.completed);
+  assertStringArray("next", state.next);
+  if (state.gates.manualDeploy || state.gates.autoMerge || state.gates.dbWrite || state.gates.externalBusinessApi) {
+    throw new ContentSeriesError("UNSAFE_SERIES_GATES", "series gates must block deploy, auto-merge, DB writes, and external business APIs");
+  }
+  if (!state.gates.requireRealHeroImage || state.gates.placeholderImages) {
+    throw new ContentSeriesError("UNSAFE_IMAGE_GATES", "series gates must require real hero images and reject placeholders");
+  }
+  return state;
+}
+
+export function readContentSeriesTopics(rootDir = process.cwd()) {
+  const payload = readJsonFile<TopicFile>(rootDir, "data/content-series-topics.json");
+  if (!Array.isArray(payload.topics) || payload.topics.length === 0) {
+    throw new ContentSeriesError("INVALID_CONFIG", "content-series-topics requires a non-empty topics array");
+  }
+  for (const topic of payload.topics) {
+    if (!topic.id || !topic.slug || !topic.title || !topic.description || !topic.toolName) {
+      throw new ContentSeriesError("INVALID_CONFIG", `topic ${topic.id || topic.slug || "unknown"} is missing required fields`);
+    }
+    if (!topic.slug.match(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)) {
+      throw new ContentSeriesError("INVALID_CONFIG", `${topic.slug}: slug must be lowercase kebab-case`);
+    }
+    if (!topic.imageConcept.altKo || !topic.imageConcept.captionKo || !topic.imageConcept.promptSummaryKo) {
+      throw new ContentSeriesError("INVALID_CONFIG", `${topic.slug}: image concept is incomplete`);
+    }
+    if (topic.officialSources.length < 1) {
+      throw new ContentSeriesError("INVALID_CONFIG", `${topic.slug}: official sources are required`);
+    }
+  }
+  return payload;
+}
+
+export function resolveContentSeriesTopic(
+  topics: ContentSeriesTopic[],
+  state: ContentSeriesState,
+  topicKey?: string,
+) {
+  const requestedTopic = topicKey ?? state.currentTopic ?? state.next[0];
+  const topic = topics.find((candidate) => candidate.id === requestedTopic || candidate.slug === requestedTopic);
+  if (!topic) {
+    throw new ContentSeriesError("TOPIC_NOT_FOUND", `Unknown content series topic: ${requestedTopic}`);
+  }
+  return topic;
+}
+
+export function assertTopicCanPublish(
+  state: ContentSeriesState,
+  topic: ContentSeriesTopic,
+  options: { planOnly?: boolean } = {},
+) {
+  if (state.completed.includes(topic.slug)) {
+    throw new ContentSeriesError("TOPIC_ALREADY_COMPLETED", `${topic.slug} is already listed as completed`);
+  }
+
+  if (!state.next.includes(topic.slug)) {
+    throw new ContentSeriesError("TOPIC_NOT_IN_QUEUE", `${topic.slug} is not listed in the next-topic queue`);
+  }
+
+  const blockers: string[] = [];
+  if (state.next[0] !== topic.slug) {
+    blockers.push(`next queue starts with ${state.next[0]}`);
+  }
+  if (topic.internalLinks.previous && !state.completed.includes(topic.internalLinks.previous)) {
+    blockers.push(`previous article is not public yet: ${topic.internalLinks.previous}`);
+  }
+
+  if (blockers.length > 0 && !options.planOnly) {
+    throw new ContentSeriesError("TOPIC_ORDER_BLOCKED", blockers.join("; "));
+  }
+
+  return blockers;
+}
+
+export function buildImagePaths(topic: ContentSeriesTopic): ImagePaths {
+  const id = `${topic.slug}-hero`;
+  return {
+    rawRepoPath: repoPath("assets/images/raw", `${id}.jpg`),
+    publicRepoPath: repoPath("public/images/posts", `${id}.webp`),
+    requestRepoPath: repoPath("image-requests/generated", `${id}.md`),
+    promptRepoPath: repoPath("image-requests/generated", `${id}.prompt.md`),
+    generatedBriefRepoPath: repoPath("image-briefs/generated", `${id}.json`),
+    articleRepoPath: repoPath("content/ko/automation", `${topic.slug}.md`),
+  };
+}
+
+export function buildInternalLinkRoutes(topic: ContentSeriesTopic) {
+  const uniqueSlugs = Array.from(new Set([topic.internalLinks.seriesHub, topic.internalLinks.previous, ...topic.internalLinks.required]));
+  return uniqueSlugs.filter(Boolean).map((slug) => `/ko/automation/${slug}`);
+}
+
+export function buildContentSeriesPlan(
+  state: ContentSeriesState,
+  topic: ContentSeriesTopic,
+  options: { planOnly?: boolean } = {},
+): ContentSeriesPlan {
+  const publicationBlockers = assertTopicCanPublish(state, topic, options);
+  return {
+    topic,
+    branchName: state.mergePolicy.branchPattern.replace("<topic-slug>", topic.slug),
+    commitMessage: state.mergePolicy.commitMessagePattern.replace("<tool-name>", topic.toolName),
+    imagePaths: buildImagePaths(topic),
+    internalLinkRoutes: buildInternalLinkRoutes(topic),
+    validationCommands: [...CONTENT_SERIES_VALIDATION_COMMANDS],
+    publicationBlockers,
+  };
+}
+
+function markdownList(items: string[]) {
+  return items.map((item) => `- ${item}`).join("\n");
+}
+
+function yamlString(value: string) {
+  return `'${value.replaceAll("'", "''")}'`;
+}
+
+export function buildArticleMarkdown(topic: ContentSeriesTopic, publishedAt: string) {
+  const relatedPosts = Array.from(
+    new Set([
+      topic.internalLinks.seriesHub,
+      topic.internalLinks.previous,
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation",
+    ].filter((slug) => slug && slug !== topic.slug)),
+  ).slice(0, 4);
+
+  const outlineSections = topic.articleOutline
+    .map((section) => `## ${section.heading}\n\n${section.points.map((point) => `${point}`).join("\n\n")}`)
+    .join("\n\n");
+
+  const officialSources = topic.officialSources
+    .map((source) => `- [${source.label}](${source.url}) - ${source.usage}`)
+    .join("\n");
+
+  const safetyNotes = markdownList(topic.safetyNotes);
+  const licenseNotes = markdownList(topic.licenseCautionNotes);
+  const internalLinks = buildInternalLinkRoutes(topic)
+    .map((route) => `- [${route.replace("/ko/automation/", "")}](${route})`)
+    .join("\n");
+
+  return `---\ntitle: ${yamlString(topic.title)}\ndescription: ${yamlString(topic.description)}\nslug: ${topic.slug}\nlocale: ko\ncategory: automation\ncluster: open-source-automation-tools\ntype: ${topic.type}\nstatus: published\ndraft: false\nauthor: Biz2Lab\npublishedAt: '${publishedAt}'\nupdatedAt: '${publishedAt}'\ntags:\n${topic.tags.map((tag) => `  - ${tag}`).join("\n")}\nheroImage: /images/posts/${topic.slug}-hero.webp\nheroAlt: ${topic.imageConcept.altKo}\ncanonical: 'https://www.biz2lab.com/ko/automation/${topic.slug}'\nnoindex: false\nrelatedPosts:\n${relatedPosts.map((slug) => `  - ${slug}`).join("\n")}\ntemplateCta: 오픈소스 자동화 도구 검증 체크리스트\nnextStep:\n  label: 자동화 상담 문의\n  href: /ko/contact\n  description: 반복 업무와 콘텐츠 제작 흐름을 실제 운영 기준으로 점검합니다.\nfaq:\n  - question: ${topic.toolName}을 바로 실운영 핵심 도구로 써도 되나요?\n    answer: 바로 고정하기보다 로컬 테스트, 권한, 보안, 백업, 라이선스 확인을 거친 뒤 단계적으로 판단하는 편이 안전합니다.\n  - question: 무료 오픈소스라는 이유만으로 상업적 사용이 가능한가요?\n    answer: 아닙니다. 공식 저장소의 현재 라이선스와 hosted 또는 enterprise 약관을 별도로 확인해야 합니다.\n---\n\n# ${topic.title}\n\n${topic.description}\n\n이 글은 단순한 도구 추천이 아니라 Biz2Lab / MyBiz 관점에서 ${topic.toolName}을 실제 업무 자동화 파이프라인에 붙일 수 있는지 검토하는 분석 글입니다. 무료 여부보다 중요한 것은 라이선스, 운영 안정성, 데이터 보안, 반복 작업 감소 효과입니다.\n\n${outlineSections}\n\n## 공식 출처 확인 포인트\n\n${officialSources}\n\n## Biz2Lab / MyBiz 적용 기준\n\n${topic.toolName}은 자동화 후보 도구입니다. 다만 고객 데이터, 결제, 외부 메시지, 운영 서버에 직접 연결하는 단계는 별도의 승인과 보안 검토가 필요합니다.\n\n### 안전 게이트\n\n${safetyNotes}\n\n### 라이선스 확인 메모\n\n${licenseNotes}\n\n## 무료 오픈소스 자동화 도구 시리즈\n\n${internalLinks}\n\n한 줄 결론은 명확합니다. ${topic.toolName}은 지금 당장 모든 운영을 맡길 완성형 핵심 도구라기보다, Biz2Lab / MyBiz 자동화 파이프라인에 붙일 수 있는지 검증할 후보 도구입니다.\n`;
+}
+
+function buildImageBrief(topic: ContentSeriesTopic): ImageBrief & {
+  filename: string;
+  rawPath: string;
+  visualDifferentiationHint: string;
+} {
+  const paths = buildImagePaths(topic);
+  const includeText = topic.imageConcept.mustInclude.join(", ");
+  const avoidText = topic.imageConcept.mustAvoid.join(", ");
+  return {
+    id: `${topic.slug}-hero`,
+    postSlug: topic.slug,
+    category: "automation",
+    usage: "hero",
+    targetPath: paths.rawRepoPath,
+    optimizedPath: paths.publicRepoPath,
+    altKo: topic.imageConcept.altKo,
+    captionKo: topic.imageConcept.captionKo,
+    style: `${topic.imageConcept.visualFamily}, Korean business editorial raster hero, minimal text, no title inside image`,
+    promptKo: topic.imageConcept.promptSummaryKo,
+    providerPromptKo: `${topic.title} 대표 이미지. ${topic.imageConcept.promptSummaryKo} Include: ${includeText}. No official logos, no real customer data, no placeholder elements.`,
+    negativePromptKo: `${avoidText}, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark`,
+    visualReferenceStyle: "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+    composition: topic.imageConcept.promptSummaryKo,
+    categoryStyle: `automation category visual, ${topic.imageConcept.visualFamily}`,
+    expectedOutput: "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+    textPolicy: "minimal Korean text only; avoid dense text blocks.",
+    localOnly: true,
+    visualDifferentiationHint: `${topic.slug}: ${topic.imageConcept.visualFamily}`,
+    filename: `${topic.slug}-hero.jpg`,
+    rawPath: paths.rawRepoPath,
+  };
+}
+
+export function buildImageRequestMarkdown(topic: ContentSeriesTopic) {
+  const brief = buildImageBrief(topic);
+  return `# ${topic.title} hero image request\n\n- slug: ${topic.slug}\n- raw target: ${brief.targetPath}\n- public target: ${brief.optimizedPath}\n- alt: ${brief.altKo}\n\n## Concept\n\n${topic.imageConcept.promptSummaryKo}\n\n## Must Include\n\n${markdownList(topic.imageConcept.mustInclude)}\n\n## Must Avoid\n\n${markdownList(topic.imageConcept.mustAvoid)}\n\n## Safety\n\n${markdownList(topic.safetyNotes)}\n`;
+}
+
+export function buildImagePromptMarkdown(topic: ContentSeriesTopic) {
+  const brief = buildImageBrief(topic);
+  return `# ${topic.slug}-hero prompt package\n\n## Provider prompt\n\n${brief.providerPromptKo}\n\n## Negative prompt\n\n${brief.negativePromptKo}\n\n## Text policy\n\n${brief.textPolicy}\n\n## Output\n\n- Raw: ${brief.targetPath}\n- Optimized: ${brief.optimizedPath}\n`;
+}
+
+function writeImagePromptPackage(rootDir: string, topic: ContentSeriesTopic) {
+  const paths = buildImagePaths(topic);
+  const brief = buildImageBrief(topic);
+  writeTextFile(rootDir, paths.requestRepoPath, buildImageRequestMarkdown(topic));
+  writeTextFile(rootDir, paths.promptRepoPath, buildImagePromptMarkdown(topic));
+  writeJsonFile(rootDir, paths.generatedBriefRepoPath, brief);
+  return brief;
+}
+
+function collectFiles(directory: string): string[] {
+  if (!fs.existsSync(directory)) {
+    return [];
+  }
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const fullPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      return collectFiles(fullPath);
+    }
+    return entry.isFile() ? [fullPath] : [];
+  });
+}
+
+function hasImageMagic(filePath: string) {
+  const buffer = fs.readFileSync(filePath);
+  if (buffer.length < 12) {
+    return false;
+  }
+  const header = buffer.subarray(0, 12);
+  return (
+    (header[0] === 0xff && header[1] === 0xd8) ||
+    header.subarray(0, 4).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47])) ||
+    (header.subarray(0, 4).toString("ascii") === "RIFF" && header.subarray(8, 12).toString("ascii") === "WEBP")
+  );
+}
+
+export function assertValidCodexImageArtifact(
+  filePath: string,
+  topic: ContentSeriesTopic,
+  state: ContentSeriesState,
+) {
+  if (!fs.existsSync(filePath)) {
+    throw new ContentSeriesError("CODEX_GENERATED_IMAGE_ARTIFACT_MISSING", `Image artifact does not exist: ${filePath}`);
+  }
+
+  const stat = fs.statSync(filePath);
+  const ext = path.extname(filePath).toLowerCase();
+  const basename = path.basename(filePath).toLowerCase();
+  const allowedExtensions = new Set(state.imagePolicy.allowedArtifactExtensions.map((value) => value.toLowerCase()));
+
+  if (!allowedExtensions.has(ext)) {
+    throw new ContentSeriesError("INVALID_CODEX_IMAGE_ARTIFACT", `${filePath}: unsupported artifact extension ${ext}`);
+  }
+
+  if (stat.size < 4096) {
+    throw new ContentSeriesError("INVALID_CODEX_IMAGE_ARTIFACT", `${filePath}: artifact is too small to be a real hero image`);
+  }
+
+  if (state.imagePolicy.requireSlugInFilename && !basename.includes(topic.slug)) {
+    throw new ContentSeriesError("INVALID_CODEX_IMAGE_ARTIFACT", `${filePath}: artifact filename must include ${topic.slug}`);
+  }
+
+  for (const term of state.imagePolicy.rejectPlaceholderTerms) {
+    if (basename.includes(term.toLowerCase())) {
+      throw new ContentSeriesError("PLACEHOLDER_IMAGE_REJECTED", `${filePath}: placeholder term rejected: ${term}`);
+    }
+  }
+
+  if (!hasImageMagic(filePath)) {
+    throw new ContentSeriesError("INVALID_CODEX_IMAGE_ARTIFACT", `${filePath}: artifact is not a supported binary image`);
+  }
+}
+
+export function findCodexImageArtifact(
+  rootDir: string,
+  topic: ContentSeriesTopic,
+  state: ContentSeriesState,
+  explicitArtifact?: string,
+) {
+  if (explicitArtifact) {
+    const artifactPath = path.isAbsolute(explicitArtifact)
+      ? explicitArtifact
+      : absolutePath(rootDir, explicitArtifact.replaceAll("\\", "/"));
+    assertValidCodexImageArtifact(artifactPath, topic, state);
+    return artifactPath;
+  }
+
+  const candidates = state.imagePolicy.artifactSearchRoots.flatMap((searchRoot) => {
+    const directory = absolutePath(rootDir, searchRoot);
+    return collectFiles(directory).filter((filePath) => {
+      const basename = path.basename(filePath).toLowerCase();
+      return basename.includes(topic.slug) && state.imagePolicy.allowedArtifactExtensions.includes(path.extname(filePath).toLowerCase());
+    });
+  });
+
+  if (candidates.length === 0) {
+    return null;
+  }
+
+  const validCandidates = candidates.filter((candidate) => {
+    try {
+      assertValidCodexImageArtifact(candidate, topic, state);
+      return true;
+    } catch {
+      return false;
+    }
+  });
+
+  if (validCandidates.length === 0) {
+    throw new ContentSeriesError("INVALID_CODEX_IMAGE_ARTIFACT", `Found ${candidates.length} candidate artifact(s), but none passed policy validation`);
+  }
+
+  if (validCandidates.length > 1) {
+    throw new ContentSeriesError("CODEX_IMAGE_ARTIFACT_AMBIGUOUS", `Multiple matching artifacts found for ${topic.slug}: ${validCandidates.join(", ")}`);
+  }
+
+  return validCandidates[0];
+}
+
+export async function importCodexImageArtifact(
+  rootDir: string,
+  topic: ContentSeriesTopic,
+  artifactPath: string,
+) {
+  const paths = buildImagePaths(topic);
+  const targetAbsolutePath = absolutePath(rootDir, paths.rawRepoPath);
+  fs.mkdirSync(path.dirname(targetAbsolutePath), { recursive: true });
+  await sharp(artifactPath)
+    .rotate()
+    .jpeg({ quality: 92, mozjpeg: true })
+    .toFile(targetAbsolutePath);
+  const metadata = await sharp(targetAbsolutePath).metadata();
+  return {
+    source: artifactPath,
+    target: paths.rawRepoPath,
+    width: metadata.width ?? 0,
+    height: metadata.height ?? 0,
+    format: metadata.format,
+  };
+}
+
+function upsertImageBrief(rootDir: string, brief: ImageBrief & { filename: string; rawPath: string }) {
+  const briefFile = readJsonFile<{ version: number; project: string; language: string; policy: string; briefs: ImageBrief[] }>(
+    rootDir,
+    "image-briefs/biz2lab-article-image-briefs.json",
+  );
+  const nextBriefs = briefFile.briefs.filter((candidate) => candidate.id !== brief.id);
+  nextBriefs.push(brief);
+  writeJsonFile(rootDir, "image-briefs/biz2lab-article-image-briefs.json", {
+    ...briefFile,
+    briefs: nextBriefs,
+  });
+}
+
+export function buildImageAssetEntry(
+  topic: ContentSeriesTopic,
+  dimensions: { width?: number; height?: number } = {},
+) {
+  const paths = buildImagePaths(topic);
+  return {
+    id: `${topic.slug}-hero`,
+    project: "biz2lab",
+    postSlug: topic.slug,
+    usage: "hero",
+    src: `/images/posts/${topic.slug}-hero.webp`,
+    rawPath: paths.rawRepoPath,
+    altKo: topic.imageConcept.altKo,
+    captionKo: topic.imageConcept.captionKo,
+    width: dimensions.width ?? 1200,
+    height: dimensions.height ?? 675,
+    format: "webp",
+    licenseStatus: "codex-image-skill-generated",
+    source: "Codex built-in image generation artifact",
+    visualApprovalStatus: "codex-visual-sanity-pending",
+    commerceAutoReusable: true,
+    status: "active",
+  };
+}
+
+function upsertImageAsset(rootDir: string, topic: ContentSeriesTopic, dimensions: { width?: number; height?: number }) {
+  const assets = readJsonFile<ReturnType<typeof buildImageAssetEntry>[]>(rootDir, "data/image-assets.json");
+  const entry = buildImageAssetEntry(topic, dimensions);
+  writeJsonFile(rootDir, "data/image-assets.json", [...assets.filter((asset) => asset.id !== entry.id), entry]);
+}
+
+export function buildContentIndexEntry(topic: ContentSeriesTopic, updatedAt: string) {
+  return {
+    title: topic.title,
+    slug: topic.slug,
+    route: `/ko/automation/${topic.slug}`,
+    category: topic.category,
+    cluster: topic.cluster,
+    type: topic.type,
+    heroImage: `/images/posts/${topic.slug}-hero.webp`,
+    heroAlt: topic.imageConcept.altKo,
+    updatedAt,
+    relatedPosts: Array.from(
+      new Set([
+        topic.internalLinks.seriesHub,
+        topic.internalLinks.previous,
+        "activepieces-ai-business-automation-n8n-alternative",
+        "opencut-free-open-source-video-editor-ai-content-automation",
+      ].filter((slug) => slug && slug !== topic.slug)),
+    ).slice(0, 4),
+  };
+}
+
+function upsertArticleImageConcept(rootDir: string, topic: ContentSeriesTopic) {
+  const conceptPath = "lib/article-image-concepts.ts";
+  const current = fs.readFileSync(absolutePath(rootDir, conceptPath), "utf8");
+  if (current.includes(`"${topic.slug}":`)) {
+    return;
+  }
+  const labels = [...topic.imageConcept.mustInclude, "approval"].slice(0, 4);
+  while (labels.length < 4) {
+    labels.push("workflow");
+  }
+  const entry = `  "${topic.slug}": {\n    slug: "${topic.slug}",\n    category: "automation",\n    visualFamily: "${topic.imageConcept.visualFamily}",\n    conceptKo: "${topic.imageConcept.promptSummaryKo.replaceAll('"', '\\"')}",\n    altKo: "${topic.imageConcept.altKo.replaceAll('"', '\\"')}",\n    captionKo: "${topic.imageConcept.captionKo.replaceAll('"', '\\"')}",\n    labels: [${labels.map((label) => `"${label.replaceAll('"', '\\"')}"`).join(", ")}],\n    palette: automationPalette,\n  },\n`;
+  const next = current.replace(/\n};\s*\n\nexport const articleImageConceptEntries/, `\n${entry}};\n\nexport const articleImageConceptEntries`);
+  if (next === current) {
+    throw new ContentSeriesError("CONCEPT_UPDATE_FAILED", "Could not locate articleImageConcepts object terminator");
+  }
+  fs.writeFileSync(absolutePath(rootDir, conceptPath), next, "utf8");
+}
+
+function appendSeriesLinkIfMissing(rootDir: string, repoRelativePath: string, topic: ContentSeriesTopic) {
+  const absoluteFilePath = absolutePath(rootDir, repoRelativePath);
+  if (!fs.existsSync(absoluteFilePath)) {
+    return;
+  }
+  const route = `/ko/automation/${topic.slug}`;
+  const content = fs.readFileSync(absoluteFilePath, "utf8");
+  if (content.includes(`](${route})`)) {
+    return;
+  }
+  fs.writeFileSync(
+    absoluteFilePath,
+    `${content.trim()}\n\n## 무료 오픈소스 자동화 도구 시리즈\n\n- [${topic.title}](${route})\n`,
+    "utf8",
+  );
+}
+
+function updateInternalLinks(rootDir: string, topic: ContentSeriesTopic) {
+  appendSeriesLinkIfMissing(rootDir, "content/ko/automation/free-open-source-automation-tools-series.md", topic);
+  if (topic.internalLinks.previous) {
+    appendSeriesLinkIfMissing(rootDir, `content/ko/automation/${topic.internalLinks.previous}.md`, topic);
+  }
+}
+
+function appendQueueRow(rootDir: string, topic: ContentSeriesTopic) {
+  const paths = buildImagePaths(topic);
+  const row = `| 2 | ${topic.slug} | hero | ${paths.requestRepoPath} | ${paths.promptRepoPath} | ${paths.generatedBriefRepoPath} | ${paths.rawRepoPath} | ${paths.publicRepoPath} | yes | yes | yes | yes | yes | codex-pending-review | yes | no |\n`;
+  const queuePath = "image-requests/generated/IMAGE_PRODUCTION_QUEUE.md";
+  const queue = fs.readFileSync(absolutePath(rootDir, queuePath), "utf8");
+  if (!queue.includes(`| ${topic.slug} | hero |`)) {
+    appendTextFile(rootDir, queuePath, row);
+  }
+
+  const docsPath = "docs/image-engine/image-production-queue.md";
+  const docs = fs.readFileSync(absolutePath(rootDir, docsPath), "utf8");
+  if (!docs.includes(topic.slug)) {
+    appendTextFile(
+      rootDir,
+      docsPath,
+      `\nContent-series automation update: \`${topic.slug}\` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.\n`,
+    );
+  }
+}
+
+function runCommand(rootDir: string, command: string) {
+  const [program, ...args] = command.split(" ");
+  execFileSync(program, args, { cwd: rootDir, stdio: "inherit", env: process.env });
+}
+
+function runValidationCommands(rootDir: string) {
+  for (const command of CONTENT_SERIES_VALIDATION_COMMANDS) {
+    runCommand(rootDir, command);
+  }
+}
+
+function isProtectedCodexPath(filePath: string) {
+  return filePath.startsWith(".codex-remote-attachments/") || filePath === ".codex/config.toml";
+}
+
+function listUnsafeWorkingTreeEntries(rootDir: string) {
+  if (!fs.existsSync(path.join(rootDir, ".git"))) {
+    return [];
+  }
+  return execFileSync("git", ["status", "--porcelain=v1"], { cwd: rootDir, encoding: "utf8" })
+    .split(/\r?\n/)
+    .map((line) => line.slice(3).trim())
+    .filter(Boolean)
+    .filter((filePath) => !isProtectedCodexPath(filePath));
+}
+
+function assertCleanWorktreeExceptProtected(rootDir: string) {
+  const unsafeEntries = listUnsafeWorkingTreeEntries(rootDir);
+  if (unsafeEntries.length > 0) {
+    throw new ContentSeriesError(
+      "WORKTREE_NOT_CLEAN",
+      `Refusing to publish into a dirty worktree. Commit or stash these files first: ${unsafeEntries.join(", ")}`,
+    );
+  }
+}
+
+async function readImageMetadata(rootDir: string, repoRelativePath: string) {
+  const absoluteFilePath = absolutePath(rootDir, repoRelativePath);
+  if (!fs.existsSync(absoluteFilePath)) {
+    throw new ContentSeriesError("PUBLIC_HERO_IMAGE_MISSING", `${repoRelativePath} was not created`);
+  }
+  const metadata = await sharp(absoluteFilePath).metadata();
+  return {
+    path: repoRelativePath,
+    width: metadata.width,
+    height: metadata.height,
+    format: metadata.format,
+  };
+}
+
+function commitAndMaybeCreatePr(rootDir: string, plan: ContentSeriesPlan, options: CliOptions) {
+  if (options.noCommit) {
+    return {};
+  }
+
+  const currentBranch = execFileSync("git", ["branch", "--show-current"], { cwd: rootDir, encoding: "utf8" }).trim();
+  if (currentBranch !== plan.branchName) {
+    execFileSync("git", ["checkout", "-B", plan.branchName], { cwd: rootDir, stdio: "inherit" });
+  }
+  const changedPaths = execFileSync("git", ["status", "--porcelain=v1"], { cwd: rootDir, encoding: "utf8" })
+    .split(/\r?\n/)
+    .map((line) => line.slice(3).trim())
+    .filter(Boolean)
+    .filter((filePath) => !isProtectedCodexPath(filePath));
+  if (changedPaths.length === 0) {
+    throw new ContentSeriesError("NO_CHANGES_TO_COMMIT", "No safe changed files found to commit");
+  }
+  execFileSync("git", ["add", "--", ...changedPaths], { cwd: rootDir, stdio: "inherit" });
+  execFileSync("git", ["commit", "-m", plan.commitMessage], { cwd: rootDir, stdio: "inherit" });
+  const commit = execFileSync("git", ["rev-parse", "HEAD"], { cwd: rootDir, encoding: "utf8" }).trim();
+  execFileSync("git", ["push", "-u", "origin", plan.branchName], { cwd: rootDir, stdio: "inherit" });
+
+  if (options.noPr) {
+    return { commit };
+  }
+
+  const prBody = `## 0) Intent\nPublish the next Biz2Lab open-source automation series article with real hero image assets.\n\n## 1) Summary (Problem -> Solution -> Outcome)\n- Problem: The next series topic needs a real image-gated publication flow.\n- Solution: Generated the article, image packages, raw/public image assets, registries, and internal links through the content-series orchestrator.\n- Outcome: The article is ready for owner review. No deploy and no auto-merge were run.\n\n## 2) Changes\nChecklist:\n- [ ] Bug fix\n- [ ] Refactor / cleanup\n- [ ] Performance improvement\n- [ ] Security hardening\n- [x] DX / tooling\n- Added the ${plan.topic.toolName} automation analysis article and image assets.\n- Updated image/content registries and series links.\n\n## 3) Files Changed\n- ${plan.imagePaths.articleRepoPath} (new article)\n- ${plan.imagePaths.rawRepoPath} (real raw hero image)\n- ${plan.imagePaths.publicRepoPath} (optimized public hero WebP)\n- data/image-assets.json (image registry)\n- image brief/request files (image production metadata)\n\n## 4) Testing\n- Commands run: ${CONTENT_SERIES_VALIDATION_COMMANDS.join(", ")}\n- Verified real hero image import and public WebP generation.\n\n## 5) Risk Assessment\nRisk: Low to Medium. Content and image metadata only; no runtime business integration.\n- Potential breakpoints: article frontmatter, image path validation, internal links.\n- External dependencies: none called by this PR.\n- Data impact: none.\n\n## 6) Rollback Plan\n- Revert the commit to remove article, image assets, and registry updates.\n\n## 7) Deployment Notes\n- Required env vars: none\n- Required secrets: none\n- Migrations: none\n- Deploy steps: standard Git-triggered deployment only after owner merge.\n\n## 8) Follow-ups (Optional)\n- Run production smoke after merge.\n`;
+  const prUrl = execFileSync(
+    "gh",
+    [
+      "pr",
+      "create",
+      "--base",
+      "master",
+      "--head",
+      plan.branchName,
+      "--title",
+      plan.commitMessage,
+      "--body",
+      prBody,
+    ],
+    { cwd: rootDir, encoding: "utf8" },
+  ).trim();
+  return { commit, prUrl };
+}
+
+export async function runContentSeriesOrchestrator(options: CliOptions = {}): Promise<ContentSeriesResult> {
+  const rootDir = options.rootDir ?? process.cwd();
+  const state = readContentSeriesState(rootDir);
+  const topicFile = readContentSeriesTopics(rootDir);
+  const topic = resolveContentSeriesTopic(topicFile.topics, state, options.topic);
+  const plan = buildContentSeriesPlan(state, topic, { planOnly: options.planOnly });
+
+  if (options.planOnly) {
+    return { status: "PLAN", plan };
+  }
+
+  const artifactPath = findCodexImageArtifact(rootDir, topic, state, options.artifact);
+  if (!artifactPath) {
+    throw new ContentSeriesError(
+      "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
+      `No approved Codex image artifact found for ${topic.slug}. Expected a real image under one of: ${state.imagePolicy.artifactSearchRoots.join(", ")}`,
+    );
+  }
+  assertCleanWorktreeExceptProtected(rootDir);
+
+  const importedImage = await importCodexImageArtifact(rootDir, topic, artifactPath);
+  const publishedAt = new Date().toISOString().slice(0, 10);
+  const brief = writeImagePromptPackage(rootDir, topic);
+  upsertImageBrief(rootDir, brief);
+  writeTextFile(rootDir, plan.imagePaths.articleRepoPath, buildArticleMarkdown(topic, publishedAt));
+  upsertArticleImageConcept(rootDir, topic);
+  updateInternalLinks(rootDir, topic);
+  appendQueueRow(rootDir, topic);
+  runCommand(rootDir, "npm run optimize-images");
+  const publicImage = await readImageMetadata(rootDir, plan.imagePaths.publicRepoPath);
+  upsertImageAsset(rootDir, topic, publicImage);
+  runCommand(rootDir, "npm run generate-content-index");
+  runValidationCommands(rootDir);
+  const gitResult = commitAndMaybeCreatePr(rootDir, plan, options);
+  return {
+    status: "PASS",
+    plan,
+    importedImage,
+    publicImage,
+    ...gitResult,
+  };
+}
+
+function parseArgs(argv: string[]): CliOptions & { help?: boolean } {
+  const options: CliOptions & { help?: boolean } = {};
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+    if (arg === "--topic") {
+      options.topic = argv[index + 1];
+      index += 1;
+    } else if (arg === "--plan-only") {
+      options.planOnly = true;
+    } else if (arg === "--no-commit") {
+      options.noCommit = true;
+    } else if (arg === "--no-pr") {
+      options.noPr = true;
+    } else if (arg === "--artifact") {
+      options.artifact = argv[index + 1];
+      index += 1;
+    } else if (arg === "--help" || arg === "-h") {
+      options.help = true;
+    } else {
+      throw new ContentSeriesError("INVALID_ARGS", `Unknown argument: ${arg}`);
+    }
+  }
+  return options;
+}
+
+function printHelp() {
+  console.log(`Usage:\n  npm run content:series:auto -- --topic node-red --plan-only\n  npm run content:series:auto -- --topic node-red --no-commit --artifact artifacts/codex-images/node-red-local-business-automation-server-hero.png\n\nOptions:\n  --topic <id-or-slug>   Topic id or slug from data/content-series-topics.json\n  --plan-only            Print the plan without writing files\n  --no-commit            Run publication without committing or creating a PR\n  --no-pr                Commit and push, but do not create a PR\n  --artifact <path>      Explicit Codex-generated image artifact to import\n`);
+}
+
+async function main() {
+  try {
+    const options = parseArgs(process.argv.slice(2));
+    if (options.help) {
+      printHelp();
+      return;
+    }
+    const result = await runContentSeriesOrchestrator(options);
+    console.log(JSON.stringify(result, null, 2));
+  } catch (error) {
+    if (error instanceof ContentSeriesError) {
+      console.error(`${error.code}: ${error.message}`);
+      process.exit(1);
+    }
+    throw error;
+  }
+}
+
+if (require.main === module) {
+  void main();
+}
