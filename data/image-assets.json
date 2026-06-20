@@ -106,5 +106,23 @@
     "visualApprovalStatus": "codex-visual-sanity-checked",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "node-red-local-business-automation-server-hero",
+    "project": "biz2lab",
+    "postSlug": "node-red-local-business-automation-server",
+    "usage": "hero",
+    "src": "/images/posts/node-red-local-business-automation-server-hero.webp",
+    "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg",
+    "altKo": "Node-RED를 로컬 서버 업무 자동화 관점에서 분석한 대표 이미지",
+    "captionKo": "Node-RED를 회사 PC와 로컬 서버의 이벤트 흐름을 연결하는 자동화 후보로 분석한 이미지입니다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-checked",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]

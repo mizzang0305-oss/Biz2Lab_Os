@@ -11,7 +11,7 @@ import {
   type OpenPullRequest,
 } from "@/scripts/content-series-scheduler-runner";
 
-const nodeRedSlug = "node-red-local-business-automation-server";
+const currentTopicSlug = "huginn-monitoring-automation-agent";
 
 function writeJson(filePath: string, value: unknown) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -154,7 +154,7 @@ test("completed topic blocks duplicate publication", () => {
   const root = tempSchedulerRoot();
   const statePath = path.join(root, "data", "content-series-state.json");
   const state = readJson<{ completed: string[] }>(statePath);
-  writeJson(statePath, { ...state, completed: [...state.completed, nodeRedSlug] });
+  writeJson(statePath, { ...state, completed: [...state.completed, currentTopicSlug] });
 
   const result = runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, schedulerDeps().deps);
 
@@ -163,7 +163,7 @@ test("completed topic blocks duplicate publication", () => {
 
 test("already published article file blocks duplicate publication", () => {
   const root = tempSchedulerRoot();
-  const articlePath = path.join(root, "content", "ko", "automation", `${nodeRedSlug}.md`);
+  const articlePath = path.join(root, "content", "ko", "automation", `${currentTopicSlug}.md`);
   fs.mkdirSync(path.dirname(articlePath), { recursive: true });
   fs.writeFileSync(articlePath, "---\nstatus: published\ndraft: false\n---\n", "utf8");
 
@@ -174,7 +174,7 @@ test("already published article file blocks duplicate publication", () => {
 
 test("content index slug duplicate blocks publication", () => {
   const root = tempSchedulerRoot();
-  writeJson(path.join(root, "content", "ko", "content-index.json"), [{ slug: nodeRedSlug }]);
+  writeJson(path.join(root, "content", "ko", "content-index.json"), [{ slug: currentTopicSlug }]);
 
   const result = runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, schedulerDeps().deps);
 
@@ -183,7 +183,7 @@ test("content index slug duplicate blocks publication", () => {
 
 test("existing topic PR blocks duplicate publication", () => {
   const root = tempSchedulerRoot();
-  const openPrs = [{ number: 7, title: "Node-RED article", headRefName: `codex/${nodeRedSlug}-automation-series-article` }];
+  const openPrs = [{ number: 7, title: "Huginn article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
 
   const result = runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, schedulerDeps(openPrs).deps);
 
@@ -192,27 +192,27 @@ test("existing topic PR blocks duplicate publication", () => {
 
 test("explicit topic with latest artifact selector still respects existing topic PR gate", () => {
   const root = tempSchedulerRoot();
-  const openPrs = [{ number: 7, title: "Node-RED article", headRefName: `codex/${nodeRedSlug}-automation-series-article` }];
+  const openPrs = [{ number: 7, title: "Huginn article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
 
   const result = runContentSeriesScheduler(
-    { rootDir: root, dryRun: true, topic: "node-red", useLatestCodexArtifact: true, now: activeNow },
+    { rootDir: root, dryRun: true, topic: "huginn", useLatestCodexArtifact: true, now: activeNow },
     schedulerDeps(openPrs).deps,
   );
 
   assert.equal(result.status, "EXISTING_TOPIC_PR");
-  assert.equal(result.topic, nodeRedSlug);
+  assert.equal(result.topic, currentTopicSlug);
 });
 
 test("explicit later topic cannot bypass queue order", () => {
   const root = tempSchedulerRoot();
 
   const result = runContentSeriesScheduler(
-    { rootDir: root, dryRun: true, topic: "huginn-monitoring-automation-agent", useLatestCodexArtifact: true, now: activeNow },
+    { rootDir: root, dryRun: true, topic: "baserow-open-source-database-automation", useLatestCodexArtifact: true, now: activeNow },
     schedulerDeps().deps,
   );
 
   assert.equal(result.status, "TOPIC_ORDER_BLOCKED");
-  assert.equal(result.topic, "huginn-monitoring-automation-agent");
+  assert.equal(result.topic, "baserow-open-source-database-automation");
 });
 
 test("max open PRs blocks scheduler", () => {
@@ -290,15 +290,15 @@ test("one run publishes at most one topic when a Codex artifact exists", () => {
   const { deps, publishedTopics } = schedulerDeps();
 
   const result = withGeneratedRoot(root, (generatedRoot) => {
-    writeJpegLikeArtifact(path.join(generatedRoot, `${nodeRedSlug}-hero.jpg`));
+    writeJpegLikeArtifact(path.join(generatedRoot, `${currentTopicSlug}-hero.jpg`));
     return runContentSeriesScheduler({ rootDir: root, dryRun: false, now: activeNow }, deps);
   });
 
   const runState = readContentSeriesRunState(root);
   assert.equal(result.status, "PUBLICATION_PR_CREATED");
-  assert.deepEqual(publishedTopics, [nodeRedSlug]);
+  assert.deepEqual(publishedTopics, [currentTopicSlug]);
   assert.equal(runState.todayPublishedCount, 1);
-  assert.equal(runState.lastTopic, nodeRedSlug);
+  assert.equal(runState.lastTopic, currentTopicSlug);
 });
 
 test("placeholder-like artifacts block instead of falling back", () => {
@@ -306,7 +306,7 @@ test("placeholder-like artifacts block instead of falling back", () => {
   const { deps, publishedTopics } = schedulerDeps();
 
   const result = withGeneratedRoot(root, (generatedRoot) => {
-    writeJpegLikeArtifact(path.join(generatedRoot, `${nodeRedSlug}-hero-placeholder.jpg`));
+    writeJpegLikeArtifact(path.join(generatedRoot, `${currentTopicSlug}-hero-placeholder.jpg`));
     return runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, deps);
   });
 
@@ -319,7 +319,7 @@ test("unsupported artifact formats are rejected", () => {
   const { deps, publishedTopics } = schedulerDeps();
 
   const result = withGeneratedRoot(root, (generatedRoot) => {
-    writeJpegLikeArtifact(path.join(generatedRoot, `${nodeRedSlug}-hero.gif`));
+    writeJpegLikeArtifact(path.join(generatedRoot, `${currentTopicSlug}-hero.gif`));
     return runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, deps);
   });
 

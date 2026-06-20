@@ -1,5 +1,21 @@
 [
   {
+    "title": "Node-RED 분석: 로컬 서버 자동화와 소상공인 업무 연결에 쓸 수 있을까?",
+    "slug": "node-red-local-business-automation-server",
+    "route": "/ko/automation/node-red-local-business-automation-server",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/node-red-local-business-automation-server-hero.webp",
+    "heroAlt": "Node-RED를 로컬 서버 업무 자동화 관점에서 분석한 대표 이미지",
+    "updatedAt": "2026-06-20",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Activepieces 분석: n8n 대안이 될 수 있는 AI 업무 자동화 도구",
     "slug": "activepieces-ai-business-automation-n8n-alternative",
     "route": "/ko/automation/activepieces-ai-business-automation-n8n-alternative",
@@ -28,6 +44,7 @@
     "relatedPosts": [
       "opencut-free-open-source-video-editor-ai-content-automation",
       "activepieces-ai-business-automation-n8n-alternative",
+      "node-red-local-business-automation-server",
       "ai-business-automation-guide"
     ]
   },

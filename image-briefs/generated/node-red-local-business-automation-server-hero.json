@@ -1,0 +1,23 @@
+{
+  "id": "node-red-local-business-automation-server-hero",
+  "postSlug": "node-red-local-business-automation-server",
+  "category": "automation",
+  "usage": "hero",
+  "targetPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg",
+  "optimizedPath": "public/images/posts/node-red-local-business-automation-server-hero.webp",
+  "altKo": "Node-RED를 로컬 서버 업무 자동화 관점에서 분석한 대표 이미지",
+  "captionKo": "Node-RED는 로컬 서버와 내부 업무 흐름을 연결하는 자동화 테스트 후보로 볼 수 있다.",
+  "style": "local-automation-flow-map, Korean business editorial raster hero, minimal text, no title inside image",
+  "promptKo": "어두운 서버실이 아닌 밝은 업무 자동화 워크스페이스. 로컬 서버, 웹훅, 전단 이미지, 스프레드시트, 콘텐츠 요청, 검증 게이트가 흐름도로 연결된 16:9 고해상도 블로그 히어로 이미지.",
+  "providerPromptKo": "Node-RED 분석: 로컬 서버 자동화와 소상공인 업무 연결에 쓸 수 있을까? 대표 이미지. 어두운 서버실이 아닌 밝은 업무 자동화 워크스페이스. 로컬 서버, 웹훅, 전단 이미지, 스프레드시트, 콘텐츠 요청, 검증 게이트가 흐름도로 연결된 16:9 고해상도 블로그 히어로 이미지. Include: local server, flow nodes, business form, spreadsheet, content request, approval gate. No official logos, no real customer data, no placeholder elements.",
+  "negativePromptKo": "official Node-RED logo, third-party logos, dense UI text, placeholder graphics, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+  "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+  "composition": "어두운 서버실이 아닌 밝은 업무 자동화 워크스페이스. 로컬 서버, 웹훅, 전단 이미지, 스프레드시트, 콘텐츠 요청, 검증 게이트가 흐름도로 연결된 16:9 고해상도 블로그 히어로 이미지.",
+  "categoryStyle": "automation category visual, local-automation-flow-map",
+  "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+  "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+  "localOnly": true,
+  "visualDifferentiationHint": "node-red-local-business-automation-server: local-automation-flow-map",
+  "filename": "node-red-local-business-automation-server-hero.jpg",
+  "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
+}

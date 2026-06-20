@@ -5,7 +5,7 @@ Status as of the open-source automation series task: most prompt packages remain
 Recommended manual generation order:
 
 1. Priority 1: the 5 key inline explanatory images.
-2. Priority 2: the 28 public Korean post hero images.
+2. Priority 2: the 29 public Korean post hero images.
 3. Priority 3: the 4 category hub images.
 
 Phase 3.9 first manual generation selection:
@@ -55,5 +55,6 @@ Phase 3.9 first manual generation selection:
 | 3 | contracts-payments | hub | image-requests/generated/contracts-payments-hub.md | image-requests/generated/contracts-payments-hub.prompt.md | image-briefs/generated/contracts-payments-hub.json | assets/images/raw/contracts-payments-hub.png | public/images/posts/contracts-payments-hub-1200.webp | yes | no | no | no | no | no | no | no |
 | 3 | sales-ops | hub | image-requests/generated/sales-ops-hub.md | image-requests/generated/sales-ops-hub.prompt.md | image-briefs/generated/sales-ops-hub.json | assets/images/raw/sales-ops-hub.png | public/images/posts/sales-ops-hub-1200.webp | yes | no | no | no | no | no | no | no |
 | 3 | small-business | hub | image-requests/generated/small-business-hub.md | image-requests/generated/small-business-hub.prompt.md | image-briefs/generated/small-business-hub.json | assets/images/raw/small-business-hub.png | public/images/posts/small-business-hub-1200.webp | yes | no | no | no | no | no | no | no |
+| 2 | node-red-local-business-automation-server | hero | image-requests/generated/node-red-local-business-automation-server-hero.md | image-requests/generated/node-red-local-business-automation-server-hero.prompt.md | image-briefs/generated/node-red-local-business-automation-server-hero.json | assets/images/raw/node-red-local-business-automation-server-hero.jpg | public/images/posts/node-red-local-business-automation-server-hero.webp | yes | yes | yes | yes | yes | codex-checked | yes | no |
 
 Downstream update rule: do not mark `image_created`, `raw_saved`, `optimized`, `validated`, `visually_approved`, `applied_to_article`, or `pushed` as yes until that step actually happens and passes validation.
