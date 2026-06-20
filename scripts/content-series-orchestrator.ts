@@ -971,20 +971,36 @@ export function buildContentIndexEntry(topic: ContentSeriesTopic, updatedAt: str
   };
 }
 
-function upsertArticleImageConcept(rootDir: string, topic: ContentSeriesTopic) {
-  const conceptPath = "lib/article-image-concepts.ts";
-  const current = fs.readFileSync(absolutePath(rootDir, conceptPath), "utf8");
-  if (current.includes(`"${topic.slug}":`)) {
-    return;
-  }
+function buildArticleImageConceptEntry(topic: ContentSeriesTopic) {
   const labels = [...topic.imageConcept.mustInclude, "approval"].slice(0, 4);
   while (labels.length < 4) {
     labels.push("workflow");
   }
-  const entry = `  "${topic.slug}": {\n    slug: "${topic.slug}",\n    category: "automation",\n    visualFamily: "${topic.imageConcept.visualFamily}",\n    conceptKo: "${topic.imageConcept.promptSummaryKo.replaceAll('"', '\\"')}",\n    altKo: "${topic.imageConcept.altKo.replaceAll('"', '\\"')}",\n    captionKo: "${topic.imageConcept.captionKo.replaceAll('"', '\\"')}",\n    labels: [${labels.map((label) => `"${label.replaceAll('"', '\\"')}"`).join(", ")}],\n    palette: automationPalette,\n  },\n`;
-  const next = current.replace(/\n};\s*\n\nexport const articleImageConceptEntries/, `\n${entry}};\n\nexport const articleImageConceptEntries`);
+  return `  "${topic.slug}": {\n    slug: "${topic.slug}",\n    category: "automation",\n    visualFamily: "${topic.imageConcept.visualFamily}",\n    conceptKo: "${topic.imageConcept.promptSummaryKo.replaceAll('"', '\\"')}",\n    altKo: "${topic.imageConcept.altKo.replaceAll('"', '\\"')}",\n    captionKo: "${topic.imageConcept.captionKo.replaceAll('"', '\\"')}",\n    labels: [${labels.map((label) => `"${label.replaceAll('"', '\\"')}"`).join(", ")}],\n    palette: automationPalette,\n  },\n`;
+}
+
+export function insertArticleImageConceptEntry(current: string, topic: ContentSeriesTopic) {
+  if (current.includes(`"${topic.slug}":`)) {
+    return current;
+  }
+  const lineBreak = current.includes("\r\n") ? "\r\n" : "\n";
+  const entry = buildArticleImageConceptEntry(topic).replaceAll("\n", lineBreak);
+  const next = current.replace(
+    /(\r?\n)(};)(\r?\n\r?\nexport const articleImageConceptEntries(?=[:\s=]))/,
+    `${lineBreak}${entry}$2$3`,
+  );
   if (next === current) {
     throw new ContentSeriesError("CONCEPT_UPDATE_FAILED", "Could not locate articleImageConcepts object terminator");
+  }
+  return next;
+}
+
+function upsertArticleImageConcept(rootDir: string, topic: ContentSeriesTopic) {
+  const conceptPath = "lib/article-image-concepts.ts";
+  const current = fs.readFileSync(absolutePath(rootDir, conceptPath), "utf8");
+  const next = insertArticleImageConceptEntry(current, topic);
+  if (next === current) {
+    return;
   }
   fs.writeFileSync(absolutePath(rootDir, conceptPath), next, "utf8");
 }

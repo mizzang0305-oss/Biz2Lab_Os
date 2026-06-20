@@ -16,6 +16,7 @@ import {
   ContentSeriesError,
   filterCommittablePaths,
   findCodexImageArtifact,
+  insertArticleImageConceptEntry,
   readContentSeriesState,
   readContentSeriesTopics,
   resolveContentSeriesTopic,
@@ -133,12 +134,14 @@ test("duplicate completed topics are rejected", () => {
 test("missing Codex image artifact blocks publication without writing article", async () => {
   const root = tempSeriesRoot();
 
-  await assert.rejects(
-    () => runContentSeriesOrchestrator({ rootDir: root, topic: "appsmith", noCommit: true }),
-    (error) =>
-      error instanceof ContentSeriesError &&
-      error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
-  );
+  await withIsolatedGeneratedImagesDir(root, async () => {
+    await assert.rejects(
+      () => runContentSeriesOrchestrator({ rootDir: root, topic: "appsmith", noCommit: true }),
+      (error) =>
+        error instanceof ContentSeriesError &&
+        error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
+    );
+  });
 
   const { topic } = currentSeriesTopic();
   assert.equal(fs.existsSync(path.join(root, ...buildImagePaths(topic).articleRepoPath.split("/"))), false);
@@ -430,6 +433,18 @@ test("image registry helper keeps raw and public paths in guarded directories", 
   assert.equal(entry.rawPath, `assets/images/raw/${topic.slug}-hero.jpg`);
   assert.equal(entry.src, `/images/posts/${topic.slug}-hero.webp`);
   assert.equal(entry.status, "active");
+});
+
+test("article image concept insertion preserves typed entries export", () => {
+  const state = readContentSeriesState();
+  const topics = readContentSeriesTopics();
+  const topic = resolveContentSeriesTopic(topics.topics, state, "appsmith");
+  const current = fs.readFileSync(path.join(process.cwd(), "lib", "article-image-concepts.ts"), "utf8");
+
+  const next = insertArticleImageConceptEntry(current, topic);
+
+  assert.match(next, /"appsmith-internal-dashboard-automation":/);
+  assert.match(next, /export const articleImageConceptEntries: ArticleImageConcept\[\] = Object\.values\(articleImageConcepts\);/);
 });
 
 test("validation command list includes all required gates", () => {
