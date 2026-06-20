@@ -599,6 +599,305 @@
         "Separate open-source repository claims from cloud service claims.",
         "Avoid claiming small-business fit without qualifying operational complexity."
       ]
+    },
+    {
+      "id": "n8n",
+      "toolName": "n8n",
+      "slug": "n8n-workflow-automation-license-caution",
+      "title": "n8n 분석: 유명한 자동화 도구지만 오픈소스라고 말해도 될까?",
+      "description": "n8n을 워크플로 자동화 후보로 보되, 라이선스와 self-hosted 업무 사용 범위를 먼저 검증해야 하는 주의점 중심으로 분석합니다.",
+      "tags": [
+        "n8n",
+        "source-available",
+        "workflow-automation",
+        "license-caution",
+        "self-host",
+        "Biz2Lab"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "n8n official website",
+          "url": "https://n8n.io/",
+          "usage": "product positioning and hosted/self-hosted edition verification"
+        },
+        {
+          "label": "n8n GitHub repository",
+          "url": "https://github.com/n8n-io/n8n",
+          "usage": "source, license files, and repository activity verification"
+        },
+        {
+          "label": "n8n Sustainable Use License documentation",
+          "url": "https://docs.n8n.io/sustainable-use-license/",
+          "usage": "license boundary and permitted-use verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: 자동화 후보지만 라이선스 확인이 먼저",
+          "points": [
+            "n8n은 workflow automation 도구로 널리 알려져 있지만, Biz2Lab에서는 open-source라는 단어를 바로 쓰지 않는다.",
+            "self-hosted 사용 가능성과 source-available/fair-code/Sustainable Use License 범위를 분리해서 검토한다.",
+            "상업적 업무 자동화에 붙이기 전에는 현재 공식 라이선스와 enterprise 기능 경계를 다시 확인해야 한다."
+          ]
+        },
+        {
+          "heading": "업무 자동화 적용 각도",
+          "points": [
+            "문의 접수, 콘텐츠 큐, CRM 보조, 보고서 생성 같은 반복 흐름을 연결하는 후보로 평가한다.",
+            "고객 credential, 외부 SaaS API, 메시지 발송은 별도 승인 게이트가 필요하다.",
+            "Activepieces, Node-RED, Windmill과 비교할 때 운영자 친화성과 라이선스 리스크를 함께 본다."
+          ]
+        },
+        {
+          "heading": "검증 체크리스트",
+          "points": [
+            "공식 라이선스 문서, GitHub license file, hosted plan terms를 각각 확인한다.",
+            "외부 고객의 데이터를 대신 처리하거나 제3자 서비스를 연결하는 흐름은 허용 범위를 별도 검토한다.",
+            "기사에서는 완전한 오픈소스 대체재라고 단정하지 않고 업무 사용 전 확인해야 할 조건을 정리한다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "workflow-license-check-map",
+        "altKo": "n8n을 워크플로 자동화와 라이선스 주의 관점에서 분석한 대표 이미지",
+        "captionKo": "n8n은 자동화 흐름을 연결하는 후보지만, 업무 적용 전 라이선스와 self-hosted 사용 범위를 확인해야 한다.",
+        "promptSummaryKo": "워크플로 노드, 라이선스 체크포인트, self-hosted 서버, 업무 승인 게이트가 함께 보이는 고급 업무 자동화 검토 이미지.",
+        "mustInclude": [
+          "workflow nodes",
+          "license checkpoint",
+          "self-hosted server",
+          "approval gate",
+          "business automation map"
+        ],
+        "mustAvoid": [
+          "official n8n logo",
+          "third-party SaaS logos",
+          "real credentials",
+          "claiming open-source without caution"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "kestra-data-ai-workflow-orchestration",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "kestra-data-ai-workflow-orchestration",
+          "activepieces-ai-business-automation-n8n-alternative"
+        ]
+      },
+      "safetyNotes": [
+        "Do not call external SaaS APIs or send messages from article examples.",
+        "Do not expose customer credentials, API keys, or workflow secrets.",
+        "Treat production workflow automation as a separate approval-gated implementation."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current n8n license model from official sources before publication.",
+        "Distinguish source-available/fair-code terms from OSI-approved open source.",
+        "Do not claim unrestricted commercial self-hosting without checking the latest license terms."
+      ]
+    },
+    {
+      "id": "nocodb",
+      "toolName": "NocoDB",
+      "slug": "nocodb-airtable-alternative-license-caution",
+      "title": "NocoDB 분석: Airtable 대체 도구로 쓸 수 있을까? 라이선스와 운영 리스크 검토",
+      "description": "NocoDB를 Airtable 대체 데이터베이스 자동화 후보로 검토하되, 라이선스와 hosted/self-hosted 운영 범위를 Baserow와 조심스럽게 비교합니다.",
+      "tags": [
+        "NocoDB",
+        "Airtable alternative",
+        "database automation",
+        "license caution",
+        "source-available",
+        "Biz2Lab"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "NocoDB official website",
+          "url": "https://nocodb.com/",
+          "usage": "product positioning and hosted/self-hosted feature verification"
+        },
+        {
+          "label": "NocoDB GitHub repository",
+          "url": "https://github.com/nocodb/nocodb",
+          "usage": "source, license, and repository activity verification"
+        },
+        {
+          "label": "NocoDB documentation",
+          "url": "https://docs.nocodb.com/",
+          "usage": "database connection, API, and operating model verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: Baserow와 비교할 Airtable 대안 후보",
+          "points": [
+            "NocoDB는 스프레드시트형 데이터베이스 UI와 API 연결을 검토할 만한 후보로 본다.",
+            "Baserow와 같은 결론을 반복하지 않고 라이선스, hosted/self-hosted 범위, 운영 리스크 차이를 확인한다.",
+            "고객 DB나 상품 DB에 바로 붙이기보다 샘플 데이터로 권한과 백업 정책을 먼저 검증한다."
+          ]
+        },
+        {
+          "heading": "업무 데이터 자동화 적용 각도",
+          "points": [
+            "콘텐츠 캘린더, 상품 정보, 문의 큐, 내부 작업 목록을 구조화하는 데이터 레이어 후보로 평가한다.",
+            "Activepieces, n8n, Node-RED 같은 자동화 도구와 연결할 때 데이터 접근 권한을 분리해야 한다.",
+            "API 연결과 협업 기능은 무료/유료/클라우드 범위가 다를 수 있으므로 공식 문서로 확인한다."
+          ]
+        },
+        {
+          "heading": "라이선스와 출처 검증",
+          "points": [
+            "GitHub license file과 공식 문서의 현재 표현을 publication 직전에 다시 확인한다.",
+            "source-available 또는 Sustainable Use 계열 표현이 있으면 완전한 open-source 대체재라고 쓰지 않는다.",
+            "Baserow와 비교할 때 기능표보다 실제 운영 권한, 백업, 데이터 이동성 기준을 우선한다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "database-license-comparison-board",
+        "altKo": "NocoDB를 Airtable 대체 데이터베이스와 라이선스 주의 관점에서 분석한 대표 이미지",
+        "captionKo": "NocoDB는 업무 데이터베이스 후보지만, Baserow와 비교해 라이선스와 운영 범위를 따로 확인해야 한다.",
+        "promptSummaryKo": "데이터베이스 그리드, Airtable 대체 후보 비교, 라이선스 확인 카드, 백업과 권한 게이트가 있는 업무 자동화 이미지.",
+        "mustInclude": [
+          "database grid",
+          "comparison board",
+          "license caution card",
+          "backup gate",
+          "permission model"
+        ],
+        "mustAvoid": [
+          "official NocoDB logo",
+          "Airtable logo",
+          "real customer data",
+          "unverified open-source claims"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "n8n-workflow-automation-license-caution",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "n8n-workflow-automation-license-caution",
+          "baserow-open-source-database-automation"
+        ]
+      },
+      "safetyNotes": [
+        "Do not include real customer or product data in examples.",
+        "Do not recommend production database migration without backup and access-control checks.",
+        "Treat external database/API connections as approval-gated implementation work."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current NocoDB license from official sources before publication.",
+        "Separate source availability, self-hosting, hosted service, and enterprise feature claims.",
+        "Do not present NocoDB as a drop-in Baserow or Airtable replacement without operational caveats."
+      ]
+    },
+    {
+      "id": "crawl4ai",
+      "toolName": "Crawl4AI",
+      "slug": "crawl4ai-blog-research-automation",
+      "title": "Crawl4AI 분석: 블로그 소재 수집과 AI 리서치 자동화에 쓸 수 있을까?",
+      "description": "Crawl4AI를 블로그 리서치와 콘텐츠 큐 자동화 후보로 검토하되, robots, 약관, rate limit, 데이터 재사용 권리를 안전 게이트로 둡니다.",
+      "tags": [
+        "Crawl4AI",
+        "AI research automation",
+        "crawler",
+        "content automation",
+        "robots caution",
+        "Biz2Lab"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Crawl4AI documentation",
+          "url": "https://docs.crawl4ai.com/",
+          "usage": "official usage, crawling model, and quick-start verification"
+        },
+        {
+          "label": "Crawl4AI GitHub repository",
+          "url": "https://github.com/unclecode/crawl4ai",
+          "usage": "source, license, activity, and release verification"
+        },
+        {
+          "label": "Crawl4AI quick start",
+          "url": "https://docs.crawl4ai.com/core/quickstart/",
+          "usage": "example workflow and extraction behavior verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: 크롤링 남용이 아니라 리서치 큐 검증 도구",
+          "points": [
+            "Crawl4AI는 블로그 소재 수집과 AI 리서치 자동화 후보로 볼 수 있지만 무단 스크래핑을 권장하지 않는다.",
+            "robots, 서비스 약관, rate limit, 저작권과 재사용 권리를 publication 전에 확인해야 한다.",
+            "Biz2Lab에서는 원문 복제가 아니라 공개 출처 확인, 요약 후보, 링크 기반 리서치 큐를 만드는 방향으로 검토한다."
+          ]
+        },
+        {
+          "heading": "콘텐츠 자동화 적용 각도",
+          "points": [
+            "공식 문서, 공개 릴리스 노트, 제품 페이지 변경을 모니터링해 콘텐츠 후보를 정리하는 흐름을 검토한다.",
+            "Huginn은 이벤트 감시, Kestra는 오케스트레이션, Crawl4AI는 수집/정제 단계 후보로 역할을 나눠 본다.",
+            "수집한 데이터는 바로 게시하지 않고 사람이 출처와 문맥을 검토하는 승인 게이트를 둔다."
+          ]
+        },
+        {
+          "heading": "법적·운영 안전 게이트",
+          "points": [
+            "로그인 뒤 데이터, 유료 콘텐츠, robots로 제한된 경로, 개인 정보가 포함된 페이지는 예시에서 제외한다.",
+            "대량 요청, 우회, fingerprint 회피 같은 표현은 쓰지 않는다.",
+            "기사에서는 수집 자동화보다 출처 추적, citation, 검토 가능한 리서치 asset화에 초점을 둔다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "ethical-research-crawler-map",
+        "altKo": "Crawl4AI를 블로그 리서치 자동화와 안전한 크롤링 게이트 관점에서 분석한 대표 이미지",
+        "captionKo": "Crawl4AI는 콘텐츠 리서치 후보지만 robots, 약관, rate limit, 출처 검토를 먼저 통과해야 한다.",
+        "promptSummaryKo": "공개 웹 문서, robots 체크, rate limit 게이트, 리서치 큐, 사람이 검토하는 승인 보드가 연결된 안전한 AI 리서치 자동화 이미지.",
+        "mustInclude": [
+          "public web documents",
+          "robots check",
+          "rate limit gate",
+          "research queue",
+          "human review board"
+        ],
+        "mustAvoid": [
+          "scraping abuse",
+          "locked content",
+          "personal data",
+          "third-party brand pages",
+          "crawler mascot"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "nocodb-airtable-alternative-license-caution",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "nocodb-airtable-alternative-license-caution",
+          "huginn-monitoring-automation-agent",
+          "kestra-data-ai-workflow-orchestration"
+        ]
+      },
+      "safetyNotes": [
+        "Do not encourage scraping that violates robots, terms, authentication, or rate limits.",
+        "Do not collect personal data, paid content, or private pages in examples.",
+        "Treat external crawling at scale as a separate approval-gated implementation."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current Crawl4AI license and cloud/API terms before publication.",
+        "Separate open-source library use from any hosted or beta cloud service claims.",
+        "Do not imply collected third-party content can be republished without permission."
+      ]
     }
   ]
 }
