@@ -1142,5 +1142,49 @@
     "output": "/images/posts/node-red-local-business-automation-server-hero.webp",
     "source": "raw",
     "rawPath": "assets/images/raw/node-red-local-business-automation-server-hero.jpg"
+  },
+  {
+    "id": "huginn-monitoring-automation-agent-1200",
+    "project": "biz2lab",
+    "postSlug": "huginn-monitoring-automation-agent",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/huginn-monitoring-automation-agent-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
+  },
+  {
+    "id": "huginn-monitoring-automation-agent-800",
+    "project": "biz2lab",
+    "postSlug": "huginn-monitoring-automation-agent",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/huginn-monitoring-automation-agent-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
+  },
+  {
+    "id": "huginn-monitoring-automation-agent-400",
+    "project": "biz2lab",
+    "postSlug": "huginn-monitoring-automation-agent",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/huginn-monitoring-automation-agent-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
+  },
+  {
+    "id": "huginn-monitoring-automation-agent-hero",
+    "project": "biz2lab",
+    "postSlug": "huginn-monitoring-automation-agent",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/huginn-monitoring-automation-agent-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg"
   }
 ]

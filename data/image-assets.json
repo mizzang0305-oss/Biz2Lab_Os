@@ -124,5 +124,23 @@
     "visualApprovalStatus": "codex-visual-sanity-checked",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "huginn-monitoring-automation-agent-hero",
+    "project": "biz2lab",
+    "postSlug": "huginn-monitoring-automation-agent",
+    "usage": "hero",
+    "src": "/images/posts/huginn-monitoring-automation-agent-hero.webp",
+    "rawPath": "assets/images/raw/huginn-monitoring-automation-agent-hero.jpg",
+    "altKo": "Huginn을 웹 모니터링 자동화 에이전트 관점에서 분석한 대표 이미지",
+    "captionKo": "Huginn은 웹 변화와 이벤트를 수집해 콘텐츠와 업무 자동화 소재로 넘기는 후보 도구다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-checked",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]

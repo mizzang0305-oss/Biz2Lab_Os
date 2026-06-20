@@ -27,6 +27,7 @@ relatedPosts:
   - opencut-free-open-source-video-editor-ai-content-automation
   - activepieces-ai-business-automation-n8n-alternative
   - node-red-local-business-automation-server
+  - huginn-monitoring-automation-agent
   - ai-business-automation-guide
 templateCta: 무료 자동화 도구 검증 체크리스트
 nextStep:
@@ -90,7 +91,7 @@ Node-RED는 이벤트 기반 흐름을 시각적으로 연결하는 도구입니
 
 ### Huginn
 
-Huginn은 웹 감시, 이벤트 수집, 조건 기반 액션을 직접 구성하는 자동화 도구로 알려져 있습니다. RSS, 가격 변화, 페이지 변경, 알림 흐름 같은 감시형 자동화에 어울립니다. 공식 저장소와 라이선스는 적용 전 별도 확인이 필요합니다.
+[Huginn 분석](/ko/automation/huginn-monitoring-automation-agent)은 웹 감시, 이벤트 수집, 조건 기반 액션을 직접 구성하는 자동화 후보로 다뤘습니다. RSS, 가격 변화, 페이지 변경, 알림 흐름 같은 감시형 자동화에 어울리지만, 약관·robots 정책·credential 관리는 별도 검증이 필요합니다.
 
 ### Windmill
 

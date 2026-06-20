@@ -1,5 +1,22 @@
 [
   {
+    "title": "Huginn 분석: 뉴스·가격·경쟁사 모니터링 자동화 에이전트로 쓸 수 있을까?",
+    "slug": "huginn-monitoring-automation-agent",
+    "route": "/ko/automation/huginn-monitoring-automation-agent",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/huginn-monitoring-automation-agent-hero.webp",
+    "heroAlt": "Huginn을 웹 모니터링 자동화 에이전트 관점에서 분석한 대표 이미지",
+    "updatedAt": "2026-06-20",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "node-red-local-business-automation-server",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Node-RED 분석: 로컬 서버 자동화와 소상공인 업무 연결에 쓸 수 있을까?",
     "slug": "node-red-local-business-automation-server",
     "route": "/ko/automation/node-red-local-business-automation-server",
@@ -45,6 +62,7 @@
       "opencut-free-open-source-video-editor-ai-content-automation",
       "activepieces-ai-business-automation-n8n-alternative",
       "node-red-local-business-automation-server",
+      "huginn-monitoring-automation-agent",
       "ai-business-automation-guide"
     ]
   },
