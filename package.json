@@ -31,6 +31,7 @@
     "audit:premium-images": "tsx scripts/audit-premium-image-gate.ts",
     "generate-content-index": "tsx scripts/generate-content-index.ts",
     "content:series:auto": "tsx scripts/content-series-orchestrator.ts",
+    "content:series:scheduler": "tsx scripts/content-series-scheduler-runner.ts",
     "repair:article-images": "tsx scripts/repair-article-hero-images.ts"
   },
   "dependencies": {

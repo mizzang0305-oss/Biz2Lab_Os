@@ -224,3 +224,63 @@ If the latest-discovery path finds multiple candidates, move the intended Codex-
 ```bash
 npm run content:series:auto -- --topic node-red --artifact-dir "C:\Users\LOVE\.codex\generated_images\node-red-review"
 ```
+
+## 3-Hour Local Scheduler
+
+The scheduler is a local safety gate for the content series queue. It does not publish every 3 hours unconditionally. It checks whether one queued topic can proceed, and it creates at most one PR only when every gate passes.
+
+Run a safe dry run:
+
+```bash
+npm run content:series:scheduler -- --dry-run
+```
+
+Run with the default 3-hour cadence:
+
+```bash
+npm run content:series:scheduler
+```
+
+Run with a one-time cadence override:
+
+```bash
+npm run content:series:scheduler -- --cadence 180
+```
+
+Force a check only when you want to bypass the cadence timer. This does not bypass image, duplicate, lock, active-hours, daily-limit, PR-limit, merge, or deploy gates:
+
+```bash
+npm run content:series:scheduler -- --force-check
+```
+
+Recommended Windows Task Scheduler action:
+
+```bat
+cd C:\Users\LOVE\MyProjects\Biz2Lab_Os
+npm run content:series:scheduler
+```
+
+Recommended schedule:
+
+```text
+Repeat every 3 hours
+```
+
+Scheduler guardrails:
+
+- checks every 3 hours by default, with `data/content-series-schedule.json` as the source of truth
+- processes at most one topic per run
+- creates at most one publication PR per successful run
+- requires a real local Codex-generated image artifact under `C:\Users\LOVE\.codex\generated_images\`
+- blocks manual image drops, placeholder images, missing images, slug mismatches, and ambiguous artifacts
+- blocks completed topics, existing article files, content-index duplicates, existing topic PRs, max open PRs, daily limits, and concurrent runs
+- uses `.tmp/content-series-scheduler.lock` to prevent concurrent local runs
+- never merges PRs
+- never deploys manually
+- never calls DB, payment, message, notification, or external business APIs
+
+If the matching Codex hero image does not exist yet, the safe status is:
+
+```text
+WAITING_FOR_CODEX_IMAGE_ARTIFACT
+```

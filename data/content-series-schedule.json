@@ -1,0 +1,15 @@
+{
+  "enabled": true,
+  "cadenceMinutes": 180,
+  "minCadenceMinutes": 60,
+  "maxArticlesPerDay": 2,
+  "maxOpenPrs": 1,
+  "requireCodexArtifact": true,
+  "autoMerge": false,
+  "manualDeploy": false,
+  "activeHours": {
+    "timezone": "Asia/Seoul",
+    "start": "06:00",
+    "end": "23:30"
+  }
+}
