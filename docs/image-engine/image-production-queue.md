@@ -6,10 +6,10 @@ Phase 3.8-SKILL-MASTER created prompt-only packages for Biz2Lab image production
 
 ## Coverage
 
-- Hero prompt packages: 29
+- Hero prompt packages: 30
 - Inline prompt packages: 5
 - Hub prompt packages: 4
-- Total prompt packages: 38
+- Total prompt packages: 39
 
 ## Priority Order
 
@@ -49,3 +49,5 @@ Content-series automation update: `windmill-developer-workflow-automation` has a
 Content-series automation update: `kestra-data-ai-workflow-orchestration` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
 
 Content-series automation update: `n8n-workflow-automation-license-caution` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
+
+Content-series artifact-only update: `nocodb-airtable-alternative-license-caution` has a real local Codex-generated PNG artifact under `C:\Users\LOVE\.codex\generated_images\nocodb-airtable-alternative-license-caution-hero\`. Raw/public production images were not imported and no article files were generated.
