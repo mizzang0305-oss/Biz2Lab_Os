@@ -11,7 +11,7 @@ import {
   type OpenPullRequest,
 } from "@/scripts/content-series-scheduler-runner";
 
-const currentTopicSlug = "n8n-workflow-automation-license-caution";
+const currentTopicSlug = "nocodb-airtable-alternative-license-caution";
 const finalTopicSlug = "crawl4ai-blog-research-automation";
 const partialQueueTopicSlug = "windmill-developer-workflow-automation";
 const partialQueueCompleted = [
@@ -254,7 +254,7 @@ test("partial queue still selects the next incomplete topic", () => {
 
 test("existing topic PR blocks duplicate publication", () => {
   const root = tempSchedulerRoot();
-  const openPrs = [{ number: 7, title: "n8n article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
+  const openPrs = [{ number: 7, title: "current article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
 
   const result = runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, schedulerDeps(openPrs).deps);
 
@@ -263,10 +263,10 @@ test("existing topic PR blocks duplicate publication", () => {
 
 test("explicit topic with latest artifact selector still respects existing topic PR gate", () => {
   const root = tempSchedulerRoot();
-  const openPrs = [{ number: 7, title: "n8n article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
+  const openPrs = [{ number: 7, title: "current article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
 
   const result = runContentSeriesScheduler(
-    { rootDir: root, dryRun: true, topic: "n8n", useLatestCodexArtifact: true, now: activeNow },
+    { rootDir: root, dryRun: true, topic: "nocodb", useLatestCodexArtifact: true, now: activeNow },
     schedulerDeps(openPrs).deps,
   );
 

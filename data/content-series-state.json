@@ -1,7 +1,7 @@
 {
   "series": "free-open-source-automation-tools",
   "title": "무료 오픈소스 자동화 도구 시리즈",
-  "currentTopic": "n8n-workflow-automation-license-caution",
+  "currentTopic": "nocodb-airtable-alternative-license-caution",
   "completed": [
     "opencut-free-open-source-video-editor-ai-content-automation",
     "free-open-source-automation-tools-series",
@@ -11,10 +11,10 @@
     "baserow-open-source-database-automation",
     "appsmith-internal-dashboard-automation",
     "windmill-developer-workflow-automation",
-    "kestra-data-ai-workflow-orchestration"
+    "kestra-data-ai-workflow-orchestration",
+    "n8n-workflow-automation-license-caution"
   ],
   "next": [
-    "n8n-workflow-automation-license-caution",
     "nocodb-airtable-alternative-license-caution",
     "crawl4ai-blog-research-automation"
   ],

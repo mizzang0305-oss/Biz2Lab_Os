@@ -215,5 +215,6 @@ Kestra는 고도화 후보 도구다. 고객 데이터, 결제, 메시지 발송
 - [Baserow 분석](/ko/automation/baserow-open-source-database-automation)
 - [Appsmith 분석](/ko/automation/appsmith-internal-dashboard-automation)
 - [Windmill 분석](/ko/automation/windmill-developer-workflow-automation)
+- [n8n 분석: 유명한 자동화 도구지만 오픈소스라고 말해도 될까?](/ko/automation/n8n-workflow-automation-license-caution)
 
 한 줄 결론은 명확하다. Kestra는 지금 당장 모든 반복 업무를 맡길 만능 도구라기보다, Biz2Lab / MyBiz 자동화가 데이터·AI 파이프라인으로 커질 때 검증할 고도화 단계의 오케스트레이션 후보에 가깝다.

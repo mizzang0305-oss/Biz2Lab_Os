@@ -103,9 +103,9 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes("appsmith-internal-dashboard-automation"));
   assert.ok(state.completed.includes("windmill-developer-workflow-automation"));
   assert.ok(state.completed.includes("kestra-data-ai-workflow-orchestration"));
-  assert.equal(state.currentTopic, "n8n-workflow-automation-license-caution");
+  assert.ok(state.completed.includes("n8n-workflow-automation-license-caution"));
+  assert.equal(state.currentTopic, "nocodb-airtable-alternative-license-caution");
   assert.deepEqual(state.next, [
-    "n8n-workflow-automation-license-caution",
     "nocodb-airtable-alternative-license-caution",
     "crawl4ai-blog-research-automation",
   ]);
@@ -150,7 +150,7 @@ test("missing Codex image artifact blocks publication without writing article", 
 
   await withIsolatedGeneratedImagesDir(root, async () => {
     await assert.rejects(
-      () => runContentSeriesOrchestrator({ rootDir: root, topic: "n8n", noCommit: true }),
+      () => runContentSeriesOrchestrator({ rootDir: root, topic: "nocodb", noCommit: true }),
       (error) =>
         error instanceof ContentSeriesError &&
         error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
@@ -548,10 +548,10 @@ test("validation command list includes all required gates", () => {
 test("plan-only can inspect the current stacked topic without publication blockers", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
-  const topic = resolveContentSeriesTopic(topics.topics, state, "n8n");
+  const topic = resolveContentSeriesTopic(topics.topics, state, "nocodb");
   const plan = buildContentSeriesPlan(state, topic, { planOnly: true });
 
-  assert.equal(plan.topic.slug, "n8n-workflow-automation-license-caution");
+  assert.equal(plan.topic.slug, "nocodb-airtable-alternative-license-caution");
   assert.deepEqual(plan.publicationBlockers, []);
 });
 
