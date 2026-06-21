@@ -8,7 +8,7 @@ export async function runAdminSchedulerDryRun(options: {
   const logs: string[] = [];
   try {
     const { runContentSeriesScheduler } = await import("@/scripts/content-series-scheduler-runner");
-    const result = runContentSeriesScheduler(
+    const result = await runContentSeriesScheduler(
       {
         dryRun: true,
         forceCheck: options.forceCheck,
