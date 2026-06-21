@@ -1,0 +1,23 @@
+{
+  "id": "dify-llm-app-builder-business-automation-hero",
+  "postSlug": "dify-llm-app-builder-business-automation",
+  "category": "automation",
+  "usage": "hero",
+  "targetPath": "assets/images/raw/dify-llm-app-builder-business-automation-hero.jpg",
+  "optimizedPath": "public/images/posts/dify-llm-app-builder-business-automation-hero.webp",
+  "altKo": "Dify로 LLM 앱과 RAG assistant 운영 흐름을 검토하는 대표 이미지",
+  "captionKo": "Dify는 챗봇과 RAG 워크플로 후보지만 cloud, self-hosting, 데이터 조건 확인이 필요하다.",
+  "style": "llm-assistant-rag-workflow-board, Korean business editorial raster hero, minimal text, no title inside image",
+  "promptKo": "챗봇 워크플로, RAG 지식 베이스, assistant 검토 큐, 운영자 승인, self-host 주의 표시가 있는 AI 앱 빌더 이미지.",
+  "providerPromptKo": "Dify 분석: LLM 앱 빌더를 업무 자동화와 챗봇 운영에 쓸 수 있을까? 대표 이미지. 챗봇 워크플로, RAG 지식 베이스, assistant 검토 큐, 운영자 승인, self-host 주의 표시가 있는 AI 앱 빌더 이미지. Premium Biz2Lab tech editorial cover, dark navy and charcoal background, teal and orange accents, balanced review tone, practical LLM app builder operations. Include: chatbot workflow, RAG knowledge base, assistant review queue, operator approval, self-host caution. No official logos, no real customer data, no placeholder elements.",
+  "negativePromptKo": "official Dify logo, real customer messages, personal data, automatic sending, unverified cloud claims, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark, generic chatbot stock image, blind recommendation",
+  "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+  "composition": "챗봇 워크플로, RAG 지식 베이스, assistant 검토 큐, 운영자 승인, self-host 주의 표시가 있는 AI 앱 빌더 이미지.",
+  "categoryStyle": "automation category visual, llm-assistant-rag-workflow-board",
+  "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+  "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+  "localOnly": true,
+  "visualDifferentiationHint": "dify-llm-app-builder-business-automation: llm-assistant-rag-workflow-board",
+  "filename": "dify-llm-app-builder-business-automation-hero.jpg",
+  "rawPath": "assets/images/raw/dify-llm-app-builder-business-automation-hero.jpg"
+}
