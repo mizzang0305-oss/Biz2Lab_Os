@@ -1,7 +1,7 @@
 {
   "series": "free-open-source-automation-tools",
   "title": "무료 오픈소스 자동화 도구 시리즈",
-  "currentTopic": "crawl4ai-blog-research-automation",
+  "currentTopic": "langflow-ai-workflow-automation",
   "completed": [
     "opencut-free-open-source-video-editor-ai-content-automation",
     "free-open-source-automation-tools-series",
@@ -13,10 +13,20 @@
     "windmill-developer-workflow-automation",
     "kestra-data-ai-workflow-orchestration",
     "n8n-workflow-automation-license-caution",
-    "nocodb-airtable-alternative-license-caution"
+    "nocodb-airtable-alternative-license-caution",
+    "crawl4ai-blog-research-automation"
   ],
   "next": [
-    "crawl4ai-blog-research-automation"
+    "langflow-ai-workflow-automation",
+    "dify-llm-app-builder-business-automation",
+    "open-webui-local-llm-admin-portal",
+    "flowise-ai-agent-workflow-automation",
+    "directus-headless-cms-data-automation",
+    "pocketbase-lightweight-backend-saas-mvp",
+    "supabase-self-hosting-cost-operations-caution",
+    "meilisearch-blog-product-search-automation",
+    "typesense-product-document-search-automation",
+    "umami-open-source-analytics-ga-alternative"
   ],
   "gates": {
     "manualDeploy": false,

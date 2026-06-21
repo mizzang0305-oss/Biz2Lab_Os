@@ -12,8 +12,8 @@ import {
   type OpenPullRequest,
 } from "@/scripts/content-series-scheduler-runner";
 
-const currentTopicSlug = "crawl4ai-blog-research-automation";
-const finalTopicSlug = "crawl4ai-blog-research-automation";
+const currentTopicSlug = "langflow-ai-workflow-automation";
+const finalTopicSlug = "umami-open-source-analytics-ga-alternative";
 const partialQueueTopicSlug = "windmill-developer-workflow-automation";
 const partialQueueCompleted = [
   "opencut-free-open-source-video-editor-ai-content-automation",
@@ -267,7 +267,7 @@ test("explicit topic with latest artifact selector still respects existing topic
   const openPrs = [{ number: 7, title: "current article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
 
   const result = await runContentSeriesScheduler(
-    { rootDir: root, dryRun: true, topic: "crawl4ai", useLatestCodexArtifact: true, now: activeNow },
+    { rootDir: root, dryRun: true, topic: "langflow", useLatestCodexArtifact: true, now: activeNow },
     schedulerDeps(openPrs).deps,
   );
 

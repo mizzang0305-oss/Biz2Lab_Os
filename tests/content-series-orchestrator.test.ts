@@ -26,6 +26,19 @@ import {
   runContentSeriesOrchestrator,
 } from "@/scripts/content-series-orchestrator";
 
+const secondAutomationQueue = [
+  "langflow-ai-workflow-automation",
+  "dify-llm-app-builder-business-automation",
+  "open-webui-local-llm-admin-portal",
+  "flowise-ai-agent-workflow-automation",
+  "directus-headless-cms-data-automation",
+  "pocketbase-lightweight-backend-saas-mvp",
+  "supabase-self-hosting-cost-operations-caution",
+  "meilisearch-blog-product-search-automation",
+  "typesense-product-document-search-automation",
+  "umami-open-source-analytics-ga-alternative",
+];
+
 function tempSeriesRoot() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-series-"));
   fs.mkdirSync(path.join(root, "data"), { recursive: true });
@@ -105,10 +118,9 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes("kestra-data-ai-workflow-orchestration"));
   assert.ok(state.completed.includes("n8n-workflow-automation-license-caution"));
   assert.ok(state.completed.includes("nocodb-airtable-alternative-license-caution"));
-  assert.equal(state.currentTopic, "crawl4ai-blog-research-automation");
-  assert.deepEqual(state.next, [
-    "crawl4ai-blog-research-automation",
-  ]);
+  assert.ok(state.completed.includes("crawl4ai-blog-research-automation"));
+  assert.equal(state.currentTopic, "langflow-ai-workflow-automation");
+  assert.deepEqual(state.next, secondAutomationQueue);
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
   assert.equal(state.gates.dbWrite, false);
@@ -130,6 +142,13 @@ test("content series topic config parses required upcoming topics", () => {
   assert.ok(slugs.includes("n8n-workflow-automation-license-caution"));
   assert.ok(slugs.includes("nocodb-airtable-alternative-license-caution"));
   assert.ok(slugs.includes("crawl4ai-blog-research-automation"));
+  for (const slug of secondAutomationQueue) {
+    assert.ok(slugs.includes(slug), `missing ${slug}`);
+  }
+  for (const topic of topics.topics.filter((topic) => secondAutomationQueue.includes(topic.slug))) {
+    assert.doesNotMatch(topic.title, /\?\?/);
+    assert.doesNotMatch(topic.description, /\?\?/);
+  }
 });
 
 test("duplicate completed topics are rejected", () => {
@@ -150,7 +169,7 @@ test("missing Codex image artifact blocks publication without writing article", 
 
   await withIsolatedGeneratedImagesDir(root, async () => {
     await assert.rejects(
-      () => runContentSeriesOrchestrator({ rootDir: root, topic: "crawl4ai", noCommit: true }),
+      () => runContentSeriesOrchestrator({ rootDir: root, topic: "langflow", noCommit: true }),
       (error) =>
         error instanceof ContentSeriesError &&
         error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
@@ -548,10 +567,10 @@ test("validation command list includes all required gates", () => {
 test("plan-only can inspect the current stacked topic without publication blockers", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
-  const topic = resolveContentSeriesTopic(topics.topics, state, "crawl4ai");
+  const topic = resolveContentSeriesTopic(topics.topics, state, "langflow");
   const plan = buildContentSeriesPlan(state, topic, { planOnly: true });
 
-  assert.equal(plan.topic.slug, "crawl4ai-blog-research-automation");
+  assert.equal(plan.topic.slug, "langflow-ai-workflow-automation");
   assert.deepEqual(plan.publicationBlockers, []);
 });
 
