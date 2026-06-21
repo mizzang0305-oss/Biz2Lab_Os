@@ -27,7 +27,6 @@ import {
 } from "@/scripts/content-series-orchestrator";
 
 const secondAutomationQueue = [
-  "langflow-ai-workflow-automation",
   "dify-llm-app-builder-business-automation",
   "open-webui-local-llm-admin-portal",
   "flowise-ai-agent-workflow-automation",
@@ -119,7 +118,8 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes("n8n-workflow-automation-license-caution"));
   assert.ok(state.completed.includes("nocodb-airtable-alternative-license-caution"));
   assert.ok(state.completed.includes("crawl4ai-blog-research-automation"));
-  assert.equal(state.currentTopic, "langflow-ai-workflow-automation");
+  assert.ok(state.completed.includes("langflow-ai-workflow-automation"));
+  assert.equal(state.currentTopic, "dify-llm-app-builder-business-automation");
   assert.deepEqual(state.next, secondAutomationQueue);
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
@@ -142,6 +142,7 @@ test("content series topic config parses required upcoming topics", () => {
   assert.ok(slugs.includes("n8n-workflow-automation-license-caution"));
   assert.ok(slugs.includes("nocodb-airtable-alternative-license-caution"));
   assert.ok(slugs.includes("crawl4ai-blog-research-automation"));
+  assert.ok(slugs.includes("langflow-ai-workflow-automation"));
   for (const slug of secondAutomationQueue) {
     assert.ok(slugs.includes(slug), `missing ${slug}`);
   }
@@ -169,7 +170,7 @@ test("missing Codex image artifact blocks publication without writing article", 
 
   await withIsolatedGeneratedImagesDir(root, async () => {
     await assert.rejects(
-      () => runContentSeriesOrchestrator({ rootDir: root, topic: "langflow", noCommit: true }),
+      () => runContentSeriesOrchestrator({ rootDir: root, topic: "dify", noCommit: true }),
       (error) =>
         error instanceof ContentSeriesError &&
         error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
@@ -567,10 +568,10 @@ test("validation command list includes all required gates", () => {
 test("plan-only can inspect the current stacked topic without publication blockers", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
-  const topic = resolveContentSeriesTopic(topics.topics, state, "langflow");
+  const topic = resolveContentSeriesTopic(topics.topics, state, "dify");
   const plan = buildContentSeriesPlan(state, topic, { planOnly: true });
 
-  assert.equal(plan.topic.slug, "langflow-ai-workflow-automation");
+  assert.equal(plan.topic.slug, "dify-llm-app-builder-business-automation");
   assert.deepEqual(plan.publicationBlockers, []);
 });
 
