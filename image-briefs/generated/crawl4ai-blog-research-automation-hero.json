@@ -1,0 +1,23 @@
+{
+  "id": "crawl4ai-blog-research-automation-hero",
+  "postSlug": "crawl4ai-blog-research-automation",
+  "category": "automation",
+  "usage": "hero",
+  "targetPath": "assets/images/raw/crawl4ai-blog-research-automation-hero.jpg",
+  "optimizedPath": "public/images/posts/crawl4ai-blog-research-automation-hero.webp",
+  "altKo": "Crawl4AI를 블로그 리서치 자동화와 안전한 크롤링 게이트 관점에서 분석한 대표 이미지",
+  "captionKo": "Crawl4AI는 블로그 리서치 자동화 후보지만 robots 확인, 속도 제한, 출처 검토, 사람 승인 게이트를 먼저 통과해야 한다.",
+  "style": "ethical-research-crawler-map, premium Korean business automation editorial hero, minimal text, no title inside image",
+  "promptKo": "공개 웹 문서, 브라우저 페이지, 구조화 데이터 카드, robots 확인 게이트, 속도 제한 주의, 콘텐츠 캘린더와 사람 검토 보드가 연결된 안전한 AI 리서치 자동화 이미지.",
+  "providerPromptKo": "Crawl4AI 분석: 블로그 소재 수집과 AI 리서치 자동화에 쓸 수 있을까 대표 이미지. 공개 웹 문서와 블로그 후보 페이지가 브라우저 카드로 정리되고, crawler path line이 robots 확인 게이트, rate-limit caution, structured data extraction, content queue, human review board로 이어지는 프리미엄 Biz2Lab 테크 에디토리얼 커버. 어두운 네이비와 차콜 배경, teal과 orange 포인트, 안전한 리서치 파이프라인 느낌. Include: browser pages, structured data cards, crawler path lines, robots check gate, rate-limit caution, content calendar, human review board. No official logos, no third-party logos, no locked content, no personal data, no hacking or scraping-abuse mood.",
+  "negativePromptKo": "official Crawl4AI logo, third-party logo, hacking scene, scraping-abuse mood, locked content, personal data, credential fields, copied website content, crawler mascot, fake browser screenshot, real company name, secrets, dense text, distorted text, watermark",
+  "visualReferenceStyle": "Korean business automation editorial hero image, responsible research pipeline, polished SaaS operations visual, minimal text",
+  "composition": "왼쪽에는 Crawl4AI 분석 제목 영역과 책임 있는 리서치 키워드가 작게 배치되고, 중앙에는 브라우저 문서 카드와 구조화 데이터 카드가 파이프라인으로 이어지며, 오른쪽에는 robots 확인, 속도 제한, 출처 검토, 콘텐츠 큐, 사람 승인 보드가 계층적으로 배치된다.",
+  "categoryStyle": "automation category visual, ethical-research-crawler-map",
+  "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+  "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+  "localOnly": true,
+  "visualDifferentiationHint": "crawl4ai-blog-research-automation: ethical-research-crawler-map with responsible crawling gates and content research queue",
+  "filename": "crawl4ai-blog-research-automation-hero.jpg",
+  "rawPath": "assets/images/raw/crawl4ai-blog-research-automation-hero.jpg"
+}
