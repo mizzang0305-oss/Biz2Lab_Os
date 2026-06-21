@@ -1,6 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import {
+  summarizePublishedPosts,
+  validatePublishedPostInventory,
+  type ContentIndexRow,
+} from "@/lib/content-validation";
 import { getPublicPosts } from "@/lib/posts";
 import { siteConfig } from "@/lib/site";
 
@@ -8,6 +13,22 @@ const forbiddenTerms = ["affiliate", "amazon", "로또", "lotto"];
 const errors: string[] = [];
 const publicPosts = getPublicPosts();
 const postsBySlug = new Set(publicPosts.map((post) => post.slug));
+const contentIndexPath = path.join(process.cwd(), "content", "ko", "content-index.json");
+
+function readContentIndexRows(): ContentIndexRow[] {
+  if (!fs.existsSync(contentIndexPath)) {
+    errors.push("content/ko/content-index.json is required");
+    return [];
+  }
+
+  const rows = JSON.parse(fs.readFileSync(contentIndexPath, "utf8")) as unknown;
+  if (!Array.isArray(rows)) {
+    errors.push("content/ko/content-index.json must be an array");
+    return [];
+  }
+
+  return rows as ContentIndexRow[];
+}
 
 for (const post of publicPosts) {
   const expectedCanonical = `${siteConfig.url}/ko/${post.frontmatter.category}/${post.slug}`;
@@ -21,11 +42,6 @@ for (const post of publicPosts) {
 
   if (post.frontmatter.heroImage.startsWith("http")) {
     errors.push(`${post.slug}: heroImage must be local`);
-  }
-
-  const imagePath = path.join(process.cwd(), "public", post.frontmatter.heroImage);
-  if (!fs.existsSync(imagePath)) {
-    errors.push(`${post.slug}: missing hero image ${post.frontmatter.heroImage}`);
   }
 
   if (post.frontmatter.relatedPosts.length < 1) {
@@ -50,27 +66,23 @@ for (const post of publicPosts) {
   }
 }
 
-if (publicPosts.length !== 37) {
-  errors.push(`expected 37 public posts, found ${publicPosts.length}`);
-}
-
-const expectedCategoryCounts = {
-  automation: 19,
-  "sales-ops": 7,
-  "small-business": 6,
-  "contracts-payments": 5,
-} as const;
-
-for (const [category, expectedCount] of Object.entries(expectedCategoryCounts)) {
-  const actualCount = publicPosts.filter((post) => post.category === category).length;
-  if (actualCount !== expectedCount) {
-    errors.push(`${category}: expected ${expectedCount} posts, found ${actualCount}`);
-  }
-}
+errors.push(
+  ...validatePublishedPostInventory({
+    posts: publicPosts,
+    contentIndexRows: readContentIndexRows(),
+    publicFileExists: (src) => fs.existsSync(path.join(process.cwd(), "public", src.replace(/^\//, ""))),
+  }),
+);
 
 if (errors.length > 0) {
   console.error(errors.join("\n"));
   process.exit(1);
 }
 
-console.log(`validate:posts PASS (${publicPosts.length} public Korean posts)`);
+const summary = summarizePublishedPosts(publicPosts);
+const categorySummary = Object.entries(summary.categoryCounts)
+  .sort(([left], [right]) => left.localeCompare(right))
+  .map(([category, count]) => `${category}=${count}`)
+  .join(", ");
+
+console.log(`validate:posts PASS (${summary.total} published Korean posts; ${categorySummary})`);

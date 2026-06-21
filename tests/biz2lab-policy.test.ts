@@ -8,6 +8,11 @@ import {
   plannedLocales,
   publicLocales,
 } from "@/lib/locales";
+import {
+  summarizePublishedPosts,
+  validatePublishedPostInventory,
+  type ContentIndexRow,
+} from "@/lib/content-validation";
 import { googleSetup } from "@/lib/google-setup";
 import { categorySlugs, postFrontmatterSchema } from "@/lib/schema";
 import {
@@ -82,17 +87,29 @@ test("frontmatter schema enforces Korean-only approval categories", () => {
   assert.equal(parsed.success, true);
 });
 
-test("Phase 2 content set has 37 public Korean posts and excludes drafts/noindex from sitemap", () => {
+test("Phase 2 content set derives public Korean post inventory from canonical content", () => {
   const allPosts = getAllPosts();
   const publicPosts = getPublicPosts();
   const sitemapPosts = getSitemapPosts();
   const draftPosts = allPosts.filter((post) => post.frontmatter.draft);
+  const contentIndexRows = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), "content", "ko", "content-index.json"), "utf8"),
+  ) as ContentIndexRow[];
+  const summary = summarizePublishedPosts(publicPosts);
 
-  assert.equal(publicPosts.length, 37);
-  assert.equal(publicPosts.filter((post) => post.category === "automation").length, 19);
-  assert.equal(publicPosts.filter((post) => post.category === "sales-ops").length, 7);
-  assert.equal(publicPosts.filter((post) => post.category === "small-business").length, 6);
-  assert.equal(publicPosts.filter((post) => post.category === "contracts-payments").length, 5);
+  assert.equal(summary.total, publicPosts.filter((post) => !post.frontmatter.noindex).length);
+  assert.equal(
+    Object.values(summary.categoryCounts).reduce((total, count) => total + count, 0),
+    summary.total,
+  );
+  assert.deepEqual(
+    validatePublishedPostInventory({
+      posts: publicPosts,
+      contentIndexRows,
+      publicFileExists: (src) => fs.existsSync(path.join(process.cwd(), "public", src.replace(/^\//, ""))),
+    }),
+    [],
+  );
   assert.equal(publicPosts.every((post) => post.frontmatter.locale === "ko"), true);
   assert.equal(publicPosts.every((post) => post.frontmatter.status === "published"), true);
   assert.equal(publicPosts.every((post) => post.frontmatter.draft === false), true);
