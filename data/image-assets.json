@@ -232,5 +232,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "nocodb-airtable-alternative-license-caution-hero",
+    "project": "biz2lab",
+    "postSlug": "nocodb-airtable-alternative-license-caution",
+    "usage": "hero",
+    "src": "/images/posts/nocodb-airtable-alternative-license-caution-hero.webp",
+    "rawPath": "assets/images/raw/nocodb-airtable-alternative-license-caution-hero.jpg",
+    "altKo": "NocoDB를 Airtable 대체 데이터베이스와 라이선스 주의 관점에서 분석한 대표 이미지",
+    "captionKo": "NocoDB는 업무 데이터베이스 후보지만, Baserow와 비교해 라이선스와 운영 범위를 따로 확인해야 한다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]

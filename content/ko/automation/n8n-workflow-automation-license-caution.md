@@ -177,5 +177,6 @@ n8n은 이 시리즈에서 라이선스 주의 사례로 다루는 편이 맞습
 - [Baserow 분석](/ko/automation/baserow-open-source-database-automation)
 - [Huginn 분석](/ko/automation/huginn-monitoring-automation-agent)
 - [Kestra 분석](/ko/automation/kestra-data-ai-workflow-orchestration)
+- [NocoDB 분석](/ko/automation/nocodb-airtable-alternative-license-caution)
 
 최종 결론은 명확합니다. n8n은 강력한 워크플로 자동화 도구지만, Biz2Lab에서는 "무료 오픈소스 추천"이 아니라 "라이선스와 운영 조건을 확인해야 하는 자동화 후보"로 보는 것이 안전합니다.
