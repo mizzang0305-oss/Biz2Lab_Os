@@ -404,6 +404,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["workflow nodes", "license checkpoint", "self-hosted server", "approval gate"],
     palette: automationPalette,
   },
+  "nocodb-airtable-alternative-license-caution": {
+    slug: "nocodb-airtable-alternative-license-caution",
+    category: "automation",
+    visualFamily: "database-license-comparison-board",
+    conceptKo: "데이터베이스 그리드, Airtable 대체 후보 비교, 라이선스 확인 카드, 백업과 권한 게이트가 있는 업무 자동화 이미지.",
+    altKo: "NocoDB를 Airtable 대체 데이터베이스와 라이선스 주의 관점에서 분석한 대표 이미지",
+    captionKo: "NocoDB는 업무 데이터베이스 후보지만, Baserow와 비교해 라이선스와 운영 범위를 따로 확인해야 한다.",
+    labels: ["database grid", "comparison board", "license caution card", "backup gate"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

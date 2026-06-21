@@ -19,6 +19,25 @@
     ]
   },
   {
+    "title": "NocoDB 분석: Airtable 대체 도구로 쓸 수 있을까? 라이선스와 운영 리스크 검토",
+    "slug": "nocodb-airtable-alternative-license-caution",
+    "route": "/ko/automation/nocodb-airtable-alternative-license-caution",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/nocodb-airtable-alternative-license-caution-hero.webp",
+    "heroAlt": "NocoDB를 Airtable 대체 데이터베이스와 라이선스 주의 관점에서 분석한 대표 이미지",
+    "updatedAt": "2026-06-21",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "baserow-open-source-database-automation",
+      "n8n-workflow-automation-license-caution",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "node-red-local-business-automation-server",
+      "huginn-monitoring-automation-agent"
+    ]
+  },
+  {
     "title": "Appsmith 분석: 내부 관리자 화면과 업무 자동화 대시보드에 쓸 수 있을까?",
     "slug": "appsmith-internal-dashboard-automation",
     "route": "/ko/automation/appsmith-internal-dashboard-automation",

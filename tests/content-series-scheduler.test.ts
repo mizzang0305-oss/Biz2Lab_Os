@@ -12,7 +12,7 @@ import {
   type OpenPullRequest,
 } from "@/scripts/content-series-scheduler-runner";
 
-const currentTopicSlug = "nocodb-airtable-alternative-license-caution";
+const currentTopicSlug = "crawl4ai-blog-research-automation";
 const finalTopicSlug = "crawl4ai-blog-research-automation";
 const partialQueueTopicSlug = "windmill-developer-workflow-automation";
 const partialQueueCompleted = [
@@ -267,7 +267,7 @@ test("explicit topic with latest artifact selector still respects existing topic
   const openPrs = [{ number: 7, title: "current article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
 
   const result = await runContentSeriesScheduler(
-    { rootDir: root, dryRun: true, topic: "nocodb", useLatestCodexArtifact: true, now: activeNow },
+    { rootDir: root, dryRun: true, topic: "crawl4ai", useLatestCodexArtifact: true, now: activeNow },
     schedulerDeps(openPrs).deps,
   );
 
