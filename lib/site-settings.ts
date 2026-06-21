@@ -105,7 +105,7 @@ export const siteSettings = {
     contactUnavailable:
       "현재 문의 저장 기능이 설정되지 않아 자동 제출할 수 없습니다. 입력 내용은 보존되며, 연락처가 연결되면 제출 기능이 활성화됩니다.",
     templateCta:
-      "다운로드 시스템은 구글 애드센스 승인 이후 단계로 두고, 현재는 글 안에서 점검 기준을 먼저 제공합니다.",
+      "다운로드 시스템은 이후 단계로 두고, 현재는 글 안에서 점검 기준을 먼저 제공합니다.",
   },
   featureFlags: {
     searchEnabled: false,

@@ -32,8 +32,8 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-2xl font-bold tracking-normal text-slate-950">쿠키와 분석</h2>
           <p className="mt-3">
-            향후 구글 애널리틱스, 구글 서치 콘솔, 구글 애드센스 같은 도구를 사용할
-            수 있습니다. 적용 시 각 도구의 정책과 사이트 고지를 함께 따릅니다.
+            향후 방문 통계와 검색 노출 상태를 확인하기 위한 분석 도구를 사용할 수
+            있습니다. 적용 시 각 도구의 정책과 사이트 고지를 함께 따릅니다.
           </p>
         </section>
         <section>
