@@ -1,5 +1,22 @@
 [
   {
+    "title": "Crawl4AI 분석: 블로그 소재 수집과 AI 리서치 자동화에 쓸 수 있을까?",
+    "slug": "crawl4ai-blog-research-automation",
+    "route": "/ko/automation/crawl4ai-blog-research-automation",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/crawl4ai-blog-research-automation-hero.webp",
+    "heroAlt": "Crawl4AI를 블로그 리서치 자동화와 안전한 크롤링 게이트 관점에서 분석한 대표 이미지",
+    "updatedAt": "2026-06-21",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "nocodb-airtable-alternative-license-caution",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "n8n 분석: 유명한 자동화 도구지만 오픈소스라고 말해도 될까?",
     "slug": "n8n-workflow-automation-license-caution",
     "route": "/ko/automation/n8n-workflow-automation-license-caution",
