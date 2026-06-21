@@ -1,5 +1,24 @@
 [
   {
+    "title": "n8n 분석: 유명한 자동화 도구지만 오픈소스라고 말해도 될까?",
+    "slug": "n8n-workflow-automation-license-caution",
+    "route": "/ko/automation/n8n-workflow-automation-license-caution",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/n8n-workflow-automation-license-caution-hero.webp",
+    "heroAlt": "n8n을 워크플로 자동화와 라이선스 주의 관점에서 분석한 대표 이미지",
+    "updatedAt": "2026-06-21",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "node-red-local-business-automation-server",
+      "baserow-open-source-database-automation",
+      "huginn-monitoring-automation-agent",
+      "kestra-data-ai-workflow-orchestration"
+    ]
+  },
+  {
     "title": "Appsmith 분석: 내부 관리자 화면과 업무 자동화 대시보드에 쓸 수 있을까?",
     "slug": "appsmith-internal-dashboard-automation",
     "route": "/ko/automation/appsmith-internal-dashboard-automation",

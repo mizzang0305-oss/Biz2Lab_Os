@@ -47,3 +47,5 @@ Content-series automation update: `appsmith-internal-dashboard-automation` has a
 Content-series automation update: `windmill-developer-workflow-automation` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
 
 Content-series automation update: `kestra-data-ai-workflow-orchestration` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
+
+Content-series automation update: `n8n-workflow-automation-license-caution` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.

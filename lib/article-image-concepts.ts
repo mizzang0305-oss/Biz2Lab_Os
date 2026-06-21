@@ -394,6 +394,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["workflow orchestration", "data pipeline", "AI task", "content output"],
     palette: automationPalette,
   },
+  "n8n-workflow-automation-license-caution": {
+    slug: "n8n-workflow-automation-license-caution",
+    category: "automation",
+    visualFamily: "workflow-license-check-map",
+    conceptKo: "워크플로 노드, 라이선스 체크포인트, self-hosted 서버, 업무 승인 게이트가 함께 보이는 고급 업무 자동화 검토 이미지.",
+    altKo: "n8n을 워크플로 자동화와 라이선스 주의 관점에서 분석한 대표 이미지",
+    captionKo: "n8n은 자동화 흐름을 연결하는 후보지만, 업무 적용 전 라이선스와 self-hosted 사용 범위를 확인해야 한다.",
+    labels: ["workflow nodes", "license checkpoint", "self-hosted server", "approval gate"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

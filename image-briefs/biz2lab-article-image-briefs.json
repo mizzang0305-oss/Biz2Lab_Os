@@ -905,6 +905,29 @@
       "visualDifferentiationHint": "kestra-data-ai-workflow-orchestration: data-ai-orchestration-map",
       "filename": "kestra-data-ai-workflow-orchestration-hero.jpg",
       "rawPath": "assets/images/raw/kestra-data-ai-workflow-orchestration-hero.jpg"
+    },
+    {
+      "id": "n8n-workflow-automation-license-caution-hero",
+      "postSlug": "n8n-workflow-automation-license-caution",
+      "category": "automation",
+      "usage": "hero",
+      "targetPath": "assets/images/raw/n8n-workflow-automation-license-caution-hero.jpg",
+      "optimizedPath": "public/images/posts/n8n-workflow-automation-license-caution-hero.webp",
+      "altKo": "n8n을 워크플로 자동화와 라이선스 주의 관점에서 분석한 대표 이미지",
+      "captionKo": "n8n은 자동화 흐름을 연결하는 후보지만, 업무 적용 전 라이선스와 self-hosted 사용 범위를 확인해야 한다.",
+      "style": "workflow-license-check-map, Korean business editorial raster hero, minimal text, no title inside image",
+      "promptKo": "워크플로 노드, 라이선스 체크포인트, self-hosted 서버, 업무 승인 게이트가 함께 보이는 고급 업무 자동화 검토 이미지.",
+      "providerPromptKo": "n8n 분석: 유명한 자동화 도구지만 오픈소스라고 말해도 될까? 대표 이미지. 워크플로 노드, 라이선스 체크포인트, self-hosted 서버, 업무 승인 게이트가 함께 보이는 고급 업무 자동화 검토 이미지. Include: workflow nodes, license checkpoint, self-hosted server, approval gate, business automation map. No official logos, no real customer data, no placeholder elements.",
+      "negativePromptKo": "official n8n logo, third-party SaaS logos, real credentials, claiming open-source without caution, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+      "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+      "composition": "워크플로 노드, 라이선스 체크포인트, self-hosted 서버, 업무 승인 게이트가 함께 보이는 고급 업무 자동화 검토 이미지.",
+      "categoryStyle": "automation category visual, workflow-license-check-map",
+      "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+      "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+      "localOnly": true,
+      "visualDifferentiationHint": "n8n-workflow-automation-license-caution: workflow-license-check-map",
+      "filename": "n8n-workflow-automation-license-caution-hero.jpg",
+      "rawPath": "assets/images/raw/n8n-workflow-automation-license-caution-hero.jpg"
     }
   ]
 }

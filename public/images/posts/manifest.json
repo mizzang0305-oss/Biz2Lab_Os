@@ -880,6 +880,50 @@
     "rawPath": "assets/images/raw/manage-unsigned-contracts-hero.svg"
   },
   {
+    "id": "n8n-workflow-automation-license-caution-1200",
+    "project": "biz2lab",
+    "postSlug": "n8n-workflow-automation-license-caution",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/n8n-workflow-automation-license-caution-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/n8n-workflow-automation-license-caution-hero.jpg"
+  },
+  {
+    "id": "n8n-workflow-automation-license-caution-800",
+    "project": "biz2lab",
+    "postSlug": "n8n-workflow-automation-license-caution",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/n8n-workflow-automation-license-caution-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/n8n-workflow-automation-license-caution-hero.jpg"
+  },
+  {
+    "id": "n8n-workflow-automation-license-caution-400",
+    "project": "biz2lab",
+    "postSlug": "n8n-workflow-automation-license-caution",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/n8n-workflow-automation-license-caution-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/n8n-workflow-automation-license-caution-hero.jpg"
+  },
+  {
+    "id": "n8n-workflow-automation-license-caution-hero",
+    "project": "biz2lab",
+    "postSlug": "n8n-workflow-automation-license-caution",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/n8n-workflow-automation-license-caution-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/n8n-workflow-automation-license-caution-hero.jpg"
+  },
+  {
     "id": "node-red-local-business-automation-server-1200",
     "project": "biz2lab",
     "postSlug": "node-red-local-business-automation-server",
