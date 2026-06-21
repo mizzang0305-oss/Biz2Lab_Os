@@ -898,6 +898,1016 @@
         "Separate open-source library use from any hosted or beta cloud service claims.",
         "Do not imply collected third-party content can be republished without permission."
       ]
+    },
+    {
+      "id": "langflow",
+      "toolName": "Langflow",
+      "slug": "langflow-ai-workflow-automation",
+      "title": "Langflow 분석: AI 워크플로 자동화와 LLM 앱 제작에 쓸 수 있을까?",
+      "description": "Langflow를 AI 워크플로 빌더와 LLM 앱 프로토타이핑 후보로 검토하되, 라이선스와 배포 모델은 publication 전에 공식 출처로 확인합니다.",
+      "tags": [
+        "Langflow",
+        "AI workflow builder",
+        "LLM app prototyping",
+        "prompt chain automation",
+        "AI_WORKFLOW_AUTOMATION",
+        "LICENSE_AND_DEPLOYMENT_REVIEW"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Langflow official website",
+          "url": "https://www.langflow.org/",
+          "usage": "product positioning and deployment model verification"
+        },
+        {
+          "label": "Langflow documentation",
+          "url": "https://docs.langflow.org/",
+          "usage": "workflow builder, components, and deployment verification"
+        },
+        {
+          "label": "Langflow GitHub repository",
+          "url": "https://github.com/langflow-ai/langflow",
+          "usage": "source, license, release, and activity verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: LLM 앱 제작을 시각 워크플로로 검증하는 후보",
+          "points": [
+            "Langflow는 AI 워크플로와 프롬프트 체인을 시각적으로 설계하는 후보 도구다.",
+            "Biz2Lab에서는 콘텐츠 기획, 리서치 요약, 내부 자동화 흐름의 실험 도구로 검토한다.",
+            "라이선스, 배포 방식, 모델 연결 조건은 publication 전에 공식 출처로 다시 확인한다."
+          ]
+        },
+        {
+          "heading": "Biz2Lab 적용 시나리오",
+          "points": [
+            "콘텐츠 브리프 작성, 검색 요약, 검토 큐 생성 같은 반복 흐름을 프로토타입으로 구성할 수 있다.",
+            "LLM 호출과 데이터 입력 단계에는 샘플 데이터와 사람 승인 게이트를 둔다.",
+            "운영 서버나 고객 데이터 연결은 별도 보안 검토가 끝나기 전까지 예시에서 제외한다."
+          ]
+        },
+        {
+          "heading": "라이선스와 배포 확인 포인트",
+          "points": [
+            "오픈소스 사용, hosted 서비스, enterprise 기능을 구분해 검토한다.",
+            "모델 제공자 약관과 API 비용은 Langflow 자체 라이선스와 별도로 확인한다.",
+            "자동 게시나 외부 메시지 전송 흐름으로 과장하지 않는다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "llm-flow-builder-operations-map",
+        "altKo": "Langflow로 AI 워크플로와 LLM 앱 제작 흐름을 검토하는 대표 이미지",
+        "captionKo": "Langflow는 LLM 앱 프로토타입을 만들 수 있는 후보지만 라이선스와 배포 조건 확인이 먼저다.",
+        "promptSummaryKo": "시각적 LLM 워크플로 캔버스, 프롬프트 체인, 콘텐츠 큐, 사람 승인 게이트, 배포 주의 표시가 연결된 AI 자동화 운영 이미지.",
+        "mustInclude": [
+          "visual workflow canvas",
+          "LLM prompt chain",
+          "content queue",
+          "human approval gate",
+          "deployment caution"
+        ],
+        "mustAvoid": [
+          "official Langflow logo",
+          "real API keys",
+          "customer data",
+          "production database",
+          "unverified license claims"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "crawl4ai-blog-research-automation",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "crawl4ai-blog-research-automation",
+          "appsmith-internal-dashboard-automation",
+          "kestra-data-ai-workflow-orchestration"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production customer data, payment data, or private business systems in examples.",
+        "Use sample data and owner-approved test environments before any production integration.",
+        "Treat authentication, permissions, audit logs, backups, and rollback as publication-time gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current Langflow license before publication.",
+        "Separate open-source package usage from hosted, managed, or enterprise service claims.",
+        "Do not present the article as legal, security, privacy, or cost advice."
+      ]
+    },
+    {
+      "id": "dify",
+      "toolName": "Dify",
+      "slug": "dify-llm-app-builder-business-automation",
+      "title": "Dify 분석: LLM 앱 빌더를 업무 자동화와 챗봇 운영에 쓸 수 있을까?",
+      "description": "Dify를 LLM 앱, 챗봇, 워크플로, RAG 애플리케이션 후보로 검토하되 cloud와 self-hosting 조건을 publication 전에 확인합니다.",
+      "tags": [
+        "Dify",
+        "LLM app builder",
+        "chatbot workflow",
+        "RAG application",
+        "LLM_APP_BUILDER",
+        "LICENSE_AND_SELF_HOST_CAUTION"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Dify official website",
+          "url": "https://dify.ai/",
+          "usage": "product positioning and cloud/self-hosting verification"
+        },
+        {
+          "label": "Dify documentation",
+          "url": "https://docs.dify.ai/",
+          "usage": "workflow, chatbot, RAG, and deployment verification"
+        },
+        {
+          "label": "Dify GitHub repository",
+          "url": "https://github.com/langgenius/dify",
+          "usage": "source, license, release, and activity verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: MyBiz AI assistant 후보지만 운영 조건 검토가 먼저",
+          "points": [
+            "Dify는 챗봇, 워크플로, RAG 기반 LLM 앱을 빠르게 설계하는 후보 도구다.",
+            "고객 지원, 내부 FAQ, 문서 검색 assistant 같은 MyBiz 적용 가능성을 검토한다.",
+            "cloud, self-hosting, 모델 비용, 데이터 보관 조건은 공식 출처로 다시 확인해야 한다."
+          ]
+        },
+        {
+          "heading": "업무 자동화 적용 각도",
+          "points": [
+            "반복 문의 응답, 내부 문서 검색, 콘텐츠 초안 검토 흐름을 샘플 데이터로 실험할 수 있다.",
+            "RAG 연결 시 원문 권리, 개인정보, 업데이트 주기를 분리해서 검토한다.",
+            "사용자에게 자동 발송하거나 외부 시스템을 직접 변경하는 예시는 제외한다."
+          ]
+        },
+        {
+          "heading": "라이선스와 self-hosting 확인",
+          "points": [
+            "오픈소스 배포판과 hosted 서비스의 기능, 가격, 약관을 구분한다.",
+            "self-hosting은 보안, 백업, 모델 키 관리 부담이 함께 생긴다.",
+            "챗봇 운영은 품질 모니터링과 사람 승인 절차가 필요하다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "llm-assistant-rag-workflow-board",
+        "altKo": "Dify로 LLM 앱과 RAG assistant 운영 흐름을 검토하는 대표 이미지",
+        "captionKo": "Dify는 챗봇과 RAG 워크플로 후보지만 cloud, self-hosting, 데이터 조건 확인이 필요하다.",
+        "promptSummaryKo": "챗봇 워크플로, RAG 지식 베이스, assistant 검토 큐, 운영자 승인, self-host 주의 표시가 있는 AI 앱 빌더 이미지.",
+        "mustInclude": [
+          "chatbot workflow",
+          "RAG knowledge base",
+          "assistant review queue",
+          "operator approval",
+          "self-host caution"
+        ],
+        "mustAvoid": [
+          "official Dify logo",
+          "real customer messages",
+          "personal data",
+          "automatic sending",
+          "unverified cloud claims"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "langflow-ai-workflow-automation",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "langflow-ai-workflow-automation",
+          "crawl4ai-blog-research-automation",
+          "appsmith-internal-dashboard-automation"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production customer data, payment data, or private business systems in examples.",
+        "Use sample data and owner-approved test environments before any production integration.",
+        "Treat authentication, permissions, audit logs, backups, and rollback as publication-time gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current Dify license and cloud terms before publication.",
+        "Separate open-source package usage from hosted, managed, or enterprise service claims.",
+        "Do not present the article as legal, security, privacy, or cost advice."
+      ]
+    },
+    {
+      "id": "open-webui",
+      "toolName": "Open WebUI",
+      "slug": "open-webui-local-llm-admin-portal",
+      "title": "Open WebUI 분석: 로컬 LLM 운영 UI를 사내 AI 포털로 쓸 수 있을까?",
+      "description": "Open WebUI를 로컬 LLM UI와 내부 AI 포털 후보로 검토하되, 모델 접근 제어와 프라이버시 caveat을 publication 전에 확인합니다.",
+      "tags": [
+        "Open WebUI",
+        "local LLM UI",
+        "internal AI portal",
+        "team knowledge assistant",
+        "LOCAL_AI_OPERATIONS",
+        "DATA_PRIVACY_CAUTION"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Open WebUI official website",
+          "url": "https://openwebui.com/",
+          "usage": "product positioning and local AI portal verification"
+        },
+        {
+          "label": "Open WebUI documentation",
+          "url": "https://docs.openwebui.com/",
+          "usage": "deployment, model access, and admin capability verification"
+        },
+        {
+          "label": "Open WebUI GitHub repository",
+          "url": "https://github.com/open-webui/open-webui",
+          "usage": "source, license, release, and activity verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: 내부 AI 포털 후보지만 권한 설계가 핵심",
+          "points": [
+            "Open WebUI는 로컬 또는 사내 모델 접근 UI를 제공하는 후보 도구다.",
+            "팀 지식 assistant와 내부 AI 포털 구성을 검토할 수 있지만 데이터 범위가 먼저 정해져야 한다.",
+            "모델 접근 권한, 로그, 업로드 파일 관리, 사용자 권한을 publication 전에 확인한다."
+          ]
+        },
+        {
+          "heading": "내부 운영 적용 각도",
+          "points": [
+            "사내 문서 검색, 프롬프트 템플릿, 팀별 assistant 실험을 샘플 데이터로 검토한다.",
+            "로컬 LLM이라는 표현이 곧 데이터 안전을 보장하지 않음을 명확히 한다.",
+            "관리자 화면이나 private route가 외부에 노출되지 않도록 설계를 분리한다."
+          ]
+        },
+        {
+          "heading": "프라이버시와 보안 caveat",
+          "points": [
+            "업로드 문서, 채팅 기록, 모델 provider 로그의 보관 위치를 확인한다.",
+            "민감 정보와 고객 데이터를 넣는 흐름은 별도 승인 전까지 금지한다.",
+            "보안 업데이트와 접근 제어 실패가 가장 큰 운영 리스크다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "local-llm-internal-portal-control-room",
+        "altKo": "Open WebUI로 로컬 LLM 내부 AI 포털 운영을 검토하는 대표 이미지",
+        "captionKo": "Open WebUI는 내부 AI 포털 후보지만 모델 접근 제어와 프라이버시 게이트가 필요하다.",
+        "promptSummaryKo": "로컬 LLM 포털, 모델 접근 제어, 팀 지식 assistant, privacy gate, admin log가 보이는 내부 AI 운영 이미지.",
+        "mustInclude": [
+          "local LLM portal",
+          "model access control",
+          "team knowledge assistant",
+          "privacy gate",
+          "admin log"
+        ],
+        "mustAvoid": [
+          "official Open WebUI logo",
+          "real employee data",
+          "private documents",
+          "security bypass",
+          "consumer chatbot mascot"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "dify-llm-app-builder-business-automation",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "dify-llm-app-builder-business-automation",
+          "langflow-ai-workflow-automation",
+          "ai-knowledge-store-for-small-business"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production customer data, payment data, or private business systems in examples.",
+        "Use sample data and owner-approved test environments before any production integration.",
+        "Treat authentication, permissions, audit logs, backups, and rollback as publication-time gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current Open WebUI license before publication.",
+        "Separate local UI operation from any model provider license or API terms.",
+        "Do not claim local deployment removes privacy, security, or compliance obligations."
+      ]
+    },
+    {
+      "id": "flowise",
+      "toolName": "Flowise",
+      "slug": "flowise-ai-agent-workflow-automation",
+      "title": "Flowise 분석: AI 에이전트 워크플로 자동화 도구로 쓸 수 있을까?",
+      "description": "Flowise를 LangChain 기반 시각 flow와 agent/chatflow 프로토타이핑 후보로 검토하되 production 안정성과 라이선스를 확인합니다.",
+      "tags": [
+        "Flowise",
+        "AI agent workflow",
+        "LangChain visual flow",
+        "chatflow prototyping",
+        "AI_AGENT_AUTOMATION",
+        "PRODUCTION_STABILITY_CAUTION"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Flowise official website",
+          "url": "https://flowiseai.com/",
+          "usage": "product positioning and deployment verification"
+        },
+        {
+          "label": "Flowise documentation",
+          "url": "https://docs.flowiseai.com/",
+          "usage": "chatflow, agentflow, integrations, and deployment verification"
+        },
+        {
+          "label": "Flowise GitHub repository",
+          "url": "https://github.com/FlowiseAI/Flowise",
+          "usage": "source, license, release, and activity verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: agent 실험에는 유용하지만 production gate가 필요",
+          "points": [
+            "Flowise는 LangChain 기반 chatflow와 agent flow를 시각적으로 구성하는 후보 도구다.",
+            "내부 자동화 실험에는 적합할 수 있지만 바로 운영 액션을 맡기는 도구로 소개하지 않는다.",
+            "라이선스, 버전 안정성, connector 권한, 장애 대응을 publication 전에 확인한다."
+          ]
+        },
+        {
+          "heading": "내부 자동화 적용 각도",
+          "points": [
+            "리서치 요약, FAQ assistant, 사내 도구 호출 실험을 제한된 샘플 데이터로 구성한다.",
+            "tool calling은 읽기 전용 또는 report-only 단계부터 다룬다.",
+            "비즈니스 API, DB write, 메시지 발송 같은 side effect는 예시에서 제외한다."
+          ]
+        },
+        {
+          "heading": "안정성과 권한 리스크",
+          "points": [
+            "agent workflow는 잘못 설계하면 과도한 권한과 반복 실행 위험을 만든다.",
+            "운영 연결 전에는 로그, 재시도 제한, rollback, 사람 승인 단계를 검증해야 한다.",
+            "프로토타입과 production 자동화를 명확히 구분한다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "ai-agent-flow-safety-dashboard",
+        "altKo": "Flowise로 AI 에이전트 워크플로와 안전 게이트를 검토하는 대표 이미지",
+        "captionKo": "Flowise는 agent flow 프로토타입 후보지만 production 안정성과 권한 검토가 먼저다.",
+        "promptSummaryKo": "AI 에이전트 flow 캔버스, tool permission gate, chatflow prototype, stability checklist, human review가 있는 안전 대시보드 이미지.",
+        "mustInclude": [
+          "agent workflow canvas",
+          "tool permission gate",
+          "chatflow prototype",
+          "stability checklist",
+          "human review"
+        ],
+        "mustAvoid": [
+          "official Flowise logo",
+          "autonomous production execution",
+          "real API credentials",
+          "customer data",
+          "hype robot imagery"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "open-webui-local-llm-admin-portal",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "open-webui-local-llm-admin-portal",
+          "langflow-ai-workflow-automation",
+          "dify-llm-app-builder-business-automation"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production customer data, payment data, or private business systems in examples.",
+        "Use sample data and owner-approved test environments before any production integration.",
+        "Treat authentication, permissions, audit logs, backups, and rollback as publication-time gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current Flowise license before publication.",
+        "Separate prototype workflows from production automation claims.",
+        "Do not imply agent tool use is safe without permission, monitoring, and rollback controls."
+      ]
+    },
+    {
+      "id": "directus",
+      "toolName": "Directus",
+      "slug": "directus-headless-cms-data-automation",
+      "title": "Directus 분석: Headless CMS를 데이터 운영 자동화에 쓸 수 있을까?",
+      "description": "Directus를 headless CMS, 데이터 관리 layer, 내부 admin/data portal 후보로 검토하되 cloud와 self-host 조건을 확인합니다.",
+      "tags": [
+        "Directus",
+        "headless CMS",
+        "data management layer",
+        "internal data portal",
+        "DATA_CMS_AUTOMATION",
+        "LICENSE_AND_OPERATIONS_REVIEW"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Directus official website",
+          "url": "https://directus.io/",
+          "usage": "product positioning and cloud/self-host model verification"
+        },
+        {
+          "label": "Directus documentation",
+          "url": "https://docs.directus.io/",
+          "usage": "data model, API, permissions, and deployment verification"
+        },
+        {
+          "label": "Directus GitHub repository",
+          "url": "https://github.com/directus/directus",
+          "usage": "source, license, release, and activity verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: DB 위 운영 layer 후보지만 권한 설계가 먼저",
+          "points": [
+            "Directus는 headless CMS와 데이터 운영 UI를 함께 제공하는 후보 도구다.",
+            "콘텐츠 DB, 내부 운영 데이터, 구조화 API 관리에 쓸 수 있는지 검토한다.",
+            "라이선스, cloud/self-host 조건, 권한 모델은 publication 전에 확인한다."
+          ]
+        },
+        {
+          "heading": "데이터 운영 적용 각도",
+          "points": [
+            "콘텐츠 관리, 내부 데이터 편집, API 기반 운영 화면을 구성하는 후보로 살펴본다.",
+            "Baserow와 NocoDB보다 구조화된 CMS/API layer가 필요한 상황을 비교한다.",
+            "관리자 UI가 public route에 노출되지 않도록 접근 제어를 강조한다."
+          ]
+        },
+        {
+          "heading": "운영 리스크",
+          "points": [
+            "실제 DB 연결은 백업, migration, 권한, 감사 로그를 먼저 설계해야 한다.",
+            "cloud 기능과 self-host 기능, enterprise 조건을 구분한다.",
+            "고객 데이터나 결제 데이터 예시는 사용하지 않는다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "headless-cms-data-portal-map",
+        "altKo": "Directus로 headless CMS와 데이터 운영 포털을 검토하는 대표 이미지",
+        "captionKo": "Directus는 데이터 운영 layer 후보지만 권한, 백업, cloud/self-host 조건 확인이 필요하다.",
+        "promptSummaryKo": "Headless CMS data model, internal admin portal, API gate, permission matrix, backup checklist가 연결된 데이터 운영 이미지.",
+        "mustInclude": [
+          "headless CMS data model",
+          "internal admin portal",
+          "API gate",
+          "permission matrix",
+          "backup checklist"
+        ],
+        "mustAvoid": [
+          "official Directus logo",
+          "real database records",
+          "customer PII",
+          "unverified license claims",
+          "public admin exposure"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "flowise-ai-agent-workflow-automation",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "flowise-ai-agent-workflow-automation",
+          "nocodb-airtable-alternative-license-caution",
+          "baserow-open-source-database-automation"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production customer data, payment data, or private business systems in examples.",
+        "Use sample data and owner-approved test environments before any production integration.",
+        "Treat authentication, permissions, audit logs, backups, and rollback as publication-time gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current Directus license and cloud terms before publication.",
+        "Separate open-source package usage from hosted, managed, or enterprise service claims.",
+        "Do not present the article as legal, security, privacy, or cost advice."
+      ]
+    },
+    {
+      "id": "pocketbase",
+      "toolName": "PocketBase",
+      "slug": "pocketbase-lightweight-backend-saas-mvp",
+      "title": "PocketBase 분석: 가벼운 백엔드로 소규모 SaaS MVP를 만들 수 있을까?",
+      "description": "PocketBase를 auth, database, file storage가 포함된 lightweight backend 후보로 검토하되 scaling과 backup 리스크를 확인합니다.",
+      "tags": [
+        "PocketBase",
+        "lightweight backend",
+        "SaaS MVP",
+        "auth database file storage",
+        "LIGHTWEIGHT_BACKEND",
+        "SCALING_AND_BACKUP_CAUTION"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "PocketBase official website",
+          "url": "https://pocketbase.io/",
+          "usage": "product positioning and feature verification"
+        },
+        {
+          "label": "PocketBase documentation",
+          "url": "https://pocketbase.io/docs/",
+          "usage": "auth, database, file storage, and deployment verification"
+        },
+        {
+          "label": "PocketBase GitHub repository",
+          "url": "https://github.com/pocketbase/pocketbase",
+          "usage": "source, license, release, and activity verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: MVP에는 가볍지만 scaling 계획이 필요",
+          "points": [
+            "PocketBase는 auth, database, file storage를 한 번에 제공하는 lightweight backend 후보 도구다.",
+            "MyBiz mini tools나 내부 앱 MVP를 빠르게 검증하는 데 쓸 수 있는지 살펴본다.",
+            "운영 전에는 백업, migration, 권한, 파일 보관 정책을 먼저 확인한다."
+          ]
+        },
+        {
+          "heading": "MVP 적용 각도",
+          "points": [
+            "작은 내부 도구, 실험용 SaaS 기능, 관리자 prototype을 샘플 데이터로 검토한다.",
+            "빠른 시작과 production 운영을 같은 의미로 설명하지 않는다.",
+            "결제, 고객 계정, 민감 파일 저장은 publication 예시에서 제외한다."
+          ]
+        },
+        {
+          "heading": "Scaling과 backup 리스크",
+          "points": [
+            "단일 binary의 편의성과 운영 복구 책임을 함께 설명한다.",
+            "트래픽 증가, 백업 자동화, 권한 관리, migration 전략이 핵심 확인 항목이다.",
+            "MVP 이후 managed DB나 별도 backend로 옮길 가능성을 열어 둔다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "lightweight-backend-mvp-operations-map",
+        "altKo": "PocketBase로 소규모 SaaS MVP 백엔드 운영을 검토하는 대표 이미지",
+        "captionKo": "PocketBase는 MVP backend 후보지만 backup과 scaling gate가 필요하다.",
+        "promptSummaryKo": "Lightweight backend, auth module, database module, file storage, backup and scaling gate가 있는 SaaS MVP 운영 이미지.",
+        "mustInclude": [
+          "lightweight backend",
+          "auth module",
+          "database module",
+          "file storage",
+          "backup and scaling gate"
+        ],
+        "mustAvoid": [
+          "official PocketBase logo",
+          "real user accounts",
+          "payment data",
+          "production launch claim",
+          "unbounded scaling promise"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "directus-headless-cms-data-automation",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "directus-headless-cms-data-automation",
+          "appsmith-internal-dashboard-automation",
+          "baserow-open-source-database-automation"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production customer data, payment data, or private business systems in examples.",
+        "Use sample data and owner-approved test environments before any production integration.",
+        "Treat authentication, permissions, audit logs, backups, and rollback as publication-time gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current PocketBase license before publication.",
+        "Separate MVP prototype suitability from production scaling claims.",
+        "Do not imply lightweight backend adoption removes backup, migration, or security work."
+      ]
+    },
+    {
+      "id": "supabase-self-hosting",
+      "toolName": "Supabase self-hosting",
+      "slug": "supabase-self-hosting-cost-operations-caution",
+      "title": "Supabase 셀프호스팅 분석: 비용은 줄일 수 있을까, 운영 부담이 더 클까?",
+      "description": "Supabase self-hosting을 managed cloud와 비교하되 Postgres, Auth, Storage 운영 부담과 hidden ops cost를 중심으로 검토합니다.",
+      "tags": [
+        "Supabase",
+        "self-hosting",
+        "Postgres operations",
+        "Auth Storage backup",
+        "SELF_HOSTING_CAUTION",
+        "COST_AND_OPERATIONS_CAUTION"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Supabase official website",
+          "url": "https://supabase.com/",
+          "usage": "product positioning and managed cloud feature verification"
+        },
+        {
+          "label": "Supabase self-hosting documentation",
+          "url": "https://supabase.com/docs/guides/self-hosting",
+          "usage": "self-hosting requirements and operations verification"
+        },
+        {
+          "label": "Supabase GitHub repository",
+          "url": "https://github.com/supabase/supabase",
+          "usage": "source, license, release, and activity verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: 비용 비교보다 운영 책임 비교가 먼저",
+          "points": [
+            "Supabase self-hosting은 managed cloud 비용만 보고 결정할 주제가 아니다.",
+            "Postgres, Auth, Storage, update, backup, monitoring 운영 책임을 함께 계산해야 한다.",
+            "이 글은 일반 Supabase 튜토리얼이 아니라 self-hosting caution 분석으로 다룬다."
+          ]
+        },
+        {
+          "heading": "Managed cloud와 self-hosting 비교",
+          "points": [
+            "인프라 비용, 장애 대응, 보안 업데이트, 백업 복구 시간을 함께 비교한다.",
+            "작은 팀에서 직접 운영할 때 생기는 hidden ops cost를 설명한다.",
+            "운영 데이터 연결이나 migration 가이드는 별도 승인 전까지 제공하지 않는다."
+          ]
+        },
+        {
+          "heading": "보안과 백업 부담",
+          "points": [
+            "Auth, Storage, database 권한과 secret 관리를 별도 체크리스트로 둔다.",
+            "self-hosting은 통제권을 주지만 운영 실패 책임도 함께 만든다.",
+            "비용 절감 보장이나 법적 조언처럼 들리는 표현을 피한다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "self-hosted-backend-cost-operations-balance",
+        "altKo": "Supabase self-hosting의 비용과 운영 부담을 비교하는 대표 이미지",
+        "captionKo": "Supabase self-hosting은 비용뿐 아니라 Postgres, Auth, Storage 운영 책임을 함께 계산해야 한다.",
+        "promptSummaryKo": "Managed cloud와 self-hosting 저울, Postgres operations, Auth and Storage cards, backup gate, hidden cost chart가 있는 backend 운영 이미지.",
+        "mustInclude": [
+          "managed vs self-hosting balance",
+          "Postgres operations",
+          "Auth and Storage cards",
+          "backup gate",
+          "hidden cost chart"
+        ],
+        "mustAvoid": [
+          "official Supabase logo",
+          "real database credentials",
+          "payment data",
+          "cost saving guarantee",
+          "production migration instruction"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "pocketbase-lightweight-backend-saas-mvp",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "pocketbase-lightweight-backend-saas-mvp",
+          "directus-headless-cms-data-automation",
+          "ai-business-automation-guide"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production customer data, payment data, or private business systems in examples.",
+        "Use sample data and owner-approved test environments before any production integration.",
+        "Treat authentication, permissions, audit logs, backups, and rollback as publication-time gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify current Supabase self-hosting and cloud terms before publication.",
+        "Separate managed cloud pricing from infrastructure and labor cost.",
+        "Do not present self-hosting as legal, security, or cost advice."
+      ]
+    },
+    {
+      "id": "meilisearch",
+      "toolName": "Meilisearch",
+      "slug": "meilisearch-blog-product-search-automation",
+      "title": "Meilisearch 분석: 블로그와 상품 검색 자동화에 쓸 수 있을까?",
+      "description": "Meilisearch를 블로그 검색, 상품/catalog 검색, 내부 지식 검색 후보로 검토하되 indexing과 hosting 운영 조건을 확인합니다.",
+      "tags": [
+        "Meilisearch",
+        "search engine",
+        "blog search",
+        "product catalog search",
+        "SEARCH_AUTOMATION",
+        "OPERATIONS_REVIEW"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Meilisearch official website",
+          "url": "https://www.meilisearch.com/",
+          "usage": "product positioning and hosted/self-host model verification"
+        },
+        {
+          "label": "Meilisearch documentation",
+          "url": "https://www.meilisearch.com/docs",
+          "usage": "indexing, search API, deployment, and operations verification"
+        },
+        {
+          "label": "Meilisearch GitHub repository",
+          "url": "https://github.com/meilisearch/meilisearch",
+          "usage": "source, license, release, and activity verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: 검색 품질보다 index 운영 설계가 먼저",
+          "points": [
+            "Meilisearch는 빠른 검색 경험을 제공하는 search engine 후보 도구다.",
+            "블로그 글, 상품 catalog, 내부 지식 검색에 적용할 수 있는지 검토한다.",
+            "indexing 주기, hosting 방식, 권한 필터, 데이터 공개 범위가 핵심 확인 항목이다."
+          ]
+        },
+        {
+          "heading": "검색 자동화 적용 각도",
+          "points": [
+            "Biz2Lab 콘텐츠 검색, MyBiz 상품/문서 검색, 내부 knowledge search 후보로 다룬다.",
+            "원본 데이터 변경과 index 갱신 흐름을 별도 자동화로 설계한다.",
+            "비공개 문서나 고객 데이터를 public search에 노출하는 흐름은 금지한다."
+          ]
+        },
+        {
+          "heading": "운영 확인 포인트",
+          "points": [
+            "self-hosting과 hosted cloud 조건, 백업, reindex 전략을 확인한다.",
+            "Typesense와 비교할 때 API, typo tolerance, 운영 부담을 구분한다.",
+            "검색 품질 보장처럼 들리는 표현을 피한다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "search-index-automation-dashboard",
+        "altKo": "Meilisearch로 블로그와 상품 검색 index 자동화를 검토하는 대표 이미지",
+        "captionKo": "Meilisearch는 검색 자동화 후보지만 index 운영과 hosting 조건 확인이 필요하다.",
+        "promptSummaryKo": "Search index pipeline, blog and product cards, search result panel, indexing schedule, hosting operations gate가 있는 검색 자동화 이미지.",
+        "mustInclude": [
+          "search index pipeline",
+          "blog and product cards",
+          "search result panel",
+          "indexing schedule",
+          "hosting operations gate"
+        ],
+        "mustAvoid": [
+          "official Meilisearch logo",
+          "private documents",
+          "customer data",
+          "unrestricted public search",
+          "ranking guarantee"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "supabase-self-hosting-cost-operations-caution",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "supabase-self-hosting-cost-operations-caution",
+          "crawl4ai-blog-research-automation",
+          "obsidian-business-knowledge-base"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production customer data, payment data, or private business systems in examples.",
+        "Use sample data and owner-approved test environments before any production integration.",
+        "Treat authentication, permissions, audit logs, backups, and rollback as publication-time gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current Meilisearch license and cloud terms before publication.",
+        "Separate self-hosted search engine use from hosted service claims.",
+        "Do not imply indexed third-party or private content can be exposed publicly."
+      ]
+    },
+    {
+      "id": "typesense",
+      "toolName": "Typesense",
+      "slug": "typesense-product-document-search-automation",
+      "title": "Typesense 분석: 상품·문서 검색 자동화 엔진으로 쓸 수 있을까?",
+      "description": "Typesense를 product/document search API 후보로 검토하고 Meilisearch와의 차이, hosting, indexing 운영 조건을 확인합니다.",
+      "tags": [
+        "Typesense",
+        "search API",
+        "product search",
+        "document search",
+        "SEARCH_AUTOMATION",
+        "OPERATIONS_REVIEW"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Typesense official website",
+          "url": "https://typesense.org/",
+          "usage": "product positioning and hosted/self-host model verification"
+        },
+        {
+          "label": "Typesense documentation",
+          "url": "https://typesense.org/docs/",
+          "usage": "search API, indexing, deployment, and operations verification"
+        },
+        {
+          "label": "Typesense GitHub repository",
+          "url": "https://github.com/typesense/typesense",
+          "usage": "source, license, release, and activity verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: 검색 API 후보지만 공개 범위 설계가 핵심",
+          "points": [
+            "Typesense는 상품과 문서 검색 API를 빠르게 구성하는 후보 도구다.",
+            "Meilisearch와 비교해 API 설계, 검색 품질, 운영 부담을 조심스럽게 검토한다.",
+            "hosting, indexing, backup, permission filter는 publication 전에 확인한다."
+          ]
+        },
+        {
+          "heading": "상품·문서 검색 적용 각도",
+          "points": [
+            "상품 catalog, 내부 문서, 지식 베이스 검색 UI의 후보로 다룬다.",
+            "검색 index가 원본 권한을 우회하지 않도록 permission filter를 전제로 한다.",
+            "고객 데이터나 비공개 문서를 public index에 넣는 예시는 금지한다."
+          ]
+        },
+        {
+          "heading": "Meilisearch와 비교할 지점",
+          "points": [
+            "API ergonomics, typo tolerance, schema 설계, hosting 선택지를 비교한다.",
+            "검색 품질은 데이터 구조와 운영 방식에 따라 달라진다고 설명한다.",
+            "품질 보장이나 법적 준수 보장 표현은 피한다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "search-api-product-document-control-board",
+        "altKo": "Typesense로 상품과 문서 검색 API 자동화를 검토하는 대표 이미지",
+        "captionKo": "Typesense는 search API 후보지만 권한 필터와 reindex 운영 설계가 필요하다.",
+        "promptSummaryKo": "Search API panel, product and document index, comparison board, permission filter, reindex checklist가 있는 검색 운영 이미지.",
+        "mustInclude": [
+          "search API panel",
+          "product and document index",
+          "comparison board",
+          "permission filter",
+          "reindex checklist"
+        ],
+        "mustAvoid": [
+          "official Typesense logo",
+          "private documents",
+          "customer PII",
+          "public data leak",
+          "search quality guarantee"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "meilisearch-blog-product-search-automation",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "meilisearch-blog-product-search-automation",
+          "supabase-self-hosting-cost-operations-caution",
+          "ai-knowledge-store-for-small-business"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production customer data, payment data, or private business systems in examples.",
+        "Use sample data and owner-approved test environments before any production integration.",
+        "Treat authentication, permissions, audit logs, backups, and rollback as publication-time gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current Typesense license and cloud terms before publication.",
+        "Separate search API capability from managed hosting claims.",
+        "Do not imply private product or document data can be indexed without access-control design."
+      ]
+    },
+    {
+      "id": "umami",
+      "toolName": "Umami",
+      "slug": "umami-open-source-analytics-ga-alternative",
+      "title": "Umami 분석: GA 대체 오픈소스 웹 분석 도구로 쓸 수 있을까?",
+      "description": "Umami를 privacy-friendly analytics와 GA alternative 후보로 검토하되 blog traffic, AdSense analytics, hosting caution을 함께 다룹니다.",
+      "tags": [
+        "Umami",
+        "open-source analytics",
+        "GA alternative",
+        "privacy-friendly analytics",
+        "ANALYTICS_AUTOMATION",
+        "PRIVACY_AND_HOSTING_CAUTION"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Umami official website",
+          "url": "https://umami.is/",
+          "usage": "product positioning and analytics model verification"
+        },
+        {
+          "label": "Umami documentation",
+          "url": "https://umami.is/docs",
+          "usage": "tracking script, hosting, privacy, and deployment verification"
+        },
+        {
+          "label": "Umami GitHub repository",
+          "url": "https://github.com/umami-software/umami",
+          "usage": "source, license, release, and activity verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "결론부터: GA 대체 후보지만 privacy와 hosting 조건 확인이 먼저",
+          "points": [
+            "Umami는 privacy-friendly analytics와 GA alternative 후보 도구다.",
+            "Biz2Lab 블로그 트래픽, AdSense 승인 전후 분석, 콘텐츠 성과 확인 흐름으로 검토한다.",
+            "privacy, cookie, consent, self-host/cloud 조건은 publication 전에 공식 출처로 확인한다."
+          ]
+        },
+        {
+          "heading": "블로그 분석 적용 각도",
+          "points": [
+            "콘텐츠별 방문 흐름, referrer, 기본 전환 흐름을 가볍게 확인하는 후보로 다룬다.",
+            "GA와 비교하되 모든 요구사항을 대체한다고 단정하지 않는다.",
+            "AdSense 승인 보장이나 수익 개선 보장처럼 들리는 표현은 피한다."
+          ]
+        },
+        {
+          "heading": "프라이버시와 hosting caution",
+          "points": [
+            "tracking script, IP 처리, cookie 사용 여부, 데이터 보관 위치를 확인한다.",
+            "self-hosting은 데이터 통제권과 운영 책임을 동시에 만든다.",
+            "privacy compliance는 법적 검토 대상이지 도구 설치만으로 해결되지 않는다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "privacy-analytics-dashboard-operations-map",
+        "altKo": "Umami로 GA 대체 웹 분석과 privacy 운영을 검토하는 대표 이미지",
+        "captionKo": "Umami는 analytics 후보지만 privacy, hosting, consent 조건 확인이 필요하다.",
+        "promptSummaryKo": "Privacy-friendly analytics dashboard, blog traffic metrics, GA alternative comparison, hosting choice, data ownership gate가 있는 웹 분석 운영 이미지.",
+        "mustInclude": [
+          "privacy analytics dashboard",
+          "blog traffic metrics",
+          "GA alternative comparison",
+          "hosting choice",
+          "data ownership gate"
+        ],
+        "mustAvoid": [
+          "official Umami logo",
+          "real visitor data",
+          "tracking without consent",
+          "AdSense approval guarantee",
+          "privacy compliance guarantee"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "typesense-product-document-search-automation",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "typesense-product-document-search-automation",
+          "meilisearch-blog-product-search-automation",
+          "google-sheets-ai-automation"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production customer data, payment data, or private business systems in examples.",
+        "Use sample data and owner-approved test environments before any production integration.",
+        "Treat authentication, permissions, audit logs, backups, and rollback as publication-time gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current Umami license and cloud terms before publication.",
+        "Separate analytics implementation from legal privacy advice.",
+        "Do not imply GA replacement automatically satisfies privacy, consent, or AdSense requirements."
+      ]
     }
   ]
 }

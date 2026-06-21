@@ -17,6 +17,16 @@ It is designed for articles such as:
 - `n8n-workflow-automation-license-caution`
 - `nocodb-airtable-alternative-license-caution`
 - `crawl4ai-blog-research-automation`
+- `langflow-ai-workflow-automation`
+- `dify-llm-app-builder-business-automation`
+- `open-webui-local-llm-admin-portal`
+- `flowise-ai-agent-workflow-automation`
+- `directus-headless-cms-data-automation`
+- `pocketbase-lightweight-backend-saas-mvp`
+- `supabase-self-hosting-cost-operations-caution`
+- `meilisearch-blog-product-search-automation`
+- `typesense-product-document-search-automation`
+- `umami-open-source-analytics-ga-alternative`
 
 ## Files
 
@@ -170,10 +180,9 @@ The current state also enforces the ordered topic queue. This prevents articles 
 
 ## Current Queue State
 
-The first open-source automation batch is complete on `master`:
+The first open-source automation article batch is complete on `master`:
 
 - `opencut-free-open-source-video-editor-ai-content-automation`
-- `free-open-source-automation-tools-series`
 - `activepieces-ai-business-automation-n8n-alternative`
 - `node-red-local-business-automation-server`
 - `huginn-monitoring-automation-agent`
@@ -181,18 +190,34 @@ The first open-source automation batch is complete on `master`:
 - `appsmith-internal-dashboard-automation`
 - `windmill-developer-workflow-automation`
 - `kestra-data-ai-workflow-orchestration`
+- `n8n-workflow-automation-license-caution`
+- `nocodb-airtable-alternative-license-caution`
+- `crawl4ai-blog-research-automation`
 
 The stale candidate slug `appsmith-internal-tool-admin-dashboard` is not the published Appsmith route. The published route is `appsmith-internal-dashboard-automation`.
 
-After Kestra, the next owner-reviewed queue is:
+The fixed-count validation gate is now dynamic. `validate:posts` derives the expected published post count from the canonical post files and `content/ko/content-index.json`; do not reintroduce hardcoded total counts.
 
-1. `n8n-workflow-automation-license-caution`
-2. `nocodb-airtable-alternative-license-caution`
-3. `crawl4ai-blog-research-automation`
+The second owner-reviewed queue is:
 
-These are queue definitions only. They do not create article markdown, raw images, public WebP files, PRs, or deployments.
+1. `langflow-ai-workflow-automation`
+2. `dify-llm-app-builder-business-automation`
+3. `open-webui-local-llm-admin-portal`
+4. `flowise-ai-agent-workflow-automation`
+5. `directus-headless-cms-data-automation`
+6. `pocketbase-lightweight-backend-saas-mvp`
+7. `supabase-self-hosting-cost-operations-caution`
+8. `meilisearch-blog-product-search-automation`
+9. `typesense-product-document-search-automation`
+10. `umami-open-source-analytics-ga-alternative`
 
-Each queued topic must still pass the real Codex hero artifact gate before publication. A scheduler dry-run should stop at `WAITING_FOR_CODEX_IMAGE_ARTIFACT` until the matching `<slug>-hero` artifact exists under the approved Codex generated-image root.
+The next expected topic is `langflow-ai-workflow-automation`.
+
+These are queue definitions only. They do not create article markdown, raw images, public WebP files, publication PRs, merges, or deployments.
+
+Each queued topic must still pass official-source verification at publication time. The article should verify current project documentation, repository/license state, hosted/self-hosted terms, and deployment cautions before making public claims.
+
+Each queued topic must also pass the real Codex hero artifact gate before publication. A scheduler dry-run should stop at `WAITING_FOR_CODEX_IMAGE_ARTIFACT` until the matching `<slug>-hero` artifact exists under the approved Codex generated-image root. When a matching artifact exists and all validation gates pass, the scheduler can create a publication PR automatically; merge remains owner-controlled, and deploy remains Git-triggered only after owner merge.
 
 ## Validation Gate
 
@@ -216,7 +241,7 @@ npm run audit:content-authority
 git diff --check
 ```
 
-`validate:posts` currently has intentional public post count expectations. When a future article is published, that count change must be explicit and reviewed. Do not bypass the validator.
+`validate:posts` uses dynamic published-post counts from the canonical content inventory. When a future article is published, article files and `content/ko/content-index.json` must still agree. Do not bypass the validator.
 
 ## Safety
 
@@ -301,7 +326,7 @@ npm run content:series:scheduler -- --cadence 180 --dry-run
 Run an explicit topic check using the approved latest local Codex artifact root:
 
 ```bash
-npm run content:series:scheduler -- --topic nocodb-airtable-alternative-license-caution --use-latest-codex-artifact
+npm run content:series:scheduler -- --topic langflow-ai-workflow-automation --use-latest-codex-artifact
 ```
 
 Force a check only when you want to bypass the cadence timer. This does not bypass image, duplicate, lock, active-hours, daily-limit, PR-limit, merge, or deploy gates:
