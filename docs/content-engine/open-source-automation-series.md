@@ -258,6 +258,16 @@ npm run content:series:auto -- --topic node-red --artifact-dir "C:\Users\LOVE\.c
 
 The scheduler is a local safety gate for the content series queue. It does not publish every 3 hours unconditionally. It checks whether one queued topic can proceed, and it creates at most one PR only when every gate passes.
 
+Default scheduler mode:
+
+- missing artifact -> wait with `WAITING_FOR_CODEX_IMAGE_ARTIFACT`
+- existing topic PR -> wait with `EXISTING_TOPIC_PR`
+- approved matching Codex artifact exists -> create the full publication PR
+- merge remains owner-controlled
+- deploy remains Git-triggered after owner merge only
+
+The scheduler default is a full publication PR, not an artifact-only prompt package PR. Artifact-only prompt/package work remains an explicit owner-directed preparation workflow outside the scheduled publication path.
+
 Run a safe dry run:
 
 ```bash
@@ -276,6 +286,12 @@ Run with a one-time cadence override:
 npm run content:series:scheduler -- --cadence 180
 ```
 
+Run the canonical automated publication gate. If every gate passes and a matching local Codex artifact exists, this imports the artifact, generates the article, runs validation, commits, pushes, and opens a publication PR:
+
+```bash
+npm run content:series:scheduler -- --cadence 180 --use-latest-codex-artifact
+```
+
 Dry-run the exact 3-hour cadence gate:
 
 ```bash
@@ -285,7 +301,7 @@ npm run content:series:scheduler -- --cadence 180 --dry-run
 Run an explicit topic check using the approved latest local Codex artifact root:
 
 ```bash
-npm run content:series:scheduler -- --topic node-red --use-latest-codex-artifact
+npm run content:series:scheduler -- --topic nocodb-airtable-alternative-license-caution --use-latest-codex-artifact
 ```
 
 Force a check only when you want to bypass the cadence timer. This does not bypass image, duplicate, lock, active-hours, daily-limit, PR-limit, merge, or deploy gates:
@@ -313,6 +329,7 @@ Scheduler guardrails:
 - can target a specific queued topic with `--topic <id-or-slug>`, but queue order and previous-article gates still apply
 - creates at most one publication PR per successful run
 - requires a real local Codex-generated image artifact under `C:\Users\LOVE\.codex\generated_images\`
+- calls the publication orchestrator directly from the scheduler instead of spawning a nested npm script
 - blocks manual image drops, placeholder images, missing images, slug mismatches, and ambiguous artifacts
 - blocks completed topics, existing article files, content-index duplicates, existing topic PRs, max open PRs, daily limits, and concurrent runs
 - uses `.tmp/content-series-scheduler.lock` to prevent concurrent local runs
@@ -324,6 +341,19 @@ If the matching Codex hero image does not exist yet, the safe status is:
 
 ```text
 WAITING_FOR_CODEX_IMAGE_ARTIFACT
+```
+
+If every gate passes and the publication PR is created, the success status is:
+
+```text
+PUBLICATION_PR_CREATED
+```
+
+If validation or scope checks fail during publication, the scheduler reports a blocked status such as:
+
+```text
+VALIDATION_FAILED
+BLOCKED_SCOPE_DRIFT
 ```
 
 When every configured topic in `data/content-series-topics.json` is already completed or published, the safe terminal status is:

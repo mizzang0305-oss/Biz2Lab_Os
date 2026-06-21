@@ -9,8 +9,8 @@ import {
   findCodexImageArtifact,
   readContentSeriesState,
   readContentSeriesTopics,
-  resolveExecFileInvocation,
   resolveContentSeriesTopic,
+  runContentSeriesOrchestrator,
   type ContentSeriesTopic,
 } from "@/scripts/content-series-orchestrator";
 
@@ -58,11 +58,17 @@ type SchedulerOptions = {
 
 type SchedulerDeps = {
   listOpenPullRequests?: (rootDir: string) => OpenPullRequest[];
-  runPublication?: (topicSlug: string, rootDir: string) => { prUrl?: string };
+  runPublication?: (options: SchedulerPublicationOptions) => Promise<{ prUrl?: string }> | { prUrl?: string };
   log?: (message: string) => void;
 };
 
-type SchedulerResult = {
+type SchedulerPublicationOptions = {
+  rootDir: string;
+  topicSlug: string;
+  useLatestCodexArtifact: boolean;
+};
+
+export type SchedulerResult = {
   status: string;
   topic?: string;
   dryRun: boolean;
@@ -180,21 +186,13 @@ function defaultListOpenPullRequests(rootDir: string) {
   return JSON.parse(output) as OpenPullRequest[];
 }
 
-function defaultRunPublication(topicSlug: string, rootDir: string): { prUrl?: string } {
-  const invocation = resolveExecFileInvocation("npm", [
-    "run",
-    "content:series:auto",
-    "--",
-    "--topic",
-    topicSlug,
-    "--use-latest-codex-artifact",
-  ]);
-  execFileSync(
-    invocation.program,
-    invocation.args,
-    { cwd: rootDir, stdio: "inherit", env: process.env },
-  );
-  return {};
+async function defaultRunPublication(options: SchedulerPublicationOptions): Promise<{ prUrl?: string }> {
+  const publication = await runContentSeriesOrchestrator({
+    rootDir: options.rootDir,
+    topic: options.topicSlug,
+    useLatestCodexArtifact: options.useLatestCodexArtifact,
+  });
+  return { prUrl: publication.prUrl };
 }
 
 function openPrMatchesTopic(pr: OpenPullRequest, topic: ContentSeriesTopic) {
@@ -283,7 +281,14 @@ function releaseLock(rootDir: string) {
   }
 }
 
-export function runContentSeriesScheduler(options: SchedulerOptions = {}, deps: SchedulerDeps = {}): SchedulerResult {
+function publicationFailureStatus(error: unknown) {
+  if (error instanceof ContentSeriesError) {
+    return error.code === "WORKTREE_NOT_CLEAN" ? "BLOCKED_SCOPE_DRIFT" : error.code;
+  }
+  return "VALIDATION_FAILED";
+}
+
+export async function runContentSeriesScheduler(options: SchedulerOptions = {}, deps: SchedulerDeps = {}): Promise<SchedulerResult> {
   const rootDir = options.rootDir ?? process.cwd();
   const now = options.now ?? new Date();
   const dryRun = Boolean(options.dryRun);
@@ -292,6 +297,7 @@ export function runContentSeriesScheduler(options: SchedulerOptions = {}, deps: 
   const today = localDateParts(now, schedule.activeHours.timezone).date;
   const runState = normalizeDailyState(readContentSeriesRunState(rootDir), today);
   const log = deps.log ?? (() => undefined);
+  const useLatestCodexArtifact = options.useLatestCodexArtifact ?? true;
 
   if (!schedule.enabled) {
     return result("SCHEDULER_DISABLED", dryRun);
@@ -352,7 +358,7 @@ export function runContentSeriesScheduler(options: SchedulerOptions = {}, deps: 
 
     try {
       findCodexImageArtifact(rootDir, topic, contentState, {
-        useLatestCodexArtifact: options.useLatestCodexArtifact ?? true,
+        useLatestCodexArtifact,
       });
     } catch (error) {
       const status =
@@ -371,8 +377,16 @@ export function runContentSeriesScheduler(options: SchedulerOptions = {}, deps: 
       return result("DRY_RUN_READY", dryRun, topic);
     }
 
-    writeRunAttempt(rootDir, runState, now, "PUBLICATION_STARTED", topic);
-    const publication = (deps.runPublication ?? defaultRunPublication)(topic.slug, rootDir);
+    let publication: { prUrl?: string };
+    try {
+      publication = await (deps.runPublication ?? defaultRunPublication)({
+        rootDir,
+        topicSlug: topic.slug,
+        useLatestCodexArtifact,
+      });
+    } catch (error) {
+      return result(publicationFailureStatus(error), dryRun, topic, error instanceof Error ? error.message : undefined);
+    }
     const currentState = normalizeDailyState(readContentSeriesRunState(rootDir), today);
     writePublicationSuccess(rootDir, currentState, now, topic);
     return result("PUBLICATION_PR_CREATED", dryRun, topic, undefined, publication.prUrl);
@@ -420,7 +434,7 @@ function printHelp() {
   console.log(`Usage:
   npm run content:series:scheduler -- --dry-run
   npm run content:series:scheduler -- --force-check
-  npm run content:series:scheduler -- --cadence 180
+  npm run content:series:scheduler -- --cadence 180 --use-latest-codex-artifact
   npm run content:series:scheduler -- --topic node-red --use-latest-codex-artifact
 
 Options:
@@ -429,18 +443,18 @@ Options:
   --cadence <n>   Override cadence minutes for this run only
   --topic <key>   Topic id or slug from data/content-series-topics.json
   --use-latest-codex-artifact
-                  Explicitly use the latest approved local Codex image artifact root
+                  Use the latest approved local Codex image artifact root; non-dry runs create a publication PR when all gates pass
 `);
 }
 
-function main() {
+async function main() {
   try {
     const options = parseArgs(process.argv.slice(2));
     if (options.help) {
       printHelp();
       return;
     }
-    const result = runContentSeriesScheduler(options);
+    const result = await runContentSeriesScheduler(options);
     console.log(JSON.stringify(result, null, 2));
   } catch (error) {
     if (error instanceof ContentSeriesError) {
@@ -452,5 +466,5 @@ function main() {
 }
 
 if (require.main === module) {
-  main();
+  void main();
 }
