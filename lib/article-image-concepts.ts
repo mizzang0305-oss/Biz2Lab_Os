@@ -424,6 +424,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["public web documents", "robots check", "rate limit gate", "research queue"],
     palette: automationPalette,
   },
+  "langflow-ai-workflow-automation": {
+    slug: "langflow-ai-workflow-automation",
+    category: "automation",
+    visualFamily: "llm-flow-builder-operations-map",
+    conceptKo: "시각적 LLM 워크플로 캔버스, 프롬프트 체인, 콘텐츠 큐, 사람 승인 게이트, 배포 주의 표시가 연결된 AI 자동화 운영 이미지.",
+    altKo: "Langflow로 AI 워크플로와 LLM 앱 제작 흐름을 검토하는 대표 이미지",
+    captionKo: "Langflow는 LLM 앱 프로토타입을 만들 수 있는 후보지만 라이선스와 배포 조건 확인이 먼저다.",
+    labels: ["visual workflow canvas", "LLM prompt chain", "content queue", "human approval gate"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

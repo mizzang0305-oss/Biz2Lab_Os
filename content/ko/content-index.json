@@ -17,6 +17,23 @@
     ]
   },
   {
+    "title": "Langflow 분석: AI 워크플로 자동화와 LLM 앱 제작에 쓸 수 있을까?",
+    "slug": "langflow-ai-workflow-automation",
+    "route": "/ko/automation/langflow-ai-workflow-automation",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/langflow-ai-workflow-automation-hero.webp",
+    "heroAlt": "Langflow로 AI 워크플로와 LLM 앱 제작 흐름을 검토하는 대표 이미지",
+    "updatedAt": "2026-06-21",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "crawl4ai-blog-research-automation",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "n8n 분석: 유명한 자동화 도구지만 오픈소스라고 말해도 될까?",
     "slug": "n8n-workflow-automation-license-caution",
     "route": "/ko/automation/n8n-workflow-automation-license-caution",

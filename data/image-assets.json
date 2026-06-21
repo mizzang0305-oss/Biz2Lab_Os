@@ -268,5 +268,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "langflow-ai-workflow-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "langflow-ai-workflow-automation",
+    "usage": "hero",
+    "src": "/images/posts/langflow-ai-workflow-automation-hero.webp",
+    "rawPath": "assets/images/raw/langflow-ai-workflow-automation-hero.jpg",
+    "altKo": "Langflow로 AI 워크플로와 LLM 앱 제작 흐름을 검토하는 대표 이미지",
+    "captionKo": "Langflow는 LLM 앱 프로토타입을 만들 수 있는 후보지만 라이선스와 배포 조건 확인이 먼저다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]
