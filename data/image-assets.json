@@ -286,5 +286,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "dify-llm-app-builder-business-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "dify-llm-app-builder-business-automation",
+    "usage": "hero",
+    "src": "/images/posts/dify-llm-app-builder-business-automation-hero.webp",
+    "rawPath": "assets/images/raw/dify-llm-app-builder-business-automation-hero.jpg",
+    "altKo": "Dify로 LLM 앱과 RAG assistant 운영 흐름을 검토하는 대표 이미지",
+    "captionKo": "Dify는 챗봇과 RAG 워크플로 후보지만 cloud, self-hosting, 데이터 조건 확인이 필요하다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]
