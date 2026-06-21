@@ -414,6 +414,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["database grid", "comparison board", "license caution card", "backup gate"],
     palette: automationPalette,
   },
+  "crawl4ai-blog-research-automation": {
+    slug: "crawl4ai-blog-research-automation",
+    category: "automation",
+    visualFamily: "ethical-research-crawler-map",
+    conceptKo: "공개 웹 문서, robots 체크, rate limit 게이트, 리서치 큐, 사람이 검토하는 승인 보드가 연결된 안전한 AI 리서치 자동화 이미지.",
+    altKo: "Crawl4AI를 블로그 리서치 자동화와 안전한 크롤링 게이트 관점에서 분석한 대표 이미지",
+    captionKo: "Crawl4AI는 콘텐츠 리서치 후보지만 robots, 약관, rate limit, 출처 검토를 먼저 통과해야 한다.",
+    labels: ["public web documents", "robots check", "rate limit gate", "research queue"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

@@ -250,5 +250,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "crawl4ai-blog-research-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "crawl4ai-blog-research-automation",
+    "usage": "hero",
+    "src": "/images/posts/crawl4ai-blog-research-automation-hero.webp",
+    "rawPath": "assets/images/raw/crawl4ai-blog-research-automation-hero.jpg",
+    "altKo": "Crawl4AI를 블로그 리서치 자동화와 안전한 크롤링 게이트 관점에서 분석한 대표 이미지",
+    "captionKo": "Crawl4AI는 콘텐츠 리서치 후보지만 robots, 약관, rate limit, 출처 검토를 먼저 통과해야 한다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]
