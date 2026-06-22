@@ -17,6 +17,23 @@
     ]
   },
   {
+    "title": "Dify 분석: LLM 앱 빌더를 업무 자동화와 챗봇 운영에 쓸 수 있을까?",
+    "slug": "dify-llm-app-builder-business-automation",
+    "route": "/ko/automation/dify-llm-app-builder-business-automation",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/dify-llm-app-builder-business-automation-hero.webp",
+    "heroAlt": "Dify로 LLM 앱과 RAG assistant 운영 흐름을 검토하는 대표 이미지",
+    "updatedAt": "2026-06-21",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "langflow-ai-workflow-automation",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Langflow 분석: AI 워크플로 자동화와 LLM 앱 제작에 쓸 수 있을까?",
     "slug": "langflow-ai-workflow-automation",
     "route": "/ko/automation/langflow-ai-workflow-automation",

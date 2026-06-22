@@ -434,6 +434,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["visual workflow canvas", "LLM prompt chain", "content queue", "human approval gate"],
     palette: automationPalette,
   },
+  "dify-llm-app-builder-business-automation": {
+    slug: "dify-llm-app-builder-business-automation",
+    category: "automation",
+    visualFamily: "llm-assistant-rag-workflow-board",
+    conceptKo: "챗봇 워크플로, RAG 지식 베이스, assistant 검토 큐, 운영자 승인, self-host 주의 표시가 있는 AI 앱 빌더 이미지.",
+    altKo: "Dify로 LLM 앱과 RAG assistant 운영 흐름을 검토하는 대표 이미지",
+    captionKo: "Dify는 챗봇과 RAG 워크플로 후보지만 cloud, self-hosting, 데이터 조건 확인이 필요하다.",
+    labels: ["chatbot workflow", "RAG knowledge base", "assistant review queue", "operator approval"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);
