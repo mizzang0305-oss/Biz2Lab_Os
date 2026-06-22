@@ -1,0 +1,570 @@
+import fs from "node:fs";
+import path from "node:path";
+
+import { z } from "zod";
+
+import { getPublicPosts, type Post } from "@/lib/posts";
+import { staticPublicRoutes } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/site";
+
+export const SEO_OPS_DASHBOARD_ROUTE = "/ko/ops/seo-dashboard";
+
+export type SeoOpsCheckStatus = "ok" | "missing" | "unknown";
+export type SeoOpsContentAuthorityStatus = "ok" | "needs-review";
+export type SeoOpsTrafficStatus = "connected" | "not-connected";
+export type SeoOpsOptimizationStage =
+  | "기본 SEO 완료"
+  | "내부 링크 보강 필요"
+  | "검색 품질 보강 필요"
+  | "이미지/alt 점검 필요"
+  | "실적 데이터 대기";
+
+export type SeoOpsArticleRow = {
+  title: string;
+  slug: string;
+  route: string;
+  category: string;
+  publishedAt: string;
+  heroImageStatus: SeoOpsCheckStatus;
+  canonicalStatus: SeoOpsCheckStatus;
+  metaDescriptionStatus: SeoOpsCheckStatus;
+  contentAuthorityStatus: SeoOpsContentAuthorityStatus;
+  trafficStatus: SeoOpsTrafficStatus;
+  pageviews?: number;
+  searchClicks?: number;
+  impressions?: number;
+  topQueries?: string[];
+  topReferrers?: string[];
+  internalLinkCount: number;
+  brokenLinkCount: number;
+  optimizationStage: SeoOpsOptimizationStage;
+  recommendedAction: string;
+};
+
+export type AnalyticsSection = {
+  title: string;
+  connected: boolean;
+  emptyState: string;
+  metrics: string[];
+};
+
+export type SeoHealthItem = {
+  label: string;
+  status: SeoOpsCheckStatus;
+  detail: string;
+};
+
+export type ExpansionAction = {
+  priority: number;
+  label: string;
+  status: "대기" | "진행 가능" | "확인 필요";
+  command?: string;
+};
+
+export type SeoOpsDashboard = {
+  route: typeof SEO_OPS_DASHBOARD_ROUTE;
+  title: string;
+  summary: {
+    publishedArticles: number;
+    automationSeriesArticles: number;
+    automationSeriesProgress: string;
+    latestPublishedTitle: string;
+    nextPublicationTopic: string;
+    schedulerGate: string;
+    seoChecks: string;
+    analyticsConnection: string;
+  };
+  articles: SeoOpsArticleRow[];
+  analytics: {
+    searchConsole: AnalyticsSection;
+    referrers: AnalyticsSection;
+    sourceBreakdown: AnalyticsSection;
+  };
+  seoHealth: SeoHealthItem[];
+  expansionActions: ExpansionAction[];
+  scheduler: {
+    seriesTitle: string;
+    currentTopic: string;
+    nextTopic: string;
+    completedTopics: string[];
+    currentGate: string;
+    nextRequiredArtifact: string;
+    lastKnownIssue: string;
+    cadence: string;
+  };
+  sources: {
+    realAnalyticsConnected: boolean;
+    fakeTrafficNumbersUsed: false;
+    emptyStatesShown: boolean;
+    contentIndexUsed: boolean;
+    schedulerStateUsed: boolean;
+    imageManifestUsed: boolean;
+  };
+};
+
+const categoryLabels: Record<string, string> = {
+  automation: "AI 업무 자동화",
+  "sales-ops": "영업·매출 관리",
+  "small-business": "소상공인 운영",
+  "contracts-payments": "전자계약·결제",
+};
+
+const contentIndexRowSchema = z
+  .object({
+    slug: z.string(),
+    route: z.string(),
+    category: z.string(),
+    heroImage: z.string().optional(),
+    heroAlt: z.string().optional(),
+  })
+  .passthrough();
+
+const contentSeriesStateSchema = z
+  .object({
+    currentTopic: z.string().nullable().catch(null),
+    completed: z.array(z.string()).catch([]),
+    next: z.array(z.string()).catch([]),
+    gates: z.record(z.string(), z.boolean()).catch({}),
+  })
+  .passthrough();
+
+const contentSeriesScheduleSchema = z
+  .object({
+    enabled: z.boolean().catch(false),
+    cadenceMinutes: z.number().catch(0),
+    maxArticlesPerDay: z.number().catch(0),
+    maxOpenPrs: z.number().catch(0),
+    requireCodexArtifact: z.boolean().catch(true),
+    autoMerge: z.boolean().catch(false),
+    manualDeploy: z.boolean().catch(false),
+    activeHours: z
+      .object({
+        timezone: z.string().catch("Asia/Seoul"),
+        start: z.string().catch("06:00"),
+        end: z.string().catch("23:30"),
+      })
+      .catch({ timezone: "Asia/Seoul", start: "06:00", end: "23:30" }),
+  })
+  .passthrough();
+
+const contentSeriesRunStateSchema = z
+  .object({
+    lastStatus: z.string().nullable().catch(null),
+    lastTopic: z.string().nullable().catch(null),
+  })
+  .passthrough();
+
+const imageAssetSchema = z
+  .object({
+    postSlug: z.string().optional(),
+    usage: z.string().optional(),
+    src: z.string().optional(),
+    status: z.string().optional(),
+  })
+  .passthrough();
+
+type ContentSeriesState = z.infer<typeof contentSeriesStateSchema>;
+type ContentSeriesSchedule = z.infer<typeof contentSeriesScheduleSchema>;
+type ContentSeriesRunState = z.infer<typeof contentSeriesRunStateSchema>;
+type ImageAsset = z.infer<typeof imageAssetSchema>;
+
+function readJson(filePath: string): unknown | null {
+  if (!fs.existsSync(filePath)) {
+    return null;
+  }
+
+  return JSON.parse(fs.readFileSync(filePath, "utf8")) as unknown;
+}
+
+function readContentIndex(rootDir: string) {
+  const parsed = z
+    .array(contentIndexRowSchema)
+    .safeParse(readJson(path.join(rootDir, "content", "ko", "content-index.json")));
+
+  return parsed.success ? parsed.data : [];
+}
+
+function readContentSeriesState(rootDir: string): ContentSeriesState {
+  const parsed = contentSeriesStateSchema.safeParse(
+    readJson(path.join(rootDir, "data", "content-series-state.json")),
+  );
+
+  return parsed.success ? parsed.data : { currentTopic: null, completed: [], next: [], gates: {} };
+}
+
+function readContentSeriesSchedule(rootDir: string): ContentSeriesSchedule {
+  const parsed = contentSeriesScheduleSchema.safeParse(
+    readJson(path.join(rootDir, "data", "content-series-schedule.json")),
+  );
+
+  return parsed.success
+    ? parsed.data
+    : {
+        enabled: false,
+        cadenceMinutes: 0,
+        maxArticlesPerDay: 0,
+        maxOpenPrs: 0,
+        requireCodexArtifact: true,
+        autoMerge: false,
+        manualDeploy: false,
+        activeHours: { timezone: "Asia/Seoul", start: "06:00", end: "23:30" },
+      };
+}
+
+function readContentSeriesRunState(rootDir: string): ContentSeriesRunState {
+  const parsed = contentSeriesRunStateSchema.safeParse(
+    readJson(path.join(rootDir, "data", "content-series-run-state.json")),
+  );
+
+  return parsed.success ? parsed.data : { lastStatus: null, lastTopic: null };
+}
+
+function readImageAssets(rootDir: string) {
+  const parsed = z
+    .array(imageAssetSchema)
+    .safeParse(readJson(path.join(rootDir, "data", "image-assets.json")));
+
+  return parsed.success ? parsed.data : [];
+}
+
+function publicFileExists(rootDir: string, publicPath: string) {
+  return fs.existsSync(path.join(rootDir, "public", publicPath.replace(/^\//, "")));
+}
+
+function analyticsFileExists(rootDir: string, filename: string) {
+  return fs.existsSync(path.join(rootDir, "data", "analytics", filename));
+}
+
+function heroImageStatus(rootDir: string, post: Post, imageAssets: ImageAsset[]) {
+  if (!post.frontmatter.heroImage || !post.frontmatter.heroAlt) {
+    return "missing" satisfies SeoOpsCheckStatus;
+  }
+
+  const manifestHasHero = imageAssets.some(
+    (asset) =>
+      asset.postSlug === post.slug &&
+      asset.usage === "hero" &&
+      asset.src === post.frontmatter.heroImage &&
+      asset.status !== "inactive",
+  );
+
+  return manifestHasHero || publicFileExists(rootDir, post.frontmatter.heroImage)
+    ? ("ok" satisfies SeoOpsCheckStatus)
+    : ("missing" satisfies SeoOpsCheckStatus);
+}
+
+function canonicalStatus(post: Post) {
+  return post.frontmatter.canonical === absoluteUrl(post.route)
+    ? ("ok" satisfies SeoOpsCheckStatus)
+    : ("missing" satisfies SeoOpsCheckStatus);
+}
+
+function metaDescriptionStatus(post: Post) {
+  return post.frontmatter.description.trim().length > 0
+    ? ("ok" satisfies SeoOpsCheckStatus)
+    : ("missing" satisfies SeoOpsCheckStatus);
+}
+
+function contentAuthorityStatus(post: Post) {
+  return post.internalLinks.length + post.frontmatter.relatedPosts.length >= 2
+    ? ("ok" satisfies SeoOpsContentAuthorityStatus)
+    : ("needs-review" satisfies SeoOpsContentAuthorityStatus);
+}
+
+function brokenInternalLinkCount(post: Post, availableRoutes: Set<string>) {
+  return post.internalLinks.filter((link) => !availableRoutes.has(link)).length;
+}
+
+function optimizationStage(row: {
+  heroImageStatus: SeoOpsCheckStatus;
+  canonicalStatus: SeoOpsCheckStatus;
+  metaDescriptionStatus: SeoOpsCheckStatus;
+  contentAuthorityStatus: SeoOpsContentAuthorityStatus;
+  brokenLinkCount: number;
+  internalLinkCount: number;
+  trafficStatus: SeoOpsTrafficStatus;
+}): SeoOpsOptimizationStage {
+  if (row.heroImageStatus !== "ok") {
+    return "이미지/alt 점검 필요";
+  }
+  if (row.canonicalStatus !== "ok" || row.metaDescriptionStatus !== "ok") {
+    return "검색 품질 보강 필요";
+  }
+  if (
+    row.brokenLinkCount > 0 ||
+    row.internalLinkCount === 0 ||
+    row.contentAuthorityStatus !== "ok"
+  ) {
+    return "내부 링크 보강 필요";
+  }
+  if (row.trafficStatus === "not-connected") {
+    return "실적 데이터 대기";
+  }
+
+  return "기본 SEO 완료";
+}
+
+function recommendedAction(stage: SeoOpsOptimizationStage) {
+  switch (stage) {
+    case "이미지/alt 점검 필요":
+      return "대표 이미지와 alt 텍스트를 먼저 점검";
+    case "검색 품질 보강 필요":
+      return "meta description과 canonical 상태 확인";
+    case "내부 링크 보강 필요":
+      return "관련 글 링크와 깨진 링크를 보강";
+    case "기본 SEO 완료":
+      return "실제 노출·유입 데이터 연결 후 개선";
+    case "실적 데이터 대기":
+    default:
+      return "Search Console 연결 후 검색어와 CTR 확인";
+  }
+}
+
+function buildArticleRows({
+  rootDir,
+  posts,
+  imageAssets,
+  analyticsConnected,
+}: {
+  rootDir: string;
+  posts: Post[];
+  imageAssets: ImageAsset[];
+  analyticsConnected: boolean;
+}) {
+  const availableRoutes = new Set<string>([
+    ...staticPublicRoutes,
+    "/rss.xml",
+    ...posts.map((post) => post.route),
+  ]);
+
+  return posts.map((post) => {
+    const baseRow = {
+      title: post.frontmatter.title,
+      slug: post.slug,
+      route: post.route,
+      category: categoryLabels[post.category] ?? post.categoryName,
+      publishedAt: post.frontmatter.publishedAt,
+      heroImageStatus: heroImageStatus(rootDir, post, imageAssets),
+      canonicalStatus: canonicalStatus(post),
+      metaDescriptionStatus: metaDescriptionStatus(post),
+      contentAuthorityStatus: contentAuthorityStatus(post),
+      trafficStatus: analyticsConnected ? "connected" : "not-connected",
+      internalLinkCount: post.internalLinks.length,
+      brokenLinkCount: brokenInternalLinkCount(post, availableRoutes),
+    } satisfies Omit<SeoOpsArticleRow, "optimizationStage" | "recommendedAction">;
+    const stage = optimizationStage(baseRow);
+
+    return {
+      ...baseRow,
+      optimizationStage: stage,
+      recommendedAction: recommendedAction(stage),
+    } satisfies SeoOpsArticleRow;
+  });
+}
+
+function currentTopic(state: ContentSeriesState) {
+  return state.currentTopic ?? state.next[0] ?? "대기 중인 topic 없음";
+}
+
+function nextTopicAfterCurrent(state: ContentSeriesState) {
+  const current = currentTopic(state);
+  const index = state.next.indexOf(current);
+  return index >= 0 ? (state.next[index + 1] ?? "다음 topic 없음") : (state.next[0] ?? "다음 topic 없음");
+}
+
+function gateSummary(state: ContentSeriesState, schedule: ContentSeriesSchedule) {
+  const gates = [
+    schedule.enabled ? "스케줄러 활성" : "스케줄러 일시 중지",
+    schedule.requireCodexArtifact ? "Codex hero artifact 필요" : "artifact 게이트 확인 필요",
+    schedule.autoMerge ? "자동 병합 설정 확인 필요" : "자동 병합 금지",
+    schedule.manualDeploy ? "수동 배포 설정 확인 필요" : "수동 배포 금지",
+    state.gates.requireRealHeroImage ? "실제 hero 이미지 필요" : "이미지 게이트 확인 필요",
+  ];
+
+  return gates.join(" · ");
+}
+
+function nextRequiredArtifact(topic: string) {
+  return topic === "대기 중인 topic 없음" ? "필요한 artifact 없음" : `${topic}-hero`;
+}
+
+function lastKnownIssue(runState: ContentSeriesRunState, schedule: ContentSeriesSchedule) {
+  if (runState.lastStatus) {
+    return runState.lastTopic ? `${runState.lastTopic}: ${runState.lastStatus}` : runState.lastStatus;
+  }
+
+  return schedule.requireCodexArtifact ? "Codex hero artifact 대기" : "기록된 이슈 없음";
+}
+
+function buildAnalytics(rootDir: string) {
+  return {
+    searchConsole: {
+      title: "검색어 분석",
+      connected: analyticsFileExists(rootDir, "search-console.json"),
+      emptyState:
+        "Search Console 데이터가 아직 연결되지 않았습니다. 연결 후 검색어, 노출수, 클릭수, CTR, 평균 순위를 표시합니다.",
+      metrics: ["검색어", "노출수", "클릭수", "CTR", "평균 순위"],
+    },
+    referrers: {
+      title: "유입 사이트 분석",
+      connected: analyticsFileExists(rootDir, "referrers.json"),
+      emptyState:
+        "유입 사이트 데이터가 아직 연결되지 않았습니다. GA4, Vercel Analytics, Umami 또는 서버 로그 연결 후 표시합니다.",
+      metrics: ["도메인", "세션", "대표 글", "최근 유입"],
+    },
+    sourceBreakdown: {
+      title: "채널 분포",
+      connected: analyticsFileExists(rootDir, "source-breakdown.json"),
+      emptyState:
+        "direct, organic, social, referral 채널 데이터가 아직 연결되지 않았습니다.",
+      metrics: ["direct", "organic", "social", "referral"],
+    },
+  } satisfies SeoOpsDashboard["analytics"];
+}
+
+function coverageDetail(ok: number, total: number, label: string) {
+  return `${ok}/${total} ${label}`;
+}
+
+function buildSeoHealth(posts: Post[], articles: SeoOpsArticleRow[]): SeoHealthItem[] {
+  const total = articles.length;
+  const canonicalOk = articles.filter((row) => row.canonicalStatus === "ok").length;
+  const heroOk = articles.filter((row) => row.heroImageStatus === "ok").length;
+  const metaOk = articles.filter((row) => row.metaDescriptionStatus === "ok").length;
+  const brokenLinks = articles.reduce((sum, row) => sum + row.brokenLinkCount, 0);
+  const altOk = posts.filter((post) => post.frontmatter.heroAlt.trim().length > 0).length;
+
+  return [
+    {
+      label: "sitemap",
+      status: "ok",
+      detail: "공개 route와 noindex가 아닌 게시 글만 포함",
+    },
+    {
+      label: "RSS",
+      status: "ok",
+      detail: "공개 게시 글만 RSS item으로 생성",
+    },
+    {
+      label: "robots",
+      status: "ok",
+      detail: "API prefix는 차단하고, 이 대시보드는 page metadata로 noindex 처리",
+    },
+    {
+      label: "canonical",
+      status: canonicalOk === total ? "ok" : "missing",
+      detail: coverageDetail(canonicalOk, total, "정상"),
+    },
+    {
+      label: "OG/hero image",
+      status: heroOk === total ? "ok" : "missing",
+      detail: coverageDetail(heroOk, total, "정상"),
+    },
+    {
+      label: "meta description",
+      status: metaOk === total ? "ok" : "missing",
+      detail: coverageDetail(metaOk, total, "정상"),
+    },
+    {
+      label: "broken links",
+      status: brokenLinks === 0 ? "ok" : "missing",
+      detail: brokenLinks === 0 ? "깨진 내부 링크 없음" : `${brokenLinks}개 점검 필요`,
+    },
+    {
+      label: "image alt",
+      status: altOk === total ? "ok" : "missing",
+      detail: coverageDetail(altOk, total, "정상"),
+    },
+  ];
+}
+
+function seoChecksLabel(seoHealth: SeoHealthItem[]) {
+  const ok = seoHealth.filter((item) => item.status === "ok").length;
+  return `${ok}/${seoHealth.length} 정상`;
+}
+
+function buildExpansionActions(): ExpansionAction[] {
+  return [
+    { priority: 1, label: "Search Console 연결", status: "대기" },
+    { priority: 2, label: "GA4, Vercel Analytics 또는 Umami 연결", status: "대기" },
+    { priority: 3, label: "상위 노출 후보 글 title/meta 개선", status: "대기" },
+    { priority: 4, label: "주요 글 내부 링크 허브 강화", status: "진행 가능" },
+    {
+      priority: 5,
+      label: "다음 topic hero artifact 준비",
+      status: "확인 필요",
+      command: "npm run image-skill:plan",
+    },
+    {
+      priority: 6,
+      label: "자동화 시리즈 스케줄러 dry-run 확인",
+      status: "진행 가능",
+      command: "npm run content:series:scheduler -- --dry-run",
+    },
+    { priority: 7, label: "실적 데이터 연결 후 리라이트 후보 지정", status: "대기" },
+  ];
+}
+
+export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
+  const posts = getPublicPosts();
+  const contentIndex = readContentIndex(rootDir);
+  const seriesState = readContentSeriesState(rootDir);
+  const schedule = readContentSeriesSchedule(rootDir);
+  const runState = readContentSeriesRunState(rootDir);
+  const imageAssets = readImageAssets(rootDir);
+  const analytics = buildAnalytics(rootDir);
+  const realAnalyticsConnected =
+    analytics.searchConsole.connected ||
+    analytics.referrers.connected ||
+    analytics.sourceBreakdown.connected;
+  const articles = buildArticleRows({
+    rootDir,
+    posts,
+    imageAssets,
+    analyticsConnected: realAnalyticsConnected,
+  });
+  const seoHealth = buildSeoHealth(posts, articles);
+  const topic = currentTopic(seriesState);
+  const completedCount = seriesState.completed.length;
+  const totalSeriesTopics = new Set([...seriesState.completed, ...seriesState.next]).size;
+  const automationSeriesArticles = posts.filter(
+    (post) => post.frontmatter.cluster === "open-source-automation-tools",
+  ).length;
+
+  return {
+    route: SEO_OPS_DASHBOARD_ROUTE,
+    title: "Biz2Lab SEO 운영 대시보드",
+    summary: {
+      publishedArticles: posts.length,
+      automationSeriesArticles,
+      automationSeriesProgress: `${completedCount}/${totalSeriesTopics}`,
+      latestPublishedTitle: posts[0]?.frontmatter.title ?? "게시된 글 없음",
+      nextPublicationTopic: topic,
+      schedulerGate: schedule.enabled ? "스케줄러 활성" : "스케줄러 일시 중지",
+      seoChecks: seoChecksLabel(seoHealth),
+      analyticsConnection: realAnalyticsConnected ? "연결됨" : "미연결",
+    },
+    articles,
+    analytics,
+    seoHealth,
+    expansionActions: buildExpansionActions(),
+    scheduler: {
+      seriesTitle: "무료 오픈소스 자동화 도구 시리즈",
+      currentTopic: topic,
+      nextTopic: nextTopicAfterCurrent(seriesState),
+      completedTopics: seriesState.completed,
+      currentGate: gateSummary(seriesState, schedule),
+      nextRequiredArtifact: nextRequiredArtifact(topic),
+      lastKnownIssue: lastKnownIssue(runState, schedule),
+      cadence: `${schedule.cadenceMinutes}분 · ${schedule.activeHours.timezone} ${schedule.activeHours.start}-${schedule.activeHours.end} · 하루 최대 ${schedule.maxArticlesPerDay}개 · 열린 PR 최대 ${schedule.maxOpenPrs}개`,
+    },
+    sources: {
+      realAnalyticsConnected,
+      fakeTrafficNumbersUsed: false,
+      emptyStatesShown: !realAnalyticsConnected,
+      contentIndexUsed: contentIndex.length > 0,
+      schedulerStateUsed: seriesState.completed.length > 0 || seriesState.next.length > 0,
+      imageManifestUsed: imageAssets.length > 0,
+    },
+  };
+}
