@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 
+import * as contentSeriesOrchestrator from "@/scripts/content-series-orchestrator";
 import {
   assertTopicCanPublish,
   assertValidCodexImageArtifact,
@@ -27,7 +28,6 @@ import {
 } from "@/scripts/content-series-orchestrator";
 
 const secondAutomationQueue = [
-  "dify-llm-app-builder-business-automation",
   "open-webui-local-llm-admin-portal",
   "flowise-ai-agent-workflow-automation",
   "directus-headless-cms-data-automation",
@@ -37,6 +37,7 @@ const secondAutomationQueue = [
   "typesense-product-document-search-automation",
   "umami-open-source-analytics-ga-alternative",
 ];
+const completedDifySlug = "dify-llm-app-builder-business-automation";
 
 function tempSeriesRoot() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-series-"));
@@ -119,7 +120,8 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes("nocodb-airtable-alternative-license-caution"));
   assert.ok(state.completed.includes("crawl4ai-blog-research-automation"));
   assert.ok(state.completed.includes("langflow-ai-workflow-automation"));
-  assert.equal(state.currentTopic, "dify-llm-app-builder-business-automation");
+  assert.ok(state.completed.includes(completedDifySlug));
+  assert.equal(state.currentTopic, "open-webui-local-llm-admin-portal");
   assert.deepEqual(state.next, secondAutomationQueue);
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
@@ -146,6 +148,7 @@ test("content series topic config parses required upcoming topics", () => {
   for (const slug of secondAutomationQueue) {
     assert.ok(slugs.includes(slug), `missing ${slug}`);
   }
+  assert.ok(slugs.includes(completedDifySlug), `missing ${completedDifySlug}`);
   for (const topic of topics.topics.filter((topic) => secondAutomationQueue.includes(topic.slug))) {
     assert.doesNotMatch(topic.title, /\?\?/);
     assert.doesNotMatch(topic.description, /\?\?/);
@@ -170,7 +173,7 @@ test("missing Codex image artifact blocks publication without writing article", 
 
   await withIsolatedGeneratedImagesDir(root, async () => {
     await assert.rejects(
-      () => runContentSeriesOrchestrator({ rootDir: root, topic: "dify", noCommit: true }),
+      () => runContentSeriesOrchestrator({ rootDir: root, topic: "open-webui-local-llm-admin-portal", noCommit: true }),
       (error) =>
         error instanceof ContentSeriesError &&
         error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
@@ -450,6 +453,79 @@ test("internal link generation includes series hub and existing public articles"
   assert.ok(routes.includes("/ko/automation/opencut-free-open-source-video-editor-ai-content-automation"));
 });
 
+test("series link insertion reuses the existing section and stays idempotent", () => {
+  const insert = (
+    contentSeriesOrchestrator as {
+      insertSeriesLinkIntoSection?: (content: string, topic: ReturnType<typeof currentSeriesTopic>["topic"]) => string;
+    }
+  ).insertSeriesLinkIntoSection;
+  assert.equal(typeof insert, "function");
+  if (!insert) {
+    return;
+  }
+  const topics = readContentSeriesTopics();
+  const state = readContentSeriesState();
+  const topic = resolveContentSeriesTopic(topics.topics, state, "open-webui-local-llm-admin-portal");
+  const content = [
+    "# Existing article",
+    "",
+    "## 무료 오픈소스 자동화 도구 시리즈",
+    "",
+    "- [Existing tool](/ko/automation/existing-tool)",
+    "",
+    "## 다음 섹션",
+    "",
+    "본문",
+    "",
+  ].join("\n");
+
+  const once = insert(content, topic);
+  const twice = insert(once, topic);
+
+  assert.equal((once.match(/## 무료 오픈소스 자동화 도구 시리즈/g) ?? []).length, 1);
+  assert.match(once, /\[Existing tool\]\(\/ko\/automation\/existing-tool\)/);
+  assert.match(once, /\[Open WebUI 분석: 로컬 LLM 운영 UI를 사내 AI 포털로 쓸 수 있을까\?\]\(\/ko\/automation\/open-webui-local-llm-admin-portal\)/);
+  assert.match(once, /open-webui-local-llm-admin-portal\)\n\n## 다음 섹션/);
+  assert.equal(twice, once);
+});
+
+test("series link insertion normalizes duplicate generated headings without duplicating links", () => {
+  const insert = (
+    contentSeriesOrchestrator as {
+      insertSeriesLinkIntoSection?: (content: string, topic: ReturnType<typeof currentSeriesTopic>["topic"]) => string;
+    }
+  ).insertSeriesLinkIntoSection;
+  assert.equal(typeof insert, "function");
+  if (!insert) {
+    return;
+  }
+  const topics = readContentSeriesTopics();
+  const state = readContentSeriesState();
+  const topic = resolveContentSeriesTopic(topics.topics, state, "open-webui-local-llm-admin-portal");
+  const link = "- [Open WebUI 분석: 로컬 LLM 운영 UI를 사내 AI 포털로 쓸 수 있을까?](/ko/automation/open-webui-local-llm-admin-portal)";
+  const content = [
+    "# Existing article",
+    "",
+    "## 무료 오픈소스 자동화 도구 시리즈",
+    "",
+    "- [Existing tool](/ko/automation/existing-tool)",
+    "",
+    "한 줄 결론입니다.",
+    "",
+    "## 무료 오픈소스 자동화 도구 시리즈",
+    "",
+    link,
+    "",
+  ].join("\n");
+
+  const next = insert(content, topic);
+
+  assert.equal((next.match(/## 무료 오픈소스 자동화 도구 시리즈/g) ?? []).length, 1);
+  assert.equal((next.match(/open-webui-local-llm-admin-portal/g) ?? []).length, 1);
+  assert.match(next, /\[Existing tool\]\(\/ko\/automation\/existing-tool\)/);
+  assert.match(next, /한 줄 결론입니다\./);
+});
+
 test("generated article markdown includes authority sections and Korean related labels", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
@@ -568,10 +644,10 @@ test("validation command list includes all required gates", () => {
 test("plan-only can inspect the current stacked topic without publication blockers", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
-  const topic = resolveContentSeriesTopic(topics.topics, state, "dify");
+  const topic = resolveContentSeriesTopic(topics.topics, state, state.currentTopic);
   const plan = buildContentSeriesPlan(state, topic, { planOnly: true });
 
-  assert.equal(plan.topic.slug, "dify-llm-app-builder-business-automation");
+  assert.equal(plan.topic.slug, "open-webui-local-llm-admin-portal");
   assert.deepEqual(plan.publicationBlockers, []);
 });
 

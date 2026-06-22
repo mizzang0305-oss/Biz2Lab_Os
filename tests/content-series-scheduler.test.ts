@@ -13,7 +13,9 @@ import {
 } from "@/scripts/content-series-scheduler-runner";
 
 const completedLangflowSlug = "langflow-ai-workflow-automation";
-const currentTopicSlug = "dify-llm-app-builder-business-automation";
+const completedDifySlug = "dify-llm-app-builder-business-automation";
+const currentTopicSlug = "open-webui-local-llm-admin-portal";
+const nextTopicAfterCurrentSlug = "flowise-ai-agent-workflow-automation";
 const finalTopicSlug = "umami-open-source-analytics-ga-alternative";
 const partialQueueTopicSlug = "windmill-developer-workflow-automation";
 const partialQueueCompleted = [
@@ -151,7 +153,7 @@ test("180-minute cadence is accepted and missing artifact waits safely", async (
   assert.equal(readContentSeriesSchedule(root).cadenceMinutes, 180);
 });
 
-test("completed Langflow advances the default scheduler topic to Dify", async () => {
+test("completed Dify advances the default scheduler topic to Open WebUI", async () => {
   const root = tempSchedulerRoot();
   const state = readJson<{ completed: string[]; currentTopic: string; next: string[] }>(
     path.join(root, "data", "content-series-state.json"),
@@ -162,15 +164,16 @@ test("completed Langflow advances the default scheduler topic to Dify", async ()
   );
 
   assert.ok(state.completed.includes(completedLangflowSlug));
+  assert.ok(state.completed.includes(completedDifySlug));
   assert.equal(state.currentTopic, currentTopicSlug);
   assert.equal(state.next[0], currentTopicSlug);
   assert.equal(result.status, "WAITING_FOR_CODEX_IMAGE_ARTIFACT");
   assert.equal(result.topic, currentTopicSlug);
 });
 
-test("already-published completed Langflow does not block Dify artifact gate", async () => {
+test("already-published completed Dify does not keep scheduler stuck on Dify", async () => {
   const root = tempSchedulerRoot();
-  const articlePath = path.join(root, "content", "ko", "automation", `${completedLangflowSlug}.md`);
+  const articlePath = path.join(root, "content", "ko", "automation", `${completedDifySlug}.md`);
   fs.mkdirSync(path.dirname(articlePath), { recursive: true });
   fs.writeFileSync(articlePath, "---\nstatus: published\ndraft: false\n---\n", "utf8");
 
@@ -182,7 +185,7 @@ test("already-published completed Langflow does not block Dify artifact gate", a
   assert.equal(result.topic, currentTopicSlug);
 });
 
-test("Dify artifact-gate dry-run does not generate article or image files", async () => {
+test("Open WebUI artifact-gate dry-run does not generate article or image files", async () => {
   const root = tempSchedulerRoot();
 
   const result = await withGeneratedRoot(root, () =>
@@ -299,18 +302,18 @@ test("partial queue still selects the next incomplete topic", async () => {
   assert.equal(result.topic, partialQueueTopicSlug);
 });
 
-test("topic order still blocks topics after Dify until Dify is completed", async () => {
+test("topic order still blocks topics after Open WebUI until Open WebUI is completed", async () => {
   const root = tempSchedulerRoot();
 
   const result = await runContentSeriesScheduler(
-    { rootDir: root, dryRun: true, topic: "open-webui-local-llm-admin-portal", useLatestCodexArtifact: true, now: activeNow },
+    { rootDir: root, dryRun: true, topic: nextTopicAfterCurrentSlug, useLatestCodexArtifact: true, now: activeNow },
     schedulerDeps().deps,
   );
 
   assert.equal(result.status, "TOPIC_ORDER_BLOCKED");
-  assert.equal(result.topic, "open-webui-local-llm-admin-portal");
-  assert.match(result.message ?? "", /next queue starts with dify-llm-app-builder-business-automation/);
-  assert.match(result.message ?? "", /previous article is not public yet: dify-llm-app-builder-business-automation/);
+  assert.equal(result.topic, nextTopicAfterCurrentSlug);
+  assert.match(result.message ?? "", /next queue starts with open-webui-local-llm-admin-portal/);
+  assert.match(result.message ?? "", /previous article is not public yet: open-webui-local-llm-admin-portal/);
 });
 
 test("existing topic PR blocks duplicate publication", async () => {
@@ -327,7 +330,7 @@ test("explicit topic with latest artifact selector still respects existing topic
   const openPrs = [{ number: 7, title: "current article", headRefName: `codex/${currentTopicSlug}-automation-series-article` }];
 
   const result = await runContentSeriesScheduler(
-    { rootDir: root, dryRun: true, topic: "dify", useLatestCodexArtifact: true, now: activeNow },
+    { rootDir: root, dryRun: true, topic: currentTopicSlug, useLatestCodexArtifact: true, now: activeNow },
     schedulerDeps(openPrs).deps,
   );
 
