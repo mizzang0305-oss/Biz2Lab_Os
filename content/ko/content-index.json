@@ -1,5 +1,22 @@
 [
   {
+    "title": "Open WebUI 분석: 로컬 LLM 운영 UI를 사내 AI 포털로 쓸 수 있을까?",
+    "slug": "open-webui-local-llm-admin-portal",
+    "route": "/ko/automation/open-webui-local-llm-admin-portal",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/open-webui-local-llm-admin-portal-hero.webp",
+    "heroAlt": "Open WebUI로 로컬 LLM 내부 AI 포털 운영을 검토하는 대표 이미지",
+    "updatedAt": "2026-06-22",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "dify-llm-app-builder-business-automation",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Crawl4AI 분석: 블로그 소재 수집과 AI 리서치 자동화에 쓸 수 있을까?",
     "slug": "crawl4ai-blog-research-automation",
     "route": "/ko/automation/crawl4ai-blog-research-automation",

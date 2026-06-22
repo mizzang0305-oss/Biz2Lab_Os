@@ -14,8 +14,9 @@ import {
 
 const completedLangflowSlug = "langflow-ai-workflow-automation";
 const completedDifySlug = "dify-llm-app-builder-business-automation";
-const currentTopicSlug = "open-webui-local-llm-admin-portal";
-const nextTopicAfterCurrentSlug = "flowise-ai-agent-workflow-automation";
+const completedOpenWebUISlug = "open-webui-local-llm-admin-portal";
+const currentTopicSlug = "flowise-ai-agent-workflow-automation";
+const nextTopicAfterCurrentSlug = "directus-headless-cms-data-automation";
 const finalTopicSlug = "umami-open-source-analytics-ga-alternative";
 const partialQueueTopicSlug = "windmill-developer-workflow-automation";
 const partialQueueCompleted = [
@@ -153,7 +154,7 @@ test("180-minute cadence is accepted and missing artifact waits safely", async (
   assert.equal(readContentSeriesSchedule(root).cadenceMinutes, 180);
 });
 
-test("completed Dify advances the default scheduler topic to Open WebUI", async () => {
+test("completed Open WebUI advances the default scheduler topic to Flowise", async () => {
   const root = tempSchedulerRoot();
   const state = readJson<{ completed: string[]; currentTopic: string; next: string[] }>(
     path.join(root, "data", "content-series-state.json"),
@@ -165,15 +166,16 @@ test("completed Dify advances the default scheduler topic to Open WebUI", async 
 
   assert.ok(state.completed.includes(completedLangflowSlug));
   assert.ok(state.completed.includes(completedDifySlug));
+  assert.ok(state.completed.includes(completedOpenWebUISlug));
   assert.equal(state.currentTopic, currentTopicSlug);
   assert.equal(state.next[0], currentTopicSlug);
   assert.equal(result.status, "WAITING_FOR_CODEX_IMAGE_ARTIFACT");
   assert.equal(result.topic, currentTopicSlug);
 });
 
-test("already-published completed Dify does not keep scheduler stuck on Dify", async () => {
+test("already-published completed Open WebUI does not keep scheduler stuck on Open WebUI", async () => {
   const root = tempSchedulerRoot();
-  const articlePath = path.join(root, "content", "ko", "automation", `${completedDifySlug}.md`);
+  const articlePath = path.join(root, "content", "ko", "automation", `${completedOpenWebUISlug}.md`);
   fs.mkdirSync(path.dirname(articlePath), { recursive: true });
   fs.writeFileSync(articlePath, "---\nstatus: published\ndraft: false\n---\n", "utf8");
 
@@ -185,7 +187,7 @@ test("already-published completed Dify does not keep scheduler stuck on Dify", a
   assert.equal(result.topic, currentTopicSlug);
 });
 
-test("Open WebUI artifact-gate dry-run does not generate article or image files", async () => {
+test("current topic artifact-gate dry-run does not generate article or image files", async () => {
   const root = tempSchedulerRoot();
 
   const result = await withGeneratedRoot(root, () =>
@@ -302,7 +304,7 @@ test("partial queue still selects the next incomplete topic", async () => {
   assert.equal(result.topic, partialQueueTopicSlug);
 });
 
-test("topic order still blocks topics after Open WebUI until Open WebUI is completed", async () => {
+test("topic order still blocks topics after Flowise until Flowise is completed", async () => {
   const root = tempSchedulerRoot();
 
   const result = await runContentSeriesScheduler(
@@ -312,8 +314,8 @@ test("topic order still blocks topics after Open WebUI until Open WebUI is compl
 
   assert.equal(result.status, "TOPIC_ORDER_BLOCKED");
   assert.equal(result.topic, nextTopicAfterCurrentSlug);
-  assert.match(result.message ?? "", /next queue starts with open-webui-local-llm-admin-portal/);
-  assert.match(result.message ?? "", /previous article is not public yet: open-webui-local-llm-admin-portal/);
+  assert.match(result.message ?? "", /next queue starts with flowise-ai-agent-workflow-automation/);
+  assert.match(result.message ?? "", /previous article is not public yet: flowise-ai-agent-workflow-automation/);
 });
 
 test("existing topic PR blocks duplicate publication", async () => {

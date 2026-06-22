@@ -444,6 +444,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["chatbot workflow", "RAG knowledge base", "assistant review queue", "operator approval"],
     palette: automationPalette,
   },
+  "open-webui-local-llm-admin-portal": {
+    slug: "open-webui-local-llm-admin-portal",
+    category: "automation",
+    visualFamily: "local-llm-internal-portal-control-room",
+    conceptKo: "로컬 LLM 포털, 모델 접근 제어, 팀 지식 assistant, privacy gate, admin log가 보이는 내부 AI 운영 이미지.",
+    altKo: "Open WebUI로 로컬 LLM 내부 AI 포털 운영을 검토하는 대표 이미지",
+    captionKo: "Open WebUI는 내부 AI 포털 후보지만 모델 접근 제어와 프라이버시 게이트가 필요하다.",
+    labels: ["local LLM portal", "model access control", "team knowledge assistant", "privacy gate"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);
