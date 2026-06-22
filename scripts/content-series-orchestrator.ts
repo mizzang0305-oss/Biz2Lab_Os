@@ -1053,21 +1053,108 @@ function upsertArticleImageConcept(rootDir: string, topic: ContentSeriesTopic) {
   fs.writeFileSync(absolutePath(rootDir, conceptPath), next, "utf8");
 }
 
+const automationSeriesSectionHeading = "## 무료 오픈소스 자동화 도구 시리즈";
+
+function markdownHeadingLevel(line: string) {
+  const match = line.match(/^(#{1,6})\s+/);
+  return match ? match[1].length : undefined;
+}
+
+function markdownSectionEnd(lines: string[], startIndex: number) {
+  const currentLevel = markdownHeadingLevel(lines[startIndex]) ?? 2;
+  for (let index = startIndex + 1; index < lines.length; index += 1) {
+    const level = markdownHeadingLevel(lines[index]);
+    if (level !== undefined && level <= currentLevel) {
+      return index;
+    }
+  }
+  return lines.length;
+}
+
+function markdownLinkTarget(line: string) {
+  return line.match(/\]\(([^)]+)\)/)?.[1];
+}
+
+export function insertSeriesLinkIntoSection(content: string, topic: ContentSeriesTopic) {
+  const lineBreak = content.includes("\r\n") ? "\r\n" : "\n";
+  const route = `/ko/automation/${topic.slug}`;
+  const topicLink = `- [${topic.title}](${route})`;
+  const lines = content.split(/\r?\n/);
+  const sectionStartIndexes = lines
+    .map((line, index) => (line.trim() === automationSeriesSectionHeading ? index : -1))
+    .filter((index) => index >= 0);
+
+  if (sectionStartIndexes.length === 0) {
+    return `${content.trimEnd()}${lineBreak}${lineBreak}${automationSeriesSectionHeading}${lineBreak}${lineBreak}${topicLink}${lineBreak}`;
+  }
+
+  const firstSectionStart = sectionStartIndexes[0];
+  const firstSectionEnd = markdownSectionEnd(lines, firstSectionStart);
+  const linksByTarget = new Map<string, string>();
+  const addLink = (line: string) => {
+    const target = markdownLinkTarget(line);
+    if (target && !linksByTarget.has(target)) {
+      linksByTarget.set(target, line.trim());
+    }
+  };
+
+  for (const line of lines.slice(firstSectionStart + 1, firstSectionEnd)) {
+    if (line.trim().startsWith("- [")) {
+      addLink(line);
+    }
+  }
+  for (const duplicateStart of sectionStartIndexes.slice(1)) {
+    const duplicateEnd = markdownSectionEnd(lines, duplicateStart);
+    for (const line of lines.slice(duplicateStart + 1, duplicateEnd)) {
+      if (line.trim().startsWith("- [")) {
+        addLink(line);
+      }
+    }
+  }
+  if (!linksByTarget.has(route)) {
+    linksByTarget.set(route, topicLink);
+  }
+
+  const firstSectionRemainder = lines
+    .slice(firstSectionStart + 1, firstSectionEnd)
+    .filter((line) => line.trim() !== "" && !line.trim().startsWith("- ["));
+  const replacementSection = [
+    automationSeriesSectionHeading,
+    "",
+    ...Array.from(linksByTarget.values()),
+    "",
+    ...(firstSectionRemainder.length > 0 ? ["", ...firstSectionRemainder] : []),
+  ];
+
+  const nextLines: string[] = [];
+  for (let index = 0; index < lines.length;) {
+    if (index === firstSectionStart) {
+      nextLines.push(...replacementSection);
+      index = firstSectionEnd;
+      continue;
+    }
+    if (sectionStartIndexes.slice(1).includes(index)) {
+      index = markdownSectionEnd(lines, index);
+      continue;
+    }
+    nextLines.push(lines[index]);
+    index += 1;
+  }
+
+  return `${nextLines.join(lineBreak).trimEnd()}${lineBreak}`;
+}
+
 function appendSeriesLinkIfMissing(rootDir: string, repoRelativePath: string, topic: ContentSeriesTopic) {
   const absoluteFilePath = absolutePath(rootDir, repoRelativePath);
   if (!fs.existsSync(absoluteFilePath)) {
     return;
   }
-  const route = `/ko/automation/${topic.slug}`;
   const content = fs.readFileSync(absoluteFilePath, "utf8");
-  if (content.includes(`](${route})`)) {
+  const next = insertSeriesLinkIntoSection(content, topic);
+  if (next === content) {
     return;
   }
-  fs.writeFileSync(
-    absoluteFilePath,
-    `${content.trim()}\n\n## 무료 오픈소스 자동화 도구 시리즈\n\n- [${topic.title}](${route})\n`,
-    "utf8",
-  );
+  fs.writeFileSync(absoluteFilePath, next, "utf8");
 }
 
 function updateInternalLinks(rootDir: string, topic: ContentSeriesTopic) {

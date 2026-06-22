@@ -1,7 +1,7 @@
 {
   "series": "free-open-source-automation-tools",
   "title": "무료 오픈소스 자동화 도구 시리즈",
-  "currentTopic": "dify-llm-app-builder-business-automation",
+  "currentTopic": "open-webui-local-llm-admin-portal",
   "completed": [
     "opencut-free-open-source-video-editor-ai-content-automation",
     "free-open-source-automation-tools-series",
@@ -15,10 +15,10 @@
     "n8n-workflow-automation-license-caution",
     "nocodb-airtable-alternative-license-caution",
     "crawl4ai-blog-research-automation",
-    "langflow-ai-workflow-automation"
+    "langflow-ai-workflow-automation",
+    "dify-llm-app-builder-business-automation"
   ],
   "next": [
-    "dify-llm-app-builder-business-automation",
     "open-webui-local-llm-admin-portal",
     "flowise-ai-agent-workflow-automation",
     "directus-headless-cms-data-automation",
