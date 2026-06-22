@@ -57,3 +57,5 @@ Content-series automation update: `crawl4ai-blog-research-automation` has a real
 Content-series automation update: `langflow-ai-workflow-automation` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
 
 Content-series automation update: `dify-llm-app-builder-business-automation` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
+
+Content-series automation update: `open-webui-local-llm-admin-portal` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.

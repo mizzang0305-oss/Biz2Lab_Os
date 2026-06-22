@@ -1020,6 +1020,29 @@
       "visualDifferentiationHint": "dify-llm-app-builder-business-automation: llm-assistant-rag-workflow-board",
       "filename": "dify-llm-app-builder-business-automation-hero.jpg",
       "rawPath": "assets/images/raw/dify-llm-app-builder-business-automation-hero.jpg"
+    },
+    {
+      "id": "open-webui-local-llm-admin-portal-hero",
+      "postSlug": "open-webui-local-llm-admin-portal",
+      "category": "automation",
+      "usage": "hero",
+      "targetPath": "assets/images/raw/open-webui-local-llm-admin-portal-hero.jpg",
+      "optimizedPath": "public/images/posts/open-webui-local-llm-admin-portal-hero.webp",
+      "altKo": "Open WebUI로 로컬 LLM 내부 AI 포털 운영을 검토하는 대표 이미지",
+      "captionKo": "Open WebUI는 내부 AI 포털 후보지만 모델 접근 제어와 프라이버시 게이트가 필요하다.",
+      "style": "local-llm-internal-portal-control-room, Korean business editorial raster hero, minimal text, no title inside image",
+      "promptKo": "로컬 LLM 포털, 모델 접근 제어, 팀 지식 assistant, privacy gate, admin log가 보이는 내부 AI 운영 이미지.",
+      "providerPromptKo": "Open WebUI 분석: 로컬 LLM 운영 UI를 사내 AI 포털로 쓸 수 있을까? 대표 이미지. 로컬 LLM 포털, 모델 접근 제어, 팀 지식 assistant, privacy gate, admin log가 보이는 내부 AI 운영 이미지. Include: local LLM portal, model access control, team knowledge assistant, privacy gate, admin log. No official logos, no real customer data, no placeholder elements.",
+      "negativePromptKo": "official Open WebUI logo, real employee data, private documents, security bypass, consumer chatbot mascot, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+      "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+      "composition": "로컬 LLM 포털, 모델 접근 제어, 팀 지식 assistant, privacy gate, admin log가 보이는 내부 AI 운영 이미지.",
+      "categoryStyle": "automation category visual, local-llm-internal-portal-control-room",
+      "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+      "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+      "localOnly": true,
+      "visualDifferentiationHint": "open-webui-local-llm-admin-portal: local-llm-internal-portal-control-room",
+      "filename": "open-webui-local-llm-admin-portal-hero.jpg",
+      "rawPath": "assets/images/raw/open-webui-local-llm-admin-portal-hero.jpg"
     }
   ]
 }

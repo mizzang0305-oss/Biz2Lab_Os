@@ -304,5 +304,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "open-webui-local-llm-admin-portal-hero",
+    "project": "biz2lab",
+    "postSlug": "open-webui-local-llm-admin-portal",
+    "usage": "hero",
+    "src": "/images/posts/open-webui-local-llm-admin-portal-hero.webp",
+    "rawPath": "assets/images/raw/open-webui-local-llm-admin-portal-hero.jpg",
+    "altKo": "Open WebUI로 로컬 LLM 내부 AI 포털 운영을 검토하는 대표 이미지",
+    "captionKo": "Open WebUI는 내부 AI 포털 후보지만 모델 접근 제어와 프라이버시 게이트가 필요하다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]

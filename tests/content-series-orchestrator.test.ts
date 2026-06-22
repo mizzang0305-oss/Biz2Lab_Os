@@ -28,7 +28,6 @@ import {
 } from "@/scripts/content-series-orchestrator";
 
 const secondAutomationQueue = [
-  "open-webui-local-llm-admin-portal",
   "flowise-ai-agent-workflow-automation",
   "directus-headless-cms-data-automation",
   "pocketbase-lightweight-backend-saas-mvp",
@@ -38,6 +37,7 @@ const secondAutomationQueue = [
   "umami-open-source-analytics-ga-alternative",
 ];
 const completedDifySlug = "dify-llm-app-builder-business-automation";
+const completedOpenWebUISlug = "open-webui-local-llm-admin-portal";
 
 function tempSeriesRoot() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-series-"));
@@ -121,7 +121,8 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes("crawl4ai-blog-research-automation"));
   assert.ok(state.completed.includes("langflow-ai-workflow-automation"));
   assert.ok(state.completed.includes(completedDifySlug));
-  assert.equal(state.currentTopic, "open-webui-local-llm-admin-portal");
+  assert.ok(state.completed.includes(completedOpenWebUISlug));
+  assert.equal(state.currentTopic, "flowise-ai-agent-workflow-automation");
   assert.deepEqual(state.next, secondAutomationQueue);
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
@@ -170,17 +171,17 @@ test("duplicate completed topics are rejected", () => {
 
 test("missing Codex image artifact blocks publication without writing article", async () => {
   const root = tempSeriesRoot();
+  const { topic } = currentSeriesTopic();
 
   await withIsolatedGeneratedImagesDir(root, async () => {
     await assert.rejects(
-      () => runContentSeriesOrchestrator({ rootDir: root, topic: "open-webui-local-llm-admin-portal", noCommit: true }),
+      () => runContentSeriesOrchestrator({ rootDir: root, topic: topic.slug, noCommit: true }),
       (error) =>
         error instanceof ContentSeriesError &&
         error.code === "CODEX_GENERATED_IMAGE_ARTIFACT_MISSING",
     );
   });
 
-  const { topic } = currentSeriesTopic();
   assert.equal(fs.existsSync(path.join(root, ...buildImagePaths(topic).articleRepoPath.split("/"))), false);
 });
 
@@ -647,7 +648,7 @@ test("plan-only can inspect the current stacked topic without publication blocke
   const topic = resolveContentSeriesTopic(topics.topics, state, state.currentTopic);
   const plan = buildContentSeriesPlan(state, topic, { planOnly: true });
 
-  assert.equal(plan.topic.slug, "open-webui-local-llm-admin-portal");
+  assert.equal(plan.topic.slug, "flowise-ai-agent-workflow-automation");
   assert.deepEqual(plan.publicationBlockers, []);
 });
 
