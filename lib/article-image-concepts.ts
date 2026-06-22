@@ -454,6 +454,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["local LLM portal", "model access control", "team knowledge assistant", "privacy gate"],
     palette: automationPalette,
   },
+  "flowise-ai-agent-workflow-automation": {
+    slug: "flowise-ai-agent-workflow-automation",
+    category: "automation",
+    visualFamily: "ai-agent-flow-safety-dashboard",
+    conceptKo: "AI 에이전트 flow 캔버스, tool permission gate, chatflow prototype, stability checklist, human review가 있는 안전 대시보드 이미지.",
+    altKo: "Flowise로 AI 에이전트 워크플로와 안전 게이트를 검토하는 대표 이미지",
+    captionKo: "Flowise는 agent flow 프로토타입 후보지만 production 안정성과 권한 검토가 먼저다.",
+    labels: ["agent workflow canvas", "tool permission gate", "chatflow prototype", "stability checklist"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

@@ -134,5 +134,7 @@ Open WebUI은 자동화 후보 도구입니다. 다만 고객 데이터, 결제,
 - [Open WebUI 관련 자동화 글](/ko/automation/dify-llm-app-builder-business-automation)
 - [Open WebUI 관련 자동화 글](/ko/automation/langflow-ai-workflow-automation)
 - [Open WebUI 관련 자동화 글](/ko/small-business/ai-knowledge-store-for-small-business)
+- [Flowise 분석: AI 에이전트 워크플로 자동화 도구로 쓸 수 있을까?](/ko/automation/flowise-ai-agent-workflow-automation)
+
 
 한 줄 결론은 명확합니다. Open WebUI은 지금 당장 모든 운영을 맡길 완성형 핵심 도구라기보다, Biz2Lab / MyBiz 자동화 파이프라인에 붙일 수 있는지 검증할 후보 도구입니다.
