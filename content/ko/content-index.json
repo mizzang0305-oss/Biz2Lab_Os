@@ -1,5 +1,22 @@
 [
   {
+    "title": "Flowise 분석: AI 에이전트 워크플로 자동화 도구로 쓸 수 있을까?",
+    "slug": "flowise-ai-agent-workflow-automation",
+    "route": "/ko/automation/flowise-ai-agent-workflow-automation",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/flowise-ai-agent-workflow-automation-hero.webp",
+    "heroAlt": "Flowise로 AI 에이전트 워크플로와 안전 게이트를 검토하는 대표 이미지",
+    "updatedAt": "2026-06-22",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "open-webui-local-llm-admin-portal",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Open WebUI 분석: 로컬 LLM 운영 UI를 사내 AI 포털로 쓸 수 있을까?",
     "slug": "open-webui-local-llm-admin-portal",
     "route": "/ko/automation/open-webui-local-llm-admin-portal",
