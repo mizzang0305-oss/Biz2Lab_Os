@@ -1,5 +1,22 @@
 [
   {
+    "title": "Directus 분석: Headless CMS를 데이터 운영 자동화에 쓸 수 있을까?",
+    "slug": "directus-headless-cms-data-automation",
+    "route": "/ko/automation/directus-headless-cms-data-automation",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/directus-headless-cms-data-automation-hero.webp",
+    "heroAlt": "Directus로 headless CMS와 데이터 운영 포털을 검토하는 대표 이미지",
+    "updatedAt": "2026-06-23",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "flowise-ai-agent-workflow-automation",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Flowise 분석: AI 에이전트 워크플로 자동화 도구로 쓸 수 있을까?",
     "slug": "flowise-ai-agent-workflow-automation",
     "route": "/ko/automation/flowise-ai-agent-workflow-automation",

@@ -10,6 +10,16 @@
     "recommendedAction": "AI 에이전트 자동화와 승인 게이트 관점의 검색 의도를 유지합니다."
   },
   {
+    "slug": "directus-headless-cms-data-automation",
+    "route": "/ko/automation/directus-headless-cms-data-automation",
+    "primaryKeyword": "Directus headless CMS",
+    "secondaryKeywords": ["Directus 데이터 자동화", "headless CMS 데이터 운영", "Directus 권한 관리", "데이터 운영 자동화"],
+    "searchIntent": "business-use",
+    "audience": "운영자",
+    "cluster": "automation-tools",
+    "recommendedAction": "Directus를 headless CMS, API, 권한 관리, 데이터 운영 자동화 후보로 연결합니다."
+  },
+  {
     "slug": "open-webui-local-llm-admin-portal",
     "route": "/ko/automation/open-webui-local-llm-admin-portal",
     "primaryKeyword": "Open WebUI 로컬 LLM",
