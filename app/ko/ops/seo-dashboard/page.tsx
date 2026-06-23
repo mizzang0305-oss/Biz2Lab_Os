@@ -14,12 +14,15 @@ import {
 import {
   SEO_OPS_DASHBOARD_ROUTE,
   getSeoOpsDashboard,
+  type SeoOpsDashboard,
   type SeoOpsArticleRow,
   type SeoOpsCheckStatus,
 } from "@/lib/seo-ops-dashboard";
+import { isOpsDashboardAuthenticated, isOpsDashboardKeyConfigured } from "@/lib/ops-dashboard-auth";
 import { createMetadata } from "@/lib/seo";
+import { unlockOpsDashboard } from "./actions";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = createMetadata({
   title: "Biz2Lab SEO 운영 대시보드",
@@ -110,10 +113,12 @@ function EmptyAnalyticsPanel({
   title,
   emptyState,
   metrics,
+  providerStatus,
 }: {
   title: string;
   emptyState: string;
   metrics: string[];
+  providerStatus: string;
 }) {
   return (
     <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
@@ -125,6 +130,9 @@ function EmptyAnalyticsPanel({
         </div>
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
+        <StatusPill status={providerStatus === "연결 준비됨" ? "connected" : "not-connected"}>
+          {providerStatus}
+        </StatusPill>
         {metrics.map((metric) => (
           <StatusPill key={metric} status="unknown">
             {metric}
@@ -132,6 +140,52 @@ function EmptyAnalyticsPanel({
         ))}
       </div>
     </section>
+  );
+}
+
+export function OpsDashboardUnlockScreen({ keyConfigured }: { keyConfigured: boolean }) {
+  return (
+    <main className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-10">
+      <section className="w-full max-w-md rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="flex items-start gap-3">
+          <div className="rounded-lg border border-slate-200 bg-slate-50 p-2 text-teal-700">
+            <ShieldCheck className="h-5 w-5" aria-hidden="true" />
+          </div>
+          <div>
+            <h1 className="text-xl font-bold text-slate-950">SEO 운영 대시보드 잠금</h1>
+            <p className="mt-2 text-sm text-slate-600">
+              이 화면은 운영자 전용입니다. 비밀번호를 입력하면 읽기 전용 대시보드를 볼 수 있습니다.
+            </p>
+          </div>
+        </div>
+
+        {!keyConfigured ? (
+          <p className="mt-5 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm font-semibold text-amber-900">
+            운영 대시보드 비밀번호가 아직 설정되지 않았습니다.
+          </p>
+        ) : null}
+
+        <form action={unlockOpsDashboard} className="mt-5 grid gap-3">
+          <label className="grid gap-2 text-sm font-semibold text-slate-700">
+            비밀번호
+            <input
+              className="rounded-md border border-slate-300 px-3 py-2 text-base text-slate-950 shadow-sm outline-none transition focus:border-teal-600 focus:ring-2 focus:ring-teal-100 disabled:bg-slate-100"
+              disabled={!keyConfigured}
+              name="opsDashboardKey"
+              type="password"
+              autoComplete="current-password"
+            />
+          </label>
+          <button
+            className="rounded-md bg-slate-950 px-4 py-2 text-sm font-bold text-white transition hover:bg-teal-800 disabled:cursor-not-allowed disabled:bg-slate-300"
+            disabled={!keyConfigured}
+            type="submit"
+          >
+            대시보드 열기
+          </button>
+        </form>
+      </section>
+    </main>
   );
 }
 
@@ -331,9 +385,32 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
   );
 }
 
-export default function SeoOpsDashboardPage() {
-  const dashboard = getSeoOpsDashboard();
+function AnalyticsConnectorPanel({ dashboard }: { dashboard: SeoOpsDashboard }) {
+  return (
+    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+      <SectionHeader
+        icon={<BarChart3 className="h-5 w-5" aria-hidden="true" />}
+        title="읽기 전용 분석 연결 상태"
+        description="환경변수 준비 여부만 확인합니다. 이 대시보드는 빌드와 테스트 중 Search Console, GA4, Vercel Analytics, Umami, referrer 로그를 호출하지 않습니다."
+      />
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+        {dashboard.analytics.providers.map((provider) => (
+          <article key={provider.id} className="rounded-lg border border-slate-200 p-4">
+            <h3 className="font-bold text-slate-950">{provider.label}</h3>
+            <div className="mt-3">
+              <StatusPill status={provider.status === "ready" ? "connected" : "not-connected"}>
+                {provider.statusLabel}
+              </StatusPill>
+            </div>
+            <p className="mt-3 text-sm text-slate-600">{provider.emptyState}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
 
+export function SeoOpsDashboardContent({ dashboard = getSeoOpsDashboard() }: { dashboard?: SeoOpsDashboard }) {
   return (
     <main className="bg-slate-50">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8">
@@ -383,18 +460,23 @@ export default function SeoOpsDashboardPage() {
             title={dashboard.analytics.searchConsole.title}
             emptyState={dashboard.analytics.searchConsole.emptyState}
             metrics={dashboard.analytics.searchConsole.metrics}
+            providerStatus={dashboard.analytics.searchConsole.providerStatus}
           />
           <EmptyAnalyticsPanel
             title={dashboard.analytics.referrers.title}
             emptyState={dashboard.analytics.referrers.emptyState}
             metrics={dashboard.analytics.referrers.metrics}
+            providerStatus={dashboard.analytics.referrers.providerStatus}
           />
           <EmptyAnalyticsPanel
             title={dashboard.analytics.sourceBreakdown.title}
             emptyState={dashboard.analytics.sourceBreakdown.emptyState}
             metrics={dashboard.analytics.sourceBreakdown.metrics}
+            providerStatus={dashboard.analytics.sourceBreakdown.providerStatus}
           />
         </section>
+
+        <AnalyticsConnectorPanel dashboard={dashboard} />
 
         <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
           <SectionHeader icon={<ShieldCheck className="h-5 w-5" aria-hidden="true" />} title="SEO Health" />
@@ -483,4 +565,14 @@ export default function SeoOpsDashboardPage() {
       </div>
     </main>
   );
+}
+
+export default async function SeoOpsDashboardPage() {
+  const authenticated = await isOpsDashboardAuthenticated();
+
+  if (!authenticated) {
+    return <OpsDashboardUnlockScreen keyConfigured={isOpsDashboardKeyConfigured()} />;
+  }
+
+  return <SeoOpsDashboardContent />;
 }

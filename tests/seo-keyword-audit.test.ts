@@ -59,7 +59,13 @@ test("keyword audit keeps index readiness separate from keyword follow-up work",
 
   assert.equal(audit.summary.totalArticles, getPublicPosts().length);
   assert.equal(audit.summary.missingKeywordMap, 0);
+  assert.equal(audit.summary.weakArticles, 0);
+  assert.equal(audit.summary.needsKeywordAlignment, 0);
+  assert.equal(audit.summary.needsMetaRewrite, 0);
+  assert.equal(audit.summary.needsInternalLinks, 0);
+  assert.equal(audit.summary.needsAltText, 0);
   assert.equal(audit.summary.needsIndexCheck, 0);
+  assert.equal(audit.articles.every((article) => article.keywordCoverageStatus === "GOOD"), true);
   assert.equal(audit.articles.every((article) => article.indexReadinessStatus === "GOOD"), true);
   assert.equal(audit.articles.every((article) => article.checks.canonicalWww), true);
   assert.equal(audit.articles.every((article) => article.checks.includedInSitemap), true);
