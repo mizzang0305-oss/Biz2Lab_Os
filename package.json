@@ -33,6 +33,7 @@
     "ruflo:review-pr": "tsx scripts/ruflo-pr-reviewer.ts",
     "content:series:auto": "tsx scripts/content-series-orchestrator.ts",
     "content:series:scheduler": "tsx scripts/content-series-scheduler-runner.ts",
+    "ops:autopilot-status": "node scripts/biz2lab-autopilot-status.mjs",
     "repair:article-images": "tsx scripts/repair-article-hero-images.ts"
   },
   "dependencies": {
