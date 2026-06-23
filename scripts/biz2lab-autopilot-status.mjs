@@ -179,11 +179,14 @@ function recommend({ status, promptPackage, publicationFiles, artifact, matching
   if (promptPr) {
     return `Review prompt package PR #${promptPr.number}; merge if scope and checks are safe, then align master.`;
   }
+  if (!promptPackage.complete && !artifact.exists) {
+    return "artifact-only preparation: create the image request, prompt, and brief package; generate the approved local Codex artifact; validate; open a prompt package PR; do not create article/raw/public image files.";
+  }
   if (!promptPackage.complete) {
     return "Create or merge the current topic hero prompt package before publication.";
   }
   if (!artifact.exists) {
-    return "WAITING_FOR_CODEX_IMAGE_ARTIFACT: prepare the approved local Codex hero artifact.";
+    return "artifact-only preparation: generate the approved local Codex hero artifact; validate; do not create article/raw/public image files.";
   }
   if (publicationFiles.article && publicationFiles.raw && publicationFiles.publicHero) {
     return "Publication files exist locally; validate, commit, push, and open/review the publication PR.";
@@ -208,6 +211,27 @@ function recommend({ status, promptPackage, publicationFiles, artifact, matching
     return `Investigate scheduler gate ${gate}; continue only if the fix is obviously scoped.`;
   }
   return "Run topic dry-run and inspect the next gate.";
+}
+
+function nextAction({ status, promptPackage, publicationFiles, artifact, matchingPrs, scheduler }) {
+  const publicationPr = matchingPrs.find((item) => item.kind === "publication");
+  const promptPr = matchingPrs.find((item) => item.kind === "prompt-package");
+
+  if (!status.cleanEnough) return "worktree recovery";
+  if (publicationPr) return "publication PR review";
+  if (promptPr) return "prompt package PR review";
+  if (!promptPackage.complete || !artifact.exists) return "artifact-only preparation";
+  if (publicationFiles.article && publicationFiles.raw && publicationFiles.publicHero) {
+    return "publication PR preparation";
+  }
+
+  const gate = scheduler.parsed?.status;
+  if (gate === "DRY_RUN_READY") return "publication scheduler run";
+  if (gate === "CADENCE_NOT_DUE") return "cadence force-check review";
+  if (gate === "OUTSIDE_ACTIVE_HOURS") return "wait for active hours";
+  if (gate === "STATE_ADVANCEMENT_REQUIRED") return "state repair PR";
+  if (gate) return "scheduler gate review";
+  return "scheduler dry-run review";
 }
 
 const state = readJson("data/content-series-state.json");
@@ -301,6 +325,14 @@ const report = {
 };
 
 report.nextRecommendedAction = recommend({
+  status,
+  promptPackage,
+  publicationFiles,
+  artifact,
+  matchingPrs,
+  scheduler,
+});
+report.nextAction = nextAction({
   status,
   promptPackage,
   publicationFiles,

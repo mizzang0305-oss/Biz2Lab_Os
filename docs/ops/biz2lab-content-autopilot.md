@@ -72,9 +72,9 @@ npm run ops:autopilot-status
 ```
 
 The helper reports current topic, scheduler gate, open PRs, artifact status,
-prompt package status, publication file status, keyword map status, and the
-next recommended action. It does not merge, deploy, commit, generate articles,
-or import images.
+prompt package status, publication file status, keyword map status, the
+machine-readable `nextAction`, and the next recommended action. It does not
+merge, deploy, commit, generate articles, or import images.
 
 ## 3. Dirty Worktree Policy
 
@@ -139,12 +139,33 @@ Stop on scope drift.
 ### 4.2 Artifact Missing
 
 If no approved local Codex artifact exists under the Codex generated image
-root, stop with `WAITING_FOR_CODEX_IMAGE_ARTIFACT` unless the task explicitly
-asks for artifact preparation.
+root, autopilot may continue through artifact-only preparation. This is safe
+because it does not create the article, does not import raw/public production
+images, and does not run publication non-dry.
 
-Artifact preparation may create only a local Codex-generated artifact and,
-when needed, a prompt package PR. It must not create the article or import
-raw/public production images in the artifact-only step.
+When the current topic has no prompt package and no approved artifact:
+
+1. Create the image request markdown.
+2. Create the image prompt markdown.
+3. Create the image brief JSON.
+4. Generate the local Codex image artifact under the approved Codex root.
+5. Run image package validation.
+6. Open a prompt package PR.
+7. Stop after PR creation.
+
+When the prompt package already exists but the artifact is missing, generate
+only the local Codex artifact and validate the image package. Do not create a
+publication PR until the prompt package is merged and the scheduler dry-run is
+ready.
+
+Artifact-only preparation must not:
+
+- create article files
+- create raw images under `assets/images/raw/`
+- create public WebP images under `public/images/posts/`
+- run publication non-dry
+- bypass active hours for publication
+- commit `.codex` folders
 
 Approved artifact pattern:
 
@@ -160,6 +181,10 @@ Reject:
 - copied product screenshots
 - random web images
 - manual drops outside the approved Codex artifact root
+
+If artifact generation fails or the generated image does not pass the visual
+and file-name checks, stop with `WAITING_FOR_CODEX_IMAGE_ARTIFACT` and report
+the exact blocker.
 
 ### 4.3 Artifact Exists and Prompt Package Is Merged
 
