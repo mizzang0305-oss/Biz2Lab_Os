@@ -36,6 +36,11 @@ test("SEO ops dashboard derives article rows from local content without fake tra
   assert.equal(dashboard.sources.fakeTrafficNumbersUsed, false);
   assert.equal(dashboard.sources.emptyStatesShown, true);
   assert.equal(dashboard.articles.length, publicPosts.length);
+  assert.equal(dashboard.summary.keywordMappedArticles, publicPosts.length);
+  assert.equal(
+    dashboard.summary.keywordStrongArticles + dashboard.summary.keywordWeakArticles,
+    publicPosts.length,
+  );
 
   const firstPost = publicPosts[0];
   const firstRow = dashboard.articles.find((row) => row.slug === firstPost.slug);
@@ -50,6 +55,12 @@ test("SEO ops dashboard derives article rows from local content without fake tra
   assert.equal(firstRow.impressions, undefined);
   assert.equal(firstRow.topQueries, undefined);
   assert.equal(firstRow.topReferrers, undefined);
+  assert.ok(firstRow.primaryKeyword);
+  assert.notEqual(firstRow.primaryKeyword, "키워드 맵 미등록");
+  assert.notEqual(firstRow.keywordCluster, "미등록");
+  assert.notEqual(firstRow.searchIntent, "미등록");
+  assert.match(firstRow.keywordCoverageStatus, /GOOD|NEEDS_/);
+  assert.match(firstRow.indexReadinessStatus, /GOOD|NEEDS_/);
 
   assert.equal(dashboard.articles.every((row) => row.trafficStatus === "not-connected"), true);
 });
@@ -74,8 +85,13 @@ test("SEO ops dashboard page renders the requested operational sections", () => 
 
   assert.match(html, /Biz2Lab SEO 운영 대시보드/);
   assert.match(html, /글별 SEO 운영 테이블/);
+  assert.match(html, /Primary keyword/);
+  assert.match(html, /Keyword \/ index/);
+  assert.match(html, /Keyword map/);
   assert.match(html, /Search Console 데이터가 아직 연결되지 않았습니다/);
   assert.match(html, /유입 사이트 데이터가 아직 연결되지 않았습니다/);
+  assert.match(html, /검색어 데이터 미연결/);
+  assert.match(html, /조회수 데이터 미연결/);
   assert.match(html, /SEO Health/);
   assert.match(html, /확장 실행 체크리스트/);
   assert.match(html, /스케줄러 상태/);
