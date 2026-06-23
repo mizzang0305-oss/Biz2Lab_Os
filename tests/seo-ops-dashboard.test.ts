@@ -57,10 +57,10 @@ test("SEO ops dashboard derives article rows from local content without fake tra
 test("SEO ops dashboard surfaces scheduler state and analytics empty states", () => {
   const dashboard = getSeoOpsDashboard();
 
-  assert.equal(dashboard.scheduler.currentTopic, "flowise-ai-agent-workflow-automation");
-  assert.equal(dashboard.scheduler.nextTopic, "directus-headless-cms-data-automation");
+  assert.equal(dashboard.scheduler.currentTopic, "directus-headless-cms-data-automation");
+  assert.equal(dashboard.scheduler.nextTopic, "pocketbase-lightweight-backend-saas-mvp");
   assert.match(dashboard.scheduler.currentGate, /수동 배포 금지/);
-  assert.equal(dashboard.scheduler.nextRequiredArtifact, "flowise-ai-agent-workflow-automation-hero");
+  assert.equal(dashboard.scheduler.nextRequiredArtifact, "directus-headless-cms-data-automation-hero");
 
   assert.equal(dashboard.analytics.searchConsole.connected, false);
   assert.match(dashboard.analytics.searchConsole.emptyState, /Search Console/);

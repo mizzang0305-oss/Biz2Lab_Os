@@ -338,8 +338,18 @@ export async function runContentSeriesScheduler(options: SchedulerOptions = {}, 
     if (publicationBlockers.length > 0) {
       return result("TOPIC_ORDER_BLOCKED", dryRun, topic, publicationBlockers.join("; "));
     }
-    if (articleExists(rootDir, topic)) {
-      return result("ARTICLE_ALREADY_PUBLISHED", dryRun, topic);
+    const topicArticleExists = articleExists(rootDir, topic);
+    if (topicArticleExists) {
+      const evidence = [
+        `content/ko/automation/${topic.slug}.md`,
+        contentIndexIncludesSlug(rootDir, topic) ? contentIndexPath : undefined,
+      ].filter(Boolean);
+      return result(
+        "STATE_ADVANCEMENT_REQUIRED",
+        dryRun,
+        topic,
+        `${topic.slug} is already published (${evidence.join(", ")}) but is not completed in data/content-series-state.json`,
+      );
     }
     if (contentIndexIncludesSlug(rootDir, topic)) {
       return result("CONTENT_INDEX_DUPLICATE", dryRun, topic);

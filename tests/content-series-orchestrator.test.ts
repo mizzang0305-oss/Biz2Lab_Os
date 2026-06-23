@@ -13,6 +13,7 @@ import {
   buildContentSeriesPlan,
   buildImageAssetEntry,
   buildOptimizedHeroImageMetadata,
+  advanceContentSeriesStateAfterPublication,
   buildImagePaths,
   buildInternalLinkRoutes,
   CONTENT_SERIES_VALIDATION_COMMANDS,
@@ -27,7 +28,7 @@ import {
   runContentSeriesOrchestrator,
 } from "@/scripts/content-series-orchestrator";
 
-const secondAutomationQueue = [
+const staleFlowiseQueue = [
   "flowise-ai-agent-workflow-automation",
   "directus-headless-cms-data-automation",
   "pocketbase-lightweight-backend-saas-mvp",
@@ -36,6 +37,7 @@ const secondAutomationQueue = [
   "typesense-product-document-search-automation",
   "umami-open-source-analytics-ga-alternative",
 ];
+const secondAutomationQueue = staleFlowiseQueue.slice(1);
 const completedDifySlug = "dify-llm-app-builder-business-automation";
 const completedOpenWebUISlug = "open-webui-local-llm-admin-portal";
 
@@ -122,7 +124,8 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes("langflow-ai-workflow-automation"));
   assert.ok(state.completed.includes(completedDifySlug));
   assert.ok(state.completed.includes(completedOpenWebUISlug));
-  assert.equal(state.currentTopic, "flowise-ai-agent-workflow-automation");
+  assert.ok(state.completed.includes("flowise-ai-agent-workflow-automation"));
+  assert.equal(state.currentTopic, "directus-headless-cms-data-automation");
   assert.deepEqual(state.next, secondAutomationQueue);
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
@@ -648,8 +651,31 @@ test("plan-only can inspect the current stacked topic without publication blocke
   const topic = resolveContentSeriesTopic(topics.topics, state, state.currentTopic);
   const plan = buildContentSeriesPlan(state, topic, { planOnly: true });
 
-  assert.equal(plan.topic.slug, "flowise-ai-agent-workflow-automation");
+  assert.equal(plan.topic.slug, "directus-headless-cms-data-automation");
   assert.deepEqual(plan.publicationBlockers, []);
+});
+
+test("publication state advancement marks the topic completed and selects the next queued topic", () => {
+  const state = readContentSeriesState();
+  const topics = readContentSeriesTopics();
+  const topic = resolveContentSeriesTopic(topics.topics, state, "flowise-ai-agent-workflow-automation");
+  const staleFlowiseState = {
+    ...state,
+    currentTopic: topic.slug,
+    completed: state.completed.filter((slug) => slug !== topic.slug),
+    next: staleFlowiseQueue,
+  };
+
+  const nextState = advanceContentSeriesStateAfterPublication(staleFlowiseState, topics.topics, topic);
+
+  assert.ok(nextState.completed.includes(topic.slug));
+  assert.equal(nextState.completed.filter((slug) => slug === topic.slug).length, 1);
+  assert.equal(nextState.currentTopic, "directus-headless-cms-data-automation");
+  assert.equal(nextState.next[0], "directus-headless-cms-data-automation");
+  assert.equal(nextState.completed.includes("directus-headless-cms-data-automation"), false);
+  assert.deepEqual(nextState.next, staleFlowiseQueue.slice(1));
+  assert.equal(nextState.gates.autoMerge, false);
+  assert.equal(nextState.gates.manualDeploy, false);
 });
 
 test("orchestrator source does not contain merge or manual deploy commands", () => {
