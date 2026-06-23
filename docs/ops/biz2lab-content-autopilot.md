@@ -4,7 +4,7 @@ This guide defines the reusable operating mode for continuing the Biz2Lab
 content automation workflow from the current repository state with one short
 instruction:
 
-`Biz2Lab ?ㅽ넗?뚯씪??怨꾩냽 吏꾪뻾??`
+`Biz2Lab 오토파일럿 계속 진행해.`
 
 Autopilot means: inspect the current repository state, continue in the correct
 order, stop only at hard safety gates, never fake data, never bypass critical
@@ -356,7 +356,7 @@ Do not manually deploy or manually redeploy Vercel.
 Use this exact short instruction in future Codex runs:
 
 ```text
-Biz2Lab ?ㅽ넗?뚯씪??怨꾩냽 吏꾪뻾??
+Biz2Lab 오토파일럿 계속 진행해.
 ```
 
 The agent should then read this guide, run `npm run ops:autopilot-status`,
