@@ -351,6 +351,24 @@ export function buildContentSeriesPlan(
   };
 }
 
+export function advanceContentSeriesStateAfterPublication(
+  state: ContentSeriesState,
+  topics: ContentSeriesTopic[],
+  topic: ContentSeriesTopic,
+): ContentSeriesState {
+  const completed = state.completed.includes(topic.slug) ? [...state.completed] : [...state.completed, topic.slug];
+  const completedSet = new Set(completed);
+  const knownTopicSlugs = new Set(topics.map((candidate) => candidate.slug));
+  const next = state.next.filter((slug) => slug !== topic.slug && !completedSet.has(slug) && knownTopicSlugs.has(slug));
+
+  return {
+    ...state,
+    completed,
+    currentTopic: next[0] ?? topic.slug,
+    next,
+  };
+}
+
 function markdownList(items: string[]) {
   return items.map((item) => `- ${item}`).join("\n");
 }
@@ -1337,6 +1355,7 @@ export async function runContentSeriesOrchestrator(options: CliOptions = {}): Pr
   upsertArticleImageConcept(rootDir, topic);
   updateInternalLinks(rootDir, topic);
   appendQueueRow(rootDir, topic);
+  writeJsonFile(rootDir, "data/content-series-state.json", advanceContentSeriesStateAfterPublication(state, topicFile.topics, topic));
   runCommand(rootDir, "npm run optimize-images");
   assertPublicHeroImageExists(rootDir, plan.imagePaths.publicRepoPath);
   const publicImage = buildOptimizedHeroImageMetadata(topic, importedImage);

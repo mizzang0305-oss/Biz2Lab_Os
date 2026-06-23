@@ -15,8 +15,9 @@ import {
 const completedLangflowSlug = "langflow-ai-workflow-automation";
 const completedDifySlug = "dify-llm-app-builder-business-automation";
 const completedOpenWebUISlug = "open-webui-local-llm-admin-portal";
-const currentTopicSlug = "flowise-ai-agent-workflow-automation";
-const nextTopicAfterCurrentSlug = "directus-headless-cms-data-automation";
+const completedFlowiseSlug = "flowise-ai-agent-workflow-automation";
+const currentTopicSlug = "directus-headless-cms-data-automation";
+const nextTopicAfterCurrentSlug = "pocketbase-lightweight-backend-saas-mvp";
 const finalTopicSlug = "umami-open-source-analytics-ga-alternative";
 const partialQueueTopicSlug = "windmill-developer-workflow-automation";
 const partialQueueCompleted = [
@@ -154,7 +155,7 @@ test("180-minute cadence is accepted and missing artifact waits safely", async (
   assert.equal(readContentSeriesSchedule(root).cadenceMinutes, 180);
 });
 
-test("completed Open WebUI advances the default scheduler topic to Flowise", async () => {
+test("completed Flowise advances the default scheduler topic to Directus", async () => {
   const root = tempSchedulerRoot();
   const state = readJson<{ completed: string[]; currentTopic: string; next: string[] }>(
     path.join(root, "data", "content-series-state.json"),
@@ -167,6 +168,7 @@ test("completed Open WebUI advances the default scheduler topic to Flowise", asy
   assert.ok(state.completed.includes(completedLangflowSlug));
   assert.ok(state.completed.includes(completedDifySlug));
   assert.ok(state.completed.includes(completedOpenWebUISlug));
+  assert.ok(state.completed.includes(completedFlowiseSlug));
   assert.equal(state.currentTopic, currentTopicSlug);
   assert.equal(state.next[0], currentTopicSlug);
   assert.equal(result.status, "WAITING_FOR_CODEX_IMAGE_ARTIFACT");
@@ -238,7 +240,7 @@ test("completed topic blocks duplicate publication", async () => {
   assert.equal(result.status, "TOPIC_ALREADY_COMPLETED");
 });
 
-test("already published article file blocks duplicate publication", async () => {
+test("already published active topic reports state advancement required", async () => {
   const root = tempSchedulerRoot();
   usePartialQueueState(root);
   const articlePath = path.join(root, "content", "ko", "automation", `${partialQueueTopicSlug}.md`);
@@ -247,7 +249,9 @@ test("already published article file blocks duplicate publication", async () => 
 
   const result = await runContentSeriesScheduler({ rootDir: root, dryRun: true, now: activeNow }, schedulerDeps().deps);
 
-  assert.equal(result.status, "ARTICLE_ALREADY_PUBLISHED");
+  assert.equal(result.status, "STATE_ADVANCEMENT_REQUIRED");
+  assert.equal(result.topic, partialQueueTopicSlug);
+  assert.match(result.message ?? "", /data\/content-series-state\.json/);
 });
 
 test("content index slug duplicate blocks publication", async () => {
@@ -304,7 +308,7 @@ test("partial queue still selects the next incomplete topic", async () => {
   assert.equal(result.topic, partialQueueTopicSlug);
 });
 
-test("topic order still blocks topics after Flowise until Flowise is completed", async () => {
+test("topic order still blocks topics after Directus until Directus is completed", async () => {
   const root = tempSchedulerRoot();
 
   const result = await runContentSeriesScheduler(
@@ -314,8 +318,8 @@ test("topic order still blocks topics after Flowise until Flowise is completed",
 
   assert.equal(result.status, "TOPIC_ORDER_BLOCKED");
   assert.equal(result.topic, nextTopicAfterCurrentSlug);
-  assert.match(result.message ?? "", /next queue starts with flowise-ai-agent-workflow-automation/);
-  assert.match(result.message ?? "", /previous article is not public yet: flowise-ai-agent-workflow-automation/);
+  assert.match(result.message ?? "", /next queue starts with directus-headless-cms-data-automation/);
+  assert.match(result.message ?? "", /previous article is not public yet: directus-headless-cms-data-automation/);
 });
 
 test("existing topic PR blocks duplicate publication", async () => {
