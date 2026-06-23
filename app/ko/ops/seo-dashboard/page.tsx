@@ -145,6 +145,48 @@ function stageTone(stage: SeoOpsArticleRow["optimizationStage"]) {
   return "border-amber-200 bg-amber-50 text-amber-800";
 }
 
+function keywordStatusTone(status: SeoOpsArticleRow["keywordCoverageStatus"] | SeoOpsArticleRow["indexReadinessStatus"]) {
+  if (status === "GOOD") {
+    return "border-emerald-200 bg-emerald-50 text-emerald-800";
+  }
+  if (status === "NEEDS_INDEX_CHECK") {
+    return "border-rose-200 bg-rose-50 text-rose-800";
+  }
+  return "border-amber-200 bg-amber-50 text-amber-800";
+}
+
+function keywordStatusLabel(status: SeoOpsArticleRow["keywordCoverageStatus"] | SeoOpsArticleRow["indexReadinessStatus"]) {
+  switch (status) {
+    case "GOOD":
+      return "양호";
+    case "NEEDS_META_REWRITE":
+      return "meta 보강";
+    case "NEEDS_INTERNAL_LINKS":
+      return "링크 보강";
+    case "NEEDS_ALT_TEXT":
+      return "alt 보강";
+    case "NEEDS_INDEX_CHECK":
+      return "색인 점검";
+    case "NEEDS_KEYWORD_ALIGNMENT":
+    default:
+      return "키워드 정렬";
+  }
+}
+
+function KeywordStatusPill({
+  status,
+  children,
+}: {
+  status: SeoOpsArticleRow["keywordCoverageStatus"] | SeoOpsArticleRow["indexReadinessStatus"];
+  children: React.ReactNode;
+}) {
+  return (
+    <span className={`inline-flex items-center rounded-md border px-2 py-1 text-xs font-semibold ${keywordStatusTone(status)}`}>
+      {children}
+    </span>
+  );
+}
+
 function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
   return (
     <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
@@ -156,6 +198,18 @@ function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
         <div>
           <dt className="text-slate-500">카테고리</dt>
           <dd className="font-semibold text-slate-900">{row.category}</dd>
+        </div>
+        <div>
+          <dt className="text-slate-500">Primary keyword</dt>
+          <dd className="font-semibold text-slate-900">{row.primaryKeyword}</dd>
+        </div>
+        <div>
+          <dt className="text-slate-500">Cluster</dt>
+          <dd className="font-semibold text-slate-900">{row.keywordCluster}</dd>
+        </div>
+        <div>
+          <dt className="text-slate-500">Intent</dt>
+          <dd className="font-semibold text-slate-900">{row.searchIntent}</dd>
         </div>
         <div>
           <dt className="text-slate-500">대표 이미지</dt>
@@ -183,6 +237,14 @@ function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
         </div>
       </dl>
       <div className="mt-4 flex flex-col gap-2">
+        <div className="flex flex-wrap gap-2">
+          <KeywordStatusPill status={row.keywordCoverageStatus}>
+            keyword {keywordStatusLabel(row.keywordCoverageStatus)}
+          </KeywordStatusPill>
+          <KeywordStatusPill status={row.indexReadinessStatus}>
+            index {keywordStatusLabel(row.indexReadinessStatus)}
+          </KeywordStatusPill>
+        </div>
         <span className={`inline-flex w-fit rounded-md border px-2 py-1 text-xs font-semibold ${stageTone(row.optimizationStage)}`}>
           {row.optimizationStage}
         </span>
@@ -204,13 +266,12 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
         <table className="w-full table-fixed border-collapse text-left text-sm">
           <thead className="bg-slate-50 text-xs font-bold text-slate-600">
             <tr>
-              <th className="w-[26%] px-4 py-3">글 제목</th>
-              <th className="w-[10%] px-4 py-3">카테고리</th>
-              <th className="w-[16%] px-4 py-3">SEO 상태</th>
-              <th className="w-[8%] px-4 py-3">조회수</th>
-              <th className="w-[8%] px-4 py-3">검색어</th>
-              <th className="w-[8%] px-4 py-3">유입</th>
-              <th className="w-[12%] px-4 py-3">SEO 단계</th>
+              <th className="w-[22%] px-4 py-3">글 제목</th>
+              <th className="w-[18%] px-4 py-3">Primary keyword</th>
+              <th className="w-[12%] px-4 py-3">Cluster / intent</th>
+              <th className="w-[14%] px-4 py-3">기술 SEO</th>
+              <th className="w-[10%] px-4 py-3">Analytics</th>
+              <th className="w-[12%] px-4 py-3">Keyword / index</th>
               <th className="w-[12%] px-4 py-3">다음 액션</th>
             </tr>
           </thead>
@@ -224,7 +285,14 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
                   <p className="mt-1 break-words text-xs text-slate-500">{row.route}</p>
                   <p className="mt-1 text-xs text-slate-500">{row.publishedAt}</p>
                 </td>
-                <td className="px-4 py-4 text-slate-700">{row.category}</td>
+                <td className="px-4 py-4">
+                  <p className="font-semibold text-slate-950">{row.primaryKeyword}</p>
+                  <p className="mt-1 text-xs text-slate-500">{row.category}</p>
+                </td>
+                <td className="px-4 py-4 text-slate-700">
+                  <p className="font-semibold">{row.keywordCluster}</p>
+                  <p className="mt-1 text-xs text-slate-500">{row.searchIntent}</p>
+                </td>
                 <td className="px-4 py-4">
                   <div className="flex flex-col gap-2">
                     <StatusPill status={row.heroImageStatus}>이미지 {checkStatusLabel(row.heroImageStatus)}</StatusPill>
@@ -232,16 +300,26 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
                     <StatusPill status={row.metaDescriptionStatus}>meta {checkStatusLabel(row.metaDescriptionStatus)}</StatusPill>
                   </div>
                 </td>
-                <td className="px-4 py-4 font-semibold text-slate-700">미연결</td>
-                <td className="px-4 py-4 font-semibold text-slate-700">미연결</td>
-                <td className="px-4 py-4 font-semibold text-slate-700">미연결</td>
                 <td className="px-4 py-4">
-                  <span className={`inline-flex rounded-md border px-2 py-1 text-xs font-semibold ${stageTone(row.optimizationStage)}`}>
-                    {row.optimizationStage}
-                  </span>
+                  <p className="font-semibold text-slate-700">미연결</p>
+                  <p className="mt-1 text-xs text-slate-500">검색어 데이터 미연결</p>
+                  <p className="mt-1 text-xs text-slate-500">조회수 데이터 미연결</p>
+                </td>
+                <td className="px-4 py-4">
+                  <div className="flex flex-col gap-2">
+                    <KeywordStatusPill status={row.keywordCoverageStatus}>
+                      keyword {keywordStatusLabel(row.keywordCoverageStatus)}
+                    </KeywordStatusPill>
+                    <KeywordStatusPill status={row.indexReadinessStatus}>
+                      index {keywordStatusLabel(row.indexReadinessStatus)}
+                    </KeywordStatusPill>
+                  </div>
                   <p className="mt-2 text-xs text-slate-500">
                     내부 링크 {row.internalLinkCount} · 깨짐 {row.brokenLinkCount}
                   </p>
+                  <span className={`mt-2 inline-flex rounded-md border px-2 py-1 text-xs font-semibold ${stageTone(row.optimizationStage)}`}>
+                    {row.optimizationStage}
+                  </span>
                 </td>
                 <td className="px-4 py-4 text-slate-700">{row.recommendedAction}</td>
               </tr>
@@ -279,10 +357,13 @@ export default function SeoOpsDashboardPage() {
           </div>
         </header>
 
-        <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-9">
           <SummaryCard label="공개 글" value={`${dashboard.summary.publishedArticles}`} detail="현재 published 글 기준" />
           <SummaryCard label="자동화 시리즈" value={`${dashboard.summary.automationSeriesArticles}`} detail="오픈소스 자동화 글" />
           <SummaryCard label="시리즈 진행" value={dashboard.summary.automationSeriesProgress} detail="완료 topic / 전체 대기열" />
+          <SummaryCard label="Keyword map" value={`${dashboard.summary.keywordMappedArticles}`} detail="mapped published articles" />
+          <SummaryCard label="Keyword strong" value={`${dashboard.summary.keywordStrongArticles}`} detail="keyword/index ready" />
+          <SummaryCard label="Keyword weak" value={`${dashboard.summary.keywordWeakArticles}`} detail="needs structural review" />
           <SummaryCard label="다음 topic" value="대기" detail={dashboard.summary.nextPublicationTopic} />
           <SummaryCard label="현재 gate" value={dashboard.summary.schedulerGate} detail={dashboard.scheduler.lastKnownIssue} />
           <SummaryCard label="Analytics" value={dashboard.summary.analyticsConnection} detail="가짜 수치 없음" />

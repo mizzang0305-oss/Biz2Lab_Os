@@ -4,6 +4,7 @@ import path from "node:path";
 import { z } from "zod";
 
 import { getPublicPosts, type Post } from "@/lib/posts";
+import { auditSeoKeywords, type KeywordCoverageStatus, type SeoKeywordArticleAudit } from "@/lib/seo-keyword-audit";
 import { staticPublicRoutes } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 
@@ -37,6 +38,11 @@ export type SeoOpsArticleRow = {
   topReferrers?: string[];
   internalLinkCount: number;
   brokenLinkCount: number;
+  primaryKeyword: string;
+  keywordCluster: string;
+  searchIntent: string;
+  keywordCoverageStatus: KeywordCoverageStatus;
+  indexReadinessStatus: KeywordCoverageStatus;
   optimizationStage: SeoOpsOptimizationStage;
   recommendedAction: string;
 };
@@ -73,6 +79,9 @@ export type SeoOpsDashboard = {
     schedulerGate: string;
     seoChecks: string;
     analyticsConnection: string;
+    keywordMappedArticles: number;
+    keywordStrongArticles: number;
+    keywordWeakArticles: number;
   };
   articles: SeoOpsArticleRow[];
   analytics: {
@@ -325,11 +334,13 @@ function buildArticleRows({
   posts,
   imageAssets,
   analyticsConnected,
+  keywordAuditBySlug,
 }: {
   rootDir: string;
   posts: Post[];
   imageAssets: ImageAsset[];
   analyticsConnected: boolean;
+  keywordAuditBySlug: Map<string, SeoKeywordArticleAudit>;
 }) {
   const availableRoutes = new Set<string>([
     ...staticPublicRoutes,
@@ -338,6 +349,7 @@ function buildArticleRows({
   ]);
 
   return posts.map((post) => {
+    const keywordAudit = keywordAuditBySlug.get(post.slug);
     const baseRow = {
       title: post.frontmatter.title,
       slug: post.slug,
@@ -351,13 +363,22 @@ function buildArticleRows({
       trafficStatus: analyticsConnected ? "connected" : "not-connected",
       internalLinkCount: post.internalLinks.length,
       brokenLinkCount: brokenInternalLinkCount(post, availableRoutes),
+      primaryKeyword: keywordAudit?.primaryKeyword ?? "키워드 맵 미등록",
+      keywordCluster: keywordAudit?.cluster ?? "미등록",
+      searchIntent: keywordAudit?.searchIntent ?? "미등록",
+      keywordCoverageStatus: keywordAudit?.keywordCoverageStatus ?? "NEEDS_KEYWORD_ALIGNMENT",
+      indexReadinessStatus: keywordAudit?.indexReadinessStatus ?? "NEEDS_INDEX_CHECK",
     } satisfies Omit<SeoOpsArticleRow, "optimizationStage" | "recommendedAction">;
     const stage = optimizationStage(baseRow);
 
     return {
       ...baseRow,
       optimizationStage: stage,
-      recommendedAction: recommendedAction(stage),
+      recommendedAction:
+        keywordAudit &&
+        (keywordAudit.keywordCoverageStatus !== "GOOD" || keywordAudit.indexReadinessStatus !== "GOOD")
+          ? keywordAudit.recommendedAction
+          : recommendedAction(stage),
     } satisfies SeoOpsArticleRow;
   });
 }
@@ -512,6 +533,8 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
   const schedule = readContentSeriesSchedule(rootDir);
   const runState = readContentSeriesRunState(rootDir);
   const imageAssets = readImageAssets(rootDir);
+  const keywordAudit = auditSeoKeywords(rootDir);
+  const keywordAuditBySlug = new Map(keywordAudit.articles.map((article) => [article.slug, article]));
   const analytics = buildAnalytics(rootDir);
   const realAnalyticsConnected =
     analytics.searchConsole.connected ||
@@ -522,6 +545,7 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
     posts,
     imageAssets,
     analyticsConnected: realAnalyticsConnected,
+    keywordAuditBySlug,
   });
   const seoHealth = buildSeoHealth(posts, articles);
   const topic = currentTopic(seriesState);
@@ -543,6 +567,9 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
       schedulerGate: schedule.enabled ? "스케줄러 활성" : "스케줄러 일시 중지",
       seoChecks: seoChecksLabel(seoHealth),
       analyticsConnection: realAnalyticsConnected ? "연결됨" : "미연결",
+      keywordMappedArticles: keywordAudit.summary.mappedArticles,
+      keywordStrongArticles: keywordAudit.summary.strongArticles,
+      keywordWeakArticles: keywordAudit.summary.weakArticles,
     },
     articles,
     analytics,
