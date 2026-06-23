@@ -42,7 +42,10 @@ const thirdAutomationQueue = staleFlowiseQueue.slice(2);
 const completedDifySlug = "dify-llm-app-builder-business-automation";
 const completedOpenWebUISlug = "open-webui-local-llm-admin-portal";
 const completedDirectusSlug = "directus-headless-cms-data-automation";
-const currentAutomationTopicSlug = "pocketbase-lightweight-backend-saas-mvp";
+const completedPocketBaseSlug = "pocketbase-lightweight-backend-saas-mvp";
+const currentAutomationTopicSlug = "supabase-self-hosting-cost-operations-caution";
+const pocketBaseQueue = staleFlowiseQueue.slice(2);
+const currentAutomationQueue = staleFlowiseQueue.slice(3);
 
 function tempSeriesRoot() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-series-"));
@@ -129,8 +132,9 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes(completedOpenWebUISlug));
   assert.ok(state.completed.includes("flowise-ai-agent-workflow-automation"));
   assert.ok(state.completed.includes(completedDirectusSlug));
+  assert.ok(state.completed.includes(completedPocketBaseSlug));
   assert.equal(state.currentTopic, currentAutomationTopicSlug);
-  assert.deepEqual(state.next, thirdAutomationQueue);
+  assert.deepEqual(state.next, currentAutomationQueue);
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
   assert.equal(state.gates.dbWrite, false);
@@ -666,7 +670,9 @@ test("publication state advancement marks the topic completed and selects the ne
   const staleFlowiseState = {
     ...state,
     currentTopic: topic.slug,
-    completed: state.completed.filter((slug) => slug !== topic.slug && slug !== completedDirectusSlug),
+    completed: state.completed.filter(
+      (slug) => slug !== topic.slug && slug !== completedDirectusSlug && slug !== completedPocketBaseSlug,
+    ),
     next: staleFlowiseQueue,
   };
 
@@ -689,7 +695,7 @@ test("Directus publication state advancement marks Directus completed and select
   const pendingDirectusState = {
     ...state,
     currentTopic: topic.slug,
-    completed: state.completed.filter((slug) => slug !== topic.slug),
+    completed: state.completed.filter((slug) => slug !== topic.slug && slug !== completedPocketBaseSlug),
     next: secondAutomationQueue,
   };
 
@@ -697,9 +703,31 @@ test("Directus publication state advancement marks Directus completed and select
 
   assert.ok(nextState.completed.includes(completedDirectusSlug));
   assert.equal(nextState.completed.filter((slug) => slug === completedDirectusSlug).length, 1);
+  assert.equal(nextState.currentTopic, completedPocketBaseSlug);
+  assert.equal(nextState.next[0], completedPocketBaseSlug);
+  assert.deepEqual(nextState.next, thirdAutomationQueue);
+  assert.equal(nextState.gates.autoMerge, false);
+  assert.equal(nextState.gates.manualDeploy, false);
+});
+
+test("PocketBase publication state advancement marks PocketBase completed and selects Supabase", () => {
+  const state = readContentSeriesState();
+  const topics = readContentSeriesTopics();
+  const topic = resolveContentSeriesTopic(topics.topics, state, completedPocketBaseSlug);
+  const pendingPocketBaseState = {
+    ...state,
+    currentTopic: topic.slug,
+    completed: state.completed.filter((slug) => slug !== topic.slug),
+    next: pocketBaseQueue,
+  };
+
+  const nextState = advanceContentSeriesStateAfterPublication(pendingPocketBaseState, topics.topics, topic);
+
+  assert.ok(nextState.completed.includes(completedPocketBaseSlug));
+  assert.equal(nextState.completed.filter((slug) => slug === completedPocketBaseSlug).length, 1);
   assert.equal(nextState.currentTopic, currentAutomationTopicSlug);
   assert.equal(nextState.next[0], currentAutomationTopicSlug);
-  assert.deepEqual(nextState.next, thirdAutomationQueue);
+  assert.deepEqual(nextState.next, currentAutomationQueue);
   assert.equal(nextState.gates.autoMerge, false);
   assert.equal(nextState.gates.manualDeploy, false);
 });

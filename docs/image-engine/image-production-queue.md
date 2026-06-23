@@ -63,3 +63,5 @@ Content-series automation update: `open-webui-local-llm-admin-portal` has a real
 Content-series automation update: `flowise-ai-agent-workflow-automation` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
 
 Content-series automation update: `directus-headless-cms-data-automation` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
+
+Content-series automation update: `pocketbase-lightweight-backend-saas-mvp` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.

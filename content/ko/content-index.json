@@ -17,6 +17,23 @@
     ]
   },
   {
+    "title": "PocketBase 분석: 가벼운 백엔드로 소규모 SaaS MVP를 만들 수 있을까?",
+    "slug": "pocketbase-lightweight-backend-saas-mvp",
+    "route": "/ko/automation/pocketbase-lightweight-backend-saas-mvp",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/pocketbase-lightweight-backend-saas-mvp-hero.webp",
+    "heroAlt": "PocketBase로 소규모 SaaS MVP 백엔드 운영을 검토하는 대표 이미지",
+    "updatedAt": "2026-06-23",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "directus-headless-cms-data-automation",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Flowise 분석: AI 에이전트 워크플로 자동화 도구로 쓸 수 있을까?",
     "slug": "flowise-ai-agent-workflow-automation",
     "route": "/ko/automation/flowise-ai-agent-workflow-automation",

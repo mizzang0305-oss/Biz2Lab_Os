@@ -358,5 +358,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "pocketbase-lightweight-backend-saas-mvp-hero",
+    "project": "biz2lab",
+    "postSlug": "pocketbase-lightweight-backend-saas-mvp",
+    "usage": "hero",
+    "src": "/images/posts/pocketbase-lightweight-backend-saas-mvp-hero.webp",
+    "rawPath": "assets/images/raw/pocketbase-lightweight-backend-saas-mvp-hero.jpg",
+    "altKo": "PocketBase로 소규모 SaaS MVP 백엔드 운영을 검토하는 대표 이미지",
+    "captionKo": "PocketBase는 MVP backend 후보지만 backup과 scaling gate가 필요하다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]
