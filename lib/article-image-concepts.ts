@@ -474,6 +474,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["headless CMS data model", "internal admin portal", "API gate", "permission matrix"],
     palette: automationPalette,
   },
+  "pocketbase-lightweight-backend-saas-mvp": {
+    slug: "pocketbase-lightweight-backend-saas-mvp",
+    category: "automation",
+    visualFamily: "lightweight-backend-mvp-operations-map",
+    conceptKo: "Lightweight backend, auth module, database module, file storage, backup and scaling gate가 있는 SaaS MVP 운영 이미지.",
+    altKo: "PocketBase로 소규모 SaaS MVP 백엔드 운영을 검토하는 대표 이미지",
+    captionKo: "PocketBase는 MVP backend 후보지만 backup과 scaling gate가 필요하다.",
+    labels: ["lightweight backend", "auth module", "database module", "file storage"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

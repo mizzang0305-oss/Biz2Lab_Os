@@ -20,6 +20,16 @@
     "recommendedAction": "Directus를 headless CMS, API, 권한 관리, 데이터 운영 자동화 후보로 연결합니다."
   },
   {
+    "slug": "pocketbase-lightweight-backend-saas-mvp",
+    "route": "/ko/automation/pocketbase-lightweight-backend-saas-mvp",
+    "primaryKeyword": "PocketBase SaaS MVP",
+    "secondaryKeywords": ["PocketBase 백엔드","가벼운 백엔드 SaaS","PocketBase 인증 파일 API","SaaS MVP 백엔드"],
+    "searchIntent": "business-use",
+    "audience": "개발자",
+    "cluster": "automation-tools",
+    "recommendedAction": "PocketBase를 가벼운 백엔드, 인증, 파일 저장소, API, self-hosting 운영 책임까지 함께 검토합니다."
+  },
+  {
     "slug": "open-webui-local-llm-admin-portal",
     "route": "/ko/automation/open-webui-local-llm-admin-portal",
     "primaryKeyword": "Open WebUI 로컬 LLM",

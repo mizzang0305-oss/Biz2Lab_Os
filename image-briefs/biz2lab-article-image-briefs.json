@@ -1089,6 +1089,29 @@
       "visualDifferentiationHint": "directus-headless-cms-data-automation: headless-cms-data-portal-map",
       "filename": "directus-headless-cms-data-automation-hero.jpg",
       "rawPath": "assets/images/raw/directus-headless-cms-data-automation-hero.jpg"
+    },
+    {
+      "id": "pocketbase-lightweight-backend-saas-mvp-hero",
+      "postSlug": "pocketbase-lightweight-backend-saas-mvp",
+      "category": "automation",
+      "usage": "hero",
+      "targetPath": "assets/images/raw/pocketbase-lightweight-backend-saas-mvp-hero.jpg",
+      "optimizedPath": "public/images/posts/pocketbase-lightweight-backend-saas-mvp-hero.webp",
+      "altKo": "PocketBase로 소규모 SaaS MVP 백엔드 운영을 검토하는 대표 이미지",
+      "captionKo": "PocketBase는 MVP backend 후보지만 backup과 scaling gate가 필요하다.",
+      "style": "lightweight-backend-mvp-operations-map, Korean business editorial raster hero, minimal text, no title inside image",
+      "promptKo": "Lightweight backend, auth module, database module, file storage, backup and scaling gate가 있는 SaaS MVP 운영 이미지.",
+      "providerPromptKo": "PocketBase 분석: 가벼운 백엔드로 소규모 SaaS MVP를 만들 수 있을까? 대표 이미지. Lightweight backend, auth module, database module, file storage, backup and scaling gate가 있는 SaaS MVP 운영 이미지. Include: lightweight backend, auth module, database module, file storage, backup and scaling gate. No official logos, no real customer data, no placeholder elements.",
+      "negativePromptKo": "official PocketBase logo, real user accounts, payment data, production launch claim, unbounded scaling promise, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+      "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+      "composition": "Lightweight backend, auth module, database module, file storage, backup and scaling gate가 있는 SaaS MVP 운영 이미지.",
+      "categoryStyle": "automation category visual, lightweight-backend-mvp-operations-map",
+      "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+      "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+      "localOnly": true,
+      "visualDifferentiationHint": "pocketbase-lightweight-backend-saas-mvp: lightweight-backend-mvp-operations-map",
+      "filename": "pocketbase-lightweight-backend-saas-mvp-hero.jpg",
+      "rawPath": "assets/images/raw/pocketbase-lightweight-backend-saas-mvp-hero.jpg"
     }
   ]
 }
