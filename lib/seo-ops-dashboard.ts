@@ -4,6 +4,7 @@ import path from "node:path";
 import { z } from "zod";
 
 import { getPublicPosts, type Post } from "@/lib/posts";
+import { getSeoOpsAnalyticsConnectors, type SeoOpsAnalyticsProvider } from "@/lib/seo-ops-analytics";
 import { auditSeoKeywords, type KeywordCoverageStatus, type SeoKeywordArticleAudit } from "@/lib/seo-keyword-audit";
 import { staticPublicRoutes } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
@@ -52,6 +53,7 @@ export type AnalyticsSection = {
   connected: boolean;
   emptyState: string;
   metrics: string[];
+  providerStatus: string;
 };
 
 export type SeoHealthItem = {
@@ -88,6 +90,7 @@ export type SeoOpsDashboard = {
     searchConsole: AnalyticsSection;
     referrers: AnalyticsSection;
     sourceBreakdown: AnalyticsSection;
+    providers: SeoOpsAnalyticsProvider[];
   };
   seoHealth: SeoHealthItem[];
   expansionActions: ExpansionAction[];
@@ -108,6 +111,7 @@ export type SeoOpsDashboard = {
     contentIndexUsed: boolean;
     schedulerStateUsed: boolean;
     imageManifestUsed: boolean;
+    analyticsProvidersReady: boolean;
   };
 };
 
@@ -238,10 +242,6 @@ function readImageAssets(rootDir: string) {
 
 function publicFileExists(rootDir: string, publicPath: string) {
   return fs.existsSync(path.join(rootDir, "public", publicPath.replace(/^\//, "")));
-}
-
-function analyticsFileExists(rootDir: string, filename: string) {
-  return fs.existsSync(path.join(rootDir, "data", "analytics", filename));
 }
 
 function heroImageStatus(rootDir: string, post: Post, imageAssets: ImageAsset[]) {
@@ -417,29 +417,44 @@ function lastKnownIssue(runState: ContentSeriesRunState, schedule: ContentSeries
   return schedule.requireCodexArtifact ? "Codex hero artifact 대기" : "기록된 이슈 없음";
 }
 
-function buildAnalytics(rootDir: string) {
+function providerById(providers: SeoOpsAnalyticsProvider[], id: SeoOpsAnalyticsProvider["id"]) {
+  return providers.find((provider) => provider.id === id);
+}
+
+function buildAnalytics(providers: SeoOpsAnalyticsProvider[]) {
+  const searchConsole = providerById(providers, "search-console");
+  const ga4 = providerById(providers, "ga4");
+  const vercelAnalytics = providerById(providers, "vercel-analytics");
+  const umami = providerById(providers, "umami");
+  const referrerLogs = providerById(providers, "referrer-logs");
+  const analyticsReady = [ga4, vercelAnalytics, umami].some((provider) => provider?.status === "ready");
+
   return {
     searchConsole: {
       title: "검색어 분석",
-      connected: analyticsFileExists(rootDir, "search-console.json"),
+      connected: false,
       emptyState:
-        "Search Console 데이터가 아직 연결되지 않았습니다. 연결 후 검색어, 노출수, 클릭수, CTR, 평균 순위를 표시합니다.",
-      metrics: ["검색어", "노출수", "클릭수", "CTR", "평균 순위"],
+        "Search Console 데이터가 아직 연결되지 않았습니다. 안전한 읽기 전용 연결이 준비될 때까지 검색어, 노출수, 클릭수, CTR, 평균 순위를 표시하지 않습니다.",
+      metrics: ["검색어 데이터 미연결", searchConsole?.emptyState ?? "Search Console 연결 전 표시"],
+      providerStatus: searchConsole?.statusLabel ?? "미연결",
     },
     referrers: {
       title: "유입 사이트 분석",
-      connected: analyticsFileExists(rootDir, "referrers.json"),
+      connected: false,
       emptyState:
-        "유입 사이트 데이터가 아직 연결되지 않았습니다. GA4, Vercel Analytics, Umami 또는 서버 로그 연결 후 표시합니다.",
-      metrics: ["도메인", "세션", "대표 글", "최근 유입"],
+        "유입 사이트 데이터가 아직 연결되지 않았습니다. GA4, Vercel Analytics, Umami 또는 referrer 로그가 안전하게 연결된 뒤에만 표시합니다.",
+      metrics: ["유입 사이트 데이터 미연결", referrerLogs?.emptyState ?? "유입 사이트 데이터 미연결"],
+      providerStatus: referrerLogs?.statusLabel ?? "미연결",
     },
     sourceBreakdown: {
-      title: "채널 분포",
-      connected: analyticsFileExists(rootDir, "source-breakdown.json"),
+      title: "조회수·채널 분포",
+      connected: false,
       emptyState:
-        "direct, organic, social, referral 채널 데이터가 아직 연결되지 않았습니다.",
-      metrics: ["direct", "organic", "social", "referral"],
+        "조회수와 채널 데이터가 아직 연결되지 않았습니다. Analytics 연결 전에는 direct, organic, social, referral 수치를 표시하지 않습니다.",
+      metrics: ["조회수 데이터 미연결", analyticsReady ? "Analytics 연결 준비됨" : "Analytics 연결 전 표시"],
+      providerStatus: analyticsReady ? "연결 준비됨" : "미연결",
     },
+    providers,
   } satisfies SeoOpsDashboard["analytics"];
 }
 
@@ -535,11 +550,9 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
   const imageAssets = readImageAssets(rootDir);
   const keywordAudit = auditSeoKeywords(rootDir);
   const keywordAuditBySlug = new Map(keywordAudit.articles.map((article) => [article.slug, article]));
-  const analytics = buildAnalytics(rootDir);
-  const realAnalyticsConnected =
-    analytics.searchConsole.connected ||
-    analytics.referrers.connected ||
-    analytics.sourceBreakdown.connected;
+  const analyticsConnectors = getSeoOpsAnalyticsConnectors();
+  const analytics = buildAnalytics(analyticsConnectors.providers);
+  const realAnalyticsConnected = analyticsConnectors.realDataConnected;
   const articles = buildArticleRows({
     rootDir,
     posts,
@@ -566,7 +579,7 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
       nextPublicationTopic: topic,
       schedulerGate: schedule.enabled ? "스케줄러 활성" : "스케줄러 일시 중지",
       seoChecks: seoChecksLabel(seoHealth),
-      analyticsConnection: realAnalyticsConnected ? "연결됨" : "미연결",
+      analyticsConnection: analyticsConnectors.summaryLabel,
       keywordMappedArticles: keywordAudit.summary.mappedArticles,
       keywordStrongArticles: keywordAudit.summary.strongArticles,
       keywordWeakArticles: keywordAudit.summary.weakArticles,
@@ -592,6 +605,7 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
       contentIndexUsed: contentIndex.length > 0,
       schedulerStateUsed: seriesState.completed.length > 0 || seriesState.next.length > 0,
       imageManifestUsed: imageAssets.length > 0,
+      analyticsProvidersReady: analyticsConnectors.anyProviderReady,
     },
   };
 }

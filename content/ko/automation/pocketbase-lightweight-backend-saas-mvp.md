@@ -1,6 +1,6 @@
 ---
 title: 'PocketBase 분석: 가벼운 백엔드로 소규모 SaaS MVP를 만들 수 있을까?'
-description: 'PocketBase를 auth, database, file storage가 포함된 lightweight backend 후보로 검토하되 scaling과 backup 리스크를 확인합니다.'
+description: 'PocketBase SaaS MVP를 auth, database, file storage가 포함된 lightweight backend 후보로 검토하되 scaling과 backup 리스크를 확인합니다.'
 slug: pocketbase-lightweight-backend-saas-mvp
 locale: ko
 category: automation

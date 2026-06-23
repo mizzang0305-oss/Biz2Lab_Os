@@ -269,7 +269,7 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     category: "sales-ops",
     visualFamily: "reminder-approval-flow",
     conceptKo: "부드러운 입금 안내문 초안이 검토와 승인 후 발송 대기열로 이동하는 흐름",
-    altKo: "입금 안내문 초안을 검토하고 승인 후 발송하는 메시지 승인 흐름",
+    altKo: "거래처 독촉 문자와 입금 안내문 초안을 검토하고 승인 후 발송하는 메시지 승인 흐름",
     captionKo: "거래처 안내문을 초안, 검토, 승인, 발송 단계로 나누어 표현한 이미지입니다.",
     labels: ["초안", "검토", "승인", "발송"],
     palette: salesPalette,

@@ -5,10 +5,11 @@ import test from "node:test";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
-import SeoOpsDashboardPage, { metadata } from "@/app/ko/ops/seo-dashboard/page";
+import { OpsDashboardUnlockScreen, SeoOpsDashboardContent, metadata } from "@/app/ko/ops/seo-dashboard/page";
 import { GET as getRss } from "@/app/rss.xml/route";
 import sitemap from "@/app/sitemap";
 import { getPublicPosts } from "@/lib/posts";
+import { getSeoOpsAnalyticsConnectors } from "@/lib/seo-ops-analytics";
 import { SEO_OPS_DASHBOARD_ROUTE, getSeoOpsDashboard } from "@/lib/seo-ops-dashboard";
 import { staticPublicRoutes } from "@/lib/seo";
 
@@ -24,6 +25,33 @@ test("SEO ops dashboard route is noindex and excluded from public discovery feed
   assert.equal(rss.includes(SEO_OPS_DASHBOARD_ROUTE), false);
   assert.equal(fs.existsSync(path.join(process.cwd(), "app", "admin", "seo-dashboard")), false);
   assert.equal(fs.existsSync(path.join(process.cwd(), "app", "login")), false);
+});
+
+test("SEO ops dashboard locked screen does not render operational dashboard details", () => {
+  const originalKey = process.env.BIZ2LAB_OPS_DASHBOARD_KEY;
+  process.env.BIZ2LAB_OPS_DASHBOARD_KEY = "unit-test-secret";
+  try {
+    const html = renderToStaticMarkup(createElement(OpsDashboardUnlockScreen, { keyConfigured: true }));
+
+    assert.match(html, /SEO 운영 대시보드 잠금/);
+    assert.match(html, /비밀번호/);
+    assert.doesNotMatch(html, /글별 SEO 운영 테이블/);
+    assert.doesNotMatch(html, /unit-test-secret/);
+  } finally {
+    if (originalKey === undefined) {
+      delete process.env.BIZ2LAB_OPS_DASHBOARD_KEY;
+    } else {
+      process.env.BIZ2LAB_OPS_DASHBOARD_KEY = originalKey;
+    }
+  }
+});
+
+test("SEO ops dashboard shows locked configuration message when secret is missing", () => {
+  delete process.env.BIZ2LAB_OPS_DASHBOARD_KEY;
+  const html = renderToStaticMarkup(createElement(OpsDashboardUnlockScreen, { keyConfigured: false }));
+
+  assert.match(html, /운영 대시보드 비밀번호가 아직 설정되지 않았습니다/);
+  assert.doesNotMatch(html, /글별 SEO 운영 테이블/);
 });
 
 test("SEO ops dashboard derives article rows from local content without fake traffic", () => {
@@ -78,10 +106,33 @@ test("SEO ops dashboard surfaces scheduler state and analytics empty states", ()
   assert.equal(dashboard.analytics.referrers.connected, false);
   assert.match(dashboard.analytics.referrers.emptyState, /GA4|Vercel Analytics|Umami/);
   assert.equal(dashboard.analytics.sourceBreakdown.connected, false);
+  assert.equal(dashboard.analytics.providers.length, 5);
+  assert.equal(dashboard.sources.realAnalyticsConnected, false);
+});
+
+test("SEO ops analytics connectors report env readiness without real metrics", () => {
+  const disconnected = getSeoOpsAnalyticsConnectors({});
+
+  assert.equal(disconnected.realDataConnected, false);
+  assert.equal(disconnected.anyProviderReady, false);
+  assert.equal(disconnected.providers.every((provider) => provider.status === "disconnected"), true);
+
+  const ready = getSeoOpsAnalyticsConnectors({
+    BIZ2LAB_SEARCH_CONSOLE_SITE_URL: "https://www.biz2lab.com",
+    BIZ2LAB_GA4_PROPERTY_ID: "properties/123",
+    BIZ2LAB_VERCEL_ANALYTICS_PROJECT_ID: "prj_test",
+    BIZ2LAB_UMAMI_URL: "https://analytics.example.test",
+    BIZ2LAB_UMAMI_WEBSITE_ID: "website-test",
+    BIZ2LAB_REFERRER_LOG_SOURCE: "local-readonly",
+  });
+
+  assert.equal(ready.anyProviderReady, true);
+  assert.equal(ready.realDataConnected, false);
+  assert.equal(ready.readyProviderCount, 5);
 });
 
 test("SEO ops dashboard page renders the requested operational sections", () => {
-  const html = renderToStaticMarkup(createElement(SeoOpsDashboardPage));
+  const html = renderToStaticMarkup(createElement(SeoOpsDashboardContent));
 
   assert.match(html, /Biz2Lab SEO 운영 대시보드/);
   assert.match(html, /글별 SEO 운영 테이블/);
@@ -92,8 +143,13 @@ test("SEO ops dashboard page renders the requested operational sections", () => 
   assert.match(html, /유입 사이트 데이터가 아직 연결되지 않았습니다/);
   assert.match(html, /검색어 데이터 미연결/);
   assert.match(html, /조회수 데이터 미연결/);
+  assert.match(html, /유입 사이트 데이터 미연결/);
+  assert.match(html, /Search Console 연결 전 표시/);
+  assert.match(html, /Analytics 연결 전 표시/);
+  assert.match(html, /읽기 전용 분석 연결 상태/);
   assert.match(html, /SEO Health/);
   assert.match(html, /확장 실행 체크리스트/);
   assert.match(html, /스케줄러 상태/);
   assert.match(html, /미연결/);
+  assert.doesNotMatch(html, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR)\b/i);
 });
