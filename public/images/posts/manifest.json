@@ -660,6 +660,50 @@
     "rawPath": "assets/images/raw/dify-llm-app-builder-business-automation-hero.jpg"
   },
   {
+    "id": "directus-headless-cms-data-automation-1200",
+    "project": "biz2lab",
+    "postSlug": "directus-headless-cms-data-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/directus-headless-cms-data-automation-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/directus-headless-cms-data-automation-hero.jpg"
+  },
+  {
+    "id": "directus-headless-cms-data-automation-800",
+    "project": "biz2lab",
+    "postSlug": "directus-headless-cms-data-automation",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/directus-headless-cms-data-automation-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/directus-headless-cms-data-automation-hero.jpg"
+  },
+  {
+    "id": "directus-headless-cms-data-automation-400",
+    "project": "biz2lab",
+    "postSlug": "directus-headless-cms-data-automation",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/directus-headless-cms-data-automation-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/directus-headless-cms-data-automation-hero.jpg"
+  },
+  {
+    "id": "directus-headless-cms-data-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "directus-headless-cms-data-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/directus-headless-cms-data-automation-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/directus-headless-cms-data-automation-hero.jpg"
+  },
+  {
     "id": "e-signature-identity-check-1200",
     "project": "biz2lab",
     "postSlug": "e-signature-identity-check",

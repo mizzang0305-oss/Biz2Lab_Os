@@ -340,5 +340,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "directus-headless-cms-data-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "directus-headless-cms-data-automation",
+    "usage": "hero",
+    "src": "/images/posts/directus-headless-cms-data-automation-hero.webp",
+    "rawPath": "assets/images/raw/directus-headless-cms-data-automation-hero.jpg",
+    "altKo": "Directus로 headless CMS와 데이터 운영 포털을 검토하는 대표 이미지",
+    "captionKo": "Directus는 데이터 운영 layer 후보지만 권한, 백업, cloud/self-host 조건 확인이 필요하다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]

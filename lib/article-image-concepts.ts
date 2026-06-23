@@ -464,6 +464,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["agent workflow canvas", "tool permission gate", "chatflow prototype", "stability checklist"],
     palette: automationPalette,
   },
+  "directus-headless-cms-data-automation": {
+    slug: "directus-headless-cms-data-automation",
+    category: "automation",
+    visualFamily: "headless-cms-data-portal-map",
+    conceptKo: "Headless CMS data model, internal admin portal, API gate, permission matrix, backup checklist가 연결된 데이터 운영 이미지.",
+    altKo: "Directus로 headless CMS와 데이터 운영 포털을 검토하는 대표 이미지",
+    captionKo: "Directus는 데이터 운영 layer 후보지만 권한, 백업, cloud/self-host 조건 확인이 필요하다.",
+    labels: ["headless CMS data model", "internal admin portal", "API gate", "permission matrix"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

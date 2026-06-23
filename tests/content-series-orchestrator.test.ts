@@ -38,8 +38,11 @@ const staleFlowiseQueue = [
   "umami-open-source-analytics-ga-alternative",
 ];
 const secondAutomationQueue = staleFlowiseQueue.slice(1);
+const thirdAutomationQueue = staleFlowiseQueue.slice(2);
 const completedDifySlug = "dify-llm-app-builder-business-automation";
 const completedOpenWebUISlug = "open-webui-local-llm-admin-portal";
+const completedDirectusSlug = "directus-headless-cms-data-automation";
+const currentAutomationTopicSlug = "pocketbase-lightweight-backend-saas-mvp";
 
 function tempSeriesRoot() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-series-"));
@@ -125,8 +128,9 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes(completedDifySlug));
   assert.ok(state.completed.includes(completedOpenWebUISlug));
   assert.ok(state.completed.includes("flowise-ai-agent-workflow-automation"));
-  assert.equal(state.currentTopic, "directus-headless-cms-data-automation");
-  assert.deepEqual(state.next, secondAutomationQueue);
+  assert.ok(state.completed.includes(completedDirectusSlug));
+  assert.equal(state.currentTopic, currentAutomationTopicSlug);
+  assert.deepEqual(state.next, thirdAutomationQueue);
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
   assert.equal(state.gates.dbWrite, false);
@@ -651,7 +655,7 @@ test("plan-only can inspect the current stacked topic without publication blocke
   const topic = resolveContentSeriesTopic(topics.topics, state, state.currentTopic);
   const plan = buildContentSeriesPlan(state, topic, { planOnly: true });
 
-  assert.equal(plan.topic.slug, "directus-headless-cms-data-automation");
+  assert.equal(plan.topic.slug, currentAutomationTopicSlug);
   assert.deepEqual(plan.publicationBlockers, []);
 });
 
@@ -662,7 +666,7 @@ test("publication state advancement marks the topic completed and selects the ne
   const staleFlowiseState = {
     ...state,
     currentTopic: topic.slug,
-    completed: state.completed.filter((slug) => slug !== topic.slug),
+    completed: state.completed.filter((slug) => slug !== topic.slug && slug !== completedDirectusSlug),
     next: staleFlowiseQueue,
   };
 
@@ -674,6 +678,28 @@ test("publication state advancement marks the topic completed and selects the ne
   assert.equal(nextState.next[0], "directus-headless-cms-data-automation");
   assert.equal(nextState.completed.includes("directus-headless-cms-data-automation"), false);
   assert.deepEqual(nextState.next, staleFlowiseQueue.slice(1));
+  assert.equal(nextState.gates.autoMerge, false);
+  assert.equal(nextState.gates.manualDeploy, false);
+});
+
+test("Directus publication state advancement marks Directus completed and selects PocketBase", () => {
+  const state = readContentSeriesState();
+  const topics = readContentSeriesTopics();
+  const topic = resolveContentSeriesTopic(topics.topics, state, completedDirectusSlug);
+  const pendingDirectusState = {
+    ...state,
+    currentTopic: topic.slug,
+    completed: state.completed.filter((slug) => slug !== topic.slug),
+    next: secondAutomationQueue,
+  };
+
+  const nextState = advanceContentSeriesStateAfterPublication(pendingDirectusState, topics.topics, topic);
+
+  assert.ok(nextState.completed.includes(completedDirectusSlug));
+  assert.equal(nextState.completed.filter((slug) => slug === completedDirectusSlug).length, 1);
+  assert.equal(nextState.currentTopic, currentAutomationTopicSlug);
+  assert.equal(nextState.next[0], currentAutomationTopicSlug);
+  assert.deepEqual(nextState.next, thirdAutomationQueue);
   assert.equal(nextState.gates.autoMerge, false);
   assert.equal(nextState.gates.manualDeploy, false);
 });

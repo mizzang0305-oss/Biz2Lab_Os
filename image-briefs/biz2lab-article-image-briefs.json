@@ -1066,6 +1066,29 @@
       "visualDifferentiationHint": "flowise-ai-agent-workflow-automation: ai-agent-flow-safety-dashboard",
       "filename": "flowise-ai-agent-workflow-automation-hero.jpg",
       "rawPath": "assets/images/raw/flowise-ai-agent-workflow-automation-hero.jpg"
+    },
+    {
+      "id": "directus-headless-cms-data-automation-hero",
+      "postSlug": "directus-headless-cms-data-automation",
+      "category": "automation",
+      "usage": "hero",
+      "targetPath": "assets/images/raw/directus-headless-cms-data-automation-hero.jpg",
+      "optimizedPath": "public/images/posts/directus-headless-cms-data-automation-hero.webp",
+      "altKo": "Directus로 headless CMS와 데이터 운영 포털을 검토하는 대표 이미지",
+      "captionKo": "Directus는 데이터 운영 layer 후보지만 권한, 백업, cloud/self-host 조건 확인이 필요하다.",
+      "style": "headless-cms-data-portal-map, Korean business editorial raster hero, minimal text, no title inside image",
+      "promptKo": "Headless CMS data model, internal admin portal, API gate, permission matrix, backup checklist가 연결된 데이터 운영 이미지.",
+      "providerPromptKo": "Directus 분석: Headless CMS를 데이터 운영 자동화에 쓸 수 있을까? 대표 이미지. Headless CMS data model, internal admin portal, API gate, permission matrix, backup checklist가 연결된 데이터 운영 이미지. Include: headless CMS data model, internal admin portal, API gate, permission matrix, backup checklist. No official logos, no real customer data, no placeholder elements.",
+      "negativePromptKo": "official Directus logo, real database records, customer PII, unverified license claims, public admin exposure, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+      "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+      "composition": "Headless CMS data model, internal admin portal, API gate, permission matrix, backup checklist가 연결된 데이터 운영 이미지.",
+      "categoryStyle": "automation category visual, headless-cms-data-portal-map",
+      "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+      "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+      "localOnly": true,
+      "visualDifferentiationHint": "directus-headless-cms-data-automation: headless-cms-data-portal-map",
+      "filename": "directus-headless-cms-data-automation-hero.jpg",
+      "rawPath": "assets/images/raw/directus-headless-cms-data-automation-hero.jpg"
     }
   ]
 }
