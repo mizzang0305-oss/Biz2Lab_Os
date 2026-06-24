@@ -1,6 +1,6 @@
 ---
-title: 소상공인에게 AI 점장이 필요한 이유
-description: '소상공인이 자주 묻는 질문, 고객 요청, 운영 기준을 AI 점장이 참고할 수 있는 내부 자료로 정리해야 하는 이유와 시작 방법입니다.'
+title: 'AI 점장: 놓치기 전에 확인할 업무 기준'
+description: 'AI 점장 검토 전에 확인할 시간 절감 포인트, 운영 리스크, 도입 기준을 Biz2Lab 관점에서 정리합니다.'
 slug: ai-knowledge-store-for-small-business
 locale: ko
 category: small-business
@@ -16,31 +16,24 @@ tags:
   - 소상공인 운영
 heroImage: /images/posts/ai-knowledge-store-for-small-business-hero.webp
 heroAlt: 운영 기준과 고객 질문을 AI 점장 답변 기준으로 연결한 소상공인 지식 카드
-canonical: >-
-  https://www.biz2lab.com/ko/small-business/ai-knowledge-store-for-small-business
+canonical: 'https://www.biz2lab.com/ko/small-business/ai-knowledge-store-for-small-business'
 noindex: false
 relatedPosts:
   - customer-memory-system
   - unify-order-channels
   - ai-business-automation-guide
-templateCta: AI 점장 구성표
+templateCta: 시간·비용 손실 점검 체크리스트
 nextStep:
-  label: AI 점장 문의
+  label: 자동화 손실 점검 문의
   href: /ko/contact
-  description: 자주 묻는 질문과 운영 기준을 AI 점장이 참고할 수 있게 정리합니다.
+  description: 도입 전에 줄일 수 있는 시간·비용·운영 리스크를 먼저 점검합니다.
 faq:
   - question: AI 점장 기준 자료은 도구를 먼저 정해야 시작할 수 있나요?
-    answer: >-
-      아닙니다. 먼저 운영 기준, FAQ, 예외 규칙, 검토자을 같은 형식으로 정리해야 합니다. 도구는 그 다음에 고르는 편이 안전합니다.
-      입력값과 확인 기준이 정리되어 있으면 시트, 알림, AI 초안 중 어떤 방식이 맞는지 판단하기 쉽습니다.
+    answer: '아닙니다. 먼저 운영 기준, FAQ, 예외 규칙, 검토자을 같은 형식으로 정리해야 합니다. 도구는 그 다음에 고르는 편이 안전합니다. 입력값과 확인 기준이 정리되어 있으면 시트, 알림, AI 초안 중 어떤 방식이 맞는지 판단하기 쉽습니다.'
   - question: 작은 팀에서도 AI 점장 기준 자료을 바로 적용할 수 있나요?
-    answer: >-
-      가능합니다. 처음부터 전체 업무를 바꾸기보다 기준 문서 수, 최신 확인일, 질문 유형처럼 한두 가지 기준만 고정해도 효과를 볼 수
-      있습니다. 담당자가 마지막 확인을 맡는 구조를 유지하면 실수 위험을 줄이면서 자동화를 실험할 수 있습니다.
+    answer: '가능합니다. 처음부터 전체 업무를 바꾸기보다 기준 문서 수, 최신 확인일, 질문 유형처럼 한두 가지 기준만 고정해도 효과를 볼 수 있습니다. 담당자가 마지막 확인을 맡는 구조를 유지하면 실수 위험을 줄이면서 자동화를 실험할 수 있습니다.'
   - question: AI를 쓰면 오래된 기준으로 고객에게 안내하는 위험을 어떻게 막을 수 있나요?
-    answer: >-
-      AI는 최종 실행자가 아니라 초안 작성자로 두는 것이 안전합니다. 고객 안내, 금액, 계약, 결제와 관련된 내용은 담당자가 원본
-      자료와 비교해야 합니다. 검토 완료 열과 수정 이력을 남기면 나중에 문제가 생겼을 때 원인을 추적할 수 있습니다.
+    answer: 'AI는 최종 실행자가 아니라 초안 작성자로 두는 것이 안전합니다. 고객 안내, 금액, 계약, 결제와 관련된 내용은 담당자가 원본 자료와 비교해야 합니다. 검토 완료 열과 수정 이력을 남기면 나중에 문제가 생겼을 때 원인을 추적할 수 있습니다.'
 ---
 ## 문제 정의
 

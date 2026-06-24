@@ -1,6 +1,6 @@
 ---
-title: 카드 키인 결제와 PG/VAN 차이
-description: '카드 키인 결제, PG, VAN의 역할 차이를 이해하고 계약, 결제, 정산 상태를 운영표에서 관리하는 방법을 설명합니다.'
+title: '오프라인 카드결제 PG/VAN 분석: 고르기 전에 확인할 기준'
+description: '오프라인 카드결제 PG/VAN 선택 전에 비용, 정산 확인, 운영 리스크, 실제 업무 연결 기준을 정리합니다.'
 slug: offline-card-payment-pg-van
 locale: ko
 category: contracts-payments
@@ -15,31 +15,25 @@ tags:
   - 카드 결제
   - PG VAN
 heroImage: /images/posts/offline-card-payment-pg-van-hero.webp
-heroAlt: 카드 키인 결제와 PG, VAN, 정산 확인 흐름을 구분한 결제 지도
+heroAlt: '카드 키인 결제와 PG, VAN, 정산 확인 흐름을 구분한 결제 지도'
 canonical: 'https://www.biz2lab.com/ko/contracts-payments/offline-card-payment-pg-van'
 noindex: false
 relatedPosts:
   - connect-contract-payment-customer-management
   - electronic-contract-system-basics
   - sales-revenue-ar-structure
-templateCta: 결제 방식 비교 체크리스트
+templateCta: 시간·비용 손실 점검 체크리스트
 nextStep:
-  label: 결제 구조 문의
+  label: 자동화 손실 점검 문의
   href: /ko/contact
-  description: '계약, 결제 요청, 정산 확인 흐름을 함께 점검합니다.'
+  description: 도입 전에 줄일 수 있는 시간·비용·운영 리스크를 먼저 점검합니다.
 faq:
   - question: 오프라인 카드결제와 PG/VAN 확인은 도구를 먼저 정해야 시작할 수 있나요?
-    answer: >-
-      아닙니다. 먼저 주문 식별값, 결제 수단, 승인 상태, 확인 담당자을 같은 형식으로 정리해야 합니다. 도구는 그 다음에 고르는 편이
-      안전합니다. 입력값과 확인 기준이 정리되어 있으면 시트, 알림, AI 초안 중 어떤 방식이 맞는지 판단하기 쉽습니다.
+    answer: '아닙니다. 먼저 주문 식별값, 결제 수단, 승인 상태, 확인 담당자을 같은 형식으로 정리해야 합니다. 도구는 그 다음에 고르는 편이 안전합니다. 입력값과 확인 기준이 정리되어 있으면 시트, 알림, AI 초안 중 어떤 방식이 맞는지 판단하기 쉽습니다.'
   - question: 작은 팀에서도 오프라인 카드결제와 PG/VAN 확인을 바로 적용할 수 있나요?
-    answer: >-
-      가능합니다. 처음부터 전체 업무를 바꾸기보다 승인 여부, 정산 확인, 취소 여부, 내부 주문 상태처럼 한두 가지 기준만 고정해도
-      효과를 볼 수 있습니다. 담당자가 마지막 확인을 맡는 구조를 유지하면 실수 위험을 줄이면서 자동화를 실험할 수 있습니다.
+    answer: '가능합니다. 처음부터 전체 업무를 바꾸기보다 승인 여부, 정산 확인, 취소 여부, 내부 주문 상태처럼 한두 가지 기준만 고정해도 효과를 볼 수 있습니다. 담당자가 마지막 확인을 맡는 구조를 유지하면 실수 위험을 줄이면서 자동화를 실험할 수 있습니다.'
   - question: 'AI를 쓰면 중복 청구, 취소 누락, 결제 정보 접근 권한 관리 실패을 어떻게 막을 수 있나요?'
-    answer: >-
-      AI는 최종 실행자가 아니라 초안 작성자로 두는 것이 안전합니다. 고객 안내, 금액, 계약, 결제와 관련된 내용은 담당자가 원본
-      자료와 비교해야 합니다. 검토 완료 열과 수정 이력을 남기면 나중에 문제가 생겼을 때 원인을 추적할 수 있습니다.
+    answer: 'AI는 최종 실행자가 아니라 초안 작성자로 두는 것이 안전합니다. 고객 안내, 금액, 계약, 결제와 관련된 내용은 담당자가 원본 자료와 비교해야 합니다. 검토 완료 열과 수정 이력을 남기면 나중에 문제가 생겼을 때 원인을 추적할 수 있습니다.'
 ---
 ## 문제 정의
 

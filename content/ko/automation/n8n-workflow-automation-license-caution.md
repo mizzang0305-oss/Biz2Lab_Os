@@ -1,6 +1,6 @@
 ---
-title: 'n8n 분석: 유명한 자동화 도구지만 오픈소스라고 말해도 될까?'
-description: 'n8n을 업무 자동화 후보 관점에서 분석하되, Sustainable Use License, self-hosted 운영 조건, 상업적 사용 주의점을 먼저 검토합니다.'
+title: 'n8n 분석: 자동화 도구 도입 전에 확인할 비용·라이선스 리스크'
+description: 'n8n 자동화 도구 검토 전에 라이선스, 비용, self-hosting 운영 부담을 확인해 전환 실패와 숨은 비용을 줄이는 기준을 정리합니다.'
 slug: n8n-workflow-automation-license-caution
 locale: ko
 category: automation
@@ -30,22 +30,25 @@ relatedPosts:
   - baserow-open-source-database-automation
   - huginn-monitoring-automation-agent
   - kestra-data-ai-workflow-orchestration
-templateCta: 오픈소스 자동화 도구 검증 체크리스트
+templateCta: 시간·비용 손실 점검 체크리스트
 nextStep:
-  label: 자동화 상담 문의
+  label: 자동화 손실 점검 문의
   href: /ko/contact
-  description: 반복 업무와 콘텐츠 제작 흐름을 실제 운영 기준으로 점검합니다.
+  description: 도입 전에 줄일 수 있는 시간·비용·운영 리스크를 먼저 점검합니다.
 faq:
   - question: n8n을 일반적인 무료 오픈소스 도구라고 소개해도 되나요?
-    answer: 단정하면 안 됩니다. 공식 자료 기준 n8n은 fair-code, source-available, Sustainable Use License, Enterprise License를 함께 봐야 하는 도구입니다.
+    answer: '단정하면 안 됩니다. 공식 자료 기준 n8n은 fair-code, source-available, Sustainable Use License, Enterprise License를 함께 봐야 하는 도구입니다.'
   - question: self-hosting이 가능하면 상업적 사용도 자유로운가요?
     answer: self-hosting 가능성과 무제한 상업적 사용은 다른 문제입니다. 업무 적용 전 공식 라이선스와 enterprise 조건을 확인해야 합니다.
   - question: Biz2Lab에서는 n8n을 어디부터 검토할 수 있나요?
-    answer: 고객 데이터나 메시지 발송이 없는 로컬 테스트에서 RSS 감지, 콘텐츠 소재 생성, 내부 로그 기록 같은 개념 검증부터 시작하는 편이 안전합니다.
+    answer: '고객 데이터나 메시지 발송이 없는 로컬 테스트에서 RSS 감지, 콘텐츠 소재 생성, 내부 로그 기록 같은 개념 검증부터 시작하는 편이 안전합니다.'
 ---
+# n8n 분석: 자동화 도구 도입 전에 확인할 비용·라이선스 리스크
+라이선스·비용·운영 책임을 늦게 확인하면 나중에 전환 비용이 커질 수 있습니다.
 
-# n8n 분석: 유명한 자동화 도구지만 오픈소스라고 말해도 될까?
+n8n 자동화 도구 검토에서는 무료 여부보다 실제 운영 조건과 책임 범위를 먼저 봐야 합니다.
 
+이 글에서는 과장된 추천이 아니라 도입 전 확인할 기준, 얻을 수 있는 가치, 놓치면 생기는 운영 리스크를 함께 정리합니다.
 ## 문제 정의
 
 n8n은 워크플로 자동화 도구를 공부할 때 반드시 한 번은 살펴볼 만한 후보입니다. trigger와 action을 연결하고, 외부 서비스와 내부 업무 흐름을 묶는 방식은 Biz2Lab / MyBiz 자동화 설계에도 참고할 부분이 많습니다.
@@ -180,3 +183,5 @@ n8n은 이 시리즈에서 라이선스 주의 사례로 다루는 편이 맞습
 - [NocoDB 분석](/ko/automation/nocodb-airtable-alternative-license-caution)
 
 최종 결론은 명확합니다. n8n은 강력한 워크플로 자동화 도구지만, Biz2Lab에서는 "무료 오픈소스 추천"이 아니라 "라이선스와 운영 조건을 확인해야 하는 자동화 후보"로 보는 것이 안전합니다.
+## 다음 행동
+바로 도구를 바꾸기보다 n8n 자동화 도구 관점에서 줄일 수 있는 시간, 비용, 운영 리스크를 먼저 적어 보세요. 관련 글과 비교하면서 실제 업무에 적용할 기준을 정하면 불필요한 도입 실패를 줄일 수 있습니다.
