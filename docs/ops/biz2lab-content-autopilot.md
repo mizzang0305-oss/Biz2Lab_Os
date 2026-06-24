@@ -545,3 +545,81 @@ Biz2Lab 오토파일럿 계속 진행해.
 
 The agent should then read this guide, run `npm run ops:autopilot-status`,
 inspect the current state, and proceed only as far as the safety gates allow.
+
+## 14. Hourly Local Autopilot
+
+Owner approval phrase:
+
+```text
+BIZ2LAB_HOURLY_AUTOPILOT_APPROVED
+```
+
+The local hourly task checks and advances at most one safe unit of work per run.
+It means "check and continue every hour"; it does not mean "publish a new article
+every hour." Publication still obeys active hours, open PR limits, validation,
+remote checks, durable state advancement, production smoke, and the Green /
+Yellow / Red policy above.
+
+Canonical command:
+
+```powershell
+npm run ops:autopilot-run
+```
+
+The status helper remains read-only:
+
+```powershell
+npm run ops:autopilot-status
+```
+
+### 14.1 One Action Per Run
+
+The runner stops after one meaningful action:
+
+- merge one Green-Zone prompt package PR
+- prepare one missing prompt package and open a PR
+- create one publication PR when the scheduler returns `DRY_RUN_READY`
+- merge one Green-Zone publication PR and then require production smoke
+- stop with `OWNER_REVIEW_REQUIRED` when Yellow/Red risk appears
+
+It does not loop through multiple topics. It does not manually deploy, manually
+redeploy Vercel, call DB/payment/message APIs, add secrets, add fake analytics,
+add `meta keywords`, or commit `data/content-series-run-state.json`.
+
+### 14.2 Run-State Recovery
+
+If the only tracked dirty file is:
+
+```text
+data/content-series-run-state.json
+```
+
+the runner backs it up under `.tmp`, restores the tracked file, and continues.
+Any other tracked change or unexpected untracked file blocks the run.
+
+### 14.3 Windows Task Scheduler
+
+Register or update the local hourly task with:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\setup-biz2lab-autopilot-hourly-task.ps1
+```
+
+Task details:
+
+```text
+Task name: Biz2Lab Autopilot Hourly
+Schedule: every 1 hour
+Repo root: C:\Users\LOVE\MyProjects\Biz2Lab_Os
+Log path: .tmp\biz2lab-autopilot-hourly.log
+```
+
+Task command:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "cd 'C:\Users\LOVE\MyProjects\Biz2Lab_Os'; if (!(Test-Path '.tmp')) { New-Item -ItemType Directory -Path '.tmp' | Out-Null }; git fetch origin; git checkout master; git pull --ff-only origin master; npm run ops:autopilot-run >> .tmp\biz2lab-autopilot-hourly.log 2>&1"
+```
+
+The hourly task must not bypass active hours. If the current topic is missing a
+Codex artifact, artifact-only prompt/package preparation may continue, but
+publication non-dry runs must wait for the scheduler gate.

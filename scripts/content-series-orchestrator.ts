@@ -457,7 +457,7 @@ export function buildImagePromptMarkdown(topic: ContentSeriesTopic) {
   return `# ${topic.slug}-hero prompt package\n\n## Provider prompt\n\n${brief.providerPromptKo}\n\n## Negative prompt\n\n${brief.negativePromptKo}\n\n## Text policy\n\n${brief.textPolicy}\n\n## Output\n\n- Raw: ${brief.targetPath}\n- Optimized: ${brief.optimizedPath}\n`;
 }
 
-function writeImagePromptPackage(rootDir: string, topic: ContentSeriesTopic) {
+export function writeImagePromptPackage(rootDir: string, topic: ContentSeriesTopic) {
   const paths = buildImagePaths(topic);
   const brief = buildImageBrief(topic);
   writeTextFile(rootDir, paths.requestRepoPath, buildImageRequestMarkdown(topic));
