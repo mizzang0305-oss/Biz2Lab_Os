@@ -484,6 +484,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["lightweight backend", "auth module", "database module", "file storage"],
     palette: automationPalette,
   },
+  "supabase-self-hosting-cost-operations-caution": {
+    slug: "supabase-self-hosting-cost-operations-caution",
+    category: "automation",
+    visualFamily: "self-hosted-backend-cost-operations-balance",
+    conceptKo: "Managed cloud와 self-hosting 저울, Postgres operations, Auth and Storage cards, backup gate, hidden cost chart가 있는 backend 운영 이미지.",
+    altKo: "Supabase self-hosting의 비용과 운영 부담을 비교하는 대표 이미지",
+    captionKo: "Supabase self-hosting은 비용뿐 아니라 Postgres, Auth, Storage 운영 책임을 함께 계산해야 한다.",
+    labels: ["managed vs self-hosting balance", "Postgres operations", "Auth and Storage cards", "backup gate"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

@@ -30,6 +30,16 @@
     "recommendedAction": "PocketBase를 가벼운 백엔드, 인증, 파일 저장소, API, self-hosting 운영 책임까지 함께 검토합니다."
   },
   {
+    "slug": "supabase-self-hosting-cost-operations-caution",
+    "route": "/ko/automation/supabase-self-hosting-cost-operations-caution",
+    "primaryKeyword": "Supabase 셀프호스팅",
+    "secondaryKeywords": ["Supabase self-hosting", "Supabase 비용", "Postgres 운영", "Auth Storage 백업"],
+    "searchIntent": "caution",
+    "audience": "개발자",
+    "cluster": "open-source-caution",
+    "recommendedAction": "Supabase 셀프호스팅을 비용 절감 주장보다 Postgres, Auth, Storage 운영 부담과 함께 검토합니다."
+  },
+  {
     "slug": "open-webui-local-llm-admin-portal",
     "route": "/ko/automation/open-webui-local-llm-admin-portal",
     "primaryKeyword": "Open WebUI 로컬 LLM",

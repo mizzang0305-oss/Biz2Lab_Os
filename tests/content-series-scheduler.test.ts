@@ -18,8 +18,9 @@ const completedOpenWebUISlug = "open-webui-local-llm-admin-portal";
 const completedFlowiseSlug = "flowise-ai-agent-workflow-automation";
 const completedDirectusSlug = "directus-headless-cms-data-automation";
 const completedPocketBaseSlug = "pocketbase-lightweight-backend-saas-mvp";
-const currentTopicSlug = "supabase-self-hosting-cost-operations-caution";
-const nextTopicAfterCurrentSlug = "meilisearch-blog-product-search-automation";
+const completedSupabaseSlug = "supabase-self-hosting-cost-operations-caution";
+const currentTopicSlug = "meilisearch-blog-product-search-automation";
+const nextTopicAfterCurrentSlug = "typesense-product-document-search-automation";
 const finalTopicSlug = "umami-open-source-analytics-ga-alternative";
 const partialQueueTopicSlug = "windmill-developer-workflow-automation";
 const partialQueueCompleted = [
@@ -157,7 +158,7 @@ test("180-minute cadence is accepted and missing artifact waits safely", async (
   assert.equal(readContentSeriesSchedule(root).cadenceMinutes, 180);
 });
 
-test("completed PocketBase advances the default scheduler topic to Supabase", async () => {
+test("completed Supabase advances the default scheduler topic to Meilisearch", async () => {
   const root = tempSchedulerRoot();
   const state = readJson<{ completed: string[]; currentTopic: string; next: string[] }>(
     path.join(root, "data", "content-series-state.json"),
@@ -173,6 +174,7 @@ test("completed PocketBase advances the default scheduler topic to Supabase", as
   assert.ok(state.completed.includes(completedFlowiseSlug));
   assert.ok(state.completed.includes(completedDirectusSlug));
   assert.ok(state.completed.includes(completedPocketBaseSlug));
+  assert.ok(state.completed.includes(completedSupabaseSlug));
   assert.equal(state.currentTopic, currentTopicSlug);
   assert.equal(state.next[0], currentTopicSlug);
   assert.equal(result.status, "WAITING_FOR_CODEX_IMAGE_ARTIFACT");
@@ -322,8 +324,8 @@ test("topic order still blocks topics after the current topic until it is comple
 
   assert.equal(result.status, "TOPIC_ORDER_BLOCKED");
   assert.equal(result.topic, nextTopicAfterCurrentSlug);
-  assert.match(result.message ?? "", /next queue starts with supabase-self-hosting-cost-operations-caution/);
-  assert.match(result.message ?? "", /previous article is not public yet: supabase-self-hosting-cost-operations-caution/);
+  assert.match(result.message ?? "", /next queue starts with meilisearch-blog-product-search-automation/);
+  assert.match(result.message ?? "", /previous article is not public yet: meilisearch-blog-product-search-automation/);
 });
 
 test("existing topic PR blocks duplicate publication", async () => {
