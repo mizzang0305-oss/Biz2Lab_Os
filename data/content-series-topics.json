@@ -1768,13 +1768,13 @@
         }
       ],
       "imageConcept": {
-        "visualFamily": "search-api-product-document-control-board",
+        "visualFamily": "search-api-catalog-document-control-board",
         "altKo": "Typesense로 상품과 문서 검색 API 자동화를 검토하는 대표 이미지",
         "captionKo": "Typesense는 search API 후보지만 권한 필터와 reindex 운영 설계가 필요하다.",
-        "promptSummaryKo": "Search API panel, product and document index, comparison board, permission filter, reindex checklist가 있는 검색 운영 이미지.",
+        "promptSummaryKo": "Search API panel, catalog and document index, comparison board, permission filter, reindex checklist가 있는 검색 운영 이미지.",
         "mustInclude": [
           "search API panel",
-          "product and document index",
+          "catalog and document index",
           "comparison board",
           "permission filter",
           "reindex checklist"

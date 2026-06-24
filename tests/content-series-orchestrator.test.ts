@@ -81,6 +81,19 @@ function currentSeriesTopic() {
   };
 }
 
+test("current topic image concept avoids forbidden visual terms", () => {
+  const { topic } = currentSeriesTopic();
+  const visualPolicyText = [
+    topic.imageConcept.visualFamily,
+    topic.imageConcept.promptSummaryKo,
+    topic.imageConcept.mustInclude.join(" "),
+  ]
+    .join(" ")
+    .toLowerCase();
+
+  assert.doesNotMatch(visualPolicyText, /\b(?:amazon|products?|affiliate|reviews?|lotto)\b/);
+});
+
 function writeJpegLikeArtifact(filePath: string, size = 5000) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   const fakeJpeg = Buffer.alloc(size);
