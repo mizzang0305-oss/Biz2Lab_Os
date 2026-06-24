@@ -4,13 +4,27 @@ This guide defines the reusable operating mode for continuing the Biz2Lab
 content automation workflow from the current repository state with one short
 instruction:
 
-`Biz2Lab 오토파일럿 계속 진행해.`
+```text
+Biz2Lab 오토파일럿 계속 진행해.
+```
 
 Autopilot means: inspect the current repository state, continue in the correct
 order, stop only at hard safety gates, never fake data, never bypass critical
 gates, and always report the exact next step.
 
-## 1. Safety Policy
+## 1. Owner Approval
+
+Owner approval phrase:
+
+```text
+BIZ2LAB_GREEN_ZONE_AUTOMERGE_APPROVED
+```
+
+This approval applies only to safe content automation. It does not apply to
+secrets, DB writes, payments, external business APIs, deploy config, auth,
+security, admin/login routes, fake analytics, or manual Vercel actions.
+
+## 2. Safety Policy
 
 Hard rules:
 
@@ -32,10 +46,110 @@ Hard rules:
 - Do not touch `.codex-remote-attachments/`.
 - Do not touch `.codex/config.toml`.
 
-Publication PR merge is allowed only after full review. If scope, data, or
-validation is ambiguous, stop and report `OWNER_REVIEW_REQUIRED`.
+Autopilot may auto-merge Green-Zone content PRs only when scope, remote checks,
+local validation, production-smoke requirements, and safety rules all pass. If
+scope, data, validation, or intent is ambiguous, stop and report
+`OWNER_REVIEW_REQUIRED`.
 
-## 2. State Detection
+## 3. Green / Yellow / Red Zones
+
+### 3.1 Green Zone: Auto-Merge Allowed
+
+Green-Zone auto-merge is allowed only after all relevant checks pass.
+
+Prompt package PR scope:
+
+```text
+image-requests/generated/<topic>-hero.md
+image-requests/generated/<topic>-hero.prompt.md
+image-briefs/generated/<topic>-hero.json
+docs/ops/biz2lab-content-autopilot.md
+scripts/biz2lab-autopilot-status.mjs
+```
+
+Prompt package PR rules:
+
+- no article file
+- no raw/public image
+- no official logo
+- no copied screenshot
+- no placeholder
+- Vercel PASS
+- image audits PASS
+- validation PASS
+
+Publication PR scope:
+
+```text
+content/ko/automation/<topic>.md
+assets/images/raw/<topic>-hero.jpg
+public/images/posts/<topic>-hero.webp
+image-requests/generated/<topic>-hero.md
+image-requests/generated/<topic>-hero.prompt.md
+image-briefs/generated/<topic>-hero.json
+content/ko/content-index.json
+data/image-assets.json
+lib/article-image-concepts.ts
+data/content-series-state.json
+data/seo-keyword-map.json
+series hub / queue docs / tests if required
+```
+
+Publication PR rules:
+
+- state auto-advance must be present
+- current topic must be marked completed
+- next topic must advance correctly
+- `data/content-series-run-state.json` must not be committed
+- keyword map must be updated
+- no fake analytics
+- no `meta keywords`
+- Vercel PASS
+- validation PASS
+- production smoke after merge
+
+Small SEO/content cleanup PRs are Green-Zone only when they avoid slug/route
+changes, fake analytics, `meta keywords`, secrets, scheduler config, admin/auth
+code, and pass links plus validation.
+
+### 3.2 Yellow Zone: Owner Review Required
+
+Create or update the PR, but do not merge automatically. Stop with
+`OWNER_REVIEW_REQUIRED` when a PR changes:
+
+```text
+app/ko/ops/*
+lib/ops-dashboard-auth.ts
+middleware.ts
+analytics connector code
+scheduler/orchestrator core logic
+package.json scripts beyond safe helper scripts
+large article rewrites across many files
+```
+
+### 3.3 Red Zone: Hard Stop
+
+Stop immediately with `OWNER_REVIEW_REQUIRED` if any PR includes:
+
+```text
+.env*
+real secrets
+API keys
+DB/payment/message/notification code
+deploy config
+Vercel config
+admin/login routes
+fake analytics data
+meta keywords
+data/content-series-run-state.json
+official logos
+copied product screenshots
+unrelated article/image files
+```
+
+Do not merge Red-Zone changes.
+
+## 4. State Detection
 
 Start every run by anchoring the checkout:
 
@@ -49,21 +163,22 @@ git status --short
 
 Autopilot must detect and report:
 
-- `currentTopic` from `data/content-series-state.json`.
-- Scheduler dry-run gate from `npm run content:series:scheduler -- --dry-run`.
-- Open PRs from `gh pr list --state open --limit 50`.
-- Existing topic PRs for the current topic.
-- Existing prompt package PRs for the current topic hero package.
-- Existing publication PRs for the current topic article and assets.
-- Missing local Codex image artifacts.
-- Active-hours gate.
-- Cadence gate.
-- Dirty worktree.
-- `data/content-series-run-state.json` dirty runtime state.
-- Vercel check status.
-- Publication state advancement.
-- Keyword map requirement.
-- SEO dashboard requirement.
+- `currentTopic` from `data/content-series-state.json`
+- scheduler dry-run gate from `npm run content:series:scheduler -- --dry-run`
+- open PRs from `gh pr list --state open --limit 50`
+- Green/Yellow/Red zone classification for open PRs
+- existing topic PRs for the current topic
+- existing prompt package PRs for the current topic hero package
+- existing publication PRs for the current topic article and assets
+- missing local Codex image artifacts
+- active-hours gate
+- cadence gate
+- dirty worktree
+- `data/content-series-run-state.json` dirty runtime state
+- Vercel check status
+- publication state advancement
+- keyword map requirement
+- SEO dashboard requirement
 
 Run the read-only helper when a quick summary is useful:
 
@@ -72,11 +187,29 @@ npm run ops:autopilot-status
 ```
 
 The helper reports current topic, scheduler gate, open PRs, artifact status,
-prompt package status, publication file status, keyword map status, the
-machine-readable `nextAction`, and the next recommended action. It does not
-merge, deploy, commit, generate articles, or import images.
+prompt package status, publication file status, keyword map status,
+Green/Yellow/Red zone flags, the machine-readable `nextAction`, and the next
+recommended action. It does not merge, deploy, commit, generate articles, or
+import images.
 
-## 3. Dirty Worktree Policy
+Expected helper fields include:
+
+```json
+{
+  "mode": "read-only",
+  "currentTopic": "...",
+  "scheduler": {
+    "status": "..."
+  },
+  "openPrs": [],
+  "nextAction": "...",
+  "greenZoneAutomergeCandidate": true,
+  "yellowZoneOwnerReview": false,
+  "redZoneBlocked": false
+}
+```
+
+## 5. Dirty Worktree Policy
 
 If unknown tracked files are dirty, stop with `BLOCKED_DIRTY_WORKTREE`.
 
@@ -99,7 +232,7 @@ git status --short
 Continue only after the tracked worktree is clean apart from protected
 untracked files.
 
-## 4. Topic Flow
+## 6. Topic Flow
 
 Use the repository state as source of truth. Read:
 
@@ -110,15 +243,9 @@ Use the repository state as source of truth. Read:
 - `data/image-assets.json`
 - `data/seo-keyword-map.json`
 
-Do not hardcode the topic sequence if the files differ. At the time this guide
-was written, the expected queue after PocketBase was:
+Do not hardcode the topic sequence if the files differ.
 
-- `supabase-self-hosting-cost-operations-caution`
-- `meilisearch-blog-product-search-automation`
-- `typesense-product-document-search-automation`
-- `umami-open-source-analytics-ga-alternative`
-
-### 4.1 Prompt Package PR Exists
+### 6.1 Prompt Package PR Exists
 
 If an open PR contains only the current topic prompt package files:
 
@@ -131,12 +258,12 @@ then:
 1. Review scope.
 2. Verify remote checks.
 3. Run image prompt/brief validation if needed.
-4. Merge only if the autopilot merge policy is satisfied.
+4. Merge only if the Green-Zone merge policy is satisfied.
 5. Align local `master` to `origin/master`.
 
 Stop on scope drift.
 
-### 4.2 Artifact Missing
+### 6.2 Artifact Missing
 
 If no approved local Codex artifact exists under the Codex generated image
 root, autopilot may continue through artifact-only preparation. This is safe
@@ -151,7 +278,7 @@ When the current topic has no prompt package and no approved artifact:
 4. Generate the local Codex image artifact under the approved Codex root.
 5. Run image package validation.
 6. Open a prompt package PR.
-7. Stop after PR creation.
+7. If the PR is Green-Zone and checks pass, autopilot may merge it.
 
 When the prompt package already exists but the artifact is missing, generate
 only the local Codex artifact and validate the image package. Do not create a
@@ -186,7 +313,7 @@ If artifact generation fails or the generated image does not pass the visual
 and file-name checks, stop with `WAITING_FOR_CODEX_IMAGE_ARTIFACT` and report
 the exact blocker.
 
-### 4.3 Artifact Exists and Prompt Package Is Merged
+### 6.3 Artifact Exists And Prompt Package Is Merged
 
 Run a topic dry-run:
 
@@ -226,7 +353,7 @@ npm run content:series:scheduler -- --topic <topic> --use-latest-codex-artifact 
 Run non-dry at most once per topic attempt. Do not use `--force-check` to
 bypass active hours.
 
-### 4.4 Publication PR Exists
+### 6.4 Publication PR Exists
 
 For an open publication PR:
 
@@ -240,12 +367,12 @@ For an open publication PR:
    - `currentTopic` becomes the next unpublished topic
    - `next[0]` becomes the next unpublished topic
    - `data/content-series-run-state.json` is not committed
-6. Merge only when all merge policy gates pass.
+6. Merge only when all Green-Zone merge policy gates pass.
 7. Wait for the Git-triggered production deploy.
 8. Run production smoke.
 9. Confirm the scheduler advances to the next topic artifact gate.
 
-### 4.5 Already Published But State Not Advanced
+### 6.5 Already Published But State Not Advanced
 
 If the current topic article is already published but the state file still
 points to it, create a small state repair PR. Do not generate the next article
@@ -259,7 +386,7 @@ The repair PR must:
 - avoid `data/content-series-run-state.json`
 - add or preserve regression coverage if the root cause is automation logic
 
-## 5. Stop Gates
+## 7. Stop Gates
 
 Stop and report the exact gate when any of these appear:
 
@@ -267,6 +394,7 @@ Stop and report the exact gate when any of these appear:
 - Vercel rate limit active
 - remote checks fail
 - scope drift
+- Yellow-Zone or Red-Zone PR scope appears
 - DB, payment, API, or message files changed
 - deploy config changed
 - real analytics credentials appear
@@ -291,9 +419,10 @@ Allowed status labels include:
 - `STATE_ADVANCEMENT_REQUIRED`
 - `VALIDATION_FAILED`
 
-## 6. Merge Policy
+## 8. Merge Policy
 
-Autopilot may merge only when all are true:
+Autopilot may merge Green-Zone PRs without additional owner babysitting only
+when all are true:
 
 - PR scope matches expected files.
 - Vercel checks pass.
@@ -305,10 +434,14 @@ Autopilot may merge only when all are true:
 - No run-state file committed.
 - Production article/image scope is correct.
 - State auto-advance is correct for publication PRs.
+- Production smoke is completed after publication PR merge.
+
+Yellow-Zone PRs may be prepared and validated, but must not be merged
+automatically. Red-Zone PRs must stop immediately and must not be merged.
 
 If unsure, stop and report `OWNER_REVIEW_REQUIRED`.
 
-## 7. Standard Validation Pack
+## 9. Standard Validation Pack
 
 Use this validation pack before merging publication or automation PRs:
 
@@ -332,7 +465,7 @@ git diff --cached --check
 
 Known Turbopack NFT warnings are acceptable only if `npm run build` exits 0.
 
-## 8. SEO And Analytics Policy
+## 10. SEO And Analytics Policy
 
 Autopilot must preserve:
 
@@ -353,11 +486,12 @@ For every new publication PR:
 - run SEO/dashboard tests
 - confirm no `meta keywords` were added
 
-## 9. Production Smoke Policy
+## 11. Production Smoke Policy
 
 After a normal Git-triggered production deployment is ready, check:
 
 - article route HTTP 200
+- series hub HTTP 200
 - no auth wall
 - no 404
 - H1 visible
@@ -370,13 +504,38 @@ After a normal Git-triggered production deployment is ready, check:
 - title/meta description/canonical/OG image correct
 - internal links visible
 - series hub includes the article
-- SEO dashboard reflects the keyword map without fake analytics
+- SEO dashboard remains locked/noindex and reflects the keyword map without
+  fake analytics
 - sitemap and RSS include published public articles when expected
 - robots references sitemap and does not block `/ko`
 
 Do not manually deploy or manually redeploy Vercel.
 
-## 10. One-Line Invocation
+## 12. Standard Autopilot Loop
+
+When the owner says `Biz2Lab 오토파일럿 계속 진행해.`, autopilot should:
+
+1. Sync `master`.
+2. Check dirty worktree.
+3. Restore `data/content-series-run-state.json` only if it is runtime-only and
+   backed up.
+4. Check open PRs.
+5. If a Green-Zone prompt package PR exists, review and merge it.
+6. Run scheduler dry-run.
+7. If artifact is missing, prepare artifact-only package and open PR.
+8. If `CADENCE_NOT_DUE` inside active hours, use `--force-check`.
+9. If `DRY_RUN_READY`, run non-dry once.
+10. Open publication PR.
+11. If publication PR is Green-Zone safe, merge it.
+12. Wait for normal Git-triggered production deployment.
+13. Run production smoke.
+14. Confirm next topic gate.
+15. Continue until a gate blocks or Yellow/Red appears.
+
+Do not manually deploy, manually redeploy Vercel, bypass active hours, or bypass
+failed validation.
+
+## 13. One-Line Invocation
 
 Use this exact short instruction in future Codex runs:
 
