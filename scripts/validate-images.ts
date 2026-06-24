@@ -104,6 +104,14 @@ function publicFileExists(src: string) {
   return fs.existsSync(path.join(root, "public", publicImagePath(src)));
 }
 
+function stripStructuralPathToken(src: string, structuralToken?: string) {
+  if (!structuralToken) {
+    return src.toLowerCase();
+  }
+
+  return src.toLowerCase().replaceAll(structuralToken.toLowerCase(), "");
+}
+
 function imageReferencesFromContent(content: string) {
   return [
     ...content.matchAll(
@@ -112,8 +120,8 @@ function imageReferencesFromContent(content: string) {
   ].map((match) => match[1] ?? match[2] ?? match[3] ?? match[4]);
 }
 
-function checkForbiddenPath(label: string, src: string) {
-  const normalized = src.toLowerCase();
+function checkForbiddenPath(label: string, src: string, structuralToken?: string) {
+  const normalized = stripStructuralPathToken(src, structuralToken);
   for (const term of forbiddenImageTerms) {
     if (normalized.includes(term)) {
       errors.push(`${label}: forbidden image path term ${term}`);
@@ -121,7 +129,7 @@ function checkForbiddenPath(label: string, src: string) {
   }
 }
 
-function checkLocalPublicImage(label: string, src: string, requireFile = true) {
+function checkLocalPublicImage(label: string, src: string, requireFile = true, structuralToken?: string) {
   if (/^https?:\/\//i.test(src)) {
     errors.push(`${label}: external image URL is not allowed: ${src}`);
     return;
@@ -136,7 +144,7 @@ function checkLocalPublicImage(label: string, src: string, requireFile = true) {
     errors.push(`${label}: missing image file ${src}`);
   }
 
-  checkForbiddenPath(label, src);
+  checkForbiddenPath(label, src, structuralToken);
 }
 
 function readBriefs(filePath: string): ImageBrief[] {
@@ -171,7 +179,7 @@ for (const post of posts) {
   if (!heroImage) {
     errors.push(`${post.slug}: heroImage is required`);
   } else {
-    checkLocalPublicImage(`${post.slug} heroImage`, heroImage);
+    checkLocalPublicImage(`${post.slug} heroImage`, heroImage, true, post.slug);
     if (!heroImage.includes(`${post.slug}-`)) {
       errors.push(`${post.slug}: heroImage path must include the slug`);
     }
@@ -217,7 +225,7 @@ for (const entry of Array.isArray(publicManifest) ? publicManifest : []) {
     continue;
   }
 
-  checkLocalPublicImage(`${label} public manifest`, src);
+    checkLocalPublicImage(`${label} public manifest`, src, true, entry.postSlug ?? entry.slug);
 
   if (entry.width !== undefined && entry.width <= 0) {
     errors.push(`${label}: public manifest width must be positive`);
@@ -252,7 +260,7 @@ for (const entry of optionalAssetEntries) {
   }
 
   if (entry.src) {
-    checkLocalPublicImage(`${label} optional manifest src`, entry.src, entry.status !== "planned");
+    checkLocalPublicImage(`${label} optional manifest src`, entry.src, entry.status !== "planned", entry.postSlug ?? entry.id);
   }
 
   if (entry.status === "active" && entry.licenseStatus === "local-generated-diagram") {
@@ -310,7 +318,7 @@ for (const briefFile of briefFiles) {
       errors.push(`${label}: optimized path is required`);
     } else {
       const normalizedOptimizedPath = optimizedPath.replace(/^public/, "");
-      checkLocalPublicImage(`${label} optimized path`, normalizedOptimizedPath, false);
+      checkLocalPublicImage(`${label} optimized path`, normalizedOptimizedPath, false, brief.postSlug);
     }
 
     if (!brief.altKo || !isDescriptiveKorean(brief.altKo)) {

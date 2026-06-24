@@ -389,6 +389,94 @@ test("image brief audit allows a generated draft to reuse the same output for th
   assert.match(output, /audit:image-briefs PASS/);
 });
 
+test("image brief audit allows product inside required slugged paths", () => {
+  const tempDir = makeTempDir();
+  const briefDir = path.join(tempDir, "image-briefs");
+  fs.mkdirSync(briefDir, { recursive: true });
+
+  fs.writeFileSync(
+    path.join(briefDir, "biz2lab-article-image-briefs.json"),
+    `${JSON.stringify(
+      {
+        briefs: [
+          {
+            id: "meilisearch-blog-product-search-automation-hero",
+            postSlug: "meilisearch-blog-product-search-automation",
+            category: "automation",
+            usage: "hero",
+            targetPath: "assets/images/raw/meilisearch-blog-product-search-automation-hero.jpg",
+            optimizedPath: "public/images/posts/meilisearch-blog-product-search-automation-hero.webp",
+            rawPath: "assets/images/raw/meilisearch-blog-product-search-automation-hero.jpg",
+            altKo: "Meilisearch 검색 인덱스 자동화를 검토하는 대표 이미지",
+            captionKo: "검색 인덱스 운영 게이트를 보여주는 이미지입니다.",
+            providerPromptKo:
+              "블로그 카드와 카탈로그 카드가 검색 인덱스 파이프라인을 거쳐 결과 패널로 연결되고 권한 필터, 재색인 일정, 호스팅 운영 게이트가 함께 보이는 한국어 비즈니스 자동화 대표 이미지.",
+            negativePromptKo: "official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+            categoryStyle: "automation category visual, search-index-operations-dashboard",
+            visualDifferentiationHint:
+              "meilisearch-blog-product-search-automation: search index pipeline with permission filter and hosting operations gate",
+            visualStyle: "teal, navy, soft cyan, warm amber",
+            composition: "문서 카드, 인덱스 파이프라인, 결과 패널, 운영 게이트를 좌우 흐름으로 배치한다.",
+            filename: "meilisearch-blog-product-search-automation-hero.jpg",
+            manifestEntry: {
+              src: "/images/posts/meilisearch-blog-product-search-automation-hero.webp",
+              rawPath: "assets/images/raw/meilisearch-blog-product-search-automation-hero.jpg",
+            },
+          },
+        ],
+      },
+      null,
+      2,
+    )}\n`,
+    "utf8",
+  );
+
+  const output = runTsxScript("scripts/audit-image-brief-quality.ts", tempDir);
+
+  assert.match(output, /audit:image-briefs PASS/);
+});
+
+test("image brief audit still rejects product as a visual image request", () => {
+  const tempDir = makeTempDir();
+  const briefDir = path.join(tempDir, "image-briefs");
+  fs.mkdirSync(briefDir, { recursive: true });
+
+  fs.writeFileSync(
+    path.join(briefDir, "biz2lab-article-image-briefs.json"),
+    `${JSON.stringify(
+      {
+        briefs: [
+          {
+            id: "search-index-automation-hero",
+            postSlug: "search-index-automation",
+            category: "automation",
+            usage: "hero",
+            targetPath: "assets/images/raw/search-index-automation-hero.jpg",
+            optimizedPath: "public/images/posts/search-index-automation-hero.webp",
+            altKo: "검색 인덱스 자동화를 검토하는 대표 이미지",
+            captionKo: "검색 인덱스 운영 게이트를 보여주는 이미지입니다.",
+            providerPromptKo:
+              "블로그 카드와 검색 결과 패널이 연결되는 자동화 대표 이미지. Add a product card beside the search result panel to make the visual look commercial.",
+            negativePromptKo: "official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+            categoryStyle: "automation category visual, search-index-operations-dashboard",
+            visualDifferentiationHint: "search index pipeline with permission filter and hosting operations gate",
+            visualStyle: "teal, navy, soft cyan, warm amber",
+            composition: "문서 카드, 인덱스 파이프라인, 결과 패널, 운영 게이트를 좌우 흐름으로 배치한다.",
+          },
+        ],
+      },
+      null,
+      2,
+    )}\n`,
+    "utf8",
+  );
+
+  assert.throws(
+    () => runTsxScript("scripts/audit-image-brief-quality.ts", tempDir),
+    /forbidden visual term product/,
+  );
+});
+
 test("prompt package audit passes generated packages for known slugs", () => {
   const tempDir = makeTempDir();
   const requestDir = path.join(tempDir, "image-requests", "generated");

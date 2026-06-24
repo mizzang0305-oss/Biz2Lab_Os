@@ -13,7 +13,7 @@ Create a safe, premium Biz2Lab hero image package for the article without genera
 ## Article Context
 - articleTitle: Meilisearch 분석: 블로그와 카탈로그 검색 자동화에 쓸 수 있을까?
 - categoryStyle: 업무 자동화, 검색 인덱스 운영, 문서/카탈로그 데이터 흐름
-- visualDifferentiationHint: meilisearch-search-index-automation: search index pipeline with permission filter, reindex schedule, and hosting operations gate
+- visualDifferentiationHint: meilisearch-blog-product-search-automation: search index pipeline with permission filter, reindex schedule, and hosting operations gate
 
 ## Recommended Image Type
 Premium SaaS/editorial business illustration with a category-specific search-index workflow and minimal in-image text.
@@ -32,8 +32,8 @@ watermark, real logo, 브랜드 로고, photo-realistic people, 사람 얼굴, p
 
 ## Filename And Paths
 - filename: meilisearch-blog-product-search-automation-hero.png
-- future rawPath: assets/images/raw/meilisearch-search-index-automation-hero.png
-- future optimizedPath: public/images/posts/meilisearch-search-index-automation-hero.webp
+- future rawPath: assets/images/raw/meilisearch-blog-product-search-automation-hero.jpg
+- future optimizedPath: public/images/posts/meilisearch-blog-product-search-automation-hero.webp
 
 ## Alt Text
 Meilisearch 검색 인덱스 자동화를 블로그와 카탈로그 운영 관점에서 검토하는 대표 이미지
@@ -44,12 +44,12 @@ Meilisearch 검색 인덱스 자동화를 블로그와 카탈로그 운영 관�
 ## Manifest Draft
 ```json
 {
-  "id": "meilisearch-search-index-automation-hero",
+  "id": "meilisearch-blog-product-search-automation-hero",
   "project": "biz2lab",
   "postSlug": "meilisearch-blog-product-search-automation",
   "usage": "hero",
-  "src": "/images/posts/meilisearch-search-index-automation-hero.webp",
-  "rawPath": "assets/images/raw/meilisearch-search-index-automation-hero.png",
+  "src": "/images/posts/meilisearch-blog-product-search-automation-hero.webp",
+  "rawPath": "assets/images/raw/meilisearch-blog-product-search-automation-hero.jpg",
   "altKo": "Meilisearch 검색 인덱스 자동화를 블로그와 카탈로그 운영 관점에서 검토하는 대표 이미지",
   "captionKo": "검색 인덱스, 권한 필터, 재색인, 호스팅 운영 게이트를 함께 보여주는 Meilisearch 검토 이미지입니다.",
   "width": 1200,
@@ -62,7 +62,7 @@ Meilisearch 검색 인덱스 자동화를 블로그와 카탈로그 운영 관�
 ```
 
 ## Article Update Plan
-- 실제 이미지 승인 후 frontmatter heroImage 후보: /images/posts/meilisearch-search-index-automation-hero.webp
+- 실제 이미지 승인 후 frontmatter heroImage 후보: /images/posts/meilisearch-blog-product-search-automation-hero.webp
 - 실제 이미지 승인 후 frontmatter heroAlt 후보: Meilisearch 검색 인덱스 자동화를 블로그와 카탈로그 운영 관점에서 검토하는 대표 이미지
 - 현재 단계에서는 기사 파일을 수정하지 않는다.
 - 적용 전 optimized WebP 파일 존재 여부와 시각 검수를 먼저 확인한다.
@@ -71,8 +71,8 @@ Meilisearch 검색 인덱스 자동화를 블로그와 카탈로그 운영 관�
 - Use only the local Codex-generated artifact workflow or another explicitly approved local image tool.
 - Keep the negative prompt rules active: no logos, people/faces, packaging imagery, Amazon/ecommerce storefront imagery, private data, fake screenshots, hotlinks, or copyrighted characters.
 - Do not create or import production raw/public files in this prompt-package step.
-- Future raw image path after approval: assets/images/raw/meilisearch-search-index-automation-hero.png.
-- Future optimized image path after approval: public/images/posts/meilisearch-search-index-automation-hero.webp.
+- Future raw image path after approval: assets/images/raw/meilisearch-blog-product-search-automation-hero.jpg.
+- Future optimized image path after approval: public/images/posts/meilisearch-blog-product-search-automation-hero.webp.
 - Do not mutate article files unless the optimized local WebP exists and publication is explicitly requested.
 
 ## Validation Checklist
