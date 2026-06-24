@@ -204,10 +204,16 @@ Expected helper fields include:
   "openPrs": [],
   "nextAction": "...",
   "greenZoneAutomergeCandidate": true,
+  "artifactOnlyPreparationReady": true,
+  "requiresOwnerReview": false,
   "yellowZoneOwnerReview": false,
   "redZoneBlocked": false
 }
 ```
+
+`greenZoneAutomergeCandidate` can mean either a mergeable Green-Zone PR exists
+or the next safe unit is Green-Zone artifact-only preparation. Actual PR merge
+candidates remain listed under `openPrs.classified`.
 
 ## 5. Dirty Worktree Policy
 
@@ -284,6 +290,13 @@ When the prompt package already exists but the artifact is missing, generate
 only the local Codex artifact and validate the image package. Do not create a
 publication PR until the prompt package is merged and the scheduler dry-run is
 ready.
+
+The hourly runner reports this gate as `ARTIFACT_ONLY_PREPARATION_STARTED` when
+it can safely advance the artifact-only step. If the prompt package is already
+on `master`, that action is read-only: it records the expected approved Codex
+artifact path and stops without creating article, raw image, or public WebP
+files. It must not report publication readiness until a real matching artifact
+exists under the approved Codex root.
 
 Artifact-only preparation must not:
 
@@ -578,6 +591,8 @@ The runner stops after one meaningful action:
 
 - merge one Green-Zone prompt package PR
 - prepare one missing prompt package and open a PR
+- record one artifact-only preparation gate when the prompt package exists but
+  the approved Codex artifact is still missing
 - create one publication PR when the scheduler returns `DRY_RUN_READY`
 - merge one Green-Zone publication PR and then require production smoke
 - stop with `OWNER_REVIEW_REQUIRED` when Yellow/Red risk appears

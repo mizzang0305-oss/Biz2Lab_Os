@@ -442,6 +442,40 @@ Risk: Low.
   };
 }
 
+export function artifactOnlyPreparationPlan(status) {
+  const slug = status.currentTopic;
+  const heroKey = `${slug}-hero`;
+  const artifactDir = status.artifact?.artifactDir ??
+    path.join(os.homedir(), ".codex", "generated_images", heroKey);
+  const expectedArtifactPath = path.join(artifactDir, `${heroKey}.png`);
+  const promptPackage = {
+    complete: Boolean(status.promptPackage?.complete),
+    request: `image-requests/generated/${heroKey}.md`,
+    prompt: `image-requests/generated/${heroKey}.prompt.md`,
+    brief: `image-briefs/generated/${heroKey}.json`,
+  };
+
+  return {
+    action: "ARTIFACT_ONLY_PREPARATION_STARTED",
+    topic: slug,
+    heroKey,
+    promptPackage,
+    artifactDir,
+    expectedArtifactPath,
+    artifactExists: Boolean(status.artifact?.exists),
+    createsArticle: false,
+    importsRawOrPublicImage: false,
+    runsPublicationNonDry: false,
+    manualDeploy: false,
+    reason: promptPackage.complete
+      ? "Prompt package exists, but no approved local Codex image artifact is available."
+      : "Prompt package and approved local Codex image artifact are both missing.",
+    nextStep: promptPackage.complete
+      ? "Generate the approved local Codex image artifact at the expected path; do not create article/raw/public image files."
+      : "Create a Green-Zone prompt package PR before a real local Codex artifact can be prepared.",
+  };
+}
+
 async function mergeGreenZonePr(pr) {
   const latestPr = {
     ...pr,
@@ -524,16 +558,17 @@ async function chooseAction(status) {
   }
 
   if (!status.promptPackage?.complete) {
-    return createPromptPackagePr(status);
+    const plan = artifactOnlyPreparationPlan(status);
+    const promptPackagePr = createPromptPackagePr(status);
+    return {
+      ...plan,
+      artifactOnlyAction: promptPackagePr.action,
+      promptPackagePr,
+    };
   }
 
   if (!status.artifact?.exists) {
-    return {
-      action: "WAITING_FOR_CODEX_IMAGE_ARTIFACT",
-      topic: status.currentTopic,
-      artifactDir: status.artifact?.artifactDir,
-      reason: "Prompt package exists, but no approved local Codex image artifact is available.",
-    };
+    return artifactOnlyPreparationPlan(status);
   }
 
   return runPublicationScheduler(status);
@@ -584,8 +619,11 @@ async function runAutopilotOnce() {
       result: result.action,
       actionTaken: result.action,
       detail: result,
-      nextAction: result.action === "PROMPT_PACKAGE_PR_CREATED"
+      nextAction: result.action === "PROMPT_PACKAGE_PR_CREATED" ||
+        result.artifactOnlyAction === "PROMPT_PACKAGE_PR_CREATED"
         ? "Wait for PR checks; next hourly run may merge the prompt package if Green-Zone checks pass."
+        : result.action === "ARTIFACT_ONLY_PREPARATION_STARTED"
+          ? result.nextStep
         : "Rerun autopilot status for the next gate.",
     });
   } catch (error) {

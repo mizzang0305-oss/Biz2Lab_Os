@@ -26,6 +26,9 @@ test("Biz2Lab autopilot guide documents Green-Zone and hourly approval", () => {
   assert.match(guide, /Green Zone: Auto-Merge Allowed/);
   assert.match(guide, /Yellow Zone: Owner Review Required/);
   assert.match(guide, /Red Zone: Hard Stop/);
+  assert.match(guide, /artifactOnlyPreparationReady/);
+  assert.match(guide, /requiresOwnerReview/);
+  assert.match(guide, /ARTIFACT_ONLY_PREPARATION_STARTED/);
   assert.match(guide, /production smoke after merge/i);
   assert.doesNotMatch(guide, /Biz2Lab \?ㅽ넗\?뚯씪/);
   assert.equal(guide.includes("????筌???"), false);
@@ -36,6 +39,8 @@ test("Biz2Lab autopilot helper stays read-only and exposes zone fields", () => {
 
   assert.match(helper, /"read-only"/);
   assert.match(helper, /greenZoneAutomergeCandidate/);
+  assert.match(helper, /artifactOnlyPreparationReady/);
+  assert.match(helper, /requiresOwnerReview/);
   assert.match(helper, /yellowZoneOwnerReview/);
   assert.match(helper, /redZoneBlocked/);
   assert.match(helper, /BIZ2LAB_GREEN_ZONE_AUTOMERGE_APPROVED/);
@@ -52,8 +57,9 @@ test("Biz2Lab autopilot runner keeps one-action and safety gates explicit", () =
 
   assert.match(runner, /biz2lab-autopilot-status/);
   assert.match(runner, /PROMPT_PACKAGE_PR_CREATED/);
+  assert.match(runner, /ARTIFACT_ONLY_PREPARATION_STARTED/);
   assert.match(runner, /OWNER_REVIEW_REQUIRED/);
-  assert.match(runner, /WAITING_FOR_CODEX_IMAGE_ARTIFACT/);
+  assert.match(runner, /artifactOnlyPreparationPlan/);
   assert.match(runner, /data\/content-series-run-state\.json/);
   assert.match(runner, /currentBranch\(\)/);
   assert.match(runner, /branch !== expectedMasterBranch/);
@@ -63,6 +69,39 @@ test("Biz2Lab autopilot runner keeps one-action and safety gates explicit", () =
   assert.doesNotMatch(runner, /vercel.+deploy/i);
   assert.doesNotMatch(runner, /BIZ2LAB_ADMIN_TOKEN|SECRET|PASSWORD/);
   assert.doesNotMatch(runner, /setInterval|while\s*\(\s*true\s*\)/);
+});
+
+test("Biz2Lab autopilot runner treats a missing artifact as artifact-only preparation", async () => {
+  const runner = await importRunnerModule();
+  const plan = runner.artifactOnlyPreparationPlan({
+    currentTopic: "typesense-product-document-search-automation",
+    artifact: {
+      exists: false,
+      artifactDir: path.join(
+        "C:",
+        "Users",
+        "LOVE",
+        ".codex",
+        "generated_images",
+        "typesense-product-document-search-automation-hero",
+      ),
+    },
+    promptPackage: {
+      complete: true,
+    },
+  });
+
+  assert.equal(plan.action, "ARTIFACT_ONLY_PREPARATION_STARTED");
+  assert.equal(plan.topic, "typesense-product-document-search-automation");
+  assert.equal(plan.promptPackage.complete, true);
+  assert.equal(plan.createsArticle, false);
+  assert.equal(plan.importsRawOrPublicImage, false);
+  assert.equal(plan.runsPublicationNonDry, false);
+  assert.equal(plan.manualDeploy, false);
+  assert.match(
+    plan.expectedArtifactPath,
+    /typesense-product-document-search-automation-hero[\\/]typesense-product-document-search-automation-hero\.png$/,
+  );
 });
 
 test("Biz2Lab hourly task setup uses the canonical safe runner command", () => {

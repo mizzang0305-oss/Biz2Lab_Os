@@ -552,6 +552,12 @@ const seoKeywordMap = exists("data/seo-keyword-map.json")
 const keywordMapEntry = Array.isArray(seoKeywordMap)
   ? seoKeywordMap.find((entry) => entry.slug === slug) ?? null
   : null;
+const requiresOwnerReview = yellowZonePrs.length > 0 || redZonePrs.length > 0;
+const artifactOnlyPreparationReady =
+  status.cleanEnough &&
+  !requiresOwnerReview &&
+  prs.prs.length === 0 &&
+  (!promptPackage.complete || !artifact.exists);
 
 const report = {
   mode: "read-only",
@@ -576,7 +582,9 @@ const report = {
     dbPaymentMessageApiAllowed: false,
     productionSmokeRequired: true,
   },
-  greenZoneAutomergeCandidate: greenZoneCandidates.length > 0,
+  greenZoneAutomergeCandidate: greenZoneCandidates.length > 0 || artifactOnlyPreparationReady,
+  artifactOnlyPreparationReady,
+  requiresOwnerReview,
   yellowZoneOwnerReview: yellowZonePrs.length > 0,
   redZoneBlocked: redZonePrs.length > 0,
   git: status,
