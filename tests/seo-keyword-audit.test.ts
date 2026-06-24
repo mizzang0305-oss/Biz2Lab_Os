@@ -37,7 +37,19 @@ test("every published article has a keyword map entry and every entry targets an
     assert.equal(entry.route, post.route);
     assert.ok(entry.primaryKeyword.length >= 2);
     assert.ok(entry.secondaryKeywords.length >= 2);
+    assert.match(entry.hookStatus, /^(strong|needs-title-hook|needs-intro-hook|needs-meta-hook|needs-cta-hook)$/);
+    assert.ok(entry.lossAvoidanceAngle.length >= 10);
   }
+});
+
+test("every published article has a loss-avoidance hook status", () => {
+  const keywordMap = readSeoKeywordMap();
+  const audit = auditSeoKeywords();
+
+  assert.equal(keywordMap.every((entry) => entry.hookStatus === "strong"), true);
+  assert.equal(keywordMap.every((entry) => entry.lossAvoidanceAngle.length >= 10), true);
+  assert.equal(audit.articles.every((article) => article.hookStatus === "strong"), true);
+  assert.equal(audit.articles.every((article) => article.lossAvoidanceAngle.length >= 10), true);
 });
 
 test("keyword map does not contain fake analytics or performance fields", () => {

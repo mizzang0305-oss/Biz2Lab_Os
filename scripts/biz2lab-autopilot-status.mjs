@@ -6,6 +6,7 @@ import path from "node:path";
 
 const root = process.cwd();
 const protectedUntracked = new Set([".codex-remote-attachments/", ".codex/config.toml"]);
+const approvedGreenZonePhrase = "BIZ2LAB_GREEN_ZONE_AUTOMERGE_APPROVED";
 
 function repoPath(...parts) {
   return path.join(root, ...parts);
@@ -97,6 +98,234 @@ function openPullRequests() {
   }
 }
 
+function pullRequestFileNames(number) {
+  const result = run("gh", ["pr", "diff", String(number), "--name-only"], {
+    timeout: 60000,
+  });
+  if (!result.ok) {
+    return {
+      available: false,
+      error: result.stderr || result.stdout,
+      files: [],
+    };
+  }
+  return {
+    available: true,
+    files: result.stdout
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter(Boolean),
+  };
+}
+
+function hasPassingRemoteChecks(pr) {
+  const checks = Array.isArray(pr.statusCheckRollup) ? pr.statusCheckRollup : [];
+  if (checks.length === 0) {
+    return false;
+  }
+  return checks.every((check) => {
+    if (check.__typename === "CheckRun") {
+      return check.status === "COMPLETED" && check.conclusion === "SUCCESS";
+    }
+    if (check.__typename === "StatusContext") {
+      return check.state === "SUCCESS";
+    }
+    return false;
+  });
+}
+
+function isPromptPackagePath(file, heroKey) {
+  return (
+    file === `image-requests/generated/${heroKey}.md` ||
+    file === `image-requests/generated/${heroKey}.prompt.md` ||
+    file === `image-briefs/generated/${heroKey}.json`
+  );
+}
+
+function isAllowedPromptPackagePath(file, heroKey) {
+  return (
+    isPromptPackagePath(file, heroKey) ||
+    file === "docs/ops/biz2lab-content-autopilot.md" ||
+    file === "scripts/biz2lab-autopilot-status.mjs"
+  );
+}
+
+function isAllowedPublicationPath(file, slug, heroKey) {
+  const exactAllowed = new Set([
+    `content/ko/automation/${slug}.md`,
+    `assets/images/raw/${heroKey}.jpg`,
+    `public/images/posts/${heroKey}.webp`,
+    `image-requests/generated/${heroKey}.md`,
+    `image-requests/generated/${heroKey}.prompt.md`,
+    `image-briefs/generated/${heroKey}.json`,
+    "content/ko/content-index.json",
+    "data/image-assets.json",
+    "lib/article-image-concepts.ts",
+    "data/content-series-state.json",
+    "data/seo-keyword-map.json",
+    "content/ko/automation/free-open-source-automation-tools-series.md",
+    "docs/content-engine/open-source-automation-series.md",
+    "docs/image-engine/image-production-queue.md",
+    "image-requests/generated/IMAGE_PRODUCTION_QUEUE.md",
+    "tests/content-series-orchestrator.test.ts",
+    "tests/content-series-scheduler.test.ts",
+    "tests/seo-keyword-audit.test.ts",
+    "tests/seo-ops-dashboard.test.ts",
+  ]);
+  return exactAllowed.has(file);
+}
+
+function isSmallSeoContentCleanupPath(file) {
+  return (
+    file.startsWith("content/ko/") ||
+    file === "content/ko/content-index.json" ||
+    file === "data/seo-keyword-map.json" ||
+    file === "lib/seo-keyword-audit.ts" ||
+    file === "lib/seo-ops-dashboard.ts" ||
+    file === "tests/seo-keyword-audit.test.ts" ||
+    file === "tests/seo-ops-dashboard.test.ts" ||
+    file.startsWith("docs/ops/") ||
+    file.startsWith("reports/")
+  );
+}
+
+function pathZoneRisk(files) {
+  const redPatterns = [
+    /^\.env/,
+    /^data\/content-series-run-state\.json$/,
+    /^vercel\.json$/,
+    /^\.vercel\//,
+    /^\.github\/workflows\//,
+    /^next\.config\./,
+    /^app\/admin\//,
+    /^app\/login\//,
+    /^app\/api\/admin\//,
+    /^app\/api\/.*(payment|message|notification|db|database)/i,
+    /^lib\/.*(payment|message|notification|db|database|secret|credential)/i,
+  ];
+  const yellowPatterns = [
+    /^app\/ko\/ops\//,
+    /^lib\/ops-dashboard-auth\.ts$/,
+    /^middleware\.ts$/,
+    /^proxy\.ts$/,
+    /^lib\/.*analytics/i,
+    /^scripts\/content-series-(orchestrator|scheduler-runner)\.ts$/,
+    /^package\.json$/,
+  ];
+
+  const red = files.filter((file) => redPatterns.some((pattern) => pattern.test(file)));
+  const yellow = files.filter((file) => yellowPatterns.some((pattern) => pattern.test(file)));
+  const articleFiles = files.filter((file) => file.startsWith("content/ko/") && file.endsWith(".md"));
+  if (articleFiles.length > 3) {
+    yellow.push("large article rewrite across many files");
+  }
+  return {
+    red,
+    yellow,
+  };
+}
+
+function classifyPrSafety(pr, files, slug, heroKey) {
+  if (!files.available) {
+    return {
+      zone: "owner-review",
+      greenZoneAutomergeCandidate: false,
+      yellowZoneOwnerReview: true,
+      redZoneBlocked: false,
+      reason: "PR diff unavailable; owner review required.",
+      filesAvailable: false,
+      files: [],
+    };
+  }
+
+  const risks = pathZoneRisk(files.files);
+  if (risks.red.length > 0) {
+    return {
+      zone: "red",
+      greenZoneAutomergeCandidate: false,
+      yellowZoneOwnerReview: false,
+      redZoneBlocked: true,
+      reason: `Red-zone files present: ${risks.red.join(", ")}`,
+      filesAvailable: true,
+      files: files.files,
+    };
+  }
+  if (risks.yellow.length > 0) {
+    return {
+      zone: "yellow",
+      greenZoneAutomergeCandidate: false,
+      yellowZoneOwnerReview: true,
+      redZoneBlocked: false,
+      reason: `Yellow-zone owner review required: ${risks.yellow.join(", ")}`,
+      filesAvailable: true,
+      files: files.files,
+    };
+  }
+
+  const allPromptPackage = files.files.every((file) =>
+    isAllowedPromptPackagePath(file, heroKey),
+  );
+  const hasPromptPackage = files.files.some((file) => isPromptPackagePath(file, heroKey));
+  if (hasPromptPackage && allPromptPackage) {
+    return {
+      zone: "green",
+      greenZoneAutomergeCandidate: hasPassingRemoteChecks(pr),
+      yellowZoneOwnerReview: false,
+      redZoneBlocked: false,
+      reason: hasPassingRemoteChecks(pr)
+        ? "Green-zone prompt package PR with passing remote checks."
+        : "Prompt package scope is green-zone, but remote checks are not fully passing yet.",
+      filesAvailable: true,
+      files: files.files,
+    };
+  }
+
+  const allPublication = files.files.every((file) =>
+    isAllowedPublicationPath(file, slug, heroKey),
+  );
+  const hasPublicationArticle = files.files.includes(`content/ko/automation/${slug}.md`);
+  const hasPublicationState = files.files.includes("data/content-series-state.json");
+  if (hasPublicationArticle && allPublication) {
+    return {
+      zone: "green",
+      greenZoneAutomergeCandidate: hasPassingRemoteChecks(pr) && hasPublicationState,
+      yellowZoneOwnerReview: false,
+      redZoneBlocked: false,
+      reason:
+        hasPassingRemoteChecks(pr) && hasPublicationState
+          ? "Green-zone publication PR with state advancement and passing remote checks."
+          : "Publication scope is green-zone, but remote checks or state advancement are not complete.",
+      filesAvailable: true,
+      files: files.files,
+    };
+  }
+
+  const allSmallCleanup = files.files.every(isSmallSeoContentCleanupPath);
+  if (allSmallCleanup && files.files.length <= 12) {
+    return {
+      zone: "green",
+      greenZoneAutomergeCandidate: hasPassingRemoteChecks(pr),
+      yellowZoneOwnerReview: false,
+      redZoneBlocked: false,
+      reason: hasPassingRemoteChecks(pr)
+        ? "Green-zone small SEO/content cleanup PR with passing remote checks."
+        : "Small SEO/content cleanup scope is green-zone, but remote checks are not fully passing yet.",
+      filesAvailable: true,
+      files: files.files,
+    };
+  }
+
+  return {
+    zone: "yellow",
+    greenZoneAutomergeCandidate: false,
+    yellowZoneOwnerReview: true,
+    redZoneBlocked: false,
+    reason: "PR scope is not an approved green-zone pattern.",
+    filesAvailable: true,
+    files: files.files,
+  };
+}
+
 function schedulerDryRun() {
   const command = process.platform === "win32" ? "cmd.exe" : "npm";
   const args =
@@ -164,7 +393,31 @@ function classifyPr(pr, slug, heroKey) {
   return "topic";
 }
 
-function recommend({ status, promptPackage, publicationFiles, artifact, matchingPrs, scheduler }) {
+function classifyPrWithFiles(pr, files, slug, heroKey) {
+  if (files.available) {
+    const hasPromptPackage = files.files.some((file) => isPromptPackagePath(file, heroKey));
+    const hasPublicationArticle = files.files.includes(`content/ko/automation/${slug}.md`);
+    if (hasPublicationArticle) {
+      return "publication";
+    }
+    if (hasPromptPackage) {
+      return "prompt-package";
+    }
+  }
+  return classifyPr(pr, slug, heroKey);
+}
+
+function recommend({
+  status,
+  promptPackage,
+  publicationFiles,
+  artifact,
+  matchingPrs,
+  scheduler,
+  greenZoneCandidates,
+  yellowZonePrs,
+  redZonePrs,
+}) {
   const publicationPr = matchingPrs.find((item) => item.kind === "publication");
   const promptPr = matchingPrs.find((item) => item.kind === "prompt-package");
   if (!status.cleanEnough) {
@@ -172,6 +425,15 @@ function recommend({ status, promptPackage, publicationFiles, artifact, matching
       return "Recover data/content-series-run-state.json runtime dirtiness, then rerun autopilot status.";
     }
     return "BLOCKED_DIRTY_WORKTREE: inspect unexpected tracked or untracked files before continuing.";
+  }
+  if (redZonePrs.length > 0) {
+    return `OWNER_REVIEW_REQUIRED: red-zone PR #${redZonePrs[0].number} is open; do not merge automatically.`;
+  }
+  if (yellowZonePrs.length > 0) {
+    return `OWNER_REVIEW_REQUIRED: yellow-zone PR #${yellowZonePrs[0].number} is open; owner review is required before autopilot continues.`;
+  }
+  if (greenZoneCandidates.length > 0) {
+    return `Green-zone auto-merge candidate PR #${greenZoneCandidates[0].number}; verify local validation, merge, production-smoke if publication, then continue.`;
   }
   if (publicationPr) {
     return `Review publication PR #${publicationPr.number}; merge only after scope, validation, state, and Vercel checks pass.`;
@@ -213,11 +475,23 @@ function recommend({ status, promptPackage, publicationFiles, artifact, matching
   return "Run topic dry-run and inspect the next gate.";
 }
 
-function nextAction({ status, promptPackage, publicationFiles, artifact, matchingPrs, scheduler }) {
+function nextAction({
+  status,
+  promptPackage,
+  publicationFiles,
+  artifact,
+  matchingPrs,
+  scheduler,
+  greenZoneCandidates,
+  yellowZonePrs,
+  redZonePrs,
+}) {
   const publicationPr = matchingPrs.find((item) => item.kind === "publication");
   const promptPr = matchingPrs.find((item) => item.kind === "prompt-package");
 
   if (!status.cleanEnough) return "worktree recovery";
+  if (redZonePrs.length > 0 || yellowZonePrs.length > 0) return "OWNER_REVIEW_REQUIRED";
+  if (greenZoneCandidates.length > 0) return "green-zone auto-merge review";
   if (publicationPr) return "publication PR review";
   if (promptPr) return "prompt package PR review";
   if (!promptPackage.complete || !artifact.exists) return "artifact-only preparation";
@@ -244,9 +518,21 @@ const heroKey = `${slug}-hero`;
 const topic = topics.topics.find((item) => item.slug === slug || item.id === slug) ?? null;
 const status = gitStatus();
 const prs = openPullRequests();
-const matchingPrs = prs.prs
-  .map((pr) => ({ ...pr, kind: classifyPr(pr, slug, heroKey) }))
-  .filter((pr) => pr.kind !== "unrelated");
+const classifiedPrs = prs.prs.map((pr) => {
+  const files = pullRequestFileNames(pr.number);
+  const safety = classifyPrSafety(pr, files, slug, heroKey);
+  return {
+    ...pr,
+    kind: classifyPrWithFiles(pr, files, slug, heroKey),
+    safety,
+  };
+});
+const matchingPrs = classifiedPrs.filter((pr) => pr.kind !== "unrelated");
+const greenZoneCandidates = classifiedPrs.filter(
+  (pr) => pr.safety.greenZoneAutomergeCandidate,
+);
+const yellowZonePrs = classifiedPrs.filter((pr) => pr.safety.yellowZoneOwnerReview);
+const redZonePrs = classifiedPrs.filter((pr) => pr.safety.redZoneBlocked);
 const scheduler = schedulerDryRun();
 const artifact = findArtifact(heroKey);
 const promptPackage = {
@@ -282,6 +568,17 @@ const report = {
         manualDeploy: schedule.manualDeploy,
       }
     : null,
+  greenZonePolicy: {
+    approval: approvedGreenZonePhrase,
+    autoMergeAllowedForSafeContent: true,
+    manualDeployAllowed: false,
+    secretsAllowed: false,
+    dbPaymentMessageApiAllowed: false,
+    productionSmokeRequired: true,
+  },
+  greenZoneAutomergeCandidate: greenZoneCandidates.length > 0,
+  yellowZoneOwnerReview: yellowZonePrs.length > 0,
+  redZoneBlocked: redZonePrs.length > 0,
   git: status,
   scheduler: {
     ok: scheduler.ok,
@@ -292,6 +589,21 @@ const report = {
   openPrs: {
     available: prs.available,
     count: prs.prs.length,
+    classified: classifiedPrs.map((pr) => ({
+      number: pr.number,
+      title: pr.title,
+      url: pr.url,
+      headRefName: pr.headRefName,
+      isDraft: pr.isDraft,
+      mergeable: pr.mergeable,
+      kind: pr.kind,
+      zone: pr.safety.zone,
+      greenZoneAutomergeCandidate: pr.safety.greenZoneAutomergeCandidate,
+      yellowZoneOwnerReview: pr.safety.yellowZoneOwnerReview,
+      redZoneBlocked: pr.safety.redZoneBlocked,
+      reason: pr.safety.reason,
+      changedFiles: pr.safety.files,
+    })),
     matching: matchingPrs.map((pr) => ({
       number: pr.number,
       title: pr.title,
@@ -300,6 +612,11 @@ const report = {
       isDraft: pr.isDraft,
       mergeable: pr.mergeable,
       kind: pr.kind,
+      zone: pr.safety.zone,
+      greenZoneAutomergeCandidate: pr.safety.greenZoneAutomergeCandidate,
+      yellowZoneOwnerReview: pr.safety.yellowZoneOwnerReview,
+      redZoneBlocked: pr.safety.redZoneBlocked,
+      reason: pr.safety.reason,
     })),
     error: prs.error ?? null,
   },
@@ -331,6 +648,9 @@ report.nextRecommendedAction = recommend({
   artifact,
   matchingPrs,
   scheduler,
+  greenZoneCandidates,
+  yellowZonePrs,
+  redZonePrs,
 });
 report.nextAction = nextAction({
   status,
@@ -339,6 +659,9 @@ report.nextAction = nextAction({
   artifact,
   matchingPrs,
   scheduler,
+  greenZoneCandidates,
+  yellowZonePrs,
+  redZonePrs,
 });
 
 console.log(JSON.stringify(report, null, 2));

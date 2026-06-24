@@ -1,6 +1,6 @@
 ---
-title: 거래처 계약서 미작성 업체를 관리하는 방법
-description: '거래처 계약서 작성이나 서명이 멈춘 업체를 놓치지 않기 위해 미작성 사유, 마지막 연락일, 다음 조치일을 관리하는 방법입니다.'
+title: '미서명 계약 관리: 놓치기 전에 확인할 업무 기준'
+description: '미서명 계약 관리 검토 전에 확인할 시간 절감 포인트, 운영 리스크, 도입 기준을 Biz2Lab 관점에서 정리합니다.'
 slug: manage-unsigned-contracts
 locale: ko
 category: contracts-payments
@@ -15,31 +15,25 @@ tags:
   - 계약 관리
   - 계약서 미작성
 heroImage: /images/posts/manage-unsigned-contracts-hero.webp
-heroAlt: 미작성 계약 목록을 사유와 담당자, 재안내 일정으로 관리하는 후속 조치 보드
+heroAlt: '미작성 계약 목록을 사유와 담당자, 재안내 일정으로 관리하는 후속 조치 보드'
 canonical: 'https://www.biz2lab.com/ko/contracts-payments/manage-unsigned-contracts'
 noindex: false
 relatedPosts:
   - electronic-contract-system-basics
   - payment-reminder-message
   - connect-contract-payment-customer-management
-templateCta: 계약서 미작성 업체 후속 조치표
+templateCta: 시간·비용 손실 점검 체크리스트
 nextStep:
-  label: 문의하기
+  label: 자동화 손실 점검 문의
   href: /ko/contact
-  description: 계약서 미작성 업체와 결제 후속 조치 흐름을 정리합니다.
+  description: 도입 전에 줄일 수 있는 시간·비용·운영 리스크를 먼저 점검합니다.
 faq:
   - question: 미작성 계약 추적은 도구를 먼저 정해야 시작할 수 있나요?
-    answer: >-
-      아닙니다. 먼저 고객 구분값, 계약 유형, 미작성 사유, 후속 조치일을 같은 형식으로 정리해야 합니다. 도구는 그 다음에 고르는 편이
-      안전합니다. 입력값과 확인 기준이 정리되어 있으면 시트, 알림, AI 초안 중 어떤 방식이 맞는지 판단하기 쉽습니다.
+    answer: '아닙니다. 먼저 고객 구분값, 계약 유형, 미작성 사유, 후속 조치일을 같은 형식으로 정리해야 합니다. 도구는 그 다음에 고르는 편이 안전합니다. 입력값과 확인 기준이 정리되어 있으면 시트, 알림, AI 초안 중 어떤 방식이 맞는지 판단하기 쉽습니다.'
   - question: 작은 팀에서도 미작성 계약 추적을 바로 적용할 수 있나요?
-    answer: >-
-      가능합니다. 처음부터 전체 업무를 바꾸기보다 미작성 기간, 사유, 다음 요청일, 담당자처럼 한두 가지 기준만 고정해도 효과를 볼 수
-      있습니다. 담당자가 마지막 확인을 맡는 구조를 유지하면 실수 위험을 줄이면서 자동화를 실험할 수 있습니다.
+    answer: '가능합니다. 처음부터 전체 업무를 바꾸기보다 미작성 기간, 사유, 다음 요청일, 담당자처럼 한두 가지 기준만 고정해도 효과를 볼 수 있습니다. 담당자가 마지막 확인을 맡는 구조를 유지하면 실수 위험을 줄이면서 자동화를 실험할 수 있습니다.'
   - question: 'AI를 쓰면 무리한 독촉, 잘못된 계약 조건 발송, 상태 누락을 어떻게 막을 수 있나요?'
-    answer: >-
-      AI는 최종 실행자가 아니라 초안 작성자로 두는 것이 안전합니다. 고객 안내, 금액, 계약, 결제와 관련된 내용은 담당자가 원본
-      자료와 비교해야 합니다. 검토 완료 열과 수정 이력을 남기면 나중에 문제가 생겼을 때 원인을 추적할 수 있습니다.
+    answer: 'AI는 최종 실행자가 아니라 초안 작성자로 두는 것이 안전합니다. 고객 안내, 금액, 계약, 결제와 관련된 내용은 담당자가 원본 자료와 비교해야 합니다. 검토 완료 열과 수정 이력을 남기면 나중에 문제가 생겼을 때 원인을 추적할 수 있습니다.'
 ---
 ## 문제 정의
 
