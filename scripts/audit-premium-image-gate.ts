@@ -60,7 +60,15 @@ function normalizedImageSource(entry: ManifestEntry) {
   return entry.output ?? entry.src ?? "";
 }
 
-function checkForbiddenPath(label: string, value: string | undefined) {
+function stripStructuralPathToken(value: string, structuralToken?: string) {
+  if (!structuralToken) {
+    return value.toLowerCase();
+  }
+
+  return value.toLowerCase().replaceAll(structuralToken.toLowerCase(), "");
+}
+
+function checkForbiddenPath(label: string, value: string | undefined, structuralToken?: string) {
   if (!value) {
     return;
   }
@@ -69,7 +77,7 @@ function checkForbiddenPath(label: string, value: string | undefined) {
     errors.push(`${label}: external image URL is not allowed: ${value}`);
   }
 
-  const normalized = value.toLowerCase();
+  const normalized = stripStructuralPathToken(value, structuralToken);
   for (const term of forbiddenPathTerms) {
     if (normalized.includes(term)) {
       errors.push(`${label}: forbidden image path term ${term}`);
@@ -95,7 +103,7 @@ for (const post of posts) {
   const rendersCardImage = shouldRenderCardImage(post);
   const rendersArticleHero = shouldRenderArticleHeroImage(post);
 
-  checkForbiddenPath(`${post.slug} heroImage`, post.frontmatter.heroImage);
+  checkForbiddenPath(`${post.slug} heroImage`, post.frontmatter.heroImage, post.slug);
 
   if (isApproved) {
     const rawEntries = entriesForSlug(publicManifest, post.slug);
@@ -135,8 +143,8 @@ for (const post of posts) {
 
   for (const entry of entriesForSlug(publicManifest, post.slug)) {
     const src = normalizedImageSource(entry);
-    checkForbiddenPath(`${post.slug} manifest image`, src);
-    checkForbiddenPath(`${post.slug} manifest rawPath`, entry.rawPath);
+    checkForbiddenPath(`${post.slug} manifest image`, src, post.slug);
+    checkForbiddenPath(`${post.slug} manifest rawPath`, entry.rawPath, post.slug);
 
     if (entry.rawPath?.endsWith(".svg") && getPremiumImageStatus(post.slug) === "approved") {
       errors.push(`${post.slug}: fallback SVG must not be marked premium`);
@@ -174,8 +182,8 @@ if (duplicatePremiumSources.length > 0) {
 }
 
 for (const entry of publicManifest) {
-  checkForbiddenPath(entry.id ?? "public manifest entry", normalizedImageSource(entry));
-  checkForbiddenPath(entry.id ?? "public manifest rawPath", entry.rawPath);
+  checkForbiddenPath(entry.id ?? "public manifest entry", normalizedImageSource(entry), entry.postSlug ?? entry.id);
+  checkForbiddenPath(entry.id ?? "public manifest rawPath", entry.rawPath, entry.postSlug ?? entry.id);
 }
 
 const forbiddenFiles = [

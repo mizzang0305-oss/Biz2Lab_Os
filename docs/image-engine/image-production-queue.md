@@ -67,3 +67,5 @@ Content-series automation update: `directus-headless-cms-data-automation` has a 
 Content-series automation update: `pocketbase-lightweight-backend-saas-mvp` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
 
 Content-series automation update: `supabase-self-hosting-cost-operations-caution` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
+
+Content-series automation update: `meilisearch-blog-product-search-automation` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.

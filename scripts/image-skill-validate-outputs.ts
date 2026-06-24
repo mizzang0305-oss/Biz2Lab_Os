@@ -12,8 +12,8 @@ function main() {
 
   for (const brief of briefs) {
     const label = brief.id;
-    errors.push(...validateLocalImagePath(`${label} targetPath`, brief.targetPath));
-    errors.push(...validateLocalImagePath(`${label} optimizedPath`, brief.optimizedPath));
+    errors.push(...validateLocalImagePath(`${label} targetPath`, brief.targetPath, brief.postSlug));
+    errors.push(...validateLocalImagePath(`${label} optimizedPath`, brief.optimizedPath, brief.postSlug));
 
     if (!brief.targetPath.startsWith("assets/images/raw/")) {
       errors.push(`${label}: targetPath must stay under assets/images/raw`);

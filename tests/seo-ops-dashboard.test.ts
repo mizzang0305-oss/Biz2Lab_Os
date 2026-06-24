@@ -100,10 +100,10 @@ test("SEO ops dashboard derives article rows from local content without fake tra
 test("SEO ops dashboard surfaces scheduler state and analytics empty states", () => {
   const dashboard = getSeoOpsDashboard();
 
-  assert.equal(dashboard.scheduler.currentTopic, "meilisearch-blog-product-search-automation");
-  assert.equal(dashboard.scheduler.nextTopic, "typesense-product-document-search-automation");
+  assert.equal(dashboard.scheduler.currentTopic, "typesense-product-document-search-automation");
+  assert.equal(dashboard.scheduler.nextTopic, "umami-open-source-analytics-ga-alternative");
   assert.match(dashboard.scheduler.currentGate, /수동 배포 금지/);
-  assert.equal(dashboard.scheduler.nextRequiredArtifact, "meilisearch-blog-product-search-automation-hero");
+  assert.equal(dashboard.scheduler.nextRequiredArtifact, "typesense-product-document-search-automation-hero");
 
   assert.equal(dashboard.analytics.searchConsole.connected, false);
   assert.match(dashboard.analytics.searchConsole.emptyState, /Search Console/);

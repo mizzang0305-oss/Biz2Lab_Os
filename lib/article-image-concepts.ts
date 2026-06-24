@@ -494,6 +494,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["managed vs self-hosting balance", "Postgres operations", "Auth and Storage cards", "backup gate"],
     palette: automationPalette,
   },
+  "meilisearch-blog-product-search-automation": {
+    slug: "meilisearch-blog-product-search-automation",
+    category: "automation",
+    visualFamily: "search-index-automation-dashboard",
+    conceptKo: "Search index pipeline, blog and product cards, search result panel, indexing schedule, hosting operations gate가 있는 검색 자동화 이미지.",
+    altKo: "Meilisearch로 블로그와 상품 검색 index 자동화를 검토하는 대표 이미지",
+    captionKo: "Meilisearch는 검색 자동화 후보지만 index 운영과 hosting 조건 확인이 필요하다.",
+    labels: ["search index pipeline", "blog and product cards", "search result panel", "indexing schedule"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);
