@@ -105,25 +105,38 @@ function textFields(brief: ImageBriefLike) {
     .join("\n");
 }
 
-function checkForbiddenVisualTerms(label: string, brief: ImageBriefLike) {
-  const visualText = [
+function visualPolicyFields(brief: ImageBriefLike) {
+  return [
     brief.promptKo,
     brief.providerPromptKo,
     brief.visualStyle,
     brief.composition,
     brief.categoryStyle,
     brief.visualDifferentiationHint,
-    brief.targetPath,
-    brief.rawPath,
-    brief.optimizedPath,
-    brief.manifestEntry?.src,
-    brief.manifestEntry?.rawPath,
   ]
     .filter((value): value is string => Boolean(value))
-    .join("\n")
-    .toLowerCase();
+    .join("\n");
+}
 
-  if (/https?:\/\//i.test(visualText)) {
+function stripStructuralTokens(value: string, brief: ImageBriefLike) {
+  let stripped = value.toLowerCase();
+  const filenameStem = brief.filename?.replace(/\.[^.]+$/u, "");
+  const tokens = [brief.postSlug, brief.id, brief.filename, filenameStem]
+    .filter((token): token is string => Boolean(token))
+    .map((token) => token.toLowerCase());
+
+  for (const token of new Set(tokens)) {
+    stripped = stripped.replaceAll(token, "");
+  }
+
+  return stripped;
+}
+
+function checkForbiddenVisualTerms(label: string, brief: ImageBriefLike) {
+  const allText = textFields(brief);
+  const visualText = stripStructuralTokens(visualPolicyFields(brief), brief);
+
+  if (/https?:\/\//i.test(allText)) {
     addError(label, "external URL is not allowed");
   }
 
