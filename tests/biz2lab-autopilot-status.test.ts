@@ -1,13 +1,19 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import test from "node:test";
+import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
 const guidePath = path.join(root, "docs", "ops", "biz2lab-content-autopilot.md");
 const helperPath = path.join(root, "scripts", "biz2lab-autopilot-status.mjs");
 const runnerPath = path.join(root, "scripts", "biz2lab-autopilot-runner.mjs");
 const taskSetupPath = path.join(root, "scripts", "setup-biz2lab-autopilot-hourly-task.ps1");
+
+async function importRunnerModule() {
+  return await import(pathToFileURL(runnerPath).href);
+}
 
 test("Biz2Lab autopilot guide documents Green-Zone and hourly approval", () => {
   const guide = fs.readFileSync(guidePath, "utf8");
@@ -66,9 +72,84 @@ test("Biz2Lab hourly task setup uses the canonical safe runner command", () => {
   assert.match(setup, /New-TimeSpan -Hours 1/);
   assert.match(setup, /C:\\Users\\LOVE\\MyProjects\\Biz2Lab_Os/);
   assert.match(setup, /npm run ops:autopilot-run/);
-  assert.match(setup, /biz2lab-autopilot-hourly\.log/);
+  assert.match(setup, /biz2lab-autopilot-task-output\.log/);
   assert.match(setup, /MultipleInstances IgnoreNew/);
 
   assert.doesNotMatch(setup, /vercel\s+deploy/i);
   assert.doesNotMatch(setup, /BIZ2LAB_ADMIN_TOKEN|SECRET|PASSWORD/);
+});
+
+test("Biz2Lab autopilot runner and task use separate log files", async () => {
+  const runner = await importRunnerModule();
+
+  assert.equal(runner.runnerLogFileName, "biz2lab-autopilot-runner.log");
+  assert.equal(runner.taskOutputLogFileName, "biz2lab-autopilot-task-output.log");
+  assert.notEqual(runner.runnerLogFileName, runner.taskOutputLogFileName);
+});
+
+test("Biz2Lab autopilot runner lock blocks a fresh overlapping run", async () => {
+  const runner = await importRunnerModule();
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-autopilot-lock-"));
+  const lockPath = path.join(tempDir, runner.lockFileName);
+  const nowMs = Date.now();
+
+  try {
+    const first = runner.acquireAutopilotLock(lockPath, { nowMs });
+    const second = runner.acquireAutopilotLock(lockPath, {
+      nowMs: nowMs + 1000,
+      staleMs: runner.lockStaleMs,
+    });
+
+    assert.equal(first.acquired, true);
+    assert.equal(second.acquired, false);
+    assert.equal(second.status, "AUTOPILOT_ALREADY_RUNNING");
+  } finally {
+    runner.releaseAutopilotLock(lockPath);
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  }
+});
+
+test("Biz2Lab autopilot runner recovers a stale lock", async () => {
+  const runner = await importRunnerModule();
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-autopilot-stale-lock-"));
+  const lockPath = path.join(tempDir, runner.lockFileName);
+  const nowMs = Date.now();
+  const staleDate = new Date(nowMs - runner.lockStaleMs - 5000);
+
+  try {
+    fs.writeFileSync(lockPath, "stale", "utf8");
+    fs.utimesSync(lockPath, staleDate, staleDate);
+    const result = runner.acquireAutopilotLock(lockPath, {
+      nowMs,
+      staleMs: runner.lockStaleMs,
+    });
+
+    assert.equal(result.acquired, true);
+    assert.equal(result.staleRemoved, true);
+  } finally {
+    runner.releaseAutopilotLock(lockPath);
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  }
+});
+
+test("Biz2Lab autopilot runner logging failure does not throw", async () => {
+  const runner = await importRunnerModule();
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-autopilot-log-"));
+  const logPath = path.join(tempDir, runner.runnerLogFileName);
+  const busyError = Object.assign(new Error("busy"), { code: "EBUSY" });
+
+  try {
+    const result = runner.appendLogLineSafely(logPath, "line", {
+      retries: 1,
+      retryDelayMs: 0,
+      appendFile: () => {
+        throw busyError;
+      },
+    });
+
+    assert.equal(result.ok, false);
+    assert.equal(result.code, "EBUSY");
+  } finally {
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  }
 });

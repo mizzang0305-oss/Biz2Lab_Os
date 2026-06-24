@@ -3,10 +3,16 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const root = process.cwd();
 const logDirectory = path.join(root, ".tmp");
-const logPath = path.join(logDirectory, "biz2lab-autopilot-hourly.log");
+export const runnerLogFileName = "biz2lab-autopilot-runner.log";
+export const taskOutputLogFileName = "biz2lab-autopilot-task-output.log";
+export const lockFileName = "biz2lab-autopilot.lock";
+export const lockStaleMs = 45 * 60 * 1000;
+const logPath = path.join(logDirectory, runnerLogFileName);
+const lockPath = path.join(logDirectory, lockFileName);
 const protectedUntracked = new Set([".codex-remote-attachments/", ".codex/config.toml"]);
 const expectedMasterBranch = "master";
 
@@ -42,6 +48,49 @@ function ensureLogDirectory() {
   fs.mkdirSync(logDirectory, { recursive: true });
 }
 
+function sleepSync(milliseconds) {
+  if (milliseconds <= 0) {
+    return;
+  }
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, milliseconds);
+}
+
+export function appendLogLineSafely(targetPath, line, options = {}) {
+  const retries = options.retries ?? 3;
+  const retryDelayMs = options.retryDelayMs ?? 50;
+  const appendFile = options.appendFile ?? fs.appendFileSync;
+  let lastError = null;
+
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    try {
+      appendFile(targetPath, line, "utf8");
+      return { ok: true, attempts: attempt + 1 };
+    } catch (error) {
+      lastError = error;
+      const code = error?.code ?? "UNKNOWN";
+      const retryable = code === "EBUSY" || code === "EPERM";
+      if (!retryable || attempt >= retries) {
+        return {
+          ok: false,
+          attempts: attempt + 1,
+          code,
+          message: error instanceof Error ? error.message : String(error),
+        };
+      }
+      sleepSync(retryDelayMs);
+    }
+  }
+
+  return {
+    ok: false,
+    attempts: retries + 1,
+    code: lastError?.code ?? "UNKNOWN",
+    message: lastError instanceof Error ? lastError.message : String(lastError),
+  };
+}
+
 function writeLog(record) {
   ensureLogDirectory();
   const entry = {
@@ -49,8 +98,57 @@ function writeLog(record) {
     ...record,
   };
   const line = JSON.stringify(entry);
-  fs.appendFileSync(logPath, `${line}${os.EOL}`, "utf8");
+  const appendResult = appendLogLineSafely(logPath, `${line}${os.EOL}`);
   console.log(JSON.stringify(entry, null, 2));
+  if (!appendResult.ok) {
+    console.error(`AUTOPILOT_LOG_WRITE_SKIPPED: ${appendResult.code} ${appendResult.message}`);
+  }
+}
+
+export function acquireAutopilotLock(targetPath = lockPath, options = {}) {
+  const nowMs = options.nowMs ?? Date.now();
+  const staleMs = options.staleMs ?? lockStaleMs;
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+
+  if (fs.existsSync(targetPath)) {
+    const stat = fs.statSync(targetPath);
+    const ageMs = nowMs - stat.mtimeMs;
+    if (ageMs < staleMs) {
+      return {
+        acquired: false,
+        status: "AUTOPILOT_ALREADY_RUNNING",
+        ageMs,
+        staleRemoved: false,
+      };
+    }
+    fs.rmSync(targetPath, { force: true });
+    fs.writeFileSync(targetPath, JSON.stringify({
+      pid: process.pid,
+      startedAt: new Date(nowMs).toISOString(),
+      staleRemoved: true,
+    }), "utf8");
+    return {
+      acquired: true,
+      status: "LOCK_ACQUIRED",
+      ageMs,
+      staleRemoved: true,
+    };
+  }
+
+  fs.writeFileSync(targetPath, JSON.stringify({
+    pid: process.pid,
+    startedAt: new Date(nowMs).toISOString(),
+  }), "utf8");
+  return {
+    acquired: true,
+    status: "LOCK_ACQUIRED",
+    ageMs: 0,
+    staleRemoved: false,
+  };
+}
+
+export function releaseAutopilotLock(targetPath = lockPath) {
+  fs.rmSync(targetPath, { force: true });
 }
 
 function run(command, args, options = {}) {
@@ -441,7 +539,7 @@ async function chooseAction(status) {
   return runPublicationScheduler(status);
 }
 
-async function main() {
+async function runAutopilotOnce() {
   const startedAt = new Date().toISOString();
   const recovery = recoverRunStateIfSafe();
   const branch = currentBranch();
@@ -501,4 +599,28 @@ async function main() {
   }
 }
 
-void main();
+async function main() {
+  const lock = acquireAutopilotLock(lockPath);
+  if (!lock.acquired) {
+    writeLog({
+      startedAt: new Date().toISOString(),
+      result: "AUTOPILOT_ALREADY_RUNNING",
+      actionTaken: "NO_ACTION",
+      blocker: `Fresh lock exists at ${lockPath}.`,
+      lockAgeMs: lock.ageMs,
+      nextAction: "Wait for the current autopilot run to finish or for the lock to become stale.",
+    });
+    return;
+  }
+
+  try {
+    await runAutopilotOnce();
+  } finally {
+    releaseAutopilotLock(lockPath);
+  }
+}
+
+const invokedPath = process.argv[1] ? path.resolve(process.argv[1]) : null;
+if (invokedPath && fileURLToPath(import.meta.url) === invokedPath) {
+  void main();
+}

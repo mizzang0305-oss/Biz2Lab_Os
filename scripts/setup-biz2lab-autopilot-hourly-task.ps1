@@ -3,13 +3,13 @@ $ErrorActionPreference = "Stop"
 $TaskName = "Biz2Lab Autopilot Hourly"
 $RepoRoot = "C:\Users\LOVE\MyProjects\Biz2Lab_Os"
 $LogDirectory = Join-Path $RepoRoot ".tmp"
-$LogPath = Join-Path $LogDirectory "biz2lab-autopilot-hourly.log"
+$LogPath = Join-Path $LogDirectory "biz2lab-autopilot-task-output.log"
 
 if (!(Test-Path $LogDirectory)) {
   New-Item -ItemType Directory -Path $LogDirectory | Out-Null
 }
 
-$scheduledCommand = "cd '$RepoRoot'; if (!(Test-Path '.tmp')) { New-Item -ItemType Directory -Path '.tmp' | Out-Null }; git fetch origin; git checkout master; git pull --ff-only origin master; npm run ops:autopilot-run >> .tmp\biz2lab-autopilot-hourly.log 2>&1"
+$scheduledCommand = "cd '$RepoRoot'; if (!(Test-Path '.tmp')) { New-Item -ItemType Directory -Path '.tmp' | Out-Null }; git fetch origin; git checkout master; git pull --ff-only origin master; npm run ops:autopilot-run >> .tmp\biz2lab-autopilot-task-output.log 2>&1"
 
 $action = New-ScheduledTaskAction `
   -Execute "powershell.exe" `
