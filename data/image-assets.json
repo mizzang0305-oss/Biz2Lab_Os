@@ -412,5 +412,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "typesense-product-document-search-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "typesense-product-document-search-automation",
+    "usage": "hero",
+    "src": "/images/posts/typesense-product-document-search-automation-hero.webp",
+    "rawPath": "assets/images/raw/typesense-product-document-search-automation-hero.jpg",
+    "altKo": "Typesense로 상품과 문서 검색 API 자동화를 검토하는 대표 이미지",
+    "captionKo": "Typesense는 search API 후보지만 권한 필터와 reindex 운영 설계가 필요하다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]

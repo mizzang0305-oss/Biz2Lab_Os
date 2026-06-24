@@ -1158,6 +1158,29 @@
       "visualDifferentiationHint": "meilisearch-blog-product-search-automation: search-index-automation-dashboard",
       "filename": "meilisearch-blog-product-search-automation-hero.jpg",
       "rawPath": "assets/images/raw/meilisearch-blog-product-search-automation-hero.jpg"
+    },
+    {
+      "id": "typesense-product-document-search-automation-hero",
+      "postSlug": "typesense-product-document-search-automation",
+      "category": "automation",
+      "usage": "hero",
+      "targetPath": "assets/images/raw/typesense-product-document-search-automation-hero.jpg",
+      "optimizedPath": "public/images/posts/typesense-product-document-search-automation-hero.webp",
+      "altKo": "Typesense로 상품과 문서 검색 API 자동화를 검토하는 대표 이미지",
+      "captionKo": "Typesense는 search API 후보지만 권한 필터와 reindex 운영 설계가 필요하다.",
+      "style": "search-api-catalog-document-control-board, Korean business editorial raster hero, minimal text, no title inside image",
+      "promptKo": "Search API panel, catalog and document index, comparison board, permission filter, reindex checklist가 있는 검색 운영 이미지.",
+      "providerPromptKo": "Typesense 분석: 상품·문서 검색 자동화 엔진으로 쓸 수 있을까? 대표 이미지. Search API panel, catalog and document index, comparison board, permission filter, reindex checklist가 있는 검색 운영 이미지. Include: search API panel, catalog and document index, comparison board, permission filter, reindex checklist. No official logos, no real customer data, no placeholder elements.",
+      "negativePromptKo": "official Typesense logo, private documents, customer PII, public data leak, search quality guarantee, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+      "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+      "composition": "Search API panel, catalog and document index, comparison board, permission filter, reindex checklist가 있는 검색 운영 이미지.",
+      "categoryStyle": "automation category visual, search-api-catalog-document-control-board",
+      "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+      "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+      "localOnly": true,
+      "visualDifferentiationHint": "typesense-product-document-search-automation: search-api-catalog-document-control-board",
+      "filename": "typesense-product-document-search-automation-hero.jpg",
+      "rawPath": "assets/images/raw/typesense-product-document-search-automation-hero.jpg"
     }
   ]
 }

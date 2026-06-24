@@ -85,6 +85,23 @@
     "lossAvoidanceAngle": "검색 도구를 성급하게 붙이면 비공개 데이터 노출과 재색인 운영 부담이 커질 수 있습니다"
   },
   {
+    "slug": "typesense-product-document-search-automation",
+    "route": "/ko/automation/typesense-product-document-search-automation",
+    "primaryKeyword": "Typesense 상품 검색 자동화",
+    "secondaryKeywords": [
+      "Typesense 문서 검색",
+      "검색 API 자동화",
+      "상품 검색 엔진",
+      "오픈소스 검색 엔진 비교"
+    ],
+    "searchIntent": "business-use",
+    "audience": "운영자",
+    "cluster": "automation-tools",
+    "recommendedAction": "Typesense를 상품·문서 검색 API 후보로 검토하되 권한 필터, 재색인, 호스팅 조건을 함께 확인합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "검색 인덱스를 성급하게 붙이면 비공개 데이터 노출과 재색인 운영 부담이 커질 수 있습니다"
+  },
+  {
     "slug": "open-webui-local-llm-admin-portal",
     "route": "/ko/automation/open-webui-local-llm-admin-portal",
     "primaryKeyword": "Open WebUI 로컬 LLM",

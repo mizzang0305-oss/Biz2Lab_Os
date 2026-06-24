@@ -1848,6 +1848,50 @@
     "rawPath": "assets/images/raw/supabase-self-hosting-cost-operations-caution-hero.jpg"
   },
   {
+    "id": "typesense-product-document-search-automation-1200",
+    "project": "biz2lab",
+    "postSlug": "typesense-product-document-search-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/typesense-product-document-search-automation-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/typesense-product-document-search-automation-hero.jpg"
+  },
+  {
+    "id": "typesense-product-document-search-automation-800",
+    "project": "biz2lab",
+    "postSlug": "typesense-product-document-search-automation",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/typesense-product-document-search-automation-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/typesense-product-document-search-automation-hero.jpg"
+  },
+  {
+    "id": "typesense-product-document-search-automation-400",
+    "project": "biz2lab",
+    "postSlug": "typesense-product-document-search-automation",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/typesense-product-document-search-automation-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/typesense-product-document-search-automation-hero.jpg"
+  },
+  {
+    "id": "typesense-product-document-search-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "typesense-product-document-search-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/typesense-product-document-search-automation-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/typesense-product-document-search-automation-hero.jpg"
+  },
+  {
     "id": "unify-order-channels-1200",
     "project": "biz2lab",
     "postSlug": "unify-order-channels",

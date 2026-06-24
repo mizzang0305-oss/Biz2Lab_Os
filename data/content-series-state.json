@@ -1,7 +1,7 @@
 {
   "series": "free-open-source-automation-tools",
   "title": "무료 오픈소스 자동화 도구 시리즈",
-  "currentTopic": "typesense-product-document-search-automation",
+  "currentTopic": "umami-open-source-analytics-ga-alternative",
   "completed": [
     "opencut-free-open-source-video-editor-ai-content-automation",
     "free-open-source-automation-tools-series",
@@ -22,10 +22,10 @@
     "directus-headless-cms-data-automation",
     "pocketbase-lightweight-backend-saas-mvp",
     "supabase-self-hosting-cost-operations-caution",
-    "meilisearch-blog-product-search-automation"
+    "meilisearch-blog-product-search-automation",
+    "typesense-product-document-search-automation"
   ],
   "next": [
-    "typesense-product-document-search-automation",
     "umami-open-source-analytics-ga-alternative"
   ],
   "gates": {

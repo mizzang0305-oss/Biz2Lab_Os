@@ -126,5 +126,7 @@ Meilisearch는 자동화 후보 도구입니다. 다만 고객 데이터, 결제
 - [Supabase 셀프호스팅 분석: 비용과 운영 부담 확인](/ko/automation/supabase-self-hosting-cost-operations-caution)
 - [Crawl4AI 분석: 블로그 리서치 자동화 관점](/ko/automation/crawl4ai-blog-research-automation)
 - [Obsidian 분석: 내부 지식 저장소 관점](/ko/automation/obsidian-business-knowledge-base)
+- [Typesense 분석: 상품·문서 검색 자동화 엔진으로 쓸 수 있을까?](/ko/automation/typesense-product-document-search-automation)
+
 
 한 줄 결론은 명확합니다. Meilisearch는 지금 당장 모든 운영을 맡길 완성형 핵심 도구라기보다, Biz2Lab / MyBiz 자동화 파이프라인에 붙일 수 있는지 검증할 후보 도구입니다.
