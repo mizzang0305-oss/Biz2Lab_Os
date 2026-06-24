@@ -266,6 +266,10 @@ function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
           <dd className="font-semibold text-slate-900">{row.searchIntent}</dd>
         </div>
         <div>
+          <dt className="text-slate-500">Hook</dt>
+          <dd className="font-semibold text-slate-900">{row.hookStatus}</dd>
+        </div>
+        <div>
           <dt className="text-slate-500">대표 이미지</dt>
           <dd>
             <StatusPill status={row.heroImageStatus}>{checkStatusLabel(row.heroImageStatus)}</StatusPill>
@@ -303,6 +307,7 @@ function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
           {row.optimizationStage}
         </span>
         <p className="text-sm text-slate-700">{row.recommendedAction}</p>
+        <p className="text-sm text-slate-600">{row.lossAvoidanceAngle}</p>
       </div>
     </article>
   );
@@ -320,13 +325,14 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
         <table className="w-full table-fixed border-collapse text-left text-sm">
           <thead className="bg-slate-50 text-xs font-bold text-slate-600">
             <tr>
-              <th className="w-[22%] px-4 py-3">글 제목</th>
-              <th className="w-[18%] px-4 py-3">Primary keyword</th>
-              <th className="w-[12%] px-4 py-3">Cluster / intent</th>
-              <th className="w-[14%] px-4 py-3">기술 SEO</th>
-              <th className="w-[10%] px-4 py-3">Analytics</th>
-              <th className="w-[12%] px-4 py-3">Keyword / index</th>
-              <th className="w-[12%] px-4 py-3">다음 액션</th>
+              <th className="w-[20%] px-4 py-3">글 제목</th>
+              <th className="w-[15%] px-4 py-3">Primary keyword</th>
+              <th className="w-[11%] px-4 py-3">Cluster / intent</th>
+              <th className="w-[14%] px-4 py-3">Hook</th>
+              <th className="w-[11%] px-4 py-3">기술 SEO</th>
+              <th className="w-[9%] px-4 py-3">Analytics</th>
+              <th className="w-[10%] px-4 py-3">Keyword / index</th>
+              <th className="w-[10%] px-4 py-3">다음 액션</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
@@ -346,6 +352,10 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
                 <td className="px-4 py-4 text-slate-700">
                   <p className="font-semibold">{row.keywordCluster}</p>
                   <p className="mt-1 text-xs text-slate-500">{row.searchIntent}</p>
+                </td>
+                <td className="px-4 py-4 text-slate-700">
+                  <p className="font-semibold text-slate-950">{row.hookStatus}</p>
+                  <p className="mt-2 text-xs leading-5 text-slate-600">{row.lossAvoidanceAngle}</p>
                 </td>
                 <td className="px-4 py-4">
                   <div className="flex flex-col gap-2">
@@ -441,6 +451,8 @@ export function SeoOpsDashboardContent({ dashboard = getSeoOpsDashboard() }: { d
           <SummaryCard label="Keyword map" value={`${dashboard.summary.keywordMappedArticles}`} detail="mapped published articles" />
           <SummaryCard label="Keyword strong" value={`${dashboard.summary.keywordStrongArticles}`} detail="keyword/index ready" />
           <SummaryCard label="Keyword weak" value={`${dashboard.summary.keywordWeakArticles}`} detail="needs structural review" />
+          <SummaryCard label="Hook strong" value={`${dashboard.summary.hookStrongArticles}`} detail="loss-avoidance hook ready" />
+          <SummaryCard label="Hook review" value={`${dashboard.summary.hookNeedsReviewArticles}`} detail="needs hook rewrite" />
           <SummaryCard label="다음 topic" value="대기" detail={dashboard.summary.nextPublicationTopic} />
           <SummaryCard label="현재 gate" value={dashboard.summary.schedulerGate} detail={dashboard.scheduler.lastKnownIssue} />
           <SummaryCard label="Analytics" value={dashboard.summary.analyticsConnection} detail="가짜 수치 없음" />

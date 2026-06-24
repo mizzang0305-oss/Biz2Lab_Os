@@ -25,9 +25,18 @@ export const keywordClusters = [
 
 export const keywordAudiences = ["소상공인", "1인 사업자", "영업팀", "개발자", "운영자"] as const;
 
+export const keywordHookStatuses = [
+  "strong",
+  "needs-title-hook",
+  "needs-intro-hook",
+  "needs-meta-hook",
+  "needs-cta-hook",
+] as const;
+
 export type KeywordSearchIntent = (typeof keywordSearchIntents)[number];
 export type KeywordCluster = (typeof keywordClusters)[number];
 export type KeywordAudience = (typeof keywordAudiences)[number];
+export type KeywordHookStatus = (typeof keywordHookStatuses)[number];
 
 export type KeywordCoverageStatus =
   | "GOOD"
@@ -45,6 +54,8 @@ export type SeoKeywordMapEntry = {
   searchIntent: KeywordSearchIntent;
   audience: KeywordAudience;
   cluster: KeywordCluster;
+  hookStatus: KeywordHookStatus;
+  lossAvoidanceAngle: string;
   recommendedAction: string;
 };
 
@@ -58,6 +69,8 @@ export type SeoKeywordArticleAudit = {
   searchIntent: KeywordSearchIntent;
   audience: KeywordAudience;
   cluster: KeywordCluster;
+  hookStatus: KeywordHookStatus;
+  lossAvoidanceAngle: string;
   keywordCoverageStatus: KeywordCoverageStatus;
   indexReadinessStatus: KeywordCoverageStatus;
   recommendedAction: string;
@@ -103,6 +116,8 @@ const keywordMapEntrySchema = z.object({
   searchIntent: z.enum(keywordSearchIntents),
   audience: z.enum(keywordAudiences),
   cluster: z.enum(keywordClusters),
+  hookStatus: z.enum(keywordHookStatuses),
+  lossAvoidanceAngle: z.string().min(10),
   recommendedAction: z.string().min(4),
 });
 
@@ -322,6 +337,8 @@ function auditPost({
     searchIntent: entry.searchIntent,
     audience: entry.audience,
     cluster: entry.cluster,
+    hookStatus: entry.hookStatus,
+    lossAvoidanceAngle: entry.lossAvoidanceAngle,
     keywordCoverageStatus: coverageStatus,
     indexReadinessStatus: indexStatus,
     recommendedAction: recommendedAction(entry, coverageStatus, indexStatus),

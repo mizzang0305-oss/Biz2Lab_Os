@@ -89,6 +89,10 @@ test("SEO ops dashboard derives article rows from local content without fake tra
   assert.notEqual(firstRow.searchIntent, "미등록");
   assert.match(firstRow.keywordCoverageStatus, /GOOD|NEEDS_/);
   assert.match(firstRow.indexReadinessStatus, /GOOD|NEEDS_/);
+  assert.equal(firstRow.hookStatus, "strong");
+  assert.ok(firstRow.lossAvoidanceAngle.length >= 10);
+  assert.equal(dashboard.summary.hookStrongArticles, publicPosts.length);
+  assert.equal(dashboard.summary.hookNeedsReviewArticles, 0);
 
   assert.equal(dashboard.articles.every((row) => row.trafficStatus === "not-connected"), true);
 });
@@ -138,6 +142,8 @@ test("SEO ops dashboard page renders the requested operational sections", () => 
   assert.match(html, /글별 SEO 운영 테이블/);
   assert.match(html, /Primary keyword/);
   assert.match(html, /Keyword \/ index/);
+  assert.match(html, /Hook strong/);
+  assert.match(html, /loss-avoidance hook ready/);
   assert.match(html, /Keyword map/);
   assert.match(html, /Search Console 데이터가 아직 연결되지 않았습니다/);
   assert.match(html, /유입 사이트 데이터가 아직 연결되지 않았습니다/);

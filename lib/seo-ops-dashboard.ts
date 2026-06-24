@@ -5,7 +5,12 @@ import { z } from "zod";
 
 import { getPublicPosts, type Post } from "@/lib/posts";
 import { getSeoOpsAnalyticsConnectors, type SeoOpsAnalyticsProvider } from "@/lib/seo-ops-analytics";
-import { auditSeoKeywords, type KeywordCoverageStatus, type SeoKeywordArticleAudit } from "@/lib/seo-keyword-audit";
+import {
+  auditSeoKeywords,
+  type KeywordCoverageStatus,
+  type KeywordHookStatus,
+  type SeoKeywordArticleAudit,
+} from "@/lib/seo-keyword-audit";
 import { staticPublicRoutes } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 
@@ -44,6 +49,8 @@ export type SeoOpsArticleRow = {
   searchIntent: string;
   keywordCoverageStatus: KeywordCoverageStatus;
   indexReadinessStatus: KeywordCoverageStatus;
+  hookStatus: KeywordHookStatus;
+  lossAvoidanceAngle: string;
   optimizationStage: SeoOpsOptimizationStage;
   recommendedAction: string;
 };
@@ -84,6 +91,8 @@ export type SeoOpsDashboard = {
     keywordMappedArticles: number;
     keywordStrongArticles: number;
     keywordWeakArticles: number;
+    hookStrongArticles: number;
+    hookNeedsReviewArticles: number;
   };
   articles: SeoOpsArticleRow[];
   analytics: {
@@ -368,6 +377,8 @@ function buildArticleRows({
       searchIntent: keywordAudit?.searchIntent ?? "미등록",
       keywordCoverageStatus: keywordAudit?.keywordCoverageStatus ?? "NEEDS_KEYWORD_ALIGNMENT",
       indexReadinessStatus: keywordAudit?.indexReadinessStatus ?? "NEEDS_INDEX_CHECK",
+      hookStatus: keywordAudit?.hookStatus ?? "needs-title-hook",
+      lossAvoidanceAngle: keywordAudit?.lossAvoidanceAngle ?? "손실 회피 각도 미등록",
     } satisfies Omit<SeoOpsArticleRow, "optimizationStage" | "recommendedAction">;
     const stage = optimizationStage(baseRow);
 
@@ -583,6 +594,8 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
       keywordMappedArticles: keywordAudit.summary.mappedArticles,
       keywordStrongArticles: keywordAudit.summary.strongArticles,
       keywordWeakArticles: keywordAudit.summary.weakArticles,
+      hookStrongArticles: articles.filter((row) => row.hookStatus === "strong").length,
+      hookNeedsReviewArticles: articles.filter((row) => row.hookStatus !== "strong").length,
     },
     articles,
     analytics,

@@ -3,440 +3,748 @@
     "slug": "flowise-ai-agent-workflow-automation",
     "route": "/ko/automation/flowise-ai-agent-workflow-automation",
     "primaryKeyword": "Flowise AI 에이전트 자동화",
-    "secondaryKeywords": ["Flowise 업무 자동화", "AI 에이전트 워크플로우", "RAG 승인 게이트", "오픈소스 AI 워크플로우"],
+    "secondaryKeywords": [
+      "Flowise 업무 자동화",
+      "AI 에이전트 워크플로우",
+      "RAG 승인 게이트",
+      "오픈소스 AI 워크플로우"
+    ],
     "searchIntent": "business-use",
     "audience": "운영자",
     "cluster": "ai-workflow",
-    "recommendedAction": "AI 에이전트 자동화와 승인 게이트 관점의 검색 의도를 유지합니다."
+    "recommendedAction": "AI 에이전트 자동화와 승인 게이트 관점의 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "승인 게이트와 운영 기준 없이 연결하면 자동화보다 검수 부담이 먼저 커질 수 있습니다"
   },
   {
     "slug": "directus-headless-cms-data-automation",
     "route": "/ko/automation/directus-headless-cms-data-automation",
     "primaryKeyword": "Directus headless CMS",
-    "secondaryKeywords": ["Directus 데이터 자동화", "headless CMS 데이터 운영", "Directus 권한 관리", "데이터 운영 자동화"],
+    "secondaryKeywords": [
+      "Directus 데이터 자동화",
+      "headless CMS 데이터 운영",
+      "Directus 권한 관리",
+      "데이터 운영 자동화"
+    ],
     "searchIntent": "business-use",
     "audience": "운영자",
     "cluster": "automation-tools",
-    "recommendedAction": "Directus를 headless CMS, API, 권한 관리, 데이터 운영 자동화 후보로 연결합니다."
+    "recommendedAction": "Directus를 headless CMS, API, 권한 관리, 데이터 운영 자동화 후보로 연결합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "pocketbase-lightweight-backend-saas-mvp",
     "route": "/ko/automation/pocketbase-lightweight-backend-saas-mvp",
     "primaryKeyword": "PocketBase SaaS MVP",
-    "secondaryKeywords": ["PocketBase 백엔드","가벼운 백엔드 SaaS","PocketBase 인증 파일 API","SaaS MVP 백엔드"],
+    "secondaryKeywords": [
+      "PocketBase 백엔드",
+      "가벼운 백엔드 SaaS",
+      "PocketBase 인증 파일 API",
+      "SaaS MVP 백엔드"
+    ],
     "searchIntent": "business-use",
     "audience": "개발자",
     "cluster": "automation-tools",
-    "recommendedAction": "PocketBase를 가벼운 백엔드, 인증, 파일 저장소, API, self-hosting 운영 책임까지 함께 검토합니다."
+    "recommendedAction": "PocketBase를 가벼운 백엔드, 인증, 파일 저장소, API, self-hosting 운영 책임까지 함께 검토합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "supabase-self-hosting-cost-operations-caution",
     "route": "/ko/automation/supabase-self-hosting-cost-operations-caution",
     "primaryKeyword": "Supabase 셀프호스팅",
-    "secondaryKeywords": ["Supabase self-hosting", "Supabase 비용", "Postgres 운영", "Auth Storage 백업"],
+    "secondaryKeywords": [
+      "Supabase self-hosting",
+      "Supabase 비용",
+      "Postgres 운영",
+      "Auth Storage 백업"
+    ],
     "searchIntent": "caution",
     "audience": "개발자",
     "cluster": "open-source-caution",
-    "recommendedAction": "Supabase 셀프호스팅을 비용 절감 주장보다 Postgres, Auth, Storage 운영 부담과 함께 검토합니다."
+    "recommendedAction": "Supabase 셀프호스팅을 비용 절감 주장보다 Postgres, Auth, Storage 운영 부담과 함께 검토합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "라이선스·비용·운영 책임을 늦게 확인하면 나중에 전환 비용이 커질 수 있습니다"
   },
   {
     "slug": "open-webui-local-llm-admin-portal",
     "route": "/ko/automation/open-webui-local-llm-admin-portal",
     "primaryKeyword": "Open WebUI 로컬 LLM",
-    "secondaryKeywords": ["로컬 LLM 운영 UI", "사내 AI 포털", "Open WebUI 업무 활용", "LLM 관리자 포털"],
+    "secondaryKeywords": [
+      "로컬 LLM 운영 UI",
+      "사내 AI 포털",
+      "Open WebUI 업무 활용",
+      "LLM 관리자 포털"
+    ],
     "searchIntent": "business-use",
     "audience": "운영자",
     "cluster": "ai-workflow",
-    "recommendedAction": "로컬 LLM 운영과 사내 AI 포털 키워드 연결을 유지합니다."
+    "recommendedAction": "로컬 LLM 운영과 사내 AI 포털 키워드 연결을 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "승인 게이트와 운영 기준 없이 연결하면 자동화보다 검수 부담이 먼저 커질 수 있습니다"
   },
   {
     "slug": "crawl4ai-blog-research-automation",
     "route": "/ko/automation/crawl4ai-blog-research-automation",
     "primaryKeyword": "Crawl4AI 블로그 리서치 자동화",
-    "secondaryKeywords": ["AI 리서치 자동화", "블로그 소재 수집", "웹 크롤링 자동화", "콘텐츠 조사 자동화"],
+    "secondaryKeywords": [
+      "AI 리서치 자동화",
+      "블로그 소재 수집",
+      "웹 크롤링 자동화",
+      "콘텐츠 조사 자동화"
+    ],
     "searchIntent": "business-use",
     "audience": "운영자",
     "cluster": "content-automation",
-    "recommendedAction": "블로그 리서치와 콘텐츠 자동화 검색 의도를 함께 노출합니다."
+    "recommendedAction": "블로그 리서치와 콘텐츠 자동화 검색 의도를 함께 노출합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "콘텐츠 흐름을 늦게 점검하면 제작 시간과 재작업 비용이 계속 쌓일 수 있습니다"
   },
   {
     "slug": "dify-llm-app-builder-business-automation",
     "route": "/ko/automation/dify-llm-app-builder-business-automation",
     "primaryKeyword": "Dify LLM 앱 빌더",
-    "secondaryKeywords": ["Dify 업무 자동화", "LLM 앱 빌더", "RAG 챗봇 운영", "AI 앱 자동화"],
+    "secondaryKeywords": [
+      "Dify 업무 자동화",
+      "LLM 앱 빌더",
+      "RAG 챗봇 운영",
+      "AI 앱 자동화"
+    ],
     "searchIntent": "business-use",
     "audience": "운영자",
     "cluster": "ai-workflow",
-    "recommendedAction": "Dify를 LLM 앱 빌더와 업무 자동화 후보로 연결합니다."
+    "recommendedAction": "Dify를 LLM 앱 빌더와 업무 자동화 후보로 연결합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "승인 게이트와 운영 기준 없이 연결하면 자동화보다 검수 부담이 먼저 커질 수 있습니다"
   },
   {
     "slug": "langflow-ai-workflow-automation",
     "route": "/ko/automation/langflow-ai-workflow-automation",
     "primaryKeyword": "Langflow AI 워크플로우",
-    "secondaryKeywords": ["Langflow 자동화", "LLM 워크플로우", "AI 플로우 빌더", "Langflow 업무 활용"],
+    "secondaryKeywords": [
+      "Langflow 자동화",
+      "LLM 워크플로우",
+      "AI 플로우 빌더",
+      "Langflow 업무 활용"
+    ],
     "searchIntent": "business-use",
     "audience": "개발자",
     "cluster": "ai-workflow",
-    "recommendedAction": "LLM 워크플로우와 시각적 플로우 빌더 의도를 분리해 유지합니다."
+    "recommendedAction": "LLM 워크플로우와 시각적 플로우 빌더 의도를 분리해 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "승인 게이트와 운영 기준 없이 연결하면 자동화보다 검수 부담이 먼저 커질 수 있습니다"
   },
   {
     "slug": "n8n-workflow-automation-license-caution",
     "route": "/ko/automation/n8n-workflow-automation-license-caution",
     "primaryKeyword": "n8n 자동화 도구",
-    "secondaryKeywords": ["n8n 업무 자동화", "n8n self-hosting", "워크플로우 자동화 라이선스", "n8n 상업 사용 검토"],
+    "secondaryKeywords": [
+      "n8n 업무 자동화",
+      "n8n self-hosting",
+      "워크플로우 자동화 라이선스",
+      "n8n 상업 사용 검토"
+    ],
     "searchIntent": "caution",
     "audience": "운영자",
     "cluster": "open-source-caution",
-    "recommendedAction": "라이선스와 self-hosting 조건을 과장 없이 점검하는 검색 의도를 유지합니다."
+    "recommendedAction": "라이선스와 self-hosting 조건을 과장 없이 점검하는 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "라이선스·비용·운영 책임을 늦게 확인하면 나중에 전환 비용이 커질 수 있습니다"
   },
   {
     "slug": "nocodb-airtable-alternative-license-caution",
     "route": "/ko/automation/nocodb-airtable-alternative-license-caution",
     "primaryKeyword": "NocoDB 라이선스 주의",
-    "secondaryKeywords": ["NocoDB Airtable 대체", "오픈소스 데이터베이스 자동화", "NocoDB self-hosting", "라이선스 검토"],
+    "secondaryKeywords": [
+      "NocoDB Airtable 대체",
+      "오픈소스 데이터베이스 자동화",
+      "NocoDB self-hosting",
+      "라이선스 검토"
+    ],
     "searchIntent": "caution",
     "audience": "운영자",
     "cluster": "open-source-caution",
-    "recommendedAction": "Airtable 대체 기대와 라이선스 검토 의도를 함께 다룹니다."
+    "recommendedAction": "Airtable 대체 기대와 라이선스 검토 의도를 함께 다룹니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "라이선스·비용·운영 책임을 늦게 확인하면 나중에 전환 비용이 커질 수 있습니다"
   },
   {
     "slug": "appsmith-internal-dashboard-automation",
     "route": "/ko/automation/appsmith-internal-dashboard-automation",
     "primaryKeyword": "Appsmith 내부 대시보드 자동화",
-    "secondaryKeywords": ["Appsmith 업무 자동화", "내부 관리자 도구", "오픈소스 내부 툴", "운영 대시보드"],
+    "secondaryKeywords": [
+      "Appsmith 업무 자동화",
+      "내부 관리자 도구",
+      "오픈소스 내부 툴",
+      "운영 대시보드"
+    ],
     "searchIntent": "business-use",
     "audience": "운영자",
     "cluster": "automation-tools",
-    "recommendedAction": "내부 툴과 운영 대시보드 검색 의도를 명확히 유지합니다."
+    "recommendedAction": "내부 툴과 운영 대시보드 검색 의도를 명확히 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "baserow-open-source-database-automation",
     "route": "/ko/automation/baserow-open-source-database-automation",
     "primaryKeyword": "Baserow 오픈소스 데이터베이스",
-    "secondaryKeywords": ["Baserow Airtable 대체", "업무 데이터베이스 자동화", "상품 DB 자동화", "고객 문의 DB"],
+    "secondaryKeywords": [
+      "Baserow Airtable 대체",
+      "업무 데이터베이스 자동화",
+      "상품 DB 자동화",
+      "고객 문의 DB"
+    ],
     "searchIntent": "comparison",
     "audience": "소상공인",
     "cluster": "automation-tools",
-    "recommendedAction": "Airtable 대체 비교와 업무 데이터베이스 활용 의도를 연결합니다."
+    "recommendedAction": "Airtable 대체 비교와 업무 데이터베이스 활용 의도를 연결합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "비교 기준 없이 고르면 도입 후 다시 옮기는 시간과 비용이 생길 수 있습니다"
   },
   {
     "slug": "huginn-monitoring-automation-agent",
     "route": "/ko/automation/huginn-monitoring-automation-agent",
     "primaryKeyword": "Huginn 모니터링 자동화",
-    "secondaryKeywords": ["Huginn 자동화 에이전트", "뉴스 모니터링 자동화", "가격 모니터링 자동화", "경쟁사 모니터링"],
+    "secondaryKeywords": [
+      "Huginn 자동화 에이전트",
+      "뉴스 모니터링 자동화",
+      "가격 모니터링 자동화",
+      "경쟁사 모니터링"
+    ],
     "searchIntent": "business-use",
     "audience": "운영자",
     "cluster": "automation-tools",
-    "recommendedAction": "모니터링 에이전트와 운영 알림 의도를 중심으로 유지합니다."
+    "recommendedAction": "모니터링 에이전트와 운영 알림 의도를 중심으로 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "kestra-data-ai-workflow-orchestration",
     "route": "/ko/automation/kestra-data-ai-workflow-orchestration",
     "primaryKeyword": "Kestra 데이터 AI 워크플로",
-    "secondaryKeywords": ["Kestra 데이터 파이프라인", "AI 워크플로우 오케스트레이션", "스케줄링 자동화", "개발자 워크플로우"],
+    "secondaryKeywords": [
+      "Kestra 데이터 파이프라인",
+      "AI 워크플로우 오케스트레이션",
+      "스케줄링 자동화",
+      "개발자 워크플로우"
+    ],
     "searchIntent": "business-use",
     "audience": "개발자",
     "cluster": "automation-tools",
-    "recommendedAction": "데이터 파이프라인과 워크플로우 오케스트레이션 검색 의도를 함께 유지합니다."
+    "recommendedAction": "데이터 파이프라인과 워크플로우 오케스트레이션 검색 의도를 함께 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "node-red-local-business-automation-server",
     "route": "/ko/automation/node-red-local-business-automation-server",
     "primaryKeyword": "Node-RED 로컬 자동화 서버",
-    "secondaryKeywords": ["Node-RED 업무 자동화", "로컬 자동화 서버", "소상공인 자동화", "노코드 워크플로우"],
+    "secondaryKeywords": [
+      "Node-RED 업무 자동화",
+      "로컬 자동화 서버",
+      "소상공인 자동화",
+      "노코드 워크플로우"
+    ],
     "searchIntent": "business-use",
     "audience": "운영자",
     "cluster": "automation-tools",
-    "recommendedAction": "로컬 자동화 서버와 업무 자동화 후보 관점을 유지합니다."
+    "recommendedAction": "로컬 자동화 서버와 업무 자동화 후보 관점을 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "windmill-developer-workflow-automation",
     "route": "/ko/automation/windmill-developer-workflow-automation",
     "primaryKeyword": "Windmill 개발자 워크플로우 자동화",
-    "secondaryKeywords": ["Windmill 업무 자동화", "스크립트 자동화", "개발자 운영 자동화", "워크플로우 스케줄링"],
+    "secondaryKeywords": [
+      "Windmill 업무 자동화",
+      "스크립트 자동화",
+      "개발자 운영 자동화",
+      "워크플로우 스케줄링"
+    ],
     "searchIntent": "business-use",
     "audience": "개발자",
     "cluster": "automation-tools",
-    "recommendedAction": "개발자 워크플로우와 운영 자동화 사이의 검색 의도를 유지합니다."
+    "recommendedAction": "개발자 워크플로우와 운영 자동화 사이의 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "activepieces-ai-business-automation-n8n-alternative",
     "route": "/ko/automation/activepieces-ai-business-automation-n8n-alternative",
     "primaryKeyword": "Activepieces 업무 자동화",
-    "secondaryKeywords": ["Activepieces n8n 대안", "오픈소스 자동화 도구", "AI 업무 자동화", "노코드 자동화"],
+    "secondaryKeywords": [
+      "Activepieces n8n 대안",
+      "오픈소스 자동화 도구",
+      "AI 업무 자동화",
+      "노코드 자동화"
+    ],
     "searchIntent": "comparison",
     "audience": "소상공인",
     "cluster": "automation-tools",
-    "recommendedAction": "n8n 대안과 소상공인 자동화 후보 관점을 자연스럽게 연결합니다."
+    "recommendedAction": "n8n 대안과 소상공인 자동화 후보 관점을 자연스럽게 연결합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "비교 기준 없이 고르면 도입 후 다시 옮기는 시간과 비용이 생길 수 있습니다"
   },
   {
     "slug": "free-open-source-automation-tools-series",
     "route": "/ko/automation/free-open-source-automation-tools-series",
     "primaryKeyword": "오픈소스 자동화 도구",
-    "secondaryKeywords": ["무료 자동화 도구", "소상공인 업무 자동화 도구", "AI 자동화 도구 비교", "오픈소스 업무 자동화"],
+    "secondaryKeywords": [
+      "무료 자동화 도구",
+      "소상공인 업무 자동화 도구",
+      "AI 자동화 도구 비교",
+      "오픈소스 업무 자동화"
+    ],
     "searchIntent": "comparison",
     "audience": "소상공인",
     "cluster": "automation-tools",
-    "recommendedAction": "시리즈 허브로서 비교 검색 의도와 개별 도구 링크를 강화합니다."
+    "recommendedAction": "시리즈 허브로서 비교 검색 의도와 개별 도구 링크를 강화합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "비교 기준 없이 고르면 도입 후 다시 옮기는 시간과 비용이 생길 수 있습니다"
   },
   {
     "slug": "opencut-free-open-source-video-editor-ai-content-automation",
     "route": "/ko/automation/opencut-free-open-source-video-editor-ai-content-automation",
     "primaryKeyword": "OpenCut 무료 영상 편집기",
-    "secondaryKeywords": ["OpenCut CapCut 대체", "오픈소스 영상 편집기", "AI 쇼츠 제작", "콘텐츠 자동화"],
+    "secondaryKeywords": [
+      "OpenCut CapCut 대체",
+      "오픈소스 영상 편집기",
+      "AI 쇼츠 제작",
+      "콘텐츠 자동화"
+    ],
     "searchIntent": "comparison",
     "audience": "소상공인",
     "cluster": "content-automation",
-    "recommendedAction": "영상 편집기 비교와 콘텐츠 자동화 후보 관점을 균형 있게 유지합니다."
+    "recommendedAction": "영상 편집기 비교와 콘텐츠 자동화 후보 관점을 균형 있게 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "비교 기준 없이 고르면 도입 후 다시 옮기는 시간과 비용이 생길 수 있습니다"
   },
   {
     "slug": "ai-business-automation-guide",
     "route": "/ko/automation/ai-business-automation-guide",
     "primaryKeyword": "AI 업무 자동화",
-    "secondaryKeywords": ["소상공인 AI 자동화", "업무 자동화 가이드", "반복 업무 자동화", "AI 자동화 도입"],
+    "secondaryKeywords": [
+      "소상공인 AI 자동화",
+      "업무 자동화 가이드",
+      "반복 업무 자동화",
+      "AI 자동화 도입"
+    ],
     "searchIntent": "how-to",
     "audience": "소상공인",
     "cluster": "business-automation",
-    "recommendedAction": "입문형 가이드로서 AI 업무 자동화 기본 검색 의도를 유지합니다."
+    "recommendedAction": "입문형 가이드로서 AI 업무 자동화 기본 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "automation-priority-method",
     "route": "/ko/automation/automation-priority-method",
     "primaryKeyword": "업무 자동화 우선순위",
-    "secondaryKeywords": ["자동화할 업무 고르는 법", "반복 업무 분류", "자동화 우선순위 기준", "업무 자동화 방법"],
+    "secondaryKeywords": [
+      "자동화할 업무 고르는 법",
+      "반복 업무 분류",
+      "자동화 우선순위 기준",
+      "업무 자동화 방법"
+    ],
     "searchIntent": "how-to",
     "audience": "1인 사업자",
     "cluster": "business-automation",
-    "recommendedAction": "우선순위 판단 기준을 검색자가 바로 이해하도록 유지합니다."
+    "recommendedAction": "우선순위 판단 기준을 검색자가 바로 이해하도록 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "chatgpt-document-cleanup",
     "route": "/ko/automation/chatgpt-document-cleanup",
     "primaryKeyword": "ChatGPT 문서 정리",
-    "secondaryKeywords": ["문서 요약 자동화", "ChatGPT 업무 활용", "보고서 정리", "문서 자동화"],
+    "secondaryKeywords": [
+      "문서 요약 자동화",
+      "ChatGPT 업무 활용",
+      "보고서 정리",
+      "문서 자동화"
+    ],
     "searchIntent": "how-to",
     "audience": "1인 사업자",
     "cluster": "business-automation",
-    "recommendedAction": "ChatGPT 문서 정리와 업무 활용 키워드를 자연스럽게 유지합니다."
+    "recommendedAction": "ChatGPT 문서 정리와 업무 활용 키워드를 자연스럽게 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "google-sheets-ai-automation",
     "route": "/ko/automation/google-sheets-ai-automation",
     "primaryKeyword": "Google Sheets AI 자동화",
-    "secondaryKeywords": ["구글시트 자동화", "스프레드시트 AI", "업무 데이터 자동화", "구글시트 업무 관리"],
+    "secondaryKeywords": [
+      "구글시트 자동화",
+      "스프레드시트 AI",
+      "업무 데이터 자동화",
+      "구글시트 업무 관리"
+    ],
     "searchIntent": "how-to",
     "audience": "영업팀",
     "cluster": "business-automation",
-    "recommendedAction": "Google Sheets와 스프레드시트 자동화 검색 의도를 함께 반영합니다."
+    "recommendedAction": "Google Sheets와 스프레드시트 자동화 검색 의도를 함께 반영합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "obsidian-business-knowledge-base",
     "route": "/ko/automation/obsidian-business-knowledge-base",
     "primaryKeyword": "옵시디언 업무 지식창고",
-    "secondaryKeywords": ["Obsidian 업무 관리", "비즈니스 지식관리", "업무 매뉴얼 정리", "소상공인 지식창고"],
+    "secondaryKeywords": [
+      "Obsidian 업무 관리",
+      "비즈니스 지식관리",
+      "업무 매뉴얼 정리",
+      "소상공인 지식창고"
+    ],
     "searchIntent": "how-to",
     "audience": "1인 사업자",
     "cluster": "business-automation",
-    "recommendedAction": "업무 지식창고와 매뉴얼 정리 의도를 강화합니다."
+    "recommendedAction": "업무 지식창고와 매뉴얼 정리 의도를 강화합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "pre-automation-task-list",
     "route": "/ko/automation/pre-automation-task-list",
     "primaryKeyword": "자동화 전 업무 정리",
-    "secondaryKeywords": ["업무 자동화 준비", "반복 업무 목록", "자동화 체크리스트", "업무 프로세스 정리"],
+    "secondaryKeywords": [
+      "업무 자동화 준비",
+      "반복 업무 목록",
+      "자동화 체크리스트",
+      "업무 프로세스 정리"
+    ],
     "searchIntent": "how-to",
     "audience": "소상공인",
     "cluster": "business-automation",
-    "recommendedAction": "자동화 전 준비 체크리스트 검색 의도를 유지합니다."
+    "recommendedAction": "자동화 전 준비 체크리스트 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "reduce-repetitive-work-with-ai",
     "route": "/ko/automation/reduce-repetitive-work-with-ai",
     "primaryKeyword": "반복 업무 줄이기",
-    "secondaryKeywords": ["AI 반복 업무 자동화", "업무 시간 줄이기", "단순 업무 자동화", "소상공인 업무 효율화"],
+    "secondaryKeywords": [
+      "AI 반복 업무 자동화",
+      "업무 시간 줄이기",
+      "단순 업무 자동화",
+      "소상공인 업무 효율화"
+    ],
     "searchIntent": "how-to",
     "audience": "소상공인",
     "cluster": "business-automation",
-    "recommendedAction": "반복 업무 감소와 AI 자동화 입문 의도를 유지합니다."
+    "recommendedAction": "반복 업무 감소와 AI 자동화 입문 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "connect-contract-payment-customer-management",
     "route": "/ko/contracts-payments/connect-contract-payment-customer-management",
     "primaryKeyword": "계약 결제 고객관리 연결",
-    "secondaryKeywords": ["계약 결제 관리", "고객관리 자동화", "계약 상태 관리", "결제 상태 추적"],
+    "secondaryKeywords": [
+      "계약 결제 관리",
+      "고객관리 자동화",
+      "계약 상태 관리",
+      "결제 상태 추적"
+    ],
     "searchIntent": "business-use",
     "audience": "영업팀",
     "cluster": "business-automation",
-    "recommendedAction": "계약과 결제 상태를 고객관리 흐름으로 연결하는 의도를 유지합니다."
+    "recommendedAction": "계약과 결제 상태를 고객관리 흐름으로 연결하는 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "e-signature-identity-check",
     "route": "/ko/contracts-payments/e-signature-identity-check",
     "primaryKeyword": "전자서명 본인확인",
-    "secondaryKeywords": ["전자계약 본인확인", "전자서명 절차", "계약 인증", "비대면 계약"],
+    "secondaryKeywords": [
+      "전자계약 본인확인",
+      "전자서명 절차",
+      "계약 인증",
+      "비대면 계약"
+    ],
     "searchIntent": "how-to",
     "audience": "1인 사업자",
     "cluster": "business-automation",
-    "recommendedAction": "전자서명 절차와 본인확인 검색 의도를 유지합니다."
+    "recommendedAction": "전자서명 절차와 본인확인 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "electronic-contract-system-basics",
     "route": "/ko/contracts-payments/electronic-contract-system-basics",
     "primaryKeyword": "전자계약 기본 기능",
-    "secondaryKeywords": ["전자계약 만들기", "전자계약 관리", "계약 자동화", "비대면 계약 시스템"],
+    "secondaryKeywords": [
+      "전자계약 만들기",
+      "전자계약 관리",
+      "계약 자동화",
+      "비대면 계약 시스템"
+    ],
     "searchIntent": "how-to",
     "audience": "소상공인",
     "cluster": "business-automation",
-    "recommendedAction": "전자계약 시스템 입문형 검색 의도를 유지합니다."
+    "recommendedAction": "전자계약 시스템 입문형 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "manage-unsigned-contracts",
     "route": "/ko/contracts-payments/manage-unsigned-contracts",
     "primaryKeyword": "미서명 계약 관리",
-    "secondaryKeywords": ["계약 서명 상태", "미완료 계약 추적", "계약 후속 조치", "전자계약 관리"],
+    "secondaryKeywords": [
+      "계약 서명 상태",
+      "미완료 계약 추적",
+      "계약 후속 조치",
+      "전자계약 관리"
+    ],
     "searchIntent": "business-use",
     "audience": "영업팀",
     "cluster": "business-automation",
-    "recommendedAction": "미서명 계약 추적과 후속 조치 검색 의도를 유지합니다."
+    "recommendedAction": "미서명 계약 추적과 후속 조치 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "offline-card-payment-pg-van",
     "route": "/ko/contracts-payments/offline-card-payment-pg-van",
     "primaryKeyword": "오프라인 카드결제 PG VAN",
-    "secondaryKeywords": ["PG VAN 차이", "매장 카드결제", "오프라인 결제 시스템", "소상공인 카드결제"],
+    "secondaryKeywords": [
+      "PG VAN 차이",
+      "매장 카드결제",
+      "오프라인 결제 시스템",
+      "소상공인 카드결제"
+    ],
     "searchIntent": "comparison",
     "audience": "소상공인",
     "cluster": "business-automation",
-    "recommendedAction": "PG와 VAN 비교 검색 의도를 명확히 유지합니다."
+    "recommendedAction": "PG와 VAN 비교 검색 의도를 명확히 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "비교 기준 없이 고르면 도입 후 다시 옮기는 시간과 비용이 생길 수 있습니다"
   },
   {
     "slug": "accounts-receivable-tracker",
     "route": "/ko/sales-ops/accounts-receivable-tracker",
     "primaryKeyword": "미수금 관리",
-    "secondaryKeywords": ["미수금 추적", "거래처 미수금", "수금 관리", "매출채권 관리"],
+    "secondaryKeywords": [
+      "미수금 추적",
+      "거래처 미수금",
+      "수금 관리",
+      "매출채권 관리"
+    ],
     "searchIntent": "how-to",
     "audience": "영업팀",
     "cluster": "business-automation",
-    "recommendedAction": "미수금 관리표와 수금 추적 검색 의도를 유지합니다."
+    "recommendedAction": "미수금 관리표와 수금 추적 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "daily-sales-goal-breakdown",
     "route": "/ko/sales-ops/daily-sales-goal-breakdown",
     "primaryKeyword": "일일 매출 목표",
-    "secondaryKeywords": ["매출 목표 쪼개기", "월 매출 목표", "영업 목표 관리", "매출 계획"],
+    "secondaryKeywords": [
+      "매출 목표 쪼개기",
+      "월 매출 목표",
+      "영업 목표 관리",
+      "매출 계획"
+    ],
     "searchIntent": "how-to",
     "audience": "영업팀",
     "cluster": "business-automation",
-    "recommendedAction": "매출 목표를 일 단위로 나누는 실무 검색 의도를 유지합니다."
+    "recommendedAction": "매출 목표를 일 단위로 나누는 실무 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "daily-sales-report",
     "route": "/ko/sales-ops/daily-sales-report",
     "primaryKeyword": "영업팀 보고",
-    "secondaryKeywords": ["매출 보고서 작성", "일일 영업 보고", "매출 현황 정리", "영업 리포트"],
+    "secondaryKeywords": [
+      "매출 보고서 작성",
+      "일일 영업 보고",
+      "매출 현황 정리",
+      "영업 리포트"
+    ],
     "searchIntent": "how-to",
     "audience": "영업팀",
     "cluster": "business-automation",
-    "recommendedAction": "매출 보고서 작성법 검색 의도를 유지합니다."
+    "recommendedAction": "매출 보고서 작성법 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "payment-reminder-message",
     "route": "/ko/sales-ops/payment-reminder-message",
     "primaryKeyword": "거래처 독촉 문자",
-    "secondaryKeywords": ["미수금 알림 문구", "결제 요청 메시지", "수금 리마인드", "고객 결제 안내"],
+    "secondaryKeywords": [
+      "미수금 알림 문구",
+      "결제 요청 메시지",
+      "수금 리마인드",
+      "고객 결제 안내"
+    ],
     "searchIntent": "how-to",
     "audience": "영업팀",
     "cluster": "business-automation",
-    "recommendedAction": "결제 요청 문구와 수금 리마인드 의도를 유지합니다."
+    "recommendedAction": "결제 요청 문구와 수금 리마인드 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "sales-achievement-rate",
     "route": "/ko/sales-ops/sales-achievement-rate",
     "primaryKeyword": "매출 달성률",
-    "secondaryKeywords": ["목표 달성률 계산", "영업 실적 관리", "매출 목표 관리", "달성률 계산법"],
+    "secondaryKeywords": [
+      "목표 달성률 계산",
+      "영업 실적 관리",
+      "매출 목표 관리",
+      "달성률 계산법"
+    ],
     "searchIntent": "how-to",
     "audience": "영업팀",
     "cluster": "business-automation",
-    "recommendedAction": "달성률 계산과 매출 목표 관리 검색 의도를 유지합니다."
+    "recommendedAction": "달성률 계산과 매출 목표 관리 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "sales-revenue-ar-structure",
     "route": "/ko/sales-ops/sales-revenue-ar-structure",
     "primaryKeyword": "매출 미수금 구조",
-    "secondaryKeywords": ["매출과 미수금", "수금 구조", "매출채권 관리", "영업 현금흐름"],
+    "secondaryKeywords": [
+      "매출과 미수금",
+      "수금 구조",
+      "매출채권 관리",
+      "영업 현금흐름"
+    ],
     "searchIntent": "business-use",
     "audience": "영업팀",
     "cluster": "business-automation",
-    "recommendedAction": "매출과 미수금 구조를 함께 이해하려는 검색 의도를 유지합니다."
+    "recommendedAction": "매출과 미수금 구조를 함께 이해하려는 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "unify-order-channels-for-sales",
     "route": "/ko/sales-ops/unify-order-channels-for-sales",
     "primaryKeyword": "거래처 주문 관리",
-    "secondaryKeywords": ["영업 주문 관리", "카카오 주문 정리", "스마트스토어 주문 통합", "주문 데이터 관리"],
+    "secondaryKeywords": [
+      "영업 주문 관리",
+      "카카오 주문 정리",
+      "스마트스토어 주문 통합",
+      "주문 데이터 관리"
+    ],
     "searchIntent": "business-use",
     "audience": "영업팀",
     "cluster": "business-automation",
-    "recommendedAction": "주문 채널 통합과 영업 데이터 관리 의도를 유지합니다."
+    "recommendedAction": "주문 채널 통합과 영업 데이터 관리 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "ai-knowledge-store-for-small-business",
     "route": "/ko/small-business/ai-knowledge-store-for-small-business",
     "primaryKeyword": "AI 점장",
-    "secondaryKeywords": ["AI 점장", "소상공인 지식관리", "업무 매뉴얼 자동화", "고객 응대 지식창고"],
+    "secondaryKeywords": [
+      "AI 점장",
+      "소상공인 지식관리",
+      "업무 매뉴얼 자동화",
+      "고객 응대 지식창고"
+    ],
     "searchIntent": "business-use",
     "audience": "소상공인",
     "cluster": "business-automation",
-    "recommendedAction": "AI 지식창고와 고객 응대 기준 정리 의도를 유지합니다."
+    "recommendedAction": "AI 지식창고와 고객 응대 기준 정리 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "customer-memory-system",
     "route": "/ko/small-business/customer-memory-system",
     "primaryKeyword": "고객 정보",
-    "secondaryKeywords": ["고객 메모 관리", "단골 고객 관리", "고객 정보 정리", "소상공인 CRM"],
+    "secondaryKeywords": [
+      "고객 메모 관리",
+      "단골 고객 관리",
+      "고객 정보 정리",
+      "소상공인 CRM"
+    ],
     "searchIntent": "business-use",
     "audience": "소상공인",
     "cluster": "business-automation",
-    "recommendedAction": "고객 기억과 소상공인 CRM 검색 의도를 유지합니다."
+    "recommendedAction": "고객 기억과 소상공인 CRM 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "daily-numbers-for-small-business",
     "route": "/ko/small-business/daily-numbers-for-small-business",
     "primaryKeyword": "소상공인 매일 숫자",
-    "secondaryKeywords": ["매일 보는 숫자", "소상공인 매출 관리", "운영 지표", "가게 숫자 관리"],
+    "secondaryKeywords": [
+      "매일 보는 숫자",
+      "소상공인 매출 관리",
+      "운영 지표",
+      "가게 숫자 관리"
+    ],
     "searchIntent": "how-to",
     "audience": "소상공인",
     "cluster": "business-automation",
-    "recommendedAction": "매일 확인할 운영 지표 검색 의도를 유지합니다."
+    "recommendedAction": "매일 확인할 운영 지표 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "reservation-order-review-management",
     "route": "/ko/small-business/reservation-order-review-management",
     "primaryKeyword": "예약 주문 리뷰 관리",
-    "secondaryKeywords": ["소상공인 예약 관리", "주문 리뷰 통합", "고객 리뷰 관리", "매장 운영 자동화"],
+    "secondaryKeywords": [
+      "소상공인 예약 관리",
+      "주문 리뷰 통합",
+      "고객 리뷰 관리",
+      "매장 운영 자동화"
+    ],
     "searchIntent": "business-use",
     "audience": "소상공인",
     "cluster": "business-automation",
-    "recommendedAction": "예약, 주문, 리뷰를 한 흐름으로 관리하는 검색 의도를 유지합니다."
+    "recommendedAction": "예약, 주문, 리뷰를 한 흐름으로 관리하는 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   },
   {
     "slug": "solo-business-systemization",
     "route": "/ko/small-business/solo-business-systemization",
     "primaryKeyword": "1인 사업자 업무 시스템화",
-    "secondaryKeywords": ["1인 사업 자동화", "혼자 일하는 사업자", "업무 시스템 만들기", "소상공인 시스템화"],
+    "secondaryKeywords": [
+      "1인 사업 자동화",
+      "혼자 일하는 사업자",
+      "업무 시스템 만들기",
+      "소상공인 시스템화"
+    ],
     "searchIntent": "how-to",
     "audience": "1인 사업자",
     "cluster": "business-automation",
-    "recommendedAction": "1인 사업자의 업무 시스템화 검색 의도를 유지합니다."
+    "recommendedAction": "1인 사업자의 업무 시스템화 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
   },
   {
     "slug": "unify-order-channels",
     "route": "/ko/small-business/unify-order-channels",
     "primaryKeyword": "주문 관리 자동화",
-    "secondaryKeywords": ["배달앱 주문 관리", "스마트스토어 주문 관리", "매장 주문 통합", "소상공인 주문 관리"],
+    "secondaryKeywords": [
+      "배달앱 주문 관리",
+      "스마트스토어 주문 관리",
+      "매장 주문 통합",
+      "소상공인 주문 관리"
+    ],
     "searchIntent": "business-use",
     "audience": "소상공인",
     "cluster": "business-automation",
-    "recommendedAction": "소상공인 관점의 주문 채널 통합 검색 의도를 유지합니다."
+    "recommendedAction": "소상공인 관점의 주문 채널 통합 검색 의도를 유지합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
   }
 ]
