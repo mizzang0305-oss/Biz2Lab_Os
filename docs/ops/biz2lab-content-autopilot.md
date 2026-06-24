@@ -611,15 +611,19 @@ Task details:
 Task name: Biz2Lab Autopilot Hourly
 Schedule: every 1 hour
 Repo root: C:\Users\LOVE\MyProjects\Biz2Lab_Os
-Log path: .tmp\biz2lab-autopilot-hourly.log
+Runner log path: .tmp\biz2lab-autopilot-runner.log
+Task stdout/stderr path: .tmp\biz2lab-autopilot-task-output.log
 ```
 
 Task command:
 
 ```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "cd 'C:\Users\LOVE\MyProjects\Biz2Lab_Os'; if (!(Test-Path '.tmp')) { New-Item -ItemType Directory -Path '.tmp' | Out-Null }; git fetch origin; git checkout master; git pull --ff-only origin master; npm run ops:autopilot-run >> .tmp\biz2lab-autopilot-hourly.log 2>&1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "cd 'C:\Users\LOVE\MyProjects\Biz2Lab_Os'; if (!(Test-Path '.tmp')) { New-Item -ItemType Directory -Path '.tmp' | Out-Null }; git fetch origin; git checkout master; git pull --ff-only origin master; npm run ops:autopilot-run >> .tmp\biz2lab-autopilot-task-output.log 2>&1"
 ```
 
-The hourly task must not bypass active hours. If the current topic is missing a
-Codex artifact, artifact-only prompt/package preparation may continue, but
-publication non-dry runs must wait for the scheduler gate.
+The runner writes structured JSON lines to its own runner log. The scheduled task
+redirects shell output to a separate task-output log so Windows does not lock the
+same file from two writers. The hourly task must not bypass active hours. If the
+current topic is missing a Codex artifact, artifact-only prompt/package
+preparation may continue, but publication non-dry runs must wait for the
+scheduler gate.
