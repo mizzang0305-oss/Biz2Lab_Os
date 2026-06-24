@@ -134,5 +134,7 @@ PocketBase은 자동화 후보 도구입니다. 다만 고객 데이터, 결제,
 - [PocketBase 관련 자동화 글](/ko/automation/directus-headless-cms-data-automation)
 - [Appsmith 내부 대시보드 자동화 분석](/ko/automation/appsmith-internal-dashboard-automation)
 - [Baserow 데이터베이스 자동화 분석](/ko/automation/baserow-open-source-database-automation)
+- [Supabase 셀프호스팅 분석: 비용은 줄일 수 있을까, 운영 부담이 더 클까?](/ko/automation/supabase-self-hosting-cost-operations-caution)
+
 
 한 줄 결론은 명확합니다. PocketBase은 지금 당장 모든 운영을 맡길 완성형 핵심 도구라기보다, Biz2Lab / MyBiz 자동화 파이프라인에 붙일 수 있는지 검증할 후보 도구입니다.

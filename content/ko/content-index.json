@@ -1,5 +1,22 @@
 [
   {
+    "title": "Supabase 셀프호스팅 분석: 비용은 줄일 수 있을까, 운영 부담이 더 클까?",
+    "slug": "supabase-self-hosting-cost-operations-caution",
+    "route": "/ko/automation/supabase-self-hosting-cost-operations-caution",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/supabase-self-hosting-cost-operations-caution-hero.webp",
+    "heroAlt": "Supabase self-hosting의 비용과 운영 부담을 비교하는 대표 이미지",
+    "updatedAt": "2026-06-24",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "pocketbase-lightweight-backend-saas-mvp",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Directus 분석: Headless CMS를 데이터 운영 자동화에 쓸 수 있을까?",
     "slug": "directus-headless-cms-data-automation",
     "route": "/ko/automation/directus-headless-cms-data-automation",

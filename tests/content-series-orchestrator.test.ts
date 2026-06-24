@@ -43,9 +43,10 @@ const completedDifySlug = "dify-llm-app-builder-business-automation";
 const completedOpenWebUISlug = "open-webui-local-llm-admin-portal";
 const completedDirectusSlug = "directus-headless-cms-data-automation";
 const completedPocketBaseSlug = "pocketbase-lightweight-backend-saas-mvp";
-const currentAutomationTopicSlug = "supabase-self-hosting-cost-operations-caution";
+const completedSupabaseSlug = "supabase-self-hosting-cost-operations-caution";
+const currentAutomationTopicSlug = "meilisearch-blog-product-search-automation";
 const pocketBaseQueue = staleFlowiseQueue.slice(2);
-const currentAutomationQueue = staleFlowiseQueue.slice(3);
+const currentAutomationQueue = staleFlowiseQueue.slice(4);
 
 function tempSeriesRoot() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-series-"));
@@ -133,6 +134,7 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes("flowise-ai-agent-workflow-automation"));
   assert.ok(state.completed.includes(completedDirectusSlug));
   assert.ok(state.completed.includes(completedPocketBaseSlug));
+  assert.ok(state.completed.includes(completedSupabaseSlug));
   assert.equal(state.currentTopic, currentAutomationTopicSlug);
   assert.deepEqual(state.next, currentAutomationQueue);
   assert.equal(state.gates.manualDeploy, false);
@@ -671,7 +673,11 @@ test("publication state advancement marks the topic completed and selects the ne
     ...state,
     currentTopic: topic.slug,
     completed: state.completed.filter(
-      (slug) => slug !== topic.slug && slug !== completedDirectusSlug && slug !== completedPocketBaseSlug,
+      (slug) =>
+        slug !== topic.slug &&
+        slug !== completedDirectusSlug &&
+        slug !== completedPocketBaseSlug &&
+        slug !== completedSupabaseSlug,
     ),
     next: staleFlowiseQueue,
   };
@@ -695,7 +701,9 @@ test("Directus publication state advancement marks Directus completed and select
   const pendingDirectusState = {
     ...state,
     currentTopic: topic.slug,
-    completed: state.completed.filter((slug) => slug !== topic.slug && slug !== completedPocketBaseSlug),
+    completed: state.completed.filter(
+      (slug) => slug !== topic.slug && slug !== completedPocketBaseSlug && slug !== completedSupabaseSlug,
+    ),
     next: secondAutomationQueue,
   };
 
@@ -710,7 +718,7 @@ test("Directus publication state advancement marks Directus completed and select
   assert.equal(nextState.gates.manualDeploy, false);
 });
 
-test("PocketBase publication state advancement marks PocketBase completed and selects Supabase", () => {
+test("PocketBase publication state advancement skips completed Supabase and selects Meilisearch", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
   const topic = resolveContentSeriesTopic(topics.topics, state, completedPocketBaseSlug);

@@ -1112,6 +1112,29 @@
       "visualDifferentiationHint": "pocketbase-lightweight-backend-saas-mvp: lightweight-backend-mvp-operations-map",
       "filename": "pocketbase-lightweight-backend-saas-mvp-hero.jpg",
       "rawPath": "assets/images/raw/pocketbase-lightweight-backend-saas-mvp-hero.jpg"
+    },
+    {
+      "id": "supabase-self-hosting-cost-operations-caution-hero",
+      "postSlug": "supabase-self-hosting-cost-operations-caution",
+      "category": "automation",
+      "usage": "hero",
+      "targetPath": "assets/images/raw/supabase-self-hosting-cost-operations-caution-hero.jpg",
+      "optimizedPath": "public/images/posts/supabase-self-hosting-cost-operations-caution-hero.webp",
+      "altKo": "Supabase self-hosting의 비용과 운영 부담을 비교하는 대표 이미지",
+      "captionKo": "Supabase self-hosting은 비용뿐 아니라 Postgres, Auth, Storage 운영 책임을 함께 계산해야 한다.",
+      "style": "self-hosted-backend-cost-operations-balance, Korean business editorial raster hero, minimal text, no title inside image",
+      "promptKo": "Managed cloud와 self-hosting 저울, Postgres operations, Auth and Storage cards, backup gate, hidden cost chart가 있는 backend 운영 이미지.",
+      "providerPromptKo": "Supabase 셀프호스팅 분석: 비용은 줄일 수 있을까, 운영 부담이 더 클까? 대표 이미지. Managed cloud와 self-hosting 저울, Postgres operations, Auth and Storage cards, backup gate, hidden cost chart가 있는 backend 운영 이미지. Include: managed vs self-hosting balance, Postgres operations, Auth and Storage cards, backup gate, hidden cost chart. No official logos, no real customer data, no placeholder elements.",
+      "negativePromptKo": "official Supabase logo, real database credentials, payment data, cost saving guarantee, production migration instruction, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+      "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+      "composition": "Managed cloud와 self-hosting 저울, Postgres operations, Auth and Storage cards, backup gate, hidden cost chart가 있는 backend 운영 이미지.",
+      "categoryStyle": "automation category visual, self-hosted-backend-cost-operations-balance",
+      "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+      "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+      "localOnly": true,
+      "visualDifferentiationHint": "supabase-self-hosting-cost-operations-caution: self-hosted-backend-cost-operations-balance",
+      "filename": "supabase-self-hosting-cost-operations-caution-hero.jpg",
+      "rawPath": "assets/images/raw/supabase-self-hosting-cost-operations-caution-hero.jpg"
     }
   ]
 }
