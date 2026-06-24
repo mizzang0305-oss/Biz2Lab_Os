@@ -84,6 +84,9 @@ Publication PR scope:
 content/ko/automation/<topic>.md
 assets/images/raw/<topic>-hero.jpg
 public/images/posts/<topic>-hero.webp
+public/images/posts/<topic>-400.webp
+public/images/posts/<topic>-800.webp
+public/images/posts/<topic>-1200.webp
 image-requests/generated/<topic>-hero.md
 image-requests/generated/<topic>-hero.prompt.md
 image-briefs/generated/<topic>-hero.json

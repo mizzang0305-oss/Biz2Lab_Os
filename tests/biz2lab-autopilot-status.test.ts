@@ -44,6 +44,9 @@ test("Biz2Lab autopilot helper stays read-only and exposes zone fields", () => {
   assert.match(helper, /yellowZoneOwnerReview/);
   assert.match(helper, /redZoneBlocked/);
   assert.match(helper, /BIZ2LAB_GREEN_ZONE_AUTOMERGE_APPROVED/);
+  assert.match(helper, /public\/images\/posts\/\$\{slug\}-400\.webp/);
+  assert.match(helper, /public\/images\/posts\/\$\{slug\}-800\.webp/);
+  assert.match(helper, /public\/images\/posts\/\$\{slug\}-1200\.webp/);
 
   assert.doesNotMatch(helper, /writeFileSync|copyFileSync|rmSync|unlinkSync|mkdirSync/);
   assert.doesNotMatch(helper, /gh", \["pr", "merge"/);

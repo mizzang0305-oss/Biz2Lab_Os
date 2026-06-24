@@ -151,6 +151,11 @@ function isAllowedPromptPackagePath(file, heroKey) {
 }
 
 function isAllowedPublicationPath(file, slug, heroKey) {
+  const responsiveHeroPaths = new Set([
+    `public/images/posts/${slug}-400.webp`,
+    `public/images/posts/${slug}-800.webp`,
+    `public/images/posts/${slug}-1200.webp`,
+  ]);
   const exactAllowed = new Set([
     `content/ko/automation/${slug}.md`,
     `assets/images/raw/${heroKey}.jpg`,
@@ -172,7 +177,7 @@ function isAllowedPublicationPath(file, slug, heroKey) {
     "tests/seo-keyword-audit.test.ts",
     "tests/seo-ops-dashboard.test.ts",
   ]);
-  return exactAllowed.has(file);
+  return exactAllowed.has(file) || responsiveHeroPaths.has(file);
 }
 
 function isSmallSeoContentCleanupPath(file) {
