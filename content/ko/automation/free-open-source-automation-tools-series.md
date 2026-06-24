@@ -1,6 +1,6 @@
 ---
-title: '무료 오픈소스 자동화 도구 실전 분석: 오픈소스 자동화 도구 대체 도구로 고르기 전에 확인할 기준'
-description: '오픈소스 자동화 도구 비교 전에 놓치기 쉬운 비용, 운영 리스크, 실제 업무 연결 기준을 정리해 불필요한 재도입을 줄입니다.'
+title: '무료 오픈소스 자동화 도구 실전 분석: 도입 전에 확인할 기준'
+description: '무료 오픈소스 자동화 도구 비교 전에 비용, 운영 리스크, 실제 업무 연결 기준을 확인해 불필요한 재도입을 줄이는 방법을 정리합니다.'
 slug: free-open-source-automation-tools-series
 locale: ko
 category: automation

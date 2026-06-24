@@ -1,6 +1,6 @@
 ---
-title: 'Offline 분석: 오프라인 카드결제 PG VAN 대체 도구로 고르기 전에 확인할 기준'
-description: '오프라인 카드결제 PG VAN 비교 전에 놓치기 쉬운 비용, 운영 리스크, 실제 업무 연결 기준을 정리해 불필요한 재도입을 줄입니다.'
+title: '오프라인 카드결제 PG/VAN 분석: 고르기 전에 확인할 기준'
+description: '오프라인 카드결제 PG/VAN 선택 전에 비용, 정산 확인, 운영 리스크, 실제 업무 연결 기준을 정리합니다.'
 slug: offline-card-payment-pg-van
 locale: ko
 category: contracts-payments

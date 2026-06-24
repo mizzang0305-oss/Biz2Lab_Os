@@ -120,14 +120,14 @@
 - proposed first paragraph direction: 승인 게이트와 운영 기준 없이 연결하면 자동화보다 검수 부담이 먼저 커질 수 있습니다. Flowise AI 에이전트 자동화 검토에서는 도구 자체보다 우리 업무에서 줄일 수 있는 손실을 먼저 봐야 합니다. 이 글에서는 과장된 추천이 아니라 도입 전 확인할 기준, 얻을 수 있는 가치, 놓치면 생기는 운영 리스크를 함께 정리합니다.
 
 ### free-open-source-automation-tools-series
-- title: 무료 오픈소스 자동화 도구 실전 분석: 오픈소스 자동화 도구 대체 도구로 고르기 전에 확인할 기준
+- title: 무료 오픈소스 자동화 도구 실전 분석: 도입 전에 확인할 기준
 - route: /ko/automation/free-open-source-automation-tools-series
 - current primary keyword: 오픈소스 자동화 도구
 - current search intent: comparison
 - current weak point: NEEDS_INTRO_HOOK
 - proposed hook angle: 비교 기준 없이 고르면 도입 후 다시 옮기는 시간과 비용이 생길 수 있습니다
-- proposed title: 무료 오픈소스 자동화 도구 실전 분석: 오픈소스 자동화 도구 대체 도구로 고르기 전에 확인할 기준
-- proposed meta description: 오픈소스 자동화 도구 비교 전에 놓치기 쉬운 비용, 운영 리스크, 실제 업무 연결 기준을 정리해 불필요한 재도입을 줄입니다.
+- proposed title: 무료 오픈소스 자동화 도구 실전 분석: 도입 전에 확인할 기준
+- proposed meta description: 무료 오픈소스 자동화 도구 비교 전에 비용, 운영 리스크, 실제 업무 연결 기준을 확인해 불필요한 재도입을 줄이는 방법을 정리합니다.
 - proposed first paragraph direction: 비교 기준 없이 고르면 도입 후 다시 옮기는 시간과 비용이 생길 수 있습니다. 오픈소스 자동화 도구 비교에서는 좋아 보이는 기능보다 우리 업무에서 다시 옮기지 않아도 되는 기준을 먼저 봐야 합니다. 이 글에서는 과장된 추천이 아니라 도입 전 확인할 기준, 얻을 수 있는 가치, 놓치면 생기는 운영 리스크를 함께 정리합니다.
 
 ### google-sheets-ai-automation
@@ -193,8 +193,8 @@
 - current weak point: NEEDS_INTRO_HOOK
 - proposed hook angle: 라이선스·비용·운영 책임을 늦게 확인하면 나중에 전환 비용이 커질 수 있습니다
 - proposed title: NocoDB 분석: 도입 전에 확인할 비용·라이선스 리스크
-- proposed meta description: NocoDB 라이선스 주의 검토 전에 라이선스, 비용, self-hosting 운영 부담을 확인해 전환 실패와 숨은 비용을 줄이는 기준을 정리합니다.
-- proposed first paragraph direction: 라이선스·비용·운영 책임을 늦게 확인하면 나중에 전환 비용이 커질 수 있습니다. NocoDB 라이선스 주의 검토에서는 무료 여부보다 실제 운영 조건과 책임 범위를 먼저 봐야 합니다. 이 글에서는 과장된 추천이 아니라 도입 전 확인할 기준, 얻을 수 있는 가치, 놓치면 생기는 운영 리스크를 함께 정리합니다.
+- proposed meta description: NocoDB 도입 전에 라이선스, 비용, self-hosting 운영 부담을 확인해 전환 실패와 숨은 비용을 줄이는 기준을 정리합니다.
+- proposed first paragraph direction: 라이선스·비용·운영 책임을 늦게 확인하면 나중에 전환 비용이 커질 수 있습니다. NocoDB 도입 전 검토에서는 무료 여부보다 실제 운영 조건과 책임 범위를 먼저 봐야 합니다. 이 글에서는 과장된 추천이 아니라 도입 전 확인할 기준, 얻을 수 있는 가치, 놓치면 생기는 운영 리스크를 함께 정리합니다.
 
 ### node-red-local-business-automation-server
 - title: Node-RED 분석: 로컬 자동화 서버 도입 전에 확인할 업무 기준
@@ -338,14 +338,14 @@
 - proposed first paragraph direction: 미작성 계약 추적은 계약서 미작성 상태를 영업 후속 조치로 관리해야 하는 팀에게 단순한 효율화 주제가 아닙니다. 실제 현장에서는 미작성 계약이 개인 메모에만 남아 월말에 누락 계약을 다시 찾는 상황이 반복되고, 이 문제는 고객 응대 속도와 내부 마감 품질을 동시에 흔듭니다. 업무가 바쁠수록 담당자는 눈앞의 요청부터 처리하지만, 기록 방식이 일정하지 않으면 다음 담당자가 같은 판단을 다시 해야 합니다. 이 글의 목적은 도구 이름을 나열하는 것이 아니라 미작성 계약 추적을 실제 업무 절차로 바꾸는 기준을 정리하는 것입니다. 특히 금액, 계약, 결제, 고객 안내처럼 실수가 큰 영역은 자동 실행보다 사람 검토가 먼저입니다. 자동화는 사람이 해야 할 판단을 없애는 것이 아니라, 판단 전에 필요한 입력값과 상태를 안정적으로 모으는 구조입니다. ## 핵심 개념
 
 ### offline-card-payment-pg-van
-- title: Offline 분석: 오프라인 카드결제 PG VAN 대체 도구로 고르기 전에 확인할 기준
+- title: 오프라인 카드결제 PG/VAN 분석: 고르기 전에 확인할 기준
 - route: /ko/contracts-payments/offline-card-payment-pg-van
 - current primary keyword: 오프라인 카드결제 PG VAN
 - current search intent: comparison
 - current weak point: NEEDS_INTRO_HOOK
 - proposed hook angle: 비교 기준 없이 고르면 도입 후 다시 옮기는 시간과 비용이 생길 수 있습니다
-- proposed title: Offline 분석: 오프라인 카드결제 PG VAN 대체 도구로 고르기 전에 확인할 기준
-- proposed meta description: 오프라인 카드결제 PG VAN 비교 전에 놓치기 쉬운 비용, 운영 리스크, 실제 업무 연결 기준을 정리해 불필요한 재도입을 줄입니다.
+- proposed title: 오프라인 카드결제 PG/VAN 분석: 고르기 전에 확인할 기준
+- proposed meta description: 오프라인 카드결제 PG/VAN 선택 전에 비용, 정산 확인, 운영 리스크, 실제 업무 연결 기준을 정리합니다.
 - proposed first paragraph direction: 오프라인 카드결제와 PG/VAN 확인은 현장 결제와 온라인 결제를 함께 받는 운영자에게 단순한 효율화 주제가 아닙니다. 실제 현장에서는 결제 요청, 승인, 정산, 취소 상태를 같은 말로 섞어 처리해 마감 때 차이가 나는 상황이 반복되고, 이 문제는 고객 응대 속도와 내부 마감 품질을 동시에 흔듭니다. 업무가 바쁠수록 담당자는 눈앞의 요청부터 처리하지만, 기록 방식이 일정하지 않으면 다음 담당자가 같은 판단을 다시 해야 합니다. 이 글의 목적은 도구 이름을 나열하는 것이 아니라 오프라인 카드결제와 PG/VAN 확인을 실제 업무 절차로 바꾸는 기준을 정리하는 것입니다. 특히 금액, 계약, 결제, 고객 안내처럼 실수가 큰 영역은 자동 실행보다 사람 검토가 먼저입니다. 자동화는 사람이 해야 할 판단을 없애는 것이 아니라, 판단 전에 필요한 입력값과 상태를 안정적으로 모으는 구조입니다. ## 핵심 개념
 
 ### accounts-receivable-tracker
@@ -382,14 +382,14 @@
 - proposed first paragraph direction: 영업팀 일일 보고은 짧지만 실행 가능한 보고가 필요한 영업팀에게 단순한 효율화 주제가 아닙니다. 실제 현장에서는 일일 보고가 활동 나열로 끝나 다음 조치와 리스크가 보이지 않는 상황이 반복되고, 이 문제는 고객 응대 속도와 내부 마감 품질을 동시에 흔듭니다. 업무가 바쁠수록 담당자는 눈앞의 요청부터 처리하지만, 기록 방식이 일정하지 않으면 다음 담당자가 같은 판단을 다시 해야 합니다. 이 글의 목적은 도구 이름을 나열하는 것이 아니라 영업팀 일일 보고을 실제 업무 절차로 바꾸는 기준을 정리하는 것입니다. 특히 금액, 계약, 결제, 고객 안내처럼 실수가 큰 영역은 자동 실행보다 사람 검토가 먼저입니다. 자동화는 사람이 해야 할 판단을 없애는 것이 아니라, 판단 전에 필요한 입력값과 상태를 안정적으로 모으는 구조입니다. ## 핵심 개념
 
 ### payment-reminder-message
-- title: 거래처 독촉 문자: 시간을 잃기 전에 먼저 정리할 기준
+- title: 거래처 입금 확인 메시지: 독촉처럼 보이기 전에 정리할 기준
 - route: /ko/sales-ops/payment-reminder-message
 - current primary keyword: 거래처 독촉 문자
 - current search intent: how-to
 - current weak point: NEEDS_INTRO_HOOK
 - proposed hook angle: 순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다
-- proposed title: 거래처 독촉 문자: 시간을 잃기 전에 먼저 정리할 기준
-- proposed meta description: 거래처 독촉 문자 시작 전에 먼저 정리해야 할 업무 기준과 체크리스트를 통해 반복 시간과 재작업을 줄이는 방법을 설명합니다.
+- proposed title: 거래처 입금 확인 메시지: 독촉처럼 보이기 전에 정리할 기준
+- proposed meta description: 거래처 독촉 문자 대신 입금 확인 메시지 기준을 세워 거래처 관계, 금액 확인, 후속 기록의 오해를 줄이는 방법을 설명합니다.
 - proposed first paragraph direction:  입금 확인 메시지은 거래처 관계를 해치지 않고 입금 상태를 확인해야 하는 담당자에게 단순한 효율화 주제가 아닙니다. 실제 현장에서는 독촉처럼 보일까 봐 연락을 미루거나 반대로 너무 강한 문구를 보내 관계가 나빠지는 상황이 반복되고, 이 문제는 고객 응대 속도와 내부 마감 품질을 동시에 흔듭니다. 업무가 바쁠수록 담당자는 눈앞의 요청부터 처리하지만, 기록 방식이 일정하지 않으면 다음 담당자가 같은 판단을 다시 해야 합니다.
 ### sales-achievement-rate
 - title: 매출 달성률: 시간을 잃기 전에 먼저 정리할 기준

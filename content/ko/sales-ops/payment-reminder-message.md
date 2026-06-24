@@ -1,6 +1,6 @@
 ---
-title: '거래처 독촉 문자: 시간을 잃기 전에 먼저 정리할 기준'
-description: 거래처 독촉 문자 시작 전에 먼저 정리해야 할 업무 기준과 체크리스트를 통해 반복 시간과 재작업을 줄이는 방법을 설명합니다.
+title: '거래처 입금 확인 메시지: 독촉처럼 보이기 전에 정리할 기준'
+description: 거래처 독촉 문자 대신 입금 확인 메시지 기준을 세워 거래처 관계, 금액 확인, 후속 기록의 오해를 줄이는 방법을 설명합니다.
 slug: payment-reminder-message
 locale: ko
 category: sales-ops

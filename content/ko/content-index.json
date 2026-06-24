@@ -298,7 +298,7 @@
     ]
   },
   {
-    "title": "무료 오픈소스 자동화 도구 실전 분석: 오픈소스 자동화 도구 대체 도구로 고르기 전에 확인할 기준",
+    "title": "무료 오픈소스 자동화 도구 실전 분석: 도입 전에 확인할 기준",
     "slug": "free-open-source-automation-tools-series",
     "route": "/ko/automation/free-open-source-automation-tools-series",
     "category": "automation",
@@ -509,7 +509,7 @@
     ]
   },
   {
-    "title": "Offline 분석: 오프라인 카드결제 PG VAN 대체 도구로 고르기 전에 확인할 기준",
+    "title": "오프라인 카드결제 PG/VAN 분석: 고르기 전에 확인할 기준",
     "slug": "offline-card-payment-pg-van",
     "route": "/ko/contracts-payments/offline-card-payment-pg-van",
     "category": "contracts-payments",
@@ -573,7 +573,7 @@
     ]
   },
   {
-    "title": "거래처 독촉 문자: 시간을 잃기 전에 먼저 정리할 기준",
+    "title": "거래처 입금 확인 메시지: 독촉처럼 보이기 전에 정리할 기준",
     "slug": "payment-reminder-message",
     "route": "/ko/sales-ops/payment-reminder-message",
     "category": "sales-ops",

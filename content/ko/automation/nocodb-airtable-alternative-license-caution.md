@@ -1,6 +1,6 @@
 ---
 title: 'NocoDB 분석: 도입 전에 확인할 비용·라이선스 리스크'
-description: 'NocoDB 라이선스 주의 검토 전에 라이선스, 비용, self-hosting 운영 부담을 확인해 전환 실패와 숨은 비용을 줄이는 기준을 정리합니다.'
+description: 'NocoDB 도입 전에 라이선스, 비용, self-hosting 운영 부담을 확인해 전환 실패와 숨은 비용을 줄이는 기준을 정리합니다.'
 slug: nocodb-airtable-alternative-license-caution
 locale: ko
 category: automation
