@@ -394,5 +394,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "meilisearch-blog-product-search-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "meilisearch-blog-product-search-automation",
+    "usage": "hero",
+    "src": "/images/posts/meilisearch-blog-product-search-automation-hero.webp",
+    "rawPath": "assets/images/raw/meilisearch-blog-product-search-automation-hero.jpg",
+    "altKo": "Meilisearch로 블로그와 상품 검색 index 자동화를 검토하는 대표 이미지",
+    "captionKo": "Meilisearch는 검색 자동화 후보지만 index 운영과 hosting 조건 확인이 필요하다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]

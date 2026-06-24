@@ -33,7 +33,15 @@ export function publicOutputExists(brief: ImageBrief) {
   return fs.existsSync(absoluteRepoPath(brief.optimizedPath));
 }
 
-export function validateLocalImagePath(label: string, repoPath: string) {
+function stripStructuralPathToken(repoPath: string, structuralToken?: string) {
+  if (!structuralToken) {
+    return repoPath.toLowerCase();
+  }
+
+  return repoPath.toLowerCase().replaceAll(structuralToken.toLowerCase(), "");
+}
+
+export function validateLocalImagePath(label: string, repoPath: string, structuralToken?: string) {
   const normalized = normalizeRepoPath(repoPath);
   const errors: string[] = [];
 
@@ -45,8 +53,9 @@ export function validateLocalImagePath(label: string, repoPath: string) {
     errors.push(`${label}: path traversal is not allowed`);
   }
 
+  const commerceTermCheckPath = stripStructuralPathToken(normalized, structuralToken);
   for (const term of forbiddenImageTerms) {
-    if (normalized.toLowerCase().includes(term)) {
+    if (commerceTermCheckPath.includes(term)) {
       errors.push(`${label}: forbidden image path term ${term}`);
     }
   }
@@ -67,8 +76,8 @@ export function validateBriefOutputPaths(brief: ImageBrief) {
   const rawPath = normalizeRepoPath(brief.targetPath);
   const optimizedPath = normalizeRepoPath(brief.optimizedPath);
 
-  errors.push(...validateLocalImagePath(`${brief.id} targetPath`, rawPath));
-  errors.push(...validateLocalImagePath(`${brief.id} optimizedPath`, optimizedPath));
+  errors.push(...validateLocalImagePath(`${brief.id} targetPath`, rawPath, brief.postSlug));
+  errors.push(...validateLocalImagePath(`${brief.id} optimizedPath`, optimizedPath, brief.postSlug));
 
   if (!rawPath.startsWith("assets/images/raw/")) {
     errors.push(`${brief.id}: targetPath must stay under assets/images/raw`);

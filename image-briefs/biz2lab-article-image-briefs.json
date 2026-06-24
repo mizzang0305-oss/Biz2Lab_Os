@@ -1135,6 +1135,29 @@
       "visualDifferentiationHint": "supabase-self-hosting-cost-operations-caution: self-hosted-backend-cost-operations-balance",
       "filename": "supabase-self-hosting-cost-operations-caution-hero.jpg",
       "rawPath": "assets/images/raw/supabase-self-hosting-cost-operations-caution-hero.jpg"
+    },
+    {
+      "id": "meilisearch-blog-product-search-automation-hero",
+      "postSlug": "meilisearch-blog-product-search-automation",
+      "category": "automation",
+      "usage": "hero",
+      "targetPath": "assets/images/raw/meilisearch-blog-product-search-automation-hero.jpg",
+      "optimizedPath": "public/images/posts/meilisearch-blog-product-search-automation-hero.webp",
+      "altKo": "Meilisearch로 블로그와 상품 검색 index 자동화를 검토하는 대표 이미지",
+      "captionKo": "Meilisearch는 검색 자동화 후보지만 index 운영과 hosting 조건 확인이 필요하다.",
+      "style": "search-index-automation-dashboard, Korean business editorial raster hero, minimal text, no title inside image",
+      "promptKo": "Search index pipeline, blog and catalog cards, search result panel, indexing schedule, hosting operations gate가 있는 검색 자동화 이미지.",
+      "providerPromptKo": "Meilisearch 분석: 블로그와 상품 검색 자동화에 쓸 수 있을까? 대표 이미지. Search index pipeline, blog and catalog cards, search result panel, indexing schedule, hosting operations gate가 있는 검색 자동화 이미지. Include: search index pipeline, blog and catalog cards, search result panel, indexing schedule, hosting operations gate. No official logos, no real customer data, no placeholder elements.",
+      "negativePromptKo": "official Meilisearch logo, private documents, customer data, unrestricted public search, ranking guarantee, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+      "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+      "composition": "Search index pipeline, blog and catalog cards, search result panel, indexing schedule, hosting operations gate가 있는 검색 자동화 이미지.",
+      "categoryStyle": "automation category visual, search-index-automation-dashboard",
+      "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+      "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+      "localOnly": true,
+      "visualDifferentiationHint": "meilisearch-blog-product-search-automation: search-index-automation-dashboard",
+      "filename": "meilisearch-blog-product-search-automation-hero.jpg",
+      "rawPath": "assets/images/raw/meilisearch-blog-product-search-automation-hero.jpg"
     }
   ]
 }

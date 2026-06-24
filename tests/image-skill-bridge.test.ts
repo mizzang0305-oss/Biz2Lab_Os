@@ -5,7 +5,7 @@ import path from "node:path";
 import test from "node:test";
 
 import { loadImageBriefs, validateImageBriefs } from "@/lib/image-generation/image-brief-loader";
-import { assertLocalhostEndpoint, summarizeBriefs } from "@/lib/image-generation/image-output";
+import { assertLocalhostEndpoint, summarizeBriefs, validateLocalImagePath } from "@/lib/image-generation/image-output";
 import { comfyUiProvider } from "@/lib/image-generation/comfyui-provider";
 import { manualDropProvider } from "@/lib/image-generation/manual-drop-provider";
 import { normalizeProviderId, readProviderConfigFromEnv } from "@/lib/image-generation/providers";
@@ -69,6 +69,22 @@ test("image skill can load a slug-specific generated brief file", () => {
 
 test("image brief validation requires slugged raw and public paths", () => {
   assert.deepEqual(validateImageBriefs([validBrief]), []);
+  assert.deepEqual(
+    validateImageBriefs([
+      {
+        ...validBrief,
+        id: "meilisearch-blog-product-search-automation-hero",
+        postSlug: "meilisearch-blog-product-search-automation",
+        targetPath: "assets/images/raw/meilisearch-blog-product-search-automation-hero.jpg",
+        optimizedPath: "public/images/posts/meilisearch-blog-product-search-automation-hero.webp",
+      },
+    ]),
+    [],
+  );
+  assert.match(
+    validateLocalImagePath("bad image", "public/images/posts/search-product-card.webp").join("\n"),
+    /forbidden image path term product/,
+  );
   assert.match(
     validateImageBriefs([
       {

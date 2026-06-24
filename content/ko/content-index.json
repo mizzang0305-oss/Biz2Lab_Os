@@ -1,5 +1,22 @@
 [
   {
+    "title": "Meilisearch 분석: 블로그와 상품 검색 자동화에 쓸 수 있을까?",
+    "slug": "meilisearch-blog-product-search-automation",
+    "route": "/ko/automation/meilisearch-blog-product-search-automation",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/meilisearch-blog-product-search-automation-hero.webp",
+    "heroAlt": "Meilisearch로 블로그와 상품 검색 index 자동화를 검토하는 대표 이미지",
+    "updatedAt": "2026-06-24",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "supabase-self-hosting-cost-operations-caution",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Supabase 셀프호스팅 분석: 도입 전에 확인할 비용·라이선스 리스크",
     "slug": "supabase-self-hosting-cost-operations-caution",
     "route": "/ko/automation/supabase-self-hosting-cost-operations-caution",
