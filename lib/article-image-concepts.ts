@@ -504,6 +504,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["search index pipeline", "blog and product cards", "search result panel", "indexing schedule"],
     palette: automationPalette,
   },
+  "typesense-product-document-search-automation": {
+    slug: "typesense-product-document-search-automation",
+    category: "automation",
+    visualFamily: "search-api-catalog-document-control-board",
+    conceptKo: "Search API panel, catalog and document index, comparison board, permission filter, reindex checklist가 있는 검색 운영 이미지.",
+    altKo: "Typesense로 상품과 문서 검색 API 자동화를 검토하는 대표 이미지",
+    captionKo: "Typesense는 search API 후보지만 권한 필터와 reindex 운영 설계가 필요하다.",
+    labels: ["search API panel", "catalog and document index", "comparison board", "permission filter"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

@@ -45,9 +45,10 @@ const completedDirectusSlug = "directus-headless-cms-data-automation";
 const completedPocketBaseSlug = "pocketbase-lightweight-backend-saas-mvp";
 const completedSupabaseSlug = "supabase-self-hosting-cost-operations-caution";
 const completedMeilisearchSlug = "meilisearch-blog-product-search-automation";
-const currentAutomationTopicSlug = "typesense-product-document-search-automation";
+const completedTypesenseSlug = "typesense-product-document-search-automation";
+const currentAutomationTopicSlug = "umami-open-source-analytics-ga-alternative";
 const pocketBaseQueue = staleFlowiseQueue.slice(2);
-const currentAutomationQueue = staleFlowiseQueue.slice(5);
+const currentAutomationQueue = staleFlowiseQueue.slice(6);
 
 function tempSeriesRoot() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-series-"));
@@ -150,6 +151,7 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes(completedPocketBaseSlug));
   assert.ok(state.completed.includes(completedSupabaseSlug));
   assert.ok(state.completed.includes(completedMeilisearchSlug));
+  assert.ok(state.completed.includes(completedTypesenseSlug));
   assert.equal(state.currentTopic, currentAutomationTopicSlug);
   assert.deepEqual(state.next, currentAutomationQueue);
   assert.equal(state.gates.manualDeploy, false);
@@ -704,7 +706,10 @@ test("publication state advancement marks the topic completed and selects the ne
   assert.equal(nextState.currentTopic, "directus-headless-cms-data-automation");
   assert.equal(nextState.next[0], "directus-headless-cms-data-automation");
   assert.equal(nextState.completed.includes("directus-headless-cms-data-automation"), false);
-  assert.deepEqual(nextState.next, staleFlowiseQueue.slice(1).filter((slug) => slug !== completedMeilisearchSlug));
+  assert.deepEqual(
+    nextState.next,
+    staleFlowiseQueue.slice(1).filter((slug) => slug !== completedMeilisearchSlug && slug !== completedTypesenseSlug),
+  );
   assert.equal(nextState.gates.autoMerge, false);
   assert.equal(nextState.gates.manualDeploy, false);
 });
@@ -728,12 +733,15 @@ test("Directus publication state advancement marks Directus completed and select
   assert.equal(nextState.completed.filter((slug) => slug === completedDirectusSlug).length, 1);
   assert.equal(nextState.currentTopic, completedPocketBaseSlug);
   assert.equal(nextState.next[0], completedPocketBaseSlug);
-  assert.deepEqual(nextState.next, thirdAutomationQueue.filter((slug) => slug !== completedMeilisearchSlug));
+  assert.deepEqual(
+    nextState.next,
+    thirdAutomationQueue.filter((slug) => slug !== completedMeilisearchSlug && slug !== completedTypesenseSlug),
+  );
   assert.equal(nextState.gates.autoMerge, false);
   assert.equal(nextState.gates.manualDeploy, false);
 });
 
-test("PocketBase publication state advancement skips completed Supabase and Meilisearch", () => {
+test("PocketBase publication state advancement skips completed Supabase, Meilisearch, and Typesense", () => {
   const state = readContentSeriesState();
   const topics = readContentSeriesTopics();
   const topic = resolveContentSeriesTopic(topics.topics, state, completedPocketBaseSlug);

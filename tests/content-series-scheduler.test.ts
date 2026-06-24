@@ -20,8 +20,8 @@ const completedDirectusSlug = "directus-headless-cms-data-automation";
 const completedPocketBaseSlug = "pocketbase-lightweight-backend-saas-mvp";
 const completedSupabaseSlug = "supabase-self-hosting-cost-operations-caution";
 const completedMeilisearchSlug = "meilisearch-blog-product-search-automation";
-const currentTopicSlug = "typesense-product-document-search-automation";
-const nextTopicAfterCurrentSlug = "umami-open-source-analytics-ga-alternative";
+const completedTypesenseSlug = "typesense-product-document-search-automation";
+const currentTopicSlug = "umami-open-source-analytics-ga-alternative";
 const finalTopicSlug = "umami-open-source-analytics-ga-alternative";
 const partialQueueTopicSlug = "windmill-developer-workflow-automation";
 const partialQueueCompleted = [
@@ -159,7 +159,7 @@ test("180-minute cadence is accepted and missing artifact waits safely", async (
   assert.equal(readContentSeriesSchedule(root).cadenceMinutes, 180);
 });
 
-test("completed Meilisearch advances the default scheduler topic to Typesense", async () => {
+test("completed Typesense advances the default scheduler topic to Umami", async () => {
   const root = tempSchedulerRoot();
   const state = readJson<{ completed: string[]; currentTopic: string; next: string[] }>(
     path.join(root, "data", "content-series-state.json"),
@@ -177,6 +177,7 @@ test("completed Meilisearch advances the default scheduler topic to Typesense", 
   assert.ok(state.completed.includes(completedPocketBaseSlug));
   assert.ok(state.completed.includes(completedSupabaseSlug));
   assert.ok(state.completed.includes(completedMeilisearchSlug));
+  assert.ok(state.completed.includes(completedTypesenseSlug));
   assert.equal(state.currentTopic, currentTopicSlug);
   assert.equal(state.next[0], currentTopicSlug);
   assert.equal(result.status, "WAITING_FOR_CODEX_IMAGE_ARTIFACT");
@@ -318,14 +319,21 @@ test("partial queue still selects the next incomplete topic", async () => {
 
 test("topic order still blocks topics after the current topic until it is completed", async () => {
   const root = tempSchedulerRoot();
+  updateContentSeriesState(root, {
+    currentTopic: completedTypesenseSlug,
+    completed: readJson<{ completed: string[] }>(path.join(root, "data", "content-series-state.json")).completed.filter(
+      (slug) => slug !== completedTypesenseSlug,
+    ),
+    next: [completedTypesenseSlug, currentTopicSlug],
+  });
 
   const result = await runContentSeriesScheduler(
-    { rootDir: root, dryRun: true, topic: nextTopicAfterCurrentSlug, useLatestCodexArtifact: true, now: activeNow },
+    { rootDir: root, dryRun: true, topic: currentTopicSlug, useLatestCodexArtifact: true, now: activeNow },
     schedulerDeps().deps,
   );
 
   assert.equal(result.status, "TOPIC_ORDER_BLOCKED");
-  assert.equal(result.topic, nextTopicAfterCurrentSlug);
+  assert.equal(result.topic, currentTopicSlug);
   assert.match(result.message ?? "", /next queue starts with typesense-product-document-search-automation/);
   assert.match(result.message ?? "", /previous article is not public yet: typesense-product-document-search-automation/);
 });

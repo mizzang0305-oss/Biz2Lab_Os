@@ -34,6 +34,23 @@
     ]
   },
   {
+    "title": "Typesense 분석: 상품·문서 검색 자동화 엔진으로 쓸 수 있을까?",
+    "slug": "typesense-product-document-search-automation",
+    "route": "/ko/automation/typesense-product-document-search-automation",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/typesense-product-document-search-automation-hero.webp",
+    "heroAlt": "Typesense로 상품과 문서 검색 API 자동화를 검토하는 대표 이미지",
+    "updatedAt": "2026-06-24",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "meilisearch-blog-product-search-automation",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Directus 분석: headless CMS 도입 전에 확인할 업무 기준",
     "slug": "directus-headless-cms-data-automation",
     "route": "/ko/automation/directus-headless-cms-data-automation",
