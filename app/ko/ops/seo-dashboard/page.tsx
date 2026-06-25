@@ -241,6 +241,28 @@ function KeywordStatusPill({
   );
 }
 
+function answerStatusTone(status: SeoOpsArticleRow["aiAnswerReadinessStatus"]) {
+  if (status === "AI 답변 준비 좋음") {
+    return "border-emerald-200 bg-emerald-50 text-emerald-800";
+  }
+  if (status === "비교 기준 보강 필요") {
+    return "border-sky-200 bg-sky-50 text-sky-800";
+  }
+  return "border-amber-200 bg-amber-50 text-amber-800";
+}
+
+function AnswerStatusPill({
+  status,
+}: {
+  status: SeoOpsArticleRow["aiAnswerReadinessStatus"];
+}) {
+  return (
+    <span className={`inline-flex items-center rounded-md border px-2 py-1 text-xs font-semibold ${answerStatusTone(status)}`}>
+      {status}
+    </span>
+  );
+}
+
 function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
   return (
     <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
@@ -270,6 +292,12 @@ function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
           <dd className="font-semibold text-slate-900">{row.hookStatus}</dd>
         </div>
         <div>
+          <dt className="text-slate-500">AI answer</dt>
+          <dd>
+            <AnswerStatusPill status={row.aiAnswerReadinessStatus} />
+          </dd>
+        </div>
+        <div>
           <dt className="text-slate-500">대표 이미지</dt>
           <dd>
             <StatusPill status={row.heroImageStatus}>{checkStatusLabel(row.heroImageStatus)}</StatusPill>
@@ -296,6 +324,7 @@ function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
       </dl>
       <div className="mt-4 flex flex-col gap-2">
         <div className="flex flex-wrap gap-2">
+          <AnswerStatusPill status={row.aiAnswerReadinessStatus} />
           <KeywordStatusPill status={row.keywordCoverageStatus}>
             keyword {keywordStatusLabel(row.keywordCoverageStatus)}
           </KeywordStatusPill>
@@ -306,6 +335,10 @@ function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
         <span className={`inline-flex w-fit rounded-md border px-2 py-1 text-xs font-semibold ${stageTone(row.optimizationStage)}`}>
           {row.optimizationStage}
         </span>
+        <p className="text-sm text-slate-600">
+          FAQ {row.faqPresent ? "있음" : "보강 필요"} · 먼저 결론 {row.conclusionFirstPresent ? "있음" : "보강 필요"} · 체크리스트{" "}
+          {row.checklistPresent ? "있음" : "보강 필요"}
+        </p>
         <p className="text-sm text-slate-700">{row.recommendedAction}</p>
         <p className="text-sm text-slate-600">{row.lossAvoidanceAngle}</p>
       </div>
@@ -328,7 +361,7 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
               <th className="w-[20%] px-4 py-3">글 제목</th>
               <th className="w-[15%] px-4 py-3">Primary keyword</th>
               <th className="w-[11%] px-4 py-3">Cluster / intent</th>
-              <th className="w-[14%] px-4 py-3">Hook</th>
+              <th className="w-[14%] px-4 py-3">Hook / AI answer</th>
               <th className="w-[11%] px-4 py-3">기술 SEO</th>
               <th className="w-[9%] px-4 py-3">Analytics</th>
               <th className="w-[10%] px-4 py-3">Keyword / index</th>
@@ -355,6 +388,9 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
                 </td>
                 <td className="px-4 py-4 text-slate-700">
                   <p className="font-semibold text-slate-950">{row.hookStatus}</p>
+                  <div className="mt-2">
+                    <AnswerStatusPill status={row.aiAnswerReadinessStatus} />
+                  </div>
                   <p className="mt-2 text-xs leading-5 text-slate-600">{row.lossAvoidanceAngle}</p>
                 </td>
                 <td className="px-4 py-4">
@@ -380,6 +416,10 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
                   </div>
                   <p className="mt-2 text-xs text-slate-500">
                     내부 링크 {row.internalLinkCount} · 깨짐 {row.brokenLinkCount}
+                  </p>
+                  <p className="mt-2 text-xs leading-5 text-slate-500">
+                    FAQ {row.faqPresent ? "있음" : "보강 필요"} · 결론 {row.conclusionFirstPresent ? "있음" : "보강 필요"} · 체크리스트{" "}
+                    {row.checklistPresent ? "있음" : "보강 필요"} · 비교표 {row.comparisonTablePresent ? "있음" : "필요 시 보강"}
                   </p>
                   <span className={`mt-2 inline-flex rounded-md border px-2 py-1 text-xs font-semibold ${stageTone(row.optimizationStage)}`}>
                     {row.optimizationStage}
@@ -444,7 +484,7 @@ export function SeoOpsDashboardContent({ dashboard = getSeoOpsDashboard() }: { d
           </div>
         </header>
 
-        <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-9">
+        <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-12">
           <SummaryCard label="공개 글" value={`${dashboard.summary.publishedArticles}`} detail="현재 published 글 기준" />
           <SummaryCard label="자동화 시리즈" value={`${dashboard.summary.automationSeriesArticles}`} detail="오픈소스 자동화 글" />
           <SummaryCard label="시리즈 진행" value={dashboard.summary.automationSeriesProgress} detail="완료 topic / 전체 대기열" />
@@ -453,6 +493,11 @@ export function SeoOpsDashboardContent({ dashboard = getSeoOpsDashboard() }: { d
           <SummaryCard label="Keyword weak" value={`${dashboard.summary.keywordWeakArticles}`} detail="needs structural review" />
           <SummaryCard label="Hook strong" value={`${dashboard.summary.hookStrongArticles}`} detail="loss-avoidance hook ready" />
           <SummaryCard label="Hook review" value={`${dashboard.summary.hookNeedsReviewArticles}`} detail="needs hook rewrite" />
+          <SummaryCard label="AI answer ready" value={`${dashboard.summary.aiAnswerReadyArticles}`} detail="answer-source structure ready" />
+          <SummaryCard label="FAQ needs" value={`${dashboard.summary.aiAnswerNeedsFaq}`} detail="FAQ or overclaim review" />
+          <SummaryCard label="Conclusion needs" value={`${dashboard.summary.aiAnswerNeedsConclusion}`} detail="conclusion-first summary" />
+          <SummaryCard label="Checklist needs" value={`${dashboard.summary.aiAnswerNeedsChecklist}`} detail="decision checklist" />
+          <SummaryCard label="Comparison needs" value={`${dashboard.summary.aiAnswerNeedsComparison}`} detail="comparison criteria" />
           <SummaryCard label="다음 topic" value="대기" detail={dashboard.summary.nextPublicationTopic} />
           <SummaryCard label="현재 gate" value={dashboard.summary.schedulerGate} detail={dashboard.scheduler.lastKnownIssue} />
           <SummaryCard label="Analytics" value={dashboard.summary.analyticsConnection} detail="가짜 수치 없음" />

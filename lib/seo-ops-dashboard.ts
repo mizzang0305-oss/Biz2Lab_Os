@@ -4,6 +4,11 @@ import path from "node:path";
 import { z } from "zod";
 
 import { getPublicPosts, type Post } from "@/lib/posts";
+import {
+  auditSeoAnswerReadiness,
+  type AiAnswerReadinessStatus,
+  type SeoAnswerReadinessArticleAudit,
+} from "@/lib/seo-answer-readiness";
 import { getSeoOpsAnalyticsConnectors, type SeoOpsAnalyticsProvider } from "@/lib/seo-ops-analytics";
 import {
   auditSeoKeywords,
@@ -51,6 +56,12 @@ export type SeoOpsArticleRow = {
   indexReadinessStatus: KeywordCoverageStatus;
   hookStatus: KeywordHookStatus;
   lossAvoidanceAngle: string;
+  aiAnswerReadinessStatus: AiAnswerReadinessStatus;
+  faqPresent: boolean;
+  conclusionFirstPresent: boolean;
+  checklistPresent: boolean;
+  comparisonTablePresent: boolean;
+  citationFriendlySummaryPresent: boolean;
   optimizationStage: SeoOpsOptimizationStage;
   recommendedAction: string;
 };
@@ -93,6 +104,11 @@ export type SeoOpsDashboard = {
     keywordWeakArticles: number;
     hookStrongArticles: number;
     hookNeedsReviewArticles: number;
+    aiAnswerReadyArticles: number;
+    aiAnswerNeedsFaq: number;
+    aiAnswerNeedsConclusion: number;
+    aiAnswerNeedsChecklist: number;
+    aiAnswerNeedsComparison: number;
   };
   articles: SeoOpsArticleRow[];
   analytics: {
@@ -344,12 +360,14 @@ function buildArticleRows({
   imageAssets,
   analyticsConnected,
   keywordAuditBySlug,
+  answerAuditBySlug,
 }: {
   rootDir: string;
   posts: Post[];
   imageAssets: ImageAsset[];
   analyticsConnected: boolean;
   keywordAuditBySlug: Map<string, SeoKeywordArticleAudit>;
+  answerAuditBySlug: Map<string, SeoAnswerReadinessArticleAudit>;
 }) {
   const availableRoutes = new Set<string>([
     ...staticPublicRoutes,
@@ -359,6 +377,7 @@ function buildArticleRows({
 
   return posts.map((post) => {
     const keywordAudit = keywordAuditBySlug.get(post.slug);
+    const answerAudit = answerAuditBySlug.get(post.slug);
     const baseRow = {
       title: post.frontmatter.title,
       slug: post.slug,
@@ -379,6 +398,12 @@ function buildArticleRows({
       indexReadinessStatus: keywordAudit?.indexReadinessStatus ?? "NEEDS_INDEX_CHECK",
       hookStatus: keywordAudit?.hookStatus ?? "needs-title-hook",
       lossAvoidanceAngle: keywordAudit?.lossAvoidanceAngle ?? "손실 회피 각도 미등록",
+      aiAnswerReadinessStatus: answerAudit?.aiAnswerReadinessStatus ?? "결론 요약 보강 필요",
+      faqPresent: answerAudit?.faqPresent ?? false,
+      conclusionFirstPresent: answerAudit?.conclusionFirstPresent ?? false,
+      checklistPresent: answerAudit?.checklistPresent ?? false,
+      comparisonTablePresent: answerAudit?.comparisonTablePresent ?? false,
+      citationFriendlySummaryPresent: answerAudit?.citationFriendlySummaryPresent ?? false,
     } satisfies Omit<SeoOpsArticleRow, "optimizationStage" | "recommendedAction">;
     const stage = optimizationStage(baseRow);
 
@@ -561,6 +586,8 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
   const imageAssets = readImageAssets(rootDir);
   const keywordAudit = auditSeoKeywords(rootDir);
   const keywordAuditBySlug = new Map(keywordAudit.articles.map((article) => [article.slug, article]));
+  const answerAudit = auditSeoAnswerReadiness(rootDir);
+  const answerAuditBySlug = new Map(answerAudit.articles.map((article) => [article.slug, article]));
   const analyticsConnectors = getSeoOpsAnalyticsConnectors();
   const analytics = buildAnalytics(analyticsConnectors.providers);
   const realAnalyticsConnected = analyticsConnectors.realDataConnected;
@@ -570,6 +597,7 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
     imageAssets,
     analyticsConnected: realAnalyticsConnected,
     keywordAuditBySlug,
+    answerAuditBySlug,
   });
   const seoHealth = buildSeoHealth(posts, articles);
   const topic = currentTopic(seriesState);
@@ -596,6 +624,11 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
       keywordWeakArticles: keywordAudit.summary.weakArticles,
       hookStrongArticles: articles.filter((row) => row.hookStatus === "strong").length,
       hookNeedsReviewArticles: articles.filter((row) => row.hookStatus !== "strong").length,
+      aiAnswerReadyArticles: answerAudit.summary.readyArticles,
+      aiAnswerNeedsFaq: answerAudit.summary.needsFaq,
+      aiAnswerNeedsConclusion: answerAudit.summary.needsConclusion,
+      aiAnswerNeedsChecklist: answerAudit.summary.needsChecklist,
+      aiAnswerNeedsComparison: answerAudit.summary.needsComparison,
     },
     articles,
     analytics,
