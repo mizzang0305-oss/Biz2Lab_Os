@@ -157,7 +157,7 @@ PocketBase는 자동화 후보 도구입니다. 다만 고객 데이터, 결제,
 ## 무료 오픈소스 자동화 도구 시리즈
 
 - [무료 오픈소스 자동화 도구 시리즈](/ko/automation/free-open-source-automation-tools-series)
-- [PocketBase 관련 자동화 글](/ko/automation/directus-headless-cms-data-automation)
+- [더 큰 데이터 모델과 API 운영 범위는 Directus 분석](/ko/automation/directus-headless-cms-data-automation)
 - [Appsmith 내부 대시보드 자동화 분석](/ko/automation/appsmith-internal-dashboard-automation)
 - [Baserow 데이터베이스 자동화 분석](/ko/automation/baserow-open-source-database-automation)
 - [Supabase 셀프호스팅 분석: 비용은 줄일 수 있을까, 운영 부담이 더 클까?](/ko/automation/supabase-self-hosting-cost-operations-caution)
