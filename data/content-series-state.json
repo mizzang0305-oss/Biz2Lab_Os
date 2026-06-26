@@ -1,7 +1,7 @@
 {
   "series": "free-open-source-automation-tools",
   "title": "무료 오픈소스 자동화 도구 시리즈",
-  "currentTopic": "plausible-open-source-analytics-ga-alternative",
+  "currentTopic": "matomo-self-hosted-analytics-privacy-caution",
   "completed": [
     "opencut-free-open-source-video-editor-ai-content-automation",
     "free-open-source-automation-tools-series",
@@ -24,10 +24,10 @@
     "supabase-self-hosting-cost-operations-caution",
     "meilisearch-blog-product-search-automation",
     "typesense-product-document-search-automation",
-    "umami-open-source-analytics-ga-alternative"
+    "umami-open-source-analytics-ga-alternative",
+    "plausible-open-source-analytics-ga-alternative"
   ],
   "next": [
-    "plausible-open-source-analytics-ga-alternative",
     "matomo-self-hosted-analytics-privacy-caution",
     "posthog-product-analytics-automation"
   ],

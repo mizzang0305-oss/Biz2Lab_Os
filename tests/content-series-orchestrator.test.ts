@@ -50,7 +50,8 @@ const currentAutomationTopicSlug = "umami-open-source-analytics-ga-alternative";
 const plausibleAnalyticsSlug = "plausible-open-source-analytics-ga-alternative";
 const matomoAnalyticsSlug = "matomo-self-hosted-analytics-privacy-caution";
 const posthogAnalyticsSlug = "posthog-product-analytics-automation";
-const analyticsQueue = [plausibleAnalyticsSlug, matomoAnalyticsSlug, posthogAnalyticsSlug];
+const analyticsQueue = [matomoAnalyticsSlug, posthogAnalyticsSlug];
+const allAnalyticsTopicSlugs = [plausibleAnalyticsSlug, matomoAnalyticsSlug, posthogAnalyticsSlug];
 const pocketBaseQueue = staleFlowiseQueue.slice(2);
 const currentAutomationQueue = staleFlowiseQueue.slice(6);
 
@@ -68,9 +69,9 @@ function tempSeriesRoot() {
     `${JSON.stringify(
       {
         ...state,
-        currentTopic: plausibleAnalyticsSlug,
-        completed: state.completed.filter((slug) => slug !== plausibleAnalyticsSlug),
-        next: [plausibleAnalyticsSlug],
+        currentTopic: matomoAnalyticsSlug,
+        completed: state.completed.filter((slug) => slug !== matomoAnalyticsSlug),
+        next: [matomoAnalyticsSlug, posthogAnalyticsSlug],
       },
       null,
       2,
@@ -173,7 +174,8 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes(completedMeilisearchSlug));
   assert.ok(state.completed.includes(completedTypesenseSlug));
   assert.ok(state.completed.includes(currentAutomationTopicSlug));
-  assert.equal(state.currentTopic, plausibleAnalyticsSlug);
+  assert.ok(state.completed.includes(plausibleAnalyticsSlug));
+  assert.equal(state.currentTopic, matomoAnalyticsSlug);
   assert.deepEqual(state.next, analyticsQueue);
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
@@ -201,7 +203,7 @@ test("content series topic config parses required upcoming topics", () => {
     assert.ok(slugs.includes(slug), `missing ${slug}`);
   }
   assert.ok(slugs.includes(completedDifySlug), `missing ${completedDifySlug}`);
-  for (const slug of analyticsQueue) {
+  for (const slug of allAnalyticsTopicSlugs) {
     assert.ok(slugs.includes(slug), `missing ${slug}`);
   }
   for (const topic of topics.topics.filter((topic) => secondAutomationQueue.includes(topic.slug))) {

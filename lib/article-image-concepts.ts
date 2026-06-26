@@ -524,6 +524,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["privacy analytics dashboard", "blog traffic metrics", "GA alternative comparison", "hosting choice"],
     palette: automationPalette,
   },
+  "plausible-open-source-analytics-ga-alternative": {
+    slug: "plausible-open-source-analytics-ga-alternative",
+    category: "automation",
+    visualFamily: "privacy-analytics-dashboard-operations-map",
+    conceptKo: "Privacy-friendly analytics dashboard, lightweight blog traffic metrics, GA alternative comparison, consent gate, hosting choice, data ownership map in a premium Biz2Lab editorial hero.",
+    altKo: "Plausible을 GA 대체 웹 분석과 개인정보 보호 관점에서 검토하는 대표 이미지",
+    captionKo: "Plausible은 가벼운 웹 분석 후보이지만 privacy, hosting, consent 조건을 함께 확인해야 합니다.",
+    labels: ["privacy analytics dashboard", "lightweight traffic metrics", "GA alternative comparison", "consent gate"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

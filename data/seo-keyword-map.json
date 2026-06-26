@@ -119,6 +119,23 @@
     "lossAvoidanceAngle": "웹 분석 도구를 성급하게 바꾸면 추적 동의, 데이터 소유권, 운영 책임이 뒤늦게 비용으로 돌아올 수 있습니다"
   },
   {
+    "slug": "plausible-open-source-analytics-ga-alternative",
+    "route": "/ko/automation/plausible-open-source-analytics-ga-alternative",
+    "primaryKeyword": "Plausible GA 대체 분석",
+    "secondaryKeywords": [
+      "Plausible 오픈소스 분석",
+      "GA 대체 웹 분석",
+      "privacy-friendly analytics",
+      "블로그 트래픽 분석"
+    ],
+    "searchIntent": "business-use",
+    "audience": "운영자",
+    "cluster": "automation-tools",
+    "recommendedAction": "Plausible을 GA 대체 웹 분석 후보로 검토하되 consent, hosting, 데이터 소유권, 리포트 자동화 범위를 함께 확인합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "웹 분석 도구를 성급하게 바꾸면 추적 동의, 데이터 보관, 리포트 운영 책임이 뒤늦게 비용으로 돌아올 수 있습니다"
+  },
+  {
     "slug": "open-webui-local-llm-admin-portal",
     "route": "/ko/automation/open-webui-local-llm-admin-portal",
     "primaryKeyword": "Open WebUI 로컬 LLM",
