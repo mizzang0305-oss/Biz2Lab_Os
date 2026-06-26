@@ -21,7 +21,7 @@ Feature usage analytics event pipeline, funnel board, feature flag cards, approv
 
 - official PostHog logo
 - real user data
-- copied product screenshot
+- copied software screenshot
 - conversion guarantee
 - tracking without consent
 

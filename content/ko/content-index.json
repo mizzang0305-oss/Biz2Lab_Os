@@ -12,8 +12,8 @@
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "plausible-open-source-analytics-ga-alternative",
-      "activepieces-ai-business-automation-n8n-alternative",
-      "opencut-free-open-source-video-editor-ai-content-automation"
+      "umami-open-source-analytics-ga-alternative",
+      "activepieces-ai-business-automation-n8n-alternative"
     ]
   },
   {
@@ -31,6 +31,23 @@
       "umami-open-source-analytics-ga-alternative",
       "typesense-product-document-search-automation",
       "activepieces-ai-business-automation-n8n-alternative"
+    ]
+  },
+  {
+    "title": "PostHog 분석: 제품 분석과 이벤트 자동화에 쓸 수 있을까",
+    "slug": "posthog-product-analytics-automation",
+    "route": "/ko/automation/posthog-product-analytics-automation",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/posthog-product-analytics-automation-hero.webp",
+    "heroAlt": "PostHog 제품 분석과 이벤트 자동화 흐름을 개인정보 리스크와 함께 검토하는 대표 이미지",
+    "updatedAt": "2026-06-26",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "matomo-self-hosted-analytics-privacy-caution",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
     ]
   },
   {

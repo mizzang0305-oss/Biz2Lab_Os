@@ -153,6 +153,23 @@
     "lossAvoidanceAngle": "셀프호스팅 분석 도구를 성급하게 도입하면 서버 운영, 백업, 개인정보 대응 책임이 뒤늦게 비용으로 돌아올 수 있습니다"
   },
   {
+    "slug": "posthog-product-analytics-automation",
+    "route": "/ko/automation/posthog-product-analytics-automation",
+    "primaryKeyword": "PostHog 제품 분석 자동화",
+    "secondaryKeywords": [
+      "PostHog 이벤트 추적",
+      "product analytics 자동화",
+      "feature flag 분석",
+      "제품 사용 이벤트 분석"
+    ],
+    "searchIntent": "business-use",
+    "audience": "운영자",
+    "cluster": "automation-tools",
+    "recommendedAction": "PostHog을 제품 분석과 이벤트 자동화 후보로 검토하되 개인정보, 이벤트 taxonomy, 승인 게이트를 먼저 확인합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "제품 분석 이벤트를 성급하게 자동화하면 개인정보 과수집, 잘못된 고객 조치, 이벤트 관리 비용이 뒤늦게 커질 수 있습니다"
+  },
+  {
     "slug": "open-webui-local-llm-admin-portal",
     "route": "/ko/automation/open-webui-local-llm-admin-portal",
     "primaryKeyword": "Open WebUI 로컬 LLM",

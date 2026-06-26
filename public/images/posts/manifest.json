@@ -1628,6 +1628,50 @@
     "rawPath": "assets/images/raw/pocketbase-lightweight-backend-saas-mvp-hero.jpg"
   },
   {
+    "id": "posthog-product-analytics-automation-1200",
+    "project": "biz2lab",
+    "postSlug": "posthog-product-analytics-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/posthog-product-analytics-automation-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/posthog-product-analytics-automation-hero.jpg"
+  },
+  {
+    "id": "posthog-product-analytics-automation-800",
+    "project": "biz2lab",
+    "postSlug": "posthog-product-analytics-automation",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/posthog-product-analytics-automation-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/posthog-product-analytics-automation-hero.jpg"
+  },
+  {
+    "id": "posthog-product-analytics-automation-400",
+    "project": "biz2lab",
+    "postSlug": "posthog-product-analytics-automation",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/posthog-product-analytics-automation-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/posthog-product-analytics-automation-hero.jpg"
+  },
+  {
+    "id": "posthog-product-analytics-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "posthog-product-analytics-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/posthog-product-analytics-automation-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/posthog-product-analytics-automation-hero.jpg"
+  },
+  {
     "id": "pre-automation-task-list-1200",
     "project": "biz2lab",
     "postSlug": "pre-automation-task-list",

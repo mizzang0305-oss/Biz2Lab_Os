@@ -6,7 +6,7 @@ PostHog 분석: 제품 분석과 이벤트 자동화에 쓸 수 있을까 대표
 
 ## Negative prompt
 
-official PostHog logo, real user data, copied product screenshot, conversion guarantee, tracking without consent, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark
+official PostHog logo, real user data, copied software screenshot, conversion guarantee, tracking without consent, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark
 
 ## Text policy
 
