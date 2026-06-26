@@ -460,6 +460,54 @@ function AnalyticsConnectorPanel({ dashboard }: { dashboard: SeoOpsDashboard }) 
   );
 }
 
+function SearchRegistrationPanel({ dashboard }: { dashboard: SeoOpsDashboard }) {
+  return (
+    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+      <SectionHeader
+        icon={<FileSearch className="h-5 w-5" aria-hidden="true" />}
+        title="검색 등록 수동 확인"
+        description={dashboard.searchRegistration.note}
+      />
+      <div className="grid gap-3 lg:grid-cols-3">
+        {dashboard.searchRegistration.providers.map((provider) => (
+          <article key={provider.id} className="rounded-lg border border-slate-200 p-4">
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="font-bold text-slate-950">{provider.label}</h3>
+              <StatusPill status="unknown">{provider.statusLabel}</StatusPill>
+            </div>
+            <p className="mt-3 text-sm text-slate-700">{provider.requiredAction}</p>
+            <p className="mt-3 text-xs leading-5 text-slate-500">{provider.evidenceSource}</p>
+          </article>
+        ))}
+      </div>
+      <dl className="mt-4 grid gap-3 rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm sm:grid-cols-2 lg:grid-cols-5">
+        <div>
+          <dt className="font-semibold text-slate-500">Sitemap</dt>
+          <dd className="mt-1 break-words font-mono text-xs text-slate-900">{dashboard.searchRegistration.indexFiles.sitemap}</dd>
+        </div>
+        <div>
+          <dt className="font-semibold text-slate-500">Robots</dt>
+          <dd className="mt-1 break-words font-mono text-xs text-slate-900">{dashboard.searchRegistration.indexFiles.robots}</dd>
+        </div>
+        <div>
+          <dt className="font-semibold text-slate-500">RSS</dt>
+          <dd className="mt-1 break-words font-mono text-xs text-slate-900">{dashboard.searchRegistration.indexFiles.rss}</dd>
+        </div>
+        <div>
+          <dt className="font-semibold text-slate-500">Canonical host</dt>
+          <dd className="mt-1 break-words font-mono text-xs text-slate-900">
+            {dashboard.searchRegistration.indexFiles.canonicalHost}
+          </dd>
+        </div>
+        <div>
+          <dt className="font-semibold text-slate-500">Published coverage</dt>
+          <dd className="mt-1 font-bold text-slate-900">{dashboard.searchRegistration.indexFiles.publishedArticlesCovered} articles</dd>
+        </div>
+      </dl>
+    </section>
+  );
+}
+
 export function SeoOpsDashboardContent({ dashboard = getSeoOpsDashboard() }: { dashboard?: SeoOpsDashboard }) {
   return (
     <main className="bg-slate-50">
@@ -534,6 +582,8 @@ export function SeoOpsDashboardContent({ dashboard = getSeoOpsDashboard() }: { d
         </section>
 
         <AnalyticsConnectorPanel dashboard={dashboard} />
+
+        <SearchRegistrationPanel dashboard={dashboard} />
 
         <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
           <SectionHeader icon={<ShieldCheck className="h-5 w-5" aria-hidden="true" />} title="SEO Health" />
