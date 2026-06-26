@@ -102,10 +102,10 @@ test("SEO ops dashboard derives article rows from local content without fake tra
 test("SEO ops dashboard surfaces scheduler state and analytics empty states", () => {
   const dashboard = getSeoOpsDashboard();
 
-  assert.equal(dashboard.scheduler.currentTopic, "plausible-open-source-analytics-ga-alternative");
-  assert.equal(dashboard.scheduler.nextTopic, "matomo-self-hosted-analytics-privacy-caution");
+  assert.equal(dashboard.scheduler.currentTopic, "matomo-self-hosted-analytics-privacy-caution");
+  assert.equal(dashboard.scheduler.nextTopic, "posthog-product-analytics-automation");
   assert.match(dashboard.scheduler.currentGate, /수동 배포 금지/);
-  assert.equal(dashboard.scheduler.nextRequiredArtifact, "plausible-open-source-analytics-ga-alternative-hero");
+  assert.equal(dashboard.scheduler.nextRequiredArtifact, "matomo-self-hosted-analytics-privacy-caution-hero");
 
   assert.equal(dashboard.analytics.searchConsole.connected, false);
   assert.match(dashboard.analytics.searchConsole.emptyState, /Search Console/);

@@ -448,5 +448,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "plausible-open-source-analytics-ga-alternative-hero",
+    "project": "biz2lab",
+    "postSlug": "plausible-open-source-analytics-ga-alternative",
+    "usage": "hero",
+    "src": "/images/posts/plausible-open-source-analytics-ga-alternative-hero.webp",
+    "rawPath": "assets/images/raw/plausible-open-source-analytics-ga-alternative-hero.jpg",
+    "altKo": "Plausible을 GA 대체 웹 분석과 개인정보 보호 관점에서 검토하는 대표 이미지",
+    "captionKo": "Plausible은 가벼운 웹 분석 후보이지만 privacy, hosting, consent 조건을 함께 확인해야 합니다.",
+    "width": 1200,
+    "height": 686,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]
