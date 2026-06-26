@@ -51,6 +51,14 @@ function tempSchedulerRoot() {
     path.join(process.cwd(), "data", "content-series-state.json"),
     path.join(root, "data", "content-series-state.json"),
   );
+  const statePath = path.join(root, "data", "content-series-state.json");
+  const state = readJson<{ completed: string[] }>(statePath);
+  writeJson(statePath, {
+    ...state,
+    currentTopic: currentTopicSlug,
+    completed: state.completed.filter((slug) => slug !== currentTopicSlug),
+    next: [currentTopicSlug],
+  });
   fs.copyFileSync(
     path.join(process.cwd(), "data", "content-series-topics.json"),
     path.join(root, "data", "content-series-topics.json"),
@@ -103,6 +111,15 @@ function usePartialQueueState(root: string) {
     currentTopic: partialQueueTopicSlug,
     completed: partialQueueCompleted,
     next: [partialQueueTopicSlug, currentTopicSlug],
+  });
+}
+
+function useCurrentTopicState(root: string) {
+  const state = readJson<{ completed: string[] }>(path.join(root, "data", "content-series-state.json"));
+  updateContentSeriesState(root, {
+    currentTopic: currentTopicSlug,
+    completed: state.completed.filter((slug) => slug !== currentTopicSlug),
+    next: [currentTopicSlug],
   });
 }
 
@@ -537,6 +554,7 @@ test("placeholder-like artifacts block instead of falling back", async () => {
 test("unsupported artifact formats are rejected", async () => {
   const root = tempSchedulerRoot();
   const { deps, publishedTopics } = schedulerDeps();
+  useCurrentTopicState(root);
 
   const result = await withGeneratedRoot(root, (generatedRoot) => {
     writeJpegLikeArtifact(path.join(generatedRoot, `${currentTopicSlug}-hero.gif`));

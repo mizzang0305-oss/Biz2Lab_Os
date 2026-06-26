@@ -57,6 +57,22 @@ function tempSeriesRoot() {
     path.join(process.cwd(), "data", "content-series-state.json"),
     path.join(root, "data", "content-series-state.json"),
   );
+  const statePath = path.join(root, "data", "content-series-state.json");
+  const state = JSON.parse(fs.readFileSync(statePath, "utf8")) as { completed: string[] };
+  fs.writeFileSync(
+    statePath,
+    `${JSON.stringify(
+      {
+        ...state,
+        currentTopic: currentAutomationTopicSlug,
+        completed: state.completed.filter((slug) => slug !== currentAutomationTopicSlug),
+        next: [currentAutomationTopicSlug],
+      },
+      null,
+      2,
+    )}\n`,
+    "utf8",
+  );
   fs.copyFileSync(
     path.join(process.cwd(), "data", "content-series-topics.json"),
     path.join(root, "data", "content-series-topics.json"),
@@ -152,8 +168,9 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes(completedSupabaseSlug));
   assert.ok(state.completed.includes(completedMeilisearchSlug));
   assert.ok(state.completed.includes(completedTypesenseSlug));
+  assert.ok(state.completed.includes(currentAutomationTopicSlug));
   assert.equal(state.currentTopic, currentAutomationTopicSlug);
-  assert.deepEqual(state.next, currentAutomationQueue);
+  assert.deepEqual(state.next, []);
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
   assert.equal(state.gates.dbWrite, false);
@@ -673,7 +690,13 @@ test("validation command list includes all required gates", () => {
 });
 
 test("plan-only can inspect the current stacked topic without publication blockers", () => {
-  const state = readContentSeriesState();
+  const baseState = readContentSeriesState();
+  const state = {
+    ...baseState,
+    currentTopic: currentAutomationTopicSlug,
+    completed: baseState.completed.filter((slug) => slug !== currentAutomationTopicSlug),
+    next: [currentAutomationTopicSlug],
+  };
   const topics = readContentSeriesTopics();
   const topic = resolveContentSeriesTopic(topics.topics, state, state.currentTopic);
   const plan = buildContentSeriesPlan(state, topic, { planOnly: true });
@@ -694,7 +717,8 @@ test("publication state advancement marks the topic completed and selects the ne
         slug !== topic.slug &&
         slug !== completedDirectusSlug &&
         slug !== completedPocketBaseSlug &&
-        slug !== completedSupabaseSlug,
+        slug !== completedSupabaseSlug &&
+        slug !== currentAutomationTopicSlug,
     ),
     next: staleFlowiseQueue,
   };
@@ -722,7 +746,11 @@ test("Directus publication state advancement marks Directus completed and select
     ...state,
     currentTopic: topic.slug,
     completed: state.completed.filter(
-      (slug) => slug !== topic.slug && slug !== completedPocketBaseSlug && slug !== completedSupabaseSlug,
+      (slug) =>
+        slug !== topic.slug &&
+        slug !== completedPocketBaseSlug &&
+        slug !== completedSupabaseSlug &&
+        slug !== currentAutomationTopicSlug,
     ),
     next: secondAutomationQueue,
   };
@@ -748,7 +776,7 @@ test("PocketBase publication state advancement skips completed Supabase, Meilise
   const pendingPocketBaseState = {
     ...state,
     currentTopic: topic.slug,
-    completed: state.completed.filter((slug) => slug !== topic.slug),
+    completed: state.completed.filter((slug) => slug !== topic.slug && slug !== currentAutomationTopicSlug),
     next: pocketBaseQueue,
   };
 

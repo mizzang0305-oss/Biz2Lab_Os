@@ -1892,6 +1892,50 @@
     "rawPath": "assets/images/raw/typesense-product-document-search-automation-hero.jpg"
   },
   {
+    "id": "umami-open-source-analytics-ga-alternative-1200",
+    "project": "biz2lab",
+    "postSlug": "umami-open-source-analytics-ga-alternative",
+    "usage": "hero",
+    "width": 1200,
+    "height": 686,
+    "output": "/images/posts/umami-open-source-analytics-ga-alternative-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/umami-open-source-analytics-ga-alternative-hero.jpg"
+  },
+  {
+    "id": "umami-open-source-analytics-ga-alternative-800",
+    "project": "biz2lab",
+    "postSlug": "umami-open-source-analytics-ga-alternative",
+    "usage": "hero",
+    "width": 800,
+    "height": 457,
+    "output": "/images/posts/umami-open-source-analytics-ga-alternative-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/umami-open-source-analytics-ga-alternative-hero.jpg"
+  },
+  {
+    "id": "umami-open-source-analytics-ga-alternative-400",
+    "project": "biz2lab",
+    "postSlug": "umami-open-source-analytics-ga-alternative",
+    "usage": "hero",
+    "width": 400,
+    "height": 229,
+    "output": "/images/posts/umami-open-source-analytics-ga-alternative-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/umami-open-source-analytics-ga-alternative-hero.jpg"
+  },
+  {
+    "id": "umami-open-source-analytics-ga-alternative-hero",
+    "project": "biz2lab",
+    "postSlug": "umami-open-source-analytics-ga-alternative",
+    "usage": "hero",
+    "width": 1200,
+    "height": 686,
+    "output": "/images/posts/umami-open-source-analytics-ga-alternative-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/umami-open-source-analytics-ga-alternative-hero.jpg"
+  },
+  {
     "id": "unify-order-channels-1200",
     "project": "biz2lab",
     "postSlug": "unify-order-channels",

@@ -183,5 +183,7 @@ Typesense는 자동화 후보 도구입니다. 고객 데이터, 결제, 외부 
 - [Meilisearch 분석: 블로그와 상품 검색 자동화에 쓸 수 있을까?](/ko/automation/meilisearch-blog-product-search-automation)
 - [Supabase 셀프호스팅 분석: 비용은 줄일 수 있을까, 운영 부담이 더 클까?](/ko/automation/supabase-self-hosting-cost-operations-caution)
 - [AI 지식 저장소 설계: 소상공인 업무 지식을 어떻게 모을까?](/ko/small-business/ai-knowledge-store-for-small-business)
+- [Umami 분석: GA 대체 오픈소스 웹 분석 도구로 쓸 수 있을까?](/ko/automation/umami-open-source-analytics-ga-alternative)
+
 
 한 줄 결론은 명확합니다. Typesense는 지금 당장 모든 검색 운영을 맡길 완성형 핵심 도구라기보다, Biz2Lab / MyBiz 자동화 파이프라인에 붙일 수 있는지 샘플 데이터와 권한 설계로 먼저 검증할 후보 도구입니다.

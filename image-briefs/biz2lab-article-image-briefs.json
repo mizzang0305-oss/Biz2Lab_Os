@@ -1181,6 +1181,29 @@
       "visualDifferentiationHint": "typesense-product-document-search-automation: search-api-catalog-document-control-board",
       "filename": "typesense-product-document-search-automation-hero.jpg",
       "rawPath": "assets/images/raw/typesense-product-document-search-automation-hero.jpg"
+    },
+    {
+      "id": "umami-open-source-analytics-ga-alternative-hero",
+      "postSlug": "umami-open-source-analytics-ga-alternative",
+      "category": "automation",
+      "usage": "hero",
+      "targetPath": "assets/images/raw/umami-open-source-analytics-ga-alternative-hero.jpg",
+      "optimizedPath": "public/images/posts/umami-open-source-analytics-ga-alternative-hero.webp",
+      "altKo": "Umami로 GA 대체 웹 분석과 privacy 운영을 검토하는 대표 이미지",
+      "captionKo": "Umami는 analytics 후보지만 privacy, hosting, consent 조건 확인이 필요하다.",
+      "style": "privacy-analytics-dashboard-operations-map, Korean business editorial raster hero, minimal text, no title inside image",
+      "promptKo": "Privacy-friendly analytics dashboard, blog traffic metrics, GA alternative comparison, hosting choice, data ownership gate가 있는 웹 분석 운영 이미지.",
+      "providerPromptKo": "Umami 분석: GA 대체 오픈소스 웹 분석 도구로 쓸 수 있을까? 대표 이미지. Privacy-friendly analytics dashboard, blog traffic metrics, GA alternative comparison, hosting choice, data ownership gate가 있는 웹 분석 운영 이미지. Include: privacy analytics dashboard, blog traffic metrics, GA alternative comparison, hosting choice, data ownership gate. No official logos, no real customer data, no placeholder elements.",
+      "negativePromptKo": "official Umami logo, real visitor data, tracking without consent, AdSense approval guarantee, privacy compliance guarantee, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+      "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+      "composition": "Privacy-friendly analytics dashboard, blog traffic metrics, GA alternative comparison, hosting choice, data ownership gate가 있는 웹 분석 운영 이미지.",
+      "categoryStyle": "automation category visual, privacy-analytics-dashboard-operations-map",
+      "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+      "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+      "localOnly": true,
+      "visualDifferentiationHint": "umami-open-source-analytics-ga-alternative: privacy-analytics-dashboard-operations-map",
+      "filename": "umami-open-source-analytics-ga-alternative-hero.jpg",
+      "rawPath": "assets/images/raw/umami-open-source-analytics-ga-alternative-hero.jpg"
     }
   ]
 }

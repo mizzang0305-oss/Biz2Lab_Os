@@ -23,11 +23,10 @@
     "pocketbase-lightweight-backend-saas-mvp",
     "supabase-self-hosting-cost-operations-caution",
     "meilisearch-blog-product-search-automation",
-    "typesense-product-document-search-automation"
-  ],
-  "next": [
+    "typesense-product-document-search-automation",
     "umami-open-source-analytics-ga-alternative"
   ],
+  "next": [],
   "gates": {
     "manualDeploy": false,
     "autoMerge": false,
