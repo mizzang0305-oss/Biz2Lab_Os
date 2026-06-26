@@ -304,6 +304,21 @@ test("all configured topics completed returns explicit queue exhausted state", a
   assert.equal(result.topic, undefined);
 });
 
+test("exhausted queue reports terminal state outside active hours", async () => {
+  const root = tempSchedulerRoot();
+  const topicFile = readJson<{ topics: { slug: string }[] }>(path.join(root, "data", "content-series-topics.json"));
+  updateContentSeriesState(root, {
+    completed: topicFile.topics.map((topic) => topic.slug),
+    currentTopic: finalTopicSlug,
+    next: [],
+  });
+
+  const result = await runContentSeriesScheduler({ rootDir: root, dryRun: true, now: outsideActiveNow }, schedulerDeps().deps);
+
+  assert.equal(result.status, "CONTENT_SERIES_QUEUE_EXHAUSTED");
+  assert.equal(result.topic, undefined);
+});
+
 test("final published article is terminal queue exhaustion, not active work", async () => {
   const root = tempSchedulerRoot();
   const topicFile = readJson<{ topics: { slug: string }[] }>(path.join(root, "data", "content-series-topics.json"));

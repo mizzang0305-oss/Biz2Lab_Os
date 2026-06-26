@@ -218,6 +218,37 @@ Expected helper fields include:
 or the next safe unit is Green-Zone artifact-only preparation. Actual PR merge
 candidates remain listed under `openPrs.classified`.
 
+### Completed Queue State
+
+`CONTENT_SERIES_QUEUE_EXHAUSTED` is not an error. It means every currently
+configured content-series topic is complete.
+
+In this terminal state, `currentTopic` may still be the last completed topic.
+For example, after the Umami publication is complete, `currentTopic` can remain
+`umami-open-source-analytics-ga-alternative` while `state.next` is empty and the
+scheduler returns `CONTENT_SERIES_QUEUE_EXHAUSTED`.
+
+When the helper sees `CONTENT_SERIES_QUEUE_EXHAUSTED`, a clean tracked worktree,
+and no open PRs, it must report:
+
+```json
+{
+  "nextAction": "series complete",
+  "nextRecommendedAction": "Current content series queue is exhausted. Add new topics or run evergreen hardening/search verification tasks.",
+  "greenZoneAutomergeCandidate": false,
+  "artifactOnlyPreparationReady": false,
+  "requiresOwnerReview": false
+}
+```
+
+Do not recommend publication PR preparation just because the last completed topic
+still has article, raw image, and public hero files present. The next owner-safe
+paths are:
+
+- add a new approved topic queue,
+- run evergreen content hardening,
+- continue Search Console / Naver owner-side verification checks.
+
 ## 5. Dirty Worktree Policy
 
 If unknown tracked files are dirty, stop with `BLOCKED_DIRTY_WORKTREE`.
