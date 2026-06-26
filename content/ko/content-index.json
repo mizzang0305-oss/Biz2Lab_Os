@@ -1,6 +1,23 @@
 [
   {
-    "title": "Plausible 분석: GA 대체 오픈소스 웹 분석 도구로 쓸 수 있을까",
+    "title": "Matomo 분석: 셀프호스팅 웹 분석과 개인정보 운영 리스크를 감당할 수 있을까",
+    "slug": "matomo-self-hosted-analytics-privacy-caution",
+    "route": "/ko/automation/matomo-self-hosted-analytics-privacy-caution",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/matomo-self-hosted-analytics-privacy-caution-hero.webp",
+    "heroAlt": "Matomo 셀프호스팅 웹 분석을 개인정보와 운영 리스크 관점에서 검토하는 대표 이미지",
+    "updatedAt": "2026-06-26",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "plausible-open-source-analytics-ga-alternative",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
+    "title": "Plausible 분석: GA 대체 오픈소스 웹 분석 도구로 쓸 수 있을까?",
     "slug": "plausible-open-source-analytics-ga-alternative",
     "route": "/ko/automation/plausible-open-source-analytics-ga-alternative",
     "category": "automation",
@@ -12,8 +29,8 @@
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "umami-open-source-analytics-ga-alternative",
-      "activepieces-ai-business-automation-n8n-alternative",
-      "opencut-free-open-source-video-editor-ai-content-automation"
+      "typesense-product-document-search-automation",
+      "activepieces-ai-business-automation-n8n-alternative"
     ]
   },
   {

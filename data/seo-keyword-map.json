@@ -136,6 +136,23 @@
     "lossAvoidanceAngle": "웹 분석 도구를 성급하게 바꾸면 추적 동의, 데이터 보관, 리포트 운영 책임이 뒤늦게 비용으로 돌아올 수 있습니다"
   },
   {
+    "slug": "matomo-self-hosted-analytics-privacy-caution",
+    "route": "/ko/automation/matomo-self-hosted-analytics-privacy-caution",
+    "primaryKeyword": "Matomo 셀프호스팅 분석",
+    "secondaryKeywords": [
+      "Matomo 개인정보 분석",
+      "self-hosted analytics",
+      "GA 대체 웹 분석",
+      "웹 분석 운영 리스크"
+    ],
+    "searchIntent": "caution",
+    "audience": "운영자",
+    "cluster": "open-source-caution",
+    "recommendedAction": "Matomo를 셀프호스팅 웹 분석 후보로 검토하되 privacy, cookie consent, 데이터 보관, 서버 운영 책임을 함께 확인합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "셀프호스팅 분석 도구를 성급하게 도입하면 서버 운영, 백업, 개인정보 대응 책임이 뒤늦게 비용으로 돌아올 수 있습니다"
+  },
+  {
     "slug": "open-webui-local-llm-admin-portal",
     "route": "/ko/automation/open-webui-local-llm-admin-portal",
     "primaryKeyword": "Open WebUI 로컬 LLM",

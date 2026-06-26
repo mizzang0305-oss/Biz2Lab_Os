@@ -75,3 +75,5 @@ Content-series automation update: `typesense-product-document-search-automation`
 Content-series automation update: `umami-open-source-analytics-ga-alternative` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
 
 Content-series automation update: `plausible-open-source-analytics-ga-alternative` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
+
+Content-series automation update: `matomo-self-hosted-analytics-privacy-caution` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
