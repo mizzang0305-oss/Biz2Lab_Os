@@ -13,6 +13,7 @@ This report verifies local and public-discovery prerequisites for search engine 
 | Sitemap coverage for published articles | 46 / 46 |
 | RSS coverage for published articles | 46 / 46 |
 | Canonical host | `https://www.biz2lab.com` |
+| Naver registered site | `http://www.biz2lab.com` |
 | Robots file | `https://www.biz2lab.com/robots.txt` |
 | Sitemap URL | `https://www.biz2lab.com/sitemap.xml` |
 | RSS URL | `https://www.biz2lab.com/rss.xml` |
@@ -37,11 +38,18 @@ Biz2Lab is locally ready for Naver Search Advisor registration because the site 
 
 Owner action still required:
 
-1. Register `https://www.biz2lab.com` in Naver Search Advisor.
-2. Complete site ownership verification.
-3. Submit `https://www.biz2lab.com/sitemap.xml`.
-4. Submit or check `https://www.biz2lab.com/rss.xml` if the owner workflow supports it.
+1. Register `http://www.biz2lab.com` in Naver Search Advisor.
+2. Complete site ownership verification by clicking Verify in the Naver UI.
+3. Submit `http://www.biz2lab.com/sitemap.xml` if Naver requires the registered host scheme.
+4. Submit or check `http://www.biz2lab.com/rss.xml` if the owner workflow supports it.
 5. Use Naver's URL collection tools only from the owner account.
+
+Naver registration caveat:
+
+- Production canonical URLs remain `https://www.biz2lab.com`.
+- HTTP to HTTPS redirect is expected.
+- Sitemap/RSS submission remains acceptable under the registered `http://www.biz2lab.com` host as long as the host is `www.biz2lab.com` and redirect/access works.
+- Do not mark Naver as verified until the owner confirms UI success.
 
 ## Current Caveat
 

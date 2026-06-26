@@ -30,10 +30,18 @@ C:\Users\LOVE\Downloads\naver30b0597bfd90831b38cf281c10ce53c0.html
 
 ## Owner Action Still Required
 
-After the production URL returns HTTP 200 with the exact body, the owner must click Verify in Naver Search Advisor. Then submit:
+After the production verification file returns HTTP 200 with the exact body, the owner must click Verify in Naver Search Advisor for the registered site:
 
 ```text
-https://www.biz2lab.com/sitemap.xml
-https://www.biz2lab.com/rss.xml
+http://www.biz2lab.com
 ```
+
+Then submit these under the same registered `www.biz2lab.com` host if the Naver UI requires the registered host scheme:
+
+```text
+http://www.biz2lab.com/sitemap.xml
+http://www.biz2lab.com/rss.xml
+```
+
+Production canonicals, sitemap entries, RSS links, and robots references remain on `https://www.biz2lab.com`. HTTP to HTTPS redirect is expected. Do not mark Naver as verified until the owner confirms success in the Naver UI.
 

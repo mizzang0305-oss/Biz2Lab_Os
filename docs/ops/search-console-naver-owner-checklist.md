@@ -16,11 +16,19 @@ This checklist is for owner-side search registration. It intentionally avoids AP
 ### Naver Search Advisor
 
 1. Open Naver Search Advisor with the owner Naver account.
-2. Register `https://www.biz2lab.com`.
-3. Complete ownership verification.
-4. Submit `https://www.biz2lab.com/sitemap.xml`.
-5. Check `https://www.biz2lab.com/rss.xml` if RSS submission is available in the owner workflow.
+2. Register `http://www.biz2lab.com`.
+3. Complete ownership verification. The Naver verification file is deployed on the production site; owner still must click Verify in the Naver UI.
+4. Submit `http://www.biz2lab.com/sitemap.xml` if Naver requires the registered host scheme.
+5. Check `http://www.biz2lab.com/rss.xml` if RSS submission is available in the owner workflow.
 6. Use URL collection only for real published routes.
+
+Naver registration note:
+
+- Production canonical URLs remain `https://www.biz2lab.com`.
+- HTTP to HTTPS redirect is expected.
+- Do not add a separate "HTTPS registration required" step unless Naver later accepts and requires it.
+- Sitemap/RSS submission is acceptable under the registered `http://www.biz2lab.com` host as long as the host is `www.biz2lab.com` and redirect/access works.
+- Do not mark Naver as verified until the owner confirms UI success.
 
 ## Files To Verify
 

@@ -161,12 +161,25 @@ test("SEO ops dashboard exposes owner-action search registration states without 
   assert.equal(dashboard.searchRegistration.indexFiles.robots, "https://www.biz2lab.com/robots.txt");
   assert.equal(dashboard.searchRegistration.indexFiles.rss, "https://www.biz2lab.com/rss.xml");
   assert.equal(dashboard.searchRegistration.indexFiles.canonicalHost, "https://www.biz2lab.com");
+  assert.equal(dashboard.searchRegistration.indexFiles.naverRegisteredSite, "http://www.biz2lab.com");
+  assert.equal(dashboard.searchRegistration.indexFiles.naverSubmissionHost, "http://www.biz2lab.com");
   assert.equal(dashboard.searchRegistration.indexFiles.publishedArticlesCovered, getPublicPosts().length);
   assert.equal(dashboard.sources.fakeTrafficNumbersUsed, false);
+
+  const naverProvider = dashboard.searchRegistration.providers.find(
+    (provider) => provider.id === "naver-search-advisor",
+  );
+  assert.ok(naverProvider);
+  assert.match(naverProvider.requiredAction, /http:\/\/www\.biz2lab\.com/);
+  assert.match(naverProvider.requiredAction, /HTTP to HTTPS redirect is expected/);
+  assert.doesNotMatch(naverProvider.requiredAction, /Register https:\/\/www\.biz2lab\.com/);
+  assert.equal(naverProvider.submittedByOwner, null);
 
   const html = renderToStaticMarkup(createElement(SeoOpsDashboardContent));
   assert.match(html, /Google Search Console/);
   assert.match(html, /Naver Search Advisor/);
+  assert.match(html, /Naver registered site/);
+  assert.match(html, /http:\/\/www\.biz2lab\.com/);
   assert.match(html, /OWNER_ACTION_REQUIRED/);
   assert.match(html, /GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED/);
   assert.match(html, /NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED/);
