@@ -14,8 +14,9 @@ This report is an owner handoff. It does not prove that Google Search Console or
 | Published RSS | READY | `https://www.biz2lab.com/rss.xml` |
 | Published robots | READY | `https://www.biz2lab.com/robots.txt` |
 | Canonical host | READY | `https://www.biz2lab.com` |
-| Google verification token/file | NOT PROVIDED | No owner-provided public verification artifact was supplied in this task. |
-| Naver verification token/file | NOT PROVIDED | No owner-provided public verification artifact was supplied in this task. |
+| Google property access | OWNER SCREENSHOT PROVIDED | Owner screenshot shows the `biz2lab.com` property is accessible. |
+| Google verification token/file | NOT PROVIDED | No owner-provided public Google verification artifact was supplied in this task. |
+| Naver verification token/file | FILE ADDED, OWNER VERIFY REQUIRED | `public/naver30b0597bfd90831b38cf281c10ce53c0.html` has been added. Owner must click Verify in Naver Search Advisor after production deployment. |
 | Registration completion | OWNER_UNKNOWN | Must be confirmed inside each provider UI. |
 
 ## Google Search Console Steps
@@ -115,6 +116,7 @@ Important:
 - Naver requires the registered host and feed URL domains to match.
 - Naver reflection can take time after crawler visit.
 - Do not mark Naver registration as complete unless the owner confirms it in the Naver UI.
+- Naver HTML verification file has been added to the public root. Owner must click Verify in Naver Search Advisor after production deployment.
 
 ## Verification Artifact Rule
 

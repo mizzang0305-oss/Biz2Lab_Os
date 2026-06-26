@@ -120,20 +120,23 @@ test("SEO ops dashboard exposes owner-action search registration states without 
   const dashboard = getSeoOpsDashboard();
 
   assert.equal(dashboard.searchRegistration.overallStatus, "OWNER_ACTION_REQUIRED");
-  assert.equal(dashboard.searchRegistration.verificationTokenProvided, false);
+  assert.equal(dashboard.searchRegistration.verificationTokenProvided, true);
   assert.equal(dashboard.searchRegistration.registrationCompleted, "OWNER_UNKNOWN");
   assert.match(dashboard.searchRegistration.ownerActionCopy, /OWNER_ACTION_REQUIRED/);
   assert.match(dashboard.searchRegistration.ownerActionCopy, /Google Search Console/);
   assert.match(dashboard.searchRegistration.ownerActionCopy, /Naver Search Advisor/);
   assert.equal(dashboard.searchRegistration.providers.length, 3);
   assert.equal(
-    dashboard.searchRegistration.providers
-      .filter((provider) => provider.id === "google-search-console" || provider.id === "naver-search-advisor")
-      .every((provider) => provider.status === "OWNER_ACTION_REQUIRED"),
-    true,
+    dashboard.searchRegistration.providers.find((provider) => provider.id === "google-search-console")?.status,
+    "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED",
   );
   assert.equal(
-    dashboard.searchRegistration.providers.every((provider) => provider.verificationArtifactPresent === false),
+    dashboard.searchRegistration.providers.find((provider) => provider.id === "naver-search-advisor")?.status,
+    "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED",
+  );
+  assert.equal(
+    dashboard.searchRegistration.providers.find((provider) => provider.id === "naver-search-advisor")
+      ?.verificationArtifactPresent,
     true,
   );
   assert.equal(
@@ -148,6 +151,10 @@ test("SEO ops dashboard exposes owner-action search registration states without 
       "VERIFICATION_TOKEN_NOT_PROVIDED",
       "SUBMITTED_BY_OWNER_UNKNOWN",
       "CONNECTED_API_NOT_CONFIGURED",
+      "GOOGLE_PROPERTY_ACCESSIBLE_OWNER_SCREENSHOT",
+      "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED",
+      "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED",
+      "NAVER_SITEMAP_RSS_OWNER_ACTION_REQUIRED",
     ],
   );
   assert.equal(dashboard.searchRegistration.indexFiles.sitemap, "https://www.biz2lab.com/sitemap.xml");
@@ -161,9 +168,10 @@ test("SEO ops dashboard exposes owner-action search registration states without 
   assert.match(html, /Google Search Console/);
   assert.match(html, /Naver Search Advisor/);
   assert.match(html, /OWNER_ACTION_REQUIRED/);
-  assert.match(html, /VERIFICATION_TOKEN_NOT_PROVIDED/);
+  assert.match(html, /GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED/);
+  assert.match(html, /NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED/);
   assert.match(html, /CONNECTED_API_NOT_CONFIGURED/);
-  assert.match(html, /NOT_PROVIDED/);
+  assert.match(html, /PROVIDED/);
   assert.match(html, /OWNER_UNKNOWN/);
   assert.doesNotMatch(html, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR)\b/i);
 });

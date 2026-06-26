@@ -91,7 +91,11 @@ export type SearchRegistrationState =
   | "OWNER_ACTION_REQUIRED"
   | "VERIFICATION_TOKEN_NOT_PROVIDED"
   | "SUBMITTED_BY_OWNER_UNKNOWN"
-  | "CONNECTED_API_NOT_CONFIGURED";
+  | "CONNECTED_API_NOT_CONFIGURED"
+  | "GOOGLE_PROPERTY_ACCESSIBLE_OWNER_SCREENSHOT"
+  | "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED"
+  | "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED"
+  | "NAVER_SITEMAP_RSS_OWNER_ACTION_REQUIRED";
 
 export type SearchRegistrationSection = {
   overallStatus: "OWNER_ACTION_REQUIRED";
@@ -538,7 +542,7 @@ function buildAnalytics(providers: SeoOpsAnalyticsProvider[]) {
 function buildSearchRegistration(posts: Post[]): SearchRegistrationSection {
   return {
     overallStatus: "OWNER_ACTION_REQUIRED",
-    verificationTokenProvided: false,
+    verificationTokenProvided: true,
     registrationCompleted: "OWNER_UNKNOWN",
     note:
       "Search Console과 Naver Search Advisor 연결 상태는 실제 계정/API가 연결되기 전까지 수동 확인 항목으로 표시합니다.",
@@ -570,33 +574,53 @@ function buildSearchRegistration(posts: Post[]): SearchRegistrationSection {
         label: "CONNECTED_API_NOT_CONFIGURED",
         meaning: "Search Console/Naver API access is not configured, so live registration status is not fetched.",
       },
+      {
+        state: "GOOGLE_PROPERTY_ACCESSIBLE_OWNER_SCREENSHOT",
+        label: "GOOGLE_PROPERTY_ACCESSIBLE_OWNER_SCREENSHOT",
+        meaning: "owner screenshot shows the Google property is accessible, but repo cannot submit or verify sitemap state.",
+      },
+      {
+        state: "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED",
+        label: "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED",
+        meaning: "owner should submit sitemap.xml in Google Search Console and record URL inspection evidence.",
+      },
+      {
+        state: "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED",
+        label: "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED",
+        meaning: "Naver HTML verification file is in the public root; owner still must click Verify in Naver Search Advisor.",
+      },
+      {
+        state: "NAVER_SITEMAP_RSS_OWNER_ACTION_REQUIRED",
+        label: "NAVER_SITEMAP_RSS_OWNER_ACTION_REQUIRED",
+        meaning: "owner should submit sitemap.xml and rss.xml in Naver after verification succeeds.",
+      },
     ],
     providers: [
       {
         id: "google-search-console",
         label: "Google Search Console",
-        status: "OWNER_ACTION_REQUIRED",
-        statusLabel: "OWNER_ACTION_REQUIRED",
+        status: "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED",
+        statusLabel: "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED",
         verificationArtifactPresent: false,
         submittedByOwner: null,
         connectedApiConfigured: false,
         requiredAction:
-          "Add the biz2lab.com Domain property or https://www.biz2lab.com/ URL-prefix property, verify ownership, then submit https://www.biz2lab.com/sitemap.xml.",
+          "Open the biz2lab.com property in Google Search Console, submit https://www.biz2lab.com/sitemap.xml, and inspect the priority URLs.",
         evidenceSource:
-          "No owner-provided verification token/file and no connected Search Console API proof are present in the repo.",
+          "Owner screenshot shows the biz2lab.com property is accessible; no connected Search Console API proof or sitemap submission proof is present in the repo.",
       },
       {
         id: "naver-search-advisor",
         label: "Naver Search Advisor",
-        status: "OWNER_ACTION_REQUIRED",
-        statusLabel: "OWNER_ACTION_REQUIRED",
-        verificationArtifactPresent: false,
+        status: "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED",
+        statusLabel: "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED",
+        verificationArtifactPresent: true,
         submittedByOwner: null,
         connectedApiConfigured: false,
         requiredAction:
-          "Add https://www.biz2lab.com in Naver Search Advisor, verify ownership, submit sitemap.xml and rss.xml, then confirm robots/Yeti access.",
+          "After production deployment, click Verify in Naver Search Advisor, then submit https://www.biz2lab.com/sitemap.xml and https://www.biz2lab.com/rss.xml.",
         evidenceSource:
-          "No owner-provided Naver verification token/file and no connected Naver API proof are present in the repo.",
+          "Owner-provided Naver HTML verification file is committed to the public root; Naver UI verification is still owner-action required.",
       },
       {
         id: "bing-webmaster-tools",
