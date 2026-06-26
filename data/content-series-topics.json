@@ -1908,6 +1908,309 @@
         "Separate analytics implementation from legal privacy advice.",
         "Do not imply GA replacement automatically satisfies privacy, consent, or AdSense requirements."
       ]
+    },
+    {
+      "id": "plausible",
+      "toolName": "Plausible",
+      "slug": "plausible-open-source-analytics-ga-alternative",
+      "title": "Plausible 분석: GA 대체 오픈소스 웹 분석 도구로 쓸 수 있을까",
+      "description": "Plausible을 GA 대체 오픈소스 웹 분석 후보로 검토하고, 블로그 트래픽 측정, 개인정보 보호, 호스팅 선택, 운영 한계를 Biz2Lab 관점에서 정리합니다.",
+      "tags": [
+        "Plausible",
+        "open-source analytics",
+        "GA alternative",
+        "privacy-friendly analytics",
+        "ANALYTICS_AUTOMATION",
+        "PRIVACY_AND_HOSTING_CAUTION"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Plausible official website",
+          "url": "https://plausible.io/",
+          "usage": "product positioning, hosted option, and privacy-focused analytics model verification"
+        },
+        {
+          "label": "Plausible documentation",
+          "url": "https://plausible.io/docs",
+          "usage": "tracking script, dashboard, and self-hosting documentation verification"
+        },
+        {
+          "label": "Plausible GitHub repository",
+          "url": "https://github.com/plausible/analytics",
+          "usage": "source, license, release, and activity verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "먼저 결론: 가벼운 분석 후보지만 운영 조건 확인이 먼저",
+          "points": [
+            "Plausible은 GA보다 단순한 웹 분석을 원하는 팀이 검토할 수 있는 privacy-friendly analytics 후보입니다.",
+            "Biz2Lab에서는 블로그 글 성과, 유입 경로, 기본 전환 흐름을 과도하게 복잡한 대시보드 없이 점검하는 관점으로 봅니다.",
+            "다만 hosted와 self-hosting 조건, 데이터 보관, consent 요구, 비용 구조를 공식 문서로 확인해야 합니다."
+          ]
+        },
+        {
+          "heading": "소상공인 웹 분석 적용 각도",
+          "points": [
+            "콘텐츠별 방문 흐름, referrer, 기본 이벤트를 가볍게 보는 용도에 맞는지 평가합니다.",
+            "GA를 완전히 대체한다고 단정하지 않고 필요한 분석 깊이와 운영 부담을 비교합니다.",
+            "AdSense 승인, 수익 개선, 검색 노출을 보장하는 도구처럼 표현하지 않습니다."
+          ]
+        },
+        {
+          "heading": "privacy와 self-hosting caution",
+          "points": [
+            "tracking script, cookie 사용 여부, IP 처리, 데이터 위치, 보관 정책을 확인합니다.",
+            "self-hosting은 통제권을 주지만 업데이트, 백업, 로그, 장애 대응 책임도 함께 만듭니다.",
+            "법률 자문처럼 쓰지 않고 개인정보 처리 기준을 별도 확인해야 한다고 안내합니다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "privacy-analytics-dashboard-operations-map",
+        "altKo": "Plausible을 GA 대체 웹 분석과 개인정보 보호 관점에서 검토하는 대표 이미지",
+        "captionKo": "Plausible은 가벼운 웹 분석 후보이지만 privacy, hosting, consent 조건을 함께 확인해야 합니다.",
+        "promptSummaryKo": "Privacy-friendly analytics dashboard, lightweight blog traffic metrics, GA alternative comparison, consent gate, hosting choice, data ownership map in a premium Biz2Lab editorial hero.",
+        "mustInclude": [
+          "privacy analytics dashboard",
+          "lightweight traffic metrics",
+          "GA alternative comparison",
+          "consent gate",
+          "hosting choice"
+        ],
+        "mustAvoid": [
+          "official Plausible logo",
+          "Google Analytics logo",
+          "real visitor data",
+          "AdSense approval guarantee",
+          "privacy compliance guarantee"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "umami-open-source-analytics-ga-alternative",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "umami-open-source-analytics-ga-alternative",
+          "typesense-product-document-search-automation",
+          "meilisearch-blog-product-search-automation"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production visitor data, customer data, payment data, or private business systems in examples.",
+        "Use sample analytics data and owner-approved test environments before any production integration.",
+        "Treat privacy notices, consent, retention, and deletion flows as implementation gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current Plausible license and hosted service terms before publication.",
+        "Separate open-source self-hosting from paid cloud features.",
+        "Do not imply GA replacement automatically satisfies privacy, consent, or AdSense requirements."
+      ]
+    },
+    {
+      "id": "matomo",
+      "toolName": "Matomo",
+      "slug": "matomo-self-hosted-analytics-privacy-caution",
+      "title": "Matomo 분석: 셀프호스팅 웹 분석과 개인정보 운영 리스크를 감당할 수 있을까",
+      "description": "Matomo를 셀프호스팅 웹 분석 후보로 검토하고, 개인정보 보호, 쿠키와 consent, 데이터 보관, 운영 부담을 caution-first로 정리합니다.",
+      "tags": [
+        "Matomo",
+        "self-hosted analytics",
+        "privacy analytics",
+        "GA alternative",
+        "ANALYTICS_AUTOMATION",
+        "PRIVACY_AND_HOSTING_CAUTION"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "Matomo official website",
+          "url": "https://matomo.org/",
+          "usage": "product positioning and analytics capability verification"
+        },
+        {
+          "label": "Matomo documentation",
+          "url": "https://matomo.org/help/",
+          "usage": "setup, privacy, tracking, and operations verification"
+        },
+        {
+          "label": "Matomo GitHub repository",
+          "url": "https://github.com/matomo-org/matomo",
+          "usage": "source, license, release, and activity verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "먼저 결론: 통제권은 커지지만 운영 책임도 커진다",
+          "points": [
+            "Matomo는 더 많은 분석 통제권을 원하는 팀이 검토할 수 있는 self-hosted analytics 후보입니다.",
+            "Biz2Lab에서는 소규모 팀이 직접 운영할 때 얻는 장점과 서버, 업데이트, 백업, 개인정보 책임을 같이 비교합니다.",
+            "GA 대체라고 단정하기보다 필요한 보고 범위와 운영 역량을 먼저 확인하는 방식으로 설명합니다."
+          ]
+        },
+        {
+          "heading": "개인정보와 이벤트 설계 확인",
+          "points": [
+            "쿠키, IP 처리, 이벤트 수집 범위, 데이터 보관 기간을 별도 체크리스트로 봅니다.",
+            "사용자 행동을 많이 모으는 것보다 목적에 맞는 최소 이벤트를 설계하는 관점을 둡니다.",
+            "개인정보 준수나 법적 적합성을 도구 설치만으로 보장하지 않습니다."
+          ]
+        },
+        {
+          "heading": "운영 부담 비교",
+          "points": [
+            "self-hosting은 데이터 통제권과 비용 구조를 바꿀 수 있지만 장애 대응 책임도 직접 가져옵니다.",
+            "업데이트, 보안 패치, 백업, 로그 보관, 접근 권한을 운영 체크리스트로 분리합니다.",
+            "작은 블로그라면 Plausible이나 Umami처럼 더 단순한 후보와 비교합니다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "self-hosted-privacy-analytics-control-room",
+        "altKo": "Matomo 셀프호스팅 웹 분석을 개인정보와 운영 리스크 관점에서 검토하는 대표 이미지",
+        "captionKo": "Matomo는 분석 통제권을 넓힐 수 있지만 privacy와 self-hosting 운영 책임을 함께 확인해야 합니다.",
+        "promptSummaryKo": "Self-hosted analytics control room, privacy checklist, cookie consent gate, data retention board, server operations status in a premium Biz2Lab editorial hero.",
+        "mustInclude": [
+          "self-hosted analytics control room",
+          "privacy checklist",
+          "cookie consent gate",
+          "data retention board",
+          "server operations status"
+        ],
+        "mustAvoid": [
+          "official Matomo logo",
+          "Google Analytics logo",
+          "real visitor data",
+          "legal compliance guarantee",
+          "dense product screenshot"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "plausible-open-source-analytics-ga-alternative",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "plausible-open-source-analytics-ga-alternative",
+          "umami-open-source-analytics-ga-alternative",
+          "supabase-self-hosting-cost-operations-caution"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production visitor data, customer data, payment data, or private business systems in examples.",
+        "Use sample analytics data and owner-approved test environments before any production integration.",
+        "Treat privacy notices, consent, retention, deletion, and access control as implementation gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current Matomo license and hosted service terms before publication.",
+        "Separate open-source self-hosting from paid cloud or marketplace features.",
+        "Do not present analytics installation as legal, privacy, or compliance advice."
+      ]
+    },
+    {
+      "id": "posthog",
+      "toolName": "PostHog",
+      "slug": "posthog-product-analytics-automation",
+      "title": "PostHog 분석: 제품 분석과 이벤트 자동화에 쓸 수 있을까",
+      "description": "PostHog를 제품 분석, 이벤트 추적, 퍼널, feature flag, 업무 자동화 관점에서 검토하고 개인정보와 과수집 리스크를 함께 정리합니다.",
+      "tags": [
+        "PostHog",
+        "product analytics",
+        "event tracking",
+        "feature flags",
+        "ANALYTICS_AUTOMATION",
+        "PRIVACY_AND_HOSTING_CAUTION"
+      ],
+      "category": "automation",
+      "cluster": "open-source-automation-tools",
+      "type": "how-to",
+      "officialSources": [
+        {
+          "label": "PostHog official website",
+          "url": "https://posthog.com/",
+          "usage": "product positioning, analytics, and platform capability verification"
+        },
+        {
+          "label": "PostHog documentation",
+          "url": "https://posthog.com/docs",
+          "usage": "event tracking, product analytics, feature flags, and deployment verification"
+        },
+        {
+          "label": "PostHog GitHub repository",
+          "url": "https://github.com/PostHog/posthog",
+          "usage": "source, license, release, and activity verification"
+        }
+      ],
+      "articleOutline": [
+        {
+          "heading": "먼저 결론: 단순 방문 분석보다 제품 운영 분석에 가깝다",
+          "points": [
+            "PostHog는 블로그 방문 통계보다 제품 사용 이벤트, 퍼널, feature flag, 실험 흐름에 더 가까운 분석 후보입니다.",
+            "Biz2Lab에서는 SaaS, 내부 도구, 고객 포털처럼 사용자 행동을 개선해야 하는 서비스에 맞는지 검토합니다.",
+            "이벤트를 많이 모으는 것이 목표가 아니라 의사결정에 필요한 최소 이벤트를 설계하는 것이 먼저입니다."
+          ]
+        },
+        {
+          "heading": "이벤트 자동화와 승인 게이트",
+          "points": [
+            "가입, 활성화, 결제 전환, 기능 사용 같은 이벤트를 업무 판단에 연결하는 관점으로 설명합니다.",
+            "알림, CRM, 실험 자동화로 이어질 수 있지만 메시지 발송이나 고객 조치는 별도 승인 게이트가 필요합니다.",
+            "운영자가 이해하지 못하는 이벤트 taxonomy는 보고서보다 혼란을 만들 수 있습니다."
+          ]
+        },
+        {
+          "heading": "privacy와 과수집 리스크",
+          "points": [
+            "사용자 식별자, 세션, 이벤트 속성, 보관 기간, 삭제 요청 대응을 먼저 설계합니다.",
+            "self-hosting과 cloud 조건을 공식 문서로 분리해서 확인합니다.",
+            "제품 분석 도구가 수익 개선이나 전환율 상승을 보장한다고 표현하지 않습니다."
+          ]
+        }
+      ],
+      "imageConcept": {
+        "visualFamily": "product-analytics-event-automation-map",
+        "altKo": "PostHog 제품 분석과 이벤트 자동화 흐름을 개인정보 리스크와 함께 검토하는 대표 이미지",
+        "captionKo": "PostHog는 제품 이벤트 분석 후보이지만 event taxonomy, privacy, retention 기준을 먼저 설계해야 합니다.",
+        "promptSummaryKo": "Product analytics event pipeline, funnel board, feature flag cards, approval gate, privacy retention checklist in a premium Biz2Lab editorial hero.",
+        "mustInclude": [
+          "product analytics event pipeline",
+          "funnel board",
+          "feature flag cards",
+          "approval gate",
+          "privacy retention checklist"
+        ],
+        "mustAvoid": [
+          "official PostHog logo",
+          "real user data",
+          "copied product screenshot",
+          "conversion guarantee",
+          "tracking without consent"
+        ]
+      },
+      "internalLinks": {
+        "seriesHub": "free-open-source-automation-tools-series",
+        "previous": "matomo-self-hosted-analytics-privacy-caution",
+        "required": [
+          "free-open-source-automation-tools-series",
+          "matomo-self-hosted-analytics-privacy-caution",
+          "plausible-open-source-analytics-ga-alternative",
+          "umami-open-source-analytics-ga-alternative"
+        ]
+      },
+      "safetyNotes": [
+        "Do not connect production visitor data, customer data, payment data, or private business systems in examples.",
+        "Use sample analytics data and owner-approved test environments before any production integration.",
+        "Treat privacy notices, consent, retention, deletion, and customer-message automation as implementation gates."
+      ],
+      "licenseCautionNotes": [
+        "Verify the current PostHog license and cloud terms before publication.",
+        "Separate product analytics capability from paid cloud and enterprise features.",
+        "Do not imply event tracking automatically improves conversion, revenue, or compliance."
+      ]
     }
   ]
 }
