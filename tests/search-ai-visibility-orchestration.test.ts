@@ -1,0 +1,80 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
+import test from "node:test";
+
+import { GET as getRss } from "@/app/rss.xml/route";
+import robots from "@/app/robots";
+import sitemap from "@/app/sitemap";
+import { getPublicPosts } from "@/lib/posts";
+import { auditSeoAnswerReadiness } from "@/lib/seo-answer-readiness";
+import { auditSeoKeywords } from "@/lib/seo-keyword-audit";
+
+const requiredFiles = [
+  "reports/search-console-naver-registration-readiness.md",
+  "reports/ai-answer-source-readiness-audit.md",
+  "docs/ops/search-console-naver-owner-checklist.md",
+  "docs/ops/ai-answer-source-policy.md",
+];
+
+function readRepoFile(relativePath: string) {
+  return fs.readFileSync(path.join(process.cwd(), relativePath), "utf8");
+}
+
+test("search and AI visibility docs exist and keep registration manual", () => {
+  for (const relativePath of requiredFiles) {
+    assert.equal(fs.existsSync(path.join(process.cwd(), relativePath)), true, `${relativePath} must exist`);
+  }
+
+  const registrationReport = readRepoFile("reports/search-console-naver-registration-readiness.md");
+  const ownerChecklist = readRepoFile("docs/ops/search-console-naver-owner-checklist.md");
+
+  for (const content of [registrationReport, ownerChecklist]) {
+    assert.match(content, /Search Console과 Naver Search Advisor 연결 상태는 실제 계정\/API가 연결되기 전까지 수동 확인 항목/);
+    assert.match(content, /https:\/\/www\.biz2lab\.com\/sitemap\.xml/);
+    assert.match(content, /https:\/\/www\.biz2lab\.com\/rss\.xml/);
+    assert.match(content, /https:\/\/www\.biz2lab\.com\/robots\.txt/);
+    assert.doesNotMatch(content, /BIZ2LAB_[A-Z0-9_]*=(?!CONFIGURED|MISSING)/);
+    assert.doesNotMatch(content, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR)\b/i);
+  }
+});
+
+test("search discovery files cover published posts without exposing ops dashboard", async () => {
+  const posts = getPublicPosts();
+  const sitemapUrls = new Set(sitemap().map((entry) => entry.url));
+  const rss = await getRss().text();
+  const robotsConfig = robots();
+
+  for (const post of posts) {
+    const absoluteRoute = `https://www.biz2lab.com${post.route}`;
+    assert.equal(sitemapUrls.has(absoluteRoute), true, `${post.route} must be in sitemap`);
+    assert.equal(rss.includes(absoluteRoute), true, `${post.route} must be in RSS`);
+    assert.equal(post.frontmatter.canonical, absoluteRoute, `${post.route} must use www canonical`);
+    assert.equal(post.frontmatter.noindex, false, `${post.route} must be indexable`);
+  }
+
+  assert.equal(sitemapUrls.has("https://www.biz2lab.com/ko/ops/seo-dashboard"), false);
+  assert.equal(rss.includes("/ko/ops/seo-dashboard"), false);
+  assert.equal(robotsConfig.sitemap, "https://www.biz2lab.com/sitemap.xml");
+});
+
+test("AI answer source audit remains evidence-based and avoids overclaiming", () => {
+  const keywordAudit = auditSeoKeywords();
+  const answerAudit = auditSeoAnswerReadiness();
+  const answerPolicy = readRepoFile("docs/ops/ai-answer-source-policy.md");
+  const answerReport = readRepoFile("reports/ai-answer-source-readiness-audit.md");
+
+  assert.equal(keywordAudit.summary.missingKeywordMap, 0);
+  assert.equal(keywordAudit.summary.mappedArticles, keywordAudit.summary.totalArticles);
+  assert.equal(answerAudit.summary.totalArticles, keywordAudit.summary.totalArticles);
+  assert.equal(answerAudit.summary.needsFaq, 0);
+  assert.equal(answerAudit.summary.overclaimingFaq, 0);
+  assert.ok(answerAudit.summary.readyArticles >= 6);
+
+  assert.match(answerPolicy, /Fake analytics/);
+  assert.match(answerPolicy, /무조건 추천/);
+  assert.match(answerPolicy, /완전 무료/);
+  assert.match(answerPolicy, /상업 사용 보장/);
+  assert.match(answerReport, /Fake analytics used \| NO/);
+  assert.match(answerReport, /Meta keywords used \| NO/);
+});

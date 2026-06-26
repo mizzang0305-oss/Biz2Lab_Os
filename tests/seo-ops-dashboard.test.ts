@@ -116,6 +116,34 @@ test("SEO ops dashboard surfaces scheduler state and analytics empty states", ()
   assert.equal(dashboard.sources.realAnalyticsConnected, false);
 });
 
+test("SEO ops dashboard exposes manual search registration status without fake metrics", () => {
+  const dashboard = getSeoOpsDashboard();
+
+  assert.equal(dashboard.searchRegistration.overallStatus, "manual-check-required");
+  assert.match(
+    dashboard.searchRegistration.note,
+    /Search Console과 Naver Search Advisor 연결 상태는 실제 계정\/API가 연결되기 전까지 수동 확인 항목/,
+  );
+  assert.equal(dashboard.searchRegistration.providers.length, 3);
+  assert.equal(
+    dashboard.searchRegistration.providers.every((provider) => provider.status === "manual-check-required"),
+    true,
+  );
+  assert.equal(dashboard.searchRegistration.indexFiles.sitemap, "https://www.biz2lab.com/sitemap.xml");
+  assert.equal(dashboard.searchRegistration.indexFiles.robots, "https://www.biz2lab.com/robots.txt");
+  assert.equal(dashboard.searchRegistration.indexFiles.rss, "https://www.biz2lab.com/rss.xml");
+  assert.equal(dashboard.searchRegistration.indexFiles.canonicalHost, "https://www.biz2lab.com");
+  assert.equal(dashboard.searchRegistration.indexFiles.publishedArticlesCovered, getPublicPosts().length);
+  assert.equal(dashboard.sources.fakeTrafficNumbersUsed, false);
+
+  const html = renderToStaticMarkup(createElement(SeoOpsDashboardContent));
+  assert.match(html, /검색 등록 수동 확인/);
+  assert.match(html, /Google Search Console/);
+  assert.match(html, /Naver Search Advisor/);
+  assert.match(html, /Search Console과 Naver Search Advisor 연결 상태는 실제 계정\/API가 연결되기 전까지 수동 확인 항목/);
+  assert.doesNotMatch(html, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR)\b/i);
+});
+
 test("SEO ops analytics connectors report env readiness without real metrics", () => {
   const disconnected = getSeoOpsAnalyticsConnectors({});
 

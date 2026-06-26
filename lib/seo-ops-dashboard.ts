@@ -74,6 +74,28 @@ export type AnalyticsSection = {
   providerStatus: string;
 };
 
+export type SearchRegistrationProvider = {
+  id: "google-search-console" | "naver-search-advisor" | "bing-webmaster-tools";
+  label: string;
+  status: "manual-check-required";
+  statusLabel: string;
+  requiredAction: string;
+  evidenceSource: string;
+};
+
+export type SearchRegistrationSection = {
+  overallStatus: "manual-check-required";
+  note: string;
+  providers: SearchRegistrationProvider[];
+  indexFiles: {
+    sitemap: string;
+    robots: string;
+    rss: string;
+    canonicalHost: string;
+    publishedArticlesCovered: number;
+  };
+};
+
 export type SeoHealthItem = {
   label: string;
   status: SeoOpsCheckStatus;
@@ -117,6 +139,7 @@ export type SeoOpsDashboard = {
     sourceBreakdown: AnalyticsSection;
     providers: SeoOpsAnalyticsProvider[];
   };
+  searchRegistration: SearchRegistrationSection;
   seoHealth: SeoHealthItem[];
   expansionActions: ExpansionAction[];
   scheduler: {
@@ -494,6 +517,47 @@ function buildAnalytics(providers: SeoOpsAnalyticsProvider[]) {
   } satisfies SeoOpsDashboard["analytics"];
 }
 
+function buildSearchRegistration(posts: Post[]): SearchRegistrationSection {
+  return {
+    overallStatus: "manual-check-required",
+    note:
+      "Search Console과 Naver Search Advisor 연결 상태는 실제 계정/API가 연결되기 전까지 수동 확인 항목으로 표시합니다.",
+    providers: [
+      {
+        id: "google-search-console",
+        label: "Google Search Console",
+        status: "manual-check-required",
+        statusLabel: "수동 확인 필요",
+        requiredAction: "도메인 속성 또는 URL-prefix 속성을 소유자 계정에서 확인하고 sitemap.xml을 제출합니다.",
+        evidenceSource: "계정/API 미연결 상태이므로 로컬 코드와 공개 SEO 파일만 확인합니다.",
+      },
+      {
+        id: "naver-search-advisor",
+        label: "Naver Search Advisor",
+        status: "manual-check-required",
+        statusLabel: "수동 확인 필요",
+        requiredAction: "사이트 소유 확인 후 sitemap.xml과 RSS URL을 제출하고 수집 요청을 점검합니다.",
+        evidenceSource: "Naver 계정/API 미연결 상태이므로 제출 여부는 owner 수동 확인 항목입니다.",
+      },
+      {
+        id: "bing-webmaster-tools",
+        label: "Bing Webmaster Tools",
+        status: "manual-check-required",
+        statusLabel: "선택 수동 확인",
+        requiredAction: "필수는 아니지만 Bing/AI 검색 노출 보조 채널로 sitemap 제출 여부를 확인할 수 있습니다.",
+        evidenceSource: "선택 채널이며 현재 실제 계정 데이터는 읽지 않습니다.",
+      },
+    ],
+    indexFiles: {
+      sitemap: "https://www.biz2lab.com/sitemap.xml",
+      robots: "https://www.biz2lab.com/robots.txt",
+      rss: "https://www.biz2lab.com/rss.xml",
+      canonicalHost: "https://www.biz2lab.com",
+      publishedArticlesCovered: posts.length,
+    },
+  };
+}
+
 function coverageDetail(ok: number, total: number, label: string) {
   return `${ok}/${total} ${label}`;
 }
@@ -632,6 +696,7 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
     },
     articles,
     analytics,
+    searchRegistration: buildSearchRegistration(posts),
     seoHealth,
     expansionActions: buildExpansionActions(),
     scheduler: {
