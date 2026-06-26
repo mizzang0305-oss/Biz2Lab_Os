@@ -40,7 +40,7 @@ This report records what the repository and public site can prove now. It does n
 The SEO ops dashboard should keep this distinction clear:
 
 ```text
-Google Search Console과 Naver Search Advisor 상태는 실제 계정 UI에서 확인하기 전까지 완료로 표시하지 않습니다.
+Google Search Console과 Naver Search Advisor 상태는 실제 계정 UI에서 확인되기 전까지 완료로 표시하지 않습니다.
 ```
 
 This means deployed verification files and crawlable discovery files can be shown as ready, but provider-side verification and submission remain owner-confirmed states.

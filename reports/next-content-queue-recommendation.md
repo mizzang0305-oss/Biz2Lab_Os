@@ -2,73 +2,72 @@
 
 Date: 2026-06-27
 
-Scope: report-only recommendation after the Phase 4 evergreen AI-answer hardening pass. This file does not add scheduler topics, generate articles, import images, call external analytics, or claim Search Console/Naver performance.
+Scope: report-only recommendation after the Phase 5 evergreen AI-answer hardening pass. This file does not add scheduler topics, generate articles, import images, call external analytics, or claim Search Console/Naver performance.
 
 ## Current State
 
 | Area | Status |
 | --- | --- |
 | Published Korean articles | 47 |
-| AI answer-ready articles | 29 |
-| AI answer-ready ratio | 61.7% |
-| Remaining weak articles | 18 |
+| AI answer-ready articles | 34 |
+| AI answer-ready ratio | 72.3% |
+| Remaining weak articles | 13 |
 | Content series scheduler | `CONTENT_SERIES_QUEUE_EXHAUSTED` |
 | Open PR count at review time | 0 |
-| Google Search Console status | owner-side confirmation required |
-| Naver Search Advisor status | owner-side Verify click required |
+| Google Search Console status | `GOOGLE_SITEMAP_SUBMISSION_OWNER_UNKNOWN` / `GOOGLE_URL_INSPECTION_OWNER_UNKNOWN` |
+| Naver Search Advisor status | `NAVER_REGISTERED_HTTP_HOST` / `NAVER_OWNER_VERIFY_CLICK_OWNER_UNKNOWN` |
 
-The 60% AI-answer-ready threshold has been reached. This does not prove ranking, crawl, indexing, impressions, clicks, CTR, or AI-answer inclusion. It only means the local content structure now has enough conclusion-first, FAQ, checklist, and citation-friendly signals for 29 of 47 published Korean articles.
+The 70% quality-buffer target has been reached. This does not prove ranking, crawl, indexing, impressions, clicks, CTR, query coverage, referrer quality, traffic, or AI-answer inclusion. It only means the local content structure now has stronger conclusion-first, checklist, FAQ, and citation-friendly signals for 34 of 47 published Korean articles.
 
 ## Recommendation
 
-Recommended next action: run one more evergreen hardening pass before bootstrapping a new automated topic queue.
+Recommended next action: bootstrap a small analytics and measurement queue with three topics.
 
 Reason:
 
-- The threshold is met, but 18 published articles still need conclusion-summary hardening.
-- The remaining weak articles are high-intent business-operation pages: contracts, payments, receivables, sales reporting, customer memory, and small-business operations.
-- Webmaster registration work still depends on owner UI confirmation, so new content should not be justified by unverified query or crawl data.
-- A new queue can be prepared after one more small hardening pass or after owner confirms search registration evidence.
+- The evergreen hardening buffer is now above 70%, so the next marginal gain is a focused cluster extension rather than more broad article edits.
+- Umami has already been published, making an analytics cluster natural for internal linking and answer-engine coverage.
+- Analytics topics connect directly to Biz2Lab's current Search Console, Naver, SEO dashboard, and measurement-readiness work.
+- The cluster can be written with strong caution framing: privacy, event design, self-hosting burden, retention, and reporting limits.
+- The queue should stay small so the artifact gate, open-PR gate, active-hours gate, and one-action-per-run autopilot policy remain easy to monitor.
 
-## Remaining Hardening Priority
+## Recommended Small Analytics Queue
 
-| Priority | Cluster | Example routes | Why it matters |
-| --- | --- | --- | --- |
-| P0 | Sales operations | `/ko/sales-ops/accounts-receivable-tracker`, `/ko/sales-ops/payment-reminder-message`, `/ko/sales-ops/sales-revenue-ar-structure` | Direct business pain, strong conversion intent, good answer-engine fit |
-| P1 | Contracts and payments | `/ko/contracts-payments/electronic-contract-system-basics`, `/ko/contracts-payments/e-signature-identity-check`, `/ko/contracts-payments/offline-card-payment-pg-van` | High-trust topics where cautious, source-worthy summaries help |
-| P1 | Small-business operations | `/ko/small-business/customer-memory-system`, `/ko/small-business/unify-order-channels`, `/ko/small-business/solo-business-systemization` | Strong Biz2Lab/MyBiz positioning and internal-link value |
+These are qualitative editorial scores, not traffic forecasts. No Search Console, Naver, GA4, Vercel Analytics, Umami, ranking, click, impression, query, or referrer data was used.
 
-## Candidate Queue For Owner Approval
-
-These are qualitative editorial candidates, not traffic forecasts. Scores reflect fit with Biz2Lab positioning, internal-link potential, evergreen value, and operational caution value.
-
-| Rank | Proposed topic | Suggested slug | Score | Rationale |
-| --- | --- | --- | --- | --- |
-| 1 | ERPNext 분석: 소상공인 ERP와 업무 자동화에 쓸 수 있을까? | `erpnext-small-business-erp-automation` | 8.6 | Extends business operations beyond individual tools into ERP, inventory, invoice, and process control caution |
-| 2 | Metabase 분석: 영업·매출 대시보드 자동화에 쓸 수 있을까? | `metabase-sales-dashboard-automation` | 8.4 | Strong bridge from sales-ops articles to dashboard and reporting use cases |
-| 3 | Odoo Community 분석: 오픈소스 ERP를 작은 회사 운영에 쓸 수 있을까? | `odoo-community-business-operations-automation` | 7.9 | High search familiarity, but needs cautious license, hosting, and customization framing |
-| 4 | Listmonk 분석: 뉴스레터와 고객 알림 자동화에 쓸 수 있을까? | `listmonk-newsletter-customer-message-automation` | 7.5 | Connects customer communication, opt-in caution, and owned-channel operations |
-| 5 | PostHog 분석: 제품 분석과 이벤트 추적을 셀프호스팅으로 쓸 수 있을까? | `posthog-product-analytics-privacy-caution` | 7.3 | Useful analytics topic, but should stay caution-first because privacy, event design, and data retention risks are material |
+| Rank | Proposed topic | Suggested slug | Korean search intent | Small-business usefulness | AI answer potential | Monetization connection | Cluster fit | Operational caution value | Image feasibility | Overall fit |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Plausible analysis: open-source Google Analytics alternative for simple privacy-friendly measurement | `plausible-open-source-analytics-ga-alternative` | High for "GA 대체", "개인정보 친화 분석", and lightweight analytics queries | Strong for owners who need simple traffic visibility without overbuilding dashboards | Strong: direct comparison and fit/avoid answers are easy to cite | Strong: connects to site growth, content ROI, and lightweight reporting | Excellent after Umami | Medium-high: clarify cloud/self-hosting, consent, and data limits | High: abstract analytics dashboard visual without logos/screenshots | 8.8 |
+| 2 | Matomo analysis: self-hosted analytics privacy caution for small teams | `matomo-self-hosted-analytics-privacy-caution` | High for "Matomo", "셀프호스팅 분석", and privacy analytics caution queries | Medium-high for teams needing more control than simple analytics tools | Strong: caution-first answer format fits AI summaries | Medium: useful for privacy-sensitive services and consulting leads | Strong with Umami/Plausible | High: operations, cookies, retention, compliance, and hosting burden need clear framing | High: privacy dashboard and server-operations concept can be generated safely | 8.4 |
+| 3 | PostHog analysis: product analytics and event automation for business operations | `posthog-product-analytics-automation` | Medium-high for product analytics, funnel, event tracking, and automation intent | Strong for SaaS/product teams, less universal for offline small businesses | Strong when framed around what to track, what not to track, and approval gates | Strong: connects to product improvement, onboarding, and conversion diagnostics | Strong analytics cluster bridge to automation topics | High: event taxonomy, privacy, retention, and over-collection risks are material | High: event pipeline/product dashboard concept without product screenshots | 8.2 |
 
 ## Bootstrap Decision
 
-Do not bootstrap the next queue automatically from this report.
+Proceed with a separate queue-bootstrap PR that adds only these three topic slugs to the content-series queue/state:
 
-Recommended gate before queue bootstrap:
+1. `plausible-open-source-analytics-ga-alternative`
+2. `matomo-self-hosted-analytics-privacy-caution`
+3. `posthog-product-analytics-automation`
 
-1. Complete one more 5-article evergreen hardening pass, or
-2. Owner confirms Google sitemap submission and Naver Verify status in the actual provider UI, or
-3. Owner explicitly approves adding the candidate queue above.
+Do not generate article files, prompt packages, raw images, public images, or artifacts in the queue-bootstrap PR. After the queue is merged, the hourly autopilot can resume one safe action per run and should begin with prompt/artifact preparation for the first topic.
 
-If owner approves queue bootstrap, add only 3 to 5 topics in a separate PR and keep the existing Codex artifact gate, active-hours gate, max-open-PR gate, no-auto-merge rule, and no-manual-deploy rule unchanged.
+## Remaining Hardening Backlog
+
+The remaining 13 weak articles are not failures. They are follow-up candidates for future evergreen hardening when the analytics queue is paused, blocked, or complete.
+
+Priority themes:
+
+- customer memory and order-channel operations
+- contracts and payment risk explainers
+- older small-business systemization pages
+- caution-first open-source tool pages that need stronger summary/checklist structure
 
 ## Safety Notes
 
 - No fake analytics were used.
 - No Search Console, Naver, GA4, Vercel Analytics, or Umami API was called.
-- No traffic, crawl, ranking, indexing, impression, click, CTR, or query claim is made.
-- No scheduler config was changed.
+- No traffic, crawl, ranking, indexing, impression, click, CTR, query, referrer, or AI-answer inclusion claim is made.
+- No scheduler config was changed by this report.
 - No article, image, prompt, or artifact was generated by this report.
 - Production canonicals and sitemap URLs remain `https://www.biz2lab.com`.
 - Naver registered host remains `http://www.biz2lab.com`; HTTP to HTTPS redirect is expected.
-
