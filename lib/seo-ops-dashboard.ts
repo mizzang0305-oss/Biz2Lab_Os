@@ -77,15 +77,33 @@ export type AnalyticsSection = {
 export type SearchRegistrationProvider = {
   id: "google-search-console" | "naver-search-advisor" | "bing-webmaster-tools";
   label: string;
-  status: "manual-check-required";
+  status: SearchRegistrationState;
   statusLabel: string;
+  verificationArtifactPresent: boolean;
+  submittedByOwner: boolean | null;
+  connectedApiConfigured: boolean;
   requiredAction: string;
   evidenceSource: string;
 };
 
+export type SearchRegistrationState =
+  | "READY_TO_REGISTER"
+  | "OWNER_ACTION_REQUIRED"
+  | "VERIFICATION_TOKEN_NOT_PROVIDED"
+  | "SUBMITTED_BY_OWNER_UNKNOWN"
+  | "CONNECTED_API_NOT_CONFIGURED";
+
 export type SearchRegistrationSection = {
-  overallStatus: "manual-check-required";
+  overallStatus: "OWNER_ACTION_REQUIRED";
+  verificationTokenProvided: boolean;
+  registrationCompleted: "YES" | "NO" | "OWNER_UNKNOWN";
   note: string;
+  ownerActionCopy: string;
+  stateLegend: Array<{
+    state: SearchRegistrationState;
+    label: string;
+    meaning: string;
+  }>;
   providers: SearchRegistrationProvider[];
   indexFiles: {
     sitemap: string;
@@ -519,33 +537,78 @@ function buildAnalytics(providers: SeoOpsAnalyticsProvider[]) {
 
 function buildSearchRegistration(posts: Post[]): SearchRegistrationSection {
   return {
-    overallStatus: "manual-check-required",
+    overallStatus: "OWNER_ACTION_REQUIRED",
+    verificationTokenProvided: false,
+    registrationCompleted: "OWNER_UNKNOWN",
     note:
       "Search Console과 Naver Search Advisor 연결 상태는 실제 계정/API가 연결되기 전까지 수동 확인 항목으로 표시합니다.",
+    ownerActionCopy:
+      "Google Search Console\uACFC Naver Search Advisor \uB4F1\uB85D \uC0C1\uD0DC\uB294 \uC2E4\uC81C \uACC4\uC815\uC5D0\uC11C \uC18C\uC720\uAD8C \uD655\uC778 \uBC0F \uC81C\uCD9C\uC774 \uC644\uB8CC\uB418\uAE30 \uC804\uAE4C\uC9C0 OWNER_ACTION_REQUIRED\uB85C \uD45C\uC2DC\uD569\uB2C8\uB2E4.",
+    stateLegend: [
+      {
+        state: "READY_TO_REGISTER",
+        label: "READY_TO_REGISTER",
+        meaning: "sitemap, RSS, robots, and canonical host checks are ready for owner-side registration.",
+      },
+      {
+        state: "OWNER_ACTION_REQUIRED",
+        label: "OWNER_ACTION_REQUIRED",
+        meaning: "owner must finish verification and submission in the provider UI.",
+      },
+      {
+        state: "VERIFICATION_TOKEN_NOT_PROVIDED",
+        label: "VERIFICATION_TOKEN_NOT_PROVIDED",
+        meaning: "no owner-provided public verification meta tag or HTML file is committed.",
+      },
+      {
+        state: "SUBMITTED_BY_OWNER_UNKNOWN",
+        label: "SUBMITTED_BY_OWNER_UNKNOWN",
+        meaning: "registration may or may not have been submitted; repo evidence cannot prove it.",
+      },
+      {
+        state: "CONNECTED_API_NOT_CONFIGURED",
+        label: "CONNECTED_API_NOT_CONFIGURED",
+        meaning: "Search Console/Naver API access is not configured, so live registration status is not fetched.",
+      },
+    ],
     providers: [
       {
         id: "google-search-console",
         label: "Google Search Console",
-        status: "manual-check-required",
-        statusLabel: "수동 확인 필요",
-        requiredAction: "도메인 속성 또는 URL-prefix 속성을 소유자 계정에서 확인하고 sitemap.xml을 제출합니다.",
-        evidenceSource: "계정/API 미연결 상태이므로 로컬 코드와 공개 SEO 파일만 확인합니다.",
+        status: "OWNER_ACTION_REQUIRED",
+        statusLabel: "OWNER_ACTION_REQUIRED",
+        verificationArtifactPresent: false,
+        submittedByOwner: null,
+        connectedApiConfigured: false,
+        requiredAction:
+          "Add the biz2lab.com Domain property or https://www.biz2lab.com/ URL-prefix property, verify ownership, then submit https://www.biz2lab.com/sitemap.xml.",
+        evidenceSource:
+          "No owner-provided verification token/file and no connected Search Console API proof are present in the repo.",
       },
       {
         id: "naver-search-advisor",
         label: "Naver Search Advisor",
-        status: "manual-check-required",
-        statusLabel: "수동 확인 필요",
-        requiredAction: "사이트 소유 확인 후 sitemap.xml과 RSS URL을 제출하고 수집 요청을 점검합니다.",
-        evidenceSource: "Naver 계정/API 미연결 상태이므로 제출 여부는 owner 수동 확인 항목입니다.",
+        status: "OWNER_ACTION_REQUIRED",
+        statusLabel: "OWNER_ACTION_REQUIRED",
+        verificationArtifactPresent: false,
+        submittedByOwner: null,
+        connectedApiConfigured: false,
+        requiredAction:
+          "Add https://www.biz2lab.com in Naver Search Advisor, verify ownership, submit sitemap.xml and rss.xml, then confirm robots/Yeti access.",
+        evidenceSource:
+          "No owner-provided Naver verification token/file and no connected Naver API proof are present in the repo.",
       },
       {
         id: "bing-webmaster-tools",
         label: "Bing Webmaster Tools",
-        status: "manual-check-required",
-        statusLabel: "선택 수동 확인",
-        requiredAction: "필수는 아니지만 Bing/AI 검색 노출 보조 채널로 sitemap 제출 여부를 확인할 수 있습니다.",
-        evidenceSource: "선택 채널이며 현재 실제 계정 데이터는 읽지 않습니다.",
+        status: "SUBMITTED_BY_OWNER_UNKNOWN",
+        statusLabel: "SUBMITTED_BY_OWNER_UNKNOWN",
+        verificationArtifactPresent: false,
+        submittedByOwner: null,
+        connectedApiConfigured: false,
+        requiredAction:
+          "Optional: submit the sitemap in Bing Webmaster Tools if the owner wants an additional AI/search discovery channel.",
+        evidenceSource: "Optional channel; the repo has no connected account evidence.",
       },
     ],
     indexFiles: {

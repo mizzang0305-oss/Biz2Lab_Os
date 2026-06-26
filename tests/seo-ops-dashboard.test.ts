@@ -116,18 +116,39 @@ test("SEO ops dashboard surfaces scheduler state and analytics empty states", ()
   assert.equal(dashboard.sources.realAnalyticsConnected, false);
 });
 
-test("SEO ops dashboard exposes manual search registration status without fake metrics", () => {
+test("SEO ops dashboard exposes owner-action search registration states without fake metrics", () => {
   const dashboard = getSeoOpsDashboard();
 
-  assert.equal(dashboard.searchRegistration.overallStatus, "manual-check-required");
-  assert.match(
-    dashboard.searchRegistration.note,
-    /Search Console과 Naver Search Advisor 연결 상태는 실제 계정\/API가 연결되기 전까지 수동 확인 항목/,
-  );
+  assert.equal(dashboard.searchRegistration.overallStatus, "OWNER_ACTION_REQUIRED");
+  assert.equal(dashboard.searchRegistration.verificationTokenProvided, false);
+  assert.equal(dashboard.searchRegistration.registrationCompleted, "OWNER_UNKNOWN");
+  assert.match(dashboard.searchRegistration.ownerActionCopy, /OWNER_ACTION_REQUIRED/);
+  assert.match(dashboard.searchRegistration.ownerActionCopy, /Google Search Console/);
+  assert.match(dashboard.searchRegistration.ownerActionCopy, /Naver Search Advisor/);
   assert.equal(dashboard.searchRegistration.providers.length, 3);
   assert.equal(
-    dashboard.searchRegistration.providers.every((provider) => provider.status === "manual-check-required"),
+    dashboard.searchRegistration.providers
+      .filter((provider) => provider.id === "google-search-console" || provider.id === "naver-search-advisor")
+      .every((provider) => provider.status === "OWNER_ACTION_REQUIRED"),
     true,
+  );
+  assert.equal(
+    dashboard.searchRegistration.providers.every((provider) => provider.verificationArtifactPresent === false),
+    true,
+  );
+  assert.equal(
+    dashboard.searchRegistration.providers.every((provider) => provider.connectedApiConfigured === false),
+    true,
+  );
+  assert.deepEqual(
+    dashboard.searchRegistration.stateLegend.map((item) => item.state),
+    [
+      "READY_TO_REGISTER",
+      "OWNER_ACTION_REQUIRED",
+      "VERIFICATION_TOKEN_NOT_PROVIDED",
+      "SUBMITTED_BY_OWNER_UNKNOWN",
+      "CONNECTED_API_NOT_CONFIGURED",
+    ],
   );
   assert.equal(dashboard.searchRegistration.indexFiles.sitemap, "https://www.biz2lab.com/sitemap.xml");
   assert.equal(dashboard.searchRegistration.indexFiles.robots, "https://www.biz2lab.com/robots.txt");
@@ -137,10 +158,13 @@ test("SEO ops dashboard exposes manual search registration status without fake m
   assert.equal(dashboard.sources.fakeTrafficNumbersUsed, false);
 
   const html = renderToStaticMarkup(createElement(SeoOpsDashboardContent));
-  assert.match(html, /검색 등록 수동 확인/);
   assert.match(html, /Google Search Console/);
   assert.match(html, /Naver Search Advisor/);
-  assert.match(html, /Search Console과 Naver Search Advisor 연결 상태는 실제 계정\/API가 연결되기 전까지 수동 확인 항목/);
+  assert.match(html, /OWNER_ACTION_REQUIRED/);
+  assert.match(html, /VERIFICATION_TOKEN_NOT_PROVIDED/);
+  assert.match(html, /CONNECTED_API_NOT_CONFIGURED/);
+  assert.match(html, /NOT_PROVIDED/);
+  assert.match(html, /OWNER_UNKNOWN/);
   assert.doesNotMatch(html, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR)\b/i);
 });
 

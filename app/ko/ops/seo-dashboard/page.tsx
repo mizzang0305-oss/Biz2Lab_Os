@@ -466,18 +466,56 @@ function SearchRegistrationPanel({ dashboard }: { dashboard: SeoOpsDashboard }) 
       <SectionHeader
         icon={<FileSearch className="h-5 w-5" aria-hidden="true" />}
         title="검색 등록 수동 확인"
-        description={dashboard.searchRegistration.note}
+        description={dashboard.searchRegistration.ownerActionCopy}
       />
+      <div className="mb-4 grid gap-2 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950 sm:grid-cols-3">
+        <div>
+          <p className="font-semibold">Overall status</p>
+          <p className="mt-1 font-mono text-xs">{dashboard.searchRegistration.overallStatus}</p>
+        </div>
+        <div>
+          <p className="font-semibold">Verification token</p>
+          <p className="mt-1 font-mono text-xs">
+            {dashboard.searchRegistration.verificationTokenProvided ? "PROVIDED" : "NOT_PROVIDED"}
+          </p>
+        </div>
+        <div>
+          <p className="font-semibold">Registration completed</p>
+          <p className="mt-1 font-mono text-xs">{dashboard.searchRegistration.registrationCompleted}</p>
+        </div>
+      </div>
       <div className="grid gap-3 lg:grid-cols-3">
         {dashboard.searchRegistration.providers.map((provider) => (
           <article key={provider.id} className="rounded-lg border border-slate-200 p-4">
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-bold text-slate-950">{provider.label}</h3>
-              <StatusPill status="unknown">{provider.statusLabel}</StatusPill>
+              <StatusPill status="unknown">{provider.status}</StatusPill>
             </div>
+            <dl className="mt-3 grid gap-2 text-xs text-slate-600">
+              <div>
+                <dt className="font-semibold text-slate-500">Verification artifact</dt>
+                <dd className="font-mono">{provider.verificationArtifactPresent ? "PRESENT" : "NOT_PRESENT"}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-slate-500">Submitted by owner</dt>
+                <dd className="font-mono">{provider.submittedByOwner === null ? "UNKNOWN" : String(provider.submittedByOwner)}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-slate-500">Connected API</dt>
+                <dd className="font-mono">{provider.connectedApiConfigured ? "CONFIGURED" : "NOT_CONFIGURED"}</dd>
+              </div>
+            </dl>
             <p className="mt-3 text-sm text-slate-700">{provider.requiredAction}</p>
             <p className="mt-3 text-xs leading-5 text-slate-500">{provider.evidenceSource}</p>
           </article>
+        ))}
+      </div>
+      <div className="mt-4 grid gap-2 rounded-lg border border-slate-200 bg-white p-4 text-xs text-slate-600 md:grid-cols-2 xl:grid-cols-5">
+        {dashboard.searchRegistration.stateLegend.map((item) => (
+          <div key={item.state}>
+            <p className="font-mono font-bold text-slate-900">{item.label}</p>
+            <p className="mt-1 leading-5">{item.meaning}</p>
+          </div>
         ))}
       </div>
       <dl className="mt-4 grid gap-3 rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm sm:grid-cols-2 lg:grid-cols-5">
