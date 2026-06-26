@@ -298,12 +298,17 @@ export async function runContentSeriesScheduler(options: SchedulerOptions = {}, 
   const runState = normalizeDailyState(readContentSeriesRunState(rootDir), today);
   const log = deps.log ?? (() => undefined);
   const useLatestCodexArtifact = options.useLatestCodexArtifact ?? true;
+  const contentState = readContentSeriesState(rootDir);
+  const topicFile = readContentSeriesTopics(rootDir);
 
   if (!schedule.enabled) {
     return result("SCHEDULER_DISABLED", dryRun);
   }
   if (effectiveCadence < schedule.minCadenceMinutes) {
     return result("CADENCE_BELOW_MINIMUM", dryRun, undefined, `cadence ${effectiveCadence} is below ${schedule.minCadenceMinutes}`);
+  }
+  if (!options.topic && contentSeriesQueueIsExhausted(rootDir, contentState.completed, topicFile.topics)) {
+    return result("CONTENT_SERIES_QUEUE_EXHAUSTED", dryRun);
   }
   if (!isInsideActiveHours(schedule, now)) {
     return result("OUTSIDE_ACTIVE_HOURS", dryRun);
@@ -322,12 +327,6 @@ export async function runContentSeriesScheduler(options: SchedulerOptions = {}, 
       if (!lockAcquired) {
         return result("RUN_ALREADY_IN_PROGRESS", dryRun);
       }
-    }
-
-    const contentState = readContentSeriesState(rootDir);
-    const topicFile = readContentSeriesTopics(rootDir);
-    if (!options.topic && contentSeriesQueueIsExhausted(rootDir, contentState.completed, topicFile.topics)) {
-      return result("CONTENT_SERIES_QUEUE_EXHAUSTED", dryRun);
     }
 
     const topic = resolveContentSeriesTopic(topicFile.topics, contentState, options.topic ?? contentState.next[0]);
