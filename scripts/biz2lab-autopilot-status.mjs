@@ -3,10 +3,13 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
 const protectedUntracked = new Set([".codex-remote-attachments/", ".codex/config.toml"]);
 const approvedGreenZonePhrase = "BIZ2LAB_GREEN_ZONE_AUTOMERGE_APPROVED";
+export const seriesQueueCompleteRecommendedAction =
+  "Current content series queue is exhausted. Add new topics or run evergreen hardening/search verification tasks.";
 
 function repoPath(...parts) {
   return path.join(root, ...parts);
@@ -54,12 +57,7 @@ function parseSchedulerOutput(output) {
   }
 }
 
-function gitStatus() {
-  const result = run("git", ["status", "--short"]);
-  const lines = result.stdout
-    .split(/\r?\n/)
-    .map((line) => line.trimEnd())
-    .filter(Boolean);
+export function summarizeGitStatusLines(lines) {
   const tracked = lines.filter((line) => !line.startsWith("?? "));
   const untracked = lines
     .filter((line) => line.startsWith("?? "))
@@ -75,6 +73,16 @@ function gitStatus() {
     cleanEnough:
       tracked.length === 0 && untrackedUnexpected.length === 0,
   };
+}
+
+function gitStatus() {
+  const result = run("git", ["status", "--short"]);
+  const lines = result.stdout
+    .split(/\r?\n/)
+    .map((line) => line.trimEnd())
+    .filter(Boolean);
+
+  return summarizeGitStatusLines(lines);
 }
 
 function openPullRequests() {
@@ -412,13 +420,22 @@ function classifyPrWithFiles(pr, files, slug, heroKey) {
   return classifyPr(pr, slug, heroKey);
 }
 
-function recommend({
+export function isSeriesQueueComplete({ status, scheduler, openPrCount }) {
+  return (
+    status.cleanEnough &&
+    openPrCount === 0 &&
+    scheduler.parsed?.status === "CONTENT_SERIES_QUEUE_EXHAUSTED"
+  );
+}
+
+export function recommend({
   status,
   promptPackage,
   publicationFiles,
   artifact,
   matchingPrs,
   scheduler,
+  openPrCount = Number.POSITIVE_INFINITY,
   greenZoneCandidates,
   yellowZonePrs,
   redZonePrs,
@@ -445,6 +462,9 @@ function recommend({
   }
   if (promptPr) {
     return `Review prompt package PR #${promptPr.number}; merge if scope and checks are safe, then align master.`;
+  }
+  if (isSeriesQueueComplete({ status, scheduler, openPrCount })) {
+    return seriesQueueCompleteRecommendedAction;
   }
   if (!promptPackage.complete && !artifact.exists) {
     return "artifact-only preparation: create the image request, prompt, and brief package; generate the approved local Codex artifact; validate; open a prompt package PR; do not create article/raw/public image files.";
@@ -480,13 +500,14 @@ function recommend({
   return "Run topic dry-run and inspect the next gate.";
 }
 
-function nextAction({
+export function nextAction({
   status,
   promptPackage,
   publicationFiles,
   artifact,
   matchingPrs,
   scheduler,
+  openPrCount = Number.POSITIVE_INFINITY,
   greenZoneCandidates,
   yellowZonePrs,
   redZonePrs,
@@ -499,6 +520,7 @@ function nextAction({
   if (greenZoneCandidates.length > 0) return "green-zone auto-merge review";
   if (publicationPr) return "publication PR review";
   if (promptPr) return "prompt package PR review";
+  if (isSeriesQueueComplete({ status, scheduler, openPrCount })) return "series complete";
   if (!promptPackage.complete || !artifact.exists) return "artifact-only preparation";
   if (publicationFiles.article && publicationFiles.raw && publicationFiles.publicHero) {
     return "publication PR preparation";
@@ -513,6 +535,7 @@ function nextAction({
   return "scheduler dry-run review";
 }
 
+export function buildAutopilotStatusReport() {
 const state = readJson("data/content-series-state.json");
 const topics = readJson("data/content-series-topics.json");
 const schedule = exists("data/content-series-schedule.json")
@@ -558,8 +581,14 @@ const keywordMapEntry = Array.isArray(seoKeywordMap)
   ? seoKeywordMap.find((entry) => entry.slug === slug) ?? null
   : null;
 const requiresOwnerReview = yellowZonePrs.length > 0 || redZonePrs.length > 0;
+const seriesQueueComplete = isSeriesQueueComplete({
+  status,
+  scheduler,
+  openPrCount: prs.prs.length,
+});
 const artifactOnlyPreparationReady =
   status.cleanEnough &&
+  !seriesQueueComplete &&
   !requiresOwnerReview &&
   prs.prs.length === 0 &&
   (!promptPackage.complete || !artifact.exists);
@@ -661,6 +690,7 @@ report.nextRecommendedAction = recommend({
   artifact,
   matchingPrs,
   scheduler,
+  openPrCount: prs.prs.length,
   greenZoneCandidates,
   yellowZonePrs,
   redZonePrs,
@@ -672,9 +702,15 @@ report.nextAction = nextAction({
   artifact,
   matchingPrs,
   scheduler,
+  openPrCount: prs.prs.length,
   greenZoneCandidates,
   yellowZonePrs,
   redZonePrs,
 });
 
-console.log(JSON.stringify(report, null, 2));
+return report;
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  console.log(JSON.stringify(buildAutopilotStatusReport(), null, 2));
+}

@@ -15,6 +15,10 @@ async function importRunnerModule() {
   return await import(pathToFileURL(runnerPath).href);
 }
 
+async function importStatusModule() {
+  return await import(pathToFileURL(helperPath).href);
+}
+
 test("Biz2Lab autopilot guide documents Green-Zone and hourly approval", () => {
   const guide = fs.readFileSync(guidePath, "utf8");
 
@@ -52,7 +56,68 @@ test("Biz2Lab autopilot helper stays read-only and exposes zone fields", () => {
   assert.doesNotMatch(helper, /gh", \["pr", "merge"/);
   assert.doesNotMatch(helper, /git", \["push"/);
   assert.doesNotMatch(helper, /git", \["commit"/);
+  assert.doesNotMatch(helper, /git", \["add"[\s\S]*data\/content-series-run-state\.json/);
   assert.doesNotMatch(helper, /vercel", \["deploy"/);
+  assert.doesNotMatch(helper, /fake analytics/i);
+  assert.doesNotMatch(helper, /BIZ2LAB_ADMIN_TOKEN|SECRET|PASSWORD/);
+});
+
+test("Biz2Lab autopilot helper reports exhausted clean queue as series complete", async () => {
+  const helper = await importStatusModule();
+  const base = {
+    status: { cleanEnough: true },
+    promptPackage: { complete: true },
+    publicationFiles: { article: true, raw: true, publicHero: true },
+    artifact: { exists: true },
+    matchingPrs: [],
+    scheduler: { parsed: { status: "CONTENT_SERIES_QUEUE_EXHAUSTED" } },
+    openPrCount: 0,
+    greenZoneCandidates: [],
+    yellowZonePrs: [],
+    redZonePrs: [],
+  };
+
+  assert.equal(helper.isSeriesQueueComplete(base), true);
+  assert.equal(helper.nextAction(base), "series complete");
+  assert.equal(helper.recommend(base), helper.seriesQueueCompleteRecommendedAction);
+  assert.equal(
+    helper.recommend(base),
+    "Current content series queue is exhausted. Add new topics or run evergreen hardening/search verification tasks.",
+  );
+});
+
+test("Biz2Lab autopilot helper does not recommend publication prep for exhausted queue files", async () => {
+  const helper = await importStatusModule();
+  const result = helper.nextAction({
+    status: { cleanEnough: true },
+    promptPackage: { complete: true },
+    publicationFiles: { article: true, raw: true, publicHero: true },
+    artifact: { exists: true },
+    matchingPrs: [],
+    scheduler: { parsed: { status: "CONTENT_SERIES_QUEUE_EXHAUSTED" } },
+    openPrCount: 0,
+    greenZoneCandidates: [],
+    yellowZonePrs: [],
+    redZonePrs: [],
+  });
+
+  assert.notEqual(result, "publication PR preparation");
+});
+
+test("Biz2Lab autopilot helper treats protected untracked paths as clean enough", async () => {
+  const helper = await importStatusModule();
+  const status = helper.summarizeGitStatusLines([
+    "?? .codex-remote-attachments/",
+    "?? .codex/config.toml",
+  ]);
+
+  assert.deepEqual(status.tracked, []);
+  assert.deepEqual(status.untrackedUnexpected, []);
+  assert.deepEqual(status.protectedUntrackedPresent, [
+    ".codex-remote-attachments/",
+    ".codex/config.toml",
+  ]);
+  assert.equal(status.cleanEnough, true);
 });
 
 test("Biz2Lab autopilot runner keeps one-action and safety gates explicit", () => {
