@@ -534,6 +534,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["privacy analytics dashboard", "lightweight traffic metrics", "GA alternative comparison", "consent gate"],
     palette: automationPalette,
   },
+  "matomo-self-hosted-analytics-privacy-caution": {
+    slug: "matomo-self-hosted-analytics-privacy-caution",
+    category: "automation",
+    visualFamily: "self-hosted-privacy-analytics-control-room",
+    conceptKo: "Self-hosted analytics control room, privacy checklist, cookie consent gate, data retention board, server operations status in a premium Biz2Lab editorial hero.",
+    altKo: "Matomo 셀프호스팅 웹 분석을 개인정보와 운영 리스크 관점에서 검토하는 대표 이미지",
+    captionKo: "Matomo는 분석 통제권을 넓힐 수 있지만 privacy와 self-hosting 운영 책임을 함께 확인해야 합니다.",
+    labels: ["self-hosted analytics control room", "privacy checklist", "cookie consent gate", "data retention board"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

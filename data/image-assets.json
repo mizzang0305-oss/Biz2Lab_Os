@@ -466,5 +466,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "matomo-self-hosted-analytics-privacy-caution-hero",
+    "project": "biz2lab",
+    "postSlug": "matomo-self-hosted-analytics-privacy-caution",
+    "usage": "hero",
+    "src": "/images/posts/matomo-self-hosted-analytics-privacy-caution-hero.webp",
+    "rawPath": "assets/images/raw/matomo-self-hosted-analytics-privacy-caution-hero.jpg",
+    "altKo": "Matomo 셀프호스팅 웹 분석을 개인정보와 운영 리스크 관점에서 검토하는 대표 이미지",
+    "captionKo": "Matomo는 분석 통제권을 넓힐 수 있지만 privacy와 self-hosting 운영 책임을 함께 확인해야 합니다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]
