@@ -47,6 +47,10 @@ const completedSupabaseSlug = "supabase-self-hosting-cost-operations-caution";
 const completedMeilisearchSlug = "meilisearch-blog-product-search-automation";
 const completedTypesenseSlug = "typesense-product-document-search-automation";
 const currentAutomationTopicSlug = "umami-open-source-analytics-ga-alternative";
+const plausibleAnalyticsSlug = "plausible-open-source-analytics-ga-alternative";
+const matomoAnalyticsSlug = "matomo-self-hosted-analytics-privacy-caution";
+const posthogAnalyticsSlug = "posthog-product-analytics-automation";
+const analyticsQueue = [plausibleAnalyticsSlug, matomoAnalyticsSlug, posthogAnalyticsSlug];
 const pocketBaseQueue = staleFlowiseQueue.slice(2);
 const currentAutomationQueue = staleFlowiseQueue.slice(6);
 
@@ -64,9 +68,9 @@ function tempSeriesRoot() {
     `${JSON.stringify(
       {
         ...state,
-        currentTopic: currentAutomationTopicSlug,
-        completed: state.completed.filter((slug) => slug !== currentAutomationTopicSlug),
-        next: [currentAutomationTopicSlug],
+        currentTopic: plausibleAnalyticsSlug,
+        completed: state.completed.filter((slug) => slug !== plausibleAnalyticsSlug),
+        next: [plausibleAnalyticsSlug],
       },
       null,
       2,
@@ -169,8 +173,8 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes(completedMeilisearchSlug));
   assert.ok(state.completed.includes(completedTypesenseSlug));
   assert.ok(state.completed.includes(currentAutomationTopicSlug));
-  assert.equal(state.currentTopic, currentAutomationTopicSlug);
-  assert.deepEqual(state.next, []);
+  assert.equal(state.currentTopic, plausibleAnalyticsSlug);
+  assert.deepEqual(state.next, analyticsQueue);
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
   assert.equal(state.gates.dbWrite, false);
@@ -197,6 +201,9 @@ test("content series topic config parses required upcoming topics", () => {
     assert.ok(slugs.includes(slug), `missing ${slug}`);
   }
   assert.ok(slugs.includes(completedDifySlug), `missing ${completedDifySlug}`);
+  for (const slug of analyticsQueue) {
+    assert.ok(slugs.includes(slug), `missing ${slug}`);
+  }
   for (const topic of topics.topics.filter((topic) => secondAutomationQueue.includes(topic.slug))) {
     assert.doesNotMatch(topic.title, /\?\?/);
     assert.doesNotMatch(topic.description, /\?\?/);
