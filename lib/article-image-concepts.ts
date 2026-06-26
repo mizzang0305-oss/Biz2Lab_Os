@@ -514,6 +514,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["search API panel", "catalog and document index", "comparison board", "permission filter"],
     palette: automationPalette,
   },
+  "umami-open-source-analytics-ga-alternative": {
+    slug: "umami-open-source-analytics-ga-alternative",
+    category: "automation",
+    visualFamily: "privacy-analytics-dashboard-operations-map",
+    conceptKo: "Privacy-friendly analytics dashboard, blog traffic metrics, GA alternative comparison, hosting choice, data ownership gate가 있는 웹 분석 운영 이미지.",
+    altKo: "Umami로 GA 대체 웹 분석과 privacy 운영을 검토하는 대표 이미지",
+    captionKo: "Umami는 analytics 후보지만 privacy, hosting, consent 조건 확인이 필요하다.",
+    labels: ["privacy analytics dashboard", "blog traffic metrics", "GA alternative comparison", "hosting choice"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

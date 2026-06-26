@@ -1,5 +1,22 @@
 [
   {
+    "title": "Umami 분석: GA 대체 오픈소스 웹 분석 도구로 쓸 수 있을까?",
+    "slug": "umami-open-source-analytics-ga-alternative",
+    "route": "/ko/automation/umami-open-source-analytics-ga-alternative",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/umami-open-source-analytics-ga-alternative-hero.webp",
+    "heroAlt": "Umami로 GA 대체 웹 분석과 privacy 운영을 검토하는 대표 이미지",
+    "updatedAt": "2026-06-26",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "typesense-product-document-search-automation",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Meilisearch 분석: 블로그와 상품 검색 자동화에 쓸 수 있을까?",
     "slug": "meilisearch-blog-product-search-automation",
     "route": "/ko/automation/meilisearch-blog-product-search-automation",
@@ -8,7 +25,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/meilisearch-blog-product-search-automation-hero.webp",
     "heroAlt": "Meilisearch로 블로그와 상품 검색 index 자동화를 검토하는 대표 이미지",
-    "updatedAt": "2026-06-24",
+    "updatedAt": "2026-06-25",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "supabase-self-hosting-cost-operations-caution",
@@ -25,7 +42,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/supabase-self-hosting-cost-operations-caution-hero.webp",
     "heroAlt": "Supabase self-hosting의 비용과 운영 부담을 비교하는 대표 이미지",
-    "updatedAt": "2026-06-24",
+    "updatedAt": "2026-06-25",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "pocketbase-lightweight-backend-saas-mvp",
@@ -42,7 +59,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/typesense-product-document-search-automation-hero.webp",
     "heroAlt": "Typesense로 상품과 문서 검색 API 자동화를 검토하는 대표 이미지",
-    "updatedAt": "2026-06-24",
+    "updatedAt": "2026-06-25",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "meilisearch-blog-product-search-automation",
@@ -59,7 +76,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/directus-headless-cms-data-automation-hero.webp",
     "heroAlt": "Directus로 headless CMS와 데이터 운영 포털을 검토하는 대표 이미지",
-    "updatedAt": "2026-06-23",
+    "updatedAt": "2026-06-25",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "flowise-ai-agent-workflow-automation",
@@ -76,7 +93,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/pocketbase-lightweight-backend-saas-mvp-hero.webp",
     "heroAlt": "PocketBase로 소규모 SaaS MVP 백엔드 운영을 검토하는 대표 이미지",
-    "updatedAt": "2026-06-23",
+    "updatedAt": "2026-06-25",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "directus-headless-cms-data-automation",
@@ -93,7 +110,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/flowise-ai-agent-workflow-automation-hero.webp",
     "heroAlt": "Flowise로 AI 에이전트 워크플로와 안전 게이트를 검토하는 대표 이미지",
-    "updatedAt": "2026-06-22",
+    "updatedAt": "2026-06-25",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "open-webui-local-llm-admin-portal",
