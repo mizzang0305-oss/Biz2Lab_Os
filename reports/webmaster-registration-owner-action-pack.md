@@ -14,6 +14,7 @@ This report is an owner handoff. It does not prove that Google Search Console or
 | Published RSS | READY | `https://www.biz2lab.com/rss.xml` |
 | Published robots | READY | `https://www.biz2lab.com/robots.txt` |
 | Canonical host | READY | `https://www.biz2lab.com` |
+| Naver registered site | OWNER ACTION REQUIRED | Use `http://www.biz2lab.com` in Naver Search Advisor. Production canonical remains `https://www.biz2lab.com`, and HTTP to HTTPS redirect is expected. |
 | Google property access | OWNER SCREENSHOT PROVIDED | Owner screenshot shows the `biz2lab.com` property is accessible. |
 | Google verification token/file | NOT PROVIDED | No owner-provided public Google verification artifact was supplied in this task. |
 | Naver verification token/file | FILE ADDED, OWNER VERIFY REQUIRED | `public/naver30b0597bfd90831b38cf281c10ce53c0.html` has been added. Owner must click Verify in Naver Search Advisor after production deployment. |
@@ -79,7 +80,7 @@ Important:
 Recommended site:
 
 ```text
-https://www.biz2lab.com
+http://www.biz2lab.com
 ```
 
 Owner actions:
@@ -90,19 +91,19 @@ Owner actions:
 4. Submit sitemap:
 
 ```text
-https://www.biz2lab.com/sitemap.xml
+http://www.biz2lab.com/sitemap.xml
 ```
 
 5. Submit RSS:
 
 ```text
-https://www.biz2lab.com/rss.xml
+http://www.biz2lab.com/rss.xml
 ```
 
 6. Check robots/Yeti access:
 
 ```text
-https://www.biz2lab.com/robots.txt
+http://www.biz2lab.com/robots.txt
 ```
 
 7. After crawler delay, check representative URL discovery with:
@@ -114,6 +115,8 @@ site:www.biz2lab.com
 Important:
 
 - Naver requires the registered host and feed URL domains to match.
+- Use the registered `http://www.biz2lab.com` host in Naver. The public site still redirects to the HTTPS canonical host.
+- Do not change Biz2Lab canonical URLs, sitemap URLs, or RSS URLs away from `https://www.biz2lab.com`.
 - Naver reflection can take time after crawler visit.
 - Do not mark Naver registration as complete unless the owner confirms it in the Naver UI.
 - Naver HTML verification file has been added to the public root. Owner must click Verify in Naver Search Advisor after production deployment.

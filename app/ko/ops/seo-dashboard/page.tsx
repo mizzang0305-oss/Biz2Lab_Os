@@ -518,7 +518,7 @@ function SearchRegistrationPanel({ dashboard }: { dashboard: SeoOpsDashboard }) 
           </div>
         ))}
       </div>
-      <dl className="mt-4 grid gap-3 rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm sm:grid-cols-2 lg:grid-cols-5">
+      <dl className="mt-4 grid gap-3 rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm sm:grid-cols-2 lg:grid-cols-6">
         <div>
           <dt className="font-semibold text-slate-500">Sitemap</dt>
           <dd className="mt-1 break-words font-mono text-xs text-slate-900">{dashboard.searchRegistration.indexFiles.sitemap}</dd>
@@ -535,6 +535,12 @@ function SearchRegistrationPanel({ dashboard }: { dashboard: SeoOpsDashboard }) 
           <dt className="font-semibold text-slate-500">Canonical host</dt>
           <dd className="mt-1 break-words font-mono text-xs text-slate-900">
             {dashboard.searchRegistration.indexFiles.canonicalHost}
+          </dd>
+        </div>
+        <div>
+          <dt className="font-semibold text-slate-500">Naver registered site</dt>
+          <dd className="mt-1 break-words font-mono text-xs text-slate-900">
+            {dashboard.searchRegistration.indexFiles.naverRegisteredSite}
           </dd>
         </div>
         <div>

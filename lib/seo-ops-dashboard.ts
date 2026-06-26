@@ -114,6 +114,8 @@ export type SearchRegistrationSection = {
     robots: string;
     rss: string;
     canonicalHost: string;
+    naverRegisteredSite: string;
+    naverSubmissionHost: string;
     publishedArticlesCovered: number;
   };
 };
@@ -587,12 +589,14 @@ function buildSearchRegistration(posts: Post[]): SearchRegistrationSection {
       {
         state: "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED",
         label: "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED",
-        meaning: "Naver HTML verification file is in the public root; owner still must click Verify in Naver Search Advisor.",
+        meaning:
+          "Naver HTML verification file is in the public root; registered site is http://www.biz2lab.com and owner still must click Verify in Naver Search Advisor.",
       },
       {
         state: "NAVER_SITEMAP_RSS_OWNER_ACTION_REQUIRED",
         label: "NAVER_SITEMAP_RSS_OWNER_ACTION_REQUIRED",
-        meaning: "owner should submit sitemap.xml and rss.xml in Naver after verification succeeds.",
+        meaning:
+          "owner should submit sitemap.xml and rss.xml in Naver under the registered http://www.biz2lab.com host after verification succeeds.",
       },
     ],
     providers: [
@@ -618,9 +622,9 @@ function buildSearchRegistration(posts: Post[]): SearchRegistrationSection {
         submittedByOwner: null,
         connectedApiConfigured: false,
         requiredAction:
-          "After production deployment, click Verify in Naver Search Advisor, then submit https://www.biz2lab.com/sitemap.xml and https://www.biz2lab.com/rss.xml.",
+          "Use the registered Naver site http://www.biz2lab.com, click Verify in Naver Search Advisor, then submit sitemap.xml and rss.xml under the same www.biz2lab.com host. HTTP to HTTPS redirect is expected; do not mark Naver verified until the owner confirms UI success.",
         evidenceSource:
-          "Owner-provided Naver HTML verification file is committed to the public root; Naver UI verification is still owner-action required.",
+          "Owner-provided Naver HTML verification file is committed to the public root and the production canonical remains https://www.biz2lab.com; Naver UI verification is still owner-action required.",
       },
       {
         id: "bing-webmaster-tools",
@@ -640,6 +644,8 @@ function buildSearchRegistration(posts: Post[]): SearchRegistrationSection {
       robots: "https://www.biz2lab.com/robots.txt",
       rss: "https://www.biz2lab.com/rss.xml",
       canonicalHost: "https://www.biz2lab.com",
+      naverRegisteredSite: "http://www.biz2lab.com",
+      naverSubmissionHost: "http://www.biz2lab.com",
       publishedArticlesCovered: posts.length,
     },
   };
