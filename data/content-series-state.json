@@ -26,11 +26,10 @@
     "typesense-product-document-search-automation",
     "umami-open-source-analytics-ga-alternative",
     "plausible-open-source-analytics-ga-alternative",
-    "matomo-self-hosted-analytics-privacy-caution"
-  ],
-  "next": [
+    "matomo-self-hosted-analytics-privacy-caution",
     "posthog-product-analytics-automation"
   ],
+  "next": [],
   "gates": {
     "manualDeploy": false,
     "autoMerge": false,

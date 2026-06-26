@@ -544,6 +544,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["self-hosted analytics control room", "privacy checklist", "cookie consent gate", "data retention board"],
     palette: automationPalette,
   },
+  "posthog-product-analytics-automation": {
+    slug: "posthog-product-analytics-automation",
+    category: "automation",
+    visualFamily: "product-analytics-event-automation-map",
+    conceptKo: "Product analytics event pipeline, funnel board, feature flag cards, approval gate, privacy retention checklist in a premium Biz2Lab editorial hero.",
+    altKo: "PostHog 제품 분석과 이벤트 자동화 흐름을 개인정보 리스크와 함께 검토하는 대표 이미지",
+    captionKo: "PostHog는 제품 이벤트 분석 후보이지만 event taxonomy, privacy, retention 기준을 먼저 설계해야 합니다.",
+    labels: ["product analytics event pipeline", "funnel board", "feature flag cards", "approval gate"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

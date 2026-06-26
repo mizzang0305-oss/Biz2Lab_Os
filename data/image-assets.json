@@ -484,5 +484,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "posthog-product-analytics-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "posthog-product-analytics-automation",
+    "usage": "hero",
+    "src": "/images/posts/posthog-product-analytics-automation-hero.webp",
+    "rawPath": "assets/images/raw/posthog-product-analytics-automation-hero.jpg",
+    "altKo": "PostHog 제품 분석과 이벤트 자동화 흐름을 개인정보 리스크와 함께 검토하는 대표 이미지",
+    "captionKo": "PostHog는 제품 이벤트 분석 후보이지만 event taxonomy, privacy, retention 기준을 먼저 설계해야 합니다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]

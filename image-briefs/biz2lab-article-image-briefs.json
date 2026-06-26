@@ -1250,6 +1250,29 @@
       "visualDifferentiationHint": "matomo-self-hosted-analytics-privacy-caution: self-hosted-privacy-analytics-control-room",
       "filename": "matomo-self-hosted-analytics-privacy-caution-hero.jpg",
       "rawPath": "assets/images/raw/matomo-self-hosted-analytics-privacy-caution-hero.jpg"
+    },
+    {
+      "id": "posthog-product-analytics-automation-hero",
+      "postSlug": "posthog-product-analytics-automation",
+      "category": "automation",
+      "usage": "hero",
+      "targetPath": "assets/images/raw/posthog-product-analytics-automation-hero.jpg",
+      "optimizedPath": "public/images/posts/posthog-product-analytics-automation-hero.webp",
+      "altKo": "PostHog 제품 분석과 이벤트 자동화 흐름을 개인정보 리스크와 함께 검토하는 대표 이미지",
+      "captionKo": "PostHog는 제품 이벤트 분석 후보이지만 event taxonomy, privacy, retention 기준을 먼저 설계해야 합니다.",
+      "style": "feature-usage-analytics-event-automation-map, Korean business editorial raster hero, minimal text, no title inside image",
+      "promptKo": "Feature usage analytics event pipeline, funnel board, feature flag cards, approval gate, privacy retention checklist in a premium Biz2Lab editorial hero.",
+      "providerPromptKo": "PostHog 분석: 제품 분석과 이벤트 자동화에 쓸 수 있을까 대표 이미지. Feature usage analytics event pipeline, funnel board, feature flag cards, approval gate, privacy retention checklist in a premium Biz2Lab editorial hero. Include: feature usage analytics event pipeline, funnel board, feature flag cards, approval gate, privacy retention checklist. No official logos, no real customer data, no placeholder elements.",
+      "negativePromptKo": "official PostHog logo, real user data, copied software screenshot, conversion guarantee, tracking without consent, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+      "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+      "composition": "Feature usage analytics event pipeline, funnel board, feature flag cards, approval gate, privacy retention checklist in a premium Biz2Lab editorial hero.",
+      "categoryStyle": "automation category visual, feature-usage-analytics-event-automation-map",
+      "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+      "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+      "localOnly": true,
+      "visualDifferentiationHint": "posthog-product-analytics-automation: feature-usage-analytics-event-automation-map",
+      "filename": "posthog-product-analytics-automation-hero.jpg",
+      "rawPath": "assets/images/raw/posthog-product-analytics-automation-hero.jpg"
     }
   ]
 }
