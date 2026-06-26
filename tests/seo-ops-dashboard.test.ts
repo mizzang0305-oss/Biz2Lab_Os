@@ -189,6 +189,34 @@ test("SEO ops dashboard exposes owner-action search registration states without 
   assert.doesNotMatch(html, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR)\b/i);
 });
 
+test("webmaster status reports keep provider completion owner-confirmed", () => {
+  const currentStatus = fs.readFileSync(
+    path.join(process.cwd(), "reports", "webmaster-registration-current-status.md"),
+    "utf8",
+  );
+  const ownerActions = fs.readFileSync(path.join(process.cwd(), "reports", "owner-next-actions-now.md"), "utf8");
+
+  assert.match(currentStatus, /GOOGLE_PROPERTY_VISIBLE_FROM_OWNER_SCREENSHOT/);
+  assert.match(currentStatus, /GOOGLE_SITEMAP_SUBMISSION_OWNER_UNKNOWN/);
+  assert.match(currentStatus, /GOOGLE_URL_INSPECTION_OWNER_UNKNOWN/);
+  assert.match(currentStatus, /NAVER_REGISTERED_HTTP_HOST/);
+  assert.match(currentStatus, /NAVER_VERIFICATION_FILE_DEPLOYED/);
+  assert.match(currentStatus, /NAVER_OWNER_VERIFY_CLICK_OWNER_UNKNOWN/);
+  assert.match(currentStatus, /NAVER_SITEMAP_RSS_OWNER_UNKNOWN/);
+  assert.match(currentStatus, /CONNECTED_API_NOT_CONFIGURED/);
+  assert.match(currentStatus, /http:\/\/www\.biz2lab\.com/);
+  assert.match(currentStatus, /https:\/\/www\.biz2lab\.com/);
+  assert.doesNotMatch(currentStatus, /https 추가 등록 필요/);
+  assert.doesNotMatch(currentStatus, /\b(verified|indexed|crawled|submitted):\s*YES\b/i);
+  assert.doesNotMatch(currentStatus, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR)\b/i);
+
+  assert.match(ownerActions, /http:\/\/www\.biz2lab\.com/);
+  assert.match(ownerActions, /https:\/\/www\.biz2lab\.com\/sitemap\.xml/);
+  assert.match(ownerActions, /Naver is not verified until owner confirms UI success/);
+  assert.doesNotMatch(ownerActions, /https 추가 등록 필요/);
+  assert.doesNotMatch(ownerActions, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR)\b/i);
+});
+
 test("SEO ops analytics connectors report env readiness without real metrics", () => {
   const disconnected = getSeoOpsAnalyticsConnectors({});
 
