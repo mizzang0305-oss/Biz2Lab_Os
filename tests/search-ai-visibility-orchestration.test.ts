@@ -14,6 +14,8 @@ const requiredFiles = [
   "reports/search-console-naver-registration-readiness.md",
   "reports/ai-answer-source-readiness-audit.md",
   "reports/webmaster-registration-owner-action-pack.md",
+  "reports/webmaster-verification-token-intake.md",
+  "reports/google-search-console-next-actions.md",
   "reports/ai-answer-source-hardening-backlog.md",
   "docs/ops/search-console-naver-owner-checklist.md",
   "docs/ops/ai-answer-source-policy.md",
@@ -43,6 +45,8 @@ test("search and AI visibility docs exist and keep registration manual", () => {
 
 test("webmaster owner action pack keeps verification owner-driven", () => {
   const ownerActionPack = readRepoFile("reports/webmaster-registration-owner-action-pack.md");
+  const tokenIntake = readRepoFile("reports/webmaster-verification-token-intake.md");
+  const googleNextActions = readRepoFile("reports/google-search-console-next-actions.md");
   const hardeningBacklog = readRepoFile("reports/ai-answer-source-hardening-backlog.md");
   const dashboard = readRepoFile("lib/seo-ops-dashboard.ts");
 
@@ -52,20 +56,32 @@ test("webmaster owner action pack keeps verification owner-driven", () => {
   assert.match(ownerActionPack, /https:\/\/www\.biz2lab\.com\/sitemap\.xml/);
   assert.match(ownerActionPack, /https:\/\/www\.biz2lab\.com\/rss\.xml/);
   assert.match(ownerActionPack, /site:www\.biz2lab\.com/);
+  assert.match(ownerActionPack, /NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED|FILE ADDED, OWNER VERIFY REQUIRED/);
+  assert.match(tokenIntake, /naver30b0597bfd90831b38cf281c10ce53c0\.html/);
+  assert.match(tokenIntake, /NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED/);
+  assert.match(googleNextActions, /GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED/);
+  assert.match(googleNextActions, /sitemap\.xml/);
   assert.match(hardeningBacklog, /P0/);
   assert.match(hardeningBacklog, /P1/);
   assert.match(hardeningBacklog, /P2/);
-  assert.match(dashboard, /VERIFICATION_TOKEN_NOT_PROVIDED/);
+  assert.match(dashboard, /GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED/);
+  assert.match(dashboard, /NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED/);
   assert.match(dashboard, /CONNECTED_API_NOT_CONFIGURED/);
 
   const publicVerificationFiles = fs
     .readdirSync(path.join(process.cwd(), "public"))
     .filter((fileName) => /^(google|naver).+\.html$/i.test(fileName));
-  assert.deepEqual(publicVerificationFiles, []);
+  assert.deepEqual(publicVerificationFiles, ["naver30b0597bfd90831b38cf281c10ce53c0.html"]);
+  assert.equal(
+    readRepoFile("public/naver30b0597bfd90831b38cf281c10ce53c0.html"),
+    "naver-site-verification: naver30b0597bfd90831b38cf281c10ce53c0.html",
+  );
   assert.equal(fs.existsSync(path.join(process.cwd(), "data", "content-series-run-state.json")), true);
   assert.doesNotMatch(ownerActionPack, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR)\b/i);
   assert.doesNotMatch(ownerActionPack, /meta keywords/i);
   assert.doesNotMatch(hardeningBacklog, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR)\b/i);
+  assert.doesNotMatch(tokenIntake, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR)\b/i);
+  assert.match(googleNextActions, /Search Console showing 0 clicks is normal for a new property/);
 });
 
 test("search discovery files cover published posts without exposing ops dashboard", async () => {
