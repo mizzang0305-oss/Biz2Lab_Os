@@ -1,5 +1,22 @@
 [
   {
+    "title": "Metabase 분석: 소상공인 대시보드 자동화에 쓸 수 있을까?",
+    "slug": "metabase-dashboard-automation-for-small-business",
+    "route": "/ko/automation/metabase-dashboard-automation-for-small-business",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/metabase-dashboard-automation-for-small-business-hero.webp",
+    "heroAlt": "Metabase로 소상공인 업무 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+    "updatedAt": "2026-06-27",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "posthog-product-analytics-automation",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Matomo 분석: 셀프호스팅 웹 분석과 개인정보 운영 리스크를 감당할 수 있을까",
     "slug": "matomo-self-hosted-analytics-privacy-caution",
     "route": "/ko/automation/matomo-self-hosted-analytics-privacy-caution",

@@ -79,3 +79,5 @@ Content-series automation update: `plausible-open-source-analytics-ga-alternativ
 Content-series automation update: `matomo-self-hosted-analytics-privacy-caution` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
 
 Content-series automation update: `posthog-product-analytics-automation` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.
+
+Content-series automation update: `metabase-dashboard-automation-for-small-business` has a real Codex-generated raw JPG, optimized public WebP, and article-ready metadata after local validation. No manual deploy was run.

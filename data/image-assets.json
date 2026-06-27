@@ -502,5 +502,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "metabase-dashboard-automation-for-small-business-hero",
+    "project": "biz2lab",
+    "postSlug": "metabase-dashboard-automation-for-small-business",
+    "usage": "hero",
+    "src": "/images/posts/metabase-dashboard-automation-for-small-business-hero.webp",
+    "rawPath": "assets/images/raw/metabase-dashboard-automation-for-small-business-hero.jpg",
+    "altKo": "Metabase로 소상공인 업무 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+    "captionKo": "Metabase는 쉬운 대시보드 후보이지만 데이터 원본, 권한, 공유 기준을 먼저 정해야 합니다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]

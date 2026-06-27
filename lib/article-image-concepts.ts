@@ -554,6 +554,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["product analytics event pipeline", "funnel board", "feature flag cards", "approval gate"],
     palette: automationPalette,
   },
+  "metabase-dashboard-automation-for-small-business": {
+    slug: "metabase-dashboard-automation-for-small-business",
+    category: "automation",
+    visualFamily: "small-business-dashboard-control-room",
+    conceptKo: "소상공인 운영 대시보드, 매출/주문/미수금/검색 지표 카드, 데이터 연결 게이트, 권한 관리 패널이 있는 프리미엄 Biz2Lab 에디토리얼 히어로.",
+    altKo: "Metabase로 소상공인 업무 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+    captionKo: "Metabase는 쉬운 대시보드 후보이지만 데이터 원본, 권한, 공유 기준을 먼저 정해야 합니다.",
+    labels: ["small business dashboard", "sales and orders metrics", "receivables card", "search performance panel"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

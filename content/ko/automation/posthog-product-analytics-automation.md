@@ -157,6 +157,7 @@ Biz2Lab에서는 PostHog을 제품 운영 분석 후보로 보고, 이벤트 설
 - [Matomo 셀프호스팅 분석 주의점](/ko/automation/matomo-self-hosted-analytics-privacy-caution)
 - [Plausible GA 대체 분석 검토](/ko/automation/plausible-open-source-analytics-ga-alternative)
 - [Umami 오픈소스 분석 검토](/ko/automation/umami-open-source-analytics-ga-alternative)
+- [Metabase 분석: 소상공인 대시보드 자동화에 쓸 수 있을까?](/ko/automation/metabase-dashboard-automation-for-small-business)
 
 ## FAQ
 

@@ -848,5 +848,24 @@
     "recommendedAction": "소상공인 관점의 주문 채널 통합 검색 의도를 유지합니다.",
     "hookStatus": "strong",
     "lossAvoidanceAngle": "도입 기준을 늦게 정하면 줄일 수 있었던 시간·비용·운영 리스크가 커질 수 있습니다"
+  },
+  {
+    "slug": "metabase-dashboard-automation-for-small-business",
+    "route": "/ko/automation/metabase-dashboard-automation-for-small-business",
+    "primaryKeyword": "Metabase 대시보드 자동화",
+    "secondaryKeywords": [
+      "Metabase 업무 자동화",
+      "Metabase 분석",
+      "Metabase 운영 기준",
+      "Metabase 도입 체크리스트",
+      "Metabase",
+      "dashboard automation"
+    ],
+    "searchIntent": "business-use",
+    "audience": "소상공인",
+    "cluster": "business-automation",
+    "recommendedAction": "Metabase를 매출, 미수금, 주문, 검색/분석 지표를 한 화면에서 확인하는 오픈소스 대시보드 자동화 후보로 검토합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "Metabase를 도입 기준 없이 연결하면 권한, 데이터 품질, 운영 비용 리스크가 커질 수 있습니다."
   }
 ]
