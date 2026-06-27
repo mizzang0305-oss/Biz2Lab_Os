@@ -2,19 +2,23 @@
 
 Status: `OWNER_ACTION_REQUIRED`
 
-This report records what the repository and public site can prove now. It does not log in to Google Search Console or Naver Search Advisor, does not call provider APIs, and does not claim crawl, index, sitemap submission, or verification success without owner UI evidence.
+This report records what the repository, public site, and owner-provided screenshots can prove now. It does not log in to Google Search Console or Naver Search Advisor, does not call provider APIs, and does not claim crawl, index, search exposure, traffic, ranking, or AI answer inclusion.
 
 ## Current Truthful States
 
 | Provider / item | Status | Evidence / next action |
 | --- | --- | --- |
-| Google property visibility | `GOOGLE_PROPERTY_VISIBLE_FROM_OWNER_SCREENSHOT` | Owner screenshot showed the `biz2lab.com` property is accessible. Repo cannot confirm current UI state. |
-| Google sitemap submission | `GOOGLE_SITEMAP_SUBMISSION_OWNER_UNKNOWN` | Owner must confirm in Search Console after submitting `https://www.biz2lab.com/sitemap.xml` or `sitemap.xml`. |
-| Google URL inspection | `GOOGLE_URL_INSPECTION_OWNER_UNKNOWN` | Owner must inspect priority URLs and record Google-selected canonical, crawl/index allowance, fetch result, and indexing request status. |
-| Naver registered site | `NAVER_REGISTERED_HTTP_HOST` | Naver accepted `http://www.biz2lab.com`; `https://www.biz2lab.com` registration was rejected by the UI. |
+| Google property visibility | `GOOGLE_PROPERTY_VISIBLE_FROM_OWNER_SCREENSHOT` | Owner screenshot showed the `biz2lab.com` property is accessible. |
+| Google sitemap submission | `GOOGLE_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED` | Owner screenshot showed submitted sitemap `https://www.biz2lab.com/sitemap.xml`. |
+| Google sitemap status | `GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED` | Owner screenshot showed sitemap status success. |
+| Google discovered pages | `GOOGLE_DISCOVERED_PAGES_40_OWNER_SCREENSHOT` | Owner screenshot showed 40 discovered pages. This is not an index, crawl, ranking, traffic, or AI answer claim. |
+| Google URL inspection | `GOOGLE_URL_INSPECTION_OWNER_UNKNOWN` | URL inspection state and indexing requests are not confirmed. |
+| Google indexing request | `GOOGLE_INDEXING_REQUEST_OWNER_UNKNOWN` | Indexing requests are not confirmed. |
+| Naver registered site | `NAVER_REGISTERED_HTTP_HOST_OWNER_SCREENSHOT_CONFIRMED` | Owner screenshot confirmed registered site `http://www.biz2lab.com`; production canonical remains HTTPS. |
 | Naver verification file | `NAVER_VERIFICATION_FILE_DEPLOYED` | `https://www.biz2lab.com/naver30b0597bfd90831b38cf281c10ce53c0.html` returns the exact verification body. |
-| Naver owner verify click | `NAVER_OWNER_VERIFY_CLICK_OWNER_UNKNOWN` | Owner must click Verify in Naver Search Advisor. Do not mark verified until owner reports UI success. |
-| Naver sitemap/RSS submission | `NAVER_SITEMAP_RSS_OWNER_UNKNOWN` | Owner may submit under the registered HTTP host if Naver requires matching scheme: `http://www.biz2lab.com/sitemap.xml` and `http://www.biz2lab.com/rss.xml`. |
+| Naver site dashboard | `NAVER_SITE_DASHBOARD_ACCESSIBLE_OWNER_SCREENSHOT_CONFIRMED` | Owner screenshot showed the Naver site dashboard is accessible. |
+| Naver sitemap submission | `NAVER_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED` | Owner screenshot showed `sitemap.xml` submitted under the registered site. |
+| Naver RSS submission | `NAVER_RSS_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED` | Owner screenshot showed RSS submitted as `http://www.biz2lab.com/rss.xml`. |
 | Connected provider APIs | `CONNECTED_API_NOT_CONFIGURED` | No Google/Naver analytics or webmaster API credentials are configured or called by this repo. |
 
 ## Canonical / Naver Host Rule
@@ -28,10 +32,14 @@ This report records what the repository and public site can prove now. It does n
 
 ## What Is Not Claimed
 
-- Google sitemap submitted: `OWNER_UNKNOWN`
+- Google sitemap submitted: `OWNER_SCREENSHOT_CONFIRMED`
+- Google sitemap status success: `OWNER_SCREENSHOT_CONFIRMED`
+- Google discovered pages: `40_OWNER_SCREENSHOT`
 - Google URL inspection complete: `OWNER_UNKNOWN`
+- Google indexing request submitted: `OWNER_UNKNOWN`
+- Naver dashboard accessible: `OWNER_SCREENSHOT_CONFIRMED`
 - Naver verified: `OWNER_UNKNOWN`
-- Naver sitemap/RSS submitted: `OWNER_UNKNOWN`
+- Naver sitemap/RSS submitted: `OWNER_SCREENSHOT_CONFIRMED`
 - Indexed/crawled/ranked status: `OWNER_UNKNOWN`
 - Search impressions, clicks, CTR, ranking, queries, referrers, and AI answer inclusion: not connected and not fabricated
 

@@ -14,8 +14,8 @@ Scope: report-only recommendation after the Phase 5 evergreen AI-answer hardenin
 | Remaining weak articles | 13 |
 | Content series scheduler | `CONTENT_SERIES_QUEUE_EXHAUSTED` |
 | Open PR count at review time | 0 |
-| Google Search Console status | `GOOGLE_SITEMAP_SUBMISSION_OWNER_UNKNOWN` / `GOOGLE_URL_INSPECTION_OWNER_UNKNOWN` |
-| Naver Search Advisor status | `NAVER_REGISTERED_HTTP_HOST` / `NAVER_OWNER_VERIFY_CLICK_OWNER_UNKNOWN` |
+| Google Search Console status | `GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED` / `GOOGLE_DISCOVERED_PAGES_40_OWNER_SCREENSHOT` / `GOOGLE_URL_INSPECTION_OWNER_UNKNOWN` |
+| Naver Search Advisor status | `NAVER_REGISTERED_HTTP_HOST_OWNER_SCREENSHOT_CONFIRMED` / `NAVER_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED` / `NAVER_RSS_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED` |
 
 The 70% quality-buffer target has been reached. This does not prove ranking, crawl, indexing, impressions, clicks, CTR, query coverage, referrer quality, traffic, or AI-answer inclusion. It only means the local content structure now has stronger conclusion-first, checklist, FAQ, and citation-friendly signals for 34 of 47 published Korean articles.
 

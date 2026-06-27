@@ -2,22 +2,19 @@
 
 Status: `OWNER_ACTION_REQUIRED`
 
-These are UI actions only. Codex must not log in, submit, verify, or mark completion without owner confirmation.
+These are UI actions only. Codex must not log in, submit, verify, or mark completion without owner confirmation. Owner screenshots have confirmed some sitemap/RSS states, but crawl, index, ranking, traffic, query, referrer, and AI answer status remain unclaimed.
 
 ## Google Search Console
 
 1. Open Google Search Console.
 2. Select `biz2lab.com`.
 3. Go to `Sitemaps`.
-4. Submit one of these values, depending on what the UI accepts:
+4. Confirm the existing owner-screenshot state remains visible:
 
-```text
-sitemap.xml
-```
-
-```text
-https://www.biz2lab.com/sitemap.xml
-```
+- `GOOGLE_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED`
+- `GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED`
+- `GOOGLE_DISCOVERED_PAGES_40_OWNER_SCREENSHOT`
+- Submitted sitemap: `https://www.biz2lab.com/sitemap.xml`
 
 5. Use URL Inspection for:
 
@@ -29,7 +26,7 @@ https://www.biz2lab.com/ko/automation/typesense-product-document-search-automati
 https://www.biz2lab.com/ko/automation/supabase-self-hosting-cost-operations-caution
 ```
 
-6. Request indexing where available.
+6. Request indexing where available if the UI allows it.
 7. Record these results for each URL:
 
 - URL is on Google / not on Google
@@ -41,6 +38,14 @@ https://www.biz2lab.com/ko/automation/supabase-self-hosting-cost-operations-caut
 - mobile rendering status
 - indexing request submitted YES/NO
 
+Do not mark:
+
+- Google indexed
+- Google crawled
+- Google ranking
+- traffic/impressions/clicks
+- AI answer inclusion
+
 ## Naver Search Advisor
 
 1. Open Naver Search Advisor.
@@ -50,31 +55,44 @@ https://www.biz2lab.com/ko/automation/supabase-self-hosting-cost-operations-caut
 http://www.biz2lab.com
 ```
 
-3. Click Verify / 소유확인.
-4. If Naver requires the registered host scheme, submit:
+3. Confirm the existing owner-screenshot state remains visible:
 
-```text
-http://www.biz2lab.com/sitemap.xml
-http://www.biz2lab.com/rss.xml
-```
+- `NAVER_REGISTERED_HTTP_HOST_OWNER_SCREENSHOT_CONFIRMED`
+- `NAVER_SITE_DASHBOARD_ACCESSIBLE_OWNER_SCREENSHOT_CONFIRMED`
+- `NAVER_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED`
+- `NAVER_RSS_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED`
+- `NAVER_VERIFICATION_FILE_DEPLOYED`
 
+4. If the Naver UI still shows a Verify action, click Verify and report the exact UI result. Do not mark Naver as verified until owner confirms UI success.
 5. Confirm robots/Yeti access:
 
 ```text
 http://www.biz2lab.com/robots.txt
 ```
 
-6. After crawler delay, check:
+6. After crawler delay, check manually if desired:
 
 ```text
 site:www.biz2lab.com
 site:biz2lab.com Biz2Lab
 ```
 
+Do not mark:
+
+- Naver crawled
+- Naver indexed
+- Naver search exposure
+- traffic/clicks
+- ranking
+
 ## Important Notes
 
 - Do not delete the `http://www.biz2lab.com` Naver registration just because production canonical URLs are HTTPS.
 - Canonical stays `https://www.biz2lab.com`.
+- Sitemap and RSS canonical URLs stay on `https://www.biz2lab.com`.
 - Naver registration proceeds through the registered HTTP host because the UI rejected HTTPS.
-- The Naver verification file is deployed and exact-body matched, but Naver is not verified until owner confirms UI success.
-- Do not report sitemap submission, indexing, crawl, impressions, clicks, CTR, ranking, or query data unless the owner provides real evidence.
+- HTTP to HTTPS redirect is expected.
+- The Naver verification file is deployed and exact-body matched. Naver dashboard/sitemap/RSS are owner-screenshot-confirmed, but Naver is not verified until owner confirms UI success.
+- Do not change `robots.txt`.
+- Do not replace production robots with a Yeti-only file.
+- Do not report crawl, index, impressions, clicks, CTR, ranking, query, referrer, or AI answer status unless the owner provides real evidence.

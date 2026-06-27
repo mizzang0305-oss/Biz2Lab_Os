@@ -59,13 +59,15 @@ test("webmaster owner action pack keeps verification owner-driven", () => {
   assert.match(ownerActionPack, /NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED|FILE ADDED, OWNER VERIFY REQUIRED/);
   assert.match(tokenIntake, /naver30b0597bfd90831b38cf281c10ce53c0\.html/);
   assert.match(tokenIntake, /NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED/);
-  assert.match(googleNextActions, /GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED/);
+  assert.match(googleNextActions, /GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED/);
   assert.match(googleNextActions, /sitemap\.xml/);
   assert.match(hardeningBacklog, /P0/);
   assert.match(hardeningBacklog, /P1/);
   assert.match(hardeningBacklog, /P2/);
-  assert.match(dashboard, /GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED/);
-  assert.match(dashboard, /NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED/);
+  assert.match(dashboard, /GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED/);
+  assert.match(dashboard, /GOOGLE_DISCOVERED_PAGES_40_OWNER_SCREENSHOT/);
+  assert.match(dashboard, /NAVER_SITE_DASHBOARD_ACCESSIBLE_OWNER_SCREENSHOT_CONFIRMED/);
+  assert.match(dashboard, /NAVER_RSS_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED/);
   assert.match(dashboard, /CONNECTED_API_NOT_CONFIGURED/);
 
   const publicVerificationFiles = fs
