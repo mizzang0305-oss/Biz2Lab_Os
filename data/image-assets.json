@@ -538,5 +538,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "redash-open-source-dashboard-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "redash-open-source-dashboard-automation",
+    "usage": "hero",
+    "src": "/images/posts/redash-open-source-dashboard-automation-hero.webp",
+    "rawPath": "assets/images/raw/redash-open-source-dashboard-automation-hero.jpg",
+    "altKo": "Redash로 SQL 리포팅 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+    "captionKo": "Redash는 SQL 리포팅 후보이지만 프로젝트 상태와 권한, 공유 기준 확인이 먼저입니다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]

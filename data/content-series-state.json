@@ -29,11 +29,10 @@
     "matomo-self-hosted-analytics-privacy-caution",
     "posthog-product-analytics-automation",
     "metabase-dashboard-automation-for-small-business",
-    "apache-superset-bi-dashboard-automation"
-  ],
-  "next": [
+    "apache-superset-bi-dashboard-automation",
     "redash-open-source-dashboard-automation"
   ],
+  "next": [],
   "gates": {
     "manualDeploy": false,
     "autoMerge": false,

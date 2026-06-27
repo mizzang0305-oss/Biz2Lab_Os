@@ -34,6 +34,23 @@
     ]
   },
   {
+    "title": "Redash 분석: 오픈소스 대시보드 자동화에 쓸 수 있을까?",
+    "slug": "redash-open-source-dashboard-automation",
+    "route": "/ko/automation/redash-open-source-dashboard-automation",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/redash-open-source-dashboard-automation-hero.webp",
+    "heroAlt": "Redash로 SQL 리포팅 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+    "updatedAt": "2026-06-27",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "apache-superset-bi-dashboard-automation",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Matomo 분석: 셀프호스팅 웹 분석과 개인정보 운영 리스크를 감당할 수 있을까",
     "slug": "matomo-self-hosted-analytics-privacy-caution",
     "route": "/ko/automation/matomo-self-hosted-analytics-privacy-caution",

@@ -574,6 +574,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["BI dashboard", "chart grid", "data model layer", "permission gate"],
     palette: automationPalette,
   },
+  "redash-open-source-dashboard-automation": {
+    slug: "redash-open-source-dashboard-automation",
+    category: "automation",
+    visualFamily: "sql-reporting-dashboard-automation-map",
+    conceptKo: "SQL 리포팅 대시보드, 반복 질의 카드, 내부 보고 흐름, 권한 게이트, 운영 지표 보드가 있는 프리미엄 Biz2Lab 에디토리얼 히어로.",
+    altKo: "Redash로 SQL 리포팅 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+    captionKo: "Redash는 SQL 리포팅 후보이지만 프로젝트 상태와 권한, 공유 기준 확인이 먼저입니다.",
+    labels: ["SQL reporting dashboard", "query cards", "internal report flow", "permission gate"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);
