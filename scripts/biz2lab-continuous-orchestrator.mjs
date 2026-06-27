@@ -1138,10 +1138,62 @@ function baseRecord(decision, context, overrides = {}) {
   };
 }
 
-function parseContinuousArgs(argv) {
+export function parseContinuousArgs(argv) {
+  const maxActionsIndex = argv.indexOf("--max-actions");
+  const inlineMaxActions = argv.find((arg) => arg.startsWith("--max-actions="));
+  const rawMaxActions = inlineMaxActions
+    ? inlineMaxActions.slice(inlineMaxActions.indexOf("=") + 1)
+    : maxActionsIndex >= 0
+      ? argv[maxActionsIndex + 1]
+      : undefined;
+  const parsedMaxActions = Number.parseInt(rawMaxActions ?? "1", 10);
+  const maxActions = Number.isFinite(parsedMaxActions)
+    ? Math.min(Math.max(parsedMaxActions, 1), 3)
+    : 1;
+
   return {
     approveNextQueue: argv.includes("--approve-next-queue"),
+    approvePromptPackageMerge: argv.includes("--approve-prompt-package-merge"),
+    maxActions,
   };
+}
+
+function autopilotRunCommand(options = {}) {
+  const flags = [];
+  if (options.approvePromptPackageMerge) {
+    flags.push("--approve-prompt-package-merge");
+  }
+  return flags.length > 0
+    ? `npm run ops:autopilot-run -- ${flags.join(" ")}`
+    : "npm run ops:autopilot-run";
+}
+
+function runAutopilotActions(options = {}) {
+  const maxActions = options.maxActions ?? 1;
+  const commands = [];
+  for (let index = 0; index < maxActions; index += 1) {
+    const command = autopilotRunCommand(options);
+    runShell(command, { timeout: 1200000 });
+    commands.push(command);
+    if (index + 1 >= maxActions) {
+      break;
+    }
+    const status = readAutopilotStatus();
+    const hasOpenPr = (status.openPrs?.count ?? 0) > 0;
+    const nextAction = status.nextAction;
+    const safeToContinue =
+      status.git?.cleanEnough &&
+      !hasOpenPr &&
+      !status.requiresOwnerReview &&
+      !status.redZoneBlocked &&
+      (nextAction === "generate_codex_hero_artifact" ||
+        nextAction === "publication scheduler run" ||
+        nextAction === "cadence force-check review");
+    if (!safeToContinue) {
+      break;
+    }
+  }
+  return commands;
 }
 
 async function runOnce(options = {}) {
@@ -1179,9 +1231,9 @@ async function runOnce(options = {}) {
   }
 
   if (decision.decision === "OPEN_PR_GREEN_ZONE" || decision.decision === "DELEGATE_TO_AUTOPILOT") {
-    runShell("npm run ops:autopilot-run", { timeout: 1200000 });
+    const commands = runAutopilotActions(options);
     return baseRecord(decision, context, {
-      validation: ["npm run ops:autopilot-run"],
+      validation: commands,
       nextRunRecommendation: "Rerun ops:continue after the one delegated action completes.",
     });
   }

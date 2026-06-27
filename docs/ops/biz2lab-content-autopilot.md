@@ -321,16 +321,28 @@ When the current topic has no prompt package and no approved artifact:
 7. If the PR is Green-Zone and checks pass, autopilot may merge it.
 
 When the prompt package already exists but the artifact is missing, generate
-only the local Codex artifact and validate the image package. Do not create a
-publication PR until the prompt package is merged and the scheduler dry-run is
+only the local Codex artifact and validate the image package. The current
+executable action is:
+
+```text
+generate_codex_hero_artifact
+```
+
+This writes a real PNG artifact to the approved Codex generated-image root:
+
+```text
+C:\Users\LOVE\.codex\generated_images\<slug>-hero\<slug>-hero.png
+```
+
+It does not create an article, does not import raw/public production images,
+and does not run publication non-dry. Do not create a publication PR until the
+prompt package is merged, the artifact exists, and the scheduler dry-run is
 ready.
 
-The hourly runner reports this gate as `ARTIFACT_ONLY_PREPARATION_STARTED` when
-it can safely advance the artifact-only step. If the prompt package is already
-on `master`, that action is read-only: it records the expected approved Codex
-artifact path and stops without creating article, raw image, or public WebP
-files. It must not report publication readiness until a real matching artifact
-exists under the approved Codex root.
+The hourly runner reports this gate as `CODEX_HERO_ARTIFACT_GENERATED` after it
+successfully writes and verifies the local artifact. If the prompt package is
+missing, it still creates a Green-Zone prompt package PR first and stops after
+that one action.
 
 Artifact-only preparation must not:
 
@@ -414,7 +426,8 @@ For an open publication PR:
    - `currentTopic` becomes the next unpublished topic
    - `next[0]` becomes the next unpublished topic
    - `data/content-series-run-state.json` is not committed
-6. Merge only when all Green-Zone merge policy gates pass.
+6. Report `PUBLICATION_PR_READY_FOR_OWNER_REVIEW` when the scope and checks are
+   safe. Do not merge publication PRs automatically by default.
 7. Wait for the Git-triggered production deploy.
 8. Run production smoke.
 9. Confirm the scheduler advances to the next topic artifact gate.
@@ -692,15 +705,27 @@ The runner stops after one meaningful action:
 
 - merge one Green-Zone prompt package PR
 - prepare one missing prompt package and open a PR
-- record one artifact-only preparation gate when the prompt package exists but
-  the approved Codex artifact is still missing
+- generate one local Codex hero artifact when the prompt package exists but the
+  approved artifact is still missing
 - create one publication PR when the scheduler returns `DRY_RUN_READY`
-- merge one Green-Zone publication PR and then require production smoke
+- review and report one publication PR for owner merge; publication PR auto-merge
+  is disabled by default
 - stop with `OWNER_REVIEW_REQUIRED` when Yellow/Red risk appears
 
 It does not loop through multiple topics. It does not manually deploy, manually
 redeploy Vercel, call DB/payment/message APIs, add secrets, add fake analytics,
 add `meta keywords`, or commit `data/content-series-run-state.json`.
+
+Optional bounded mode:
+
+```powershell
+npm run ops:continue -- --max-actions 3 --approve-prompt-package-merge
+```
+
+`--max-actions` is capped at 3. Prompt package merges are allowed only when the
+scope is exactly image request / prompt / brief metadata and remote checks pass.
+Publication PR creation may happen automatically when all scheduler gates are
+ready, but publication PR merge remains owner review by default.
 
 ### 14.2 Run-State Recovery
 

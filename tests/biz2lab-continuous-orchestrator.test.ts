@@ -112,6 +112,21 @@ test("approved exhausted queue chooses dashboard queue bootstrap instead of pass
   assert.equal(decision.ownerActionRequired.length, 0);
 });
 
+test("continuous orchestrator parses safe action-count and prompt-package merge flags", async () => {
+  const orchestrator = await importOrchestrator();
+  const defaults = orchestrator.parseContinuousArgs([]);
+  const parsed = orchestrator.parseContinuousArgs([
+    "--max-actions",
+    "3",
+    "--approve-prompt-package-merge",
+  ]);
+
+  assert.equal(defaults.maxActions, 1);
+  assert.equal(defaults.approvePromptPackageMerge, false);
+  assert.equal(parsed.maxActions, 3);
+  assert.equal(parsed.approvePromptPackageMerge, true);
+});
+
 test("dashboard queue bootstrap updates only topic queue state and topic definitions", async () => {
   const orchestrator = await importOrchestrator();
   const state = {

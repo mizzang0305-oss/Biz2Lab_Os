@@ -32,7 +32,7 @@ test("Biz2Lab autopilot guide documents Green-Zone and hourly approval", () => {
   assert.match(guide, /Red Zone: Hard Stop/);
   assert.match(guide, /artifactOnlyPreparationReady/);
   assert.match(guide, /requiresOwnerReview/);
-  assert.match(guide, /ARTIFACT_ONLY_PREPARATION_STARTED/);
+  assert.match(guide, /CODEX_HERO_ARTIFACT_GENERATED/);
   assert.match(guide, /production smoke after merge/i);
   assert.doesNotMatch(guide, /Biz2Lab \?ㅽ넗\?뚯씪/);
   assert.equal(guide.includes("????筌???"), false);
@@ -84,6 +84,25 @@ test("Biz2Lab autopilot helper reports exhausted clean queue as series complete"
     helper.recommend(base),
     "Current content series queue is exhausted. Add new topics or run evergreen hardening/search verification tasks.",
   );
+});
+
+test("Biz2Lab autopilot helper reports missing artifact as executable generation action", async () => {
+  const helper = await importStatusModule();
+  const base = {
+    status: { cleanEnough: true },
+    promptPackage: { complete: true },
+    publicationFiles: { article: false, raw: false, publicHero: false },
+    artifact: { exists: false },
+    matchingPrs: [],
+    scheduler: { parsed: { status: "WAITING_FOR_CODEX_IMAGE_ARTIFACT" } },
+    openPrCount: 0,
+    greenZoneCandidates: [],
+    yellowZonePrs: [],
+    redZonePrs: [],
+  };
+
+  assert.equal(helper.nextAction(base), "generate_codex_hero_artifact");
+  assert.match(helper.recommend(base), /generate the approved local Codex hero artifact/i);
 });
 
 test("Biz2Lab autopilot helper does not recommend publication prep for exhausted queue files", async () => {
@@ -170,6 +189,83 @@ test("Biz2Lab autopilot runner treats a missing artifact as artifact-only prepar
     plan.expectedArtifactPath,
     /typesense-product-document-search-automation-hero[\\/]typesense-product-document-search-automation-hero\.png$/,
   );
+});
+
+test("Biz2Lab autopilot runner generates a local Codex PNG artifact without article or public image files", async () => {
+  const runner = await importRunnerModule();
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-autopilot-artifact-"));
+  const slug = "metabase-dashboard-automation-for-small-business";
+  const heroKey = `${slug}-hero`;
+  const artifactDir = path.join(tempDir, ".codex", "generated_images", heroKey);
+  const briefDir = path.join(tempDir, "image-briefs", "generated");
+  fs.mkdirSync(briefDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(briefDir, `${heroKey}.json`),
+    JSON.stringify(
+      {
+        postSlug: slug,
+        articleTitle: "Metabase dashboard automation",
+        promptKo: "small business dashboard automation, permissions, reports, no logo, no screenshot",
+        altKo: "Metabase dashboard automation concept image",
+        captionKo: "Metabase dashboard automation concept",
+        negativePromptKo: "official logo, copied screenshot, placeholder, fake analytics, watermark",
+        textPolicy: "minimal text",
+        visualDifferentiationHint: "dashboard reporting command center",
+      },
+      null,
+      2,
+    ),
+    "utf8",
+  );
+
+  try {
+    const result = await runner.generateCodexHeroArtifact({
+      rootDir: tempDir,
+      currentTopic: slug,
+      topicName: "Metabase",
+      artifact: { artifactDir, exists: false },
+      promptPackage: { complete: true },
+    }, { validate: false });
+
+    assert.equal(result.action, "CODEX_HERO_ARTIFACT_GENERATED");
+    assert.equal(result.createsArticle, false);
+    assert.equal(result.importsRawOrPublicImage, false);
+    assert.equal(result.placeholderImage, false);
+    assert.equal(fs.existsSync(result.artifactPath), true);
+    assert.equal(fs.existsSync(path.join(tempDir, "content", "ko", "automation", `${slug}.md`)), false);
+    assert.equal(fs.existsSync(path.join(tempDir, "assets", "images", "raw", `${heroKey}.jpg`)), false);
+    assert.equal(fs.existsSync(path.join(tempDir, "public", "images", "posts", `${heroKey}.webp`)), false);
+    assert.ok(result.dimensions.width >= 1200);
+    assert.ok(result.dimensions.height >= 675);
+    assert.ok(fs.statSync(result.artifactPath).size > 4096);
+  } finally {
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  }
+});
+
+test("Biz2Lab autopilot classifier does not auto-merge publication PRs by default", async () => {
+  const helper = await importStatusModule();
+  const result = helper.nextAction({
+    status: { cleanEnough: true },
+    promptPackage: { complete: true },
+    publicationFiles: { article: false, raw: false, publicHero: false },
+    artifact: { exists: true },
+    matchingPrs: [
+      {
+        number: 123,
+        kind: "publication",
+        zone: "green",
+        greenZoneAutomergeCandidate: false,
+      },
+    ],
+    scheduler: { parsed: { status: "EXISTING_TOPIC_PR" } },
+    openPrCount: 1,
+    greenZoneCandidates: [],
+    yellowZonePrs: [],
+    redZonePrs: [],
+  });
+
+  assert.equal(result, "publication PR review");
 });
 
 test("Biz2Lab hourly task setup uses the canonical safe runner command", () => {
