@@ -1,0 +1,23 @@
+{
+  "id": "redash-open-source-dashboard-automation-hero",
+  "postSlug": "redash-open-source-dashboard-automation",
+  "category": "automation",
+  "usage": "hero",
+  "targetPath": "assets/images/raw/redash-open-source-dashboard-automation-hero.jpg",
+  "optimizedPath": "public/images/posts/redash-open-source-dashboard-automation-hero.webp",
+  "altKo": "Redash로 SQL 리포팅 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+  "captionKo": "Redash는 SQL 리포팅 후보이지만 프로젝트 상태와 권한, 공유 기준 확인이 먼저입니다.",
+  "style": "sql-reporting-dashboard-automation-map, Korean business editorial raster hero, minimal text, no title inside image",
+  "promptKo": "SQL 리포팅 대시보드, 반복 질의 카드, 내부 보고 흐름, 권한 게이트, 운영 지표 보드가 있는 프리미엄 Biz2Lab 에디토리얼 히어로.",
+  "providerPromptKo": "Redash 분석: 오픈소스 대시보드 자동화에 쓸 수 있을까? 대표 이미지. SQL 리포팅 대시보드, 반복 질의 카드, 내부 보고 흐름, 권한 게이트, 운영 지표 보드가 있는 프리미엄 Biz2Lab 에디토리얼 히어로. Include: SQL reporting dashboard, query cards, internal report flow, permission gate, operations metrics. No official logos, no real customer data, no placeholder elements.",
+  "negativePromptKo": "official Redash logo, real SQL credentials, copied product screenshot, fake analytics numbers, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+  "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+  "composition": "SQL 리포팅 대시보드, 반복 질의 카드, 내부 보고 흐름, 권한 게이트, 운영 지표 보드가 있는 프리미엄 Biz2Lab 에디토리얼 히어로.",
+  "categoryStyle": "automation category visual, sql-reporting-dashboard-automation-map",
+  "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+  "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+  "localOnly": true,
+  "visualDifferentiationHint": "redash-open-source-dashboard-automation: sql-reporting-dashboard-automation-map",
+  "filename": "redash-open-source-dashboard-automation-hero.jpg",
+  "rawPath": "assets/images/raw/redash-open-source-dashboard-automation-hero.jpg"
+}
