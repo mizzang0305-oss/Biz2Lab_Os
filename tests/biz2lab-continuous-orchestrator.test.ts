@@ -117,14 +117,17 @@ test("continuous orchestrator parses safe action-count and prompt-package merge 
   const defaults = orchestrator.parseContinuousArgs([]);
   const parsed = orchestrator.parseContinuousArgs([
     "--max-actions",
-    "3",
+    "5",
     "--approve-prompt-package-merge",
+    "--approve-publication-merge",
   ]);
 
   assert.equal(defaults.maxActions, 1);
   assert.equal(defaults.approvePromptPackageMerge, false);
-  assert.equal(parsed.maxActions, 3);
+  assert.equal(defaults.approvePublicationMerge, false);
+  assert.equal(parsed.maxActions, 5);
   assert.equal(parsed.approvePromptPackageMerge, true);
+  assert.equal(parsed.approvePublicationMerge, true);
 });
 
 test("dashboard queue bootstrap updates only topic queue state and topic definitions", async () => {
@@ -285,6 +288,7 @@ test("continuous orchestrator source avoids forbidden deploy, secret, analytics,
   assert.match(source, /biz2lab-continuous-orchestrator\.log/);
   assert.match(source, /reports\/continuous-orchestrator-latest\.md/);
   assert.match(source, /--approve-next-queue/);
+  assert.match(source, /--approve-publication-merge/);
   assert.match(source, /codex\/add-dashboard-content-queue/);
   assert.match(source, /feat\(content\): add dashboard automation content queue/);
   assert.doesNotMatch(source, /vercel\s+deploy/i);

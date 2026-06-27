@@ -703,7 +703,8 @@ npm run ops:autopilot-status
 
 The runner stops after one meaningful action:
 
-- merge one Green-Zone prompt package PR
+- merge one Green-Zone prompt package PR when `--approve-prompt-package-merge`
+  is present
 - prepare one missing prompt package and open a PR
 - generate one local Codex hero artifact when the prompt package exists but the
   approved artifact is still missing
@@ -722,12 +723,83 @@ Optional bounded mode:
 npm run ops:continue -- --max-actions 3 --approve-prompt-package-merge
 ```
 
-`--max-actions` is capped at 3. Prompt package merges are allowed only when the
+`--max-actions` is capped at 5. Prompt package merges are allowed only when the
 scope is exactly image request / prompt / brief metadata and remote checks pass.
 Publication PR creation may happen automatically when all scheduler gates are
 ready, but publication PR merge remains owner review by default.
 
-### 14.2 Run-State Recovery
+### 14.2 Verified Auto-Merge Mode
+
+Owner-approved verified auto-merge mode is explicit and opt-in:
+
+```powershell
+npm run ops:continue -- --max-actions 5 --approve-prompt-package-merge --approve-publication-merge
+```
+
+This mode is enabled only by the owner approval phrase:
+
+```text
+BIZ2LAB_AUTOPILOT_VERIFIED_AUTO_MERGE_APPROVED
+```
+
+Prompt package PRs may be squash-merged only when all gates pass:
+
+- PR is for the current topic.
+- Vercel and Vercel Preview Comments are successful.
+- Changed files are limited to:
+  - `image-requests/generated/<hero-key>.md`
+  - `image-requests/generated/<hero-key>.prompt.md`
+  - `image-briefs/generated/<hero-key>.json`
+- No article, raw image, public image, scheduler config, deploy config, secret,
+  or `data/content-series-run-state.json` file is present.
+- Image brief/prompt audits, `validate:images`, and diff checks pass.
+
+Publication PRs may be squash-merged only when `--approve-publication-merge` is
+present and every verification gate passes:
+
+- Vercel and Vercel Preview Comments are successful; no pending check or
+  deployment-rate-limit failure is accepted.
+- Scope is limited to the current topic article, raw/public hero images,
+  prompt package, content index, image registry, article image concepts,
+  durable content-series state advancement, SEO keyword map, and narrowly
+  required series/docs/tests updates.
+- Blocked files include `.env*`, secrets, DB/payment/message/API files, deploy
+  config, unrelated articles, unrelated images, next-topic article/image files,
+  admin/login routes, and `data/content-series-run-state.json`.
+- Article checks reject overclaim wording such as `무조건 추천`, `완전 무료`,
+  and `상업 사용 보장`; they also require a canonical URL on
+  `https://www.biz2lab.com`, hero alt text, valid internal-link structure, and
+  no duplicate series heading.
+- Image checks require real raw JPG and public WebP hero files, no placeholder,
+  no official logo, no copied screenshot, and preserved prompt/brief rejection
+  wording for logos, screenshots, and placeholders.
+- SEO checks require a keyword-map entry for the new article, no fake analytics
+  metrics, no `meta keywords`, valid discovery output, and the ops dashboard
+  staying noindex and excluded from sitemap/RSS.
+- State auto-advance checks require the current topic in `completed`,
+  `currentTopic` and `next[0]` advanced to the next topic, the next topic not
+  completed, and no committed run-state file.
+- The full publication validation pack must pass:
+  `validate:posts`, `validate:images`, `npm test`, `lint`, `typecheck`,
+  `build`, `check:links`, `validate:seo`, content-authority audit, image audits,
+  image-skill plan/validate, and diff checks.
+
+After a verified publication merge, the runner aligns `master` to
+`origin/master` and waits for the normal Git-triggered Vercel deployment. It
+does not manually deploy or manually redeploy Vercel. Production smoke must
+confirm the article route, series hub, SEO dashboard noindex lock, sitemap, RSS,
+and robots before the run is considered complete. A failed smoke reports
+`PRODUCTION_SMOKE_FAILED` and does not auto-revert.
+
+Owner-only actions remain:
+
+- manual deploy or Vercel redeploy
+- force merge
+- secret rotation or external API credential setup
+- rollback merge
+- DB/payment/message/API changes
+
+### 14.3 Run-State Recovery
 
 If the only tracked dirty file is:
 
@@ -738,7 +810,7 @@ data/content-series-run-state.json
 the runner backs it up under `.tmp`, restores the tracked file, and continues.
 Any other tracked change or unexpected untracked file blocks the run.
 
-### 14.3 Windows Task Scheduler
+### 14.4 Windows Task Scheduler
 
 Register or update the local hourly task with:
 
