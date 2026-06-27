@@ -13,6 +13,8 @@
 # testing
 /coverage
 /.tmp/
+reports/continuous-orchestrator-latest.md
+reports/continuous-orchestrator-history.ndjson
 
 # next.js
 /.next/

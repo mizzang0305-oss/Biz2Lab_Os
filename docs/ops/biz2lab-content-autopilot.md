@@ -610,8 +610,33 @@ Yellow / Red policy above.
 Canonical command:
 
 ```powershell
+npm run ops:continue
+```
+
+The continuous orchestrator reads the current repository state, open PRs,
+content queue status, AI answer readiness, and owner-reported webmaster states.
+It then chooses exactly one safe next action. When the content queue is active,
+it delegates one action to the existing runner:
+
+```powershell
 npm run ops:autopilot-run
 ```
+
+When the content queue is exhausted, it may prepare one small evergreen
+answer-readiness hardening batch. It must stop with `RED_ZONE_BLOCKED` for
+unsafe local changes and `OWNER_REVIEW_REQUIRED` for ambiguous PRs or owner UI
+actions. It must not invent Google or Naver verification, crawl, index, query,
+traffic, or AI answer status.
+
+Local runtime reports:
+
+```text
+reports/continuous-orchestrator-latest.md
+reports/continuous-orchestrator-history.ndjson
+```
+
+These report files are ignored local runtime outputs so the hourly checkout can
+continue to run `git pull --ff-only` without being blocked by report churn.
 
 The status helper remains read-only:
 
@@ -660,6 +685,8 @@ Task details:
 Task name: Biz2Lab Autopilot Hourly
 Schedule: every 1 hour
 Repo root: C:\Users\LOVE\MyProjects\Biz2Lab_Os
+Continuous orchestrator log path: .tmp\biz2lab-continuous-orchestrator.log
+Continuous task stdout/stderr path: .tmp\biz2lab-continuous-orchestrator-task-output.log
 Runner log path: .tmp\biz2lab-autopilot-runner.log
 Task stdout/stderr path: .tmp\biz2lab-autopilot-task-output.log
 ```
@@ -667,12 +694,13 @@ Task stdout/stderr path: .tmp\biz2lab-autopilot-task-output.log
 Task command:
 
 ```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "cd 'C:\Users\LOVE\MyProjects\Biz2Lab_Os'; if (!(Test-Path '.tmp')) { New-Item -ItemType Directory -Path '.tmp' | Out-Null }; git fetch origin; git checkout master; git pull --ff-only origin master; npm run ops:autopilot-run >> .tmp\biz2lab-autopilot-task-output.log 2>&1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "cd 'C:\Users\LOVE\MyProjects\Biz2Lab_Os'; if (!(Test-Path '.tmp')) { New-Item -ItemType Directory -Path '.tmp' | Out-Null }; git fetch origin; git checkout master; git pull --ff-only origin master; npm run ops:continue >> .tmp\biz2lab-continuous-orchestrator-task-output.log 2>&1"
 ```
 
-The runner writes structured JSON lines to its own runner log. The scheduled task
-redirects shell output to a separate task-output log so Windows does not lock the
-same file from two writers. The hourly task must not bypass active hours. If the
-current topic is missing a Codex artifact, artifact-only prompt/package
-preparation may continue, but publication non-dry runs must wait for the
-scheduler gate.
+The continuous orchestrator writes structured JSON lines to its own log. The
+scheduled task redirects shell output to a separate task-output log so Windows
+does not lock the same file from two writers. The existing autopilot runner keeps
+its own logs when the controller delegates an active content-queue step. The
+hourly task must not bypass active hours. If the current topic is missing a Codex
+artifact, artifact-only prompt/package preparation may continue, but publication
+non-dry runs must wait for the scheduler gate.

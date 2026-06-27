@@ -35,6 +35,7 @@
     "content:series:scheduler": "tsx scripts/content-series-scheduler-runner.ts",
     "ops:autopilot-status": "node scripts/biz2lab-autopilot-status.mjs",
     "ops:autopilot-run": "node scripts/biz2lab-autopilot-runner.mjs",
+    "ops:continue": "node scripts/biz2lab-continuous-orchestrator.mjs",
     "repair:article-images": "tsx scripts/repair-article-hero-images.ts"
   },
   "dependencies": {
