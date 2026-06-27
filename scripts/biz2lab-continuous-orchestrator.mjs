@@ -1148,12 +1148,13 @@ export function parseContinuousArgs(argv) {
       : undefined;
   const parsedMaxActions = Number.parseInt(rawMaxActions ?? "1", 10);
   const maxActions = Number.isFinite(parsedMaxActions)
-    ? Math.min(Math.max(parsedMaxActions, 1), 3)
+    ? Math.min(Math.max(parsedMaxActions, 1), 5)
     : 1;
 
   return {
     approveNextQueue: argv.includes("--approve-next-queue"),
     approvePromptPackageMerge: argv.includes("--approve-prompt-package-merge"),
+    approvePublicationMerge: argv.includes("--approve-publication-merge"),
     maxActions,
   };
 }
@@ -1162,6 +1163,9 @@ function autopilotRunCommand(options = {}) {
   const flags = [];
   if (options.approvePromptPackageMerge) {
     flags.push("--approve-prompt-package-merge");
+  }
+  if (options.approvePublicationMerge) {
+    flags.push("--approve-publication-merge");
   }
   return flags.length > 0
     ? `npm run ops:autopilot-run -- ${flags.join(" ")}`
@@ -1181,14 +1185,22 @@ function runAutopilotActions(options = {}) {
     const status = readAutopilotStatus();
     const hasOpenPr = (status.openPrs?.count ?? 0) > 0;
     const nextAction = status.nextAction;
+    const safeApprovedOpenPr = status.openPrs?.classified?.some((pr) =>
+      pr.zone === "green" &&
+      !pr.redZoneBlocked &&
+      !pr.yellowZoneOwnerReview &&
+      ((pr.kind === "prompt-package" && options.approvePromptPackageMerge) ||
+        (pr.kind === "publication" && options.approvePublicationMerge))
+    );
     const safeToContinue =
       status.git?.cleanEnough &&
-      !hasOpenPr &&
+      (!hasOpenPr || safeApprovedOpenPr) &&
       !status.requiresOwnerReview &&
       !status.redZoneBlocked &&
       (nextAction === "generate_codex_hero_artifact" ||
         nextAction === "publication scheduler run" ||
-        nextAction === "cadence force-check review");
+        nextAction === "cadence force-check review" ||
+        safeApprovedOpenPr);
     if (!safeToContinue) {
       break;
     }

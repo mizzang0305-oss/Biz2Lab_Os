@@ -349,9 +349,9 @@ function runValidation(commands) {
   }
 }
 
-function statusChecksPassed(pr) {
+export function statusChecksPassed(pr) {
   const checks = Array.isArray(pr.statusCheckRollup) ? pr.statusCheckRollup : [];
-  return checks.length > 0 && checks.every((check) => {
+  const checkPassed = (check) => {
     if (check.__typename === "CheckRun") {
       return check.status === "COMPLETED" && check.conclusion === "SUCCESS";
     }
@@ -359,7 +359,21 @@ function statusChecksPassed(pr) {
       return check.state === "SUCCESS";
     }
     return false;
-  });
+  };
+  const names = new Set(checks.map((check) => check.context ?? check.name));
+  return (
+    checks.length > 0 &&
+    names.has("Vercel") &&
+    names.has("Vercel Preview Comments") &&
+    checks.every(checkPassed)
+  );
+}
+
+export function parseRunnerArgs(argv) {
+  return {
+    approvePromptPackageMerge: argv.includes("--approve-prompt-package-merge"),
+    approvePublicationMerge: argv.includes("--approve-publication-merge"),
+  };
 }
 
 function readPullRequest(number) {
@@ -384,6 +398,162 @@ function publicationSlugFromFiles(files = []) {
     /^content\/ko\/automation\/[a-z0-9-]+\.md$/.test(file),
   );
   return article?.replace("content/ko/automation/", "").replace(/\.md$/, "") ?? null;
+}
+
+function assertNoForbiddenText(filePath, patterns) {
+  if (!fs.existsSync(filePath)) {
+    return;
+  }
+  const text = fs.readFileSync(filePath, "utf8");
+  for (const pattern of patterns) {
+    if (pattern.test(text)) {
+      throw new Error(`${path.relative(root, filePath)} contains blocked text: ${pattern}`);
+    }
+  }
+}
+
+function assertRequiredFilesExist(files) {
+  for (const file of files) {
+    if (!fs.existsSync(path.join(root, file))) {
+      throw new Error(`Required publication file is missing after PR checkout: ${file}`);
+    }
+  }
+}
+
+export function verifyPublicationStateAdvancement(rootDir, slug) {
+  const statePath = path.join(rootDir, "data", "content-series-state.json");
+  const state = JSON.parse(fs.readFileSync(statePath, "utf8"));
+  if (!Array.isArray(state.completed) || !state.completed.includes(slug)) {
+    throw new Error(`Publication state does not mark ${slug} as completed.`);
+  }
+  if (state.currentTopic === slug) {
+    throw new Error(`Publication state still has ${slug} as currentTopic.`);
+  }
+  if (!Array.isArray(state.next) || state.next[0] !== state.currentTopic) {
+    throw new Error("Publication state next[0] does not match currentTopic.");
+  }
+  if (state.currentTopic && state.completed.includes(state.currentTopic)) {
+    throw new Error(`Next topic ${state.currentTopic} is already marked completed.`);
+  }
+  return {
+    completed: true,
+    currentTopic: state.currentTopic,
+    nextTopic: state.next?.[0] ?? null,
+  };
+}
+
+function verifyPublicationKeywordMap(slug) {
+  const mapPath = path.join(root, "data", "seo-keyword-map.json");
+  const map = JSON.parse(fs.readFileSync(mapPath, "utf8"));
+  if (!Array.isArray(map) || !map.some((entry) => entry.slug === slug)) {
+    throw new Error(`SEO keyword map is missing an entry for ${slug}.`);
+  }
+}
+
+async function verifyPublicationImageFiles(slug, heroKey) {
+  const rawPath = path.join(root, "assets", "images", "raw", `${heroKey}.jpg`);
+  const publicPath = path.join(root, "public", "images", "posts", `${heroKey}.webp`);
+  const raw = await sharp(rawPath).metadata();
+  const webp = await sharp(publicPath).metadata();
+  const rawSize = fs.statSync(rawPath).size;
+  const webpSize = fs.statSync(publicPath).size;
+  if ((raw.width ?? 0) < 1200 || (raw.height ?? 0) < 675 || rawSize < 4096) {
+    throw new Error(`${slug} raw hero image is missing or too small.`);
+  }
+  if ((webp.width ?? 0) < 1200 || (webp.height ?? 0) < 675 || webp.format !== "webp" || webpSize < 4096) {
+    throw new Error(`${slug} public hero WebP is missing or too small.`);
+  }
+}
+
+async function verifyPublicationPrBeforeMerge(latestPr, status) {
+  const slug = status.currentTopic;
+  const heroKey = `${slug}-hero`;
+  const files = latestPr.changedFiles ?? [];
+  const requiredFiles = [
+    `content/ko/automation/${slug}.md`,
+    `assets/images/raw/${heroKey}.jpg`,
+    `public/images/posts/${heroKey}.webp`,
+    `image-requests/generated/${heroKey}.md`,
+    `image-requests/generated/${heroKey}.prompt.md`,
+    `image-briefs/generated/${heroKey}.json`,
+    "content/ko/content-index.json",
+    "data/image-assets.json",
+    "lib/article-image-concepts.ts",
+    "data/content-series-state.json",
+    "data/seo-keyword-map.json",
+  ];
+  const blocked = [
+    /^\.env/,
+    /^data\/content-series-run-state\.json$/,
+    /^\.vercel\//,
+    /^vercel\.json$/,
+    /^app\/(admin|login)\//,
+    /^app\/api\/.*(db|database|payment|message|notification)/i,
+    /^lib\/.*(db|database|payment|message|notification|secret|credential)/i,
+  ];
+  const blockedFiles = files.filter((file) => blocked.some((pattern) => pattern.test(file)));
+  if (blockedFiles.length > 0) {
+    throw new Error(`Publication PR contains blocked files: ${blockedFiles.join(", ")}`);
+  }
+  const unrelatedArticles = files.filter((file) =>
+    /^content\/ko\/automation\/[a-z0-9-]+\.md$/.test(file) &&
+    file !== `content/ko/automation/${slug}.md` &&
+    file !== "content/ko/automation/free-open-source-automation-tools-series.md"
+  );
+  if (unrelatedArticles.length > 0) {
+    throw new Error(`Publication PR contains unrelated article files: ${unrelatedArticles.join(", ")}`);
+  }
+  const unrelatedImages = files.filter((file) =>
+    (/^(assets\/images\/raw|public\/images\/posts)\//.test(file) && !file.includes(slug))
+  );
+  if (unrelatedImages.length > 0) {
+    throw new Error(`Publication PR contains unrelated image files: ${unrelatedImages.join(", ")}`);
+  }
+  const missing = requiredFiles.filter((file) => !files.includes(file));
+  if (missing.length > 0) {
+    throw new Error(`Publication PR is missing required files: ${missing.join(", ")}`);
+  }
+
+  assertRequiredFilesExist(requiredFiles);
+  verifyPublicationStateAdvancement(root, slug);
+  verifyPublicationKeywordMap(slug);
+  await verifyPublicationImageFiles(slug, heroKey);
+
+  const articlePath = path.join(root, "content", "ko", "automation", `${slug}.md`);
+  assertNoForbiddenText(articlePath, [
+    /무조건 추천/,
+    /완전 무료/,
+    /상업 사용 보장/,
+    /meta keywords?/i,
+    /Search Console.*(click|impression|CTR|ranking)/i,
+    /GA4.*(click|impression|CTR|ranking)/i,
+  ]);
+  const article = fs.readFileSync(articlePath, "utf8");
+  if (!article.includes(`canonical: 'https://www.biz2lab.com/ko/automation/${slug}'`)) {
+    throw new Error(`${slug} canonical is missing or not on https://www.biz2lab.com.`);
+  }
+  if (!/heroAlt:\s*\S+/.test(article)) {
+    throw new Error(`${slug} heroAlt is missing.`);
+  }
+  if ((article.match(/^## 무료 오픈소스 자동화 도구 시리즈/gm) ?? []).length > 1) {
+    throw new Error(`${slug} has duplicate series headings.`);
+  }
+
+  for (const file of [
+    `image-requests/generated/${heroKey}.prompt.md`,
+    `image-briefs/generated/${heroKey}.json`,
+  ]) {
+    const text = fs.readFileSync(path.join(root, file), "utf8").toLowerCase();
+    if (!text.includes("official logo") || !text.includes("screenshot") || !text.includes("placeholder")) {
+      throw new Error(`${file} does not preserve logo/screenshot/placeholder rejection wording.`);
+    }
+  }
+
+  return {
+    slug,
+    heroKey,
+    requiredFiles: requiredFiles.length,
+  };
 }
 
 async function waitForProductionSmoke(slug) {
@@ -622,13 +792,35 @@ export async function generateCodexHeroArtifact(status, options = {}) {
   };
 }
 
-async function mergeGreenZonePr(pr) {
+async function mergeVerifiedPr(pr, status, options = {}) {
   const latestPr = {
     ...pr,
     ...readPullRequest(pr.number),
     kind: pr.kind,
     changedFiles: pr.changedFiles,
   };
+
+  if (latestPr.kind === "prompt-package" && !options.approvePromptPackageMerge) {
+    return {
+      action: "PROMPT_PACKAGE_PR_READY_FOR_OWNER_REVIEW",
+      pr: latestPr.number,
+      reason: "Prompt package PR auto-merge requires --approve-prompt-package-merge.",
+    };
+  }
+  if (latestPr.kind === "publication" && !options.approvePublicationMerge) {
+    return {
+      action: "PUBLICATION_PR_READY_FOR_OWNER_REVIEW",
+      pr: latestPr.number,
+      reason: "Publication PRs are not auto-merged by default.",
+    };
+  }
+  if (latestPr.kind !== "prompt-package" && latestPr.kind !== "publication") {
+    return {
+      action: "GREEN_ZONE_PR_READY_FOR_OWNER_REVIEW",
+      pr: latestPr.number,
+      reason: "Only prompt package and verified publication PRs are auto-merged by this runner.",
+    };
+  }
 
   if (!statusChecksPassed(latestPr)) {
     return {
@@ -639,6 +831,9 @@ async function mergeGreenZonePr(pr) {
   }
 
   runOrThrow("gh", ["pr", "checkout", String(latestPr.number)], { timeout: 120000 });
+  const publicationVerification = latestPr.kind === "publication"
+    ? await verifyPublicationPrBeforeMerge(latestPr, status)
+    : null;
   runValidation(validationCommandsForPr(latestPr));
   if (latestPr.isDraft) {
     runOrThrow("gh", ["pr", "ready", String(latestPr.number)], { timeout: 120000 });
@@ -655,6 +850,16 @@ async function mergeGreenZonePr(pr) {
   const productionSmoke = latestPr.kind === "publication"
     ? await waitForProductionSmoke(publicationSlugFromFiles(latestPr.changedFiles))
     : null;
+  if (latestPr.kind === "publication" && productionSmoke?.status !== "PASS") {
+    return {
+      action: "PRODUCTION_SMOKE_FAILED",
+      pr: latestPr.number,
+      kind: latestPr.kind,
+      title: latestPr.title,
+      productionSmoke,
+      publicationVerification,
+    };
+  }
 
   return {
     action: "GREEN_ZONE_PR_MERGED",
@@ -662,6 +867,7 @@ async function mergeGreenZonePr(pr) {
     kind: latestPr.kind,
     title: latestPr.title,
     productionSmoke,
+    publicationVerification,
   };
 }
 
@@ -688,7 +894,7 @@ function runPublicationScheduler(status) {
   };
 }
 
-async function chooseAction(status) {
+async function chooseAction(status, options = {}) {
   if (status.redZoneBlocked || status.yellowZoneOwnerReview) {
     return {
       action: "OWNER_REVIEW_REQUIRED",
@@ -700,7 +906,7 @@ async function chooseAction(status) {
     (pr) => pr.greenZoneAutomergeCandidate,
   );
   if (greenCandidate) {
-    return await mergeGreenZonePr(greenCandidate);
+    return await mergeVerifiedPr(greenCandidate, status, options);
   }
 
   const publicationPr = status.openPrs?.matching?.find((pr) => pr.kind === "publication");
@@ -720,6 +926,9 @@ async function chooseAction(status) {
       };
     }
     if (!publicationPr.greenZoneAutomergeCandidate) {
+      if (publicationPr.zone === "green" && options.approvePublicationMerge) {
+        return await mergeVerifiedPr(publicationPr, status, options);
+      }
       return {
         action: "PUBLICATION_PR_READY_FOR_OWNER_REVIEW",
         pr: publicationPr.number,
@@ -784,7 +993,7 @@ async function runAutopilotOnce() {
   }
 
   try {
-    const result = await chooseAction(status);
+    const result = await chooseAction(status, parseRunnerArgs(process.argv.slice(2)));
     writeLog({
       ...base,
       result: result.action,

@@ -131,6 +131,10 @@ function hasPassingRemoteChecks(pr) {
   if (checks.length === 0) {
     return false;
   }
+  const names = new Set(checks.map((check) => check.context ?? check.name));
+  if (!names.has("Vercel") || !names.has("Vercel Preview Comments")) {
+    return false;
+  }
   return checks.every((check) => {
     if (check.__typename === "CheckRun") {
       return check.status === "COMPLETED" && check.conclusion === "SUCCESS";
@@ -151,11 +155,7 @@ function isPromptPackagePath(file, heroKey) {
 }
 
 function isAllowedPromptPackagePath(file, heroKey) {
-  return (
-    isPromptPackagePath(file, heroKey) ||
-    file === "docs/ops/biz2lab-content-autopilot.md" ||
-    file === "scripts/biz2lab-autopilot-status.mjs"
-  );
+  return isPromptPackagePath(file, heroKey);
 }
 
 function isAllowedPublicationPath(file, slug, heroKey) {

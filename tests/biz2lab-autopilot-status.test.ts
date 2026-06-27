@@ -34,6 +34,9 @@ test("Biz2Lab autopilot guide documents Green-Zone and hourly approval", () => {
   assert.match(guide, /requiresOwnerReview/);
   assert.match(guide, /CODEX_HERO_ARTIFACT_GENERATED/);
   assert.match(guide, /production smoke after merge/i);
+  assert.match(guide, /BIZ2LAB_AUTOPILOT_VERIFIED_AUTO_MERGE_APPROVED/);
+  assert.match(guide, /--approve-publication-merge/);
+  assert.match(guide, /PRODUCTION_SMOKE_FAILED/);
   assert.doesNotMatch(guide, /Biz2Lab \?ㅽ넗\?뚯씪/);
   assert.equal(guide.includes("????筌???"), false);
 });
@@ -152,10 +155,27 @@ test("Biz2Lab autopilot runner keeps one-action and safety gates explicit", () =
   assert.match(runner, /branch !== expectedMasterBranch/);
   assert.match(runner, /promptPackageValidationCommands/);
   assert.match(runner, /publicationValidationCommands/);
+  assert.match(runner, /approvePublicationMerge/);
+  assert.match(runner, /PRODUCTION_SMOKE_FAILED/);
+  assert.match(runner, /verifyPublicationStateAdvancement/);
 
   assert.doesNotMatch(runner, /vercel.+deploy/i);
   assert.doesNotMatch(runner, /BIZ2LAB_ADMIN_TOKEN|SECRET|PASSWORD/);
   assert.doesNotMatch(runner, /setInterval|while\s*\(\s*true\s*\)/);
+});
+
+test("Biz2Lab autopilot runner parses explicit merge approval flags", async () => {
+  const runner = await importRunnerModule();
+  const defaults = runner.parseRunnerArgs([]);
+  const approved = runner.parseRunnerArgs([
+    "--approve-prompt-package-merge",
+    "--approve-publication-merge",
+  ]);
+
+  assert.equal(defaults.approvePromptPackageMerge, false);
+  assert.equal(defaults.approvePublicationMerge, false);
+  assert.equal(approved.approvePromptPackageMerge, true);
+  assert.equal(approved.approvePublicationMerge, true);
 });
 
 test("Biz2Lab autopilot runner treats a missing artifact as artifact-only preparation", async () => {
@@ -266,6 +286,94 @@ test("Biz2Lab autopilot classifier does not auto-merge publication PRs by defaul
   });
 
   assert.equal(result, "publication PR review");
+});
+
+test("Biz2Lab autopilot runner blocks failed and pending remote checks", async () => {
+  const runner = await importRunnerModule();
+  const failed = {
+    statusCheckRollup: [
+      { __typename: "StatusContext", context: "Vercel", state: "FAILURE" },
+      {
+        __typename: "CheckRun",
+        name: "Vercel Preview Comments",
+        status: "COMPLETED",
+        conclusion: "SUCCESS",
+      },
+    ],
+  };
+  const pending = {
+    statusCheckRollup: [
+      { __typename: "StatusContext", context: "Vercel", state: "SUCCESS" },
+      { __typename: "CheckRun", name: "Vercel Preview Comments", status: "IN_PROGRESS", conclusion: null },
+    ],
+  };
+  const passed = {
+    statusCheckRollup: [
+      { __typename: "StatusContext", context: "Vercel", state: "SUCCESS" },
+      { __typename: "CheckRun", name: "Vercel Preview Comments", status: "COMPLETED", conclusion: "SUCCESS" },
+    ],
+  };
+  const missingPreview = {
+    statusCheckRollup: [{ __typename: "StatusContext", context: "Vercel", state: "SUCCESS" }],
+  };
+
+  assert.equal(runner.statusChecksPassed(failed), false);
+  assert.equal(runner.statusChecksPassed(pending), false);
+  assert.equal(runner.statusChecksPassed(missingPreview), false);
+  assert.equal(runner.statusChecksPassed(passed), true);
+});
+
+test("Biz2Lab autopilot publication state advancement requires the next topic", async () => {
+  const runner = await importRunnerModule();
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-state-advance-"));
+  const stateDir = path.join(tempDir, "data");
+  fs.mkdirSync(stateDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(stateDir, "content-series-state.json"),
+    JSON.stringify(
+      {
+        completed: ["metabase-dashboard-automation-for-small-business"],
+        currentTopic: "apache-superset-bi-dashboard-automation",
+        next: ["apache-superset-bi-dashboard-automation", "redash-open-source-dashboard-automation"],
+      },
+      null,
+      2,
+    ),
+    "utf8",
+  );
+
+  try {
+    const result = runner.verifyPublicationStateAdvancement(
+      tempDir,
+      "metabase-dashboard-automation-for-small-business",
+    );
+    assert.equal(result.completed, true);
+    assert.equal(result.currentTopic, "apache-superset-bi-dashboard-automation");
+    assert.equal(result.nextTopic, "apache-superset-bi-dashboard-automation");
+
+    fs.writeFileSync(
+      path.join(stateDir, "content-series-state.json"),
+      JSON.stringify(
+        {
+          completed: [],
+          currentTopic: "metabase-dashboard-automation-for-small-business",
+          next: ["metabase-dashboard-automation-for-small-business"],
+        },
+        null,
+        2,
+      ),
+      "utf8",
+    );
+    assert.throws(
+      () => runner.verifyPublicationStateAdvancement(
+        tempDir,
+        "metabase-dashboard-automation-for-small-business",
+      ),
+      /does not mark/,
+    );
+  } finally {
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  }
 });
 
 test("Biz2Lab hourly task setup uses the canonical safe runner command", () => {
