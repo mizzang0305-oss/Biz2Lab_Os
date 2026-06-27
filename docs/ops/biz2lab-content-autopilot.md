@@ -628,6 +628,48 @@ unsafe local changes and `OWNER_REVIEW_REQUIRED` for ambiguous PRs or owner UI
 actions. It must not invent Google or Naver verification, crawl, index, query,
 traffic, or AI answer status.
 
+### 14.4 Owner-Approved Next Queue Bootstrap
+
+When the content queue is exhausted and every published Korean article is
+AI-answer ready, the continuous orchestrator stays report-only by default:
+
+```powershell
+npm run ops:continue
+```
+
+Expected default terminal behavior:
+
+```text
+QUEUE_RECOMMENDATION / REPORT_ONLY
+```
+
+The owner can approve exactly one small next queue without pasting a separate
+approval phrase into Codex by running:
+
+```powershell
+npm run ops:continue -- --approve-next-queue
+```
+
+This flag is honored only when all of these are true:
+
+- `scheduler.status` is `CONTENT_SERIES_QUEUE_EXHAUSTED`
+- AI answer readiness is `50/50`
+- open PR count is `0`
+- tracked dirty files are none
+- no Red-Zone files are changed
+
+The approved queue is limited to:
+
+```text
+metabase-dashboard-automation-for-small-business
+apache-superset-bi-dashboard-automation
+redash-open-source-dashboard-automation
+```
+
+The bootstrap PR may update only durable queue/topic metadata. It must not
+create article markdown, raw images, public images, prompt packages, fake
+analytics, secrets, deploy config, or `data/content-series-run-state.json`.
+
 Local runtime reports:
 
 ```text

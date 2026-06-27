@@ -50,7 +50,10 @@ const currentAutomationTopicSlug = "umami-open-source-analytics-ga-alternative";
 const plausibleAnalyticsSlug = "plausible-open-source-analytics-ga-alternative";
 const matomoAnalyticsSlug = "matomo-self-hosted-analytics-privacy-caution";
 const posthogAnalyticsSlug = "posthog-product-analytics-automation";
-const analyticsQueue: string[] = [];
+const metabaseDashboardSlug = "metabase-dashboard-automation-for-small-business";
+const supersetDashboardSlug = "apache-superset-bi-dashboard-automation";
+const redashDashboardSlug = "redash-open-source-dashboard-automation";
+const dashboardQueue = [metabaseDashboardSlug, supersetDashboardSlug, redashDashboardSlug];
 const allAnalyticsTopicSlugs = [plausibleAnalyticsSlug, matomoAnalyticsSlug, posthogAnalyticsSlug];
 const pocketBaseQueue = staleFlowiseQueue.slice(2);
 const currentAutomationQueue = staleFlowiseQueue.slice(6);
@@ -69,9 +72,9 @@ function tempSeriesRoot() {
     `${JSON.stringify(
       {
         ...state,
-        currentTopic: posthogAnalyticsSlug,
-        completed: state.completed.filter((slug) => slug !== posthogAnalyticsSlug),
-        next: [posthogAnalyticsSlug],
+        currentTopic: metabaseDashboardSlug,
+        completed: state.completed.filter((slug) => slug !== metabaseDashboardSlug),
+        next: dashboardQueue,
       },
       null,
       2,
@@ -177,8 +180,9 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes(currentAutomationTopicSlug));
   assert.ok(state.completed.includes(plausibleAnalyticsSlug));
   assert.ok(state.completed.includes(matomoAnalyticsSlug));
-  assert.equal(state.currentTopic, posthogAnalyticsSlug);
-  assert.deepEqual(state.next, analyticsQueue);
+  assert.ok(state.completed.includes(posthogAnalyticsSlug));
+  assert.equal(state.currentTopic, metabaseDashboardSlug);
+  assert.deepEqual(state.next, dashboardQueue);
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
   assert.equal(state.gates.dbWrite, false);
@@ -206,6 +210,9 @@ test("content series topic config parses required upcoming topics", () => {
   }
   assert.ok(slugs.includes(completedDifySlug), `missing ${completedDifySlug}`);
   for (const slug of allAnalyticsTopicSlugs) {
+    assert.ok(slugs.includes(slug), `missing ${slug}`);
+  }
+  for (const slug of dashboardQueue) {
     assert.ok(slugs.includes(slug), `missing ${slug}`);
   }
   for (const topic of topics.topics.filter((topic) => secondAutomationQueue.includes(topic.slug))) {

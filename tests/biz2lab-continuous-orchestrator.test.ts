@@ -90,6 +90,98 @@ test("exhausted queue with no weak articles recommends next queue instead of wri
   assert.match(decision.nextRunRecommendation, /new topic queue/i);
 });
 
+test("approved exhausted queue chooses dashboard queue bootstrap instead of passive recommendation", async () => {
+  const orchestrator = await importOrchestrator();
+  const decision = orchestrator.decideNextContinuousAction({
+    approveNextQueue: true,
+    safety: { redZoneBlocked: false, reasons: [] },
+    git: { cleanEnough: true },
+    openPrs: [],
+    scheduler: { status: "CONTENT_SERIES_QUEUE_EXHAUSTED", topic: "posthog-product-analytics-automation" },
+    ai: { readyArticles: 50, totalArticles: 50, weakSlugs: [] },
+    webmaster: { google: "OWNER_UNKNOWN", naver: "OWNER_UNKNOWN" },
+  });
+
+  assert.equal(decision.decision, "NEXT_QUEUE_BOOTSTRAP_APPROVED");
+  assert.equal(decision.actionTaken, "PREPARE_DASHBOARD_CONTENT_QUEUE_PR");
+  assert.deepEqual(decision.selectedSlugs, [
+    "metabase-dashboard-automation-for-small-business",
+    "apache-superset-bi-dashboard-automation",
+    "redash-open-source-dashboard-automation",
+  ]);
+  assert.equal(decision.ownerActionRequired.length, 0);
+});
+
+test("dashboard queue bootstrap updates only topic queue state and topic definitions", async () => {
+  const orchestrator = await importOrchestrator();
+  const state = {
+    series: "free-open-source-automation-tools",
+    title: "Series",
+    currentTopic: "posthog-product-analytics-automation",
+    completed: ["posthog-product-analytics-automation"],
+    next: [],
+    gates: {
+      manualDeploy: false,
+      autoMerge: false,
+      dbWrite: false,
+      externalBusinessApi: false,
+      placeholderImages: false,
+      requireRealHeroImage: true,
+      requireProductionSmokeAfterMerge: true,
+    },
+    imagePolicy: {
+      rawDirectory: "assets/images/raw",
+      publicDirectory: "public/images/posts",
+      rawFilenamePattern: "<slug>-hero.jpg",
+      publicFilenamePattern: "<slug>-hero.webp",
+      requireSlugInFilename: true,
+      rejectPlaceholderTerms: ["placeholder"],
+      allowedArtifactExtensions: [".png"],
+      artifactSearchRoots: [],
+    },
+    validationPolicy: {
+      requiredCommands: [],
+      allowValidationBypass: false,
+      requireValidatePostsCountUpdateWhenPublishing: true,
+    },
+    mergePolicy: {
+      branchPattern: "codex/<topic-slug>-automation-series-article",
+      commitMessagePattern: "feat(content): publish <tool-name> automation analysis article",
+      createPullRequest: true,
+      targetBranch: "master",
+      autoMerge: false,
+      manualDeploy: false,
+      requireOwnerMerge: true,
+    },
+  };
+  const topicFile = {
+    series: "free-open-source-automation-tools",
+    topics: [
+      {
+        id: "posthog",
+        slug: "posthog-product-analytics-automation",
+      },
+    ],
+  };
+
+  const result = orchestrator.buildDashboardQueueBootstrap(state, topicFile);
+
+  assert.equal(result.state.currentTopic, "metabase-dashboard-automation-for-small-business");
+  assert.deepEqual(result.state.next, [
+    "metabase-dashboard-automation-for-small-business",
+    "apache-superset-bi-dashboard-automation",
+    "redash-open-source-dashboard-automation",
+  ]);
+  assert.deepEqual(result.state.completed, ["posthog-product-analytics-automation"]);
+  assert.deepEqual(result.changedFiles, ["data/content-series-state.json", "data/content-series-topics.json"]);
+  assert.equal(result.topicFile.topics.length, 4);
+  assert.equal(result.topicFile.topics.at(-1).slug, "redash-open-source-dashboard-automation");
+  assert.equal(
+    result.topicFile.topics.some((topic: { slug?: unknown }) => String(topic.slug).includes("directus")),
+    false,
+  );
+});
+
 test("active content queue delegates exactly one action to the existing autopilot runner", async () => {
   const orchestrator = await importOrchestrator();
   const decision = orchestrator.decideNextContinuousAction({
@@ -177,6 +269,9 @@ test("continuous orchestrator source avoids forbidden deploy, secret, analytics,
   assert.match(source, /CONTINUOUS_ORCHESTRATOR_ALREADY_RUNNING/);
   assert.match(source, /biz2lab-continuous-orchestrator\.log/);
   assert.match(source, /reports\/continuous-orchestrator-latest\.md/);
+  assert.match(source, /--approve-next-queue/);
+  assert.match(source, /codex\/add-dashboard-content-queue/);
+  assert.match(source, /feat\(content\): add dashboard automation content queue/);
   assert.doesNotMatch(source, /vercel\s+deploy/i);
   assert.doesNotMatch(source, /BIZ2LAB_ADMIN_TOKEN|SECRET|PASSWORD/);
   assert.doesNotMatch(source, /Search Console.*submitted.*true/i);
