@@ -16,6 +16,7 @@ import {
   advanceContentSeriesStateAfterPublication,
   buildImagePaths,
   buildInternalLinkRoutes,
+  buildSeoKeywordMapEntry,
   CONTENT_SERIES_VALIDATION_COMMANDS,
   ContentSeriesError,
   filterCommittablePaths,
@@ -26,6 +27,7 @@ import {
   resolveExecFileInvocation,
   resolveContentSeriesTopic,
   runContentSeriesOrchestrator,
+  upsertSeoKeywordMapEntry,
 } from "@/scripts/content-series-orchestrator";
 
 const staleFlowiseQueue = [
@@ -614,6 +616,51 @@ test("content index helper emits the expected public route and hero image", () =
   assert.equal(entry.route, `/ko/automation/${topic.slug}`);
   assert.equal(entry.heroImage, `/images/posts/${topic.slug}-hero.webp`);
   assert.equal(entry.category, "automation");
+});
+
+test("SEO keyword map helper creates coverage for generated publication topics", () => {
+  const topics = readContentSeriesTopics();
+  const state = readContentSeriesState();
+  const topic = resolveContentSeriesTopic(topics.topics, state, metabaseDashboardSlug);
+  const entry = buildSeoKeywordMapEntry(topic);
+
+  assert.equal(entry.slug, topic.slug);
+  assert.equal(entry.route, `/ko/automation/${topic.slug}`);
+  assert.match(entry.primaryKeyword, /Metabase/);
+  assert.match(entry.primaryKeyword, /대시보드|dashboard/i);
+  assert.equal(entry.searchIntent, "business-use");
+  assert.equal(entry.cluster, "business-automation");
+  assert.equal(entry.hookStatus, "strong");
+  assert.ok(entry.secondaryKeywords.length >= 3);
+  assert.ok(entry.lossAvoidanceAngle.length >= 10);
+  for (const forbiddenKey of ["clicks", "impressions", "ctr", "ranking", "pageviews"]) {
+    assert.equal(Object.hasOwn(entry, forbiddenKey), false);
+  }
+});
+
+test("SEO keyword map upsert adds a generated publication entry before validation", () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-keyword-map-"));
+  const dataDir = path.join(root, "data");
+  fs.mkdirSync(dataDir, { recursive: true });
+  fs.writeFileSync(path.join(dataDir, "seo-keyword-map.json"), "[]\n", "utf8");
+  const topics = readContentSeriesTopics();
+  const state = readContentSeriesState();
+  const topic = resolveContentSeriesTopic(topics.topics, state, metabaseDashboardSlug);
+
+  const first = upsertSeoKeywordMapEntry(root, topic);
+  const second = upsertSeoKeywordMapEntry(root, topic);
+  const keywordMap = JSON.parse(fs.readFileSync(path.join(dataDir, "seo-keyword-map.json"), "utf8")) as Array<{
+    slug: string;
+    route: string;
+    primaryKeyword: string;
+  }>;
+
+  assert.equal(first.slug, metabaseDashboardSlug);
+  assert.deepEqual(second, first);
+  assert.equal(keywordMap.length, 1);
+  assert.equal(keywordMap[0].slug, metabaseDashboardSlug);
+  assert.equal(keywordMap[0].route, `/ko/automation/${metabaseDashboardSlug}`);
+  assert.equal(fs.existsSync(path.join(root, "data", "content-series-run-state.json")), false);
 });
 
 test("image registry helper keeps raw and public paths in guarded directories", () => {

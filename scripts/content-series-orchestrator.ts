@@ -113,6 +113,19 @@ type ImagePaths = {
   articleRepoPath: string;
 };
 
+type SeoKeywordMapEntry = {
+  slug: string;
+  route: string;
+  primaryKeyword: string;
+  secondaryKeywords: string[];
+  searchIntent: "informational" | "comparison" | "caution" | "how-to" | "business-use";
+  audience: "소상공인" | "1인 사업자" | "영업팀" | "개발자" | "운영자";
+  cluster: "automation-tools" | "ai-workflow" | "business-automation" | "open-source-caution" | "content-automation";
+  hookStatus: "strong" | "needs-title-hook" | "needs-intro-hook" | "needs-meta-hook" | "needs-cta-hook";
+  lossAvoidanceAngle: string;
+  recommendedAction: string;
+};
+
 export type ContentSeriesPlan = {
   topic: ContentSeriesTopic;
   branchName: string;
@@ -1015,6 +1028,122 @@ function upsertImageAsset(rootDir: string, topic: ContentSeriesTopic, dimensions
   writeJsonFile(rootDir, "data/image-assets.json", [...assets.filter((asset) => asset.id !== entry.id), entry]);
 }
 
+function uniqueNonEmpty(values: string[]) {
+  return Array.from(new Set(values.map((value) => value.trim()).filter(Boolean)));
+}
+
+function keywordTextFor(topic: ContentSeriesTopic) {
+  return [
+    topic.slug,
+    topic.toolName,
+    topic.title,
+    topic.description,
+    topic.tags.join(" "),
+    topic.articleOutline.map((section) => `${section.heading} ${section.points.join(" ")}`).join(" "),
+  ].join(" ");
+}
+
+function keywordClassificationTextFor(topic: ContentSeriesTopic) {
+  return [topic.slug, topic.toolName, topic.title, topic.description, topic.tags.join(" ")].join(" ");
+}
+
+function inferKeywordCluster(topic: ContentSeriesTopic): SeoKeywordMapEntry["cluster"] {
+  const classificationText = keywordClassificationTextFor(topic).toLowerCase();
+  const text = keywordTextFor(topic).toLowerCase();
+  if (/(license|caution|cost|privacy|self-host|셀프|비용|주의|라이선스)/i.test(classificationText)) {
+    return "open-source-caution";
+  }
+  if (/(flowise|dify|langflow|llm|rag|agent|ai |ai-|에이전트|워크플로우)/i.test(text)) {
+    return "ai-workflow";
+  }
+  if (/(dashboard|bi|report|analytics|search|database|backend|cms|대시보드|리포트|검색|데이터|백엔드)/i.test(text)) {
+    return "business-automation";
+  }
+  if (/(content|blog|video|crawl|research|콘텐츠|블로그|리서치|영상)/i.test(text)) {
+    return "content-automation";
+  }
+  return "automation-tools";
+}
+
+function inferKeywordSearchIntent(topic: ContentSeriesTopic): SeoKeywordMapEntry["searchIntent"] {
+  const text = keywordClassificationTextFor(topic).toLowerCase();
+  if (/(caution|cost|license|privacy|주의|비용|라이선스)/i.test(text)) {
+    return "caution";
+  }
+  if (/(alternative|vs|대체|비교)/i.test(text)) {
+    return "comparison";
+  }
+  if (/(how-to|guide|방법|설정)/i.test(text)) {
+    return "how-to";
+  }
+  return "business-use";
+}
+
+function inferKeywordAudience(topic: ContentSeriesTopic): SeoKeywordMapEntry["audience"] {
+  const text = keywordTextFor(topic).toLowerCase();
+  if (/(small business|소상공인)/i.test(text)) {
+    return "소상공인";
+  }
+  if (/(1인|solo|freelance)/i.test(text)) {
+    return "1인 사업자";
+  }
+  if (/(sales|receivable|crm|영업|미수금|고객)/i.test(text)) {
+    return "영업팀";
+  }
+  if (/(developer|dev|api|backend|개발)/i.test(text)) {
+    return "개발자";
+  }
+  return "운영자";
+}
+
+function primaryKeywordFor(topic: ContentSeriesTopic) {
+  const text = keywordTextFor(topic).toLowerCase();
+  if (/(dashboard|bi|report|대시보드|리포트)/i.test(text)) {
+    return `${topic.toolName} 대시보드 자동화`;
+  }
+  if (/(search|검색)/i.test(text)) {
+    return `${topic.toolName} 검색 자동화`;
+  }
+  if (/(analytics|분석)/i.test(text)) {
+    return `${topic.toolName} 분석 자동화`;
+  }
+  return `${topic.toolName} 업무 자동화`;
+}
+
+export function buildSeoKeywordMapEntry(topic: ContentSeriesTopic): SeoKeywordMapEntry {
+  const primaryKeyword = primaryKeywordFor(topic);
+  const secondaryKeywords = uniqueNonEmpty([
+    `${topic.toolName} 업무 자동화`,
+    `${topic.toolName} 분석`,
+    `${topic.toolName} 운영 기준`,
+    `${topic.toolName} 도입 체크리스트`,
+    ...topic.tags,
+  ]).filter((keyword) => keyword !== primaryKeyword);
+
+  return {
+    slug: topic.slug,
+    route: `/ko/automation/${topic.slug}`,
+    primaryKeyword,
+    secondaryKeywords: secondaryKeywords.slice(0, 6),
+    searchIntent: inferKeywordSearchIntent(topic),
+    audience: inferKeywordAudience(topic),
+    cluster: inferKeywordCluster(topic),
+    recommendedAction: `${topic.toolName}를 ${topic.description.replace(/[.。]$/, "")} 관점에서 검토합니다.`,
+    hookStatus: "strong",
+    lossAvoidanceAngle: `${topic.toolName}를 도입 기준 없이 연결하면 권한, 데이터 품질, 운영 비용 리스크가 커질 수 있습니다.`,
+  };
+}
+
+export function upsertSeoKeywordMapEntry(rootDir: string, topic: ContentSeriesTopic) {
+  const keywordMap = readJsonFile<SeoKeywordMapEntry[]>(rootDir, "data/seo-keyword-map.json");
+  const entry = buildSeoKeywordMapEntry(topic);
+  writeJsonFile(rootDir, "data/seo-keyword-map.json", [
+    ...keywordMap.filter((candidate) => candidate.slug !== topic.slug),
+    entry,
+  ]);
+  return entry;
+}
+
 export function buildContentIndexEntry(topic: ContentSeriesTopic, updatedAt: string) {
   return {
     title: topic.title,
@@ -1356,6 +1485,7 @@ export async function runContentSeriesOrchestrator(options: CliOptions = {}): Pr
   updateInternalLinks(rootDir, topic);
   appendQueueRow(rootDir, topic);
   writeJsonFile(rootDir, "data/content-series-state.json", advanceContentSeriesStateAfterPublication(state, topicFile.topics, topic));
+  upsertSeoKeywordMapEntry(rootDir, topic);
   runCommand(rootDir, "npm run optimize-images");
   assertPublicHeroImageExists(rootDir, plan.imagePaths.publicRepoPath);
   const publicImage = buildOptimizedHeroImageMetadata(topic, importedImage);

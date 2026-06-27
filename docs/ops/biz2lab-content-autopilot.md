@@ -541,6 +541,8 @@ Autopilot must preserve:
 For every new publication PR:
 
 - add the article route to `data/seo-keyword-map.json`
+- the content-series publication generator must upsert this keyword map entry
+  before running validation
 - keep the primary keyword natural
 - keep search intent and cluster appropriate
 - run SEO/dashboard tests
