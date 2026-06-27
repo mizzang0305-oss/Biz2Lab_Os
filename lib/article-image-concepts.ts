@@ -564,6 +564,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["small business dashboard", "sales and orders metrics", "receivables card", "search performance panel"],
     palette: automationPalette,
   },
+  "apache-superset-bi-dashboard-automation": {
+    slug: "apache-superset-bi-dashboard-automation",
+    category: "automation",
+    visualFamily: "bi-dashboard-automation-command-center",
+    conceptKo: "BI 대시보드 자동화 커맨드 센터, 차트 그리드, 데이터 모델 계층, 권한 게이트, 리포트 자동화 흐름이 있는 프리미엄 Biz2Lab 히어로.",
+    altKo: "Apache Superset으로 BI 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+    captionKo: "Apache Superset은 강한 BI 후보이지만 데이터 모델과 운영 권한 기준을 먼저 정해야 합니다.",
+    labels: ["BI dashboard", "chart grid", "data model layer", "permission gate"],
+    palette: automationPalette,
+  },
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

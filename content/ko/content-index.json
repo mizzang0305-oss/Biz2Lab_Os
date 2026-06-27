@@ -1,5 +1,22 @@
 [
   {
+    "title": "Apache Superset 분석: BI 대시보드 자동화에 쓸 수 있을까?",
+    "slug": "apache-superset-bi-dashboard-automation",
+    "route": "/ko/automation/apache-superset-bi-dashboard-automation",
+    "category": "automation",
+    "cluster": "open-source-automation-tools",
+    "type": "how-to",
+    "heroImage": "/images/posts/apache-superset-bi-dashboard-automation-hero.webp",
+    "heroAlt": "Apache Superset으로 BI 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+    "updatedAt": "2026-06-27",
+    "relatedPosts": [
+      "free-open-source-automation-tools-series",
+      "metabase-dashboard-automation-for-small-business",
+      "activepieces-ai-business-automation-n8n-alternative",
+      "opencut-free-open-source-video-editor-ai-content-automation"
+    ]
+  },
+  {
     "title": "Metabase 분석: 소상공인 대시보드 자동화에 쓸 수 있을까?",
     "slug": "metabase-dashboard-automation-for-small-business",
     "route": "/ko/automation/metabase-dashboard-automation-for-small-business",

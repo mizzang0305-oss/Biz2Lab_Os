@@ -868,5 +868,24 @@
     "recommendedAction": "Metabase를 매출, 미수금, 주문, 검색/분석 지표를 한 화면에서 확인하는 오픈소스 대시보드 자동화 후보로 검토합니다.",
     "hookStatus": "strong",
     "lossAvoidanceAngle": "Metabase를 도입 기준 없이 연결하면 권한, 데이터 품질, 운영 비용 리스크가 커질 수 있습니다."
+  },
+  {
+    "slug": "apache-superset-bi-dashboard-automation",
+    "route": "/ko/automation/apache-superset-bi-dashboard-automation",
+    "primaryKeyword": "Apache Superset 대시보드 자동화",
+    "secondaryKeywords": [
+      "Apache Superset 업무 자동화",
+      "Apache Superset 분석",
+      "Apache Superset 운영 기준",
+      "Apache Superset 도입 체크리스트",
+      "Apache Superset",
+      "BI dashboard"
+    ],
+    "searchIntent": "business-use",
+    "audience": "영업팀",
+    "cluster": "business-automation",
+    "recommendedAction": "Apache Superset를 Apache Superset을 BI 대시보드와 리포팅 자동화 후보로 검토하고, 데이터 모델링, 권한, 운영 부담을 Biz2Lab 관점에서 정리합니다 관점에서 검토합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "Apache Superset를 도입 기준 없이 연결하면 권한, 데이터 품질, 운영 비용 리스크가 커질 수 있습니다."
   }
 ]
