@@ -480,13 +480,25 @@ function currentTopic(state: ContentSeriesState) {
   return state.currentTopic ?? state.next[0] ?? "대기 중인 topic 없음";
 }
 
+function isContentSeriesQueueExhausted(state: ContentSeriesState) {
+  return state.next.length === 0 && state.completed.length > 0;
+}
+
 function nextTopicAfterCurrent(state: ContentSeriesState) {
+  if (isContentSeriesQueueExhausted(state)) {
+    return "CONTENT_SERIES_QUEUE_EXHAUSTED";
+  }
+
   const current = currentTopic(state);
   const index = state.next.indexOf(current);
   return index >= 0 ? (state.next[index + 1] ?? "다음 topic 없음") : (state.next[0] ?? "다음 topic 없음");
 }
 
 function gateSummary(state: ContentSeriesState, schedule: ContentSeriesSchedule) {
+  if (isContentSeriesQueueExhausted(state)) {
+    return "CONTENT_SERIES_QUEUE_EXHAUSTED | current queue complete | run evergreen hardening/search verification or add approved topics";
+  }
+
   const gates = [
     schedule.enabled ? "스케줄러 활성" : "스케줄러 일시 중지",
     schedule.requireCodexArtifact ? "Codex hero artifact 필요" : "artifact 게이트 확인 필요",
@@ -498,11 +510,23 @@ function gateSummary(state: ContentSeriesState, schedule: ContentSeriesSchedule)
   return gates.join(" · ");
 }
 
-function nextRequiredArtifact(topic: string) {
+function nextRequiredArtifact(state: ContentSeriesState, topic: string) {
+  if (isContentSeriesQueueExhausted(state)) {
+    return "NONE";
+  }
+
   return topic === "대기 중인 topic 없음" ? "필요한 artifact 없음" : `${topic}-hero`;
 }
 
-function lastKnownIssue(runState: ContentSeriesRunState, schedule: ContentSeriesSchedule) {
+function lastKnownIssue(
+  state: ContentSeriesState,
+  runState: ContentSeriesRunState,
+  schedule: ContentSeriesSchedule,
+) {
+  if (isContentSeriesQueueExhausted(state)) {
+    return "CONTENT_SERIES_QUEUE_EXHAUSTED";
+  }
+
   if (runState.lastStatus) {
     return runState.lastTopic ? `${runState.lastTopic}: ${runState.lastStatus}` : runState.lastStatus;
   }
@@ -777,6 +801,23 @@ function buildExpansionActions(): ExpansionAction[] {
   ];
 }
 
+function latestCompletedSeriesPost(posts: Post[], state: ContentSeriesState) {
+  if (!isContentSeriesQueueExhausted(state)) {
+    return posts[0];
+  }
+
+  const postBySlug = new Map(posts.map((post) => [post.slug, post]));
+
+  for (const slug of [...state.completed].reverse()) {
+    const post = postBySlug.get(slug);
+    if (post) {
+      return post;
+    }
+  }
+
+  return posts[0];
+}
+
 export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
   const posts = getPublicPosts();
   const contentIndex = readContentIndex(rootDir);
@@ -801,6 +842,8 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
   });
   const seoHealth = buildSeoHealth(posts, articles);
   const topic = currentTopic(seriesState);
+  const queueExhausted = isContentSeriesQueueExhausted(seriesState);
+  const latestSeriesPost = latestCompletedSeriesPost(posts, seriesState);
   const completedCount = seriesState.completed.length;
   const totalSeriesTopics = new Set([...seriesState.completed, ...seriesState.next]).size;
   const automationSeriesArticles = posts.filter(
@@ -814,8 +857,8 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
       publishedArticles: posts.length,
       automationSeriesArticles,
       automationSeriesProgress: `${completedCount}/${totalSeriesTopics}`,
-      latestPublishedTitle: posts[0]?.frontmatter.title ?? "게시된 글 없음",
-      nextPublicationTopic: topic,
+      latestPublishedTitle: latestSeriesPost?.frontmatter.title ?? posts[0]?.frontmatter.title ?? "게시된 글 없음",
+      nextPublicationTopic: queueExhausted ? "CONTENT_SERIES_QUEUE_EXHAUSTED" : topic,
       schedulerGate: schedule.enabled ? "스케줄러 활성" : "스케줄러 일시 중지",
       seoChecks: seoChecksLabel(seoHealth),
       analyticsConnection: analyticsConnectors.summaryLabel,
@@ -841,8 +884,8 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
       nextTopic: nextTopicAfterCurrent(seriesState),
       completedTopics: seriesState.completed,
       currentGate: gateSummary(seriesState, schedule),
-      nextRequiredArtifact: nextRequiredArtifact(topic),
-      lastKnownIssue: lastKnownIssue(runState, schedule),
+      nextRequiredArtifact: nextRequiredArtifact(seriesState, topic),
+      lastKnownIssue: lastKnownIssue(seriesState, runState, schedule),
       cadence: `${schedule.cadenceMinutes}분 · ${schedule.activeHours.timezone} ${schedule.activeHours.start}-${schedule.activeHours.end} · 하루 최대 ${schedule.maxArticlesPerDay}개 · 열린 PR 최대 ${schedule.maxOpenPrs}개`,
     },
     sources: {
