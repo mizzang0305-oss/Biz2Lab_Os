@@ -301,12 +301,12 @@ function classifyPrSafety(pr, files, slug, heroKey) {
   if (hasPublicationArticle && allPublication) {
     return {
       zone: "green",
-      greenZoneAutomergeCandidate: hasPassingRemoteChecks(pr) && hasPublicationState,
+      greenZoneAutomergeCandidate: false,
       yellowZoneOwnerReview: false,
       redZoneBlocked: false,
       reason:
         hasPassingRemoteChecks(pr) && hasPublicationState
-          ? "Green-zone publication PR with state advancement and passing remote checks."
+          ? "Green-zone publication PR with state advancement and passing remote checks; owner review required before merge by default."
           : "Publication scope is green-zone, but remote checks or state advancement are not complete.",
       filesAvailable: true,
       files: files.files,
@@ -467,13 +467,13 @@ export function recommend({
     return seriesQueueCompleteRecommendedAction;
   }
   if (!promptPackage.complete && !artifact.exists) {
-    return "artifact-only preparation: create the image request, prompt, and brief package; generate the approved local Codex artifact; validate; open a prompt package PR; do not create article/raw/public image files.";
+    return "artifact-only preparation: create the image request, prompt, and brief package; then generate the approved local Codex artifact; validate; open a prompt package PR; do not create article/raw/public image files.";
   }
   if (!promptPackage.complete) {
     return "Create or merge the current topic hero prompt package before publication.";
   }
   if (!artifact.exists) {
-    return "artifact-only preparation: generate the approved local Codex hero artifact; validate; do not create article/raw/public image files.";
+    return "generate the approved local Codex hero artifact now; validate; do not create article/raw/public image files.";
   }
   if (publicationFiles.article && publicationFiles.raw && publicationFiles.publicHero) {
     return "Publication files exist locally; validate, commit, push, and open/review the publication PR.";
@@ -521,7 +521,8 @@ export function nextAction({
   if (publicationPr) return "publication PR review";
   if (promptPr) return "prompt package PR review";
   if (isSeriesQueueComplete({ status, scheduler, openPrCount })) return "series complete";
-  if (!promptPackage.complete || !artifact.exists) return "artifact-only preparation";
+  if (!promptPackage.complete) return "create_prompt_package_pr";
+  if (!artifact.exists) return "generate_codex_hero_artifact";
   if (publicationFiles.article && publicationFiles.raw && publicationFiles.publicHero) {
     return "publication PR preparation";
   }
@@ -618,6 +619,10 @@ const report = {
   },
   greenZoneAutomergeCandidate: greenZoneCandidates.length > 0 || artifactOnlyPreparationReady,
   artifactOnlyPreparationReady,
+  nextActionExecutable:
+    artifactOnlyPreparationReady ||
+    greenZoneCandidates.length > 0 ||
+    scheduler.parsed?.status === "DRY_RUN_READY",
   requiresOwnerReview,
   yellowZoneOwnerReview: yellowZonePrs.length > 0,
   redZoneBlocked: redZonePrs.length > 0,

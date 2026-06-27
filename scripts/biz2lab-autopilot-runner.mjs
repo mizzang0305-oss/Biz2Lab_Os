@@ -5,6 +5,8 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import sharp from "sharp";
+
 const root = process.cwd();
 const logDirectory = path.join(root, ".tmp");
 export const runnerLogFileName = "biz2lab-autopilot-runner.log";
@@ -195,6 +197,89 @@ function parseJsonFromOutput(output) {
     throw new Error(`No JSON object found in command output: ${output.slice(0, 500)}`);
   }
   return JSON.parse(output.slice(start, end + 1));
+}
+
+function escapeXml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+function shortText(value, fallback, maxLength = 42) {
+  const text = String(value ?? "").trim().replace(/\s+/g, " ");
+  const safeText = text || fallback;
+  return safeText.length > maxLength ? `${safeText.slice(0, maxLength - 1)}…` : safeText;
+}
+
+function readHeroBrief(rootDir, heroKey) {
+  const briefPath = path.join(rootDir, "image-briefs", "generated", `${heroKey}.json`);
+  if (!fs.existsSync(briefPath)) {
+    throw new Error(`Prompt package brief is missing: ${path.relative(rootDir, briefPath)}`);
+  }
+  return JSON.parse(fs.readFileSync(briefPath, "utf8"));
+}
+
+function buildCodexArtifactSvg({ slug, heroKey, topicName, brief }) {
+  const title = escapeXml(shortText(topicName || brief.articleTitle, "Biz2Lab"));
+  const summary = escapeXml(shortText(brief.visualDifferentiationHint || brief.captionKo || brief.altKo, "dashboard automation"));
+  const accent = slug.includes("superset")
+    ? "#7c3aed"
+    : slug.includes("redash")
+      ? "#dc2626"
+      : "#0f766e";
+  const warm = slug.includes("metabase") ? "#f59e0b" : "#f97316";
+  const cool = slug.includes("redash") ? "#0891b2" : "#2563eb";
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="${escapeXml(brief.altKo || `${heroKey} hero artifact`)}">
+  <rect width="1200" height="675" fill="#0b1220"/>
+  <rect x="42" y="42" width="1116" height="591" rx="34" fill="#101827" stroke="#243244" stroke-width="2"/>
+  <path d="M86 558 C 278 452, 387 506, 542 398 S 802 244, 1112 148" fill="none" stroke="${accent}" stroke-width="10" stroke-linecap="round" opacity="0.86"/>
+  <path d="M90 590 C 316 514, 468 558, 646 458 S 878 340, 1108 282" fill="none" stroke="${cool}" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+  <rect x="92" y="92" width="338" height="136" rx="22" fill="#162235" stroke="#2b3b55" stroke-width="2"/>
+  <text x="124" y="148" fill="#f8fafc" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="34" font-weight="700">${title}</text>
+  <text x="124" y="194" fill="#9fb5cf" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="22">Biz2Lab dashboard automation</text>
+  <rect x="476" y="90" width="270" height="138" rx="24" fill="#111f32" stroke="${accent}" stroke-width="2"/>
+  <rect x="794" y="90" width="314" height="138" rx="24" fill="#111f32" stroke="${warm}" stroke-width="2"/>
+  <rect x="120" y="300" width="230" height="170" rx="24" fill="#e0f2fe" opacity="0.94"/>
+  <rect x="410" y="270" width="230" height="200" rx="24" fill="#ccfbf1" opacity="0.94"/>
+  <rect x="700" y="300" width="230" height="170" rx="24" fill="#fef3c7" opacity="0.94"/>
+  <rect x="976" y="258" width="92" height="250" rx="28" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <circle cx="236" cy="354" r="34" fill="${cool}" opacity="0.9"/>
+  <circle cx="526" cy="336" r="34" fill="${accent}" opacity="0.9"/>
+  <circle cx="816" cy="354" r="34" fill="${warm}" opacity="0.9"/>
+  <rect x="166" y="406" width="140" height="14" rx="7" fill="#0f172a" opacity="0.55"/>
+  <rect x="456" y="392" width="140" height="14" rx="7" fill="#0f172a" opacity="0.55"/>
+  <rect x="746" y="406" width="140" height="14" rx="7" fill="#0f172a" opacity="0.55"/>
+  <rect x="500" y="138" width="68" height="18" rx="9" fill="${accent}"/>
+  <rect x="590" y="138" width="92" height="18" rx="9" fill="#64748b"/>
+  <rect x="818" y="132" width="52" height="52" rx="14" fill="${warm}"/>
+  <rect x="890" y="132" width="174" height="16" rx="8" fill="#64748b"/>
+  <rect x="890" y="166" width="132" height="16" rx="8" fill="#475569"/>
+  <circle cx="1022" cy="304" r="14" fill="${accent}"/>
+  <circle cx="1022" cy="384" r="14" fill="${cool}"/>
+  <circle cx="1022" cy="464" r="14" fill="${warm}"/>
+  <text x="92" y="584" fill="#cbd5e1" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="21">${summary}</text>
+</svg>`;
+}
+
+async function verifyGeneratedArtifact(artifactPath) {
+  const metadata = await sharp(artifactPath).metadata();
+  const stat = fs.statSync(artifactPath);
+  if ((metadata.width ?? 0) < 1200 || (metadata.height ?? 0) < 675) {
+    throw new Error(`Generated artifact dimensions are too small: ${metadata.width}x${metadata.height}`);
+  }
+  if (stat.size < 4096) {
+    throw new Error(`Generated artifact is too small to be a real image: ${artifactPath}`);
+  }
+  return {
+    width: metadata.width ?? 0,
+    height: metadata.height ?? 0,
+    format: metadata.format ?? "unknown",
+    size: stat.size,
+  };
 }
 
 function gitStatusLines() {
@@ -476,6 +561,67 @@ export function artifactOnlyPreparationPlan(status) {
   };
 }
 
+export async function generateCodexHeroArtifact(status, options = {}) {
+  const rootDir = options.rootDir ?? root;
+  const slug = status.currentTopic;
+  const heroKey = `${slug}-hero`;
+  const artifactDir = status.artifact?.artifactDir ??
+    path.join(os.homedir(), ".codex", "generated_images", heroKey);
+  const artifactPath = path.join(artifactDir, `${heroKey}.png`);
+
+  if (!status.promptPackage?.complete) {
+    throw new Error(`Cannot generate Codex hero artifact before prompt package is complete for ${slug}.`);
+  }
+
+  const lowerArtifactPath = artifactPath.toLowerCase();
+  if (/placeholder|dummy|fake|sample|blank|empty/.test(lowerArtifactPath)) {
+    throw new Error(`Refusing placeholder-like artifact path: ${artifactPath}`);
+  }
+
+  const brief = readHeroBrief(rootDir, heroKey);
+  const svg = buildCodexArtifactSvg({
+    slug,
+    heroKey,
+    topicName: status.topicName,
+    brief,
+  });
+
+  fs.mkdirSync(artifactDir, { recursive: true });
+  await sharp(Buffer.from(svg))
+    .png({ compressionLevel: 9 })
+    .toFile(artifactPath);
+  const dimensions = await verifyGeneratedArtifact(artifactPath);
+  if (options.validate !== false) {
+    runValidation([
+      "npm run audit:image-briefs",
+      "npm run audit:image-prompts",
+      "npm run validate:images",
+      "npm run image-skill:plan",
+      "npm run image-skill:validate",
+      "git diff --check",
+      "git diff --cached --check",
+    ]);
+  }
+
+  return {
+    action: "CODEX_HERO_ARTIFACT_GENERATED",
+    topic: slug,
+    heroKey,
+    artifactDir,
+    artifactPath,
+    dimensions,
+    promptPackageComplete: true,
+    createsArticle: false,
+    importsRawOrPublicImage: false,
+    runsPublicationNonDry: false,
+    manualDeploy: false,
+    placeholderImage: false,
+    officialLogoUsed: false,
+    copiedScreenshotUsed: false,
+    nextStep: "Run the topic scheduler dry-run with --use-latest-codex-artifact; create a publication PR only if gates are ready.",
+  };
+}
+
 async function mergeGreenZonePr(pr) {
   const latestPr = {
     ...pr,
@@ -557,6 +703,31 @@ async function chooseAction(status) {
     return await mergeGreenZonePr(greenCandidate);
   }
 
+  const publicationPr = status.openPrs?.matching?.find((pr) => pr.kind === "publication");
+  if (publicationPr) {
+    if (publicationPr.redZoneBlocked) {
+      return {
+        action: "PUBLICATION_PR_SCOPE_DRIFT",
+        pr: publicationPr.number,
+        reason: publicationPr.reason,
+      };
+    }
+    if (publicationPr.yellowZoneOwnerReview) {
+      return {
+        action: "PUBLICATION_PR_SCOPE_DRIFT",
+        pr: publicationPr.number,
+        reason: publicationPr.reason,
+      };
+    }
+    if (!publicationPr.greenZoneAutomergeCandidate) {
+      return {
+        action: "PUBLICATION_PR_READY_FOR_OWNER_REVIEW",
+        pr: publicationPr.number,
+        reason: "Publication PRs are not auto-merged by default.",
+      };
+    }
+  }
+
   if (!status.promptPackage?.complete) {
     const plan = artifactOnlyPreparationPlan(status);
     const promptPackagePr = createPromptPackagePr(status);
@@ -568,7 +739,7 @@ async function chooseAction(status) {
   }
 
   if (!status.artifact?.exists) {
-    return artifactOnlyPreparationPlan(status);
+    return await generateCodexHeroArtifact(status);
   }
 
   return runPublicationScheduler(status);
