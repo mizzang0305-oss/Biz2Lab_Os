@@ -1,7 +1,7 @@
 {
   "series": "free-open-source-automation-tools",
   "title": "무료 오픈소스 자동화 도구 시리즈",
-  "currentTopic": "apache-superset-bi-dashboard-automation",
+  "currentTopic": "redash-open-source-dashboard-automation",
   "completed": [
     "opencut-free-open-source-video-editor-ai-content-automation",
     "free-open-source-automation-tools-series",
@@ -28,10 +28,10 @@
     "plausible-open-source-analytics-ga-alternative",
     "matomo-self-hosted-analytics-privacy-caution",
     "posthog-product-analytics-automation",
-    "metabase-dashboard-automation-for-small-business"
+    "metabase-dashboard-automation-for-small-business",
+    "apache-superset-bi-dashboard-automation"
   ],
   "next": [
-    "apache-superset-bi-dashboard-automation",
     "redash-open-source-dashboard-automation"
   ],
   "gates": {

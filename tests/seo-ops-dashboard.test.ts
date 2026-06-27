@@ -102,10 +102,10 @@ test("SEO ops dashboard derives article rows from local content without fake tra
 test("SEO ops dashboard surfaces scheduler state and analytics empty states", () => {
   const dashboard = getSeoOpsDashboard();
 
-  assert.equal(dashboard.scheduler.currentTopic, "apache-superset-bi-dashboard-automation");
-  assert.equal(dashboard.scheduler.nextTopic, "redash-open-source-dashboard-automation");
+  assert.equal(dashboard.scheduler.currentTopic, "redash-open-source-dashboard-automation");
+  assert.equal(dashboard.scheduler.nextTopic, "다음 topic 없음");
   assert.match(dashboard.scheduler.currentGate, /수동 배포 금지/);
-  assert.equal(dashboard.scheduler.nextRequiredArtifact, "apache-superset-bi-dashboard-automation-hero");
+  assert.equal(dashboard.scheduler.nextRequiredArtifact, "redash-open-source-dashboard-automation-hero");
 
   assert.equal(dashboard.analytics.searchConsole.connected, false);
   assert.match(dashboard.analytics.searchConsole.emptyState, /Search Console/);

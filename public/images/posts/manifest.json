@@ -176,6 +176,50 @@
     "rawPath": "assets/images/raw/ai-knowledge-store-for-small-business-hero.svg"
   },
   {
+    "id": "apache-superset-bi-dashboard-automation-1200",
+    "project": "biz2lab",
+    "postSlug": "apache-superset-bi-dashboard-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/apache-superset-bi-dashboard-automation-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/apache-superset-bi-dashboard-automation-hero.jpg"
+  },
+  {
+    "id": "apache-superset-bi-dashboard-automation-800",
+    "project": "biz2lab",
+    "postSlug": "apache-superset-bi-dashboard-automation",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/apache-superset-bi-dashboard-automation-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/apache-superset-bi-dashboard-automation-hero.jpg"
+  },
+  {
+    "id": "apache-superset-bi-dashboard-automation-400",
+    "project": "biz2lab",
+    "postSlug": "apache-superset-bi-dashboard-automation",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/apache-superset-bi-dashboard-automation-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/apache-superset-bi-dashboard-automation-hero.jpg"
+  },
+  {
+    "id": "apache-superset-bi-dashboard-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "apache-superset-bi-dashboard-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/apache-superset-bi-dashboard-automation-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/apache-superset-bi-dashboard-automation-hero.jpg"
+  },
+  {
     "id": "appsmith-internal-dashboard-automation-1200",
     "project": "biz2lab",
     "postSlug": "appsmith-internal-dashboard-automation",

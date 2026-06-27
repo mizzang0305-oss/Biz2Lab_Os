@@ -520,5 +520,23 @@
     "visualApprovalStatus": "codex-visual-sanity-pending",
     "commerceAutoReusable": true,
     "status": "active"
+  },
+  {
+    "id": "apache-superset-bi-dashboard-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "apache-superset-bi-dashboard-automation",
+    "usage": "hero",
+    "src": "/images/posts/apache-superset-bi-dashboard-automation-hero.webp",
+    "rawPath": "assets/images/raw/apache-superset-bi-dashboard-automation-hero.jpg",
+    "altKo": "Apache Superset으로 BI 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+    "captionKo": "Apache Superset은 강한 BI 후보이지만 데이터 모델과 운영 권한 기준을 먼저 정해야 합니다.",
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "licenseStatus": "codex-image-skill-generated",
+    "source": "Codex built-in image generation artifact",
+    "visualApprovalStatus": "codex-visual-sanity-pending",
+    "commerceAutoReusable": true,
+    "status": "active"
   }
 ]
