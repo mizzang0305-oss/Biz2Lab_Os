@@ -927,7 +927,12 @@ function writeJsonRepo(repoRelativePath, value) {
 }
 
 function assertDashboardQueueScope(files) {
-  const allowed = new Set(["data/content-series-state.json", "data/content-series-topics.json"]);
+  const allowed = new Set([
+    "data/content-series-state.json",
+    "data/content-series-topics.json",
+    "tests/content-series-orchestrator.test.ts",
+    "tests/seo-ops-dashboard.test.ts",
+  ]);
   const blocked = files.filter((file) => !allowed.has(file));
   if (blocked.length > 0) {
     throw new Error(`Dashboard queue bootstrap scope drift: ${blocked.join(", ")}`);
