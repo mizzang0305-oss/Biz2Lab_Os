@@ -128,11 +128,11 @@ test("SEO ops dashboard exposes owner-action search registration states without 
   assert.equal(dashboard.searchRegistration.providers.length, 3);
   assert.equal(
     dashboard.searchRegistration.providers.find((provider) => provider.id === "google-search-console")?.status,
-    "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED",
+    "GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED",
   );
   assert.equal(
     dashboard.searchRegistration.providers.find((provider) => provider.id === "naver-search-advisor")?.status,
-    "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED",
+    "NAVER_SITE_DASHBOARD_ACCESSIBLE_OWNER_SCREENSHOT_CONFIRMED",
   );
   assert.equal(
     dashboard.searchRegistration.providers.find((provider) => provider.id === "naver-search-advisor")
@@ -152,9 +152,15 @@ test("SEO ops dashboard exposes owner-action search registration states without 
       "SUBMITTED_BY_OWNER_UNKNOWN",
       "CONNECTED_API_NOT_CONFIGURED",
       "GOOGLE_PROPERTY_ACCESSIBLE_OWNER_SCREENSHOT",
-      "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED",
+      "GOOGLE_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED",
+      "GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED",
+      "GOOGLE_DISCOVERED_PAGES_40_OWNER_SCREENSHOT",
+      "GOOGLE_URL_INSPECTION_OWNER_UNKNOWN",
       "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED",
-      "NAVER_SITEMAP_RSS_OWNER_ACTION_REQUIRED",
+      "NAVER_REGISTERED_HTTP_HOST_OWNER_SCREENSHOT_CONFIRMED",
+      "NAVER_RSS_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED",
+      "NAVER_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED",
+      "NAVER_SITE_DASHBOARD_ACCESSIBLE_OWNER_SCREENSHOT_CONFIRMED",
     ],
   );
   assert.equal(dashboard.searchRegistration.indexFiles.sitemap, "https://www.biz2lab.com/sitemap.xml");
@@ -173,7 +179,7 @@ test("SEO ops dashboard exposes owner-action search registration states without 
   assert.match(naverProvider.requiredAction, /http:\/\/www\.biz2lab\.com/);
   assert.match(naverProvider.requiredAction, /HTTP to HTTPS redirect is expected/);
   assert.doesNotMatch(naverProvider.requiredAction, /Register https:\/\/www\.biz2lab\.com/);
-  assert.equal(naverProvider.submittedByOwner, null);
+  assert.equal(naverProvider.submittedByOwner, true);
 
   const html = renderToStaticMarkup(createElement(SeoOpsDashboardContent));
   assert.match(html, /Google Search Console/);
@@ -181,8 +187,10 @@ test("SEO ops dashboard exposes owner-action search registration states without 
   assert.match(html, /Naver registered site/);
   assert.match(html, /http:\/\/www\.biz2lab\.com/);
   assert.match(html, /OWNER_ACTION_REQUIRED/);
-  assert.match(html, /GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED/);
-  assert.match(html, /NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED/);
+  assert.match(html, /GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED/);
+  assert.match(html, /GOOGLE_DISCOVERED_PAGES_40_OWNER_SCREENSHOT/);
+  assert.match(html, /NAVER_SITE_DASHBOARD_ACCESSIBLE_OWNER_SCREENSHOT_CONFIRMED/);
+  assert.match(html, /NAVER_RSS_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED/);
   assert.match(html, /CONNECTED_API_NOT_CONFIGURED/);
   assert.match(html, /PROVIDED/);
   assert.match(html, /OWNER_UNKNOWN/);
@@ -197,12 +205,17 @@ test("webmaster status reports keep provider completion owner-confirmed", () => 
   const ownerActions = fs.readFileSync(path.join(process.cwd(), "reports", "owner-next-actions-now.md"), "utf8");
 
   assert.match(currentStatus, /GOOGLE_PROPERTY_VISIBLE_FROM_OWNER_SCREENSHOT/);
-  assert.match(currentStatus, /GOOGLE_SITEMAP_SUBMISSION_OWNER_UNKNOWN/);
+  assert.match(currentStatus, /GOOGLE_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED/);
+  assert.match(currentStatus, /GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED/);
+  assert.match(currentStatus, /GOOGLE_DISCOVERED_PAGES_40_OWNER_SCREENSHOT/);
   assert.match(currentStatus, /GOOGLE_URL_INSPECTION_OWNER_UNKNOWN/);
-  assert.match(currentStatus, /NAVER_REGISTERED_HTTP_HOST/);
+  assert.match(currentStatus, /GOOGLE_INDEXING_REQUEST_OWNER_UNKNOWN/);
+  assert.match(currentStatus, /NAVER_REGISTERED_HTTP_HOST_OWNER_SCREENSHOT_CONFIRMED/);
   assert.match(currentStatus, /NAVER_VERIFICATION_FILE_DEPLOYED/);
-  assert.match(currentStatus, /NAVER_OWNER_VERIFY_CLICK_OWNER_UNKNOWN/);
-  assert.match(currentStatus, /NAVER_SITEMAP_RSS_OWNER_UNKNOWN/);
+  assert.match(currentStatus, /NAVER_SITE_DASHBOARD_ACCESSIBLE_OWNER_SCREENSHOT_CONFIRMED/);
+  assert.match(currentStatus, /NAVER_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED/);
+  assert.match(currentStatus, /NAVER_RSS_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED/);
+  assert.match(currentStatus, /Naver verified: `OWNER_UNKNOWN`/);
   assert.match(currentStatus, /CONNECTED_API_NOT_CONFIGURED/);
   assert.match(currentStatus, /http:\/\/www\.biz2lab\.com/);
   assert.match(currentStatus, /https:\/\/www\.biz2lab\.com/);
@@ -212,6 +225,8 @@ test("webmaster status reports keep provider completion owner-confirmed", () => 
 
   assert.match(ownerActions, /http:\/\/www\.biz2lab\.com/);
   assert.match(ownerActions, /https:\/\/www\.biz2lab\.com\/sitemap\.xml/);
+  assert.match(ownerActions, /GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED/);
+  assert.match(ownerActions, /NAVER_SITE_DASHBOARD_ACCESSIBLE_OWNER_SCREENSHOT_CONFIRMED/);
   assert.match(ownerActions, /Naver is not verified until owner confirms UI success/);
   assert.doesNotMatch(ownerActions, /https 추가 등록 필요/);
   assert.doesNotMatch(ownerActions, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR)\b/i);

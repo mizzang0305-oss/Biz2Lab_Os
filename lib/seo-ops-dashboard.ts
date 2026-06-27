@@ -94,8 +94,18 @@ export type SearchRegistrationState =
   | "CONNECTED_API_NOT_CONFIGURED"
   | "GOOGLE_PROPERTY_ACCESSIBLE_OWNER_SCREENSHOT"
   | "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED"
+  | "GOOGLE_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED"
+  | "GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED"
+  | "GOOGLE_DISCOVERED_PAGES_40_OWNER_SCREENSHOT"
+  | "GOOGLE_URL_INSPECTION_OWNER_UNKNOWN"
+  | "GOOGLE_INDEXING_REQUEST_OWNER_UNKNOWN"
   | "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED"
-  | "NAVER_SITEMAP_RSS_OWNER_ACTION_REQUIRED";
+  | "NAVER_SITEMAP_RSS_OWNER_ACTION_REQUIRED"
+  | "NAVER_REGISTERED_HTTP_HOST_OWNER_SCREENSHOT_CONFIRMED"
+  | "NAVER_RSS_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED"
+  | "NAVER_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED"
+  | "NAVER_VERIFICATION_FILE_DEPLOYED"
+  | "NAVER_SITE_DASHBOARD_ACCESSIBLE_OWNER_SCREENSHOT_CONFIRMED";
 
 export type SearchRegistrationSection = {
   overallStatus: "OWNER_ACTION_REQUIRED";
@@ -582,9 +592,24 @@ function buildSearchRegistration(posts: Post[]): SearchRegistrationSection {
         meaning: "owner screenshot shows the Google property is accessible, but repo cannot submit or verify sitemap state.",
       },
       {
-        state: "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED",
-        label: "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED",
-        meaning: "owner should submit sitemap.xml in Google Search Console and record URL inspection evidence.",
+        state: "GOOGLE_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED",
+        label: "GOOGLE_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED",
+        meaning: "owner screenshot shows https://www.biz2lab.com/sitemap.xml was submitted in Search Console.",
+      },
+      {
+        state: "GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED",
+        label: "GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED",
+        meaning: "owner screenshot shows the submitted sitemap status is success.",
+      },
+      {
+        state: "GOOGLE_DISCOVERED_PAGES_40_OWNER_SCREENSHOT",
+        label: "GOOGLE_DISCOVERED_PAGES_40_OWNER_SCREENSHOT",
+        meaning: "owner screenshot shows 40 discovered pages for the sitemap; this is not an index/crawl/traffic claim.",
+      },
+      {
+        state: "GOOGLE_URL_INSPECTION_OWNER_UNKNOWN",
+        label: "GOOGLE_URL_INSPECTION_OWNER_UNKNOWN",
+        meaning: "URL inspection and indexing request states are still owner unknown.",
       },
       {
         state: "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED",
@@ -593,38 +618,56 @@ function buildSearchRegistration(posts: Post[]): SearchRegistrationSection {
           "Naver HTML verification file is in the public root; registered site is http://www.biz2lab.com and owner still must click Verify in Naver Search Advisor.",
       },
       {
-        state: "NAVER_SITEMAP_RSS_OWNER_ACTION_REQUIRED",
-        label: "NAVER_SITEMAP_RSS_OWNER_ACTION_REQUIRED",
+        state: "NAVER_REGISTERED_HTTP_HOST_OWNER_SCREENSHOT_CONFIRMED",
+        label: "NAVER_REGISTERED_HTTP_HOST_OWNER_SCREENSHOT_CONFIRMED",
+        meaning: "owner screenshot confirms the registered Naver site is http://www.biz2lab.com.",
+      },
+      {
+        state: "NAVER_RSS_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED",
+        label: "NAVER_RSS_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED",
+        meaning: "owner screenshot shows http://www.biz2lab.com/rss.xml was submitted in Naver Search Advisor.",
+      },
+      {
+        state: "NAVER_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED",
+        label: "NAVER_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED",
         meaning:
-          "owner should submit sitemap.xml and rss.xml in Naver under the registered http://www.biz2lab.com host after verification succeeds.",
+          "owner screenshot shows sitemap.xml was submitted in Naver Search Advisor under the registered www host.",
+      },
+      {
+        state: "NAVER_SITE_DASHBOARD_ACCESSIBLE_OWNER_SCREENSHOT_CONFIRMED",
+        label: "NAVER_SITE_DASHBOARD_ACCESSIBLE_OWNER_SCREENSHOT_CONFIRMED",
+        meaning:
+          "owner screenshot shows the Naver site dashboard is accessible; crawl, index, and search exposure remain unclaimed.",
       },
     ],
     providers: [
       {
         id: "google-search-console",
         label: "Google Search Console",
-        status: "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED",
-        statusLabel: "GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED",
+        status: "GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED",
+        statusLabel:
+          "GOOGLE_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED / GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED / GOOGLE_DISCOVERED_PAGES_40_OWNER_SCREENSHOT / GOOGLE_URL_INSPECTION_OWNER_UNKNOWN",
         verificationArtifactPresent: false,
-        submittedByOwner: null,
+        submittedByOwner: true,
         connectedApiConfigured: false,
         requiredAction:
-          "Open the biz2lab.com property in Google Search Console, submit https://www.biz2lab.com/sitemap.xml, and inspect the priority URLs.",
+          "URL inspection and indexing requests remain owner unknown. Do not mark indexed, crawled, ranked, clicked, or AI-cited until owner evidence exists.",
         evidenceSource:
-          "Owner screenshot shows the biz2lab.com property is accessible; no connected Search Console API proof or sitemap submission proof is present in the repo.",
+          "Owner screenshot shows biz2lab.com property, submitted sitemap https://www.biz2lab.com/sitemap.xml, success status, and 40 discovered pages. No connected Search Console API proof is used.",
       },
       {
         id: "naver-search-advisor",
         label: "Naver Search Advisor",
-        status: "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED",
-        statusLabel: "NAVER_VERIFICATION_FILE_DEPLOYED_OWNER_VERIFY_REQUIRED",
+        status: "NAVER_SITE_DASHBOARD_ACCESSIBLE_OWNER_SCREENSHOT_CONFIRMED",
+        statusLabel:
+          "NAVER_REGISTERED_HTTP_HOST_OWNER_SCREENSHOT_CONFIRMED / NAVER_RSS_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED / NAVER_SITEMAP_SUBMITTED_OWNER_SCREENSHOT_CONFIRMED / NAVER_VERIFICATION_FILE_DEPLOYED / NAVER_SITE_DASHBOARD_ACCESSIBLE_OWNER_SCREENSHOT_CONFIRMED",
         verificationArtifactPresent: true,
-        submittedByOwner: null,
+        submittedByOwner: true,
         connectedApiConfigured: false,
         requiredAction:
-          "Use the registered Naver site http://www.biz2lab.com, click Verify in Naver Search Advisor, then submit sitemap.xml and rss.xml under the same www.biz2lab.com host. HTTP to HTTPS redirect is expected; do not mark Naver verified until the owner confirms UI success.",
+          "Keep Naver registered site as http://www.biz2lab.com and production canonical as https://www.biz2lab.com. HTTP to HTTPS redirect is expected. Do not mark Naver crawl, index, search exposure, traffic, clicks, or rankings until owner evidence exists.",
         evidenceSource:
-          "Owner-provided Naver HTML verification file is committed to the public root and the production canonical remains https://www.biz2lab.com; Naver UI verification is still owner-action required.",
+          "Owner screenshots show the Naver site dashboard is accessible, RSS is submitted as http://www.biz2lab.com/rss.xml, and sitemap.xml is submitted. The Naver verification file is deployed and exact-body matched.",
       },
       {
         id: "bing-webmaster-tools",

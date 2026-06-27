@@ -1,8 +1,15 @@
 # Google Search Console Next Actions
 
-Status: `GOOGLE_SITEMAP_SUBMISSION_OWNER_ACTION_REQUIRED`
+Status: `GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED`
 
-Owner screenshot shows the Google Search Console property `biz2lab.com` is accessible. This repo does not have Google API credentials and does not claim sitemap submission, indexing, impressions, clicks, CTR, query, ranking, or AI answer inclusion.
+Owner screenshot evidence shows:
+
+- Property: `biz2lab.com`
+- Submitted sitemap: `https://www.biz2lab.com/sitemap.xml`
+- Sitemap status: `GOOGLE_SITEMAP_STATUS_SUCCESS_OWNER_SCREENSHOT_CONFIRMED`
+- Discovered pages: `GOOGLE_DISCOVERED_PAGES_40_OWNER_SCREENSHOT`
+
+This repo does not have Google API credentials and does not claim URL inspection completion, indexing requests, indexed pages, crawl completion, impressions, clicks, CTR, query, ranking, traffic, or AI answer inclusion.
 
 ## Owner Actions Now
 
@@ -12,21 +19,13 @@ Owner screenshot shows the Google Search Console property `biz2lab.com` is acces
 biz2lab.com
 ```
 
-2. Go to `Sitemaps`.
-
-3. Submit:
+2. Confirm the sitemap screen still shows:
 
 ```text
 https://www.biz2lab.com/sitemap.xml
 ```
 
-If the UI only accepts path input, use:
-
-```text
-sitemap.xml
-```
-
-4. Use URL Inspection for:
+3. Use URL Inspection for:
 
 ```text
 https://www.biz2lab.com/
@@ -50,6 +49,7 @@ For each URL, record:
 Important:
 
 - Search Console showing 0 clicks is normal for a new property.
+- Discovered pages is not the same as indexed pages.
 - Indexing data can take time to process.
 - Sitemap submission and indexing request do not guarantee ranking or exposure.
-
+- Do not mark indexed, crawled, ranked, clicked, queried, or AI-cited without owner evidence.
