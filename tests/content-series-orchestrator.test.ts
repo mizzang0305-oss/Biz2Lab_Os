@@ -185,8 +185,9 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes(posthogAnalyticsSlug));
   assert.ok(state.completed.includes(metabaseDashboardSlug));
   assert.ok(state.completed.includes(supersetDashboardSlug));
+  assert.ok(state.completed.includes(redashDashboardSlug));
   assert.equal(state.currentTopic, redashDashboardSlug);
-  assert.deepEqual(state.next, [redashDashboardSlug]);
+  assert.deepEqual(state.next, []);
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
   assert.equal(state.gates.dbWrite, false);

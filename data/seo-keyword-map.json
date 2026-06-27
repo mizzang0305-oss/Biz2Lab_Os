@@ -887,5 +887,24 @@
     "recommendedAction": "Apache Superset를 Apache Superset을 BI 대시보드와 리포팅 자동화 후보로 검토하고, 데이터 모델링, 권한, 운영 부담을 Biz2Lab 관점에서 정리합니다 관점에서 검토합니다.",
     "hookStatus": "strong",
     "lossAvoidanceAngle": "Apache Superset를 도입 기준 없이 연결하면 권한, 데이터 품질, 운영 비용 리스크가 커질 수 있습니다."
+  },
+  {
+    "slug": "redash-open-source-dashboard-automation",
+    "route": "/ko/automation/redash-open-source-dashboard-automation",
+    "primaryKeyword": "Redash 대시보드 자동화",
+    "secondaryKeywords": [
+      "Redash 업무 자동화",
+      "Redash 분석",
+      "Redash 운영 기준",
+      "Redash 도입 체크리스트",
+      "Redash",
+      "dashboard automation"
+    ],
+    "searchIntent": "business-use",
+    "audience": "영업팀",
+    "cluster": "business-automation",
+    "recommendedAction": "Redash를 Redash를 SQL 기반 대시보드와 리포팅 자동화 후보로 검토하고, 소규모 팀에서 확인해야 할 운영 조건을 정리합니다 관점에서 검토합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "Redash를 도입 기준 없이 연결하면 권한, 데이터 품질, 운영 비용 리스크가 커질 수 있습니다."
   }
 ]

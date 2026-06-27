@@ -1804,6 +1804,50 @@
     "rawPath": "assets/images/raw/pre-automation-task-list-hero.svg"
   },
   {
+    "id": "redash-open-source-dashboard-automation-1200",
+    "project": "biz2lab",
+    "postSlug": "redash-open-source-dashboard-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/redash-open-source-dashboard-automation-1200.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/redash-open-source-dashboard-automation-hero.jpg"
+  },
+  {
+    "id": "redash-open-source-dashboard-automation-800",
+    "project": "biz2lab",
+    "postSlug": "redash-open-source-dashboard-automation",
+    "usage": "hero",
+    "width": 800,
+    "height": 450,
+    "output": "/images/posts/redash-open-source-dashboard-automation-800.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/redash-open-source-dashboard-automation-hero.jpg"
+  },
+  {
+    "id": "redash-open-source-dashboard-automation-400",
+    "project": "biz2lab",
+    "postSlug": "redash-open-source-dashboard-automation",
+    "usage": "hero",
+    "width": 400,
+    "height": 225,
+    "output": "/images/posts/redash-open-source-dashboard-automation-400.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/redash-open-source-dashboard-automation-hero.jpg"
+  },
+  {
+    "id": "redash-open-source-dashboard-automation-hero",
+    "project": "biz2lab",
+    "postSlug": "redash-open-source-dashboard-automation",
+    "usage": "hero",
+    "width": 1200,
+    "height": 675,
+    "output": "/images/posts/redash-open-source-dashboard-automation-hero.webp",
+    "source": "raw",
+    "rawPath": "assets/images/raw/redash-open-source-dashboard-automation-hero.jpg"
+  },
+  {
     "id": "reduce-repetitive-work-with-ai-1200",
     "project": "biz2lab",
     "postSlug": "reduce-repetitive-work-with-ai",
