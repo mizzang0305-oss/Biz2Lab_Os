@@ -102,10 +102,14 @@ test("SEO ops dashboard derives article rows from local content without fake tra
 test("SEO ops dashboard surfaces scheduler state and analytics empty states", () => {
   const dashboard = getSeoOpsDashboard();
 
+  assert.match(dashboard.summary.latestPublishedTitle, /Redash/);
+  assert.equal(dashboard.summary.nextPublicationTopic, "CONTENT_SERIES_QUEUE_EXHAUSTED");
   assert.equal(dashboard.scheduler.currentTopic, "redash-open-source-dashboard-automation");
-  assert.equal(dashboard.scheduler.nextTopic, "다음 topic 없음");
-  assert.match(dashboard.scheduler.currentGate, /수동 배포 금지/);
-  assert.equal(dashboard.scheduler.nextRequiredArtifact, "redash-open-source-dashboard-automation-hero");
+  assert.equal(dashboard.scheduler.nextTopic, "CONTENT_SERIES_QUEUE_EXHAUSTED");
+  assert.match(dashboard.scheduler.currentGate, /CONTENT_SERIES_QUEUE_EXHAUSTED/);
+  assert.doesNotMatch(dashboard.scheduler.currentGate, /Codex hero artifact/);
+  assert.equal(dashboard.scheduler.nextRequiredArtifact, "NONE");
+  assert.equal(dashboard.scheduler.lastKnownIssue, "CONTENT_SERIES_QUEUE_EXHAUSTED");
 
   assert.equal(dashboard.analytics.searchConsole.connected, false);
   assert.match(dashboard.analytics.searchConsole.emptyState, /Search Console/);
