@@ -27,6 +27,273 @@ export const evergreenPrioritySlugs = [
   "unify-order-channels",
 ];
 
+export const dashboardQueueBranchName = "codex/add-dashboard-content-queue";
+export const dashboardQueueSlugs = [
+  "metabase-dashboard-automation-for-small-business",
+  "apache-superset-bi-dashboard-automation",
+  "redash-open-source-dashboard-automation",
+];
+export const dashboardQueueTopics = [
+  {
+    id: "metabase",
+    toolName: "Metabase",
+    slug: "metabase-dashboard-automation-for-small-business",
+    title: "Metabase 분석: 소상공인 대시보드 자동화에 쓸 수 있을까?",
+    description:
+      "Metabase를 매출, 미수금, 주문, 검색/분석 지표를 한 화면에서 확인하는 오픈소스 대시보드 자동화 후보로 검토합니다.",
+    tags: ["Metabase", "dashboard automation", "BI", "small business reporting", "Biz2Lab"],
+    category: "automation",
+    cluster: "open-source-automation-tools",
+    type: "how-to",
+    officialSources: [
+      {
+        label: "Metabase official website",
+        url: "https://www.metabase.com/",
+        usage: "product positioning and dashboard capability verification",
+      },
+      {
+        label: "Metabase documentation",
+        url: "https://www.metabase.com/docs/latest/",
+        usage: "setup, dashboard, permissions, and embedding documentation verification",
+      },
+      {
+        label: "Metabase GitHub repository",
+        url: "https://github.com/metabase/metabase",
+        usage: "source, license, release, and activity verification",
+      },
+    ],
+    articleOutline: [
+      {
+        heading: "먼저 결론: 쉬운 업무 대시보드 후보지만 데이터 연결 기준이 먼저",
+        points: [
+          "Metabase는 비개발자도 질문과 대시보드를 만들 수 있는 BI 후보로 검토한다.",
+          "Biz2Lab 관점에서는 매출, 미수금, 주문, 검색 지표를 한 곳에서 보는 운영 대시보드에 맞는지 판단한다.",
+          "운영 DB 직접 연결, 권한, 캐시, 공개 링크 사용 여부는 publication 전에 공식 문서 기준으로 확인한다.",
+        ],
+      },
+      {
+        heading: "소상공인 대시보드 적용 각도",
+        points: [
+          "일별 매출, 주문 채널, 미수금, 콘텐츠 성과를 빠르게 확인하는 의사결정 화면으로 본다.",
+          "스프레드시트와 DB 사이에서 어떤 데이터를 원본으로 둘지 먼저 정해야 한다.",
+          "대시보드 공유는 공개 링크보다 역할과 권한을 먼저 검토한다.",
+        ],
+      },
+      {
+        heading: "운영 리스크",
+        points: [
+          "데이터베이스 권한, 쿼리 비용, 캐시 정책, 백업 기준을 분리한다.",
+          "실시간 숫자를 과신하지 않고 원본 데이터 정합성을 함께 확인한다.",
+          "고객/결제/민감 데이터는 샘플 데이터와 분리한다.",
+        ],
+      },
+    ],
+    imageConcept: {
+      visualFamily: "small-business-dashboard-control-room",
+      altKo: "Metabase로 소상공인 업무 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+      captionKo: "Metabase는 쉬운 대시보드 후보이지만 데이터 원본, 권한, 공유 기준을 먼저 정해야 합니다.",
+      promptSummaryKo:
+        "소상공인 운영 대시보드, 매출/주문/미수금/검색 지표 카드, 데이터 연결 게이트, 권한 관리 패널이 있는 프리미엄 Biz2Lab 에디토리얼 히어로.",
+      mustInclude: [
+        "small business dashboard",
+        "sales and orders metrics",
+        "receivables card",
+        "search performance panel",
+        "permission gate",
+      ],
+      mustAvoid: ["official Metabase logo", "real business data", "copied product screenshot", "fake analytics numbers"],
+    },
+    internalLinks: {
+      seriesHub: "free-open-source-automation-tools-series",
+      previous: "posthog-product-analytics-automation",
+      required: [
+        "free-open-source-automation-tools-series",
+        "posthog-product-analytics-automation",
+        "umami-open-source-analytics-ga-alternative",
+        "google-sheets-ai-automation",
+      ],
+    },
+    safetyNotes: [
+      "Do not connect production customer, payment, or private business databases in examples.",
+      "Use sample data and owner-approved read-only sources before any production integration.",
+      "Treat permissions, query cost, cache, and public sharing as publication-time gates.",
+    ],
+    licenseCautionNotes: [
+      "Verify the current Metabase license and cloud terms before publication.",
+      "Separate open-source self-hosting from paid cloud and enterprise features.",
+      "Do not imply dashboard installation guarantees better decisions, revenue, or compliance.",
+    ],
+  },
+  {
+    id: "apache-superset",
+    toolName: "Apache Superset",
+    slug: "apache-superset-bi-dashboard-automation",
+    title: "Apache Superset 분석: BI 대시보드 자동화에 쓸 수 있을까?",
+    description:
+      "Apache Superset을 BI 대시보드와 리포팅 자동화 후보로 검토하고, 데이터 모델링, 권한, 운영 부담을 Biz2Lab 관점에서 정리합니다.",
+    tags: ["Apache Superset", "BI dashboard", "reporting automation", "open source BI", "Biz2Lab"],
+    category: "automation",
+    cluster: "open-source-automation-tools",
+    type: "how-to",
+    officialSources: [
+      {
+        label: "Apache Superset official website",
+        url: "https://superset.apache.org/",
+        usage: "project positioning and capability verification",
+      },
+      {
+        label: "Apache Superset documentation",
+        url: "https://superset.apache.org/docs/intro",
+        usage: "installation, chart, dashboard, and security documentation verification",
+      },
+      {
+        label: "Apache Superset GitHub repository",
+        url: "https://github.com/apache/superset",
+        usage: "source, license, release, and activity verification",
+      },
+    ],
+    articleOutline: [
+      {
+        heading: "먼저 결론: 강한 BI 후보지만 운영 난도가 함께 올라간다",
+        points: [
+          "Apache Superset은 다양한 차트와 BI 대시보드가 필요한 팀에서 검토할 수 있는 후보로 본다.",
+          "작은 팀에서는 설치보다 데이터 모델, 권한, 운영자가 감당 가능한지 먼저 확인해야 한다.",
+          "Biz2Lab 관점에서는 매출/마케팅/콘텐츠 성과를 묶는 보고 체계에 맞는지 검토한다.",
+        ],
+      },
+      {
+        heading: "보고 자동화 적용 각도",
+        points: [
+          "주간 매출, 검색 유입, 콘텐츠 성과, 고객 행동 지표를 정리하는 BI 화면 후보로 본다.",
+          "SQL과 데이터 모델 이해가 필요한 업무인지 비개발자 중심 화면이면 충분한지 구분한다.",
+          "임원 보고용 숫자와 운영자가 매일 보는 숫자를 같은 대시보드에 섞지 않는다.",
+        ],
+      },
+      {
+        heading: "운영 리스크",
+        points: [
+          "사용자 권한, 데이터 소스 연결, 쿼리 비용, 배포 운영을 공식 문서 기준으로 확인한다.",
+          "과도한 차트 수보다 의사결정에 필요한 최소 지표를 먼저 정한다.",
+          "개인정보나 민감 데이터가 대시보드에 노출되지 않도록 샘플 데이터로 검증한다.",
+        ],
+      },
+    ],
+    imageConcept: {
+      visualFamily: "bi-dashboard-automation-command-center",
+      altKo: "Apache Superset으로 BI 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+      captionKo: "Apache Superset은 강한 BI 후보이지만 데이터 모델과 운영 권한 기준을 먼저 정해야 합니다.",
+      promptSummaryKo:
+        "BI 대시보드 자동화 커맨드 센터, 차트 그리드, 데이터 모델 계층, 권한 게이트, 리포트 자동화 흐름이 있는 프리미엄 Biz2Lab 히어로.",
+      mustInclude: ["BI dashboard", "chart grid", "data model layer", "permission gate", "report automation"],
+      mustAvoid: ["official Apache Superset logo", "Apache feather logo", "real dashboard screenshot", "fake metrics"],
+    },
+    internalLinks: {
+      seriesHub: "free-open-source-automation-tools-series",
+      previous: "metabase-dashboard-automation-for-small-business",
+      required: [
+        "free-open-source-automation-tools-series",
+        "metabase-dashboard-automation-for-small-business",
+        "posthog-product-analytics-automation",
+        "matomo-self-hosted-analytics-privacy-caution",
+      ],
+    },
+    safetyNotes: [
+      "Do not connect production analytics, customer, or payment data in examples.",
+      "Use sample data and read-only owner-approved sources for any future demonstration.",
+      "Treat role-based access, SQL exposure, and dashboard sharing as implementation gates.",
+    ],
+    licenseCautionNotes: [
+      "Verify the current Apache Superset license and project documentation before publication.",
+      "Separate Apache project capabilities from third-party managed service claims.",
+      "Do not imply BI dashboards guarantee better revenue, ranking, or operational decisions.",
+    ],
+  },
+  {
+    id: "redash",
+    toolName: "Redash",
+    slug: "redash-open-source-dashboard-automation",
+    title: "Redash 분석: 오픈소스 대시보드 자동화에 쓸 수 있을까?",
+    description:
+      "Redash를 SQL 기반 대시보드와 리포팅 자동화 후보로 검토하고, 소규모 팀에서 확인해야 할 운영 조건을 정리합니다.",
+    tags: ["Redash", "dashboard automation", "SQL reporting", "open source BI", "Biz2Lab"],
+    category: "automation",
+    cluster: "open-source-automation-tools",
+    type: "how-to",
+    officialSources: [
+      {
+        label: "Redash official website",
+        url: "https://redash.io/",
+        usage: "project positioning and feature verification",
+      },
+      {
+        label: "Redash documentation",
+        url: "https://redash.io/help/",
+        usage: "setup, query, dashboard, and sharing documentation verification",
+      },
+      {
+        label: "Redash GitHub repository",
+        url: "https://github.com/getredash/redash",
+        usage: "source, license, release, and activity verification",
+      },
+    ],
+    articleOutline: [
+      {
+        heading: "먼저 결론: SQL 리포팅에는 유용하지만 운영 상태 확인이 먼저",
+        points: [
+          "Redash는 SQL 질의와 대시보드 공유가 필요한 팀에서 검토할 수 있는 리포팅 후보로 본다.",
+          "Biz2Lab 관점에서는 매출, 주문, 검색, 분석 데이터를 주기적으로 확인하는 내부 보고 화면에 맞는지 검토한다.",
+          "프로젝트 유지보수 상태, 데이터 연결 방식, 권한, 공유 범위는 publication 전에 공식 출처로 확인한다.",
+        ],
+      },
+      {
+        heading: "대시보드 자동화 적용 각도",
+        points: [
+          "반복 SQL 리포트, 운영 지표 확인, 팀 내부 공유 대시보드 후보로 본다.",
+          "비개발자에게 쉬운 화면이 필요한지, SQL 작성자가 있는 팀인지 먼저 판단한다.",
+          "자동 알림이나 외부 공유는 별도 승인 게이트가 필요하다.",
+        ],
+      },
+      {
+        heading: "운영 리스크",
+        points: [
+          "데이터베이스 권한, 쿼리 비용, 공개 URL, 오래된 대시보드 정리를 확인한다.",
+          "운영 지표를 실제 의사결정에 쓰려면 지표 정의와 원본 데이터 기준이 먼저 필요하다.",
+          "민감한 고객/결제 데이터는 예시나 스크린샷에 넣지 않는다.",
+        ],
+      },
+    ],
+    imageConcept: {
+      visualFamily: "sql-reporting-dashboard-automation-map",
+      altKo: "Redash로 SQL 리포팅 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+      captionKo: "Redash는 SQL 리포팅 후보이지만 프로젝트 상태와 권한, 공유 기준 확인이 먼저입니다.",
+      promptSummaryKo:
+        "SQL 리포팅 대시보드, 반복 질의 카드, 내부 보고 흐름, 권한 게이트, 운영 지표 보드가 있는 프리미엄 Biz2Lab 에디토리얼 히어로.",
+      mustInclude: ["SQL reporting dashboard", "query cards", "internal report flow", "permission gate", "operations metrics"],
+      mustAvoid: ["official Redash logo", "real SQL credentials", "copied product screenshot", "fake analytics numbers"],
+    },
+    internalLinks: {
+      seriesHub: "free-open-source-automation-tools-series",
+      previous: "apache-superset-bi-dashboard-automation",
+      required: [
+        "free-open-source-automation-tools-series",
+        "apache-superset-bi-dashboard-automation",
+        "metabase-dashboard-automation-for-small-business",
+        "posthog-product-analytics-automation",
+      ],
+    },
+    safetyNotes: [
+      "Do not connect production databases, customer data, payment data, or private business systems in examples.",
+      "Use sample data and read-only owner-approved sources before any future demonstration.",
+      "Treat SQL permissions, public sharing, credentials, and alerting as implementation gates.",
+    ],
+    licenseCautionNotes: [
+      "Verify the current Redash license and project status before publication.",
+      "Separate open-source software from any third-party hosted service claims.",
+      "Do not imply SQL dashboards automatically improve revenue, ranking, or compliance.",
+    ],
+  },
+];
+
 const hardeningTemplates = {
   "sales-achievement-rate": {
     conclusion:
@@ -259,7 +526,33 @@ export function selectEvergreenBatch(weakSlugs, batchSize = 5) {
   return [...prioritized, ...fallback].slice(0, batchSize);
 }
 
-export function decideNextContinuousAction({ safety, git, openPrs, scheduler, ai, webmaster }) {
+function cloneJson(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+export function buildDashboardQueueBootstrap(state, topicFile) {
+  const existingSlugs = new Set((topicFile.topics ?? []).map((topic) => topic.slug));
+  const completed = new Set(state.completed ?? []);
+  const topicsToAdd = dashboardQueueTopics
+    .filter((topic) => !existingSlugs.has(topic.slug))
+    .map((topic) => cloneJson(topic));
+  const next = dashboardQueueSlugs.filter((slug) => !completed.has(slug));
+
+  return {
+    state: {
+      ...state,
+      currentTopic: next[0] ?? state.currentTopic,
+      next,
+    },
+    topicFile: {
+      ...topicFile,
+      topics: [...(topicFile.topics ?? []), ...topicsToAdd],
+    },
+    changedFiles: ["data/content-series-state.json", "data/content-series-topics.json"],
+  };
+}
+
+export function decideNextContinuousAction({ safety, git, openPrs, scheduler, ai, webmaster, approveNextQueue = false }) {
   if (safety.redZoneBlocked) {
     return {
       decision: "RED_ZONE_BLOCKED",
@@ -341,6 +634,23 @@ export function decideNextContinuousAction({ safety, git, openPrs, scheduler, ai
   const ownerUnknown = Object.entries(webmaster ?? {})
     .filter(([, value]) => value === "OWNER_UNKNOWN")
     .map(([key]) => key);
+
+  if (
+    scheduler.status === "CONTENT_SERIES_QUEUE_EXHAUSTED" &&
+    ai.readyArticles === ai.totalArticles &&
+    ai.weakSlugs.length === 0 &&
+    approveNextQueue
+  ) {
+    return {
+      decision: "NEXT_QUEUE_BOOTSTRAP_APPROVED",
+      actionTaken: "PREPARE_DASHBOARD_CONTENT_QUEUE_PR",
+      selectedSlugs: [...dashboardQueueSlugs],
+      prUrl: null,
+      ownerActionRequired: [],
+      nextRunRecommendation: "Bootstrap the approved dashboard / BI / reporting automation queue.",
+    };
+  }
+
   return {
     decision: "QUEUE_RECOMMENDATION",
     actionTaken: "REPORT_ONLY",
@@ -595,6 +905,138 @@ const evergreenValidationCommands = [
   "git diff --cached --check",
 ];
 
+const dashboardQueueValidationCommands = [
+  "npm test",
+  "npm run lint",
+  "npm run typecheck",
+  "npm run build",
+  "npm run validate:seo",
+  "npm run check:links",
+  "git diff --check",
+  "git diff --cached --check",
+];
+
+function readJsonRepo(repoRelativePath) {
+  return JSON.parse(fs.readFileSync(repoPath(...repoRelativePath.split("/")), "utf8"));
+}
+
+function writeJsonRepo(repoRelativePath, value) {
+  const targetPath = repoPath(...repoRelativePath.split("/"));
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+  fs.writeFileSync(targetPath, `${JSON.stringify(value, null, 2)}${os.EOL}`, "utf8");
+}
+
+function assertDashboardQueueScope(files) {
+  const allowed = new Set(["data/content-series-state.json", "data/content-series-topics.json"]);
+  const blocked = files.filter((file) => !allowed.has(file));
+  if (blocked.length > 0) {
+    throw new Error(`Dashboard queue bootstrap scope drift: ${blocked.join(", ")}`);
+  }
+}
+
+function dashboardQueuePrBody(changedFiles, validation) {
+  return `## 0) Intent
+Add the next owner-approved Biz2Lab content queue for dashboard / BI / reporting automation.
+
+## 1) Summary (Problem -> Solution -> Outcome)
+- Problem: The current content series queue is exhausted and the continuous orchestrator needs an explicit owner-approved next queue.
+- Solution: Add Metabase, Apache Superset, and Redash to the durable content-series queue without creating articles, images, or prompt packages.
+- Outcome: Future safe autopilot runs can start with Metabase prompt/artifact preparation.
+
+## 2) Changes
+Checklist:
+- [ ] Bug fix
+- [ ] Refactor / cleanup
+- [ ] Performance improvement
+- [ ] Security hardening
+- [ ] DX / tooling
+- [x] Content queue bootstrap
+
+## 3) Files Changed
+${changedFiles.map((file) => `- ${file} (dashboard automation queue bootstrap)`).join("\n")}
+
+## 4) Testing
+- Commands run: ${validation.join(", ")}
+- Verified no article files, raw images, public images, prompt packages, secrets, deploy config, fake analytics, or run-state files were created.
+
+## 5) Risk Assessment
+Risk: Low.
+- Queue/topic metadata only.
+- No production publication, image import, external API calls, or deployment actions.
+
+## 6) Rollback Plan
+- Revert this PR commit to return to the exhausted queue state.
+
+## 7) Deployment Notes
+- Required env vars: none
+- Required secrets: none
+- Migrations: none
+- Deploy steps: none; do not manually deploy.
+
+## 8) Follow-ups (Optional)
+- Let the hourly autopilot prepare the Metabase prompt/artifact package after merge.
+`;
+}
+
+function existingOpenPrUrlForBranch(branch) {
+  const result = run("gh", ["pr", "list", "--state", "open", "--head", branch, "--json", "url", "--jq", ".[0].url"], {
+    timeout: 120000,
+  });
+  return result.ok ? result.stdout.trim() : "";
+}
+
+function createDashboardQueueBootstrapPr() {
+  const startingBranch = currentBranch();
+  const startedOnMaster = startingBranch === expectedMasterBranch;
+  if (startingBranch !== expectedMasterBranch && startingBranch !== dashboardQueueBranchName) {
+    throw new Error(`Dashboard queue bootstrap must run from ${expectedMasterBranch} or ${dashboardQueueBranchName}; current branch is ${startingBranch}`);
+  }
+  if (startedOnMaster) {
+    runOrThrow("git", ["checkout", "-B", dashboardQueueBranchName], { timeout: 120000 });
+  }
+
+  try {
+    const state = readJsonRepo("data/content-series-state.json");
+    const topicFile = readJsonRepo("data/content-series-topics.json");
+    const bootstrap = buildDashboardQueueBootstrap(state, topicFile);
+    writeJsonRepo("data/content-series-state.json", bootstrap.state);
+    writeJsonRepo("data/content-series-topics.json", bootstrap.topicFile);
+
+    const changedFiles = changedFileNames(["diff", "--name-only"]);
+    assertDashboardQueueScope(changedFiles);
+    const validation = runValidation(dashboardQueueValidationCommands);
+    runOrThrow("git", ["add", "--", ...bootstrap.changedFiles], { timeout: 120000 });
+    runOrThrow("git", ["commit", "-m", "feat(content): add dashboard automation content queue"], { timeout: 120000 });
+    const commit = runOrThrow("git", ["rev-parse", "HEAD"]).trim();
+    runOrThrow("git", ["push", "-u", "origin", dashboardQueueBranchName], { timeout: 120000 });
+    const existingPrUrl = existingOpenPrUrlForBranch(dashboardQueueBranchName);
+    const prUrl = existingPrUrl || runOrThrow("gh", [
+      "pr",
+      "create",
+      "--base",
+      expectedMasterBranch,
+      "--head",
+      dashboardQueueBranchName,
+      "--title",
+      "feat(content): add dashboard automation content queue",
+      "--body",
+      dashboardQueuePrBody(bootstrap.changedFiles, validation),
+    ], { timeout: 120000 }).trim();
+    return {
+      branch: dashboardQueueBranchName,
+      commit,
+      prUrl,
+      changedFiles: bootstrap.changedFiles,
+      validation,
+    };
+  } finally {
+    if (startedOnMaster) {
+      runOrThrow("git", ["checkout", expectedMasterBranch], { timeout: 120000 });
+      runOrThrow("git", ["reset", "--hard", `origin/${expectedMasterBranch}`], { timeout: 120000 });
+    }
+  }
+}
+
 function createEvergreenHardeningPr(selectedSlugs) {
   const stamp = new Date().toISOString().replace(/[-:T.]/g, "").slice(0, 12);
   const branch = `codex/evergreen-ai-answer-hardening-${stamp}`;
@@ -691,12 +1133,19 @@ function baseRecord(decision, context, overrides = {}) {
   };
 }
 
-async function runOnce() {
+function parseContinuousArgs(argv) {
+  return {
+    approveNextQueue: argv.includes("--approve-next-queue"),
+  };
+}
+
+async function runOnce(options = {}) {
   const branch = currentBranch();
   const { status, safety } = readSafety();
   const autopilot = readAutopilotStatus();
   const aiAudit = readAiAudit();
   const context = {
+    approveNextQueue: Boolean(options.approveNextQueue),
     git: status,
     safety,
     openPrs: normalizeOpenPrs(autopilot),
@@ -716,7 +1165,9 @@ async function runOnce() {
   };
   const decision = decideNextContinuousAction(context);
 
-  if (branch !== expectedMasterBranch) {
+  const canWriteDashboardQueueFromCurrentBranch =
+    decision.decision === "NEXT_QUEUE_BOOTSTRAP_APPROVED" && branch === dashboardQueueBranchName;
+  if (branch !== expectedMasterBranch && !canWriteDashboardQueueFromCurrentBranch) {
     return baseRecord(decision, context, {
       nextRunRecommendation: `Current branch is ${branch}; write actions run only from ${expectedMasterBranch}. Merge this orchestrator PR, align master, then rerun.`,
     });
@@ -740,10 +1191,21 @@ async function runOnce() {
     });
   }
 
+  if (decision.decision === "NEXT_QUEUE_BOOTSTRAP_APPROVED") {
+    const pr = createDashboardQueueBootstrapPr();
+    return baseRecord(decision, context, {
+      changedFiles: pr.changedFiles,
+      prUrl: pr.prUrl,
+      validation: pr.validation,
+      nextRunRecommendation: "Review or let the next safe Green-Zone run merge the dashboard automation queue PR after checks pass.",
+    });
+  }
+
   return baseRecord(decision, context);
 }
 
 async function main() {
+  const options = parseContinuousArgs(process.argv.slice(2));
   const lock = acquireContinuousLock(lockPath);
   if (!lock.acquired) {
     const record = {
@@ -769,7 +1231,7 @@ async function main() {
   }
 
   try {
-    const record = await runOnce();
+    const record = await runOnce(options);
     writeContinuousReports(record);
     appendLog(record);
   } catch (error) {
