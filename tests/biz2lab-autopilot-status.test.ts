@@ -178,8 +178,9 @@ test("Biz2Lab hourly task setup uses the canonical safe runner command", () => {
   assert.match(setup, /Biz2Lab Autopilot Hourly/);
   assert.match(setup, /New-TimeSpan -Hours 1/);
   assert.match(setup, /C:\\Users\\LOVE\\MyProjects\\Biz2Lab_Os/);
-  assert.match(setup, /npm run ops:autopilot-run/);
-  assert.match(setup, /biz2lab-autopilot-task-output\.log/);
+  assert.match(setup, /npm run ops:continue/);
+  assert.match(setup, /biz2lab-continuous-orchestrator-task-output\.log/);
+  assert.match(setup, /biz2lab-continuous-orchestrator\.log/);
   assert.match(setup, /MultipleInstances IgnoreNew/);
 
   assert.doesNotMatch(setup, /vercel\s+deploy/i);
