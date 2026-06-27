@@ -329,7 +329,7 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     category: "small-business",
     visualFamily: "daily-numbers-dashboard",
     conceptKo: "매출, 주문 수, 객단가, 재방문, 미처리 업무를 보는 일일 숫자 대시보드",
-    altKo: "소상공인이 매일 확인할 매출과 주문, 객단가, 미처리 업무 대시보드",
+    altKo: "소상공인이 매일 확인할 매출 달성률 계산과 주문, 입금, 미처리 업무 대시보드",
     captionKo: "하루 운영 상태를 다섯 가지 숫자로 확인하는 이미지입니다.",
     labels: ["매출", "주문", "객단가", "미처리"],
     palette: smallBusinessPalette,

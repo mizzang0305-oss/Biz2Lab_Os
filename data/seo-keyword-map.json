@@ -784,19 +784,20 @@
   {
     "slug": "daily-numbers-for-small-business",
     "route": "/ko/small-business/daily-numbers-for-small-business",
-    "primaryKeyword": "소상공인 매일 숫자",
+    "primaryKeyword": "달성률 계산",
     "secondaryKeywords": [
-      "매일 보는 숫자",
+      "매출 달성률 계산",
+      "목표 달성률 계산",
       "소상공인 매출 관리",
-      "운영 지표",
-      "가게 숫자 관리"
+      "영업 실적 달성률",
+      "소상공인 매출 목표 계산"
     ],
     "searchIntent": "how-to",
     "audience": "소상공인",
     "cluster": "business-automation",
-    "recommendedAction": "매일 확인할 운영 지표 검색 의도를 유지합니다.",
+    "recommendedAction": "달성률 계산 공식과 부족 금액, 남은 기간 하루 필요 매출을 함께 확인하도록 매일 숫자 관리 기준을 강화합니다.",
     "hookStatus": "strong",
-    "lossAvoidanceAngle": "순서를 정하지 않고 시작하면 반복 업무를 줄이기보다 정리 시간이 더 늘어날 수 있습니다"
+    "lossAvoidanceAngle": "달성률을 늦게 계산하면 부족분을 메울 영업일이 사라진 뒤에야 목표 미달을 알 수 있습니다."
   },
   {
     "slug": "reservation-order-review-management",
