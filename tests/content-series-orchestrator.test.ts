@@ -183,8 +183,9 @@ test("content series state parses and keeps safety gates closed", () => {
   assert.ok(state.completed.includes(plausibleAnalyticsSlug));
   assert.ok(state.completed.includes(matomoAnalyticsSlug));
   assert.ok(state.completed.includes(posthogAnalyticsSlug));
-  assert.equal(state.currentTopic, metabaseDashboardSlug);
-  assert.deepEqual(state.next, dashboardQueue);
+  assert.ok(state.completed.includes(metabaseDashboardSlug));
+  assert.equal(state.currentTopic, supersetDashboardSlug);
+  assert.deepEqual(state.next, [supersetDashboardSlug, redashDashboardSlug]);
   assert.equal(state.gates.manualDeploy, false);
   assert.equal(state.gates.autoMerge, false);
   assert.equal(state.gates.dbWrite, false);
@@ -238,7 +239,9 @@ test("duplicate completed topics are rejected", () => {
 
 test("missing Codex image artifact blocks publication without writing article", async () => {
   const root = tempSeriesRoot();
-  const { topic } = currentSeriesTopic();
+  const state = readContentSeriesState(root);
+  const topics = readContentSeriesTopics(root);
+  const topic = resolveContentSeriesTopic(topics.topics, state, state.currentTopic);
 
   await withIsolatedGeneratedImagesDir(root, async () => {
     await assert.rejects(

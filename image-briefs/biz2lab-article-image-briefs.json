@@ -1273,6 +1273,29 @@
       "visualDifferentiationHint": "posthog-product-analytics-automation: feature-usage-analytics-event-automation-map",
       "filename": "posthog-product-analytics-automation-hero.jpg",
       "rawPath": "assets/images/raw/posthog-product-analytics-automation-hero.jpg"
+    },
+    {
+      "id": "metabase-dashboard-automation-for-small-business-hero",
+      "postSlug": "metabase-dashboard-automation-for-small-business",
+      "category": "automation",
+      "usage": "hero",
+      "targetPath": "assets/images/raw/metabase-dashboard-automation-for-small-business-hero.jpg",
+      "optimizedPath": "public/images/posts/metabase-dashboard-automation-for-small-business-hero.webp",
+      "altKo": "Metabase로 소상공인 업무 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
+      "captionKo": "Metabase는 쉬운 대시보드 후보이지만 데이터 원본, 권한, 공유 기준을 먼저 정해야 합니다.",
+      "style": "small-business-dashboard-control-room, Korean business editorial raster hero, minimal text, no title inside image",
+      "promptKo": "소상공인 운영 대시보드, 매출/주문/미수금/검색 지표 카드, 데이터 연결 게이트, 권한 관리 패널이 있는 프리미엄 Biz2Lab 에디토리얼 히어로.",
+      "providerPromptKo": "Metabase 분석: 소상공인 대시보드 자동화에 쓸 수 있을까? 대표 이미지. 소상공인 운영 대시보드, 매출/주문/미수금/검색 지표 카드, 데이터 연결 게이트, 권한 관리 패널이 있는 프리미엄 Biz2Lab 에디토리얼 히어로. Include: small business dashboard, sales and orders metrics, receivables card, search performance panel, permission gate. No official logos, no real customer data, no placeholder elements.",
+      "negativePromptKo": "official Metabase logo, real business data, copied product screenshot, fake analytics numbers, official logo, third-party logo, real customer data, secrets, dense text, distorted text, watermark",
+      "visualReferenceStyle": "Korean business automation editorial hero image, practical workflow map, polished SaaS operations visual, minimal text",
+      "composition": "소상공인 운영 대시보드, 매출/주문/미수금/검색 지표 카드, 데이터 연결 게이트, 권한 관리 패널이 있는 프리미엄 Biz2Lab 에디토리얼 히어로.",
+      "categoryStyle": "automation category visual, small-business-dashboard-control-room",
+      "expectedOutput": "Real raster source image saved as JPG and optimized to 1200px WebP hero image",
+      "textPolicy": "minimal Korean text only; avoid dense text blocks.",
+      "localOnly": true,
+      "visualDifferentiationHint": "metabase-dashboard-automation-for-small-business: small-business-dashboard-control-room",
+      "filename": "metabase-dashboard-automation-for-small-business-hero.jpg",
+      "rawPath": "assets/images/raw/metabase-dashboard-automation-for-small-business-hero.jpg"
     }
   ]
 }
