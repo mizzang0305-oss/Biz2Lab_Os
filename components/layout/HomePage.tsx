@@ -31,6 +31,38 @@ export function HomePage() {
       description: "전화, 메시지, 현장 주문을 누락 없이 확인하는 기준",
     },
   ];
+  const policyValueBlocks = [
+    {
+      title: "Biz2Lab은 무엇을 해결하나",
+      href: "/ko/about",
+      description: "도구 소개보다 매출, 미수금, 주문, 계약처럼 매일 새는 업무 기준을 먼저 정리합니다.",
+    },
+    {
+      title: "소상공인이 매일 놓치면 손해 보는 숫자",
+      href: "/ko/small-business/daily-numbers-for-small-business",
+      description: "매출, 주문, 입금, 예약, 미처리 문의를 하루 단위로 보고 다음 행동으로 연결합니다.",
+    },
+    {
+      title: "실무 체크리스트",
+      href: "/ko/resources",
+      description: "달성률 계산, 미수금 관리, 주문 채널 통합처럼 바로 적용할 점검 항목을 모았습니다.",
+    },
+    {
+      title: "자동화 도구를 도입하기 전 판단 기준",
+      href: "/ko/automation/free-open-source-automation-tools-series",
+      description: "무료 여부보다 설정 부담, 운영 비용, 데이터 리스크, 사람 승인 단계를 먼저 봅니다.",
+    },
+    {
+      title: "블로그 업무 자료",
+      href: "/ko/automation/ai-business-automation-guide",
+      description: "AI 업무 자동화와 문서 정리 글은 초안, 검토, 승인, 기록을 분리하는 기준으로 연결합니다.",
+    },
+    {
+      title: "주제별 탐색",
+      href: "/ko/sales-ops",
+      description: "영업·매출, 소상공인 운영, 계약·결제, 자동화 도구를 문제 단위로 이어서 볼 수 있습니다.",
+    },
+  ];
 
   return (
     <div className="bg-white">
@@ -67,6 +99,32 @@ export function HomePage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-slate-50">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-14">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-bold tracking-normal text-slate-950">
+              Biz2Lab이 먼저 밝히는 실무 가치
+            </h2>
+            <p className="mt-3 leading-7 text-slate-600">
+              이 사이트는 조회수나 도구 이름을 늘리기보다, 독자가 오늘 확인할 입력값과 손실을 줄이는 판단 기준을
+              먼저 제공합니다. 아래 여섯 가지 기준으로 공개 글을 연결합니다.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {policyValueBlocks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-md border border-slate-200 bg-white p-4 shadow-sm transition hover:border-teal-300 hover:shadow-md"
+              >
+                <h3 className="font-bold text-slate-950">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{item.description}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

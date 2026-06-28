@@ -38,7 +38,11 @@ test("public resources page renders practical internal links and is discoverable
   assert.match(html, /매출 목표 쪼개기/);
   assert.match(html, /미수금 관리 체크리스트/);
   assert.match(html, /주문 채널 통합 체크리스트/);
-  assert.match(html, /자동화 도구 검토/);
+  assert.match(html, /자동화.*도구 검토/);
+  assert.match(html, /해결하는 문제/);
+  assert.match(html, /무시하면 생기는 손실/);
+  assert.match(html, /다음에 읽을 글/);
+  assert.match(html, /\/ko\/automation\/redash-open-source-dashboard-automation/);
   assert.doesNotMatch(html, /\/ko\/ops\/seo-dashboard/);
   assert.equal(sitemap().some((entry) => entry.url === "https://www.biz2lab.com/ko/resources"), true);
 
@@ -55,14 +59,33 @@ test("homepage links to core practical pages instead of exposing internal dashbo
   ];
 
   assert.match(html, /소상공인과 영업팀이 매일 놓치기 쉬운 숫자/);
+  assert.match(html, /Biz2Lab이 먼저 밝히는 실무 가치/);
+  assert.match(html, /Biz2Lab은 무엇을 해결하나/);
+  assert.match(html, /소상공인이 매일 놓치면 손해 보는 숫자/);
+  assert.match(html, /실무 체크리스트/);
+  assert.match(html, /자동화 도구를 도입하기 전 판단 기준/);
+  assert.match(html, /블로그 업무 자료/);
+  assert.match(html, /주제별 탐색/);
   assert.match(html, /바로 확인하는 실무 기준/);
   assert.match(html, /\/ko\/resources/);
   assert.match(html, /\/ko\/sales-ops\/sales-achievement-rate/);
   assert.match(html, /\/ko\/small-business\/daily-numbers-for-small-business/);
   assert.match(html, /\/ko\/sales-ops\/accounts-receivable-tracker/);
   assert.match(html, /\/ko\/small-business\/unify-order-channels/);
+  assert.match(html, /\/ko\/automation\/free-open-source-automation-tools-series/);
   assert.equal(publicLinks.includes("/ko/resources"), true);
   assert.doesNotMatch(html, /\/ko\/ops\/seo-dashboard/);
+});
+
+test("about page includes editorial trust signals without fake biography", () => {
+  const source = read("app/ko/about/page.tsx");
+
+  assert.match(source, /운영 목적|현장형 AI 업무 자동화/);
+  assert.match(source, /콘텐츠 검토 기준/);
+  assert.match(source, /과장 금지/);
+  assert.match(source, /도구 소개보다/);
+  assert.match(source, /\/ko\/contact/);
+  assert.doesNotMatch(source, /박사|수상|공인 전문가|공식 파트너/);
 });
 
 test("sales-achievement cluster includes practical formulas and examples", () => {
@@ -118,6 +141,61 @@ test("AdSense recovery audit covers every published article without fake metrics
     assert.match(report, new RegExp(post.route.replaceAll("/", "\\/")));
   }
   assert.doesNotMatch(report, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR|rankings)\b/i);
+});
+
+test("official policy recovery audit covers static routes and published articles", () => {
+  const report = read("reports/adsense-policy-content-value-recovery.md");
+
+  for (const category of [
+    "LOW_VALUE_CONTENT_RISK",
+    "THIN_CONTENT_RISK",
+    "DUPLICATE_TEMPLATE_RISK",
+    "GENERIC_TOOL_SUMMARY_RISK",
+    "NO_ORIGINAL_PRACTICAL_VALUE",
+    "WEAK_NAVIGATION_OR_DISCOVERY",
+    "WEAK_AUTHOR_EDITORIAL_TRUST",
+    "ADSENSE_READY_CORE",
+  ]) {
+    assert.match(report, new RegExp(category));
+  }
+
+  assert.match(report, /Public static routes audited:/);
+  assert.match(report, /Published Korean articles audited:/);
+  assert.match(report, /NOINDEX_OR_MERGE_REVIEW_CANDIDATES/);
+  assert.match(report, /Fake analytics added: NO/);
+  assert.match(report, /Meta keywords added: NO/);
+  assert.match(report, /AdSense ad code added: NO/);
+  assert.match(report, /\/ko\/resources/);
+  for (const post of getPublicPosts()) {
+    assert.match(report, new RegExp(post.route.replaceAll("/", "\\/")));
+  }
+  assert.doesNotMatch(report, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR|rankings)\b/i);
+});
+
+test("priority tool articles expose Biz2Lab decision criteria", () => {
+  const priorityToolSlugs = [
+    "metabase-dashboard-automation-for-small-business",
+    "apache-superset-bi-dashboard-automation",
+    "redash-open-source-dashboard-automation",
+    "dify-llm-app-builder-business-automation",
+    "open-webui-local-llm-admin-portal",
+    "flowise-ai-agent-workflow-automation",
+    "directus-headless-cms-data-automation",
+    "pocketbase-lightweight-backend-saas-mvp",
+    "supabase-self-hosting-cost-operations-caution",
+    "langflow-ai-workflow-automation",
+    "activepieces-ai-business-automation-n8n-alternative",
+    "node-red-local-business-automation-server",
+  ];
+
+  for (const slug of priorityToolSlugs) {
+    const source = read(`content/ko/automation/${slug}.md`);
+    assert.match(source, /## Biz2Lab 판단 기준: 이런 경우에만 검토하세요/, `${slug} needs named decision criteria`);
+    assert.match(source, /설정 부담|운영 비용/, `${slug} needs setup or operating-cost criteria`);
+    assert.match(source, /데이터 리스크|self-hosting|권한|credential|백업/, `${slug} needs data or self-hosting risk criteria`);
+    assert.match(source, /먼저 (해볼|확인|테스트)/, `${slug} needs pre-adoption step`);
+    assert.doesNotMatch(source, /무조건 추천|완전 무료|상업 사용 보장/);
+  }
 });
 
 test("policy safety keeps meta keywords, fake analytics, admin/login routes, and ad units out", () => {

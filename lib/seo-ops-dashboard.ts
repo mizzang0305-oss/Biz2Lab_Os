@@ -25,12 +25,12 @@ export type SeoOpsCheckStatus = "ok" | "missing" | "unknown";
 export type SeoOpsContentAuthorityStatus = "ok" | "needs-review";
 export type SeoOpsTrafficStatus = "connected" | "not-connected";
 export type SeoOpsAdSenseReadinessStatus =
-  | "AdSense core ready"
-  | "Needs original value"
-  | "Needs practical template"
-  | "Generic review risk"
-  | "Internal link weak"
-  | "Noindex candidate";
+  | "AdSense-ready core"
+  | "Needs practical value"
+  | "Needs original examples"
+  | "Template risk"
+  | "Needs navigation links"
+  | "Review after recrawl";
 export type SeoOpsOptimizationStage =
   | "기본 SEO 완료"
   | "내부 링크 보강 필요"
@@ -461,16 +461,16 @@ function adsenseReadinessSignals(post: Post, answerAudit?: SeoAnswerReadinessArt
             ? "도구 요약처럼 보이지 않도록 Biz2Lab 판단 기준과 사례를 보강"
             : "핵심 실무 가치와 연결 구조 유지";
   const adsenseReadinessStatus: SeoOpsAdSenseReadinessStatus = post.frontmatter.noindex
-    ? "Noindex candidate"
+    ? "Review after recrawl"
     : !hasOriginalValue
-      ? "Needs original value"
+      ? "Needs original examples"
       : !hasPracticalTemplate
-        ? "Needs practical template"
+        ? "Needs practical value"
         : internalLinkStatus === "Internal link weak"
-          ? "Internal link weak"
+          ? "Needs navigation links"
           : repeatedTemplateRisk === "Medium"
-            ? "Generic review risk"
-            : "AdSense core ready";
+            ? "Template risk"
+            : "AdSense-ready core";
 
   return {
     adsenseReadinessStatus,
@@ -949,10 +949,10 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
       aiAnswerNeedsConclusion: answerAudit.summary.needsConclusion,
       aiAnswerNeedsChecklist: answerAudit.summary.needsChecklist,
       aiAnswerNeedsComparison: answerAudit.summary.needsComparison,
-      adsenseReadyArticles: articles.filter((row) => row.adsenseReadinessStatus === "AdSense core ready").length,
-      adsenseNeedsTemplateArticles: articles.filter((row) => row.adsenseReadinessStatus === "Needs practical template").length,
-      adsenseInternalLinkWeakArticles: articles.filter((row) => row.adsenseReadinessStatus === "Internal link weak").length,
-      adsenseGenericReviewRiskArticles: articles.filter((row) => row.adsenseReadinessStatus === "Generic review risk").length,
+      adsenseReadyArticles: articles.filter((row) => row.adsenseReadinessStatus === "AdSense-ready core").length,
+      adsenseNeedsTemplateArticles: articles.filter((row) => row.adsenseReadinessStatus === "Needs practical value").length,
+      adsenseInternalLinkWeakArticles: articles.filter((row) => row.adsenseReadinessStatus === "Needs navigation links").length,
+      adsenseGenericReviewRiskArticles: articles.filter((row) => row.adsenseReadinessStatus === "Template risk").length,
     },
     articles,
     analytics,
