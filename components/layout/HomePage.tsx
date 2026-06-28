@@ -9,6 +9,28 @@ import { siteSettings } from "@/lib/site-settings";
 
 export function HomePage() {
   const posts = getFeaturedHomePosts(10);
+  const practicalLinks = [
+    {
+      title: "달성률 계산 / 매출 달성률",
+      href: "/ko/sales-ops/sales-achievement-rate",
+      description: "목표 대비 실적, 부족 금액, 남은 영업일을 계산하는 기준",
+    },
+    {
+      title: "매일 확인해야 할 숫자",
+      href: "/ko/small-business/daily-numbers-for-small-business",
+      description: "매출, 주문, 입금, 예약, 미처리 업무를 하루 단위로 확인",
+    },
+    {
+      title: "미수금 관리 체크리스트",
+      href: "/ko/sales-ops/accounts-receivable-tracker",
+      description: "청구일, 약속일, 경과일, 담당자 후속 조치를 한 표로 정리",
+    },
+    {
+      title: "주문 채널 통합",
+      href: "/ko/small-business/unify-order-channels",
+      description: "전화, 메시지, 현장 주문을 누락 없이 확인하는 기준",
+    },
+  ];
 
   return (
     <div className="bg-white">
@@ -46,6 +68,35 @@ export function HomePage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-14">
+        <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-2xl min-w-0">
+            <h2 className="text-2xl font-bold tracking-normal text-slate-950">
+              바로 확인하는 실무 기준
+            </h2>
+            <p className="mt-3 leading-7 text-slate-600">
+              Biz2Lab은 도구 이름을 나열하는 블로그가 아니라, 매일 놓치면 손해가 되는 숫자와 확인 기준을
+              먼저 정리합니다.
+            </p>
+          </div>
+          <Link href="/ko/resources" className="shrink-0 text-sm font-semibold text-teal-700">
+            실무 자료실 보기
+          </Link>
+        </div>
+        <div className="mt-8 grid min-w-0 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {practicalLinks.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-md border border-slate-200 bg-white p-4 shadow-sm transition hover:border-teal-300 hover:shadow-md"
+            >
+              <h3 className="font-bold text-slate-950">{item.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{item.description}</p>
+            </Link>
+          ))}
         </div>
       </section>
 

@@ -50,13 +50,13 @@ export const siteSettings = {
   koreanName: "비즈투랩",
   brandSubtitle: "한국어 AI 업무 자동화 콘텐츠",
   description:
-    "소상공인, 영업팀, 1인 사업자를 위한 현장형 AI 업무 자동화 블로그입니다.",
+    "소상공인, 영업팀, 1인 사업자를 위한 현장형 업무 자동화와 운영 숫자 콘텐츠입니다.",
   author: "Biz2Lab",
   contactEmail: "hello@biz2lab.com",
   hero: {
     title: "AI 업무 자동화로 사업 운영을 시스템화하는 방법",
     description:
-      "반복 업무, 매출 관리, 전자계약, 고객 관리까지 현장에서 바로 적용할 수 있는 자동화 구조를 정리합니다.",
+      "소상공인과 영업팀이 매일 놓치기 쉬운 숫자, 주문, 미수금, 자동화 기준을 실무형 체크리스트와 계산 기준으로 정리합니다.",
     bullets: [
       "반복 업무를 자동화 후보로 분류",
       "매출·미수금·계약 상태를 연결",
@@ -64,12 +64,13 @@ export const siteSettings = {
       "필요한 기능만 안전하게 단계 공개",
     ],
     primaryCta: { label: "처음 시작하기", href: "/ko/automation" },
-    secondaryCta: { label: "문의하기", href: "/ko/contact" },
+    secondaryCta: { label: "실무 자료실", href: "/ko/resources" },
   },
   navItems: [
     { label: "AI 업무 자동화", href: "/ko/automation" },
     { label: "영업·매출 관리", href: "/ko/sales-ops" },
     { label: "소상공인 운영", href: "/ko/small-business" },
+    { label: "실무 자료실", href: "/ko/resources" },
     { label: "전자계약·결제", href: "/ko/contracts-payments" },
     { label: "소개", href: "/ko/about" },
     { label: "문의", href: "/ko/contact" },
@@ -84,6 +85,7 @@ export const siteSettings = {
           { label: "AI 업무 자동화", href: "/ko/automation" },
           { label: "영업·매출 관리", href: "/ko/sales-ops" },
           { label: "소상공인 운영", href: "/ko/small-business" },
+          { label: "실무 자료실", href: "/ko/resources" },
           { label: "전자계약·결제", href: "/ko/contracts-payments" },
         ],
       },

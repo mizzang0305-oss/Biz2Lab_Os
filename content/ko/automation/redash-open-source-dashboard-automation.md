@@ -105,6 +105,12 @@ Biz2Lab 관점에서는 매출, 주문, 검색, 분석 데이터를 주기적으
 
 민감한 고객/결제 데이터는 예시나 스크린샷에 넣지 않는다.
 
+## Biz2Lab 판단 기준: 이런 경우에만 검토하세요
+
+Redash는 SQL을 작성할 담당자가 있고, 같은 질의를 반복해서 공유해야 하는 팀에 맞습니다. 비개발자 중심으로 지표를 확인해야 한다면 [Metabase 분석](/ko/automation/metabase-dashboard-automation-for-small-business)과 비교하고, 복잡한 BI 운영이 필요하다면 [Apache Superset 분석](/ko/automation/apache-superset-bi-dashboard-automation)까지 함께 봐야 합니다.
+
+피해야 할 경우는 쿼리 소유자가 없거나 공개 URL로 내부 데이터를 공유하려는 상황입니다. 먼저 샘플 데이터로 쿼리 비용, 권한, 오래된 대시보드 정리 기준을 검증하고, 매출 판단에 쓰는 숫자는 [일일 매출 목표 기준](/ko/sales-ops/daily-sales-goal-breakdown)처럼 행동 기준과 연결합니다.
+
 ## 공식 출처 확인 포인트
 
 - [Redash official website](https://redash.io/) - project positioning and feature verification

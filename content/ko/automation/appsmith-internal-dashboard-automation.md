@@ -118,6 +118,12 @@ Baserow 또는 DB와 연결해 운영자가 승인해야 하는 작업을 정리
 
 자동 실행보다 운영자 확인과 승인 화면에 초점을 둔다.
 
+## Biz2Lab 판단 기준: 이런 경우에만 검토하세요
+
+Appsmith는 내부 관리자가 조회, 검토, 승인해야 하는 화면을 빠르게 만들 때 검토할 후보입니다. 고객-facing 앱보다 읽기 전용 대시보드와 승인 전 검토 화면부터 시작하고, 데이터 구조가 먼저 필요하면 [Baserow 분석](/ko/automation/baserow-open-source-database-automation), 자동화 흐름 연결은 [Activepieces 분석](/ko/automation/activepieces-ai-business-automation-n8n-alternative)과 함께 봅니다.
+
+피해야 할 경우는 production DB 쓰기 권한이나 고객/결제 데이터를 곧바로 연결해야 하는 상황입니다. 먼저 샘플 데이터, 제한 계정, 화면 소유자, audit log, 폐기 기준을 정하고, 내부 도구가 늘어나는 부담까지 운영 비용으로 계산해야 합니다.
+
 ## 공식 출처 확인 포인트
 
 - [Appsmith official website](https://www.appsmith.com/) - product positioning and edition verification

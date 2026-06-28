@@ -106,6 +106,12 @@ self-hosting은 데이터 통제권과 운영 책임을 동시에 만든다.
 
 privacy compliance는 법적 검토 대상이지 도구 설치만으로 해결되지 않는다.
 
+## Biz2Lab 판단 기준: 이런 경우에만 검토하세요
+
+Umami는 조회수와 유입 흐름을 가볍게 보고 싶지만, 가짜 분석 수치 없이 실제 연결 상태만 분리해 표시해야 하는 팀에 맞습니다. AdSense 승인이나 수익 개선을 보장하는 도구로 보지 말고, 운영자 전용 화면과 공개 콘텐츠를 분리하는 기준부터 확인해야 합니다.
+
+피해야 할 경우는 cookie, IP 처리, 데이터 보관 위치, self-host 운영 책임을 확인하지 않은 상태에서 추적 스크립트만 붙이는 상황입니다. 먼저 샘플 환경에서 수집 항목과 보관 기간을 정하고, [Plausible 분석](/ko/automation/plausible-open-source-analytics-ga-alternative), [Matomo 분석](/ko/automation/matomo-self-hosted-analytics-privacy-caution)과 함께 개인정보 운영 부담을 비교해야 합니다.
+
 ## 공식 출처 확인 포인트
 
 - [Umami official website](https://umami.is/) - product positioning and analytics model verification

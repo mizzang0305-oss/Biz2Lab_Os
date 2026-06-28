@@ -10,6 +10,7 @@ export const staticPublicRoutes = [
   "/ko/small-business",
   "/ko/contracts-payments",
   "/ko/about",
+  "/ko/resources",
   "/ko/contact",
   "/ko/privacy",
   "/ko/terms",
