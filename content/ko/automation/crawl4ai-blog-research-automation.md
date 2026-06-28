@@ -105,6 +105,12 @@ Huginn은 이벤트 감시, Kestra는 오케스트레이션, Crawl4AI는 수집/
 
 기사에서는 수집 자동화보다 출처 추적, citation, 검토 가능한 리서치 asset화에 초점을 둔다.
 
+## Biz2Lab 판단 기준: 이런 경우에만 검토하세요
+
+Crawl4AI는 공개 문서, 릴리스 노트, 제품 페이지처럼 확인 가능한 출처를 리서치 큐로 정리할 때만 검토합니다. 콘텐츠를 바로 생성하거나 원문을 복제하는 흐름이 아니라, [Huginn 분석](/ko/automation/huginn-monitoring-automation-agent)처럼 모니터링 신호를 만들고 사람이 출처를 검토하는 구조와 함께 보는 편이 안전합니다.
+
+피해야 할 경우는 robots, 약관, 로그인, rate limit, 저작권을 확인하지 않은 상태에서 대량 수집을 전제로 하는 상황입니다. 먼저 수집 대상, 요청 빈도, 저장 기간, 인용 방식, 제외 경로를 문서화하고, 게시 전에는 사람이 원문과 문맥을 확인해야 합니다.
+
 ## 공식 출처 확인 포인트
 
 - [Crawl4AI documentation](https://docs.crawl4ai.com/) - official usage, crawling model, and quick-start verification

@@ -105,6 +105,12 @@ self-hosting은 보안, 백업, 모델 키 관리 부담이 함께 생긴다.
 
 챗봇 운영은 품질 모니터링과 사람 승인 절차가 필요하다.
 
+## Biz2Lab 판단 기준: 이런 경우에만 검토하세요
+
+Dify는 내부 FAQ, 문서 검색, 고객 지원 초안처럼 사람이 검토할 AI 앱을 빠르게 실험할 때 검토할 후보입니다. 자동 응답을 외부로 바로 보내기보다 [Flowise 분석](/ko/automation/flowise-ai-agent-workflow-automation)처럼 승인 게이트가 필요한 흐름과 비교하고, [반복 업무 줄이기](/ko/automation/reduce-repetitive-work-with-ai) 기준으로 실제 시간이 줄어드는지 먼저 봐야 합니다.
+
+피해야 할 경우는 원문 권리, 개인정보, 모델 키 관리, 업데이트 주기를 정하지 않은 상태에서 RAG를 붙이는 상황입니다. 먼저 샘플 문서와 제한된 사용자로 품질을 확인하고, 고객 데이터나 외부 메시지는 별도 승인 전까지 제외합니다.
+
 ## 공식 출처 확인 포인트
 
 - [Dify official website](https://dify.ai/) - product positioning and cloud/self-hosting verification

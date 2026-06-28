@@ -105,6 +105,12 @@ SQL과 데이터 모델 이해가 필요한 업무인지 비개발자 중심 화
 
 개인정보나 민감 데이터가 대시보드에 노출되지 않도록 샘플 데이터로 검증한다.
 
+## Biz2Lab 판단 기준: 이런 경우에만 검토하세요
+
+Apache Superset은 여러 데이터 소스와 차트, 권한 모델을 다룰 운영자가 있을 때 검토할 후보입니다. 작은 팀이 단순히 매출과 미수금을 보고 싶다면 먼저 [Metabase 분석](/ko/automation/metabase-dashboard-automation-for-small-business)처럼 낮은 운영 부담의 대시보드 후보를 비교하고, 지표 정의를 [매출 달성률 기준](/ko/sales-ops/sales-achievement-rate)에 맞춰 고정하는 편이 현실적입니다.
+
+피해야 할 경우는 SQL, 데이터 모델, 사용자 권한을 관리할 사람이 없는데 BI 화면만 먼저 늘리는 상황입니다. 도입 전에는 원본 데이터 책임자, 공개 범위, 차트 수, 장애 대응 기준을 정하고, 임원 보고용 숫자와 매일 보는 운영 숫자를 분리해야 합니다.
+
 ## 공식 출처 확인 포인트
 
 - [Apache Superset official website](https://superset.apache.org/) - project positioning and capability verification

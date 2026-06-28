@@ -24,6 +24,13 @@ export const SEO_OPS_DASHBOARD_ROUTE = "/ko/ops/seo-dashboard";
 export type SeoOpsCheckStatus = "ok" | "missing" | "unknown";
 export type SeoOpsContentAuthorityStatus = "ok" | "needs-review";
 export type SeoOpsTrafficStatus = "connected" | "not-connected";
+export type SeoOpsAdSenseReadinessStatus =
+  | "AdSense core ready"
+  | "Needs original value"
+  | "Needs practical template"
+  | "Generic review risk"
+  | "Internal link weak"
+  | "Noindex candidate";
 export type SeoOpsOptimizationStage =
   | "기본 SEO 완료"
   | "내부 링크 보강 필요"
@@ -62,6 +69,12 @@ export type SeoOpsArticleRow = {
   checklistPresent: boolean;
   comparisonTablePresent: boolean;
   citationFriendlySummaryPresent: boolean;
+  adsenseReadinessStatus: SeoOpsAdSenseReadinessStatus;
+  originalValueStatus: "Original value clear" | "Needs original value";
+  practicalTemplateStatus: "Practical template present" | "Needs practical template";
+  repeatedTemplateRisk: "Low" | "Medium";
+  internalLinkStatus: "Internal links ready" | "Internal link weak";
+  reviewerFacingIssue: string;
   optimizationStage: SeoOpsOptimizationStage;
   recommendedAction: string;
 };
@@ -165,6 +178,10 @@ export type SeoOpsDashboard = {
     aiAnswerNeedsConclusion: number;
     aiAnswerNeedsChecklist: number;
     aiAnswerNeedsComparison: number;
+    adsenseReadyArticles: number;
+    adsenseNeedsTemplateArticles: number;
+    adsenseInternalLinkWeakArticles: number;
+    adsenseGenericReviewRiskArticles: number;
   };
   articles: SeoOpsArticleRow[];
   analytics: {
@@ -411,6 +428,64 @@ function recommendedAction(stage: SeoOpsOptimizationStage) {
   }
 }
 
+function includesAny(value: string, terms: string[]) {
+  return terms.some((term) => value.includes(term));
+}
+
+function adsenseReadinessSignals(post: Post, answerAudit?: SeoAnswerReadinessArticleAudit) {
+  const content = post.content;
+  const headings = post.headings.map((heading) => heading.text).join(" ");
+  const hasPracticalTemplate =
+    content.includes("| --- |") ||
+    includesAny(headings, ["체크리스트", "점검표", "계산", "표로 점검", "Biz2Lab 판단 기준"]) ||
+    includesAny(content, ["달성률 =", "부족 금액 =", "남은 기간 하루 필요 실적 =", "도입 전 체크리스트"]);
+  const hasOriginalValue =
+    [...content].length >= 3000 &&
+    includesAny(content, ["Biz2Lab", "손해", "리스크", "담당자", "사람 승인", "현장"]);
+  const internalLinkStatus =
+    post.internalLinks.length > 0 || post.frontmatter.relatedPosts.length >= 3
+      ? ("Internal links ready" as const)
+      : ("Internal link weak" as const);
+  const repeatedTemplateRisk =
+    hasPracticalTemplate && hasOriginalValue && answerAudit?.citationFriendlySummaryPresent
+      ? ("Low" as const)
+      : ("Medium" as const);
+  const reviewerFacingIssue =
+    post.frontmatter.noindex
+      ? "noindex 후보이므로 공개 색인 대상에서 제외할지 검토"
+      : internalLinkStatus === "Internal link weak"
+        ? "본문 내부 링크를 보강해 독자가 다음 실무 기준으로 이동하게 만들기"
+        : !hasPracticalTemplate
+          ? "계산식, 체크리스트, 표처럼 바로 적용할 자료를 보강"
+          : repeatedTemplateRisk === "Medium"
+            ? "도구 요약처럼 보이지 않도록 Biz2Lab 판단 기준과 사례를 보강"
+            : "핵심 실무 가치와 연결 구조 유지";
+  const adsenseReadinessStatus: SeoOpsAdSenseReadinessStatus = post.frontmatter.noindex
+    ? "Noindex candidate"
+    : !hasOriginalValue
+      ? "Needs original value"
+      : !hasPracticalTemplate
+        ? "Needs practical template"
+        : internalLinkStatus === "Internal link weak"
+          ? "Internal link weak"
+          : repeatedTemplateRisk === "Medium"
+            ? "Generic review risk"
+            : "AdSense core ready";
+
+  return {
+    adsenseReadinessStatus,
+    originalValueStatus: hasOriginalValue
+      ? ("Original value clear" as const)
+      : ("Needs original value" as const),
+    practicalTemplateStatus: hasPracticalTemplate
+      ? ("Practical template present" as const)
+      : ("Needs practical template" as const),
+    repeatedTemplateRisk,
+    internalLinkStatus,
+    reviewerFacingIssue,
+  };
+}
+
 function buildArticleRows({
   rootDir,
   posts,
@@ -435,6 +510,7 @@ function buildArticleRows({
   return posts.map((post) => {
     const keywordAudit = keywordAuditBySlug.get(post.slug);
     const answerAudit = answerAuditBySlug.get(post.slug);
+    const adsenseSignals = adsenseReadinessSignals(post, answerAudit);
     const baseRow = {
       title: post.frontmatter.title,
       slug: post.slug,
@@ -461,6 +537,7 @@ function buildArticleRows({
       checklistPresent: answerAudit?.checklistPresent ?? false,
       comparisonTablePresent: answerAudit?.comparisonTablePresent ?? false,
       citationFriendlySummaryPresent: answerAudit?.citationFriendlySummaryPresent ?? false,
+      ...adsenseSignals,
     } satisfies Omit<SeoOpsArticleRow, "optimizationStage" | "recommendedAction">;
     const stage = optimizationStage(baseRow);
 
@@ -872,6 +949,10 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
       aiAnswerNeedsConclusion: answerAudit.summary.needsConclusion,
       aiAnswerNeedsChecklist: answerAudit.summary.needsChecklist,
       aiAnswerNeedsComparison: answerAudit.summary.needsComparison,
+      adsenseReadyArticles: articles.filter((row) => row.adsenseReadinessStatus === "AdSense core ready").length,
+      adsenseNeedsTemplateArticles: articles.filter((row) => row.adsenseReadinessStatus === "Needs practical template").length,
+      adsenseInternalLinkWeakArticles: articles.filter((row) => row.adsenseReadinessStatus === "Internal link weak").length,
+      adsenseGenericReviewRiskArticles: articles.filter((row) => row.adsenseReadinessStatus === "Generic review risk").length,
     },
     articles,
     analytics,

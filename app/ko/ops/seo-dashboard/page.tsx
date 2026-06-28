@@ -263,6 +263,24 @@ function AnswerStatusPill({
   );
 }
 
+function adsenseStatusTone(status: SeoOpsArticleRow["adsenseReadinessStatus"]) {
+  if (status === "AdSense core ready") {
+    return "border-emerald-200 bg-emerald-50 text-emerald-800";
+  }
+  if (status === "Noindex candidate") {
+    return "border-rose-200 bg-rose-50 text-rose-800";
+  }
+  return "border-amber-200 bg-amber-50 text-amber-800";
+}
+
+function AdSenseStatusPill({ status }: { status: SeoOpsArticleRow["adsenseReadinessStatus"] }) {
+  return (
+    <span className={`inline-flex items-center rounded-md border px-2 py-1 text-xs font-semibold ${adsenseStatusTone(status)}`}>
+      {status}
+    </span>
+  );
+}
+
 function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
   return (
     <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
@@ -298,6 +316,12 @@ function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
           </dd>
         </div>
         <div>
+          <dt className="text-slate-500">AdSense readiness</dt>
+          <dd>
+            <AdSenseStatusPill status={row.adsenseReadinessStatus} />
+          </dd>
+        </div>
+        <div>
           <dt className="text-slate-500">대표 이미지</dt>
           <dd>
             <StatusPill status={row.heroImageStatus}>{checkStatusLabel(row.heroImageStatus)}</StatusPill>
@@ -325,6 +349,7 @@ function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
       <div className="mt-4 flex flex-col gap-2">
         <div className="flex flex-wrap gap-2">
           <AnswerStatusPill status={row.aiAnswerReadinessStatus} />
+          <AdSenseStatusPill status={row.adsenseReadinessStatus} />
           <KeywordStatusPill status={row.keywordCoverageStatus}>
             keyword {keywordStatusLabel(row.keywordCoverageStatus)}
           </KeywordStatusPill>
@@ -339,8 +364,13 @@ function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
           FAQ {row.faqPresent ? "있음" : "보강 필요"} · 먼저 결론 {row.conclusionFirstPresent ? "있음" : "보강 필요"} · 체크리스트{" "}
           {row.checklistPresent ? "있음" : "보강 필요"}
         </p>
+        <p className="text-sm text-slate-600">
+          Original value {row.originalValueStatus} · Practical template {row.practicalTemplateStatus} · Repeated-template risk{" "}
+          {row.repeatedTemplateRisk} · {row.internalLinkStatus}
+        </p>
         <p className="text-sm text-slate-700">{row.recommendedAction}</p>
         <p className="text-sm text-slate-600">{row.lossAvoidanceAngle}</p>
+        <p className="text-sm text-slate-700">{row.reviewerFacingIssue}</p>
       </div>
     </article>
   );
@@ -361,7 +391,7 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
               <th className="w-[20%] px-4 py-3">글 제목</th>
               <th className="w-[15%] px-4 py-3">Primary keyword</th>
               <th className="w-[11%] px-4 py-3">Cluster / intent</th>
-              <th className="w-[14%] px-4 py-3">Hook / AI answer</th>
+              <th className="w-[14%] px-4 py-3">Hook / AI / AdSense</th>
               <th className="w-[11%] px-4 py-3">기술 SEO</th>
               <th className="w-[9%] px-4 py-3">Analytics</th>
               <th className="w-[10%] px-4 py-3">Keyword / index</th>
@@ -390,6 +420,9 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
                   <p className="font-semibold text-slate-950">{row.hookStatus}</p>
                   <div className="mt-2">
                     <AnswerStatusPill status={row.aiAnswerReadinessStatus} />
+                  </div>
+                  <div className="mt-2">
+                    <AdSenseStatusPill status={row.adsenseReadinessStatus} />
                   </div>
                   <p className="mt-2 text-xs leading-5 text-slate-600">{row.lossAvoidanceAngle}</p>
                 </td>
@@ -421,11 +454,18 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
                     FAQ {row.faqPresent ? "있음" : "보강 필요"} · 결론 {row.conclusionFirstPresent ? "있음" : "보강 필요"} · 체크리스트{" "}
                     {row.checklistPresent ? "있음" : "보강 필요"} · 비교표 {row.comparisonTablePresent ? "있음" : "필요 시 보강"}
                   </p>
+                  <p className="mt-2 text-xs leading-5 text-slate-500">
+                    Original value {row.originalValueStatus} · Practical template {row.practicalTemplateStatus} · Repeated-template risk{" "}
+                    {row.repeatedTemplateRisk} · {row.internalLinkStatus}
+                  </p>
                   <span className={`mt-2 inline-flex rounded-md border px-2 py-1 text-xs font-semibold ${stageTone(row.optimizationStage)}`}>
                     {row.optimizationStage}
                   </span>
                 </td>
-                <td className="px-4 py-4 text-slate-700">{row.recommendedAction}</td>
+                <td className="px-4 py-4 text-slate-700">
+                  <p>{row.recommendedAction}</p>
+                  <p className="mt-2 text-xs leading-5 text-slate-500">{row.reviewerFacingIssue}</p>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -590,6 +630,10 @@ export function SeoOpsDashboardContent({ dashboard = getSeoOpsDashboard() }: { d
           <SummaryCard label="Conclusion needs" value={`${dashboard.summary.aiAnswerNeedsConclusion}`} detail="conclusion-first summary" />
           <SummaryCard label="Checklist needs" value={`${dashboard.summary.aiAnswerNeedsChecklist}`} detail="decision checklist" />
           <SummaryCard label="Comparison needs" value={`${dashboard.summary.aiAnswerNeedsComparison}`} detail="comparison criteria" />
+          <SummaryCard label="AdSense ready" value={`${dashboard.summary.adsenseReadyArticles}`} detail="core value and practical signals" />
+          <SummaryCard label="Template needs" value={`${dashboard.summary.adsenseNeedsTemplateArticles}`} detail="practical template gap" />
+          <SummaryCard label="Link weak" value={`${dashboard.summary.adsenseInternalLinkWeakArticles}`} detail="in-body/internal link review" />
+          <SummaryCard label="Generic risk" value={`${dashboard.summary.adsenseGenericReviewRiskArticles}`} detail="tool-summary review risk" />
           <SummaryCard label="다음 topic" value="대기" detail={dashboard.summary.nextPublicationTopic} />
           <SummaryCard label="현재 gate" value={dashboard.summary.schedulerGate} detail={dashboard.scheduler.lastKnownIssue} />
           <SummaryCard label="Analytics" value={dashboard.summary.analyticsConnection} detail="가짜 수치 없음" />
