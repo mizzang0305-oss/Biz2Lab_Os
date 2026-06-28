@@ -550,10 +550,10 @@ function SearchRegistrationPanel({ dashboard }: { dashboard: SeoOpsDashboard }) 
           </article>
         ))}
       </div>
-      <div className="mt-4 grid gap-2 rounded-lg border border-slate-200 bg-white p-4 text-xs text-slate-600 md:grid-cols-2 xl:grid-cols-5">
+      <div className="mt-4 grid min-w-0 gap-2 rounded-lg border border-slate-200 bg-white p-4 text-xs text-slate-600 md:grid-cols-2 xl:grid-cols-5">
         {dashboard.searchRegistration.stateLegend.map((item) => (
-          <div key={item.state}>
-            <p className="font-mono font-bold text-slate-900">{item.label}</p>
+          <div key={item.state} className="min-w-0">
+            <p className="break-all font-mono font-bold text-slate-900">{item.label}</p>
             <p className="mt-1 leading-5">{item.meaning}</p>
           </div>
         ))}
