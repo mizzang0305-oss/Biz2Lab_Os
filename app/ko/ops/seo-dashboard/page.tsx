@@ -53,7 +53,7 @@ function StatusPill({
         : statusTone[status];
 
   return (
-    <span className={`inline-flex items-center rounded-md border px-2 py-1 text-xs font-semibold ${tone}`}>
+    <span className={`inline-flex max-w-full items-center break-all rounded-md border px-2 py-1 text-left text-xs font-semibold ${tone}`}>
       {children}
     </span>
   );
@@ -526,8 +526,8 @@ function SearchRegistrationPanel({ dashboard }: { dashboard: SeoOpsDashboard }) 
       </div>
       <div className="grid gap-3 lg:grid-cols-3">
         {dashboard.searchRegistration.providers.map((provider) => (
-          <article key={provider.id} className="rounded-lg border border-slate-200 p-4">
-            <div className="flex items-start justify-between gap-3">
+          <article key={provider.id} className="min-w-0 rounded-lg border border-slate-200 p-4">
+            <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <h3 className="font-bold text-slate-950">{provider.label}</h3>
               <StatusPill status="unknown">{provider.status}</StatusPill>
             </div>
