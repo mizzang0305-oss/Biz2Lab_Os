@@ -20,7 +20,7 @@ function walkFiles(dir: string): string[] {
   });
 }
 
-test("AdSense approval mode documents client-loader-only behavior without explicit ad slots", () => {
+test("AdSense approval mode stays documented outside the client script tag", () => {
   const approvalMode = (
     googleSetup as typeof googleSetup & {
       adsenseApprovalMode?: {
@@ -40,8 +40,9 @@ test("AdSense approval mode documents client-loader-only behavior without explic
     runtimeNoablateAllowedWhen:
       "hidden, unfilled, no ad slot attribute, and no measurable layout footprint",
   });
-  assert.match(layoutSource, /data-approval-mode=\{googleSetup\.adsenseApprovalMode\.name\}/);
   assert.match(layoutSource, /biz2lab-adsense-client/);
+  assert.match(layoutSource, /src=\{googleSetup\.adsenseScriptUrl\}/);
+  assert.doesNotMatch(layoutSource, /data-approval-mode\s*=/);
   assert.doesNotMatch(layoutSource, /<ins[^>]+adsbygoogle/i);
 });
 
@@ -73,6 +74,8 @@ test("final runtime guard report records approval-mode live evidence and re-revi
   const report = read("reports/adsense-approval-mode-runtime-guard.md");
 
   assert.match(report, /# Biz2Lab AdSense Approval Mode Runtime Guard/);
+  assert.match(report, /script tag custom approval attribute: NONE/);
+  assert.match(report, /approval mode documented outside the AdSense script tag/);
   assert.match(report, /runtime element: `ins\.adsbygoogle-noablate` observed/);
   assert.match(report, /data-ad-slot: NONE/);
   assert.match(report, /display: none/);

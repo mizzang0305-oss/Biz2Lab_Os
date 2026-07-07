@@ -8,12 +8,14 @@ Production commit observed: `49e5a322fd7992e05626aad69eb892dcb74735fe`
 
 - mode: `pre-approval-client-loader-only`
 - client loader: ALLOWED
+- script tag custom approval attribute: NONE
 - manual ad slot markup: NONE
 - `data-ad-slot`: NONE
 - `<ins class="adsbygoogle">` in source: NONE
 - legacy globals (`google_ad_client`, `google_ad_slot`, `enable_page_level_ads`): NONE
 
 This mode keeps the AdSense account/client connection visible to Google while blocking explicit publisher-created ad inventory before re-review.
+The approval mode documented outside the AdSense script tag is kept in repository configuration, tests, and this report so the AdSense runtime does not receive unsupported custom attributes.
 
 ## Runtime Finding
 
