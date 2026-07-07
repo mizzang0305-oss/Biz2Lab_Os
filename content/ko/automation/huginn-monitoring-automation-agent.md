@@ -145,6 +145,14 @@ Huginn은 강력하지만 운영 리스크도 분명합니다. 감시 대상 사
 
 세 도구는 대체 관계라기보다 역할 분담으로 보는 편이 맞습니다. Huginn이 외부 신호를 모으고, Node-RED가 로컬 이벤트를 처리하고, Activepieces가 SaaS 업무 흐름을 연결하는 구조가 더 현실적입니다.
 
+## Biz2Lab 판단 기준: 이런 경우에만 검토하세요
+
+Huginn은 자동 발행 도구가 아니라 외부 신호를 모아 사람이 검토할 후보로 만들 때만 검토합니다. 가격 변화, RSS, 경쟁사 공지, 공개 페이지 변경처럼 관찰해야 할 신호가 많고 담당자가 매일 같은 페이지를 확인하는 상황이면 후보가 됩니다.
+
+피해야 할 경우는 robots 정책, 요청 빈도, credential 저장 방식, 백업 기준 없이 모니터링을 늘리는 상황입니다. 설정 부담은 agent 설계와 trigger/action 조합에서 커지고, 운영 비용은 self-hosting 업데이트, 로그 확인, 오탐 정리, 알림 피로 관리에서 생깁니다.
+
+데이터 리스크는 로그인 쿠키, API key, 수집한 외부 신호의 보관 기간, 자동 알림 발송 경로에 있습니다. 먼저 확인할 것은 샘플 agent 2개, 요청 간격, 실패 로그, 중복 제거, 사람 승인 단계입니다. 감지 뒤 업무 처리까지 자동화하려면 [Activepieces 분석](/ko/automation/activepieces-ai-business-automation-n8n-alternative)과 [Node-RED 분석](/ko/automation/node-red-local-business-automation-server)을 함께 비교합니다.
+
 ## 최종 판단
 
 | 항목 | 판단 |

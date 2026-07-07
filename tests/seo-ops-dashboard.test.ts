@@ -101,10 +101,14 @@ test("SEO ops dashboard derives article rows from local content without fake tra
 
   assert.equal(dashboard.articles.every((row) => row.trafficStatus === "not-connected"), true);
   assert.equal(dashboard.articles.every((row) => row.adsenseReadinessStatus === "AdSense-ready core"), true);
+  assert.equal(dashboard.articles.every((row) => row.contentValueStatus === "Content value clear"), true);
   assert.equal(dashboard.articles.every((row) => row.originalValueStatus === "Original value clear"), true);
   assert.equal(dashboard.articles.every((row) => row.practicalTemplateStatus === "Practical template present"), true);
   assert.equal(dashboard.articles.every((row) => row.repeatedTemplateRisk === "Low"), true);
+  assert.equal(dashboard.articles.every((row) => row.navigationDiscoveryStatus === "Navigation/discovery ready"), true);
   assert.equal(dashboard.articles.every((row) => row.reviewerFacingIssue.length > 0), true);
+  assert.equal(dashboard.summary.noindexCandidateArticles, 0);
+  assert.equal(dashboard.summary.policyRiskArticles, 0);
 });
 
 test("SEO ops dashboard surfaces scheduler state and analytics empty states", () => {
@@ -275,8 +279,12 @@ test("SEO ops dashboard page renders the requested operational sections", () => 
   assert.match(html, /AI answer ready/);
   assert.match(html, /AdSense ready/);
   assert.match(html, /AdSense-ready core/);
+  assert.match(html, /Content value clear/);
   assert.match(html, /Original value clear/);
   assert.match(html, /Practical template present/);
+  assert.match(html, /Navigation\/discovery ready/);
+  assert.match(html, /Noindex candidates/);
+  assert.match(html, /Policy risk/);
   assert.match(html, /Repeated-template risk/);
   assert.match(html, /AI 답변 준비 좋음|결론 요약 보강 필요|체크리스트 보강 필요|비교 기준 보강 필요/);
   assert.match(html, /FAQ 있음|FAQ 보강 필요/);

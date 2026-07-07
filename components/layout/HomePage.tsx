@@ -2,8 +2,6 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
 import { ArticleCard } from "@/components/cards/ArticleCard";
-import { CategoryHubCard } from "@/components/cards/CategoryHubCard";
-import { categoryList } from "@/lib/categories";
 import { getFeaturedHomePosts } from "@/lib/posts";
 import { siteSettings } from "@/lib/site-settings";
 
@@ -26,41 +24,65 @@ export function HomePage() {
       description: "청구일, 약속일, 경과일, 담당자 후속 조치를 한 표로 정리",
     },
     {
+      title: "일일 매출 목표 쪼개기",
+      href: "/ko/sales-ops/daily-sales-goal-breakdown",
+      description: "월 목표를 오늘 상담, 제안, 입금 확인 행동량으로 나눔",
+    },
+    {
       title: "주문 채널 통합",
       href: "/ko/small-business/unify-order-channels",
       description: "전화, 메시지, 현장 주문을 누락 없이 확인하는 기준",
     },
   ];
-  const policyValueBlocks = [
+  const lossNumberLinks = [
     {
-      title: "Biz2Lab은 무엇을 해결하나",
-      href: "/ko/about",
-      description: "도구 소개보다 매출, 미수금, 주문, 계약처럼 매일 새는 업무 기준을 먼저 정리합니다.",
+      title: "달성률과 부족 금액",
+      href: "/ko/sales-ops/sales-achievement-rate",
+      description: "목표 대비 현재 위치와 남은 기간 하루 필요 실적을 계산합니다.",
     },
     {
-      title: "소상공인이 매일 놓치면 손해 보는 숫자",
+      title: "매일 확인해야 할 숫자",
       href: "/ko/small-business/daily-numbers-for-small-business",
       description: "매출, 주문, 입금, 예약, 미처리 문의를 하루 단위로 보고 다음 행동으로 연결합니다.",
     },
     {
-      title: "실무 체크리스트",
-      href: "/ko/resources",
-      description: "달성률 계산, 미수금 관리, 주문 채널 통합처럼 바로 적용할 점검 항목을 모았습니다.",
+      title: "미수금과 입금 약속",
+      href: "/ko/sales-ops/accounts-receivable-tracker",
+      description: "청구일, 약속일, 경과일, 담당자 후속 조치를 분리합니다.",
     },
+  ];
+  const decisionGuideLinks = [
     {
-      title: "자동화 도구를 도입하기 전 판단 기준",
+      title: "오픈소스 자동화 도구 시리즈",
       href: "/ko/automation/free-open-source-automation-tools-series",
       description: "무료 여부보다 설정 부담, 운영 비용, 데이터 리스크, 사람 승인 단계를 먼저 봅니다.",
     },
     {
-      title: "블로그 업무 자료",
-      href: "/ko/automation/ai-business-automation-guide",
-      description: "AI 업무 자동화와 문서 정리 글은 초안, 검토, 승인, 기록을 분리하는 기준으로 연결합니다.",
+      title: "Metabase 대시보드 판단",
+      href: "/ko/automation/metabase-dashboard-automation-for-small-business",
+      description: "대시보드 도구보다 질문, 데이터 원본, 담당자 확인 주기를 먼저 정합니다.",
     },
     {
-      title: "주제별 탐색",
-      href: "/ko/sales-ops",
-      description: "영업·매출, 소상공인 운영, 계약·결제, 자동화 도구를 문제 단위로 이어서 볼 수 있습니다.",
+      title: "AI 업무 자동화 기준",
+      href: "/ko/automation/ai-business-automation-guide",
+      description: "초안, 검토, 승인, 기록을 분리할 수 있을 때만 자동화를 검토합니다.",
+    },
+  ];
+  const pathLinks = [
+    {
+      title: "매출 목표를 쪼개야 할 때",
+      href: "/ko/sales-ops/daily-sales-goal-breakdown",
+      description: "월 목표가 막연하면 오늘 행동량부터 계산합니다.",
+    },
+    {
+      title: "주문 채널이 흩어졌을 때",
+      href: "/ko/small-business/unify-order-channels",
+      description: "전화, 메시지, 현장 주문을 하나의 확인표로 묶습니다.",
+    },
+    {
+      title: "도구 선택 전에 비교할 때",
+      href: "/ko/resources",
+      description: "계산식, 체크리스트, 판단 기준을 문제별로 먼저 봅니다.",
     },
   ];
 
@@ -70,7 +92,7 @@ export function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-5 sm:py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center md:py-20">
           <div className="min-w-0">
             <h1 className="max-w-3xl text-3xl font-bold leading-tight tracking-normal text-slate-950 sm:text-4xl md:text-5xl">
-              {siteSettings.hero.title}
+              매출, 주문, 미수금을 매일 확인하는 실무 기준
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
               {siteSettings.hero.description}
@@ -107,15 +129,15 @@ export function HomePage() {
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-14">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-bold tracking-normal text-slate-950">
-              Biz2Lab이 먼저 밝히는 실무 가치
+              놓치면 손해 보는 실무 숫자
             </h2>
             <p className="mt-3 leading-7 text-slate-600">
-              이 사이트는 조회수나 도구 이름을 늘리기보다, 독자가 오늘 확인할 입력값과 손실을 줄이는 판단 기준을
-              먼저 제공합니다. 아래 여섯 가지 기준으로 공개 글을 연결합니다.
+              Biz2Lab은 소상공인·영업팀·1인 사업자가 매일 놓치면 손해 보는 숫자, 주문,
+              미수금, 자동화 기준을 실무형 체크리스트와 계산 기준으로 정리합니다.
             </p>
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {policyValueBlocks.map((item) => (
+            {lossNumberLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -133,7 +155,7 @@ export function HomePage() {
         <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl min-w-0">
             <h2 className="text-2xl font-bold tracking-normal text-slate-950">
-              바로 확인하는 실무 기준
+              바로 쓰는 실무 자료
             </h2>
             <p className="mt-3 leading-7 text-slate-600">
               Biz2Lab은 도구 이름을 나열하는 블로그가 아니라, 매일 놓치면 손해가 되는 숫자와 확인 기준을
@@ -161,16 +183,23 @@ export function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-14">
         <div className="max-w-2xl min-w-0">
           <h2 className="text-2xl font-bold tracking-normal text-slate-950">
-            처음 시작하는 AI 업무 자동화
+            자동화 도구 도입 전 판단 기준
           </h2>
           <p className="mt-3 leading-7 text-slate-600">
-            네 개의 허브는 업무 자동화를 현장 운영, 영업 숫자, 주문 흐름,
-            계약·결제 상태로 나누어 읽을 수 있게 설계했습니다.
+            자동화는 도구를 먼저 고르는 일이 아닙니다. 설정 부담, 운영 비용, 데이터 리스크,
+            사람 승인 단계를 먼저 확인한 뒤 작은 업무부터 검토합니다.
           </p>
         </div>
-        <div className="mt-8 grid min-w-0 gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {categoryList.map((category) => (
-            <CategoryHubCard key={category.slug} category={category} />
+        <div className="mt-8 grid min-w-0 gap-4 md:grid-cols-3">
+          {decisionGuideLinks.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-md border border-slate-200 bg-white p-4 shadow-sm transition hover:border-teal-300 hover:shadow-md"
+            >
+              <h3 className="font-bold text-slate-950">{item.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{item.description}</p>
+            </Link>
           ))}
         </div>
       </section>
@@ -179,7 +208,7 @@ export function HomePage() {
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-14">
           <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div className="min-w-0">
-              <h2 className="text-2xl font-bold tracking-normal text-slate-950">최근 글</h2>
+              <h2 className="text-2xl font-bold tracking-normal text-slate-950">최근 실무 글</h2>
               <p className="mt-3 leading-7 text-slate-600">
                 각 글은 문제, 해결 방향, 체크리스트, 관련 글, 다음 단계로
                 이어지도록 구성했습니다.
@@ -198,22 +227,23 @@ export function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-14">
-        <div className="grid min-w-0 gap-6 rounded-md border border-teal-200 bg-teal-50 p-5 sm:p-6 md:grid-cols-[1fr_auto] md:items-center">
-          <div className="min-w-0">
-            <h2 className="text-2xl font-bold tracking-normal text-slate-950">
-              무료 체크리스트 안내
-            </h2>
-            <p className="mt-3 leading-7 text-slate-700">
-              다운로드 시스템은 승인 이후 단계로 두고, 현재는 글마다 바로 쓸 수
-              있는 점검 항목을 제공합니다.
-            </p>
-          </div>
-          <Link
-            href="/ko/contact"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-slate-950 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-slate-800 sm:w-auto"
-          >
-            문의하기 <ArrowRight className="h-4 w-4 shrink-0" />
-          </Link>
+        <div className="max-w-2xl min-w-0">
+          <h2 className="text-2xl font-bold tracking-normal text-slate-950">추천 탐색 경로</h2>
+          <p className="mt-3 leading-7 text-slate-600">
+            지금 겪는 문제가 숫자, 주문, 도구 선택 중 어디에 가까운지에 따라 다음 글로 이동하세요.
+          </p>
+        </div>
+        <div className="mt-8 grid min-w-0 gap-4 md:grid-cols-3">
+          {pathLinks.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-md border border-teal-200 bg-teal-50 p-4 transition hover:border-teal-400 hover:bg-white"
+            >
+              <h3 className="font-bold text-slate-950">{item.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-700">{item.description}</p>
+            </Link>
+          ))}
         </div>
       </section>
     </div>

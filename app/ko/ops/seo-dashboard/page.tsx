@@ -267,7 +267,7 @@ function adsenseStatusTone(status: SeoOpsArticleRow["adsenseReadinessStatus"]) {
   if (status === "AdSense-ready core") {
     return "border-emerald-200 bg-emerald-50 text-emerald-800";
   }
-  if (status === "Review after recrawl") {
+  if (status === "Ready after recrawl" || status === "Review before AdSense") {
     return "border-rose-200 bg-rose-50 text-rose-800";
   }
   return "border-amber-200 bg-amber-50 text-amber-800";
@@ -365,8 +365,12 @@ function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
           {row.checklistPresent ? "있음" : "보강 필요"}
         </p>
         <p className="text-sm text-slate-600">
+          Content value {row.contentValueStatus} ·
           Original value {row.originalValueStatus} · Practical template {row.practicalTemplateStatus} · Repeated-template risk{" "}
           {row.repeatedTemplateRisk} · {row.internalLinkStatus}
+        </p>
+        <p className="text-sm text-slate-600">
+          {row.navigationDiscoveryStatus} · {row.policyRiskStatus}
         </p>
         <p className="text-sm text-slate-700">{row.recommendedAction}</p>
         <p className="text-sm text-slate-600">{row.lossAvoidanceAngle}</p>
@@ -455,8 +459,12 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
                     {row.checklistPresent ? "있음" : "보강 필요"} · 비교표 {row.comparisonTablePresent ? "있음" : "필요 시 보강"}
                   </p>
                   <p className="mt-2 text-xs leading-5 text-slate-500">
+                    Content value {row.contentValueStatus} ·
                     Original value {row.originalValueStatus} · Practical template {row.practicalTemplateStatus} · Repeated-template risk{" "}
                     {row.repeatedTemplateRisk} · {row.internalLinkStatus}
+                  </p>
+                  <p className="mt-2 text-xs leading-5 text-slate-500">
+                    {row.navigationDiscoveryStatus} · {row.policyRiskStatus}
                   </p>
                   <span className={`mt-2 inline-flex rounded-md border px-2 py-1 text-xs font-semibold ${stageTone(row.optimizationStage)}`}>
                     {row.optimizationStage}
@@ -634,6 +642,8 @@ export function SeoOpsDashboardContent({ dashboard = getSeoOpsDashboard() }: { d
           <SummaryCard label="Template needs" value={`${dashboard.summary.adsenseNeedsTemplateArticles}`} detail="practical template gap" />
           <SummaryCard label="Link weak" value={`${dashboard.summary.adsenseInternalLinkWeakArticles}`} detail="in-body/internal link review" />
           <SummaryCard label="Generic risk" value={`${dashboard.summary.adsenseGenericReviewRiskArticles}`} detail="tool-summary review risk" />
+          <SummaryCard label="Noindex candidates" value={`${dashboard.summary.noindexCandidateArticles}`} detail="approval content에서 제외할 후보" />
+          <SummaryCard label="Policy risk" value={`${dashboard.summary.policyRiskArticles}`} detail="AdSense 전 재검토 필요" />
           <SummaryCard label="다음 topic" value="대기" detail={dashboard.summary.nextPublicationTopic} />
           <SummaryCard label="현재 gate" value={dashboard.summary.schedulerGate} detail={dashboard.scheduler.lastKnownIssue} />
           <SummaryCard label="Analytics" value={dashboard.summary.analyticsConnection} detail="가짜 수치 없음" />

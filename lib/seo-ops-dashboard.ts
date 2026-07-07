@@ -30,7 +30,8 @@ export type SeoOpsAdSenseReadinessStatus =
   | "Needs original examples"
   | "Template risk"
   | "Needs navigation links"
-  | "Review after recrawl";
+  | "Review before AdSense"
+  | "Ready after recrawl";
 export type SeoOpsOptimizationStage =
   | "기본 SEO 완료"
   | "내부 링크 보강 필요"
@@ -70,10 +71,13 @@ export type SeoOpsArticleRow = {
   comparisonTablePresent: boolean;
   citationFriendlySummaryPresent: boolean;
   adsenseReadinessStatus: SeoOpsAdSenseReadinessStatus;
+  contentValueStatus: "Content value clear" | "Needs practical value";
   originalValueStatus: "Original value clear" | "Needs original value";
   practicalTemplateStatus: "Practical template present" | "Needs practical template";
   repeatedTemplateRisk: "Low" | "Medium";
   internalLinkStatus: "Internal links ready" | "Internal link weak";
+  navigationDiscoveryStatus: "Navigation/discovery ready" | "Needs navigation links";
+  policyRiskStatus: "Policy risk low" | "Review before AdSense";
   reviewerFacingIssue: string;
   optimizationStage: SeoOpsOptimizationStage;
   recommendedAction: string;
@@ -182,6 +186,8 @@ export type SeoOpsDashboard = {
     adsenseNeedsTemplateArticles: number;
     adsenseInternalLinkWeakArticles: number;
     adsenseGenericReviewRiskArticles: number;
+    noindexCandidateArticles: number;
+    policyRiskArticles: number;
   };
   articles: SeoOpsArticleRow[];
   analytics: {
@@ -446,6 +452,18 @@ function adsenseReadinessSignals(post: Post, answerAudit?: SeoAnswerReadinessArt
     post.internalLinks.length > 0 || post.frontmatter.relatedPosts.length >= 3
       ? ("Internal links ready" as const)
       : ("Internal link weak" as const);
+  const contentValueStatus =
+    hasOriginalValue && hasPracticalTemplate
+      ? ("Content value clear" as const)
+      : ("Needs practical value" as const);
+  const navigationDiscoveryStatus =
+    internalLinkStatus === "Internal links ready"
+      ? ("Navigation/discovery ready" as const)
+      : ("Needs navigation links" as const);
+  const policyRiskStatus =
+    post.frontmatter.noindex || !hasOriginalValue || !hasPracticalTemplate || internalLinkStatus === "Internal link weak"
+      ? ("Review before AdSense" as const)
+      : ("Policy risk low" as const);
   const repeatedTemplateRisk =
     hasPracticalTemplate && hasOriginalValue && answerAudit?.citationFriendlySummaryPresent
       ? ("Low" as const)
@@ -461,7 +479,7 @@ function adsenseReadinessSignals(post: Post, answerAudit?: SeoAnswerReadinessArt
             ? "도구 요약처럼 보이지 않도록 Biz2Lab 판단 기준과 사례를 보강"
             : "핵심 실무 가치와 연결 구조 유지";
   const adsenseReadinessStatus: SeoOpsAdSenseReadinessStatus = post.frontmatter.noindex
-    ? "Review after recrawl"
+    ? "Ready after recrawl"
     : !hasOriginalValue
       ? "Needs original examples"
       : !hasPracticalTemplate
@@ -474,6 +492,7 @@ function adsenseReadinessSignals(post: Post, answerAudit?: SeoAnswerReadinessArt
 
   return {
     adsenseReadinessStatus,
+    contentValueStatus,
     originalValueStatus: hasOriginalValue
       ? ("Original value clear" as const)
       : ("Needs original value" as const),
@@ -482,6 +501,8 @@ function adsenseReadinessSignals(post: Post, answerAudit?: SeoAnswerReadinessArt
       : ("Needs practical template" as const),
     repeatedTemplateRisk,
     internalLinkStatus,
+    navigationDiscoveryStatus,
+    policyRiskStatus,
     reviewerFacingIssue,
   };
 }
@@ -953,6 +974,8 @@ export function getSeoOpsDashboard(rootDir = process.cwd()): SeoOpsDashboard {
       adsenseNeedsTemplateArticles: articles.filter((row) => row.adsenseReadinessStatus === "Needs practical value").length,
       adsenseInternalLinkWeakArticles: articles.filter((row) => row.adsenseReadinessStatus === "Needs navigation links").length,
       adsenseGenericReviewRiskArticles: articles.filter((row) => row.adsenseReadinessStatus === "Template risk").length,
+      noindexCandidateArticles: articles.filter((row) => row.adsenseReadinessStatus === "Ready after recrawl").length,
+      policyRiskArticles: articles.filter((row) => row.policyRiskStatus !== "Policy risk low").length,
     },
     articles,
     analytics,

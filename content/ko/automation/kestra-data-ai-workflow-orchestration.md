@@ -204,6 +204,14 @@ Kestra는 고도화 후보 도구다. 고객 데이터, 결제, 메시지 발송
 - Cloud와 Enterprise 기능, 관리형 서비스 제공, 플러그인/운영 기능 범위는 별도 조건을 확인해야 한다.
 - "오픈소스 저장소"와 "모든 운영 기능 무료"는 같은 의미가 아니다.
 
+## Biz2Lab 판단 기준: 이런 경우에만 검토하세요
+
+Kestra는 여러 데이터 작업, AI 작업, 리포트 작업의 실행 순서와 재시도가 복잡해졌을 때만 검토합니다. 단순 알림이나 작은 SaaS 연결은 [Activepieces 분석](/ko/automation/activepieces-ai-business-automation-n8n-alternative), 로컬 이벤트 처리는 [Node-RED 분석](/ko/automation/node-red-local-business-automation-server), 개발자 스크립트 실행은 [Windmill 분석](/ko/automation/windmill-developer-workflow-automation)부터 보는 편이 가볍습니다.
+
+피해야 할 경우는 운영자가 플로, namespace, secret, retry, backfill을 관리할 준비가 없는데 오케스트레이터부터 붙이는 상황입니다. 설정 부담은 인프라, YAML/flow 설계, 권한 분리에서 크고, 운영 비용은 실패 재실행, 로그 보관, 백업, 모니터링 담당자 지정에서 생깁니다.
+
+데이터 리스크는 시크릿, 데이터 원본 권한, 재실행 중복, 로그에 남는 입력값에 있습니다. 먼저 테스트할 것은 샘플 데이터 플로 1개, 실패 재시도, 수동 승인 단계, 실행 이력 조회, 롤백 절차입니다. 이 기준을 문서화하기 전에는 핵심 운영 워크플로로 고정하지 않는 편이 안전합니다.
+
 ## 무료 오픈소스 자동화 도구 시리즈
 
 - [무료 오픈소스 자동화 도구 시리즈](/ko/automation/free-open-source-automation-tools-series)
