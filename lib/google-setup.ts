@@ -9,4 +9,11 @@ export const googleSetup = {
   adsensePublisherId: ADSENSE_PUBLISHER_ID,
   adsenseScriptUrl: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`,
   adsTxtLine: `google.com, ${ADSENSE_PUBLISHER_ID}, DIRECT, f08c47fec0942fa0`,
+  adsenseApprovalMode: {
+    name: "pre-approval-client-loader-only",
+    clientLoaderAllowed: true,
+    manualAdSlotsAllowed: false,
+    runtimeNoablateAllowedWhen:
+      "hidden, unfilled, no ad slot attribute, and no measurable layout footprint",
+  },
 } as const;

@@ -60,6 +60,7 @@ export default function RootLayout({
           id="biz2lab-adsense-client"
           src={googleSetup.adsenseScriptUrl}
           strategy="beforeInteractive"
+          data-approval-mode={googleSetup.adsenseApprovalMode.name}
           async
           crossOrigin="anonymous"
         />
