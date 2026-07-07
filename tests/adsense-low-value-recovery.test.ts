@@ -59,22 +59,46 @@ test("homepage links to core practical pages instead of exposing internal dashbo
   ];
 
   assert.match(html, /소상공인과 영업팀이 매일 놓치기 쉬운 숫자/);
-  assert.match(html, /Biz2Lab이 먼저 밝히는 실무 가치/);
-  assert.match(html, /Biz2Lab은 무엇을 해결하나/);
-  assert.match(html, /소상공인이 매일 놓치면 손해 보는 숫자/);
-  assert.match(html, /실무 체크리스트/);
-  assert.match(html, /자동화 도구를 도입하기 전 판단 기준/);
-  assert.match(html, /블로그 업무 자료/);
-  assert.match(html, /주제별 탐색/);
-  assert.match(html, /바로 확인하는 실무 기준/);
+  assert.match(html, /놓치면 손해 보는 실무 숫자/);
+  assert.match(html, /바로 쓰는 실무 자료/);
+  assert.match(html, /자동화 도구 도입 전 판단 기준/);
+  assert.match(html, /최근 실무 글/);
+  assert.match(html, /추천 탐색 경로/);
   assert.match(html, /\/ko\/resources/);
   assert.match(html, /\/ko\/sales-ops\/sales-achievement-rate/);
+  assert.match(html, /\/ko\/sales-ops\/daily-sales-goal-breakdown/);
   assert.match(html, /\/ko\/small-business\/daily-numbers-for-small-business/);
   assert.match(html, /\/ko\/sales-ops\/accounts-receivable-tracker/);
   assert.match(html, /\/ko\/small-business\/unify-order-channels/);
   assert.match(html, /\/ko\/automation\/free-open-source-automation-tools-series/);
+  assert.match(html, /\/ko\/automation\/metabase-dashboard-automation-for-small-business/);
   assert.equal(publicLinks.includes("/ko/resources"), true);
   assert.doesNotMatch(html, /\/ko\/ops\/seo-dashboard/);
+});
+
+test("resources hub exposes five reviewer-facing practical clusters", () => {
+  const html = renderToStaticMarkup(createElement(ResourcesPage));
+
+  for (const heading of [
+    "매출·달성률 계산",
+    "미수금·입금 관리",
+    "주문·리뷰·채널 관리",
+    "자동화 도구 판단 기준",
+    "대시보드·BI 도구 비교",
+  ]) {
+    assert.match(html, new RegExp(heading));
+  }
+
+  for (const label of ["formula", "checklist", "decision guide", "template"]) {
+    assert.match(html, new RegExp(label));
+  }
+
+  assert.match(html, /\/ko\/sales-ops\/payment-reminder-message/);
+  assert.match(html, /\/ko\/automation\/activepieces-ai-business-automation-n8n-alternative/);
+  assert.match(html, /\/ko\/automation\/node-red-local-business-automation-server/);
+  assert.match(html, /\/ko\/automation\/ai-business-automation-guide/);
+  assert.match(html, /\/ko\/automation\/apache-superset-bi-dashboard-automation/);
+  assert.match(html, /\/ko\/automation\/redash-open-source-dashboard-automation/);
 });
 
 test("about page includes editorial trust signals without fake biography", () => {
@@ -83,8 +107,11 @@ test("about page includes editorial trust signals without fake biography", () =>
   assert.match(source, /운영 목적|현장형 AI 업무 자동화/);
   assert.match(source, /콘텐츠 검토 기준/);
   assert.match(source, /과장 금지/);
-  assert.match(source, /도구 소개보다/);
+  assert.match(source, /도구 도입 전 리스크 확인/);
+  assert.match(source, /실무 기준 우선/);
+  assert.match(source, /Biz2Lab은 단순 도구 소개보다 실제 업무에서 시간을 줄이고, 손실을 줄이고, 사람이 확인해야 할 기준을 정리하는 것을 우선합니다/);
   assert.match(source, /\/ko\/contact/);
+  assert.match(source, /\/ko\/privacy/);
   assert.doesNotMatch(source, /박사|수상|공인 전문가|공식 파트너/);
 });
 
@@ -186,6 +213,11 @@ test("priority tool articles expose Biz2Lab decision criteria", () => {
     "langflow-ai-workflow-automation",
     "activepieces-ai-business-automation-n8n-alternative",
     "node-red-local-business-automation-server",
+    "baserow-open-source-database-automation",
+    "huginn-monitoring-automation-agent",
+    "kestra-data-ai-workflow-orchestration",
+    "windmill-developer-workflow-automation",
+    "appsmith-internal-dashboard-automation",
   ];
 
   for (const slug of priorityToolSlugs) {
@@ -196,6 +228,34 @@ test("priority tool articles expose Biz2Lab decision criteria", () => {
     assert.match(source, /먼저 (해볼|확인|테스트)/, `${slug} needs pre-adoption step`);
     assert.doesNotMatch(source, /무조건 추천|완전 무료|상업 사용 보장/);
   }
+});
+
+test("master approval audit exists and does not mark ready with high risk pages", () => {
+  const report = read("reports/adsense-approval-master-audit.md");
+
+  assert.match(report, /# Biz2Lab AdSense Approval Master Audit/);
+  assert.match(report, /Official policy basis/);
+  assert.match(report, /total public indexable pages/i);
+  assert.match(report, /total noindex intended pages/i);
+  assert.match(report, /NOINDEX_OR_MERGE_REVIEW_CANDIDATES/);
+  assert.match(report, /Ads \/ policy scan/);
+  assert.match(report, /existing AdSense client loader: (YES|NO)/);
+  assert.match(report, /ad slot markup: NO/);
+  assert.match(report, /fake analytics: NO/);
+  assert.match(report, /meta keywords: NO/);
+  assert.match(report, /recommendation: `WAIT_FOR_RECRAWL`|recommendation: `READY_FOR_ADSENSE_REVIEW`|recommendation: `NEEDS_MORE_FIXES`/);
+
+  for (const route of ["/ko", "/ko/resources", "/ko/about", "/ko/ops/seo-dashboard"]) {
+    assert.match(report, new RegExp(route.replaceAll("/", "\\/")));
+  }
+  for (const post of getPublicPosts()) {
+    assert.match(report, new RegExp(post.route.replaceAll("/", "\\/")));
+  }
+
+  if (/recommendation: `READY_FOR_ADSENSE_REVIEW`/.test(report)) {
+    assert.doesNotMatch(report, /adsenseRisk: "HIGH"/);
+  }
+  assert.doesNotMatch(report, /\b\d+\s*(clicks|impressions|sessions|pageviews|CTR|rankings)\b/i);
 });
 
 test("policy safety keeps meta keywords, fake analytics, admin/login routes, and ad units out", () => {
