@@ -27,14 +27,14 @@ const p1Slugs = new Set([
   "customer-memory-system",
 ]);
 
-const requiredSectionHeadings = [
-  "문제 정의",
-  "핵심 개념",
-  "현장 시나리오",
-  "실행 절차",
-  "자동화 구조",
-  "리스크와 방지책",
-  "도입 순서",
+const requiredSectionSignals = [
+  { label: "problem framing", pattern: /(?:문제 정의|풀어야 할 문제)$/ },
+  { label: "decision criteria", pattern: /(?:핵심 개념|판단에 필요한 핵심 기준)$/ },
+  { label: "field scenario", pattern: /(?:현장 시나리오|적용이 필요한 실제 업무 장면)$/ },
+  { label: "execution procedure", pattern: /(?:실행 절차|검토와 실행 순서)$/ },
+  { label: "safe operating structure", pattern: /(?:자동화 구조|운영을 안전하게 만드는 구조)$/ },
+  { label: "risk controls", pattern: /(?:리스크와 방지책|실패 위험과 방지책)$/ },
+  { label: "adoption sequence", pattern: /(?:도입 순서|시작 순서: 오늘·1주·1개월)$/ },
 ];
 
 const forbiddenContentPatterns = [
@@ -71,6 +71,21 @@ function duplicatedValues(values: string[]) {
   return [...duplicates];
 }
 
+function extractH2Sections(content: string) {
+  const matches = [...content.matchAll(/^##\s+(.+)$/gm)];
+
+  return matches.map((match, index) => {
+    const headingStart = match.index ?? 0;
+    const bodyStart = headingStart + match[0].length;
+    const bodyEnd = matches[index + 1]?.index ?? content.length;
+
+    return {
+      heading: match[1].trim(),
+      body: content.slice(bodyStart, bodyEnd).trim(),
+    };
+  });
+}
+
 const posts = getPublicPosts();
 const postsBySlug = new Map(posts.map((post) => [post.slug, post]));
 const heroUsage = new Map<string, string[]>();
@@ -81,6 +96,7 @@ for (const post of posts) {
   const contentLength = [...post.content].length;
   const images = inlineImages(post.content);
   const headingTexts = post.headings.map((heading) => heading.text);
+  const h2Sections = extractH2Sections(post.content);
   const duplicateHeadings = duplicatedValues(headingTexts);
   const relatedHeadingCount = headingTexts.filter((heading) => heading === "관련 글").length;
   const minimumLength = top3Slugs.has(post.slug) ? 2000 : p1Slugs.has(post.slug) ? 1500 : 1200;
@@ -119,9 +135,15 @@ for (const post of posts) {
     }
   }
 
-  for (const requiredHeading of requiredSectionHeadings) {
-    if (!headingTexts.includes(requiredHeading)) {
-      errors.push(`${post.slug}: missing section "${requiredHeading}"`);
+  for (const section of requiredSectionSignals) {
+    if (!headingTexts.some((heading) => section.pattern.test(heading))) {
+      errors.push(`${post.slug}: missing ${section.label} section`);
+    }
+  }
+
+  for (const section of h2Sections) {
+    if (section.body.length === 0) {
+      errors.push(`${post.slug}: empty H2 section: ${section.heading}`);
     }
   }
 

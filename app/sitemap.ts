@@ -8,8 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries = staticPublicRoutes.map((route) => ({
     url: absoluteUrl(route),
     lastModified: new Date("2026-06-15"),
-    changeFrequency: route === "/" || route === "/ko" ? "daily" : "weekly",
-    priority: route === "/" || route === "/ko" ? 1 : 0.8,
+    changeFrequency: route === "/ko" ? "daily" : "weekly",
+    priority: route === "/ko" ? 1 : 0.8,
   })) satisfies MetadataRoute.Sitemap;
 
   const postEntries = getSitemapPosts().map((post) => ({
@@ -21,4 +21,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticEntries, ...postEntries];
 }
-

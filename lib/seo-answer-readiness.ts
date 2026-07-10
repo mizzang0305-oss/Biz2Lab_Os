@@ -99,7 +99,9 @@ function hasDirectAnswerInFirstLines(post: Post) {
 }
 
 function hasConclusionFirst(post: Post) {
-  return post.headings.some((heading) => /^(먼저 결론|결론부터|지금 결론)/.test(heading.text));
+  return post.headings.some((heading) =>
+    /(먼저 (?:내릴 )?결론|결론부터|지금 결론)/.test(heading.text),
+  );
 }
 
 function hasChecklist(post: Post) {
@@ -107,7 +109,11 @@ function hasChecklist(post: Post) {
     return true;
   }
 
-  return post.headings.some((heading) => /(체크리스트|확인 포인트|확인할 기준|안전 게이트|도입 기준)/.test(heading.text));
+  return post.headings.some((heading) =>
+    /(체크리스트|확인 포인트|확인할 기준|확인 항목|안전 게이트|도입 기준|검토할 최소 조건)/.test(
+      heading.text,
+    ),
+  );
 }
 
 function hasFitAvoid(post: Post) {

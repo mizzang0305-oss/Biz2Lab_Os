@@ -332,6 +332,8 @@ test("image uniqueness audit protects all public hero images, not only the TOP3"
   assert.match(auditSource, /Hero for practical operations/);
   assert.match(auditSource, /structural/i);
   assert.match(auditSource, /visualFamily|concept/i);
+  assert.match(auditSource, /data\/image-assets\.json/);
+  assert.match(auditSource, /path\.extname/);
   assert.doesNotMatch(auditSource, /const targets = \[[\s\S]*ai-business-automation-guide[\s\S]*accounts-receivable-tracker[\s\S]*electronic-contract-system-basics[\s\S]*\] as const/);
 });
 

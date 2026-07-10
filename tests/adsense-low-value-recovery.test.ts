@@ -105,10 +105,12 @@ test("about page includes editorial trust signals without fake biography", () =>
   const source = read("app/ko/about/page.tsx");
 
   assert.match(source, /운영 목적|현장형 AI 업무 자동화/);
-  assert.match(source, /콘텐츠 검토 기준/);
+  assert.match(source, /콘텐츠 제작과 편집 기준/);
+  assert.match(source, /AI 도구/);
+  assert.match(source, /출처 확인/);
+  assert.match(source, /독창성 검토/);
   assert.match(source, /과장 금지/);
   assert.match(source, /도구 도입 전 리스크 확인/);
-  assert.match(source, /실무 기준 우선/);
   assert.match(source, /Biz2Lab은 단순 도구 소개보다 실제 업무에서 시간을 줄이고, 손실을 줄이고, 사람이 확인해야 할 기준을 정리하는 것을 우선합니다/);
   assert.match(source, /\/ko\/contact/);
   assert.match(source, /\/ko\/privacy/);
@@ -129,7 +131,11 @@ test("sales-achievement cluster includes practical formulas and examples", () =>
     assert.match(source, /부족 금액 = 목표 - 현재 실적/, `${filePath} needs gap formula`);
     assert.match(source, /남은 기간 하루 필요 실적 = 부족 금액 ÷ 남은 영업일/, `${filePath} needs daily-required formula`);
     assert.match(source, /\| .* \| .* \|/, `${filePath} needs practical table`);
-    assert.match(source, /이걸 (안 보면|보면).*손해|손해를 줄이는 이유/, `${filePath} needs loss-avoidance framing`);
+    assert.match(
+      source,
+      /이걸 (안 보면|보면).*손해|손해를 줄이는 이유|검토가 줄여 주는 운영 손실|도입 전에 검토해야 하는 이유/,
+      `${filePath} needs loss-avoidance framing`,
+    );
   }
 });
 
@@ -222,7 +228,7 @@ test("priority tool articles expose Biz2Lab decision criteria", () => {
 
   for (const slug of priorityToolSlugs) {
     const source = read(`content/ko/automation/${slug}.md`);
-    assert.match(source, /## Biz2Lab 판단 기준: 이런 경우에만 검토하세요/, `${slug} needs named decision criteria`);
+    assert.match(source, /## .+ 도입을 검토할 최소 조건/, `${slug} needs named decision criteria`);
     assert.match(source, /설정 부담|운영 비용/, `${slug} needs setup or operating-cost criteria`);
     assert.match(source, /데이터 리스크|self-hosting|권한|credential|백업/, `${slug} needs data or self-hosting risk criteria`);
     assert.match(source, /먼저 (해볼|확인|테스트)/, `${slug} needs pre-adoption step`);

@@ -31,6 +31,8 @@ const root = process.cwd();
 const errors: string[] = [];
 const warnings: string[] = [];
 const infos: string[] = [];
+const imageAssetEntries = normalizeAssetEntries(readJson<unknown>("data/image-assets.json"));
+const publicManifestEntries = normalizeAssetEntries(readJson<unknown>("public/images/posts/manifest.json"));
 const genericTemplatePatterns = [
   /Hero for practical operations/i,
   /Article workflow/i,
@@ -115,9 +117,11 @@ function normalizeAssetEntries(raw: unknown): AssetEntry[] {
 }
 
 function rawPathForSlug(slug: string) {
-  const concept = getArticleImageConcept(slug);
-  const extension = concept?.retainedPremium ? "png" : "svg";
-  return `assets/images/raw/${slug}-hero.${extension}`;
+  const manifestPath = imageAssetEntries.find(
+    (entry) => entry.postSlug === slug && entry.usage === "hero" && entry.rawPath,
+  )?.rawPath;
+
+  return manifestPath ?? `assets/images/raw/${slug}-hero.svg`;
 }
 
 function publicCandidatesForSlug(slug: string) {
@@ -177,13 +181,13 @@ function checkRawSvgQuality() {
       errors.push(`${post.slug}: heroAlt does not match concept altKo`);
     }
 
-    if (concept.retainedPremium) {
+    const rawPath = absolutePath(rawPathForSlug(post.slug));
+    if (!fs.existsSync(rawPath)) {
+      errors.push(`${post.slug}: missing raw source ${repoPath(path.relative(root, rawPath))}`);
       continue;
     }
 
-    const rawPath = absolutePath(rawPathForSlug(post.slug));
-    if (!fs.existsSync(rawPath)) {
-      errors.push(`${post.slug}: missing raw SVG ${repoPath(path.relative(root, rawPath))}`);
+    if (path.extname(rawPath).toLowerCase() !== ".svg") {
       continue;
     }
 
@@ -283,11 +287,8 @@ for (const record of records.filter((item) => !item.exists)) {
 checkExactHashDuplicates(records);
 checkRawSvgQuality();
 checkConceptDiversity();
-checkDuplicateManifestFields(normalizeAssetEntries(readJson<unknown>("data/image-assets.json")), "data/image-assets.json");
-checkDuplicateManifestFields(
-  normalizeAssetEntries(readJson<unknown>("public/images/posts/manifest.json")),
-  "public/images/posts/manifest.json",
-);
+checkDuplicateManifestFields(imageAssetEntries, "data/image-assets.json");
+checkDuplicateManifestFields(publicManifestEntries, "public/images/posts/manifest.json");
 
 for (const record of records) {
   infos.push(

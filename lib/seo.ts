@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const staticPublicRoutes = [
-  "/",
   "/ko",
   "/ko/automation",
   "/ko/sales-ops",
@@ -75,12 +74,7 @@ export function organizationJsonLd() {
     name: siteConfig.name,
     alternateName: siteConfig.koreanName,
     url: siteConfig.url,
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer support",
-      email: siteConfig.email,
-      availableLanguage: ["ko"],
-    },
+    sameAs: ["https://github.com/mizzang0305-oss"],
   };
 }
 
@@ -89,13 +83,8 @@ export function websiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteConfig.name,
-    url: siteConfig.url,
+    url: absoluteUrl("/ko"),
     inLanguage: "ko-KR",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${siteConfig.url}/ko?query={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 

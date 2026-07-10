@@ -6,7 +6,7 @@ import { createMetadata } from "@/lib/seo";
 export const metadata: Metadata = createMetadata({
   title: "소개",
   description:
-    "Biz2Lab의 현장형 업무 자동화 콘텐츠 방향, 편집 기준, 과장 없는 실무 검토 원칙을 소개합니다.",
+    "Biz2Lab 편집팀의 현장형 업무 자동화 콘텐츠 목적, 제작 과정, 출처 확인과 수정 원칙을 소개합니다.",
   path: "/ko/about",
 });
 
@@ -31,27 +31,37 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <section className="mt-10 rounded-lg border border-slate-200 bg-slate-50 p-5 sm:p-6">
-        <h2 className="text-2xl font-bold tracking-normal text-slate-950">운영자 / 편집 기준</h2>
+      <section className="mt-10 border-y border-slate-200 py-8">
+        <h2 className="text-2xl font-bold tracking-normal text-slate-950">작성·검토 주체</h2>
         <div className="mt-5 grid gap-4 text-base leading-7 text-slate-700">
           <p>
-            Biz2Lab은 소상공인, 영업팀, 1인 사업자가 실제 업무에서 확인할 수 있는
-            기준을 우선합니다. 특정 도구를 무조건 추천하거나 수익을 보장하지
-            않으며, 자동화 도입 전 비용, 권한, 데이터 보관, 사람 승인 단계를 함께
-            검토합니다.
+            모든 글의 작성·검토 주체는 Biz2Lab 편집팀입니다. 특정 제품 판매자가 아니라
+            소상공인과 작은 팀의 운영 문제를 기준으로 도구, 숫자, 업무 흐름을 비교합니다.
+          </p>
+          <p>
+            적용 범위나 공개 글의 오류 제보는{" "}
+            <Link className="font-semibold text-teal-700 underline-offset-4 hover:underline" href="/ko/contact">
+              문의 페이지
+            </Link>
+            에서 받습니다. 수정이 필요한 내용은 원문을 확인한 뒤 갱신일과 함께 반영합니다.
+          </p>
+        </div>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-2xl font-bold tracking-normal text-slate-950">콘텐츠 제작과 편집 기준</h2>
+        <div className="mt-5 grid gap-4 text-base leading-7 text-slate-700">
+          <p>
+            초안 구조화와 비교 항목 정리에 AI 도구를 활용할 수 있습니다. 다만 AI가 만든
+            문장을 그대로 공개하지 않고, 공개 전에는 공식 문서 링크, 과장 표현, 개인정보·결제·계약 위험,
+            실제로 따라 할 수 있는 절차인지 여부를 편집 기준에 따라 확인합니다.
           </p>
           <ul className="grid gap-3">
-            <li>콘텐츠 검토 기준: 문제 정의, 입력값, 확인 담당자, 다음 행동이 분명한지 확인합니다.</li>
+            <li>독자 우선: 검색어보다 독자가 해결하려는 문제와 다음 행동을 먼저 설명합니다.</li>
+            <li>출처 확인: 제품 기능, 라이선스, 법률·결제 관련 내용은 가능한 한 공식 문서를 우선 확인합니다.</li>
+            <li>독창성 검토: 다른 글과 같은 문단을 반복하지 않고 주제별 판단 기준과 사례를 제공합니다.</li>
             <li>과장 금지: 완전 무료, 상업 사용 보장, 즉시 수익 같은 표현을 사용하지 않습니다.</li>
             <li>도구 도입 전 리스크 확인: 고객 정보, 결제, 계약, 금액이 포함된 자동화는 사람 검토를 전제로 설명합니다.</li>
-            <li>실무 기준 우선: 도구 이름보다 오늘 확인할 숫자, 상태, 담당자, 승인 기준을 먼저 정리합니다.</li>
-            <li>
-              문의 경로: 공개 글에서 설명하기 어려운 적용 범위는{" "}
-              <Link className="font-semibold text-teal-700 underline-offset-4 hover:underline" href="/ko/contact">
-                문의 페이지
-              </Link>
-              로 연결합니다.
-            </li>
             <li>
               개인정보 기준: 수집, 보관, 외부 전송이 필요한 흐름은{" "}
               <Link className="font-semibold text-teal-700 underline-offset-4 hover:underline" href="/ko/privacy">
@@ -60,6 +70,20 @@ export default function AboutPage() {
               을 기준으로 확인합니다.
             </li>
           </ul>
+        </div>
+      </section>
+
+      <section className="mt-10 border-t border-slate-200 pt-8">
+        <h2 className="text-2xl font-bold tracking-normal text-slate-950">수정과 최신성 원칙</h2>
+        <div className="mt-5 grid gap-4 text-base leading-7 text-slate-700">
+          <p>
+            제품 가격, 라이선스, 지원 기능처럼 바뀔 수 있는 정보는 글의 작성일만으로 확정하지 않습니다.
+            실제 도입 전 공식 문서를 다시 확인하도록 안내하고, 중요한 변경을 반영한 글은 수정일을 갱신합니다.
+          </p>
+          <p>
+            법률, 세무, 금융, 개인정보 관련 글은 일반적인 운영 기준을 설명하는 정보성 콘텐츠이며
+            개별 사안의 전문가 자문을 대신하지 않습니다.
+          </p>
         </div>
       </section>
     </div>

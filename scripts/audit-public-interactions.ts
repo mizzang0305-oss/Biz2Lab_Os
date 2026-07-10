@@ -192,7 +192,7 @@ function validateSearchFallback() {
     envExample.includes("NEXT_PUBLIC_PAGEFIND_ENABLED=false") &&
     (!searchBox.includes("DisabledSearchBox") ||
       !searchBox.includes("siteSettings.messages.disabledSearch") ||
-      siteSettings.messages.disabledSearch !== "검색은 승인 후 활성화 예정입니다." ||
+      siteSettings.messages.disabledSearch !== "검색 기능은 현재 제공하지 않습니다." ||
       !searchBox.includes("disabled"))
   ) {
     errors.push("components/search/SearchBox.tsx: disabled Pagefind fallback is missing");
@@ -313,18 +313,20 @@ function validateGoogleSetupAppliedSafely() {
 
 function validateContactFallback() {
   const page = readProjectFile(path.join("app", "ko", "contact", "page.tsx"));
-  const form = readProjectFile(path.join("components", "forms", "ContactForm.tsx"));
 
   if (page.includes('action="/api/contact"') || page.includes("method=\"post\"")) {
     errors.push("app/ko/contact/page.tsx: contact page can navigate directly to JSON API");
   }
-  if (!page.includes("ContactForm")) {
-    errors.push("app/ko/contact/page.tsx: ContactForm is not rendered");
+  if (!page.includes("github.com/mizzang0305-oss/Biz2Lab_Os/issues/new")) {
+    errors.push("app/ko/contact/page.tsx: working public issue contact URL is missing");
   }
-  if (!form.includes("SUPABASE_NOT_CONFIGURED")) {
-    errors.push("components/forms/ContactForm.tsx: Supabase fallback state is not handled");
+  if (!page.includes('target="_blank"') || !page.includes('rel="noopener noreferrer"')) {
+    errors.push("app/ko/contact/page.tsx: external contact link must open safely");
   }
-  checked.push("contact form graceful fallback");
+  if (!page.includes("민감 정보") || page.includes("ContactForm")) {
+    errors.push("app/ko/contact/page.tsx: public contact privacy warning or dead-form removal is incomplete");
+  }
+  checked.push("working public contact path and privacy warning");
 }
 
 function validatePostNextSteps() {
