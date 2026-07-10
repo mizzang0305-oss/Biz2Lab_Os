@@ -74,3 +74,13 @@ test("admin content automation route handlers require auth and no-store response
     assert.match(source, /runtime\s*=\s*"nodejs"/, `${routeFile} must stay on the Node runtime`);
   }
 });
+
+test("admin content automation routes exclude repository-only files from output tracing", () => {
+  const nextConfigSource = fs.readFileSync(path.join(process.cwd(), "next.config.ts"), "utf8");
+
+  assert.match(nextConfigSource, /outputFileTracingExcludes/);
+  assert.match(nextConfigSource, /\/api\/admin\/content-automation\/\*/);
+  assert.match(nextConfigSource, /\.\/\.git\/\*\*\/\*/);
+  assert.match(nextConfigSource, /\.\/assets\/\*\*\/\*/);
+  assert.match(nextConfigSource, /\.\/public\/\*\*\/\*/);
+});

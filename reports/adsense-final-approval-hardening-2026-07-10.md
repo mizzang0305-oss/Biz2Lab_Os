@@ -3,7 +3,8 @@
 - 감사일: 2026-07-10
 - 기준 커밋: `904623bee7339b9573fbb7ceef97ec969db5b66c`
 - 작업 브랜치: `codex/adsense-final-approval-hardening`
-- 상태: `LOCAL_READY_FOR_OWNER_REVIEW`
+- 상태: `PR_READY_FOR_MERGE_GATE`
+- PR: `#115`
 - 프로덕션 반영: 안 함
 - AdSense 재검토 요청: 안 함
 
@@ -93,16 +94,16 @@ AdSense의 승인 여부를 보장할 수는 없다. 이번 작업은 Google이 
 - `npm run check:links`: PASS
 - `npm run audit:image-briefs`: PASS
 - `npm run audit:image-prompts`: PASS
+- `npm run audit:image-uniqueness`: PASS
 - `npm run audit:premium-images`: PASS
-- `npm run build`: PASS
+- `npm run build`: PASS, NFT warning 0, admin route trace 7,011 → 380 files
 - Playwright 로컬 스모크: PASS
 
 ## 6. 남은 리스크
 
 - Google의 최종 정책·품질 판단은 외부 결정이므로 승인을 보장할 수 없다.
-- 이 브랜치는 아직 커밋·푸시·병합·배포되지 않았다. 현재 진행 중인 AdSense 검토는 기존 프로덕션을 본다.
-- `audit:image-uniqueness`는 기존 자동화 글 28개의 원본 SVG 부재를 보고한다. 모든 공개 WebP와 이미지 참조는 존재하고 `validate:images` 및 브라우저 렌더링은 통과했으므로 공개 심사 표면의 차단 결함으로 분류하지 않았다.
-- Next.js build는 기존 admin content automation 경로의 broad NFT trace 경고 2건을 유지한다. 빌드는 성공하며 이번 공개 사이트 변경과 직접 관련이 없다.
+- PR #115는 아직 병합되지 않았으므로 현재 production은 기존 master를 제공한다.
+- 코드·콘텐츠·광고 표면에 확인된 로컬 차단 결함은 없다. 최종 외부 변수는 Google의 심사 판단과 재크롤 시점이다.
 
 ## 7. 반영 원칙과 롤백
 
@@ -113,7 +114,7 @@ AdSense의 승인 여부를 보장할 수는 없다. 이번 작업은 Google이 
 
 ## 8. 다음 게이트
 
-1. 변경 범위와 문구를 owner review한다.
-2. 명시적 승인 후에만 커밋, push, PR 생성을 진행한다.
-3. 병합은 별도 승인 뒤 수행하고 정상 Git 배포 완료 후 프로덕션 스모크를 다시 실행한다.
+1. PR #115의 최신 원격 체크를 확인한다.
+2. 깨끗하면 squash merge하고 정상 Git-triggered production 배포를 기다린다.
+3. production에서 redirect, canonical, discovery, 신뢰 페이지, 광고 슬롯, 모바일 레이아웃을 다시 스모크한다.
 4. AdSense 화면이 이미 검토 중이면 추가 검토 요청을 누르지 않고 현재 결정을 기다린다.
