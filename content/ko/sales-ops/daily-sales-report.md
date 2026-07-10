@@ -111,5 +111,3 @@ faq:
 - [매출 달성률 계산](/ko/sales-ops/sales-achievement-rate): 보고 숫자를 목표 대비 달성률로 해석하는 기준입니다.
 - [일일 매출 목표 쪼개기](/ko/sales-ops/daily-sales-goal-breakdown): 월 목표를 오늘 해야 할 행동으로 나누는 방법입니다.
 - [미수금 관리표](/ko/sales-ops/accounts-receivable-tracker): 보고 이후 입금 확인과 후속 조치를 연결하는 기준입니다.
-
-## 영업팀 보고 최신 기준 확인 메모

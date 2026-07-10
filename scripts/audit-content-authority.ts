@@ -71,6 +71,21 @@ function duplicatedValues(values: string[]) {
   return [...duplicates];
 }
 
+function extractH2Sections(content: string) {
+  const matches = [...content.matchAll(/^##\s+(.+)$/gm)];
+
+  return matches.map((match, index) => {
+    const headingStart = match.index ?? 0;
+    const bodyStart = headingStart + match[0].length;
+    const bodyEnd = matches[index + 1]?.index ?? content.length;
+
+    return {
+      heading: match[1].trim(),
+      body: content.slice(bodyStart, bodyEnd).trim(),
+    };
+  });
+}
+
 const posts = getPublicPosts();
 const postsBySlug = new Map(posts.map((post) => [post.slug, post]));
 const heroUsage = new Map<string, string[]>();
@@ -81,6 +96,7 @@ for (const post of posts) {
   const contentLength = [...post.content].length;
   const images = inlineImages(post.content);
   const headingTexts = post.headings.map((heading) => heading.text);
+  const h2Sections = extractH2Sections(post.content);
   const duplicateHeadings = duplicatedValues(headingTexts);
   const relatedHeadingCount = headingTexts.filter((heading) => heading === "관련 글").length;
   const minimumLength = top3Slugs.has(post.slug) ? 2000 : p1Slugs.has(post.slug) ? 1500 : 1200;
@@ -122,6 +138,12 @@ for (const post of posts) {
   for (const section of requiredSectionSignals) {
     if (!headingTexts.some((heading) => section.pattern.test(heading))) {
       errors.push(`${post.slug}: missing ${section.label} section`);
+    }
+  }
+
+  for (const section of h2Sections) {
+    if (section.body.length === 0) {
+      errors.push(`${post.slug}: empty H2 section: ${section.heading}`);
     }
   }
 

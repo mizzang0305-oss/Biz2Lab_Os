@@ -117,5 +117,3 @@ faq:
 - [영업팀 일일 보고](/ko/sales-ops/daily-sales-report): 주문 상태를 오늘의 후속 행동과 보고 기준으로 연결합니다.
 - [매출 미수금 구조](/ko/sales-ops/sales-revenue-ar-structure): 주문 이후 청구, 입금, 미수 상태를 나누는 방법입니다.
 - [주문 관리 자동화](/ko/small-business/unify-order-channels): 소상공인 운영 관점에서 여러 주문 채널을 정리하는 기준입니다.
-
-## 거래처 주문 관리 최신 기준 확인 메모

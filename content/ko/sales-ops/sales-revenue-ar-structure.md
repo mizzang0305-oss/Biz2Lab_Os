@@ -126,5 +126,3 @@ faq:
 - [매출 달성률 계산](/ko/sales-ops/sales-achievement-rate): 매출 목표 대비 현재 위치를 계산하는 기준입니다.
 - [미수금 관리표](/ko/sales-ops/accounts-receivable-tracker): 입금 예정일과 후속 조치를 운영표로 관리하는 방법입니다.
 - [거래처 입금 확인 메시지](/ko/sales-ops/payment-reminder-message): 미수 상태를 확인한 뒤 거래처에 전달할 문구 기준입니다.
-
-## 매출 미수금 구조 최신 기준 확인 메모

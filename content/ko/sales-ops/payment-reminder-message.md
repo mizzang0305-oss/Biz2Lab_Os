@@ -126,5 +126,3 @@ faq:
 - [미수금 관리표](/ko/sales-ops/accounts-receivable-tracker): 약속일, 경과일, 담당자 후속 조치를 한곳에서 관리하는 기준입니다.
 - [매출 미수금 구조](/ko/sales-ops/sales-revenue-ar-structure): 청구와 입금 상태를 분리해 현금 흐름을 보는 방법입니다.
 - [미서명 계약 관리](/ko/contracts-payments/manage-unsigned-contracts): 계약 상태가 입금 확인 전에 먼저 정리되어야 하는 경우를 점검합니다.
-
-## 거래처 입금 확인 메시지 최신 기준 확인 메모

@@ -69,7 +69,13 @@ const invalidParticleFragments = [
 ];
 
 export type ContentOriginalityIssue = {
-  type: "thin-content" | "repeated-paragraph" | "overused-heading" | "high-similarity" | "particle-error";
+  type:
+    | "thin-content"
+    | "empty-section"
+    | "repeated-paragraph"
+    | "overused-heading"
+    | "high-similarity"
+    | "particle-error";
   message: string;
   slugs: string[];
 };
@@ -81,7 +87,13 @@ export type ContentOriginalityAudit = {
   overusedHeadingGroups: number;
   maxPairSimilarity: number;
   particleErrorCount: number;
+  emptySectionCount: number;
   issues: ContentOriginalityIssue[];
+};
+
+type MarkdownSection = {
+  heading: string;
+  body: string;
 };
 
 type AuditedPost = {
@@ -89,6 +101,7 @@ type AuditedPost = {
   raw: string;
   content: string;
   headings: string[];
+  sections: MarkdownSection[];
   paragraphs: string[];
   shingles: Set<string>;
 };
@@ -148,6 +161,21 @@ function extractProseParagraphs(content: string) {
     .filter((part) => part.length >= 70);
 }
 
+function extractH2Sections(content: string): MarkdownSection[] {
+  const matches = [...content.matchAll(/^##\s+(.+)$/gm)];
+
+  return matches.map((match, index) => {
+    const headingStart = match.index ?? 0;
+    const bodyStart = headingStart + match[0].length;
+    const bodyEnd = matches[index + 1]?.index ?? content.length;
+
+    return {
+      heading: match[1].trim(),
+      body: content.slice(bodyStart, bodyEnd).trim(),
+    };
+  });
+}
+
 function buildShingles(content: string, size = 5) {
   const tokens = normalizeContent(content)
     .split(" ")
@@ -191,6 +219,7 @@ function loadPublishedPosts(rootDir: string): AuditedPost[] {
       raw,
       content: parsed.content.trim(),
       headings: Array.from(parsed.content.matchAll(/^#{2,3}\s+(.+)$/gm), (match) => match[1].trim()),
+      sections: extractH2Sections(parsed.content),
       paragraphs: extractProseParagraphs(parsed.content),
       shingles: buildShingles(parsed.content),
     }));
@@ -209,6 +238,16 @@ export function auditContentOriginality(rootDir = process.cwd()): ContentOrigina
         message: `${post.slug} has ${post.content.length} content characters`,
         slugs: [post.slug],
       });
+    }
+
+    for (const section of post.sections) {
+      if (section.body.length === 0) {
+        issues.push({
+          type: "empty-section",
+          message: `${post.slug} has an empty H2 section: ${section.heading}`,
+          slugs: [post.slug],
+        });
+      }
     }
 
     for (const heading of new Set(post.headings)) {
@@ -288,6 +327,7 @@ export function auditContentOriginality(rootDir = process.cwd()): ContentOrigina
     overusedHeadingGroups: overusedHeadings.length,
     maxPairSimilarity: Number(maxPairSimilarity.toFixed(3)),
     particleErrorCount: issues.filter((issue) => issue.type === "particle-error").length,
+    emptySectionCount: issues.filter((issue) => issue.type === "empty-section").length,
     issues,
   };
 }
