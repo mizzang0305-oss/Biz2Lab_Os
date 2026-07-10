@@ -19,7 +19,6 @@ export type SiteSettings = {
   brandSubtitle: string;
   description: string;
   author: string;
-  contactEmail: string;
   hero: {
     title: string;
     description: string;
@@ -52,7 +51,6 @@ export const siteSettings = {
   description:
     "소상공인, 영업팀, 1인 사업자를 위한 현장형 업무 자동화와 운영 숫자 콘텐츠입니다.",
   author: "Biz2Lab",
-  contactEmail: "hello@biz2lab.com",
   hero: {
     title: "AI 업무 자동화로 사업 운영을 시스템화하는 방법",
     description:
@@ -99,10 +97,10 @@ export const siteSettings = {
         ],
       },
     ],
-    copyright: "© 2026 Biz2Lab. 한국어 최소 공개 버전입니다.",
+    copyright: "© 2026 Biz2Lab. 현장형 업무 자동화와 운영 기준을 정리합니다.",
   },
   messages: {
-    disabledSearch: "검색은 승인 후 활성화 예정입니다.",
+    disabledSearch: "검색 기능은 현재 제공하지 않습니다.",
     searchIndexPending: "검색 색인은 정적 배포 색인 생성 후 활성화됩니다.",
     contactUnavailable:
       "현재 문의 저장 기능이 설정되지 않아 자동 제출할 수 없습니다. 입력 내용은 보존되며, 연락처가 연결되면 제출 기능이 활성화됩니다.",

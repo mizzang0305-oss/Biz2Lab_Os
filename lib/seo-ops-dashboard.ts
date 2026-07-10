@@ -443,7 +443,17 @@ function adsenseReadinessSignals(post: Post, answerAudit?: SeoAnswerReadinessArt
   const headings = post.headings.map((heading) => heading.text).join(" ");
   const hasPracticalTemplate =
     content.includes("| --- |") ||
-    includesAny(headings, ["체크리스트", "점검표", "계산", "표로 점검", "Biz2Lab 판단 기준"]) ||
+    includesAny(headings, [
+      "체크리스트",
+      "점검표",
+      "계산",
+      "표로 점검",
+      "운영표에 남길 값",
+      "Biz2Lab 판단 기준",
+      "도입을 검토할 최소 조건",
+      "도입 전 확인 항목",
+      "검토와 실행 순서",
+    ]) ||
     includesAny(content, ["달성률 =", "부족 금액 =", "남은 기간 하루 필요 실적 =", "도입 전 체크리스트"]);
   const hasOriginalValue =
     [...content].length >= 3000 &&

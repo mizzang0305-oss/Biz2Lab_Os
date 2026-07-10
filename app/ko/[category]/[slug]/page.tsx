@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/article/Breadcrumbs";
@@ -81,8 +82,12 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
     image: absoluteUrl(post.frontmatter.heroImage),
     datePublished: post.frontmatter.publishedAt,
     dateModified: post.frontmatter.updatedAt,
-    author: { "@type": "Organization", name: "Biz2Lab" },
-    publisher: { "@type": "Organization", name: "Biz2Lab" },
+    author: {
+      "@type": "Organization",
+      name: "Biz2Lab 편집팀",
+      url: absoluteUrl("/ko/about"),
+    },
+    publisher: { "@type": "Organization", name: "Biz2Lab", url: absoluteUrl("/ko") },
     mainEntityOfPage: absoluteUrl(post.route),
     inLanguage: "ko-KR",
   };
@@ -119,6 +124,9 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
           </h1>
           <p className="mt-5 text-lg leading-8 text-slate-600">{post.frontmatter.description}</p>
           <div className="mt-6 flex flex-wrap gap-3 text-sm text-slate-500">
+            <Link className="font-medium text-teal-700 hover:underline" href="/ko/about">
+              작성·검토: Biz2Lab 편집팀
+            </Link>
             <span>게시 {post.frontmatter.publishedAt}</span>
             <span>수정 {post.frontmatter.updatedAt}</span>
             <span>{post.readingTime}</span>

@@ -13,7 +13,6 @@ export const siteConfig = {
   url: resolveSiteUrl(),
   description: siteSettings.description,
   author: siteSettings.author,
-  email: siteSettings.contactEmail,
 } as const;
 
 export function absoluteUrl(path = "/") {

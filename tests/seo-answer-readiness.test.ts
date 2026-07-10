@@ -28,6 +28,19 @@ test("FAQ answer-source checks reject overclaim wording", () => {
   }
 });
 
+test("topic-specific conclusion and checklist headings remain answer-ready", () => {
+  const auditsBySlug = new Map(auditSeoAnswerReadiness().articles.map((article) => [article.slug, article]));
+
+  for (const slug of ["ai-business-automation-guide", "n8n-workflow-automation-license-caution"]) {
+    const article = auditsBySlug.get(slug);
+
+    assert.ok(article, `${slug} must have an AI answer readiness row`);
+    assert.equal(article?.conclusionFirstPresent, true);
+    assert.equal(article?.citationFriendlySummaryPresent, true);
+    assert.equal(article?.checklistPresent, true);
+  }
+});
+
 test("recent automation tool reviews expose answer-friendly sections", () => {
   const requiredReadySlugs = new Set([
     "flowise-ai-agent-workflow-automation",

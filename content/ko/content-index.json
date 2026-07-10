@@ -8,7 +8,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/apache-superset-bi-dashboard-automation-hero.webp",
     "heroAlt": "Apache Superset으로 BI 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
-    "updatedAt": "2026-06-27",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "metabase-dashboard-automation-for-small-business",
@@ -25,7 +25,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/metabase-dashboard-automation-for-small-business-hero.webp",
     "heroAlt": "Metabase로 소상공인 업무 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
-    "updatedAt": "2026-06-27",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "posthog-product-analytics-automation",
@@ -42,7 +42,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/redash-open-source-dashboard-automation-hero.webp",
     "heroAlt": "Redash로 SQL 리포팅 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지",
-    "updatedAt": "2026-06-27",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "apache-superset-bi-dashboard-automation",
@@ -59,7 +59,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/matomo-self-hosted-analytics-privacy-caution-hero.webp",
     "heroAlt": "Matomo 셀프호스팅 웹 분석을 개인정보와 운영 리스크 관점에서 검토하는 대표 이미지",
-    "updatedAt": "2026-06-26",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "plausible-open-source-analytics-ga-alternative",
@@ -76,7 +76,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/plausible-open-source-analytics-ga-alternative-hero.webp",
     "heroAlt": "Plausible을 GA 대체 웹 분석과 개인정보 보호 관점에서 검토하는 대표 이미지",
-    "updatedAt": "2026-06-26",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "umami-open-source-analytics-ga-alternative",
@@ -93,7 +93,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/posthog-product-analytics-automation-hero.webp",
     "heroAlt": "PostHog 제품 분석과 이벤트 자동화 흐름을 개인정보 리스크와 함께 검토하는 대표 이미지",
-    "updatedAt": "2026-06-26",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "matomo-self-hosted-analytics-privacy-caution",
@@ -110,7 +110,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/umami-open-source-analytics-ga-alternative-hero.webp",
     "heroAlt": "Umami로 GA 대체 웹 분석과 privacy 운영을 검토하는 대표 이미지",
-    "updatedAt": "2026-06-26",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "typesense-product-document-search-automation",
@@ -127,7 +127,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/meilisearch-blog-product-search-automation-hero.webp",
     "heroAlt": "Meilisearch로 블로그와 상품 검색 index 자동화를 검토하는 대표 이미지",
-    "updatedAt": "2026-06-25",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "supabase-self-hosting-cost-operations-caution",
@@ -144,7 +144,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/supabase-self-hosting-cost-operations-caution-hero.webp",
     "heroAlt": "Supabase self-hosting의 비용과 운영 부담을 비교하는 대표 이미지",
-    "updatedAt": "2026-06-25",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "pocketbase-lightweight-backend-saas-mvp",
@@ -161,7 +161,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/typesense-product-document-search-automation-hero.webp",
     "heroAlt": "Typesense로 상품과 문서 검색 API 자동화를 검토하는 대표 이미지",
-    "updatedAt": "2026-06-25",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "meilisearch-blog-product-search-automation",
@@ -178,7 +178,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/directus-headless-cms-data-automation-hero.webp",
     "heroAlt": "Directus로 headless CMS와 데이터 운영 포털을 검토하는 대표 이미지",
-    "updatedAt": "2026-06-25",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "flowise-ai-agent-workflow-automation",
@@ -195,7 +195,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/pocketbase-lightweight-backend-saas-mvp-hero.webp",
     "heroAlt": "PocketBase로 소규모 SaaS MVP 백엔드 운영을 검토하는 대표 이미지",
-    "updatedAt": "2026-06-25",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "directus-headless-cms-data-automation",
@@ -212,7 +212,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/flowise-ai-agent-workflow-automation-hero.webp",
     "heroAlt": "Flowise로 AI 에이전트 워크플로와 안전 게이트를 검토하는 대표 이미지",
-    "updatedAt": "2026-06-25",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "open-webui-local-llm-admin-portal",
@@ -229,7 +229,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/open-webui-local-llm-admin-portal-hero.webp",
     "heroAlt": "Open WebUI로 로컬 LLM 내부 AI 포털 운영을 검토하는 대표 이미지",
-    "updatedAt": "2026-06-22",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "dify-llm-app-builder-business-automation",
@@ -246,7 +246,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/crawl4ai-blog-research-automation-hero.webp",
     "heroAlt": "Crawl4AI를 블로그 리서치 자동화와 안전한 크롤링 게이트 관점에서 분석한 대표 이미지",
-    "updatedAt": "2026-06-21",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "nocodb-airtable-alternative-license-caution",
@@ -263,7 +263,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/dify-llm-app-builder-business-automation-hero.webp",
     "heroAlt": "Dify로 LLM 앱과 RAG assistant 운영 흐름을 검토하는 대표 이미지",
-    "updatedAt": "2026-06-21",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "langflow-ai-workflow-automation",
@@ -280,7 +280,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/langflow-ai-workflow-automation-hero.webp",
     "heroAlt": "Langflow로 AI 워크플로와 LLM 앱 제작 흐름을 검토하는 대표 이미지",
-    "updatedAt": "2026-06-21",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "crawl4ai-blog-research-automation",
@@ -297,7 +297,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/n8n-workflow-automation-license-caution-hero.webp",
     "heroAlt": "n8n을 워크플로 자동화와 라이선스 주의 관점에서 분석한 대표 이미지",
-    "updatedAt": "2026-06-21",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "activepieces-ai-business-automation-n8n-alternative",
@@ -316,7 +316,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/nocodb-airtable-alternative-license-caution-hero.webp",
     "heroAlt": "NocoDB를 Airtable 대체 데이터베이스와 라이선스 주의 관점에서 분석한 대표 이미지",
-    "updatedAt": "2026-06-21",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "baserow-open-source-database-automation",
@@ -335,7 +335,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/appsmith-internal-dashboard-automation-hero.webp",
     "heroAlt": "Appsmith를 내부 관리자 화면 자동화 관점에서 분석한 대표 이미지",
-    "updatedAt": "2026-06-20",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "baserow-open-source-database-automation",
@@ -354,7 +354,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/baserow-open-source-database-automation-hero.webp",
     "heroAlt": "Baserow를 업무 데이터베이스 자동화 관점에서 분석한 대표 이미지",
-    "updatedAt": "2026-06-20",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "activepieces-ai-business-automation-n8n-alternative",
@@ -372,7 +372,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/huginn-monitoring-automation-agent-hero.webp",
     "heroAlt": "Huginn을 웹 모니터링 자동화 에이전트 관점에서 분석한 대표 이미지",
-    "updatedAt": "2026-06-20",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "node-red-local-business-automation-server",
@@ -389,7 +389,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/kestra-data-ai-workflow-orchestration-hero.webp",
     "heroAlt": "Kestra를 데이터와 AI 워크플로 오케스트레이션 관점에서 분석한 대표 이미지",
-    "updatedAt": "2026-06-20",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "windmill-developer-workflow-automation",
@@ -408,7 +408,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/node-red-local-business-automation-server-hero.webp",
     "heroAlt": "Node-RED를 로컬 서버 업무 자동화 관점에서 분석한 대표 이미지",
-    "updatedAt": "2026-06-20",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "activepieces-ai-business-automation-n8n-alternative",
@@ -424,7 +424,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/windmill-developer-workflow-automation-hero.webp",
     "heroAlt": "Windmill을 개발자용 업무 자동화 관점에서 분석한 대표 이미지",
-    "updatedAt": "2026-06-20",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "appsmith-internal-dashboard-automation",
@@ -443,7 +443,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/activepieces-ai-business-automation-n8n-alternative-hero.webp",
     "heroAlt": "Activepieces를 AI 업무 자동화와 n8n 대안 관점에서 분석한 대표 이미지",
-    "updatedAt": "2026-06-19",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "free-open-source-automation-tools-series",
       "opencut-free-open-source-video-editor-ai-content-automation",
@@ -459,7 +459,7 @@
     "type": "pillar",
     "heroImage": "/images/posts/free-open-source-automation-tools-series-hero.webp",
     "heroAlt": "무료 오픈소스 자동화 도구 지도를 Biz2Lab과 MyBiz 업무 흐름 관점에서 정리한 대표 이미지",
-    "updatedAt": "2026-06-19",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "opencut-free-open-source-video-editor-ai-content-automation",
       "activepieces-ai-business-automation-n8n-alternative",
@@ -478,7 +478,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/opencut-free-open-source-video-editor-ai-content-automation-hero.webp",
     "heroAlt": "OpenCut 무료 오픈소스 영상 편집기를 AI 콘텐츠 자동화 관점에서 분석한 대표 이미지",
-    "updatedAt": "2026-06-19",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "ai-business-automation-guide",
       "reduce-repetitive-work-with-ai",
@@ -494,7 +494,7 @@
     "type": "pillar",
     "heroImage": "/images/posts/ai-business-automation-guide-hero.webp",
     "heroAlt": "반복 업무와 판단 업무를 분리해 사람 검토와 연결한 AI 자동화 설계 지도",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "reduce-repetitive-work-with-ai",
       "pre-automation-task-list",
@@ -510,7 +510,7 @@
     "type": "checklist",
     "heroImage": "/images/posts/automation-priority-method-hero.webp",
     "heroAlt": "업무 후보를 반복 빈도와 실패 비용으로 나누는 자동화 우선순위 매트릭스",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "pre-automation-task-list",
       "google-sheets-ai-automation",
@@ -526,7 +526,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/chatgpt-document-cleanup-hero.webp",
     "heroAlt": "흩어진 회의 메모와 고객 요청을 정리된 업무 문서로 바꾸는 문서 정리 보드",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "obsidian-business-knowledge-base",
       "google-sheets-ai-automation",
@@ -542,7 +542,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/google-sheets-ai-automation-hero.webp",
     "heroAlt": "스프레드시트 상태 열에서 AI 요약과 알림 패널로 이어지는 자동화 구조",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "chatgpt-document-cleanup",
       "automation-priority-method",
@@ -558,7 +558,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/obsidian-business-knowledge-base-hero.webp",
     "heroAlt": "업무 기준과 고객 응대 노트가 서로 연결된 회사 지식창고 그래프",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "chatgpt-document-cleanup",
       "customer-memory-system",
@@ -574,7 +574,7 @@
     "type": "checklist",
     "heroImage": "/images/posts/pre-automation-task-list-hero.webp",
     "heroAlt": "자동화 전에 입력 원본과 예외 상황을 확인하는 준비 체크리스트",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "ai-business-automation-guide",
       "reduce-repetitive-work-with-ai",
@@ -590,7 +590,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/reduce-repetitive-work-with-ai-hero.webp",
     "heroAlt": "반복 업무를 수집하고 분류해 AI 초안과 사람 승인으로 줄이는 칸반 보드",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "ai-business-automation-guide",
       "google-sheets-ai-automation",
@@ -606,7 +606,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/connect-contract-payment-customer-management-hero.webp",
     "heroAlt": "계약서 작성과 결제 확인, 거래처 후속 조치를 하나로 연결한 운영 흐름",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "electronic-contract-system-basics",
       "offline-card-payment-pg-van",
@@ -622,7 +622,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/e-signature-identity-check-hero.webp",
     "heroAlt": "전자서명과 본인확인 절차를 나란히 비교한 계약 업무 흐름",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "electronic-contract-system-basics",
       "manage-unsigned-contracts",
@@ -638,7 +638,7 @@
     "type": "pillar",
     "heroImage": "/images/posts/electronic-contract-system-basics-hero.webp",
     "heroAlt": "전자계약의 초안 작성부터 서명 요청과 보관까지 이어지는 상태 타임라인",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "manage-unsigned-contracts",
       "e-signature-identity-check",
@@ -654,7 +654,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/manage-unsigned-contracts-hero.webp",
     "heroAlt": "미작성 계약 목록을 사유와 담당자, 재안내 일정으로 관리하는 후속 조치 보드",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "electronic-contract-system-basics",
       "payment-reminder-message",
@@ -670,7 +670,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/offline-card-payment-pg-van-hero.webp",
     "heroAlt": "카드 키인 결제와 PG, VAN, 정산 확인 흐름을 구분한 결제 지도",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "connect-contract-payment-customer-management",
       "electronic-contract-system-basics",
@@ -686,7 +686,7 @@
     "type": "checklist",
     "heroImage": "/images/posts/accounts-receivable-tracker-hero.webp",
     "heroAlt": "미수금 aging 구간과 약속일, 담당자 후속 조치를 함께 보여주는 회수 상태판",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "payment-reminder-message",
       "daily-sales-goal-breakdown",
@@ -702,7 +702,7 @@
     "type": "pillar",
     "heroImage": "/images/posts/daily-sales-goal-breakdown-hero.webp",
     "heroAlt": "월 매출 목표를 일일 목표와 현재 매출, 잔여 목표로 나눈 대시보드",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "sales-achievement-rate",
       "daily-sales-report",
@@ -718,7 +718,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/daily-sales-report-hero.webp",
     "heroAlt": "실적과 상담, 견적, 다음 행동을 한 화면에 정리한 영업팀 일일 보고서",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "daily-sales-goal-breakdown",
       "sales-achievement-rate",
@@ -734,7 +734,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/payment-reminder-message-hero.webp",
     "heroAlt": "거래처 독촉 문자와 입금 안내문 초안을 검토하고 승인 후 발송하는 메시지 승인 흐름",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "accounts-receivable-tracker",
       "sales-revenue-ar-structure",
@@ -750,7 +750,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/sales-achievement-rate-hero.webp",
     "heroAlt": "목표 대비 실적 게이지와 부족분, 필요한 행동량을 보여주는 매출 달성률 화면",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "daily-sales-goal-breakdown",
       "sales-revenue-ar-structure",
@@ -766,7 +766,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/sales-revenue-ar-structure-hero.webp",
     "heroAlt": "매출 목표와 청구, 입금, 미수금 대기 상태를 연결한 영업관리 지도",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "daily-sales-goal-breakdown",
       "accounts-receivable-tracker",
@@ -782,7 +782,7 @@
     "type": "case-study",
     "heroImage": "/images/posts/unify-order-channels-for-sales-hero.webp",
     "heroAlt": "전화와 메일, 현장 요청을 하나의 거래처 주문 보드로 모으는 흐름",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "customer-memory-system",
       "sales-revenue-ar-structure",
@@ -798,7 +798,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/ai-knowledge-store-for-small-business-hero.webp",
     "heroAlt": "운영 기준과 고객 질문을 AI 점장 답변 기준으로 연결한 소상공인 지식 카드",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "customer-memory-system",
       "unify-order-channels",
@@ -814,7 +814,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/customer-memory-system-hero.webp",
     "heroAlt": "고객 요청과 선호, 응대 이력, 다음 조치를 정리한 고객 기록 카드",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "reservation-order-review-management",
       "ai-knowledge-store-for-small-business",
@@ -830,7 +830,7 @@
     "type": "pillar",
     "heroImage": "/images/posts/daily-numbers-for-small-business-hero.webp",
     "heroAlt": "소상공인이 매일 확인할 매출 달성률 계산과 주문, 입금, 미처리 업무 대시보드",
-    "updatedAt": "2026-06-27",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "unify-order-channels",
       "customer-memory-system",
@@ -846,7 +846,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/reservation-order-review-management-hero.webp",
     "heroAlt": "예약과 주문, 리뷰 응대를 같은 운영표에서 상태별로 관리하는 보드",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "unify-order-channels",
       "customer-memory-system",
@@ -862,7 +862,7 @@
     "type": "checklist",
     "heroImage": "/images/posts/solo-business-systemization-hero.webp",
     "heroAlt": "1인 사업자의 상담과 주문, 정산, 고객 기록이 순환하는 업무 시스템",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "daily-numbers-for-small-business",
       "pre-automation-task-list",
@@ -878,7 +878,7 @@
     "type": "case-study",
     "heroImage": "/images/posts/unify-order-channels-hero.webp",
     "heroAlt": "전화와 메신저, 플랫폼 주문을 한곳의 처리 상태판으로 모으는 매장 주문 흐름",
-    "updatedAt": "2026-06-16",
+    "updatedAt": "2026-07-10",
     "relatedPosts": [
       "daily-numbers-for-small-business",
       "reservation-order-review-management",
