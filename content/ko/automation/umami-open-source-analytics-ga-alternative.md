@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-26'
 updatedAt: '2026-07-10'
@@ -21,7 +21,7 @@ tags:
 heroImage: /images/posts/umami-open-source-analytics-ga-alternative-hero.webp
 heroAlt: Umami로 GA 대체 웹 분석과 privacy 운영을 검토하는 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/umami-open-source-analytics-ga-alternative'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - typesense-product-document-search-automation

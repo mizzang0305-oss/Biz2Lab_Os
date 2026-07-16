@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-27'
 updatedAt: '2026-07-10'
@@ -20,7 +20,7 @@ tags:
 heroImage: /images/posts/apache-superset-bi-dashboard-automation-hero.webp
 heroAlt: Apache Superset으로 BI 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/apache-superset-bi-dashboard-automation'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - metabase-dashboard-automation-for-small-business

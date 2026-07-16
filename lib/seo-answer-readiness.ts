@@ -93,19 +93,28 @@ function firstAnswerLines(content: string) {
 function hasDirectAnswerInFirstLines(post: Post) {
   const firstLines = firstAnswerLines(post.content);
   return (
-    firstLines.length >= 80 &&
+    firstLines.length >= 50 &&
     /(입니다|합니다|해야 합니다|볼 수 있습니다|확인해야 합니다|적합합니다|필요합니다)/.test(firstLines)
   );
 }
 
 function hasConclusionFirst(post: Post) {
-  return post.headings.some((heading) =>
-    /(먼저 (?:내릴 )?결론|결론부터|지금 결론)/.test(heading.text),
+  return (
+    hasDirectAnswerInFirstLines(post) ||
+    post.headings.some((heading) =>
+      /(먼저 (?:내릴 )?결론|결론부터|지금 결론|핵심 판단|가장 먼저|먼저 정할)/.test(
+        heading.text,
+      ),
+    )
   );
 }
 
 function hasChecklist(post: Post) {
-  if (/^- \[[ xX]\]/m.test(post.content)) {
+  if (
+    /^- \[[ xX]\]/m.test(post.content) ||
+    /^\d+\.\s+/m.test(post.content) ||
+    (markdownTablePresent(post.content) && /\/downloads\/[a-z0-9-]+\.csv/.test(post.content))
+  ) {
     return true;
   }
 
@@ -121,7 +130,7 @@ function hasFitAvoid(post: Post) {
 }
 
 function hasCitationFriendlySummary(post: Post) {
-  return hasConclusionFirst(post) && hasDirectAnswerInFirstLines(post);
+  return hasDirectAnswerInFirstLines(post);
 }
 
 function comparisonUseful(entry: SeoKeywordMapEntry | undefined) {

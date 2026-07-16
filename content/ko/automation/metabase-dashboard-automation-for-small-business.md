@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-27'
 updatedAt: '2026-07-10'
@@ -20,7 +20,7 @@ tags:
 heroImage: /images/posts/metabase-dashboard-automation-for-small-business-hero.webp
 heroAlt: Metabase로 소상공인 업무 대시보드 자동화를 검토하는 Biz2Lab 분석 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/metabase-dashboard-automation-for-small-business'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - posthog-product-analytics-automation

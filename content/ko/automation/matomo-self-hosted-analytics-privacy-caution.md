@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-26'
 updatedAt: '2026-07-10'
@@ -21,7 +21,7 @@ tags:
 heroImage: /images/posts/matomo-self-hosted-analytics-privacy-caution-hero.webp
 heroAlt: Matomo 셀프호스팅 웹 분석을 개인정보와 운영 리스크 관점에서 검토하는 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/matomo-self-hosted-analytics-privacy-caution'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - plausible-open-source-analytics-ga-alternative

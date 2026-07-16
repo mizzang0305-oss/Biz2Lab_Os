@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-22'
 updatedAt: '2026-07-10'
@@ -21,7 +21,7 @@ tags:
 heroImage: /images/posts/open-webui-local-llm-admin-portal-hero.webp
 heroAlt: Open WebUI로 로컬 LLM 내부 AI 포털 운영을 검토하는 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/open-webui-local-llm-admin-portal'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - dify-llm-app-builder-business-automation

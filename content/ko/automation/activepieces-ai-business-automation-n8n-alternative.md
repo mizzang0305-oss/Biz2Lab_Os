@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-19'
 updatedAt: '2026-07-10'
@@ -23,7 +23,7 @@ tags:
 heroImage: /images/posts/activepieces-ai-business-automation-n8n-alternative-hero.webp
 heroAlt: Activepieces를 AI 업무 자동화와 n8n 대안 관점에서 분석한 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/activepieces-ai-business-automation-n8n-alternative'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - opencut-free-open-source-video-editor-ai-content-automation

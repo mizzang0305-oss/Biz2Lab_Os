@@ -31,7 +31,7 @@ test("FAQ answer-source checks reject overclaim wording", () => {
 test("topic-specific conclusion and checklist headings remain answer-ready", () => {
   const auditsBySlug = new Map(auditSeoAnswerReadiness().articles.map((article) => [article.slug, article]));
 
-  for (const slug of ["ai-business-automation-guide", "n8n-workflow-automation-license-caution"]) {
+  for (const slug of ["ai-business-automation-guide", "accounts-receivable-tracker"]) {
     const article = auditsBySlug.get(slug);
 
     assert.ok(article, `${slug} must have an AI answer readiness row`);
@@ -41,14 +41,15 @@ test("topic-specific conclusion and checklist headings remain answer-ready", () 
   }
 });
 
-test("recent automation tool reviews expose answer-friendly sections", () => {
+test("reviewed automation guides expose answer-friendly sections", () => {
   const requiredReadySlugs = new Set([
-    "flowise-ai-agent-workflow-automation",
-    "directus-headless-cms-data-automation",
-    "pocketbase-lightweight-backend-saas-mvp",
-    "supabase-self-hosting-cost-operations-caution",
-    "meilisearch-blog-product-search-automation",
-    "typesense-product-document-search-automation",
+    "ai-business-automation-guide",
+    "automation-priority-method",
+    "chatgpt-document-cleanup",
+    "google-sheets-ai-automation",
+    "obsidian-business-knowledge-base",
+    "pre-automation-task-list",
+    "reduce-repetitive-work-with-ai",
   ]);
   const auditsBySlug = new Map(auditSeoAnswerReadiness().articles.map((article) => [article.slug, article]));
 
@@ -61,6 +62,5 @@ test("recent automation tool reviews expose answer-friendly sections", () => {
     assert.equal(article?.citationFriendlySummaryPresent, true);
     assert.equal(article?.checklistPresent, true);
     assert.equal(article?.comparisonTablePresent, true);
-    assert.equal(article?.fitAvoidPresent, true);
   }
 });

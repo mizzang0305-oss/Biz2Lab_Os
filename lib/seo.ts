@@ -7,7 +7,6 @@ export const staticPublicRoutes = [
   "/ko/automation",
   "/ko/sales-ops",
   "/ko/small-business",
-  "/ko/contracts-payments",
   "/ko/about",
   "/ko/resources",
   "/ko/contact",

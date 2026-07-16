@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-23'
 updatedAt: '2026-07-10'
@@ -21,7 +21,7 @@ tags:
 heroImage: /images/posts/pocketbase-lightweight-backend-saas-mvp-hero.webp
 heroAlt: PocketBase로 소규모 SaaS MVP 백엔드 운영을 검토하는 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/pocketbase-lightweight-backend-saas-mvp'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - directus-headless-cms-data-automation

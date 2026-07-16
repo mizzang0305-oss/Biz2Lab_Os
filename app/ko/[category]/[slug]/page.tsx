@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/article/Breadcrumbs";
-import { ChecklistBox } from "@/components/article/ChecklistBox";
 import { FAQBox } from "@/components/article/FAQBox";
 import { MarkdownRenderer } from "@/components/article/MarkdownRenderer";
 import { ReadingProgress } from "@/components/article/ReadingProgress";
@@ -12,7 +11,6 @@ import { RelatedReadingBox } from "@/components/article/RelatedReadingBox";
 import { SummaryBox } from "@/components/article/SummaryBox";
 import { TableOfContents } from "@/components/article/TableOfContents";
 import { NextStepBox } from "@/components/cta/NextStepBox";
-import { TemplateCTA } from "@/components/cta/TemplateCTA";
 import { categories } from "@/lib/categories";
 import { shouldRenderArticleHeroImage } from "@/lib/images/premium-image-policy";
 import { getPostBySlug, getPublicPosts, getRelatedPosts } from "@/lib/posts";
@@ -48,15 +46,6 @@ export async function generateMetadata({ params }: ArticleRouteProps): Promise<M
     type: "article",
     image: post.frontmatter.heroImage,
   });
-}
-
-function checklistForPost(title: string) {
-  return [
-    `${title}에 필요한 입력 자료를 먼저 한곳에 모읍니다.`,
-    "금액, 날짜, 고객명처럼 틀리면 안 되는 항목은 원본과 대조합니다.",
-    "AI 결과는 초안으로 두고 사람이 마지막으로 확인합니다.",
-    "관련 글과 다음 단계를 연결해 후속 업무가 끊기지 않게 합니다.",
-  ];
 }
 
 export default async function ArticlePage({ params }: ArticleRouteProps) {
@@ -153,10 +142,8 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
           <TableOfContents headings={post.headings} />
           <MarkdownRenderer content={post.content} />
           <FAQBox faq={post.frontmatter.faq} />
-          <ChecklistBox items={checklistForPost(post.frontmatter.title)} />
           <RelatedReadingBox posts={relatedPosts} />
           <NextStepBox nextStep={post.frontmatter.nextStep} />
-          <TemplateCTA label={post.frontmatter.templateCta} />
         </div>
       </div>
     </article>

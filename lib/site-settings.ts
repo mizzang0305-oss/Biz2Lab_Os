@@ -49,17 +49,17 @@ export const siteSettings = {
   koreanName: "비즈투랩",
   brandSubtitle: "한국어 AI 업무 자동화 콘텐츠",
   description:
-    "소상공인, 영업팀, 1인 사업자를 위한 현장형 업무 자동화와 운영 숫자 콘텐츠입니다.",
+    "소상공인, 영업팀, 1인 사업자를 위한 운영 숫자, 주문 관리, 업무 자동화 실무 자료입니다.",
   author: "Biz2Lab",
   hero: {
     title: "AI 업무 자동화로 사업 운영을 시스템화하는 방법",
     description:
       "소상공인과 영업팀이 매일 놓치기 쉬운 숫자, 주문, 미수금, 자동화 기준을 실무형 체크리스트와 계산 기준으로 정리합니다.",
     bullets: [
-      "반복 업무를 자동화 후보로 분류",
-      "매출·미수금·계약 상태를 연결",
-      "글마다 관련 글과 다음 행동을 제공",
-      "필요한 기능만 안전하게 단계 공개",
+      "20개 핵심 글만 공개 운영",
+      "글마다 실제 CSV 실무 자료 제공",
+      "샘플 데이터와 계산 과정을 공개",
+      "AI 초안과 사람 승인을 분리",
     ],
     primaryCta: { label: "처음 시작하기", href: "/ko/automation" },
     secondaryCta: { label: "실무 자료실", href: "/ko/resources" },
@@ -69,7 +69,6 @@ export const siteSettings = {
     { label: "영업·매출 관리", href: "/ko/sales-ops" },
     { label: "소상공인 운영", href: "/ko/small-business" },
     { label: "실무 자료실", href: "/ko/resources" },
-    { label: "전자계약·결제", href: "/ko/contracts-payments" },
     { label: "소개", href: "/ko/about" },
     { label: "문의", href: "/ko/contact" },
   ],
@@ -84,7 +83,6 @@ export const siteSettings = {
           { label: "영업·매출 관리", href: "/ko/sales-ops" },
           { label: "소상공인 운영", href: "/ko/small-business" },
           { label: "실무 자료실", href: "/ko/resources" },
-          { label: "전자계약·결제", href: "/ko/contracts-payments" },
         ],
       },
       {
@@ -105,12 +103,12 @@ export const siteSettings = {
     contactUnavailable:
       "현재 문의 저장 기능이 설정되지 않아 자동 제출할 수 없습니다. 입력 내용은 보존되며, 연락처가 연결되면 제출 기능이 활성화됩니다.",
     templateCta:
-      "다운로드 시스템은 이후 단계로 두고, 현재는 글 안에서 점검 기준을 먼저 제공합니다.",
+      "각 글에서 샘플 데이터가 포함된 CSV 실무 자료를 직접 내려받을 수 있습니다.",
   },
   featureFlags: {
     searchEnabled: false,
     newsletterEnabled: false,
-    downloadsEnabled: false,
+    downloadsEnabled: true,
     adminEnabled: false,
     commerceEnabled: false,
     aiEnabled: false,

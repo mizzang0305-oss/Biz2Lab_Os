@@ -6,8 +6,8 @@ locale: ko
 category: contracts-payments
 cluster: contracts-payment-basics
 type: pillar
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-10'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/electronic-contract-system-basics-hero.webp
 heroAlt: 전자계약의 초안 작성부터 서명 요청과 보관까지 이어지는 상태 타임라인
 canonical: 'https://www.biz2lab.com/ko/contracts-payments/electronic-contract-system-basics'
-noindex: false
+noindex: true
 relatedPosts:
   - manage-unsigned-contracts
   - e-signature-identity-check

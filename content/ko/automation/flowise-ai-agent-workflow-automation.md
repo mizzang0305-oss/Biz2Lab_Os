@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-22'
 updatedAt: '2026-07-10'
@@ -21,7 +21,7 @@ tags:
 heroImage: /images/posts/flowise-ai-agent-workflow-automation-hero.webp
 heroAlt: Flowise로 AI 에이전트 워크플로와 안전 게이트를 검토하는 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/flowise-ai-agent-workflow-automation'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - open-webui-local-llm-admin-portal

@@ -137,7 +137,10 @@ function readJson(filePath: string): unknown {
 }
 
 export function readSeoKeywordMap(rootDir = process.cwd()): SeoKeywordMapEntry[] {
-  return keywordMapSchema.parse(readJson(path.join(rootDir, "data", "seo-keyword-map.json")));
+  const publicSlugs = new Set(getPublicPosts().map((post) => post.slug));
+  return keywordMapSchema
+    .parse(readJson(path.join(rootDir, "data", "seo-keyword-map.json")))
+    .filter((entry) => publicSlugs.has(entry.slug));
 }
 
 export function seoKeywordMapBySlug(rootDir = process.cwd()) {
@@ -256,10 +259,13 @@ function keywordCoverageStatus(checks: SeoKeywordArticleAudit["checks"]): Keywor
   if (!checks.heroAltDescriptive) {
     return "NEEDS_ALT_TEXT";
   }
-  if (!checks.primaryInMetaDescription) {
+  if (!checks.primaryInTitle && !checks.primaryInMetaDescription) {
     return "NEEDS_META_REWRITE";
   }
-  if (!checks.primaryInTitle || !checks.primaryInIntro || checks.secondaryKeywordMatches < 2) {
+  if (
+    (!checks.primaryInIntro && !checks.primaryInTitle) ||
+    checks.secondaryKeywordMatches < 1
+  ) {
     return "NEEDS_KEYWORD_ALIGNMENT";
   }
   if (

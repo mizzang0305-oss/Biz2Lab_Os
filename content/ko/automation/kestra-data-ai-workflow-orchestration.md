@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-20'
 updatedAt: '2026-07-10'
@@ -23,7 +23,7 @@ tags:
 heroImage: /images/posts/kestra-data-ai-workflow-orchestration-hero.webp
 heroAlt: Kestra를 데이터와 AI 워크플로 오케스트레이션 관점에서 분석한 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/kestra-data-ai-workflow-orchestration'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - windmill-developer-workflow-automation

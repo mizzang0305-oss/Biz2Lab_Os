@@ -6,8 +6,8 @@ locale: ko
 category: contracts-payments
 cluster: contracts-payment-basics
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-10'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/offline-card-payment-pg-van-hero.webp
 heroAlt: '카드 키인 결제와 PG, VAN, 정산 확인 흐름을 구분한 결제 지도'
 canonical: 'https://www.biz2lab.com/ko/contracts-payments/offline-card-payment-pg-van'
-noindex: false
+noindex: true
 relatedPosts:
   - connect-contract-payment-customer-management
   - electronic-contract-system-basics

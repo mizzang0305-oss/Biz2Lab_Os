@@ -114,7 +114,15 @@ test("Phase 2 content set derives public Korean post inventory from canonical co
   assert.equal(publicPosts.every((post) => post.frontmatter.status === "published"), true);
   assert.equal(publicPosts.every((post) => post.frontmatter.draft === false), true);
   assert.equal(sitemapPosts.every((post) => post.frontmatter.noindex === false), true);
-  assert.deepEqual(draftPosts.map((post) => post.slug).sort(), []);
+  assert.equal(draftPosts.length, 33);
+  assert.equal(
+    draftPosts.every(
+      (post) =>
+        post.frontmatter.status === "draft" &&
+        post.frontmatter.noindex === true,
+    ),
+    true,
+  );
 });
 
 test("each public post is a connected information node", () => {
@@ -180,10 +188,7 @@ test("content index carries hero image metadata for visual audits", () => {
   for (const [slug, expectedHeroImage] of [
     ["ai-business-automation-guide", "/images/posts/ai-business-automation-guide-hero.webp"],
     ["accounts-receivable-tracker", "/images/posts/accounts-receivable-tracker-hero.webp"],
-    [
-      "electronic-contract-system-basics",
-      "/images/posts/electronic-contract-system-basics-hero.webp",
-    ],
+    ["daily-numbers-for-small-business", "/images/posts/daily-numbers-for-small-business-hero.webp"],
   ] as const) {
     const row = bySlug.get(slug);
 
@@ -201,7 +206,7 @@ test("home article grid surfaces the three premium visual posts first", () => {
     [
       "ai-business-automation-guide",
       "accounts-receivable-tracker",
-      "electronic-contract-system-basics",
+      "daily-numbers-for-small-business",
     ],
   );
   assert.deepEqual(
@@ -209,7 +214,7 @@ test("home article grid surfaces the three premium visual posts first", () => {
     [
       "/images/posts/ai-business-automation-guide-hero.webp",
       "/images/posts/accounts-receivable-tracker-hero.webp",
-      "/images/posts/electronic-contract-system-basics-hero.webp",
+      "/images/posts/daily-numbers-for-small-business-hero.webp",
     ],
   );
   assert.equal(homePosts.length, 6);
@@ -223,7 +228,7 @@ test("article image policy renders TOP3 as premium and other public images as st
   assert.deepEqual([...approvedSlugs], [
     "ai-business-automation-guide",
     "accounts-receivable-tracker",
-    "electronic-contract-system-basics",
+    "daily-numbers-for-small-business",
   ]);
 
   for (const post of publicPosts) {
@@ -268,7 +273,7 @@ test("article image concept map covers every public hero with distinct non-gener
 });
 
 test("non-premium hero source assets do not expose article titles or the old generic workflow template", () => {
-  const premiumSlugs = new Set(["ai-business-automation-guide", "accounts-receivable-tracker", "electronic-contract-system-basics"]);
+  const premiumSlugs = new Set(["ai-business-automation-guide", "accounts-receivable-tracker", "daily-numbers-for-small-business"]);
   const genericTemplatePatterns = [
     /Hero for practical operations/i,
     /Article workflow/i,
@@ -450,7 +455,7 @@ test("static settings keep future admin and feature surfaces disabled", () => {
   assert.equal(siteSettings.featureFlags.adminEnabled, false);
   assert.equal(siteSettings.featureFlags.aiEnabled, false);
   assert.equal(siteSettings.featureFlags.commerceEnabled, false);
-  assert.equal(siteSettings.featureFlags.downloadsEnabled, false);
+  assert.equal(siteSettings.featureFlags.downloadsEnabled, true);
   assert.equal(siteSettings.featureFlags.multilingualEnabled, false);
   assert.equal(siteSettings.featureFlags.newsletterEnabled, false);
 
@@ -555,38 +560,21 @@ test("Phase 4.0 content authority guard is wired and enforceable", () => {
     scripts?: Record<string, string>;
   };
   const auditScriptPath = path.join(process.cwd(), "scripts", "audit-content-authority.ts");
-  const top3 = new Set([
-    "ai-business-automation-guide",
-    "accounts-receivable-tracker",
-    "electronic-contract-system-basics",
-  ]);
-  const p1 = new Set([
-    "automation-priority-method",
-    "chatgpt-document-cleanup",
-    "google-sheets-ai-automation",
-    "sales-revenue-ar-structure",
-    "connect-contract-payment-customer-management",
-    "payment-reminder-message",
-    "unify-order-channels",
-    "customer-memory-system",
-  ]);
-
   assert.equal(packageJson.scripts?.["audit:content-authority"], "tsx scripts/audit-content-authority.ts");
   assert.ok(fs.existsSync(auditScriptPath));
 
   for (const post of getPublicPosts()) {
-    const inlineImages = [...post.content.matchAll(/!\[[^\]]+\]\((\/images\/posts\/[^)\s]+\.webp)/g)];
     const headings = post.headings.map((heading) => heading.text);
+    const downloads = [...post.content.matchAll(/\]\((\/downloads\/[^)\s]+\.csv)\)/g)];
 
-    assert.ok([...post.content].length >= 1200, `${post.slug} needs practical depth`);
+    assert.ok([...post.content].length >= 1600, `${post.slug} needs practical depth`);
     assert.ok(post.frontmatter.faq && post.frontmatter.faq.length >= 3, `${post.slug} needs FAQ coverage`);
     assert.equal(new Set(headings).size, headings.length, `${post.slug} has duplicate headings`);
-
-    if (top3.has(post.slug)) {
-      assert.ok(inlineImages.length >= 3, `${post.slug} needs three Phase 4 inline images`);
-    } else if (p1.has(post.slug)) {
-      assert.ok(inlineImages.length >= 1, `${post.slug} needs a Phase 4 inline image`);
-    }
+    assert.equal(downloads.length, 1, `${post.slug} needs one real CSV download`);
+    assert.equal(
+      fs.existsSync(path.join(process.cwd(), "public", downloads[0][1].replace(/^\//, ""))),
+      true,
+    );
   }
 });
 

@@ -211,7 +211,6 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     captionKo: "전자계약 시스템의 기본 상태를 시간 흐름으로 정리한 이미지입니다.",
     labels: ["초안", "요청", "확인", "보관"],
     palette: contractPalette,
-    retainedPremium: true,
   },
   "manage-unsigned-contracts": {
     slug: "manage-unsigned-contracts",
@@ -333,6 +332,7 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     captionKo: "하루 운영 상태를 다섯 가지 숫자로 확인하는 이미지입니다.",
     labels: ["매출", "주문", "객단가", "미처리"],
     palette: smallBusinessPalette,
+    retainedPremium: true,
   },
   "reservation-order-review-management": {
     slug: "reservation-order-review-management",

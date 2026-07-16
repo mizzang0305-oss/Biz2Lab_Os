@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-24'
 updatedAt: '2026-07-10'
@@ -21,7 +21,7 @@ tags:
 heroImage: /images/posts/supabase-self-hosting-cost-operations-caution-hero.webp
 heroAlt: Supabase self-hosting의 비용과 운영 부담을 비교하는 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/supabase-self-hosting-cost-operations-caution'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - pocketbase-lightweight-backend-saas-mvp

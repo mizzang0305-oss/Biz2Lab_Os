@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: content-automation
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-19'
 updatedAt: '2026-07-10'
@@ -20,7 +20,7 @@ tags:
 heroImage: /images/posts/opencut-free-open-source-video-editor-ai-content-automation-hero.webp
 heroAlt: OpenCut 무료 오픈소스 영상 편집기를 AI 콘텐츠 자동화 관점에서 분석한 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/opencut-free-open-source-video-editor-ai-content-automation'
-noindex: false
+noindex: true
 relatedPosts:
   - ai-business-automation-guide
   - reduce-repetitive-work-with-ai

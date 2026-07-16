@@ -6,86 +6,111 @@ import { createMetadata } from "@/lib/seo";
 export const metadata: Metadata = createMetadata({
   title: "소개",
   description:
-    "Biz2Lab 편집팀의 현장형 업무 자동화 콘텐츠 목적, 제작 과정, 출처 확인과 수정 원칙을 소개합니다.",
+    "Biz2Lab의 20개 핵심 실무 글 운영 원칙, AI 활용 범위, 샘플 데이터 표시, 검토 보류 기준과 수정 정책을 소개합니다.",
   path: "/ko/about",
 });
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-5 sm:py-14">
-      <h1 className="text-3xl font-bold tracking-normal text-slate-950 sm:text-4xl">Biz2Lab 소개</h1>
-      <div className="mt-8 grid gap-6 text-lg leading-8 text-slate-600">
-        <p>
-          Biz2Lab은 소상공인, 영업팀, 1인 사업자를 위한 현장형 AI 업무 자동화
-          콘텐츠 허브입니다. 반복 업무, 매출 관리, 주문 관리, 전자계약과 결제
-          흐름을 작은 단위로 정리해 실제 운영에 적용할 수 있는 기준을 제공합니다.
-        </p>
-        <p>
-          이 사이트는 과장된 성과를 약속하지 않습니다. 자동화는 도구를 많이 쓰는
-          일이 아니라, 업무 상태를 더 잘 보이게 만들고 사람이 확인해야 할 일을
-          놓치지 않게 만드는 운영 구조입니다.
-        </p>
-        <p>
-          Biz2Lab은 단순 도구 소개보다 실제 업무에서 시간을 줄이고, 손실을 줄이고, 사람이 확인해야 할 기준을 정리하는 것을 우선합니다.
-          그래서 글마다 계산식, 체크리스트, 표, 관련 글, 도입 전 주의점을 함께 제공합니다.
-        </p>
-      </div>
-
-      <section className="mt-10 border-y border-slate-200 py-8">
-        <h2 className="text-2xl font-bold tracking-normal text-slate-950">작성·검토 주체</h2>
-        <div className="mt-5 grid gap-4 text-base leading-7 text-slate-700">
+    <main className="mx-auto max-w-4xl px-4 py-12 sm:px-5 sm:py-14">
+      <header>
+        <p className="text-sm font-semibold text-teal-700">작게 공개하고 깊게 검토합니다</p>
+        <h1 className="mt-3 text-3xl font-bold tracking-normal text-slate-950 sm:text-4xl">
+          Biz2Lab 소개
+        </h1>
+        <div className="mt-6 grid gap-5 text-lg leading-8 text-slate-600">
           <p>
-            모든 글의 작성·검토 주체는 Biz2Lab 편집팀입니다. 특정 제품 판매자가 아니라
-            소상공인과 작은 팀의 운영 문제를 기준으로 도구, 숫자, 업무 흐름을 비교합니다.
+            Biz2Lab은 소상공인, 영업팀, 1인 사업자가 매일 확인해야 하는 매출, 미수금,
+            주문, 고객 기록과 업무 자동화 기준을 정리하는 한국어 실무 콘텐츠 사이트입니다.
           </p>
           <p>
-            적용 범위나 공개 글의 오류 제보는{" "}
+            현재는 품질을 직접 확인한 20개 핵심 글만 공개합니다. 글 수를 늘리는 것보다
+            독자가 따라 할 수 있는 절차, 계산 과정, 예시 표와 실제 CSV 자료를 갖추는 것을 우선합니다.
+          </p>
+        </div>
+      </header>
+
+      <section className="mt-10 rounded-xl border border-teal-200 bg-teal-50 p-6">
+        <h2 className="text-2xl font-bold text-slate-950">공개 콘텐츠 기준</h2>
+        <ul className="mt-5 grid gap-3 leading-7 text-slate-700">
+          <li>공개 글 20개는 자동화 7개, 영업·매출 7개, 소상공인 운영 6개로 구성합니다.</li>
+          <li>모든 공개 글에는 구체적인 절차 또는 표, FAQ 3개 이상, 실제 CSV 다운로드가 있습니다.</li>
+          <li>샘플 수치와 가상 사례는 실제 성과나 고객 사례로 오해하지 않도록 본문에서 표시합니다.</li>
+          <li>공개 기준을 충족하지 못한 도구 비교와 계약·결제 글 33개는 검토 보류 상태로 공개하지 않습니다.</li>
+        </ul>
+        <Link
+          href="/ko/resources"
+          className="mt-5 inline-flex rounded-md bg-teal-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-800"
+        >
+          20개 실무 자료 보기
+        </Link>
+      </section>
+
+      <section className="mt-10 border-t border-slate-200 pt-8">
+        <h2 className="text-2xl font-bold text-slate-950">작성·검토 주체</h2>
+        <div className="mt-5 grid gap-4 leading-7 text-slate-700">
+          <p>
+            모든 글의 작성·검토 주체는 Biz2Lab 편집팀입니다. 확인할 수 없는 경력이나 자격,
+            사용하지 않은 제품 경험, 존재하지 않는 고객 성과를 작성자 소개로 사용하지 않습니다.
+          </p>
+          <p>
+            공개 글의 오류나 적용 범위에 대한 의견은{" "}
             <Link className="font-semibold text-teal-700 underline-offset-4 hover:underline" href="/ko/contact">
               문의 페이지
             </Link>
-            에서 받습니다. 수정이 필요한 내용은 원문을 확인한 뒤 갱신일과 함께 반영합니다.
+            에서 받습니다. 수정할 내용은 원문과 근거를 다시 확인한 뒤 반영합니다.
           </p>
         </div>
       </section>
 
-      <section className="mt-10">
-        <h2 className="text-2xl font-bold tracking-normal text-slate-950">콘텐츠 제작과 편집 기준</h2>
-        <div className="mt-5 grid gap-4 text-base leading-7 text-slate-700">
+      <section className="mt-10 border-t border-slate-200 pt-8">
+        <h2 className="text-2xl font-bold text-slate-950">AI 활용과 편집 원칙</h2>
+        <div className="mt-5 grid gap-4 leading-7 text-slate-700">
           <p>
-            초안 구조화와 비교 항목 정리에 AI 도구를 활용할 수 있습니다. 다만 AI가 만든
-            문장을 그대로 공개하지 않고, 공개 전에는 공식 문서 링크, 과장 표현, 개인정보·결제·계약 위험,
-            실제로 따라 할 수 있는 절차인지 여부를 편집 기준에 따라 확인합니다.
+            AI 도구는 초안 구조화, 누락 항목 탐색, 문장 정리에 활용할 수 있습니다. 그러나 AI가 만든
+            문장을 검토 없이 공개하지 않으며, 최종 공개 여부와 표현은 Biz2Lab 편집 기준으로 결정합니다.
           </p>
           <ul className="grid gap-3">
-            <li>독자 우선: 검색어보다 독자가 해결하려는 문제와 다음 행동을 먼저 설명합니다.</li>
-            <li>출처 확인: 제품 기능, 라이선스, 법률·결제 관련 내용은 가능한 한 공식 문서를 우선 확인합니다.</li>
-            <li>독창성 검토: 다른 글과 같은 문단을 반복하지 않고 주제별 판단 기준과 사례를 제공합니다.</li>
-            <li>과장 금지: 완전 무료, 상업 사용 보장, 즉시 수익 같은 표현을 사용하지 않습니다.</li>
-            <li>도구 도입 전 리스크 확인: 고객 정보, 결제, 계약, 금액이 포함된 자동화는 사람 검토를 전제로 설명합니다.</li>
-            <li>
-              개인정보 기준: 수집, 보관, 외부 전송이 필요한 흐름은{" "}
-              <Link className="font-semibold text-teal-700 underline-offset-4 hover:underline" href="/ko/privacy">
-                개인정보처리방침
-              </Link>
-              을 기준으로 확인합니다.
-            </li>
+            <li>독자 문제 우선: 검색어 반복보다 해결할 문제와 다음 행동을 먼저 설명합니다.</li>
+            <li>근거 확인: 바뀔 수 있는 제품 기능은 공식 문서를 우선 확인하고 확인일을 구분합니다.</li>
+            <li>독창성 검토: 여러 글에서 같은 문단과 같은 소제목 구조가 반복되지 않는지 검사합니다.</li>
+            <li>과장 금지: 보장된 수익, 즉시 효과, 확인하지 않은 순위와 이용 실적을 만들지 않습니다.</li>
+            <li>사람 승인: 금액, 개인정보, 고객 안내, 외부 발송은 자동 실행보다 담당자 확인을 우선합니다.</li>
           </ul>
         </div>
       </section>
 
       <section className="mt-10 border-t border-slate-200 pt-8">
-        <h2 className="text-2xl font-bold tracking-normal text-slate-950">수정과 최신성 원칙</h2>
-        <div className="mt-5 grid gap-4 text-base leading-7 text-slate-700">
+        <h2 className="text-2xl font-bold text-slate-950">샘플 데이터와 개인정보</h2>
+        <div className="mt-5 grid gap-4 leading-7 text-slate-700">
           <p>
-            제품 가격, 라이선스, 지원 기능처럼 바뀔 수 있는 정보는 글의 작성일만으로 확정하지 않습니다.
-            실제 도입 전 공식 문서를 다시 확인하도록 안내하고, 중요한 변경을 반영한 글은 수정일을 갱신합니다.
+            글과 CSV에 들어 있는 이름, 금액, 날짜, 달성률은 설명을 위한 가상 예시입니다.
+            실제 고객 정보나 내부 매출 자료가 아니며, 다운로드 파일에도 개인식별정보를 넣지 않습니다.
           </p>
           <p>
-            법률, 세무, 금융, 개인정보 관련 글은 일반적인 운영 기준을 설명하는 정보성 콘텐츠이며
-            개별 사안의 전문가 자문을 대신하지 않습니다.
+            자료를 사용할 때는 원본을 복사하고 접근 권한을 제한하세요. 개인정보 수집과 보관에 관한
+            기본 원칙은{" "}
+            <Link className="font-semibold text-teal-700 underline-offset-4 hover:underline" href="/ko/privacy">
+              개인정보처리방침
+            </Link>
+            에서 확인할 수 있습니다.
           </p>
         </div>
       </section>
-    </div>
+
+      <section className="mt-10 border-t border-slate-200 pt-8">
+        <h2 className="text-2xl font-bold text-slate-950">수정일과 검토 보류 원칙</h2>
+        <div className="mt-5 grid gap-4 leading-7 text-slate-700">
+          <p>
+            단순 오탈자 수정만으로 최신 글처럼 보이게 날짜를 바꾸지 않습니다. 절차, 계산식, 출처,
+            다운로드 자료처럼 독자에게 의미 있는 내용이 달라졌을 때 수정일을 갱신합니다.
+          </p>
+          <p>
+            법률, 세무, 금융, 계약, 결제처럼 정확성 위험이 큰 글은 일반적인 설명만으로 공개하지 않습니다.
+            공식 근거와 전문가 검토 범위가 충분하지 않으면 비공개 상태를 유지합니다.
+          </p>
+        </div>
+      </section>
+    </main>
   );
 }

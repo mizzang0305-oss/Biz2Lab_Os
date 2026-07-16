@@ -750,7 +750,7 @@
   {
     "slug": "ai-knowledge-store-for-small-business",
     "route": "/ko/small-business/ai-knowledge-store-for-small-business",
-    "primaryKeyword": "AI 점장",
+    "primaryKeyword": "소상공인 AI 지식 원본",
     "secondaryKeywords": [
       "AI 점장",
       "소상공인 지식관리",
@@ -767,7 +767,7 @@
   {
     "slug": "customer-memory-system",
     "route": "/ko/small-business/customer-memory-system",
-    "primaryKeyword": "고객 정보",
+    "primaryKeyword": "고객 응대 기록",
     "secondaryKeywords": [
       "고객 메모 관리",
       "단골 고객 관리",
@@ -784,7 +784,7 @@
   {
     "slug": "daily-numbers-for-small-business",
     "route": "/ko/small-business/daily-numbers-for-small-business",
-    "primaryKeyword": "달성률 계산",
+    "primaryKeyword": "소상공인 매일 볼 숫자",
     "secondaryKeywords": [
       "매출 달성률 계산",
       "목표 달성률 계산",
@@ -836,7 +836,7 @@
   {
     "slug": "unify-order-channels",
     "route": "/ko/small-business/unify-order-channels",
-    "primaryKeyword": "주문 관리 자동화",
+    "primaryKeyword": "주문 채널 통합",
     "secondaryKeywords": [
       "배달앱 주문 관리",
       "스마트스토어 주문 관리",
