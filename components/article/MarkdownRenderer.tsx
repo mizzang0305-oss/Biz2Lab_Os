@@ -13,6 +13,17 @@ export function MarkdownRenderer({ content }: { content: string }) {
         remarkPlugins={[remarkGfm]}
         components={{
           a: ({ href, children }) => {
+            if (href?.startsWith("/downloads/")) {
+              return (
+                <a
+                  href={href}
+                  download
+                  className="inline-flex rounded-md bg-slate-950 px-4 py-2 font-semibold text-white no-underline transition hover:bg-teal-800"
+                >
+                  {children}
+                </a>
+              );
+            }
             if (href?.startsWith("/")) {
               return (
                 <Link href={href} className="font-medium text-teal-700 underline-offset-4 hover:underline">

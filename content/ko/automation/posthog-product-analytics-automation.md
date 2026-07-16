@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-26'
 updatedAt: '2026-07-10'
@@ -21,7 +21,7 @@ tags:
 heroImage: /images/posts/posthog-product-analytics-automation-hero.webp
 heroAlt: PostHog 제품 분석과 이벤트 자동화 흐름을 개인정보 리스크와 함께 검토하는 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/posthog-product-analytics-automation'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - matomo-self-hosted-analytics-privacy-caution

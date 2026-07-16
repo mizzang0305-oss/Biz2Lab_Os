@@ -1,6 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import {
+  getEditorialEvidence,
+  getEditorialEvidenceEntries,
+} from "@/lib/editorial-evidence";
 import { getPublicPosts } from "@/lib/posts";
 
 const root = process.cwd();
@@ -9,33 +13,10 @@ const warnings: string[] = [];
 const protectedAdminRoot = path.join(root, "app", "admin");
 const protectedAdminRoute = path.join(protectedAdminRoot, "content-automation");
 const protectedAdminApiRoot = path.join(root, "app", "api", "admin", "content-automation");
-
-const top3Slugs = new Set([
-  "ai-business-automation-guide",
-  "accounts-receivable-tracker",
-  "electronic-contract-system-basics",
-]);
-
-const p1Slugs = new Set([
-  "automation-priority-method",
-  "chatgpt-document-cleanup",
-  "google-sheets-ai-automation",
-  "sales-revenue-ar-structure",
-  "connect-contract-payment-customer-management",
-  "payment-reminder-message",
-  "unify-order-channels",
-  "customer-memory-system",
-]);
-
-const requiredSectionSignals = [
-  { label: "problem framing", pattern: /(?:문제 정의|풀어야 할 문제)$/ },
-  { label: "decision criteria", pattern: /(?:핵심 개념|판단에 필요한 핵심 기준)$/ },
-  { label: "field scenario", pattern: /(?:현장 시나리오|적용이 필요한 실제 업무 장면)$/ },
-  { label: "execution procedure", pattern: /(?:실행 절차|검토와 실행 순서)$/ },
-  { label: "safe operating structure", pattern: /(?:자동화 구조|운영을 안전하게 만드는 구조)$/ },
-  { label: "risk controls", pattern: /(?:리스크와 방지책|실패 위험과 방지책)$/ },
-  { label: "adoption sequence", pattern: /(?:도입 순서|시작 순서: 오늘·1주·1개월)$/ },
-];
+const MIN_PUBLIC_POSTS = 20;
+const MAX_PUBLIC_POSTS = 26;
+const MIN_CONTENT_CHARS = 1600;
+const MIN_H2_SECTIONS = 5;
 
 const forbiddenContentPatterns = [
   { pattern: /최소 공개 버전/g, label: "minimum-public-version wording" },
@@ -54,6 +35,12 @@ function inlineImages(content: string) {
       src: match[2],
       caption: match[3] ?? "",
     }),
+  );
+}
+
+function downloadableResources(content: string) {
+  return [...content.matchAll(/\[[^\]]+\]\((\/downloads\/[^)\s]+)\)/g)].map(
+    (match) => match[1],
   );
 }
 
@@ -88,27 +75,35 @@ function extractH2Sections(content: string) {
 
 const posts = getPublicPosts();
 const postsBySlug = new Map(posts.map((post) => [post.slug, post]));
+const editorialEvidenceEntries = getEditorialEvidenceEntries();
+const editorialEvidenceSlugs = new Set(editorialEvidenceEntries.map(([slug]) => slug));
 const heroUsage = new Map<string, string[]>();
 const summaryRows: string[] = [];
 const slugOnlyMarkdownLink = /\[([a-z0-9]+(?:-[a-z0-9]+)+)\]\(\/ko\/[^)]+\)/g;
 
+if (posts.length < MIN_PUBLIC_POSTS || posts.length > MAX_PUBLIC_POSTS) {
+  errors.push(
+    `public portfolio must contain ${MIN_PUBLIC_POSTS}-${MAX_PUBLIC_POSTS} posts, found ${posts.length}`,
+  );
+}
+
 for (const post of posts) {
+  const editorialEvidence = getEditorialEvidence(post.slug);
   const contentLength = [...post.content].length;
   const images = inlineImages(post.content);
+  const downloads = downloadableResources(post.content);
   const headingTexts = post.headings.map((heading) => heading.text);
   const h2Sections = extractH2Sections(post.content);
   const duplicateHeadings = duplicatedValues(headingTexts);
   const relatedHeadingCount = headingTexts.filter((heading) => heading === "관련 글").length;
-  const minimumLength = top3Slugs.has(post.slug) ? 2000 : p1Slugs.has(post.slug) ? 1500 : 1200;
-  const minimumImages = top3Slugs.has(post.slug) ? 3 : p1Slugs.has(post.slug) ? 1 : 0;
 
   heroUsage.set(post.frontmatter.heroImage, [
     ...(heroUsage.get(post.frontmatter.heroImage) ?? []),
     post.slug,
   ]);
 
-  if (contentLength < minimumLength) {
-    errors.push(`${post.slug}: content length ${contentLength} is below ${minimumLength}`);
+  if (contentLength < MIN_CONTENT_CHARS) {
+    errors.push(`${post.slug}: content length ${contentLength} is below ${MIN_CONTENT_CHARS}`);
   }
 
   if (!post.frontmatter.heroImage || !post.frontmatter.heroAlt.trim()) {
@@ -119,8 +114,58 @@ for (const post of posts) {
     errors.push(`${post.slug}: needs at least three FAQ items`);
   }
 
-  if (images.length < minimumImages) {
-    errors.push(`${post.slug}: needs at least ${minimumImages} inline image(s), found ${images.length}`);
+  if (h2Sections.length < MIN_H2_SECTIONS) {
+    errors.push(`${post.slug}: needs at least ${MIN_H2_SECTIONS} substantive H2 sections`);
+  }
+
+  if (downloads.length < 1) {
+    errors.push(`${post.slug}: needs at least one real downloadable resource`);
+  }
+
+  for (const download of downloads) {
+    if (!publicFileExists(download)) {
+      errors.push(`${post.slug}: downloadable resource is missing: ${download}`);
+    }
+  }
+
+  if (!/\|.+\|/m.test(post.content) && !/^\d+\.\s/m.test(post.content)) {
+    errors.push(`${post.slug}: needs a practical table or ordered procedure`);
+  }
+
+  if (!/(?:예시|샘플|가상 데이터|가상 기록)/.test(post.content)) {
+    errors.push(`${post.slug}: needs an explicit worked-example or sample-data disclosure`);
+  }
+
+  if (editorialEvidence.summary.length < 40) {
+    errors.push(`${post.slug}: editorial evidence summary is too short`);
+  }
+
+  if (editorialEvidence.scope.length < 35) {
+    errors.push(`${post.slug}: editorial scope disclosure is too short`);
+  }
+
+  if (
+    editorialEvidence.type === "official-document-review" &&
+    editorialEvidence.sources.length === 0
+  ) {
+    errors.push(`${post.slug}: official-document-review needs at least one source`);
+  }
+
+  for (const source of editorialEvidence.sources) {
+    if (!source.url.startsWith("https://")) {
+      errors.push(`${post.slug}: editorial source must use https: ${source.url}`);
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(source.reviewedAt)) {
+      errors.push(`${post.slug}: editorial source reviewedAt must use YYYY-MM-DD`);
+    }
+  }
+
+  if (post.frontmatter.templateCta) {
+    errors.push(`${post.slug}: placeholder templateCta must not be public`);
+  }
+
+  if (/분석:/.test(post.frontmatter.title)) {
+    errors.push(`${post.slug}: unverified analysis title must not be public`);
   }
 
   for (const image of images) {
@@ -132,12 +177,6 @@ for (const post of posts) {
     }
     if (!publicFileExists(image.src)) {
       errors.push(`${post.slug}: inline image file is missing: ${image.src}`);
-    }
-  }
-
-  for (const section of requiredSectionSignals) {
-    if (!headingTexts.some((heading) => section.pattern.test(heading))) {
-      errors.push(`${post.slug}: missing ${section.label} section`);
     }
   }
 
@@ -181,8 +220,20 @@ for (const post of posts) {
   }
 
   summaryRows.push(
-    `${post.slug}: chars=${contentLength}, headings=${headingTexts.length}, faq=${post.frontmatter.faq?.length ?? 0}, inlineImages=${images.length}`,
+    `${post.slug}: chars=${contentLength}, headings=${headingTexts.length}, faq=${post.frontmatter.faq?.length ?? 0}, downloads=${downloads.length}, inlineImages=${images.length}`,
   );
+}
+
+for (const [slug] of editorialEvidenceEntries) {
+  if (!postsBySlug.has(slug)) {
+    errors.push(`${slug}: editorial evidence exists for a non-public article`);
+  }
+}
+
+for (const post of posts) {
+  if (!editorialEvidenceSlugs.has(post.slug)) {
+    errors.push(`${post.slug}: published article is missing editorial evidence`);
+  }
 }
 
 for (const [src, slugs] of heroUsage.entries()) {

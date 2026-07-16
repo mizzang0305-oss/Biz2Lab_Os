@@ -6,8 +6,8 @@ locale: ko
 category: contracts-payments
 cluster: contracts-payment-basics
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-10'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/connect-contract-payment-customer-management-hero.webp
 heroAlt: '계약서 작성과 결제 확인, 거래처 후속 조치를 하나로 연결한 운영 흐름'
 canonical: 'https://www.biz2lab.com/ko/contracts-payments/connect-contract-payment-customer-management'
-noindex: false
+noindex: true
 relatedPosts:
   - electronic-contract-system-basics
   - offline-card-payment-pg-van

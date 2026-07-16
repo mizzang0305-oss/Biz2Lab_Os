@@ -85,23 +85,14 @@ test("keyword audit keeps index readiness separate from keyword follow-up work",
   assert.equal(audit.articles.every((article) => article.checks.brokenInternalLinks === 0), true);
 });
 
-test("key automation series articles keep descriptive hub and related links", () => {
+test("reviewed core articles keep descriptive related links without draft-series dependencies", () => {
   const requiredSlugs = new Set([
-    "activepieces-ai-business-automation-n8n-alternative",
-    "node-red-local-business-automation-server",
-    "huginn-monitoring-automation-agent",
-    "baserow-open-source-database-automation",
-    "appsmith-internal-dashboard-automation",
-    "windmill-developer-workflow-automation",
-    "kestra-data-ai-workflow-orchestration",
-    "langflow-ai-workflow-automation",
-    "dify-llm-app-builder-business-automation",
-    "open-webui-local-llm-admin-portal",
-    "flowise-ai-agent-workflow-automation",
-    "opencut-free-open-source-video-editor-ai-content-automation",
-    "crawl4ai-blog-research-automation",
-    "n8n-workflow-automation-license-caution",
-    "nocodb-airtable-alternative-license-caution",
+    "ai-business-automation-guide",
+    "automation-priority-method",
+    "accounts-receivable-tracker",
+    "daily-sales-goal-breakdown",
+    "customer-memory-system",
+    "unify-order-channels",
   ]);
   const auditBySlug = new Map(auditSeoKeywords().articles.map((article) => [article.slug, article]));
 
@@ -109,7 +100,7 @@ test("key automation series articles keep descriptive hub and related links", ()
     const article = auditBySlug.get(slug);
 
     assert.ok(article, `${slug} must have a keyword audit row`);
-    assert.equal(article.checks.seriesHubLinked, true, `${slug} must link to the automation series hub`);
+    assert.equal(article.checks.seriesHubLinked, true, `${slug} must not require a held draft-series hub`);
     assert.ok(article.checks.relatedArticleLinks >= 2, `${slug} must keep at least two related links`);
   }
 });

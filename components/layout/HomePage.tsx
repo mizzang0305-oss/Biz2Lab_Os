@@ -53,14 +53,14 @@ export function HomePage() {
   ];
   const decisionGuideLinks = [
     {
-      title: "오픈소스 자동화 도구 시리즈",
-      href: "/ko/automation/free-open-source-automation-tools-series",
-      description: "무료 여부보다 설정 부담, 운영 비용, 데이터 리스크, 사람 승인 단계를 먼저 봅니다.",
+      title: "자동화 우선순위 정하기",
+      href: "/ko/automation/automation-priority-method",
+      description: "반복 빈도, 소요 시간, 오류 비용, 표준화 가능성으로 첫 자동화 후보를 고릅니다.",
     },
     {
-      title: "Metabase 대시보드 판단",
-      href: "/ko/automation/metabase-dashboard-automation-for-small-business",
-      description: "대시보드 도구보다 질문, 데이터 원본, 담당자 확인 주기를 먼저 정합니다.",
+      title: "Google Sheets 자동화 기준",
+      href: "/ko/automation/google-sheets-ai-automation",
+      description: "원본 시트, 실행 조건, 승인자, 오류 기록이 준비됐는지 먼저 확인합니다.",
     },
     {
       title: "AI 업무 자동화 기준",
@@ -186,8 +186,8 @@ export function HomePage() {
             자동화 도구 도입 전 판단 기준
           </h2>
           <p className="mt-3 leading-7 text-slate-600">
-            자동화는 도구를 먼저 고르는 일이 아닙니다. 설정 부담, 운영 비용, 데이터 리스크,
-            사람 승인 단계를 먼저 확인한 뒤 작은 업무부터 검토합니다.
+            자동화는 도구를 먼저 고르는 일이 아닙니다. 반복 빈도, 원본 데이터, 오류 비용,
+            사람 승인 단계를 먼저 확인한 뒤 작은 업무부터 시작합니다.
           </p>
         </div>
         <div className="mt-8 grid min-w-0 gap-4 md:grid-cols-3">

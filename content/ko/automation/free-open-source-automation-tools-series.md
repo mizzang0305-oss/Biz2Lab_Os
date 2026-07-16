@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: pillar
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-19'
 updatedAt: '2026-07-10'
@@ -22,7 +22,7 @@ tags:
 heroImage: /images/posts/free-open-source-automation-tools-series-hero.webp
 heroAlt: 무료 오픈소스 자동화 도구 지도를 Biz2Lab과 MyBiz 업무 흐름 관점에서 정리한 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/free-open-source-automation-tools-series'
-noindex: false
+noindex: true
 relatedPosts:
   - opencut-free-open-source-video-editor-ai-content-automation
   - activepieces-ai-business-automation-n8n-alternative

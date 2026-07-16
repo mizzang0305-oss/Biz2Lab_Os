@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-26'
 updatedAt: '2026-07-10'
@@ -21,7 +21,7 @@ tags:
 heroImage: /images/posts/plausible-open-source-analytics-ga-alternative-hero.webp
 heroAlt: Plausible을 GA 대체 웹 분석과 개인정보 보호 관점에서 검토하는 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/plausible-open-source-analytics-ga-alternative'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - umami-open-source-analytics-ga-alternative

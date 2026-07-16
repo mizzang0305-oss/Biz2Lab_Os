@@ -443,6 +443,8 @@ function adsenseReadinessSignals(post: Post, answerAudit?: SeoAnswerReadinessArt
   const headings = post.headings.map((heading) => heading.text).join(" ");
   const hasPracticalTemplate =
     content.includes("| --- |") ||
+    /^\d+\.\s+/m.test(content) ||
+    /\/downloads\/[a-z0-9-]+\.csv/.test(content) ||
     includesAny(headings, [
       "체크리스트",
       "점검표",
@@ -456,8 +458,8 @@ function adsenseReadinessSignals(post: Post, answerAudit?: SeoAnswerReadinessArt
     ]) ||
     includesAny(content, ["달성률 =", "부족 금액 =", "남은 기간 하루 필요 실적 =", "도입 전 체크리스트"]);
   const hasOriginalValue =
-    [...content].length >= 3000 &&
-    includesAny(content, ["Biz2Lab", "손해", "리스크", "담당자", "사람 승인", "현장"]);
+    [...content].length >= 1600 &&
+    includesAny(content, ["위험", "예시", "담당자", "승인", "원본", "확인"]);
   const internalLinkStatus =
     post.internalLinks.length > 0 || post.frontmatter.relatedPosts.length >= 3
       ? ("Internal links ready" as const)

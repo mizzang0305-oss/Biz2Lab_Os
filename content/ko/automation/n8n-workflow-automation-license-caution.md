@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-21'
 updatedAt: '2026-07-10'
@@ -22,7 +22,7 @@ tags:
 heroImage: /images/posts/n8n-workflow-automation-license-caution-hero.webp
 heroAlt: n8n을 워크플로 자동화와 라이선스 주의 관점에서 분석한 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/n8n-workflow-automation-license-caution'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - activepieces-ai-business-automation-n8n-alternative

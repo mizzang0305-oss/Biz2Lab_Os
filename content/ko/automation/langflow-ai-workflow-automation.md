@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-21'
 updatedAt: '2026-07-10'
@@ -21,7 +21,7 @@ tags:
 heroImage: /images/posts/langflow-ai-workflow-automation-hero.webp
 heroAlt: Langflow로 AI 워크플로와 LLM 앱 제작 흐름을 검토하는 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/langflow-ai-workflow-automation'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - crawl4ai-blog-research-automation

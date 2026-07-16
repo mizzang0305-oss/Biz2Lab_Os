@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-20'
 updatedAt: '2026-07-10'
@@ -21,7 +21,7 @@ tags:
 heroImage: /images/posts/appsmith-internal-dashboard-automation-hero.webp
 heroAlt: Appsmith를 내부 관리자 화면 자동화 관점에서 분석한 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/appsmith-internal-dashboard-automation'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - baserow-open-source-database-automation

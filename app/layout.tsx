@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { googleSetup } from "@/lib/google-setup";
 import { jsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
-import { siteConfig } from "@/lib/site";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
-  authors: [{ name: siteConfig.author }],
+  authors: [{ name: siteConfig.author, url: absoluteUrl("/ko/about") }],
   creator: siteConfig.author,
   publisher: siteConfig.author,
   alternates: {

@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-21'
 updatedAt: '2026-07-10'
@@ -21,7 +21,7 @@ tags:
 heroImage: /images/posts/crawl4ai-blog-research-automation-hero.webp
 heroAlt: Crawl4AI를 블로그 리서치 자동화와 안전한 크롤링 게이트 관점에서 분석한 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/crawl4ai-blog-research-automation'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - nocodb-airtable-alternative-license-caution

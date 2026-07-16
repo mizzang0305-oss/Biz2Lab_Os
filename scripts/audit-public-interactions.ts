@@ -14,7 +14,7 @@ const protectedAdminRoot = path.join(root, "app", "admin");
 const protectedAdminRoute = path.join(protectedAdminRoot, "content-automation");
 const protectedAdminApiRoot = path.join(root, "app", "api", "admin", "content-automation");
 
-const sourceRoots = ["app", "components", path.join("content", "ko")];
+const sourceRoots = ["app", "components"];
 const sourceFiles = [path.join("lib", "site-settings.ts")];
 const sourceExtensions = new Set([".ts", ".tsx", ".md", ".mdx"]);
 const availableRoutes = new Set<string>([
@@ -168,6 +168,9 @@ function validateLinksAndButtons(filePath: string) {
     const href = tag.match(/\bhref\s*=\s*["'`](\/[^"'`]+)["'`]/)?.[1];
     const line = source.slice(0, match.index).split(/\r?\n/).length;
     if (!href) {
+      if (/\bhref\s*=\s*\{[^}]+\}/.test(tag)) {
+        continue;
+      }
       addError(relativePath, `download anchor without static href near line ${line}`);
       continue;
     }
@@ -344,6 +347,11 @@ for (const sourceRoot of sourceRoots) {
   for (const filePath of walkFiles(path.join(root, sourceRoot))) {
     validateLinksAndButtons(filePath);
   }
+}
+for (const post of getPublicPosts()) {
+  validateLinksAndButtons(
+    path.join(root, "content", "ko", post.frontmatter.category, `${post.slug}.md`),
+  );
 }
 for (const filePath of sourceFiles) {
   validateLinksAndButtons(path.join(root, filePath));

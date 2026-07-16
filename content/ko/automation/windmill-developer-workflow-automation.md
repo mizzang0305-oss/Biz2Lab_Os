@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: open-source-automation-tools
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-20'
 updatedAt: '2026-07-10'
@@ -23,7 +23,7 @@ tags:
 heroImage: /images/posts/windmill-developer-workflow-automation-hero.webp
 heroAlt: Windmill을 개발자용 업무 자동화 관점에서 분석한 대표 이미지
 canonical: 'https://www.biz2lab.com/ko/automation/windmill-developer-workflow-automation'
-noindex: false
+noindex: true
 relatedPosts:
   - free-open-source-automation-tools-series
   - appsmith-internal-dashboard-automation

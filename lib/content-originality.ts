@@ -3,11 +3,12 @@ import path from "node:path";
 
 import matter from "gray-matter";
 
-const MIN_CONTENT_CHARS = 2500;
+const MIN_CONTENT_CHARS = 1600;
 const MAX_PAIR_SIMILARITY = 0.4;
 const REPEATED_PARAGRAPH_MIN_LENGTH = 100;
 const REPEATED_PARAGRAPH_OWNER_LIMIT = 3;
 const OVERUSED_HEADING_OWNER_LIMIT = 5;
+const OVERUSED_HEADING_PATTERN_OWNER_LIMIT = 5;
 
 const allowedSharedHeadings = new Set([
   "FAQ",
@@ -74,6 +75,7 @@ export type ContentOriginalityIssue = {
     | "empty-section"
     | "repeated-paragraph"
     | "overused-heading"
+    | "overused-heading-pattern"
     | "high-similarity"
     | "particle-error";
   message: string;
@@ -98,6 +100,7 @@ type MarkdownSection = {
 
 type AuditedPost = {
   slug: string;
+  title: string;
   raw: string;
   content: string;
   headings: string[];
@@ -144,7 +147,7 @@ function invalidObjectParticles(raw: string) {
     .filter((value): value is string => Boolean(value));
 }
 
-function extractProseParagraphs(content: string) {
+function extractComparableBlocks(content: string) {
   return content
     .split(/\r?\n\s*\r?\n/)
     .map((part) => part.trim())
@@ -152,13 +155,25 @@ function extractProseParagraphs(content: string) {
       (part) =>
         part.length >= 90 &&
         !part.startsWith("#") &&
-        !part.startsWith("|") &&
-        !part.startsWith("- ") &&
-        !part.startsWith("![") &&
-        !/^\d+\.\s/.test(part),
+        !part.startsWith("!["),
     )
     .map(normalizeContent)
     .filter((part) => part.length >= 70);
+}
+
+function normalizeHeadingPattern(heading: string, title: string) {
+  let normalized = normalizeContent(heading);
+  const titleTokens = new Set(
+    normalizeContent(title)
+      .split(" ")
+      .filter((token) => token.length >= 2),
+  );
+
+  for (const token of titleTokens) {
+    normalized = normalized.replaceAll(token, "{topic}");
+  }
+
+  return normalized.replace(/\d+/g, "{n}").replace(/\s+/g, " ").trim();
 }
 
 function extractH2Sections(content: string): MarkdownSection[] {
@@ -216,11 +231,12 @@ function loadPublishedPosts(rootDir: string): AuditedPost[] {
     )
     .map(({ raw, parsed }) => ({
       slug: String(parsed.data.slug),
+      title: String(parsed.data.title),
       raw,
       content: parsed.content.trim(),
       headings: Array.from(parsed.content.matchAll(/^#{2,3}\s+(.+)$/gm), (match) => match[1].trim()),
       sections: extractH2Sections(parsed.content),
-      paragraphs: extractProseParagraphs(parsed.content),
+      paragraphs: extractComparableBlocks(parsed.content),
       shingles: buildShingles(parsed.content),
     }));
 }
@@ -229,6 +245,7 @@ export function auditContentOriginality(rootDir = process.cwd()): ContentOrigina
   const posts = loadPublishedPosts(rootDir);
   const issues: ContentOriginalityIssue[] = [];
   const headingOwners = new Map<string, string[]>();
+  const headingPatternOwners = new Map<string, string[]>();
   const paragraphOwners = new Map<string, string[]>();
 
   for (const post of posts) {
@@ -252,6 +269,11 @@ export function auditContentOriginality(rootDir = process.cwd()): ContentOrigina
 
     for (const heading of new Set(post.headings)) {
       headingOwners.set(heading, [...(headingOwners.get(heading) ?? []), post.slug]);
+      const pattern = normalizeHeadingPattern(heading, post.title);
+      headingPatternOwners.set(pattern, [
+        ...(headingPatternOwners.get(pattern) ?? []),
+        post.slug,
+      ]);
     }
 
     for (const paragraph of new Set(post.paragraphs)) {
@@ -302,6 +324,20 @@ export function auditContentOriginality(rootDir = process.cwd()): ContentOrigina
     });
   }
 
+  const overusedHeadingPatterns = [...headingPatternOwners.entries()].filter(
+    ([pattern, owners]) =>
+      pattern.length >= 12 &&
+      owners.length >= OVERUSED_HEADING_PATTERN_OWNER_LIMIT &&
+      !allowedSharedHeadings.has(pattern),
+  );
+  for (const [pattern, owners] of overusedHeadingPatterns) {
+    issues.push({
+      type: "overused-heading-pattern",
+      message: `Heading pattern is shared across ${owners.length} posts: ${pattern}`,
+      slugs: owners,
+    });
+  }
+
   let maxPairSimilarity = 0;
   for (let leftIndex = 0; leftIndex < posts.length; leftIndex += 1) {
     for (let rightIndex = leftIndex + 1; rightIndex < posts.length; rightIndex += 1) {
@@ -324,7 +360,7 @@ export function auditContentOriginality(rootDir = process.cwd()): ContentOrigina
     postCount: posts.length,
     minContentChars: Math.min(...posts.map((post) => post.content.length)),
     repeatedLongParagraphGroups: repeatedParagraphs.length,
-    overusedHeadingGroups: overusedHeadings.length,
+    overusedHeadingGroups: overusedHeadings.length + overusedHeadingPatterns.length,
     maxPairSimilarity: Number(maxPairSimilarity.toFixed(3)),
     particleErrorCount: issues.filter((issue) => issue.type === "particle-error").length,
     emptySectionCount: issues.filter((issue) => issue.type === "empty-section").length,

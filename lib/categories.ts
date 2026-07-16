@@ -61,7 +61,9 @@ export const categories: Record<PublicCategorySlug, Category> = {
   },
 };
 
-export const categoryList = Object.values(categories);
+export const categoryList = Object.values(categories).filter(
+  (category) => category.slug !== "contracts-payments",
+);
 
 export function getCategory(slug: string) {
   return categories[slug as PublicCategorySlug] ?? null;

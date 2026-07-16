@@ -6,8 +6,8 @@ locale: ko
 category: contracts-payments
 cluster: contracts-payment-basics
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-10'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/manage-unsigned-contracts-hero.webp
 heroAlt: '미작성 계약 목록을 사유와 담당자, 재안내 일정으로 관리하는 후속 조치 보드'
 canonical: 'https://www.biz2lab.com/ko/contracts-payments/manage-unsigned-contracts'
-noindex: false
+noindex: true
 relatedPosts:
   - electronic-contract-system-basics
   - payment-reminder-message

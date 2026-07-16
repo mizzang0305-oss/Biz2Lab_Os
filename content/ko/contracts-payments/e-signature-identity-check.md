@@ -6,8 +6,8 @@ locale: ko
 category: contracts-payments
 cluster: contracts-payment-basics
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-10'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/e-signature-identity-check-hero.webp
 heroAlt: 전자서명과 본인확인 절차를 나란히 비교한 계약 업무 흐름
 canonical: 'https://www.biz2lab.com/ko/contracts-payments/e-signature-identity-check'
-noindex: false
+noindex: true
 relatedPosts:
   - electronic-contract-system-basics
   - manage-unsigned-contracts
