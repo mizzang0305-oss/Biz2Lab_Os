@@ -88,7 +88,7 @@ export const siteSettings = {
       {
         title: "정책",
         links: [
-          { label: "소개", href: "/ko/about" },
+          { label: "소개·편집 원칙", href: "/ko/about" },
           { label: "문의", href: "/ko/contact" },
           { label: "개인정보처리방침", href: "/ko/privacy" },
           { label: "이용약관", href: "/ko/terms" },

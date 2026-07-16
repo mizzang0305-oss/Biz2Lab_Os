@@ -73,6 +73,8 @@ export function organizationJsonLd() {
     name: siteConfig.name,
     alternateName: siteConfig.koreanName,
     url: siteConfig.url,
+    description: siteConfig.description,
+    publishingPrinciples: absoluteUrl("/ko/about"),
     sameAs: ["https://github.com/mizzang0305-oss"],
   };
 }

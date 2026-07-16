@@ -1,6 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import {
+  getEditorialEvidence,
+  getEditorialEvidenceEntries,
+} from "@/lib/editorial-evidence";
 import { getPublicPosts } from "@/lib/posts";
 
 const root = process.cwd();
@@ -71,6 +75,8 @@ function extractH2Sections(content: string) {
 
 const posts = getPublicPosts();
 const postsBySlug = new Map(posts.map((post) => [post.slug, post]));
+const editorialEvidenceEntries = getEditorialEvidenceEntries();
+const editorialEvidenceSlugs = new Set(editorialEvidenceEntries.map(([slug]) => slug));
 const heroUsage = new Map<string, string[]>();
 const summaryRows: string[] = [];
 const slugOnlyMarkdownLink = /\[([a-z0-9]+(?:-[a-z0-9]+)+)\]\(\/ko\/[^)]+\)/g;
@@ -82,6 +88,7 @@ if (posts.length < MIN_PUBLIC_POSTS || posts.length > MAX_PUBLIC_POSTS) {
 }
 
 for (const post of posts) {
+  const editorialEvidence = getEditorialEvidence(post.slug);
   const contentLength = [...post.content].length;
   const images = inlineImages(post.content);
   const downloads = downloadableResources(post.content);
@@ -127,6 +134,30 @@ for (const post of posts) {
 
   if (!/(?:예시|샘플|가상 데이터|가상 기록)/.test(post.content)) {
     errors.push(`${post.slug}: needs an explicit worked-example or sample-data disclosure`);
+  }
+
+  if (editorialEvidence.summary.length < 40) {
+    errors.push(`${post.slug}: editorial evidence summary is too short`);
+  }
+
+  if (editorialEvidence.scope.length < 35) {
+    errors.push(`${post.slug}: editorial scope disclosure is too short`);
+  }
+
+  if (
+    editorialEvidence.type === "official-document-review" &&
+    editorialEvidence.sources.length === 0
+  ) {
+    errors.push(`${post.slug}: official-document-review needs at least one source`);
+  }
+
+  for (const source of editorialEvidence.sources) {
+    if (!source.url.startsWith("https://")) {
+      errors.push(`${post.slug}: editorial source must use https: ${source.url}`);
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(source.reviewedAt)) {
+      errors.push(`${post.slug}: editorial source reviewedAt must use YYYY-MM-DD`);
+    }
   }
 
   if (post.frontmatter.templateCta) {
@@ -191,6 +222,18 @@ for (const post of posts) {
   summaryRows.push(
     `${post.slug}: chars=${contentLength}, headings=${headingTexts.length}, faq=${post.frontmatter.faq?.length ?? 0}, downloads=${downloads.length}, inlineImages=${images.length}`,
   );
+}
+
+for (const [slug] of editorialEvidenceEntries) {
+  if (!postsBySlug.has(slug)) {
+    errors.push(`${slug}: editorial evidence exists for a non-public article`);
+  }
+}
+
+for (const post of posts) {
+  if (!editorialEvidenceSlugs.has(post.slug)) {
+    errors.push(`${post.slug}: published article is missing editorial evidence`);
+  }
 }
 
 for (const [src, slugs] of heroUsage.entries()) {

@@ -9,6 +9,11 @@ import AboutPage from "@/app/ko/about/page";
 import ResourcesPage, { metadata as resourcesMetadata } from "@/app/ko/resources/page";
 import { GET as getRss } from "@/app/rss.xml/route";
 import sitemap from "@/app/sitemap";
+import {
+  editorialIdentity,
+  getEditorialEvidence,
+  getEditorialEvidenceEntries,
+} from "@/lib/editorial-evidence";
 import { getAllPosts, getPublicPosts } from "@/lib/posts";
 import { staticPublicRoutes } from "@/lib/seo";
 import { siteSettings } from "@/lib/site-settings";
@@ -125,10 +130,42 @@ test("about page publishes AI, sample-data, hold, and update-date policies", () 
   assert.match(html, /도구 비교와 계약·결제 글 33개는 검토 보류/);
   assert.match(html, /AI 도구는 초안 구조화/);
   assert.match(html, /가상 예시/);
+  assert.match(html, /누가 운영하고 검토하나요/);
+  assert.match(html, /왜 이 콘텐츠를 만드나요/);
+  assert.match(html, /어떻게 작성하고 검토하나요/);
+  assert.match(html, /2026년 6월 15일 처음 공개/);
+  assert.match(html, /광고·협찬과 편집 독립성/);
+  assert.match(html, new RegExp(editorialIdentity.operatorName));
   assert.match(html, /단순 오탈자 수정만으로 최신 글처럼 보이게 날짜를 바꾸지 않습니다/);
   assert.match(html, /\/ko\/contact/);
   assert.match(html, /\/ko\/privacy/);
   assert.doesNotMatch(html, /박사|수상|공인 전문가|공식 파트너/);
+});
+
+test("every public article has unique evidence, an honest scope, and official sources when claimed", () => {
+  const publicPosts = getPublicPosts();
+  const entries = getEditorialEvidenceEntries();
+  const summaries = new Set<string>();
+
+  assert.equal(entries.length, publicPosts.length);
+
+  for (const post of publicPosts) {
+    const evidence = getEditorialEvidence(post.slug);
+
+    assert.ok(evidence.summary.length >= 40, `${post.slug} evidence summary is too short`);
+    assert.ok(evidence.scope.length >= 35, `${post.slug} scope is too short`);
+    assert.equal(summaries.has(evidence.summary), false, `${post.slug} repeats another evidence summary`);
+    summaries.add(evidence.summary);
+
+    if (evidence.type === "official-document-review") {
+      assert.ok(evidence.sources.length >= 1, `${post.slug} needs an official source`);
+    }
+
+    for (const source of evidence.sources) {
+      assert.match(source.url, /^https:\/\//);
+      assert.match(source.reviewedAt, /^\d{4}-\d{2}-\d{2}$/);
+    }
+  }
 });
 
 test("article template no longer injects the same generic checklist and CTA into every post", () => {
@@ -137,6 +174,9 @@ test("article template no longer injects the same generic checklist and CTA into
   assert.doesNotMatch(articleSource, /ChecklistBox/);
   assert.doesNotMatch(articleSource, /TemplateCTA/);
   assert.doesNotMatch(articleSource, /checklistForPost/);
+  assert.match(articleSource, /EditorialEvidenceBox/);
+  assert.match(articleSource, /editorialIdentity\.authorName/);
+  assert.match(articleSource, /isAccessibleForFree/);
 });
 
 test("content reset report records the scope and keeps deployment outside this change", () => {

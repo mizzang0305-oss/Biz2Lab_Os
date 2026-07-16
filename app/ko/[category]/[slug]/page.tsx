@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/article/Breadcrumbs";
+import { EditorialEvidenceBox } from "@/components/article/EditorialEvidenceBox";
 import { FAQBox } from "@/components/article/FAQBox";
 import { MarkdownRenderer } from "@/components/article/MarkdownRenderer";
 import { ReadingProgress } from "@/components/article/ReadingProgress";
@@ -12,6 +13,7 @@ import { SummaryBox } from "@/components/article/SummaryBox";
 import { TableOfContents } from "@/components/article/TableOfContents";
 import { NextStepBox } from "@/components/cta/NextStepBox";
 import { categories } from "@/lib/categories";
+import { editorialIdentity, getEditorialEvidence } from "@/lib/editorial-evidence";
 import { shouldRenderArticleHeroImage } from "@/lib/images/premium-image-policy";
 import { getPostBySlug, getPublicPosts, getRelatedPosts } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/site";
@@ -58,6 +60,7 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
 
   const categoryInfo = categories[post.category];
   const relatedPosts = getRelatedPosts(post);
+  const editorialEvidence = getEditorialEvidence(post.slug);
   const renderHeroImage = shouldRenderArticleHeroImage(post);
   const breadcrumbs = [
     { label: categoryInfo.name, href: `/ko/${categoryInfo.slug}` },
@@ -73,12 +76,14 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
     dateModified: post.frontmatter.updatedAt,
     author: {
       "@type": "Organization",
-      name: "Biz2Lab 편집팀",
-      url: absoluteUrl("/ko/about"),
+      name: editorialIdentity.authorName,
+      url: absoluteUrl(editorialIdentity.authorUrl),
+      sameAs: editorialIdentity.operatorUrl,
     },
     publisher: { "@type": "Organization", name: "Biz2Lab", url: absoluteUrl("/ko") },
     mainEntityOfPage: absoluteUrl(post.route),
     inLanguage: "ko-KR",
+    isAccessibleForFree: true,
   };
   const faqJsonLd = post.frontmatter.faq?.length
     ? {
@@ -139,6 +144,10 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
 
         <div className={`mx-auto grid max-w-3xl min-w-0 gap-7 ${renderHeroImage ? "mt-8" : ""}`}>
           <SummaryBox summary={post.frontmatter.description} />
+          <EditorialEvidenceBox
+            evidence={editorialEvidence}
+            updatedAt={post.frontmatter.updatedAt}
+          />
           <TableOfContents headings={post.headings} />
           <MarkdownRenderer content={post.content} />
           <FAQBox faq={post.frontmatter.faq} />

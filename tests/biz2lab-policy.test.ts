@@ -13,6 +13,7 @@ import {
   validatePublishedPostInventory,
   type ContentIndexRow,
 } from "@/lib/content-validation";
+import { editorialIdentity } from "@/lib/editorial-evidence";
 import { googleSetup } from "@/lib/google-setup";
 import { categorySlugs, postFrontmatterSchema } from "@/lib/schema";
 import {
@@ -383,6 +384,27 @@ test("official canonical metadata uses the www production domain", () => {
   assert.equal(siteConfig.url, "https://www.biz2lab.com");
   assert.equal(metadata.alternates?.canonical, "https://www.biz2lab.com/ko");
   assert.equal(metadata.openGraph?.url, "https://www.biz2lab.com/ko");
+});
+
+test("public authorship links the visible editorial identity to its about page and operator account", () => {
+  const articlePageSource = fs.readFileSync(
+    path.join(process.cwd(), "app", "ko", "[category]", "[slug]", "page.tsx"),
+    "utf8",
+  );
+  const seoSource = fs.readFileSync(path.join(process.cwd(), "lib", "seo.ts"), "utf8");
+  const layoutSource = fs.readFileSync(path.join(process.cwd(), "app", "layout.tsx"), "utf8");
+
+  assert.equal(editorialIdentity.authorName, "Biz2Lab 편집팀");
+  assert.equal(editorialIdentity.authorUrl, "/ko/about");
+  assert.equal(editorialIdentity.operatorUrl, "https://github.com/mizzang0305-oss");
+  assert.match(articlePageSource, /editorialIdentity\.authorName/);
+  assert.match(articlePageSource, /editorialIdentity\.authorUrl/);
+  assert.match(articlePageSource, /editorialIdentity\.operatorUrl/);
+  assert.match(seoSource, /publishingPrinciples:\s*absoluteUrl\("\/ko\/about"\)/);
+  assert.match(
+    layoutSource,
+    /authors:\s*\[\{ name: siteConfig\.author, url: absoluteUrl\("\/ko\/about"\) \}\]/,
+  );
 });
 
 test("Google setup uses exact approved public values without Search Console meta", () => {
