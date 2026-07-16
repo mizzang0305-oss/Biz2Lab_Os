@@ -4,9 +4,9 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const staticPublicRoutes = [
   "/ko",
-  "/ko/automation",
-  "/ko/sales-ops",
-  "/ko/small-business",
+  "/ko/what-to-watch",
+  "/ko/after-the-credits",
+  "/ko/streaming-life",
   "/ko/about",
   "/ko/resources",
   "/ko/contact",

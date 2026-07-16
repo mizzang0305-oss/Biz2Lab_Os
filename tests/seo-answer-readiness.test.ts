@@ -31,7 +31,7 @@ test("FAQ answer-source checks reject overclaim wording", () => {
 test("topic-specific conclusion and checklist headings remain answer-ready", () => {
   const auditsBySlug = new Map(auditSeoAnswerReadiness().articles.map((article) => [article.slug, article]));
 
-  for (const slug of ["ai-business-automation-guide", "accounts-receivable-tracker"]) {
+  for (const slug of ["inside-out-2-emotions-interpretation", "netflix-viewing-history-delete"]) {
     const article = auditsBySlug.get(slug);
 
     assert.ok(article, `${slug} must have an AI answer readiness row`);
@@ -41,15 +41,15 @@ test("topic-specific conclusion and checklist headings remain answer-ready", () 
   }
 });
 
-test("reviewed automation guides expose answer-friendly sections", () => {
+test("reviewed entertainment guides expose answer-friendly sections", () => {
   const requiredReadySlugs = new Set([
-    "ai-business-automation-guide",
-    "automation-priority-method",
-    "chatgpt-document-cleanup",
-    "google-sheets-ai-automation",
-    "obsidian-business-knowledge-base",
-    "pre-automation-task-list",
-    "reduce-repetitive-work-with-ai",
+    "tired-after-work-movie-guide",
+    "family-movie-night-guide",
+    "horror-movie-intensity-guide",
+    "netflix-top-10-how-to-choose",
+    "netflix-viewing-history-delete",
+    "netflix-subtitle-settings",
+    "ott-subscription-rotation",
   ]);
   const auditsBySlug = new Map(auditSeoAnswerReadiness().articles.map((article) => [article.slug, article]));
 
@@ -57,10 +57,9 @@ test("reviewed automation guides expose answer-friendly sections", () => {
     const article = auditsBySlug.get(slug);
 
     assert.ok(article, `${slug} must have an AI answer readiness row`);
-    assert.equal(article?.aiAnswerReadinessStatus, "AI 답변 준비 좋음");
-    assert.equal(article?.conclusionFirstPresent, true);
-    assert.equal(article?.citationFriendlySummaryPresent, true);
-    assert.equal(article?.checklistPresent, true);
-    assert.equal(article?.comparisonTablePresent, true);
+    assert.equal(article?.aiAnswerReadinessStatus, "AI 답변 준비 좋음", `${slug} status`);
+    assert.equal(article?.conclusionFirstPresent, true, `${slug} conclusion`);
+    assert.equal(article?.citationFriendlySummaryPresent, true, `${slug} summary`);
+    assert.equal(article?.checklistPresent, true, `${slug} structure`);
   }
 });

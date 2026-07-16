@@ -1,322 +1,354 @@
 [
   {
-    "title": "AI 업무 자동화 설계: 초안·검토·실행을 분리하는 5단계",
-    "slug": "ai-business-automation-guide",
-    "route": "/ko/automation/ai-business-automation-guide",
-    "category": "automation",
-    "cluster": "automation-basics",
+    "title": "악마는 프라다를 입는다 결말 해석: 앤디는 정말 일을 버린 것일까",
+    "slug": "devil-wears-prada-ending-interpretation",
+    "route": "/ko/after-the-credits/devil-wears-prada-ending-interpretation",
+    "category": "after-the-credits",
+    "cluster": "work-and-identity",
+    "type": "cluster",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "악마는 프라다를 입는다의 앤디와 미란다를 야망과 경계선의 관점에서 해석하는 편집 노트",
+    "updatedAt": "2026-07-17",
+    "relatedPosts": [
+      "the-intern-work-and-age-interpretation",
+      "her-ai-relationship-interpretation",
+      "lalaland-ending-interpretation"
+    ]
+  },
+  {
+    "title": "영화 Her 해석: AI와의 사랑보다 외로움을 말하는 방식",
+    "slug": "her-ai-relationship-interpretation",
+    "route": "/ko/after-the-credits/her-ai-relationship-interpretation",
+    "category": "after-the-credits",
+    "cluster": "technology-and-relationship",
+    "type": "cluster",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "영화 Her의 목소리 기반 관계와 마지막 이별을 외로움과 성장의 관점에서 해석하는 편집 노트",
+    "updatedAt": "2026-07-17",
+    "relatedPosts": [
+      "truman-show-ending-interpretation",
+      "lalaland-ending-interpretation",
+      "devil-wears-prada-ending-interpretation"
+    ]
+  },
+  {
+    "title": "인사이드 아웃 2 감정 해석: 불안은 왜 라일리를 지키려다 몰아붙였을까",
+    "slug": "inside-out-2-emotions-interpretation",
+    "route": "/ko/after-the-credits/inside-out-2-emotions-interpretation",
+    "category": "after-the-credits",
+    "cluster": "character-and-theme",
+    "type": "cluster",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "인사이드 아웃 2의 불안과 기존 감정들이 라일리의 선택을 두고 충돌하는 장면을 분석하는 편집 노트",
+    "updatedAt": "2026-07-17",
+    "relatedPosts": [
+      "inside-out-emotion-interpretation",
+      "family-movie-night-guide",
+      "truman-show-ending-interpretation"
+    ]
+  },
+  {
+    "title": "인사이드 아웃 해석: 슬픔이 문제를 해결한 감정이 된 이유",
+    "slug": "inside-out-emotion-interpretation",
+    "route": "/ko/after-the-credits/inside-out-emotion-interpretation",
+    "category": "after-the-credits",
+    "cluster": "character-and-theme",
+    "type": "cluster",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "인사이드 아웃의 기쁨과 슬픔이 함께 기억을 다루는 장면을 해석하는 편집 노트",
+    "updatedAt": "2026-07-17",
+    "relatedPosts": [
+      "inside-out-2-emotions-interpretation",
+      "truman-show-ending-interpretation",
+      "family-movie-night-guide"
+    ]
+  },
+  {
+    "title": "라라랜드 결말 해석: 마지막 상상이 실패한 사랑을 뜻하지 않는 이유",
+    "slug": "lalaland-ending-interpretation",
+    "route": "/ko/after-the-credits/lalaland-ending-interpretation",
+    "category": "after-the-credits",
+    "cluster": "ending-interpretation",
+    "type": "cluster",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "라라랜드의 재즈 클럽과 마지막 상상 몽타주를 사랑과 선택의 관점에서 해석하는 편집 노트",
+    "updatedAt": "2026-07-17",
+    "relatedPosts": [
+      "parasite-ending-interpretation",
+      "her-ai-relationship-interpretation",
+      "date-night-movie-guide"
+    ]
+  },
+  {
+    "title": "기생충 결말 해석: 계단과 냄새, 마지막 계획이 남기는 것",
+    "slug": "parasite-ending-interpretation",
+    "route": "/ko/after-the-credits/parasite-ending-interpretation",
+    "category": "after-the-credits",
+    "cluster": "ending-interpretation",
     "type": "pillar",
-    "heroImage": "/images/posts/ai-business-automation-guide-hero.webp",
-    "heroAlt": "반복 업무와 판단 업무를 분리해 사람 검토와 연결한 AI 자동화 설계 지도",
-    "updatedAt": "2026-07-16",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "영화 기생충의 반지하와 저택을 잇는 계단과 마지막 계획을 분석하는 편집 노트",
+    "updatedAt": "2026-07-17",
     "relatedPosts": [
-      "automation-priority-method",
-      "pre-automation-task-list",
-      "reduce-repetitive-work-with-ai"
+      "truman-show-ending-interpretation",
+      "lalaland-ending-interpretation",
+      "her-ai-relationship-interpretation"
     ]
   },
   {
-    "title": "업무 자동화 우선순위: 반복시간·오류비용으로 후보를 고르는 계산법",
-    "slug": "automation-priority-method",
-    "route": "/ko/automation/automation-priority-method",
-    "category": "automation",
-    "cluster": "automation-basics",
-    "type": "checklist",
-    "heroImage": "/images/posts/automation-priority-method-hero.webp",
-    "heroAlt": "업무 후보를 반복 빈도와 실패 비용으로 나누는 자동화 우선순위 매트릭스",
-    "updatedAt": "2026-07-16",
+    "title": "영화 인턴 해석: 벤이 해결사가 아니라 좋은 동료였던 이유",
+    "slug": "the-intern-work-and-age-interpretation",
+    "route": "/ko/after-the-credits/the-intern-work-and-age-interpretation",
+    "category": "after-the-credits",
+    "cluster": "work-and-identity",
+    "type": "cluster",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "영화 인턴의 벤과 줄스를 해결사와 대표가 아닌 좋은 동료의 관계로 해석하는 편집 노트",
+    "updatedAt": "2026-07-17",
     "relatedPosts": [
-      "pre-automation-task-list",
-      "reduce-repetitive-work-with-ai",
-      "ai-business-automation-guide"
+      "devil-wears-prada-ending-interpretation",
+      "inside-out-emotion-interpretation",
+      "tired-after-work-movie-guide"
     ]
   },
   {
-    "title": "ChatGPT 문서 정리: 원문을 지키면서 회의·상담 메모를 구조화하는 법",
-    "slug": "chatgpt-document-cleanup",
-    "route": "/ko/automation/chatgpt-document-cleanup",
-    "category": "automation",
-    "cluster": "document-automation",
+    "title": "트루먼 쇼 결말 해석: 바다 끝의 문이 자유를 보장하지 않는 이유",
+    "slug": "truman-show-ending-interpretation",
+    "route": "/ko/after-the-credits/truman-show-ending-interpretation",
+    "category": "after-the-credits",
+    "cluster": "ending-interpretation",
+    "type": "cluster",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "트루먼 쇼의 인공 바다 끝에 놓인 출구와 선택의 의미를 해석하는 편집 노트",
+    "updatedAt": "2026-07-17",
+    "relatedPosts": [
+      "parasite-ending-interpretation",
+      "her-ai-relationship-interpretation",
+      "inside-out-emotion-interpretation"
+    ]
+  },
+  {
+    "title": "넷플릭스 가족 프로필 설정: 연령등급과 작품 차단을 함께 쓰는 법",
+    "slug": "family-profile-age-rating",
+    "route": "/ko/streaming-life/family-profile-age-rating",
+    "category": "streaming-life",
+    "cluster": "netflix-account-settings",
     "type": "how-to",
-    "heroImage": "/images/posts/chatgpt-document-cleanup-hero.webp",
-    "heroAlt": "흩어진 회의 메모와 고객 요청을 정리된 업무 문서로 바꾸는 문서 정리 보드",
-    "updatedAt": "2026-07-16",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "가족 구성원별 넷플릭스 프로필과 연령등급과 작품 차단을 설정하는 안내",
+    "updatedAt": "2026-07-17",
     "relatedPosts": [
-      "google-sheets-ai-automation",
-      "obsidian-business-knowledge-base",
-      "ai-business-automation-guide"
+      "family-movie-night-guide",
+      "netflix-profile-reset-recommendations",
+      "netflix-subtitle-settings"
     ]
   },
   {
-    "title": "Google Sheets 자동화: 승인 열과 실행 로그로 안전하게 연결하기",
-    "slug": "google-sheets-ai-automation",
-    "route": "/ko/automation/google-sheets-ai-automation",
-    "category": "automation",
-    "cluster": "data-automation",
+    "title": "넷플릭스 추천 초기화에 가까운 정리법: 프로필·기록·평가 순서",
+    "slug": "netflix-profile-reset-recommendations",
+    "route": "/ko/streaming-life/netflix-profile-reset-recommendations",
+    "category": "streaming-life",
+    "cluster": "netflix-account-settings",
     "type": "how-to",
-    "heroImage": "/images/posts/google-sheets-ai-automation-hero.webp",
-    "heroAlt": "스프레드시트 상태 열에서 AI 요약과 알림 패널로 이어지는 자동화 구조",
-    "updatedAt": "2026-07-16",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "넷플릭스 프로필과 시청기록과 평가를 순서대로 정리해 추천 화면을 다시 맞추는 안내",
+    "updatedAt": "2026-07-17",
     "relatedPosts": [
-      "chatgpt-document-cleanup",
-      "pre-automation-task-list",
-      "daily-sales-report"
+      "netflix-viewing-history-delete",
+      "netflix-top-10-how-to-choose",
+      "family-profile-age-rating"
     ]
   },
   {
-    "title": "옵시디언 업무 지식창고: 기준·결정·폐기 기록을 다시 찾는 구조",
-    "slug": "obsidian-business-knowledge-base",
-    "route": "/ko/automation/obsidian-business-knowledge-base",
-    "category": "automation",
-    "cluster": "knowledge-management",
+    "title": "넷플릭스 자막 설정: TV·모바일에서 언어와 크기가 다르게 보일 때",
+    "slug": "netflix-subtitle-settings",
+    "route": "/ko/streaming-life/netflix-subtitle-settings",
+    "category": "streaming-life",
+    "cluster": "netflix-playback-settings",
     "type": "how-to",
-    "heroImage": "/images/posts/obsidian-business-knowledge-base-hero.webp",
-    "heroAlt": "업무 기준과 고객 응대 노트가 서로 연결된 회사 지식창고 그래프",
-    "updatedAt": "2026-07-16",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "TV와 모바일에서 넷플릭스 자막 언어와 크기와 음성을 조정하는 설정 안내",
+    "updatedAt": "2026-07-17",
     "relatedPosts": [
-      "chatgpt-document-cleanup",
-      "ai-knowledge-store-for-small-business",
-      "solo-business-systemization"
+      "netflix-viewing-history-delete",
+      "family-profile-age-rating",
+      "family-movie-night-guide"
     ]
   },
   {
-    "title": "자동화 전 업무 목록 만들기: 5일 관찰로 입력·예외·완료조건 찾기",
-    "slug": "pre-automation-task-list",
-    "route": "/ko/automation/pre-automation-task-list",
-    "category": "automation",
-    "cluster": "automation-basics",
-    "type": "checklist",
-    "heroImage": "/images/posts/pre-automation-task-list-hero.webp",
-    "heroAlt": "자동화 전에 입력 원본과 예외 상황을 확인하는 준비 체크리스트",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "automation-priority-method",
-      "ai-business-automation-guide",
-      "solo-business-systemization"
-    ]
-  },
-  {
-    "title": "반복 업무 줄이기: 시간기록으로 규칙 자동화와 AI 초안을 구분하는 법",
-    "slug": "reduce-repetitive-work-with-ai",
-    "route": "/ko/automation/reduce-repetitive-work-with-ai",
-    "category": "automation",
-    "cluster": "automation-basics",
-    "type": "how-to",
-    "heroImage": "/images/posts/reduce-repetitive-work-with-ai-hero.webp",
-    "heroAlt": "반복 업무를 수집하고 분류해 AI 초안과 사람 승인으로 줄이는 칸반 보드",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "automation-priority-method",
-      "ai-business-automation-guide",
-      "google-sheets-ai-automation"
-    ]
-  },
-  {
-    "title": "미수금 관리표: 약속일·경과일·분쟁 여부로 회수 순서 정하기",
-    "slug": "accounts-receivable-tracker",
-    "route": "/ko/sales-ops/accounts-receivable-tracker",
-    "category": "sales-ops",
-    "cluster": "revenue-operations",
-    "type": "checklist",
-    "heroImage": "/images/posts/accounts-receivable-tracker-hero.webp",
-    "heroAlt": "미수금 aging 구간과 약속일, 담당자 후속 조치를 함께 보여주는 회수 상태판",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "payment-reminder-message",
-      "sales-revenue-ar-structure",
-      "sales-achievement-rate"
-    ]
-  },
-  {
-    "title": "일일 매출 목표 계산: 월 부족액을 남은 영업일과 주문수로 나누기",
-    "slug": "daily-sales-goal-breakdown",
-    "route": "/ko/sales-ops/daily-sales-goal-breakdown",
-    "category": "sales-ops",
-    "cluster": "revenue-operations",
+    "title": "넷플릭스 시청기록 삭제 방법: 추천과 계속 시청에서 무엇이 달라질까",
+    "slug": "netflix-viewing-history-delete",
+    "route": "/ko/streaming-life/netflix-viewing-history-delete",
+    "category": "streaming-life",
+    "cluster": "netflix-account-settings",
     "type": "pillar",
-    "heroImage": "/images/posts/daily-sales-goal-breakdown-hero.webp",
-    "heroAlt": "월 매출 목표를 일일 목표와 현재 매출, 잔여 목표로 나눈 대시보드",
-    "updatedAt": "2026-07-16",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "넷플릭스 계정의 시청 활동에서 작품을 숨기고 추천 변화를 확인하는 설정 안내",
+    "updatedAt": "2026-07-17",
     "relatedPosts": [
-      "sales-achievement-rate",
-      "daily-sales-report",
-      "daily-numbers-for-small-business"
+      "netflix-profile-reset-recommendations",
+      "netflix-subtitle-settings",
+      "watchlist-without-spoilers"
     ]
   },
   {
-    "title": "영업팀 일일 보고서: 실적·원인·내일 첫 행동을 한 페이지에 쓰기",
-    "slug": "daily-sales-report",
-    "route": "/ko/sales-ops/daily-sales-report",
-    "category": "sales-ops",
-    "cluster": "revenue-operations",
+    "title": "OTT 구독료 줄이기: 여러 서비스를 한꺼번에 해지하지 않는 순환법",
+    "slug": "ott-subscription-rotation",
+    "route": "/ko/streaming-life/ott-subscription-rotation",
+    "category": "streaming-life",
+    "cluster": "subscription-management",
     "type": "how-to",
-    "heroImage": "/images/posts/daily-sales-report-hero.webp",
-    "heroAlt": "실적과 상담, 견적, 다음 행동을 한 화면에 정리한 영업팀 일일 보고서",
-    "updatedAt": "2026-07-16",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "여러 OTT 서비스를 시청 월에 맞춰 하나씩 순환하며 연간 비용을 확인하는 구독 관리표",
+    "updatedAt": "2026-07-17",
     "relatedPosts": [
-      "daily-sales-goal-breakdown",
-      "sales-achievement-rate",
-      "unify-order-channels-for-sales"
+      "theater-or-ott-choice",
+      "watchlist-without-spoilers",
+      "netflix-top-10-how-to-choose"
     ]
   },
   {
-    "title": "거래처 입금 확인 메시지: 독촉 전에 사실을 확인하는 3단계 문구",
-    "slug": "payment-reminder-message",
-    "route": "/ko/sales-ops/payment-reminder-message",
-    "category": "sales-ops",
-    "cluster": "revenue-operations",
-    "type": "how-to",
-    "heroImage": "/images/posts/payment-reminder-message-hero.webp",
-    "heroAlt": "거래처 독촉 문자와 입금 안내문 초안을 검토하고 승인 후 발송하는 메시지 승인 흐름",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "accounts-receivable-tracker",
-      "sales-revenue-ar-structure",
-      "customer-memory-system"
-    ]
-  },
-  {
-    "title": "매출 달성률 계산: 반품·부족금액·하루 필요실적까지 보는 방법",
-    "slug": "sales-achievement-rate",
-    "route": "/ko/sales-ops/sales-achievement-rate",
-    "category": "sales-ops",
-    "cluster": "revenue-operations",
-    "type": "how-to",
-    "heroImage": "/images/posts/sales-achievement-rate-hero.webp",
-    "heroAlt": "목표 대비 실적 게이지와 부족분, 필요한 행동량을 보여주는 매출 달성률 화면",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "daily-sales-goal-breakdown",
-      "sales-revenue-ar-structure",
-      "daily-numbers-for-small-business"
-    ]
-  },
-  {
-    "title": "주문·매출·청구·입금 연결표: 미수금이 생긴 지점 찾기",
-    "slug": "sales-revenue-ar-structure",
-    "route": "/ko/sales-ops/sales-revenue-ar-structure",
-    "category": "sales-ops",
-    "cluster": "revenue-operations",
-    "type": "how-to",
-    "heroImage": "/images/posts/sales-revenue-ar-structure-hero.webp",
-    "heroAlt": "매출 목표와 청구, 입금, 미수금 대기 상태를 연결한 영업관리 지도",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "accounts-receivable-tracker",
-      "sales-achievement-rate",
-      "unify-order-channels-for-sales"
-    ]
-  },
-  {
-    "title": "거래처 주문 등록표: 이메일·메신저·전화를 한 번호로 묶는 방법",
-    "slug": "unify-order-channels-for-sales",
-    "route": "/ko/sales-ops/unify-order-channels-for-sales",
-    "category": "sales-ops",
-    "cluster": "revenue-operations",
-    "type": "case-study",
-    "heroImage": "/images/posts/unify-order-channels-for-sales-hero.webp",
-    "heroAlt": "전화와 메일, 현장 요청을 하나의 거래처 주문 보드로 모으는 흐름",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "sales-revenue-ar-structure",
-      "daily-sales-report",
-      "unify-order-channels"
-    ]
-  },
-  {
-    "title": "소상공인 AI 지식 원본 관리: 답변 전에 출처와 사용기한 붙이기",
-    "slug": "ai-knowledge-store-for-small-business",
-    "route": "/ko/small-business/ai-knowledge-store-for-small-business",
-    "category": "small-business",
-    "cluster": "small-business-operations",
-    "type": "how-to",
-    "heroImage": "/images/posts/ai-knowledge-store-for-small-business-hero.webp",
-    "heroAlt": "운영 기준과 고객 질문을 AI 점장 답변 기준으로 연결한 소상공인 지식 카드",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "obsidian-business-knowledge-base",
-      "customer-memory-system",
-      "ai-business-automation-guide"
-    ]
-  },
-  {
-    "title": "고객 응대 기록: 선호보다 약속과 다음 연락일을 남기는 최소 양식",
-    "slug": "customer-memory-system",
-    "route": "/ko/small-business/customer-memory-system",
-    "category": "small-business",
-    "cluster": "small-business-operations",
-    "type": "how-to",
-    "heroImage": "/images/posts/customer-memory-system-hero.webp",
-    "heroAlt": "고객 요청과 선호, 응대 이력, 다음 조치를 정리한 고객 기록 카드",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "reservation-order-review-management",
-      "payment-reminder-message",
-      "solo-business-systemization"
-    ]
-  },
-  {
-    "title": "소상공인 매일 볼 숫자 8개: 매출부터 미처리 문의까지",
-    "slug": "daily-numbers-for-small-business",
-    "route": "/ko/small-business/daily-numbers-for-small-business",
-    "category": "small-business",
-    "cluster": "small-business-operations",
-    "type": "pillar",
-    "heroImage": "/images/posts/daily-numbers-for-small-business-hero.webp",
-    "heroAlt": "소상공인이 매일 확인할 매출 달성률 계산과 주문, 입금, 미처리 업무 대시보드",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "daily-sales-goal-breakdown",
-      "reservation-order-review-management",
-      "unify-order-channels"
-    ]
-  },
-  {
-    "title": "예약·주문·리뷰 통합 보드: 고객 약속을 상태로 이어서 관리하기",
-    "slug": "reservation-order-review-management",
-    "route": "/ko/small-business/reservation-order-review-management",
-    "category": "small-business",
-    "cluster": "small-business-operations",
-    "type": "how-to",
-    "heroImage": "/images/posts/reservation-order-review-management-hero.webp",
-    "heroAlt": "예약과 주문, 리뷰 응대를 같은 운영표에서 상태별로 관리하는 보드",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "unify-order-channels",
-      "customer-memory-system",
-      "daily-numbers-for-small-business"
-    ]
-  },
-  {
-    "title": "1인 사업자 주간 운영표: 매출·주문·입금·고객 후속을 한 번에 점검하기",
-    "slug": "solo-business-systemization",
-    "route": "/ko/small-business/solo-business-systemization",
-    "category": "small-business",
-    "cluster": "small-business-operations",
+    "title": "영화 찜 목록 정리: 스포일러 없이 실제로 보게 만드는 5칸",
+    "slug": "watchlist-without-spoilers",
+    "route": "/ko/streaming-life/watchlist-without-spoilers",
+    "category": "streaming-life",
+    "cluster": "viewing-habit",
     "type": "checklist",
-    "heroImage": "/images/posts/solo-business-systemization-hero.webp",
-    "heroAlt": "1인 사업자의 상담과 주문, 정산, 고객 기록이 순환하는 업무 시스템",
-    "updatedAt": "2026-07-16",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "영화 줄거리 스포일러 없이 이유와 기분과 러닝타임만 기록한 다섯 칸 관람 목록",
+    "updatedAt": "2026-07-17",
     "relatedPosts": [
-      "daily-numbers-for-small-business",
-      "pre-automation-task-list",
-      "customer-memory-system"
+      "rewatch-or-new-movie",
+      "ott-subscription-rotation",
+      "netflix-top-10-how-to-choose"
     ]
   },
   {
-    "title": "주문 채널 통합: 전화·메신저·플랫폼 주문을 한 접수함으로 모으기",
-    "slug": "unify-order-channels",
-    "route": "/ko/small-business/unify-order-channels",
-    "category": "small-business",
-    "cluster": "small-business-operations",
-    "type": "case-study",
-    "heroImage": "/images/posts/unify-order-channels-hero.webp",
-    "heroAlt": "전화와 메신저, 플랫폼 주문을 한곳의 처리 상태판으로 모으는 매장 주문 흐름",
-    "updatedAt": "2026-07-16",
+    "title": "데이트 영화 추천: 취향이 달라도 어색하지 않은 한 편 고르기",
+    "slug": "date-night-movie-guide",
+    "route": "/ko/what-to-watch/date-night-movie-guide",
+    "category": "what-to-watch",
+    "cluster": "companion-based-movie-choice",
+    "type": "how-to",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "취향이 다른 두 사람이 분위기와 대화거리를 기준으로 데이트 영화를 고르는 모습",
+    "updatedAt": "2026-07-17",
     "relatedPosts": [
-      "reservation-order-review-management",
-      "unify-order-channels-for-sales",
-      "daily-numbers-for-small-business"
+      "family-movie-night-guide",
+      "theater-or-ott-choice",
+      "lalaland-ending-interpretation"
+    ]
+  },
+  {
+    "title": "가족 영화 추천 전에 정할 것: 나이보다 중요한 관람 합의 5가지",
+    "slug": "family-movie-night-guide",
+    "route": "/ko/what-to-watch/family-movie-night-guide",
+    "category": "what-to-watch",
+    "cluster": "companion-based-movie-choice",
+    "type": "how-to",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "서로 다른 연령의 가족이 무서운 장면과 자막 여부를 확인하며 영화를 고르는 모습",
+    "updatedAt": "2026-07-17",
+    "relatedPosts": [
+      "date-night-movie-guide",
+      "horror-movie-intensity-guide",
+      "family-profile-age-rating"
+    ]
+  },
+  {
+    "title": "공포영화 추천보다 먼저: 점프스케어·잔혹함·여운 강도 고르는 법",
+    "slug": "horror-movie-intensity-guide",
+    "route": "/ko/what-to-watch/horror-movie-intensity-guide",
+    "category": "what-to-watch",
+    "cluster": "genre-intensity-choice",
+    "type": "checklist",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "공포영화의 놀람과 잔혹함과 심리 불안을 서로 다른 강도로 비교하는 선택표",
+    "updatedAt": "2026-07-17",
+    "relatedPosts": [
+      "family-movie-night-guide",
+      "date-night-movie-guide",
+      "watchlist-without-spoilers"
+    ]
+  },
+  {
+    "title": "넷플릭스 TOP 10 보는 법: 인기 순위를 취향 추천으로 착각하지 않기",
+    "slug": "netflix-top-10-how-to-choose",
+    "route": "/ko/what-to-watch/netflix-top-10-how-to-choose",
+    "category": "what-to-watch",
+    "cluster": "platform-ranking-choice",
+    "type": "how-to",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "넷플릭스 인기 순위와 개인 취향 조건을 나란히 비교해 한 작품을 고르는 화면",
+    "updatedAt": "2026-07-17",
+    "relatedPosts": [
+      "netflix-profile-reset-recommendations",
+      "tired-after-work-movie-guide",
+      "watchlist-without-spoilers"
+    ]
+  },
+  {
+    "title": "90분 영화 추천을 찾을 때: 짧지만 허전하지 않은 작품 고르기",
+    "slug": "ninety-minute-movie-guide",
+    "route": "/ko/what-to-watch/ninety-minute-movie-guide",
+    "category": "what-to-watch",
+    "cluster": "runtime-based-movie-choice",
+    "type": "cluster",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "90분 타이머와 영화 후보 세 편을 비교하는 간결한 관람 선택 화면",
+    "updatedAt": "2026-07-17",
+    "relatedPosts": [
+      "tired-after-work-movie-guide",
+      "theater-or-ott-choice",
+      "date-night-movie-guide"
+    ]
+  },
+  {
+    "title": "새 영화가 부담스러운 날: 다시 보기와 새로운 작품 사이에서 고르는 법",
+    "slug": "rewatch-or-new-movie",
+    "route": "/ko/what-to-watch/rewatch-or-new-movie",
+    "category": "what-to-watch",
+    "cluster": "mood-based-movie-choice",
+    "type": "cluster",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "익숙한 영화와 새로운 영화 사이에서 오늘의 에너지를 기준으로 선택하는 장면",
+    "updatedAt": "2026-07-17",
+    "relatedPosts": [
+      "tired-after-work-movie-guide",
+      "ninety-minute-movie-guide",
+      "watchlist-without-spoilers"
+    ]
+  },
+  {
+    "title": "영화관 vs OTT: 같은 영화를 어디서 볼지 결정하는 7가지 기준",
+    "slug": "theater-or-ott-choice",
+    "route": "/ko/what-to-watch/theater-or-ott-choice",
+    "category": "what-to-watch",
+    "cluster": "viewing-environment-choice",
+    "type": "checklist",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "큰 스크린의 영화관과 편안한 거실 OTT 환경을 일곱 가지 기준으로 비교하는 장면",
+    "updatedAt": "2026-07-17",
+    "relatedPosts": [
+      "tired-after-work-movie-guide",
+      "ninety-minute-movie-guide",
+      "ott-subscription-rotation"
+    ]
+  },
+  {
+    "title": "퇴근 후 영화 추천: 피곤한 밤에도 끝까지 보는 작품 고르는 법",
+    "slug": "tired-after-work-movie-guide",
+    "route": "/ko/what-to-watch/tired-after-work-movie-guide",
+    "category": "what-to-watch",
+    "cluster": "mood-based-movie-choice",
+    "type": "pillar",
+    "heroImage": "/opengraph-image",
+    "heroAlt": "피곤한 저녁 소파에서 남은 시간과 기분에 맞는 영화를 고르는 장면",
+    "updatedAt": "2026-07-17",
+    "relatedPosts": [
+      "ninety-minute-movie-guide",
+      "theater-or-ott-choice",
+      "netflix-top-10-how-to-choose"
     ]
   }
 ]

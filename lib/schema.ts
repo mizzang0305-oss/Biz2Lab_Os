@@ -1,16 +1,19 @@
 import { z } from "zod";
 
+export const publicCategorySlugs = [
+  "what-to-watch",
+  "after-the-credits",
+  "streaming-life",
+] as const;
+
 export const categorySlugs = [
+  ...publicCategorySlugs,
   "automation",
   "sales-ops",
   "small-business",
   "contracts-payments",
   "pillar",
 ] as const;
-
-export const publicCategorySlugs = categorySlugs.filter(
-  (category) => category !== "pillar",
-) as Exclude<(typeof categorySlugs)[number], "pillar">[];
 
 export const postTypes = [
   "pillar",
@@ -49,16 +52,23 @@ export const postFrontmatterSchema = z.object({
   publishedAt: z.string().regex(yyyyMmDd),
   updatedAt: z.string().regex(yyyyMmDd),
   tags: z.array(z.string().min(1)).min(1),
-  heroImage: z.string().startsWith("/images/posts/"),
+  heroImage: z.union([
+    z.string().startsWith("/images/posts/"),
+    z.literal("/opengraph-image"),
+  ]),
   heroAlt: z.string().min(1),
   canonical: z.string().url(),
   noindex: z.boolean(),
   relatedPosts: z.array(z.string().min(1)).min(1),
+  editorNote: z.string().min(1).optional(),
+  spoilerLevel: z.enum(["none", "light", "full"]).optional(),
+  audience: z.array(z.string().min(1)).min(1).optional(),
   templateCta: z.string().min(1).optional(),
   nextStep: nextStepSchema.optional(),
   faq: z.array(faqItemSchema).optional(),
 });
 
 export type PostFrontmatter = z.infer<typeof postFrontmatterSchema>;
+export type CategorySlug = (typeof categorySlugs)[number];
 export type PublicCategorySlug = (typeof publicCategorySlugs)[number];
 

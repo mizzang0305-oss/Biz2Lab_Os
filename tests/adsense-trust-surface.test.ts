@@ -33,7 +33,7 @@ test("public trust surfaces avoid unfinished wording and expose a working contac
   assert.doesNotMatch(contact, /ContactForm/);
   assert.match(about, /AI 도구/);
   assert.match(about, /독창성 검토/);
-  assert.match(article, /작성·검토: Biz2Lab 편집팀/);
+  assert.match(article, /작성·검토: \{editorialIdentity\.authorName\}/);
   assert.match(article, /\/ko\/about/);
 });
 

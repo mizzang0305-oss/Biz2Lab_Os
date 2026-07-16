@@ -1,8 +1,8 @@
-import type { PublicCategorySlug } from "@/lib/schema";
+import type { CategorySlug } from "@/lib/schema";
 
 export type ArticleImageConcept = {
   slug: string;
-  category: Exclude<PublicCategorySlug, "pillar">;
+  category: Exclude<CategorySlug, "pillar">;
   visualFamily: string;
   conceptKo: string;
   altKo: string;

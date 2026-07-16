@@ -175,10 +175,11 @@ let inlineImageCount = 0;
 for (const post of posts) {
   const heroImage = post.frontmatter.heroImage;
   const heroAlt = post.frontmatter.heroAlt;
+  const usesSharedOpenGraphImage = heroImage === "/opengraph-image";
 
   if (!heroImage) {
     errors.push(`${post.slug}: heroImage is required`);
-  } else {
+  } else if (!usesSharedOpenGraphImage) {
     checkLocalPublicImage(`${post.slug} heroImage`, heroImage, true, post.slug);
     if (!heroImage.includes(`${post.slug}-`)) {
       errors.push(`${post.slug}: heroImage path must include the slug`);
@@ -190,11 +191,13 @@ for (const post of posts) {
     errors.push(`${post.slug}: heroAlt must be descriptive Korean text`);
   }
 
-  const imageConcept = getArticleImageConcept(post.slug);
-  if (!imageConcept) {
-    errors.push(`${post.slug}: image concept is required`);
-  } else if (heroAlt !== imageConcept.altKo) {
-    errors.push(`${post.slug}: heroAlt must match image concept altKo`);
+  if (!usesSharedOpenGraphImage) {
+    const imageConcept = getArticleImageConcept(post.slug);
+    if (!imageConcept) {
+      errors.push(`${post.slug}: image concept is required`);
+    } else if (heroAlt !== imageConcept.altKo) {
+      errors.push(`${post.slug}: heroAlt must match image concept altKo`);
+    }
   }
 
   for (const src of imageReferencesFromContent(post.content)) {

@@ -6,8 +6,8 @@ locale: ko
 category: sales-ops
 cluster: revenue-operations
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/sales-achievement-rate-hero.webp
 heroAlt: 목표 대비 실적 게이지와 부족분, 필요한 행동량을 보여주는 매출 달성률 화면
 canonical: 'https://www.biz2lab.com/ko/sales-ops/sales-achievement-rate'
-noindex: false
+noindex: true
 relatedPosts:
   - daily-sales-goal-breakdown
   - sales-revenue-ar-structure

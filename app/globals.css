@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --border: #e2e8f0;
-  --accent: #0f766e;
-  --accent-warm: #f59e0b;
+  --background: #fffdf9;
+  --foreground: #20162c;
+  --muted: #675f72;
+  --border: #eee8e2;
+  --accent: #ef5b3f;
+  --accent-warm: #ffb45e;
 }
 
 @theme inline {
@@ -57,12 +57,12 @@ svg {
 }
 
 ::selection {
-  background: #ccfbf1;
-  color: #134e4a;
+  background: #ffe3d9;
+  color: #8f2518;
 }
 
 .prose-biz2lab {
-  color: #334155;
+  color: #403848;
   font-size: 1.0625rem;
   line-height: 1.85;
   max-width: 100%;
@@ -73,7 +73,7 @@ svg {
 .prose-biz2lab h2 {
   margin-top: 2.5rem;
   margin-bottom: 0.9rem;
-  color: #0f172a;
+  color: #20162c;
   font-size: clamp(1.45rem, 1.2rem + 0.6vw, 1.9rem);
   font-weight: 700;
   line-height: 1.35;
@@ -83,7 +83,7 @@ svg {
 .prose-biz2lab h3 {
   margin-top: 2rem;
   margin-bottom: 0.65rem;
-  color: #0f172a;
+  color: #20162c;
   font-size: 1.22rem;
   font-weight: 700;
   line-height: 1.45;
@@ -104,11 +104,11 @@ svg {
 }
 
 .prose-biz2lab strong {
-  color: #0f172a;
+  color: #20162c;
 }
 
 .prose-biz2lab a {
-  color: #0f766e;
+  color: #d6422d;
   overflow-wrap: anywhere;
 }
 
@@ -141,7 +141,7 @@ svg {
   width: 100%;
   table-layout: auto;
   border-collapse: collapse;
-  color: #334155;
+  color: #403848;
   font-size: 0.9375rem;
   line-height: 1.65;
   word-break: keep-all;
@@ -151,12 +151,12 @@ svg {
 .responsive-markdown-table th,
 .responsive-markdown-table td {
   padding: 0.75rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e9dfe7;
   vertical-align: top;
 }
 
 .responsive-markdown-table th {
-  background: #f8fafc;
-  color: #0f172a;
+  background: #fff6ef;
+  color: #20162c;
   font-weight: 700;
 }

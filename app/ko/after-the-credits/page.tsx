@@ -5,15 +5,19 @@ import { categories } from "@/lib/categories";
 import { getPostsByCategory } from "@/lib/posts";
 import { createMetadata } from "@/lib/seo";
 
-const category = categories["small-business"];
+const category = categories["after-the-credits"];
 
 export const metadata: Metadata = createMetadata({
   title: category.title,
   description: category.description,
-  path: "/ko/small-business",
+  path: "/ko/after-the-credits",
 });
 
-export default function SmallBusinessHubPage() {
-  return <CategoryHubPage category={category} posts={getPostsByCategory("small-business")} />;
+export default function AfterTheCreditsPage() {
+  return (
+    <CategoryHubPage
+      category={category}
+      posts={getPostsByCategory("after-the-credits")}
+    />
+  );
 }
-

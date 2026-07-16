@@ -1,14 +1,14 @@
 export const editorialIdentity = {
-  authorName: "Biz2Lab 편집팀",
+  authorName: "Biz2Lab PLAY 편집자",
   authorUrl: "/ko/about",
   operatorName: "mizzang0305-oss",
   operatorUrl: "https://github.com/mizzang0305-oss",
 } as const;
 
 export const editorialEvidenceTypes = [
-  "original-workflow",
-  "calculation-review",
-  "official-document-review",
+  "editorial-selection",
+  "scene-analysis",
+  "official-help-review",
 ] as const;
 
 export type EditorialEvidenceType = (typeof editorialEvidenceTypes)[number];
@@ -26,197 +26,283 @@ export type EditorialEvidence = {
   sources: EditorialSource[];
 };
 
-const editorialEvidenceBySlug = {
-  "ai-business-automation-guide": {
-    type: "original-workflow",
+const reviewedAt = "2026-07-17";
+
+const evidence = {
+  "tired-after-work-movie-guide": {
+    type: "editorial-selection",
     summary:
-      "반복·판단·기록 업무를 나눈 뒤 입력, 처리, 사람 검토, 실패 조치가 빠지지 않는지 샘플 통제표와 대조했습니다.",
+      "퇴근 뒤 선택을 러닝타임 하나로 단순화하지 않고 초반 진입 속도, 감정 소모, 남은 시간과 중단 가능성으로 나눠 편집했습니다.",
     scope:
-      "자동화 대상을 고르는 출발점용 가이드이며 특정 AI 도구의 성능, 비용 절감액이나 수익을 보장하지 않습니다.",
+      "특정 작품의 만족도를 보장하는 순위표가 아니라, 독자가 현재 피로도에 맞는 후보를 직접 줄이는 관람 선택 가이드입니다.",
     sources: [],
   },
-  "automation-priority-method": {
-    type: "calculation-review",
+  "ninety-minute-movie-guide": {
+    type: "editorial-selection",
     summary:
-      "반복 빈도, 소요 시간, 오류 비용, 표준화 가능성의 점수 기준을 공개하고 같은 입력이 같은 우선순위로 계산되는지 CSV 예시로 확인했습니다.",
+      "80~100분 범위를 현실적인 짧은 영화 후보로 두고 체감 속도, 사건 밀도와 함께 보는 사람의 집중 상태를 별도 기준으로 정리했습니다.",
     scope:
-      "조직별 위험도와 규제 요건을 대신 판단하지 않는 비교 도구이며 최종 자동화 결정은 담당자가 내려야 합니다.",
+      "플랫폼별 정확한 러닝타임이나 제공 여부는 달라질 수 있으며, 본문은 작품 목록보다 선택 방법을 제공하는 편집 가이드입니다.",
     sources: [],
   },
-  "chatgpt-document-cleanup": {
-    type: "official-document-review",
+  "family-movie-night-guide": {
+    type: "editorial-selection",
     summary:
-      "문서 원본 보존, 민감정보 제거, 수정 전후 검토 항목을 샘플 로그로 확인하고 ChatGPT 데이터 설정 관련 표현을 공식 안내와 대조했습니다.",
+      "가족 관람의 실패 원인을 연령만으로 설명하지 않고 큰 소리, 상실, 자막 속도와 종료 시간처럼 실제로 불편을 만드는 조건으로 나눴습니다.",
     scope:
-      "문서 정리 절차를 설명하며 입력한 데이터의 보관·학습 설정은 사용 중인 계정과 최신 OpenAI 정책에서 다시 확인해야 합니다.",
+      "가정별 보호자 판단을 대신하지 않으며, 작품별 최신 연령등급과 내용 정보는 영상물등급위원회에서 다시 확인해야 합니다.",
     sources: [
       {
-        title: "OpenAI Data Controls FAQ",
-        url: "https://help.openai.com/en/articles/7730893-chat-and-file-retention-policies-in-chatgpt",
-        reviewedAt: "2026-07-16",
+        title: "영상물등급위원회",
+        url: "https://www.kmrb.or.kr/",
+        reviewedAt,
       },
     ],
   },
-  "google-sheets-ai-automation": {
-    type: "official-document-review",
+  "horror-movie-intensity-guide": {
+    type: "editorial-selection",
     summary:
-      "트리거, 승인 상태, 실패 로그를 분리한 샘플 시트를 점검하고 Apps Script가 Sheets를 읽고 수정하는 방식은 Google 공식 문서와 대조했습니다.",
+      "공포 강도를 점프스케어, 잔혹함, 심리 불안과 결말의 여운으로 분리해 각자 피하고 싶은 자극을 먼저 찾도록 구성했습니다.",
     scope:
-      "설계 기준과 검토 절차를 다루며 실제 권한 범위, 할당량, 배포 방식은 사용하는 Google Workspace 환경에서 확인해야 합니다.",
+      "개인의 트라우마와 민감도를 진단하지 않으며, 실제 작품의 등급과 내용 정보는 관람 전에 공식 분류 정보를 확인해야 합니다.",
+    sources: [],
+  },
+  "date-night-movie-guide": {
+    type: "editorial-selection",
+    summary:
+      "데이트 영화를 로맨스 장르로 제한하지 않고 불편한 소재, 대화 가능성, 러닝타임과 이미 본 사람의 태도까지 관람 조건으로 정리했습니다.",
+    scope:
+      "관계 조언이나 특정 작품의 성공을 보장하지 않으며, 두 사람이 서로의 제외 기준을 말하기 위한 가벼운 선택 프레임입니다.",
+    sources: [],
+  },
+  "theater-or-ott-choice": {
+    type: "editorial-selection",
+    summary:
+      "영화관과 OTT를 화면 크기만으로 비교하지 않고 이동, 중단 가능성, 자막 조절, 총시간과 집중 환경의 차이로 나눠 점검했습니다.",
+    scope:
+      "가격과 공개 일정은 시점과 플랫폼에 따라 바뀌므로 구체적인 결제와 제공 여부는 각 사업자의 최신 공식 안내를 확인해야 합니다.",
+    sources: [],
+  },
+  "netflix-top-10-how-to-choose": {
+    type: "official-help-review",
+    summary:
+      "Netflix의 앱 내 인기 행과 공식 주간 Top 10을 구분하고 순위를 개인 취향, 러닝타임과 완주 부담으로 다시 거르는 방법을 정리했습니다.",
+    scope:
+      "인기 순위의 산정 결과를 재현하거나 작품 품질을 단정하지 않으며, 최신 목록과 제공 방식은 Netflix 공식 화면을 기준으로 합니다.",
     sources: [
       {
-        title: "Google Apps Script: Extend Google Sheets",
-        url: "https://developers.google.com/apps-script/guides/sheets",
-        reviewedAt: "2026-07-16",
+        title: "Netflix Top 10 South Korea",
+        url: "https://www.netflix.com/tudum/top10/south-korea",
+        reviewedAt,
       },
     ],
   },
-  "obsidian-business-knowledge-base": {
-    type: "official-document-review",
+  "rewatch-or-new-movie": {
+    type: "editorial-selection",
     summary:
-      "상태, 소유자, 근거, 검토일, 대체 문서 필드가 오래된 지식을 구분하는지 샘플 색인으로 확인하고 기본 기능 범위는 공식 도움말과 대조했습니다.",
+      "다시 보기와 새 작품의 선택을 취향 우열이 아니라 안정이 필요한 날과 발견이 필요한 날의 에너지 차이로 나눠 편집했습니다.",
     scope:
-      "업무 지식 관리 구조를 설명하며 동기화, 플러그인, 상업적 사용 조건과 보안 설정은 도입 시점의 공식 문서를 확인해야 합니다.",
+      "반복 시청이나 새 작품 회피를 심리 상태로 진단하지 않으며, 오늘 한 편을 시작하기 위한 개인용 선택 질문만 제공합니다.",
+    sources: [],
+  },
+  "parasite-ending-interpretation": {
+    type: "scene-analysis",
+    summary:
+      "마지막 상상, 반지하로 돌아오는 화면, 반복되는 계단과 냄새를 서로 연결해 기우의 계획과 계급 이동의 거리를 한 관점으로 읽었습니다.",
+    scope:
+      "감독의 유일한 정답을 주장하지 않고 영화에 나타난 장면을 근거로 가능한 해석을 제시하며, 결말 전체의 스포일러를 포함합니다.",
     sources: [
       {
-        title: "Obsidian Help",
-        url: "https://obsidian.md/help/",
-        reviewedAt: "2026-07-16",
+        title: "Korean Film Biz Zone: PARASITE",
+        url: "https://www.koreanfilm.or.kr/eng/films/index/filmsView.jsp?category=ALL&mode=INDEX_FILMS_LIST&movieCd=20183782&pageIndex=1&pageRowSize=10&searchKeyword=Parasite",
+        reviewedAt,
       },
     ],
   },
-  "pre-automation-task-list": {
-    type: "original-workflow",
+  "truman-show-ending-interpretation": {
+    type: "scene-analysis",
     summary:
-      "업무명, 빈도, 입력, 예외, 담당자, 실패 영향 필드가 실제 자동화 후보를 구분할 수 있는지 샘플 업무 목록으로 점검했습니다.",
+      "트루먼의 바다 공포, 세트의 벽, 제작자의 목소리와 마지막 시청자 장면을 선택권과 감시의 문제로 연결해 읽었습니다.",
     scope:
-      "자동화 전 조사 양식이며 보안·법률·노무·회계 위험 평가나 제품 선정 결과를 대신하지 않습니다.",
+      "영화 장면에 근거한 편집 해석이며 제작진의 확정 해설을 대신하지 않고, 바다 탈출과 마지막 장면의 스포일러를 포함합니다.",
     sources: [],
   },
-  "reduce-repetitive-work-with-ai": {
-    type: "calculation-review",
+  "inside-out-emotion-interpretation": {
+    type: "scene-analysis",
     summary:
-      "작업 횟수와 건당 시간을 기준으로 주간 소요 시간을 계산하고 자동화 전후 시간 차이가 CSV의 같은 공식으로 재현되는지 확인했습니다.",
+      "슬픔이 빙봉 곁에 머무는 장면, 복합 색의 기억과 라일리의 귀가를 연결해 슬픔이 도움과 관계를 여는 기능으로 변하는 과정을 읽었습니다.",
     scope:
-      "샘플 시간 기록을 이용한 추정 방법이며 실제 절감 시간과 비용은 업무 복잡도와 검토 시간에 따라 달라집니다.",
+      "심리 치료나 감정 진단을 제공하지 않는 영화 해석이며, 작품의 감정 묘사를 실제 정신건강 지침으로 일반화하지 않습니다.",
+    sources: [
+      {
+        title: "Pixar: Inside Out",
+        url: "https://www.pixar.com/inside-out",
+        reviewedAt,
+      },
+    ],
+  },
+  "inside-out-2-emotions-interpretation": {
+    type: "scene-analysis",
+    summary:
+      "불안이 미래 대비에서 현재 통제로 바뀌는 과정, 새 감정들의 보호 기능, 믿음 체계와 불안 발작 장면을 연결해 사춘기의 복합적인 정체성을 읽었습니다.",
+    scope:
+      "정신건강 진단이나 치료 조언이 아닌 영화 장면 해석입니다. 공식 보도 이미지와 시놉시스를 작품 정보의 근거로 사용하고, 이미지에는 권리자와 편집 용도 출처를 함께 표시합니다.",
+    sources: [
+      {
+        title: "Disney UK Press: Inside Out 2 Press Kit",
+        url: "https://press.disney.co.uk/press-kit/inside-out-2",
+        reviewedAt,
+      },
+      {
+        title: "Disney UK Press: Inside Out 2 Images",
+        url: "https://press.disney.co.uk/gallery/inside-out-2",
+        reviewedAt,
+      },
+      {
+        title: "Disney UK Press: Inside Out 2 Logo and Key Art",
+        url: "https://press.disney.co.uk/gallery/inside-out-2-logo-and-key-art",
+        reviewedAt,
+      },
+    ],
+  },
+  "lalaland-ending-interpretation": {
+    type: "scene-analysis",
+    summary:
+      "재즈 클럽의 이름, 마지막 상상 몽타주와 두 사람의 짧은 미소를 연결해 선택하지 않은 삶과 현재를 동시에 인정하는 결말로 읽었습니다.",
+    scope:
+      "두 사람의 관계를 성공과 실패 중 하나로 단정하지 않는 편집 해석이며, 마지막 몽타주와 현재 가족에 관한 스포일러를 포함합니다.",
+    sources: [
+      {
+        title: "Lionsgate: La La Land",
+        url: "https://www.lionsgate.com/movies/la-la-land",
+        reviewedAt,
+      },
+    ],
+  },
+  "her-ai-relationship-interpretation": {
+    type: "scene-analysis",
+    summary:
+      "시어도어의 편지 대필, 사만다의 신체 부재, 다중 관계와 옥상 장면을 연결해 기술보다 외로움과 투사의 문제를 중심으로 읽었습니다.",
+    scope:
+      "현재 AI 제품의 의식이나 감정을 주장하지 않는 영화 해석이며, 사만다의 성장과 이별을 포함한 결말 전체의 스포일러가 있습니다.",
     sources: [],
   },
-  "accounts-receivable-tracker": {
-    type: "calculation-review",
+  "devil-wears-prada-ending-interpretation": {
+    type: "scene-analysis",
     summary:
-      "청구일, 약속일, 경과일, 미수금, 다음 연락일이 서로 모순되지 않는지 가상 거래 행과 경과일 계산 예시를 대조했습니다.",
+      "파란색 스웨터 설명, 파리 출장, 미란다의 비교와 마지막 휴대전화 장면을 연결해 앤디가 야망의 경계를 다시 정하는 과정으로 읽었습니다.",
     scope:
-      "내부 미수금 기록 절차이며 채권 추심, 법적 통지, 세무 처리나 회수 가능성에 대한 자문을 제공하지 않습니다.",
+      "패션 산업이나 특정 직장 문화를 일반화하지 않는 작품 해석이며, 앤디의 퇴사와 마지막 장면에 관한 스포일러를 포함합니다.",
+    sources: [
+      {
+        title: "20th Century Studios: The Devil Wears Prada",
+        url: "https://www.20thcenturystudios.com/movies/the-devil-wears-prada",
+        reviewedAt,
+      },
+    ],
+  },
+  "the-intern-work-and-age-interpretation": {
+    type: "scene-analysis",
+    summary:
+      "벤의 관찰, 작은 정리, 운전과 기다리는 태도를 연결해 경험 많은 해결사보다 상대의 결정권을 남기는 동료로 인물을 읽었습니다.",
+    scope:
+      "세대·성별·직장 문제의 현실적 해결책을 제공하지 않는 영화 해석이며, 줄스의 일과 가정 갈등을 일부 언급합니다.",
     sources: [],
   },
-  "daily-sales-goal-breakdown": {
-    type: "calculation-review",
+  "netflix-viewing-history-delete": {
+    type: "official-help-review",
     summary:
-      "월 목표와 현재 실적의 차이, 남은 영업일, 평균 주문 금액을 이용한 일 목표와 필요 주문 수 계산을 샘플 숫자로 재검산했습니다.",
+      "시청 활동에서 제목을 숨기는 절차와 계속 시청 행에서만 제거하는 기능을 구분하고 추천과 기기 반영에 미치는 차이를 확인했습니다.",
     scope:
-      "목표를 일일 행동으로 나누는 계산 예시이며 매출 달성이나 영업 성과를 보장하지 않습니다.",
+      "Netflix 화면과 메뉴는 기기·지역·업데이트에 따라 달라질 수 있으므로 실제 변경 전 공식 계정 페이지와 최신 도움말을 확인해야 합니다.",
+    sources: [
+      {
+        title: "Netflix: How to hide titles from viewing history",
+        url: "https://help.netflix.com/en/node/22205",
+        reviewedAt,
+      },
+      {
+        title: "Netflix: Remove titles from Continue Watching",
+        url: "https://help.netflix.com/en/node/115312/",
+        reviewedAt,
+      },
+    ],
+  },
+  "netflix-profile-reset-recommendations": {
+    type: "official-help-review",
+    summary:
+      "Netflix의 추천 신호 공식 설명을 바탕으로 프로필 분리, 잘못 섞인 시청 활동 숨기기, 평가와 실제 시청 순서로 정리했습니다.",
+    scope:
+      "추천 결과를 초기 상태로 완전히 복원하거나 특정 작품 노출을 보장하지 않으며, 계정 화면은 최신 Netflix 안내를 따라야 합니다.",
+    sources: [
+      {
+        title: "Netflix: How the recommendations system works",
+        url: "https://help.netflix.com/en/node/100639",
+        reviewedAt,
+      },
+    ],
+  },
+  "netflix-subtitle-settings": {
+    type: "official-help-review",
+    summary:
+      "기기별 음성·자막 메뉴 진입, 언어 선택, 표시 모양과 선호 저장이 다르게 동작하는 경우를 Netflix 공식 절차와 대조했습니다.",
+    scope:
+      "모든 작품과 기기에서 같은 언어·SDH·표시 설정을 제공한다고 보장하지 않으며, 실제 선택지는 작품과 지역에 따라 달라집니다.",
+    sources: [
+      {
+        title: "Netflix: Use subtitles, captions, or choose audio language",
+        url: "https://help.netflix.com/en/node/372",
+        reviewedAt,
+      },
+    ],
+  },
+  "ott-subscription-rotation": {
+    type: "editorial-selection",
+    summary:
+      "구독 가격표보다 최근 시청 횟수, 다음 달 꼭 볼 작품, 가족 사용과 결제 전 판단 날짜를 기준으로 한 서비스씩 순환하는 방법을 구성했습니다.",
+    scope:
+      "재무 조언이나 특정 서비스 해지를 권하지 않으며, 가격·혜택·해지·재가입 조건은 각 OTT 사업자의 최신 약관을 확인해야 합니다.",
     sources: [],
   },
-  "daily-sales-report": {
-    type: "original-workflow",
+  "family-profile-age-rating": {
+    type: "official-help-review",
     summary:
-      "매출, 주문, 취소, 입금, 미처리 항목이 섞이지 않도록 마감 순서를 나누고 샘플 보고서의 합계와 상태 필드를 점검했습니다.",
+      "Netflix의 키즈 프로필, 프로필별 연령등급, 제목 차단과 PIN 잠금이 각각 다른 문제를 해결한다는 점을 공식 도움말과 대조했습니다.",
     scope:
-      "운영 마감용 기록 양식이며 회계 장부, 세금 신고 자료 또는 외부 감사 증빙을 대체하지 않습니다.",
-    sources: [],
+      "보호자의 판단을 대신하지 않으며, 작품별 한국 연령등급과 내용 정보는 영상물등급위원회 등 공식 분류에서 다시 확인해야 합니다.",
+    sources: [
+      {
+        title: "Netflix: Set profile maturity ratings or block titles",
+        url: "https://help.netflix.com/en/node/114276",
+        reviewedAt,
+      },
+      {
+        title: "영상물등급위원회",
+        url: "https://www.kmrb.or.kr/",
+        reviewedAt,
+      },
+    ],
   },
-  "payment-reminder-message": {
-    type: "original-workflow",
+  "watchlist-without-spoilers": {
+    type: "editorial-selection",
     summary:
-      "청구 사실, 약속일, 확인 요청, 다음 조치가 구분되는지 가상 메시지와 후속 조치 로그를 대조하고 과장·위협 표현을 제외했습니다.",
+      "찜 목록을 장르와 상황별 다섯 칸으로 제한하고 줄거리 대신 저장 이유, 러닝타임, 등급과 확인 날짜만 남기도록 구성했습니다.",
     scope:
-      "일반적인 입금 확인 커뮤니케이션 예시이며 법적 최고, 채권 추심 문안 또는 자동 발송 승인을 대신하지 않습니다.",
-    sources: [],
-  },
-  "sales-achievement-rate": {
-    type: "calculation-review",
-    summary:
-      "목표 대비 실적 비율, 부족 금액, 남은 기간의 일평균 필요 실적을 공개된 공식과 샘플 CSV로 각각 재계산했습니다.",
-    scope:
-      "기초 산술을 이용한 현황 파악 자료이며 미래 매출, 수익성 또는 계약 성사율을 예측하지 않습니다.",
-    sources: [],
-  },
-  "sales-revenue-ar-structure": {
-    type: "calculation-review",
-    summary:
-      "주문, 매출 인식, 청구, 입금, 미수금 단계를 가상 거래 한 건으로 연결하고 단계별 금액 합계가 일치하는지 확인했습니다.",
-    scope:
-      "현금 흐름을 이해하기 위한 운영 모델이며 기업별 회계 기준, 부가세, 세무 신고 판단을 대신하지 않습니다.",
-    sources: [],
-  },
-  "unify-order-channels-for-sales": {
-    type: "original-workflow",
-    summary:
-      "전화·메일·메시지 주문을 하나의 주문번호, 담당자, 금액, 상태, 다음 행동 필드로 변환할 수 있는지 샘플 등록부로 점검했습니다.",
-    scope:
-      "주문 접수 누락을 줄이기 위한 내부 운영 방식이며 결제 승인, 재고 확정 또는 고객 계약을 자동으로 성립시키지 않습니다.",
-    sources: [],
-  },
-  "ai-knowledge-store-for-small-business": {
-    type: "original-workflow",
-    summary:
-      "AI 답변에 쓰는 원본마다 출처, 소유자, 공개 범위, 확인일, 사용 중지일을 기록할 수 있는지 샘플 등록부로 확인했습니다.",
-    scope:
-      "지식 원본의 추적 구조를 설명하며 답변의 정확성, 개인정보 적법성 또는 최신성을 자동으로 보장하지 않습니다.",
-    sources: [],
-  },
-  "customer-memory-system": {
-    type: "original-workflow",
-    summary:
-      "고객 요청, 선호, 이전 응대, 다음 연락일을 필요한 최소 필드로 분리하고 가상 고객 기록에 민감정보가 포함되지 않았는지 점검했습니다.",
-    scope:
-      "고객 후속 조치를 위한 최소 기록 예시이며 실제 개인정보 수집·보관의 법적 근거나 동의 절차는 사업자가 별도로 확인해야 합니다.",
-    sources: [],
-  },
-  "daily-numbers-for-small-business": {
-    type: "calculation-review",
-    summary:
-      "매출, 주문, 입금, 예약, 미처리 문의를 하루 단위로 분리하고 샘플 점검표의 숫자와 후속 행동이 연결되는지 확인했습니다.",
-    scope:
-      "운영 이상 신호를 빨리 찾는 기초 점검표이며 손익계산서, 현금흐름표나 세무 자료를 대체하지 않습니다.",
-    sources: [],
-  },
-  "reservation-order-review-management": {
-    type: "original-workflow",
-    summary:
-      "예약, 주문, 리뷰 요청이 한 목록에서 섞이지 않도록 유형, 상태, 담당자, 기한, 다음 행동 필드를 가상 사례로 점검했습니다.",
-    scope:
-      "업무 대기열 관리 예시이며 플랫폼별 예약 확정, 환불, 리뷰 요청 정책은 해당 서비스 기준을 따라야 합니다.",
-    sources: [],
-  },
-  "solo-business-systemization": {
-    type: "original-workflow",
-    summary:
-      "판매, 정산, 고객, 문서 업무를 주간 주기로 나누고 각 항목에 마감일, 상태, 다음 행동이 있는지 샘플 통제표로 확인했습니다.",
-    scope:
-      "1인 사업자의 주간 운영 점검 방식이며 업종별 인허가, 노무, 세무와 법률 의무를 대신 판단하지 않습니다.",
-    sources: [],
-  },
-  "unify-order-channels": {
-    type: "original-workflow",
-    summary:
-      "전화, 메시지, 매장 주문을 접수번호, 채널, 고객 요청, 금액, 상태로 통합하고 중복 접수 여부를 샘플 행으로 점검했습니다.",
-    scope:
-      "주문 정보를 한곳에 모으는 운영 예시이며 실제 결제, 재고 차감, 배송 확정은 담당 시스템과 사람의 확인이 필요합니다.",
+      "OTT 제공 여부와 작품 평점을 보장하지 않는 개인용 정리 방법이며, 실제 시청 전 플랫폼과 공식 등급 정보를 다시 확인해야 합니다.",
     sources: [],
   },
 } as const satisfies Record<string, EditorialEvidence>;
 
 export function getEditorialEvidence(slug: string): EditorialEvidence {
-  const evidence = editorialEvidenceBySlug[slug as keyof typeof editorialEvidenceBySlug];
+  const item = evidence[slug as keyof typeof evidence];
 
-  if (!evidence) {
+  if (!item) {
     throw new Error(`${slug}: published article is missing editorial evidence`);
   }
 
-  return evidence;
+  return item;
 }
 
 export function getEditorialEvidenceEntries(): [string, EditorialEvidence][] {
-  return Object.entries(editorialEvidenceBySlug);
+  return Object.entries(evidence);
 }
