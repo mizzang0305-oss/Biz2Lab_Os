@@ -15,7 +15,7 @@ tags:
   - 라라랜드 결말
   - 라라랜드 해석
   - 영화 결말
-heroImage: /opengraph-image
+heroImage: /images/posts/lalaland-ending-interpretation-hero.webp
 heroAlt: 라라랜드의 재즈 클럽과 마지막 상상 몽타주를 사랑과 선택의 관점에서 해석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/lalaland-ending-interpretation'
 noindex: false

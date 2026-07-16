@@ -15,7 +15,7 @@ tags:
   - 넷플릭스 TOP 10
   - 넷플릭스 영화 추천
   - 넷플릭스 순위
-heroImage: /opengraph-image
+heroImage: /images/posts/netflix-top-10-how-to-choose-hero.webp
 heroAlt: 넷플릭스 인기 순위와 개인 취향 조건을 나란히 비교해 한 작품을 고르는 화면
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/netflix-top-10-how-to-choose'
 noindex: false

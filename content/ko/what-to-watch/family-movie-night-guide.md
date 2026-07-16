@@ -15,7 +15,7 @@ tags:
   - 가족 영화 추천
   - 가족 영화
   - 연령등급
-heroImage: /opengraph-image
+heroImage: /images/posts/family-movie-night-guide-hero.webp
 heroAlt: 서로 다른 연령의 가족이 무서운 장면과 자막 여부를 확인하며 영화를 고르는 모습
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/family-movie-night-guide'
 noindex: false

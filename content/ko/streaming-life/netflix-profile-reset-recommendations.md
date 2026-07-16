@@ -15,7 +15,7 @@ tags:
   - 넷플릭스 추천 초기화
   - 넷플릭스 프로필
   - 추천 알고리즘
-heroImage: /opengraph-image
+heroImage: /images/posts/netflix-profile-reset-recommendations-hero.webp
 heroAlt: 넷플릭스 프로필과 시청기록과 평가를 순서대로 정리해 추천 화면을 다시 맞추는 안내
 canonical: 'https://www.biz2lab.com/ko/streaming-life/netflix-profile-reset-recommendations'
 noindex: false

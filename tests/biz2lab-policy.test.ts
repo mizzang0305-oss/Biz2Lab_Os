@@ -151,19 +151,23 @@ test("each public post is a connected information node", () => {
   }
 });
 
-test("public posts use the shared original OG surface without copying movie artwork", () => {
+test("public posts use unique local generated hero images without copied movie artwork", () => {
   const publicPosts = getPublicPosts();
   const optionalAssetManifestPath = path.join(process.cwd(), "data", "image-assets.json");
+  const heroImages = new Set<string>();
 
   for (const post of publicPosts) {
     const heroImage = post.frontmatter.heroImage;
 
-    assert.equal(heroImage, "/opengraph-image");
+    assert.equal(heroImage, `/images/posts/${post.slug}-hero.webp`);
     assert.equal(heroImage.includes(".."), false);
     assert.equal(heroImage.includes("?"), false);
     assert.equal(heroImage.includes("#"), false);
     assert.equal(/^https?:\/\//i.test(heroImage), false);
+    assert.equal(fs.existsSync(path.join(process.cwd(), "public", heroImage)), true);
+    heroImages.add(heroImage);
   }
+  assert.equal(heroImages.size, publicPosts.length);
 
   if (fs.existsSync(optionalAssetManifestPath)) {
     const imageAssets = JSON.parse(fs.readFileSync(optionalAssetManifestPath, "utf8")) as Array<{
@@ -182,7 +186,7 @@ test("public posts use the shared original OG surface without copying movie artw
   }
 });
 
-test("content index carries shared OG metadata for every public article", () => {
+test("content index carries unique local hero metadata for every public article", () => {
   const indexPath = path.join(process.cwd(), "content", "ko", "content-index.json");
   const indexRows = JSON.parse(fs.readFileSync(indexPath, "utf8")) as Array<{
     slug?: string;
@@ -191,7 +195,7 @@ test("content index carries shared OG metadata for every public article", () => 
   }>;
   assert.equal(indexRows.length, getPublicPosts().length);
   for (const row of indexRows) {
-    assert.equal(row.heroImage, "/opengraph-image");
+    assert.equal(row.heroImage, `/images/posts/${row.slug}-hero.webp`);
     assert.match(row.heroAlt ?? "", /[가-힣]/);
   }
 });
@@ -201,24 +205,28 @@ test("home article grid surfaces six unique current editorial posts", () => {
 
   assert.equal(homePosts.length, 6);
   assert.equal(new Set(homePosts.map((post) => post.slug)).size, homePosts.length);
-  assert.equal(homePosts.every((post) => post.frontmatter.heroImage === "/opengraph-image"), true);
+  assert.equal(new Set(homePosts.map((post) => post.frontmatter.heroImage)).size, homePosts.length);
+  assert.equal(
+    homePosts.every((post) => post.frontmatter.heroImage.startsWith("/images/posts/")),
+    true,
+  );
 });
 
-test("article image policy keeps all entertainment articles text-first", () => {
+test("article image policy renders every entertainment hero in cards and articles", () => {
   const approvedSlugs = new Set<string>(approvedPremiumImageSlugs);
   const publicPosts = getPublicPosts();
 
   for (const post of publicPosts) {
-    assert.equal(approvedSlugs.has(post.slug), false);
-    assert.equal(getPremiumImageStatus(post.slug), "none");
-    assert.equal(shouldRenderCardImage(post), false);
-    assert.equal(shouldRenderArticleHeroImage(post), false);
+    assert.equal(approvedSlugs.has(post.slug), true);
+    assert.equal(getPremiumImageStatus(post.slug), "approved");
+    assert.equal(shouldRenderCardImage(post), true);
+    assert.equal(shouldRenderArticleHeroImage(post), true);
   }
 });
 
-test("public entertainment articles use descriptive text-first presentation", () => {
+test("public entertainment articles use descriptive generated hero presentation", () => {
   for (const post of getPublicPosts()) {
-    assert.equal(post.frontmatter.heroImage, "/opengraph-image");
+    assert.equal(post.frontmatter.heroImage, `/images/posts/${post.slug}-hero.webp`);
     assert.match(post.frontmatter.heroAlt, /[가-힣]/);
     assert.ok(
       post.frontmatter.heroAlt.length >= 16,
@@ -231,7 +239,7 @@ test("public entertainment articles do not copy posters or still images", () => 
   for (const post of getPublicPosts()) {
     assert.doesNotMatch(post.content, /!\[[^\]]*\]\(/);
     assert.doesNotMatch(post.content, /<img|<Image/);
-    assert.equal(post.frontmatter.heroImage, "/opengraph-image");
+    assert.match(post.frontmatter.heroImage, /^\/images\/posts\/[a-z0-9-]+-hero\.webp$/);
   }
 });
 
@@ -548,8 +556,9 @@ test("related reading cards expose category, Korean title, description, and read
   assert.match(articleCardSource, /post\.frontmatter\.title/);
   assert.match(articleCardSource, /post\.frontmatter\.description/);
   assert.match(articleCardSource, /post\.readingTime/);
-  assert.match(articleCardSource, /official-editorial-media/);
-  assert.match(articleCardSource, /text-editorial/);
+  assert.match(articleCardSource, /article-hero/);
+  assert.match(articleCardSource, /post\.frontmatter\.heroImage/);
+  assert.match(articleCardSource, /post\.frontmatter\.heroAlt/);
   assert.match(relatedReadingSource, /sm:grid-cols-2/);
   assert.match(relatedReadingSource, /lg:grid-cols-3/);
 });

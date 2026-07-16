@@ -1,4 +1,5 @@
 import type { CategorySlug } from "@/lib/schema";
+import { entertainmentImageConcepts } from "@/lib/entertainment-image-concepts";
 
 export type ArticleImageConcept = {
   slug: string;
@@ -50,7 +51,7 @@ const contractPalette = {
   paper: "#f8fafc",
 } as const;
 
-export const articleImageConcepts: Record<string, ArticleImageConcept> = {
+const legacyArticleImageConcepts: Record<string, ArticleImageConcept> = {
   "ai-business-automation-guide": {
     slug: "ai-business-automation-guide",
     category: "automation",
@@ -584,6 +585,11 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["SQL reporting dashboard", "query cards", "internal report flow", "permission gate"],
     palette: automationPalette,
   },
+};
+
+export const articleImageConcepts: Record<string, ArticleImageConcept> = {
+  ...legacyArticleImageConcepts,
+  ...entertainmentImageConcepts,
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

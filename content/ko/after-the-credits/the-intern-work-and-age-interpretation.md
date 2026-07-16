@@ -15,7 +15,7 @@ tags:
   - 영화 인턴 해석
   - 직장 영화
   - 세대 차이
-heroImage: /opengraph-image
+heroImage: /images/posts/the-intern-work-and-age-interpretation-hero.webp
 heroAlt: 영화 인턴의 벤과 줄스를 해결사와 대표가 아닌 좋은 동료의 관계로 해석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/the-intern-work-and-age-interpretation'
 noindex: false

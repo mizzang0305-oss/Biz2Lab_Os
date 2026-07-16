@@ -15,7 +15,7 @@ tags:
   - 악마는 프라다를 입는다 결말
   - 앤디 미란다
   - 직장 영화
-heroImage: /opengraph-image
+heroImage: /images/posts/devil-wears-prada-ending-interpretation-hero.webp
 heroAlt: 악마는 프라다를 입는다의 앤디와 미란다를 야망과 경계선의 관점에서 해석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/devil-wears-prada-ending-interpretation'
 noindex: false

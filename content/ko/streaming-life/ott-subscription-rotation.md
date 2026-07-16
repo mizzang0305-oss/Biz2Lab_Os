@@ -15,7 +15,7 @@ tags:
   - OTT 구독료
   - OTT 구독 관리
   - 구독료 줄이기
-heroImage: /opengraph-image
+heroImage: /images/posts/ott-subscription-rotation-hero.webp
 heroAlt: 여러 OTT 서비스를 시청 월에 맞춰 하나씩 순환하며 연간 비용을 확인하는 구독 관리표
 canonical: 'https://www.biz2lab.com/ko/streaming-life/ott-subscription-rotation'
 noindex: false

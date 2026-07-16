@@ -15,7 +15,7 @@ tags:
   - 90분 영화
   - 짧은 영화 추천
   - 러닝타임
-heroImage: /opengraph-image
+heroImage: /images/posts/ninety-minute-movie-guide-hero.webp
 heroAlt: 90분 타이머와 영화 후보 세 편을 비교하는 간결한 관람 선택 화면
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/ninety-minute-movie-guide'
 noindex: false

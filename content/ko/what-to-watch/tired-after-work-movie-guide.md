@@ -15,7 +15,7 @@ tags:
   - 퇴근 후 영화
   - 영화 추천
   - 힐링 영화
-heroImage: /opengraph-image
+heroImage: /images/posts/tired-after-work-movie-guide-hero.webp
 heroAlt: 피곤한 저녁 소파에서 남은 시간과 기분에 맞는 영화를 고르는 장면
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/tired-after-work-movie-guide'
 noindex: false

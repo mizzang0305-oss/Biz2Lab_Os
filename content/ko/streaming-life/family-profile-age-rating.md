@@ -15,7 +15,7 @@ tags:
   - 넷플릭스 프로필
   - 넷플릭스 연령등급
   - 자녀 보호
-heroImage: /opengraph-image
+heroImage: /images/posts/family-profile-age-rating-hero.webp
 heroAlt: 가족 구성원별 넷플릭스 프로필과 연령등급과 작품 차단을 설정하는 안내
 canonical: 'https://www.biz2lab.com/ko/streaming-life/family-profile-age-rating'
 noindex: false

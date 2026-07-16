@@ -15,7 +15,7 @@ tags:
   - 인사이드 아웃 해석
   - 슬픔의 역할
   - 픽사 영화
-heroImage: /opengraph-image
+heroImage: /images/posts/inside-out-emotion-interpretation-hero.webp
 heroAlt: 인사이드 아웃의 기쁨과 슬픔이 함께 기억을 다루는 장면을 해석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/inside-out-emotion-interpretation'
 noindex: false

@@ -15,7 +15,7 @@ tags:
   - 영화관 OTT
   - 영화관 추천
   - OTT 영화
-heroImage: /opengraph-image
+heroImage: /images/posts/theater-or-ott-choice-hero.webp
 heroAlt: 큰 스크린의 영화관과 편안한 거실 OTT 환경을 일곱 가지 기준으로 비교하는 장면
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/theater-or-ott-choice'
 noindex: false
