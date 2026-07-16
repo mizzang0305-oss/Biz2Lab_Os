@@ -87,6 +87,12 @@ test("resources hub provides browser-only viewing tools instead of generic CSV i
   assert.match(toolSource, /오늘 어떤 기분으로 끝내고 싶나요/);
   assert.match(toolSource, /내가 끝까지 볼 수 있는 러닝타임/);
   assert.match(toolSource, /OTT 구독 유지 비용/);
+  assert.match(toolSource, /필요한 도구 하나만 골라보세요/);
+  assert.match(toolSource, /기분을 선택하면 다음으로/);
+  assert.match(toolSource, /추천 글 보러 가기/);
+  assert.match(toolSource, /w-full min-w-0/);
+  assert.match(toolSource, /\/ko\/what-to-watch/);
+  assert.match(toolSource, /\/ko\/streaming-life\/ott-subscription-rotation/);
   assert.match(source, /서버로\s*전송하거나 저장하지 않고/);
   assert.doesNotMatch(source, /CSV|업무 자동화|미수금/);
 });
