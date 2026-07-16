@@ -34,6 +34,10 @@ const nextConfig: NextConfig = {
         pathname: "/images/posts/**",
         search: "",
       },
+      {
+        pathname: "/images/editorial/**",
+        search: "",
+      },
     ],
   },
 };

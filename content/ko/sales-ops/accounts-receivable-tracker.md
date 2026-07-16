@@ -6,8 +6,8 @@ locale: ko
 category: sales-ops
 cluster: revenue-operations
 type: checklist
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/accounts-receivable-tracker-hero.webp
 heroAlt: 미수금 aging 구간과 약속일, 담당자 후속 조치를 함께 보여주는 회수 상태판
 canonical: 'https://www.biz2lab.com/ko/sales-ops/accounts-receivable-tracker'
-noindex: false
+noindex: true
 relatedPosts:
   - payment-reminder-message
   - sales-revenue-ar-structure

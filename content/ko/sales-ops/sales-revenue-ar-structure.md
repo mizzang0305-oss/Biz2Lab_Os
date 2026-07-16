@@ -6,8 +6,8 @@ locale: ko
 category: sales-ops
 cluster: revenue-operations
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/sales-revenue-ar-structure-hero.webp
 heroAlt: 매출 목표와 청구, 입금, 미수금 대기 상태를 연결한 영업관리 지도
 canonical: 'https://www.biz2lab.com/ko/sales-ops/sales-revenue-ar-structure'
-noindex: false
+noindex: true
 relatedPosts:
   - accounts-receivable-tracker
   - sales-achievement-rate

@@ -1,7 +1,7 @@
-import type { PublicCategorySlug } from "@/lib/schema";
+import type { CategorySlug, PublicCategorySlug } from "@/lib/schema";
 
 export type Category = {
-  slug: PublicCategorySlug;
+  slug: CategorySlug;
   name: string;
   title: string;
   description: string;
@@ -10,7 +10,43 @@ export type Category = {
   pillarIdea: string;
 };
 
-export const categories: Record<PublicCategorySlug, Category> = {
+export const categories: Record<Exclude<CategorySlug, "pillar">, Category> = {
+  "what-to-watch": {
+    slug: "what-to-watch",
+    name: "오늘 뭐 볼까",
+    title: "지금 기분에 맞는 영화 고르기",
+    description:
+      "시간, 기분, 함께 보는 사람을 기준으로 오늘 볼 영화를 빠르게 고를 수 있는 관람 가이드입니다.",
+    hubIntro:
+      "좋은 영화 목록보다 더 필요한 건 지금의 나에게 맞는 한 편입니다. 남은 시간, 피로도, 스포일러 민감도와 동행을 먼저 확인하고 선택지를 좁힙니다.",
+    startGuide:
+      "오늘 쓸 수 있는 시간과 원하는 감정부터 고르세요. 제목을 많이 모으기보다 지금 끝까지 볼 수 있는 한 편을 찾는 것이 목표입니다.",
+    pillarIdea: "오늘 밤 한 편을 고르는 기준",
+  },
+  "after-the-credits": {
+    slug: "after-the-credits",
+    name: "엔딩 뒤의 이야기",
+    title: "보고 나서 더 재미있는 영화 해석",
+    description:
+      "결말, 인물의 선택, 반복되는 이미지와 대사를 따라가며 영화가 남긴 질문을 다시 읽습니다.",
+    hubIntro:
+      "줄거리를 다시 말하는 대신 영화가 왜 그 장면을 마지막에 남겼는지 살핍니다. 하나의 정답을 강요하지 않고, 장면과 선택을 근거로 가능한 해석을 나눕니다.",
+    startGuide:
+      "아직 영화를 보지 않았다면 각 글의 스포일러 표시를 먼저 확인하세요. 본 뒤라면 가장 마음에 걸린 장면부터 읽어도 좋습니다.",
+    pillarIdea: "결말을 다시 보는 첫 번째 질문",
+  },
+  "streaming-life": {
+    slug: "streaming-life",
+    name: "OTT 생활",
+    title: "구독은 가볍게, 감상은 편하게",
+    description:
+      "Netflix와 OTT의 시청 기록, 프로필, 자막, 구독 관리처럼 실제로 자주 막히는 문제를 해결합니다.",
+    hubIntro:
+      "볼 것은 많은데 추천은 엉키고 구독료는 늘어납니다. 계정 설정과 시청 습관을 한 번 정리해 작품을 찾는 시간을 줄입니다.",
+    startGuide:
+      "추천이 마음에 들지 않는다면 새 계정을 만들기 전에 시청 기록, 평가, 프로필 분리부터 확인하세요.",
+    pillarIdea: "OTT 홈 화면을 다시 내 취향으로",
+  },
   automation: {
     slug: "automation",
     name: "AI 업무 자동화",
@@ -61,10 +97,10 @@ export const categories: Record<PublicCategorySlug, Category> = {
   },
 };
 
-export const categoryList = Object.values(categories).filter(
-  (category) => category.slug !== "contracts-payments",
-);
+export const categoryList = (
+  ["what-to-watch", "after-the-credits", "streaming-life"] as PublicCategorySlug[]
+).map((slug) => categories[slug]);
 
 export function getCategory(slug: string) {
-  return categories[slug as PublicCategorySlug] ?? null;
+  return categories[slug as keyof typeof categories] ?? null;
 }

@@ -7,6 +7,7 @@ import readingTime from "reading-time";
 import { categories } from "@/lib/categories";
 import {
   postFrontmatterSchema,
+  type CategorySlug,
   type PostFrontmatter,
   type PublicCategorySlug,
 } from "@/lib/schema";
@@ -16,7 +17,7 @@ const contentRoot = path.join(process.cwd(), "content", "ko");
 export type Post = {
   slug: string;
   route: string;
-  category: PublicCategorySlug;
+  category: Exclude<CategorySlug, "pillar">;
   categoryName: string;
   frontmatter: PostFrontmatter;
   content: string;
@@ -76,11 +77,10 @@ function parsePost(filePath: string): Post {
   const raw = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(raw);
   const frontmatter = postFrontmatterSchema.parse(data);
-  const category = frontmatter.category as PublicCategorySlug;
-
   if (frontmatter.category === "pillar") {
     throw new Error(`${filePath} uses internal-only pillar category in public content`);
   }
+  const category = frontmatter.category as Exclude<CategorySlug, "pillar">;
 
   return {
     slug: frontmatter.slug,
@@ -115,14 +115,7 @@ export function getPublicPosts() {
 
 export function getFeaturedHomePosts(limit = 6) {
   const posts = getPublicPosts();
-  const featuredSlugSet = new Set<string>(premiumVisualPostSlugs);
-  const postBySlug = new Map(posts.map((post) => [post.slug, post]));
-  const featuredPosts = premiumVisualPostSlugs
-    .map((slug) => postBySlug.get(slug))
-    .filter((post): post is Post => Boolean(post));
-  const remainingPosts = posts.filter((post) => !featuredSlugSet.has(post.slug));
-
-  return [...featuredPosts, ...remainingPosts].slice(0, limit);
+  return posts.slice(0, limit);
 }
 
 export function getSitemapPosts() {

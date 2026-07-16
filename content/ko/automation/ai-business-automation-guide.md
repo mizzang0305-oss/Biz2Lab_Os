@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: automation-basics
 type: pillar
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/ai-business-automation-guide-hero.webp
 heroAlt: 반복 업무와 판단 업무를 분리해 사람 검토와 연결한 AI 자동화 설계 지도
 canonical: 'https://www.biz2lab.com/ko/automation/ai-business-automation-guide'
-noindex: false
+noindex: true
 relatedPosts:
   - automation-priority-method
   - pre-automation-task-list

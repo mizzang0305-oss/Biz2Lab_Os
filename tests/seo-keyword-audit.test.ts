@@ -87,12 +87,12 @@ test("keyword audit keeps index readiness separate from keyword follow-up work",
 
 test("reviewed core articles keep descriptive related links without draft-series dependencies", () => {
   const requiredSlugs = new Set([
-    "ai-business-automation-guide",
-    "automation-priority-method",
-    "accounts-receivable-tracker",
-    "daily-sales-goal-breakdown",
-    "customer-memory-system",
-    "unify-order-channels",
+    "tired-after-work-movie-guide",
+    "family-movie-night-guide",
+    "inside-out-2-emotions-interpretation",
+    "parasite-ending-interpretation",
+    "netflix-viewing-history-delete",
+    "ott-subscription-rotation",
   ]);
   const auditBySlug = new Map(auditSeoKeywords().articles.map((article) => [article.slug, article]));
 

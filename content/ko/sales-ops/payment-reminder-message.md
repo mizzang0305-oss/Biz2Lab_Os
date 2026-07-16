@@ -6,8 +6,8 @@ locale: ko
 category: sales-ops
 cluster: revenue-operations
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/payment-reminder-message-hero.webp
 heroAlt: 거래처 독촉 문자와 입금 안내문 초안을 검토하고 승인 후 발송하는 메시지 승인 흐름
 canonical: 'https://www.biz2lab.com/ko/sales-ops/payment-reminder-message'
-noindex: false
+noindex: true
 relatedPosts:
   - accounts-receivable-tracker
   - sales-revenue-ar-structure

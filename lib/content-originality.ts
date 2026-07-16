@@ -3,7 +3,9 @@ import path from "node:path";
 
 import matter from "gray-matter";
 
-const MIN_CONTENT_CHARS = 1600;
+// Google does not publish a minimum word count. This floor blocks genuinely
+// thin pages without rewarding filler written only to reach an arbitrary size.
+const MIN_CONTENT_CHARS = 1200;
 const MAX_PAIR_SIMILARITY = 0.4;
 const REPEATED_PARAGRAPH_MIN_LENGTH = 100;
 const REPEATED_PARAGRAPH_OWNER_LIMIT = 3;

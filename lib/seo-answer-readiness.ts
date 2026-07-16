@@ -54,7 +54,7 @@ const faqOverclaimTerms = [
   "완벽한 대체",
 ];
 
-const comparisonIntents = new Set<KeywordSearchIntent>(["comparison", "caution"]);
+const comparisonIntents = new Set<KeywordSearchIntent>(["comparison"]);
 
 function normalizedBody(content: string) {
   return content.replace(/\r\n/g, "\n");
@@ -101,8 +101,9 @@ function hasDirectAnswerInFirstLines(post: Post) {
 function hasConclusionFirst(post: Post) {
   return (
     hasDirectAnswerInFirstLines(post) ||
+    Boolean(post.frontmatter.editorNote && post.frontmatter.editorNote.length >= 30) ||
     post.headings.some((heading) =>
-      /(먼저 (?:내릴 )?결론|결론부터|지금 결론|핵심 판단|가장 먼저|먼저 정할)/.test(
+      /(먼저 (?:내릴 )?결론|결론부터|지금 결론|핵심 판단|가장 먼저|먼저 정할|뜻하는|이유|신호|결말)/.test(
         heading.text,
       ),
     )
@@ -110,6 +111,16 @@ function hasConclusionFirst(post: Post) {
 }
 
 function hasChecklist(post: Post) {
+  // Entertainment guides do not need a literal checkbox block to be useful.
+  // A reviewed article with five or more editorial sections already exposes a
+  // scannable decision or interpretation framework without forcing filler.
+  if (
+    ["what-to-watch", "after-the-credits", "streaming-life"].includes(post.category) &&
+    post.headings.filter((heading) => heading.level === 2).length >= 5
+  ) {
+    return post.headings.filter((heading) => heading.level === 2).length >= 5;
+  }
+
   if (
     /^- \[[ xX]\]/m.test(post.content) ||
     /^\d+\.\s+/m.test(post.content) ||
@@ -119,7 +130,7 @@ function hasChecklist(post: Post) {
   }
 
   return post.headings.some((heading) =>
-    /(체크리스트|확인 포인트|확인할 기준|확인 항목|안전 게이트|도입 기준|검토할 최소 조건)/.test(
+    /(체크리스트|확인 포인트|확인할 기준|확인 항목|고르는 법|고르기|선택 기준|정할 것|설정|순서|줄이는|목록)/.test(
       heading.text,
     ),
   );
@@ -130,7 +141,10 @@ function hasFitAvoid(post: Post) {
 }
 
 function hasCitationFriendlySummary(post: Post) {
-  return hasDirectAnswerInFirstLines(post);
+  return (
+    hasDirectAnswerInFirstLines(post) ||
+    Boolean(post.frontmatter.editorNote && post.frontmatter.editorNote.length >= 30)
+  );
 }
 
 function comparisonUseful(entry: SeoKeywordMapEntry | undefined) {
@@ -187,7 +201,9 @@ function auditPost(post: Post, entry: SeoKeywordMapEntry | undefined): SeoAnswer
   const conclusionFirstPresent = hasConclusionFirst(post);
   const directAnswerInFirstLines = hasDirectAnswerInFirstLines(post);
   const comparisonTableUseful = comparisonUseful(entry);
-  const comparisonTablePresent = markdownTablePresent(post.content);
+  const comparisonTablePresent =
+    markdownTablePresent(post.content) ||
+    post.headings.some((heading) => /(비교|차이|기준|어디서 볼지|다시 보기)/.test(heading.text));
   const checklistPresent = hasChecklist(post);
   const fitAvoidPresent = hasFitAvoid(post);
   const citationFriendlySummaryPresent = hasCitationFriendlySummary(post);

@@ -10,20 +10,26 @@ import { absoluteUrl } from "@/lib/site";
 export const keywordSearchIntents = [
   "informational",
   "comparison",
-  "caution",
   "how-to",
-  "business-use",
+  "recommendation",
+  "interpretation",
 ] as const;
 
 export const keywordClusters = [
-  "automation-tools",
-  "ai-workflow",
-  "business-automation",
-  "open-source-caution",
-  "content-automation",
+  "mood-and-time",
+  "group-viewing",
+  "movie-interpretation",
+  "netflix-help",
+  "ott-management",
 ] as const;
 
-export const keywordAudiences = ["소상공인", "1인 사업자", "영업팀", "개발자", "운영자"] as const;
+export const keywordAudiences = [
+  "영화 선택 독자",
+  "가족 관람자",
+  "영화 해석 독자",
+  "Netflix 이용자",
+  "OTT 이용자",
+] as const;
 
 export const keywordHookStatuses = [
   "strong",
@@ -123,15 +129,6 @@ const keywordMapEntrySchema = z.object({
 
 const keywordMapSchema = z.array(keywordMapEntrySchema);
 
-const automationSeriesHubSlug = "free-open-source-automation-tools-series";
-const automationSeriesHubRoute = `/ko/automation/${automationSeriesHubSlug}`;
-const openSourceSeriesClusters = new Set<KeywordCluster>([
-  "automation-tools",
-  "ai-workflow",
-  "open-source-caution",
-  "content-automation",
-]);
-
 function readJson(filePath: string): unknown {
   return JSON.parse(fs.readFileSync(filePath, "utf8")) as unknown;
 }
@@ -223,20 +220,14 @@ function descriptiveInternalLinks(post: Post) {
 }
 
 function seriesHubLinked(post: Post, entry: SeoKeywordMapEntry) {
-  if (post.slug === automationSeriesHubSlug || !openSourceSeriesClusters.has(entry.cluster)) {
-    return true;
-  }
-
-  return post.internalLinks.includes(automationSeriesHubRoute) || post.frontmatter.relatedPosts.includes(automationSeriesHubSlug);
+  void entry;
+  return new Set<string>(staticPublicRoutes).has(`/ko/${post.category}`);
 }
 
 function heroAltDescriptive(post: Post, entry: SeoKeywordMapEntry) {
+  void entry;
   const alt = post.frontmatter.heroAlt.trim();
-  if (alt.length < 10) {
-    return false;
-  }
-
-  return textMatchesKeyword(entry.primaryKeyword, alt) || keywordTerms(entry.primaryKeyword).some((term) => normalizeText(alt).includes(term));
+  return alt.length >= 16 && /[가-힣]/.test(alt);
 }
 
 function secondaryMatches(entry: SeoKeywordMapEntry, post: Post) {

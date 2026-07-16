@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: automation-basics
 type: checklist
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/automation-priority-method-hero.webp
 heroAlt: 업무 후보를 반복 빈도와 실패 비용으로 나누는 자동화 우선순위 매트릭스
 canonical: 'https://www.biz2lab.com/ko/automation/automation-priority-method'
-noindex: false
+noindex: true
 relatedPosts:
   - pre-automation-task-list
   - reduce-repetitive-work-with-ai

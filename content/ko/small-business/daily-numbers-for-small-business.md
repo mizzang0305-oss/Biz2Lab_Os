@@ -6,8 +6,8 @@ locale: ko
 category: small-business
 cluster: small-business-operations
 type: pillar
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/daily-numbers-for-small-business-hero.webp
 heroAlt: 소상공인이 매일 확인할 매출 달성률 계산과 주문, 입금, 미처리 업무 대시보드
 canonical: 'https://www.biz2lab.com/ko/small-business/daily-numbers-for-small-business'
-noindex: false
+noindex: true
 relatedPosts:
   - daily-sales-goal-breakdown
   - reservation-order-review-management

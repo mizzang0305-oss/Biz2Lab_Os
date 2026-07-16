@@ -6,8 +6,8 @@ locale: ko
 category: small-business
 cluster: small-business-operations
 type: case-study
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/unify-order-channels-hero.webp
 heroAlt: 전화와 메신저, 플랫폼 주문을 한곳의 처리 상태판으로 모으는 매장 주문 흐름
 canonical: 'https://www.biz2lab.com/ko/small-business/unify-order-channels'
-noindex: false
+noindex: true
 relatedPosts:
   - reservation-order-review-management
   - unify-order-channels-for-sales
