@@ -15,7 +15,7 @@ tags:
   - 넷플릭스 자막 설정
   - 넷플릭스 자막 크기
   - 넷플릭스 음성
-heroImage: /opengraph-image
+heroImage: /images/posts/netflix-subtitle-settings-hero.webp
 heroAlt: TV와 모바일에서 넷플릭스 자막 언어와 크기와 음성을 조정하는 설정 안내
 canonical: 'https://www.biz2lab.com/ko/streaming-life/netflix-subtitle-settings'
 noindex: false

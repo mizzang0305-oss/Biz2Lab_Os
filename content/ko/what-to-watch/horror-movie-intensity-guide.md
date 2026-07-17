@@ -15,7 +15,7 @@ tags:
   - 공포영화 추천
   - 무서운 영화
   - 점프스케어
-heroImage: /opengraph-image
+heroImage: /images/posts/horror-movie-intensity-guide-hero.webp
 heroAlt: 공포영화의 놀람과 잔혹함과 심리 불안을 서로 다른 강도로 비교하는 선택표
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/horror-movie-intensity-guide'
 noindex: false

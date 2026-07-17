@@ -15,7 +15,7 @@ tags:
   - 영화 Her 해석
   - AI 영화
   - 사만다
-heroImage: /opengraph-image
+heroImage: /images/posts/her-ai-relationship-interpretation-hero.webp
 heroAlt: 영화 Her의 목소리 기반 관계와 마지막 이별을 외로움과 성장의 관점에서 해석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/her-ai-relationship-interpretation'
 noindex: false

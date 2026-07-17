@@ -15,7 +15,7 @@ tags:
   - 넷플릭스 시청기록 삭제
   - 계속 시청 삭제
   - 넷플릭스 설정
-heroImage: /opengraph-image
+heroImage: /images/posts/netflix-viewing-history-delete-hero.webp
 heroAlt: 넷플릭스 계정의 시청 활동에서 작품을 숨기고 추천 변화를 확인하는 설정 안내
 canonical: 'https://www.biz2lab.com/ko/streaming-life/netflix-viewing-history-delete'
 noindex: false

@@ -15,7 +15,7 @@ tags:
   - 영화 찜 목록
   - 볼 영화 목록
   - 스포일러 방지
-heroImage: /opengraph-image
+heroImage: /images/posts/watchlist-without-spoilers-hero.webp
 heroAlt: 영화 줄거리 스포일러 없이 이유와 기분과 러닝타임만 기록한 다섯 칸 관람 목록
 canonical: 'https://www.biz2lab.com/ko/streaming-life/watchlist-without-spoilers'
 noindex: false

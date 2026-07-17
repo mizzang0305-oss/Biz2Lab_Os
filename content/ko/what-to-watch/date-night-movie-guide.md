@@ -15,7 +15,7 @@ tags:
   - 데이트 영화 추천
   - 커플 영화
   - 로맨스 영화
-heroImage: /opengraph-image
+heroImage: /images/posts/date-night-movie-guide-hero.webp
 heroAlt: 취향이 다른 두 사람이 분위기와 대화거리를 기준으로 데이트 영화를 고르는 모습
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/date-night-movie-guide'
 noindex: false

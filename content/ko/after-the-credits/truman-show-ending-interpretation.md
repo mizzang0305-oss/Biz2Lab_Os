@@ -15,7 +15,7 @@ tags:
   - 트루먼쇼 해석
   - 트루먼쇼 결말
   - 감시 사회
-heroImage: /opengraph-image
+heroImage: /images/posts/truman-show-ending-interpretation-hero.webp
 heroAlt: 트루먼 쇼의 인공 바다 끝에 놓인 출구와 선택의 의미를 해석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/truman-show-ending-interpretation'
 noindex: false

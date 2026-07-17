@@ -15,7 +15,7 @@ tags:
   - 인사이드 아웃 2 해석
   - 불안의 역할
   - 픽사 영화
-heroImage: /opengraph-image
+heroImage: /images/posts/inside-out-2-emotions-interpretation-hero.webp
 heroAlt: 인사이드 아웃 2의 불안과 기존 감정들이 라일리의 선택을 두고 충돌하는 장면을 분석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/inside-out-2-emotions-interpretation'
 noindex: false

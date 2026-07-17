@@ -15,7 +15,7 @@ tags:
   - 기생충 해석
   - 기생충 결말
   - 봉준호
-heroImage: /opengraph-image
+heroImage: /images/posts/parasite-ending-interpretation-hero.webp
 heroAlt: 영화 기생충의 반지하와 저택을 잇는 계단과 마지막 계획을 분석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/parasite-ending-interpretation'
 noindex: false
