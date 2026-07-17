@@ -15,6 +15,7 @@ import {
   getEditorialEvidenceEntries,
 } from "@/lib/editorial-evidence";
 import { getEditorialMediaEntries } from "@/lib/editorial-media";
+import { getOfficialFilmMediaEntries } from "@/lib/official-film-media";
 import { getAllPosts, getPublicPosts } from "@/lib/posts";
 import { staticPublicRoutes } from "@/lib/seo";
 import { siteSettings } from "@/lib/site-settings";
@@ -166,6 +167,48 @@ test("official poster and scene stills keep an auditable editorial-use record", 
     assert.match(asset.sourcePageUrl, /^https:\/\/press\.disney\.co\.uk\//);
     assert.match(asset.checkedAt, /^\d{4}-\d{2}-\d{2}$/);
   }
+});
+
+test("named movie articles lead with licensed press media or publisher-hosted video", () => {
+  const entries = getOfficialFilmMediaEntries();
+  const publicPosts = new Map(getPublicPosts().map((post) => [post.slug, post]));
+  const imageEntries = entries.filter(([, media]) => media.kind === "image");
+  const videoEntries = entries.filter(([, media]) => media.kind === "youtube");
+  const mediaSource = read("components/media/OfficialFilmMedia.tsx");
+  const youtubeEmbedSource = read("components/media/OfficialYoutubeEmbed.tsx");
+  const cardSource = read("components/cards/ArticleCard.tsx");
+  const articleSource = read("app/ko/[category]/[slug]/page.tsx");
+
+  assert.equal(entries.length, 8);
+  assert.equal(imageEntries.length, 1);
+  assert.equal(videoEntries.length, 7);
+
+  for (const [slug, media] of entries) {
+    const post = publicPosts.get(slug);
+    assert.ok(post, `${slug} must map to a public article`);
+    assert.equal(post.category, "after-the-credits");
+    assert.match(media.sourcePageUrl, /^https:\/\//);
+    assert.match(media.checkedAt, /^\d{4}-\d{2}-\d{2}$/);
+
+    if (media.kind === "image") {
+      assert.match(media.src, /^\/images\/editorial\/.+\.webp$/);
+      assert.match(media.usageBasis, /Editorial use only/);
+    } else {
+      assert.match(media.videoId, /^[A-Za-z0-9_-]{11}$/);
+      assert.match(media.watchUrl, /^https:\/\/www\.youtube\.com\/watch\?v=/);
+      assert.match(media.usageBasis, /embed; no local copy/);
+    }
+  }
+
+  assert.match(mediaSource, /i\.ytimg\.com\/vi/);
+  assert.match(mediaSource, /loading="lazy"/);
+  assert.match(mediaSource, /referrerPolicy="strict-origin-when-cross-origin"/);
+  assert.match(youtubeEmbedSource, /youtube-nocookie\.com\/embed/);
+  assert.match(youtubeEmbedSource, /공식 예고편 재생/);
+  assert.match(youtubeEmbedSource, /useState\(false\)/);
+  assert.match(youtubeEmbedSource, /if \(playing\)[\s\S]*autoplay=1/);
+  assert.match(cardSource, /OfficialFilmCardMedia/);
+  assert.match(articleSource, /OfficialFilmArticleMedia/);
 });
 
 test("article template exposes spoiler, audience, editor note, evidence, and authorship", () => {

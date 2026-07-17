@@ -2,6 +2,8 @@ import { ArrowUpRight, Clock3 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { OfficialFilmCardMedia } from "@/components/media/OfficialFilmMedia";
+import { getOfficialFilmMedia } from "@/lib/official-film-media";
 import type { Post } from "@/lib/posts";
 
 const cardToneByCategory = {
@@ -23,22 +25,27 @@ export function ArticleCard({ post, compact = false }: { post: Post; compact?: b
   const accentTone =
     accentToneByCategory[post.category as keyof typeof accentToneByCategory] ??
     "text-slate-700";
+  const officialFilmMedia = getOfficialFilmMedia(post.slug);
 
   return (
     <article
       className={`group relative flex h-full min-w-0 flex-col rounded-[1.35rem] border p-5 transition hover:-translate-y-1 hover:shadow-xl ${cardTone} ${
         compact ? "sm:p-5" : "sm:p-6"
       }`}
-      data-card-image="article-hero"
+      data-card-image={officialFilmMedia ? `official-${officialFilmMedia.kind}` : "article-hero"}
     >
       <div className="relative -mx-5 -mt-5 mb-5 aspect-[16/9] overflow-hidden rounded-t-[1.3rem] bg-[#f3ecf6] sm:-mx-6 sm:-mt-6">
-        <Image
-          src={post.frontmatter.heroImage}
-          alt={post.frontmatter.heroAlt}
-          fill
-          sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 92vw"
-          className="object-cover transition duration-500 group-hover:scale-[1.03]"
-        />
+        {officialFilmMedia ? (
+          <OfficialFilmCardMedia media={officialFilmMedia} />
+        ) : (
+          <Image
+            src={post.frontmatter.heroImage}
+            alt={post.frontmatter.heroAlt}
+            fill
+            sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 92vw"
+            className="object-cover transition duration-500 group-hover:scale-[1.03]"
+          />
+        )}
       </div>
       <div className={`flex flex-wrap items-center gap-2 text-xs font-bold ${accentTone}`}>
         <span>{post.categoryName}</span>

@@ -12,10 +12,12 @@ import { ReadingProgress } from "@/components/article/ReadingProgress";
 import { RelatedReadingBox } from "@/components/article/RelatedReadingBox";
 import { TableOfContents } from "@/components/article/TableOfContents";
 import { NextStepBox } from "@/components/cta/NextStepBox";
+import { OfficialFilmArticleMedia } from "@/components/media/OfficialFilmMedia";
 import { categories } from "@/lib/categories";
 import { editorialIdentity, getEditorialEvidence } from "@/lib/editorial-evidence";
 import { getEditorialMedia } from "@/lib/editorial-media";
 import { shouldRenderArticleHeroImage } from "@/lib/images/premium-image-policy";
+import { getOfficialFilmMedia } from "@/lib/official-film-media";
 import { getPostBySlug, getPublicPosts, getRelatedPosts } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/site";
 import { breadcrumbJsonLd, createMetadata, jsonLd } from "@/lib/seo";
@@ -63,7 +65,9 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
   const relatedPosts = getRelatedPosts(post);
   const editorialEvidence = getEditorialEvidence(post.slug);
   const editorialMedia = getEditorialMedia(post.slug);
+  const officialFilmMedia = getOfficialFilmMedia(post.slug);
   const renderHeroImage = shouldRenderArticleHeroImage(post);
+  const renderLeadMedia = Boolean(officialFilmMedia) || renderHeroImage;
   const breadcrumbs = [
     { label: categoryInfo.name, href: `/ko/${categoryInfo.slug}` },
     { label: post.frontmatter.title, href: post.route },
@@ -154,7 +158,9 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
       </header>
 
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-5 sm:py-10">
-        {renderHeroImage ? (
+        {officialFilmMedia ? (
+          <OfficialFilmArticleMedia media={officialFilmMedia} />
+        ) : renderHeroImage ? (
           <div className="relative aspect-[16/9] overflow-hidden rounded-md border border-slate-200 bg-slate-100">
             <Image
               src={post.frontmatter.heroImage}
@@ -167,7 +173,7 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
           </div>
         ) : null}
 
-        <div className={`mx-auto grid max-w-3xl min-w-0 gap-7 ${renderHeroImage ? "mt-8" : ""}`}>
+        <div className={`mx-auto grid max-w-3xl min-w-0 gap-7 ${renderLeadMedia ? "mt-8" : ""}`}>
           {post.frontmatter.editorNote ? (
             <section className="rounded-[1.25rem] border border-orange-200 bg-orange-50 p-5">
               <p className="text-sm font-black text-[#d6422d]">편집자의 한마디</p>
