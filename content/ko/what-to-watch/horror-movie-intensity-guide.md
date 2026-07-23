@@ -6,8 +6,8 @@ locale: ko
 category: what-to-watch
 cluster: genre-intensity-choice
 type: checklist
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/horror-movie-intensity-guide-hero.webp
 heroAlt: 공포영화의 놀람과 잔혹함과 심리 불안을 서로 다른 강도로 비교하는 선택표
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/horror-movie-intensity-guide'
-noindex: false
+noindex: true
 editorNote: '공포를 잘 본다는 말은 정확하지 않습니다. 놀람에는 강하지만 잔혹한 이미지는 못 볼 수도 있고, 그 반대일 수도 있습니다.'
 spoilerLevel: none
 audience:

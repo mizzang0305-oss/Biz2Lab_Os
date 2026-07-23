@@ -10,7 +10,7 @@ export type PremiumImageStatus = "approved" | "pending" | "none";
 const preferredPremiumImageSlugOrder = [
   "ai-business-automation-guide",
   "accounts-receivable-tracker",
-  "daily-numbers-for-small-business",
+  "electronic-contract-system-basics",
 ] as const;
 const preferredPremiumImageSlugSet = new Set<string>(preferredPremiumImageSlugOrder);
 

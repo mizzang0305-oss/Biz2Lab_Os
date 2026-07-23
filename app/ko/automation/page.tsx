@@ -5,19 +5,14 @@ import { categories } from "@/lib/categories";
 import { getPostsByCategory } from "@/lib/posts";
 import { createMetadata } from "@/lib/seo";
 
-const category = categories["what-to-watch"];
+const category = categories.automation;
 
 export const metadata: Metadata = createMetadata({
   title: category.title,
   description: category.description,
-  path: "/ko/what-to-watch",
+  path: "/ko/automation",
 });
 
-export default function WhatToWatchPage() {
-  return (
-    <CategoryHubPage
-      category={category}
-      posts={getPostsByCategory("what-to-watch")}
-    />
-  );
+export default function AutomationHubPage() {
+  return <CategoryHubPage category={category} posts={getPostsByCategory("automation")} />;
 }

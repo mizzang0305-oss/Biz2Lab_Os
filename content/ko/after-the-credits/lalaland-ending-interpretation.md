@@ -6,8 +6,8 @@ locale: ko
 category: after-the-credits
 cluster: ending-interpretation
 type: cluster
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/lalaland-ending-interpretation-hero.webp
 heroAlt: 라라랜드의 재즈 클럽과 마지막 상상 몽타주를 사랑과 선택의 관점에서 해석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/lalaland-ending-interpretation'
-noindex: false
+noindex: true
 editorNote: '마지막 미소는 다시 시작하자는 신호보다, 서로의 삶에 남긴 영향을 알아보는 짧은 인사에 가깝습니다.'
 spoilerLevel: full
 audience:

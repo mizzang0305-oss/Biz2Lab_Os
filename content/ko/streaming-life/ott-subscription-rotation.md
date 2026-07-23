@@ -6,8 +6,8 @@ locale: ko
 category: streaming-life
 cluster: subscription-management
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/ott-subscription-rotation-hero.webp
 heroAlt: 여러 OTT 서비스를 시청 월에 맞춰 하나씩 순환하며 연간 비용을 확인하는 구독 관리표
 canonical: 'https://www.biz2lab.com/ko/streaming-life/ott-subscription-rotation'
-noindex: false
+noindex: true
 editorNote: '구독을 줄이는 가장 쉬운 방법은 모두 끊는 결심이 아니라, 이번 달에 실제로 볼 서비스 하나를 정하는 일입니다.'
 spoilerLevel: none
 audience:

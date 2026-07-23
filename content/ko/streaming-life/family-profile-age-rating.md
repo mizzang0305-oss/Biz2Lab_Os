@@ -6,8 +6,8 @@ locale: ko
 category: streaming-life
 cluster: netflix-account-settings
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/family-profile-age-rating-hero.webp
 heroAlt: 가족 구성원별 넷플릭스 프로필과 연령등급과 작품 차단을 설정하는 안내
 canonical: 'https://www.biz2lab.com/ko/streaming-life/family-profile-age-rating'
-noindex: false
+noindex: true
 editorNote: '연령등급 설정은 아이와의 대화를 대신하지 않습니다. 화면에 보이는 범위를 줄이고 보호자가 판단할 시간을 만드는 도구입니다.'
 spoilerLevel: none
 audience:

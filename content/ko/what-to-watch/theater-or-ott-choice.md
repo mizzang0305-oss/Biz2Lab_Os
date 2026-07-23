@@ -6,8 +6,8 @@ locale: ko
 category: what-to-watch
 cluster: viewing-environment-choice
 type: checklist
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/theater-or-ott-choice-hero.webp
 heroAlt: 큰 스크린의 영화관과 편안한 거실 OTT 환경을 일곱 가지 기준으로 비교하는 장면
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/theater-or-ott-choice'
-noindex: false
+noindex: true
 editorNote: '작품의 규모보다 오늘 내가 얼마나 집중할 수 있는지를 먼저 보면 영화관과 집 사이의 답이 빨리 나옵니다.'
 spoilerLevel: none
 audience:

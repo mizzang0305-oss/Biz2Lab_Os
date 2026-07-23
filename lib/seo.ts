@@ -4,12 +4,15 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const staticPublicRoutes = [
   "/ko",
-  "/ko/what-to-watch",
-  "/ko/after-the-credits",
-  "/ko/streaming-life",
+  "/ko/automation",
+  "/ko/sales-ops",
+  "/ko/small-business",
   "/ko/about",
   "/ko/resources",
   "/ko/contact",
+  "/ko/editorial-policy",
+  "/ko/advertising",
+  "/ko/disclaimer",
   "/ko/privacy",
   "/ko/terms",
 ] as const;

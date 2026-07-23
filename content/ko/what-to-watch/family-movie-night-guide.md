@@ -6,8 +6,8 @@ locale: ko
 category: what-to-watch
 cluster: companion-based-movie-choice
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/family-movie-night-guide-hero.webp
 heroAlt: 서로 다른 연령의 가족이 무서운 장면과 자막 여부를 확인하며 영화를 고르는 모습
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/family-movie-night-guide'
-noindex: false
+noindex: true
 editorNote: '가족 영화의 실패는 작품이 재미없어서보다 서로 피하고 싶은 장면을 말하지 않았을 때 더 자주 생깁니다.'
 spoilerLevel: none
 audience:

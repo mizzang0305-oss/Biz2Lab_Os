@@ -6,18 +6,18 @@ locale: ko
 category: automation
 cluster: automation-basics
 type: pillar
-status: draft
-draft: true
+status: published
+draft: false
 author: Biz2Lab
 publishedAt: '2026-06-15'
-updatedAt: '2026-07-16'
+updatedAt: '2026-07-24'
 tags:
   - AI 업무 자동화
   - 업무 시스템
 heroImage: /images/posts/ai-business-automation-guide-hero.webp
 heroAlt: 반복 업무와 판단 업무를 분리해 사람 검토와 연결한 AI 자동화 설계 지도
 canonical: 'https://www.biz2lab.com/ko/automation/ai-business-automation-guide'
-noindex: true
+noindex: false
 relatedPosts:
   - automation-priority-method
   - pre-automation-task-list
@@ -40,6 +40,14 @@ faq:
 AI 업무 자동화의 첫 질문은 “어떤 도구를 쓸까”가 아니라 “AI가 어디까지 해도 되는가”입니다. 같은 요약 기능이라도 내부 회의록 초안과 고객 계약 조건 정리는 위험이 다릅니다. 내부 회의록은 잘못 정리해도 원문으로 돌아갈 수 있지만, 계약 금액이나 납기를 잘못 안내하면 신뢰와 비용 문제가 생깁니다.
 
 따라서 업무를 자동화할 때는 결과의 편리함보다 **외부 영향, 금액 영향, 개인정보 포함 여부, 되돌릴 수 있는지**를 먼저 봐야 합니다. 이 네 가지 중 하나라도 위험도가 높으면 AI는 실행자가 아니라 보조자로만 둡니다.
+
+## 실제 제작·검증 근거
+
+Biz2Lab 운영자는 2026년 7월 로컬 상거래 자동화 흐름을 합성 JSONL 입력으로 끝까지 실행해 입력, 처리 결과, 중복 실행, 외부 실행 차단 상태를 확인했습니다. 같은 입력을 다시 실행한 세 건은 결과 해시가 바뀌지 않았고, webhook 호출, 알림, 게시와 업로드 상태는 모두 `false`로 유지했습니다.
+
+이 검증에서 가장 중요했던 것은 AI나 자동화 도구가 결과를 만들었다는 사실이 아니라 **같은 입력은 같은 결과를 내고, 승인되지 않은 외부 동작은 발생하지 않으며, 실패를 상태로 확인할 수 있는가**였습니다. 이 글의 입력 → 초안 → 검토 → 승인 → 실행 기록 구조는 그때 사용한 경계를 일반 업무용으로 풀어 쓴 것입니다.
+
+확인하지 않은 것도 분명합니다. 이 로컬 검증은 실제 고객 문의, 실제 결제, 실제 업로드를 실행하지 않았으므로 절감 시간이나 매출 효과를 입증하지 않습니다. 그런 수치는 실제 운영 전후 기록이 생기기 전까지 본문에 추가하지 않습니다.
 
 ## 입력에서 기록까지 다섯 칸으로 나누기
 

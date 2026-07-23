@@ -5,19 +5,14 @@ import { categories } from "@/lib/categories";
 import { getPostsByCategory } from "@/lib/posts";
 import { createMetadata } from "@/lib/seo";
 
-const category = categories["streaming-life"];
+const category = categories["small-business"];
 
 export const metadata: Metadata = createMetadata({
   title: category.title,
   description: category.description,
-  path: "/ko/streaming-life",
+  path: "/ko/small-business",
 });
 
-export default function StreamingLifePage() {
-  return (
-    <CategoryHubPage
-      category={category}
-      posts={getPostsByCategory("streaming-life")}
-    />
-  );
+export default function SmallBusinessHubPage() {
+  return <CategoryHubPage category={category} posts={getPostsByCategory("small-business")} />;
 }

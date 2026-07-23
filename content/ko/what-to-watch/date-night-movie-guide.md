@@ -6,8 +6,8 @@ locale: ko
 category: what-to-watch
 cluster: companion-based-movie-choice
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/date-night-movie-guide-hero.webp
 heroAlt: 취향이 다른 두 사람이 분위기와 대화거리를 기준으로 데이트 영화를 고르는 모습
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/date-night-movie-guide'
-noindex: false
+noindex: true
 editorNote: '데이트 영화의 좋은 기준은 둘 다 인생 영화라고 말하는 작품이 아니라, 한 사람이 참느라 침묵하지 않는 작품입니다.'
 spoilerLevel: none
 audience:

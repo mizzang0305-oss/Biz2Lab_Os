@@ -98,7 +98,7 @@ export const categories: Record<Exclude<CategorySlug, "pillar">, Category> = {
 };
 
 export const categoryList = (
-  ["what-to-watch", "after-the-credits", "streaming-life"] as PublicCategorySlug[]
+  ["automation", "sales-ops", "small-business"] as PublicCategorySlug[]
 ).map((slug) => categories[slug]);
 
 export function getCategory(slug: string) {

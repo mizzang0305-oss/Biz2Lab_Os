@@ -6,18 +6,18 @@ locale: ko
 category: automation
 cluster: automation-basics
 type: checklist
-status: draft
-draft: true
+status: published
+draft: false
 author: Biz2Lab
 publishedAt: '2026-06-15'
-updatedAt: '2026-07-16'
+updatedAt: '2026-07-24'
 tags:
   - 자동화 우선순위
   - 업무 개선
 heroImage: /images/posts/automation-priority-method-hero.webp
 heroAlt: 업무 후보를 반복 빈도와 실패 비용으로 나누는 자동화 우선순위 매트릭스
 canonical: 'https://www.biz2lab.com/ko/automation/automation-priority-method'
-noindex: true
+noindex: false
 relatedPosts:
   - pre-automation-task-list
   - reduce-repetitive-work-with-ai
@@ -40,6 +40,14 @@ faq:
 업무를 자동화하려고 목록을 만들면 보통 “시간이 오래 걸리는 일”이 먼저 보입니다. 하지만 오래 걸린다는 이유만으로 좋은 후보는 아닙니다. 고객마다 처리 방법이 다르거나 담당자의 판단이 많은 일은 자동화가 아니라 표준화가 먼저 필요합니다.
 
 반대로 건당 3분밖에 걸리지 않아도 하루에 20번 반복되고, 복사 실수로 재작업이 자주 생기는 업무는 좋은 후보가 될 수 있습니다. 우선순위는 작업 한 건의 크기가 아니라 **한 달 동안 누적되는 시간과 실패 비용**으로 비교해야 합니다.
+
+## 실제 우선순위 결정에서 확인한 것
+
+2026년 7월 자동화 작업에서는 PR 문구와 부가 메타데이터를 더 만드는 일보다, 합성 입력 한 묶음이 로컬 처리기를 끝까지 통과하고 동일 입력 재실행에도 결과가 달라지지 않는지 확인하는 일을 먼저 선택했습니다. 후보를 고른 기준은 “눈에 잘 보이는 기능”이 아니라 입력이 명확한지, 완료 조건을 자동으로 판정할 수 있는지, 외부 전송을 꺼 둔 채 검증할 수 있는지였습니다.
+
+그 결과 로컬 contract-only 흐름은 통과했지만 crawl, webhook, 데이터베이스 저장, 업로드, production 실행은 후보에서 제외했습니다. 필요한 대상과 권한이 검증되지 않은 업무는 점수가 높아 보여도 실행 후보로 올리지 않는다는 원칙을 실제 작업 순서에 적용한 사례입니다.
+
+이 경험은 어떤 업종에서도 같은 점수를 쓰라는 뜻이 아닙니다. 실제 발생 횟수와 처리시간은 업무 현장에서 다시 측정해야 하며, 이 글의 숫자는 비교 방법을 설명하기 위한 가상 예시입니다.
 
 ## 월 절감 후보시간 계산
 

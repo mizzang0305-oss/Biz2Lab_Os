@@ -6,8 +6,8 @@ locale: ko
 category: small-business
 cluster: small-business-operations
 type: how-to
-status: draft
-draft: true
+status: published
+draft: false
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/reservation-order-review-management-hero.webp
 heroAlt: 예약과 주문, 리뷰 응대를 같은 운영표에서 상태별로 관리하는 보드
 canonical: 'https://www.biz2lab.com/ko/small-business/reservation-order-review-management'
-noindex: true
+noindex: false
 relatedPosts:
   - unify-order-channels
   - customer-memory-system

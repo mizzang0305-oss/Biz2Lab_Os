@@ -6,8 +6,8 @@ locale: ko
 category: streaming-life
 cluster: viewing-habit
 type: checklist
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/watchlist-without-spoilers-hero.webp
 heroAlt: 영화 줄거리 스포일러 없이 이유와 기분과 러닝타임만 기록한 다섯 칸 관람 목록
 canonical: 'https://www.biz2lab.com/ko/streaming-life/watchlist-without-spoilers'
-noindex: false
+noindex: true
 editorNote: '찜 목록은 많이 저장하는 곳이 아니라 다음 재생 버튼까지 가는 거리를 줄이는 곳이어야 합니다.'
 spoilerLevel: none
 audience:

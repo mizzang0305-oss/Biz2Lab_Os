@@ -30,7 +30,7 @@ export type Post = {
 export const premiumVisualPostSlugs = [
   "ai-business-automation-guide",
   "accounts-receivable-tracker",
-  "daily-numbers-for-small-business",
+  "electronic-contract-system-basics",
 ] as const;
 
 function walkMarkdownFiles(dir: string): string[] {
@@ -77,10 +77,11 @@ function parsePost(filePath: string): Post {
   const raw = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(raw);
   const frontmatter = postFrontmatterSchema.parse(data);
+  const category = frontmatter.category as Exclude<CategorySlug, "pillar">;
+
   if (frontmatter.category === "pillar") {
     throw new Error(`${filePath} uses internal-only pillar category in public content`);
   }
-  const category = frontmatter.category as Exclude<CategorySlug, "pillar">;
 
   return {
     slug: frontmatter.slug,
@@ -115,7 +116,14 @@ export function getPublicPosts() {
 
 export function getFeaturedHomePosts(limit = 6) {
   const posts = getPublicPosts();
-  return posts.slice(0, limit);
+  const featuredSlugSet = new Set<string>(premiumVisualPostSlugs);
+  const postBySlug = new Map(posts.map((post) => [post.slug, post]));
+  const featuredPosts = premiumVisualPostSlugs
+    .map((slug) => postBySlug.get(slug))
+    .filter((post): post is Post => Boolean(post));
+  const remainingPosts = posts.filter((post) => !featuredSlugSet.has(post.slug));
+
+  return [...featuredPosts, ...remainingPosts].slice(0, limit);
 }
 
 export function getSitemapPosts() {

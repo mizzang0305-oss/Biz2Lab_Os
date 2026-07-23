@@ -6,8 +6,8 @@ locale: ko
 category: after-the-credits
 cluster: ending-interpretation
 type: pillar
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/parasite-ending-interpretation-hero.webp
 heroAlt: 영화 기생충의 반지하와 저택을 잇는 계단과 마지막 계획을 분석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/parasite-ending-interpretation'
-noindex: false
+noindex: true
 editorNote: '마지막 계획이 아름답게 들릴수록, 영화는 그 계획을 실행할 현실의 계단이 얼마나 긴지 보여줍니다.'
 spoilerLevel: full
 audience:

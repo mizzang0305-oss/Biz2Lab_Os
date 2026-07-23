@@ -1,5 +1,4 @@
 import type { CategorySlug } from "@/lib/schema";
-import { entertainmentImageConcepts } from "@/lib/entertainment-image-concepts";
 
 export type ArticleImageConcept = {
   slug: string;
@@ -51,7 +50,7 @@ const contractPalette = {
   paper: "#f8fafc",
 } as const;
 
-const legacyArticleImageConcepts: Record<string, ArticleImageConcept> = {
+export const articleImageConcepts: Record<string, ArticleImageConcept> = {
   "ai-business-automation-guide": {
     slug: "ai-business-automation-guide",
     category: "automation",
@@ -212,6 +211,7 @@ const legacyArticleImageConcepts: Record<string, ArticleImageConcept> = {
     captionKo: "전자계약 시스템의 기본 상태를 시간 흐름으로 정리한 이미지입니다.",
     labels: ["초안", "요청", "확인", "보관"],
     palette: contractPalette,
+    retainedPremium: true,
   },
   "manage-unsigned-contracts": {
     slug: "manage-unsigned-contracts",
@@ -333,7 +333,6 @@ const legacyArticleImageConcepts: Record<string, ArticleImageConcept> = {
     captionKo: "하루 운영 상태를 다섯 가지 숫자로 확인하는 이미지입니다.",
     labels: ["매출", "주문", "객단가", "미처리"],
     palette: smallBusinessPalette,
-    retainedPremium: true,
   },
   "reservation-order-review-management": {
     slug: "reservation-order-review-management",
@@ -585,11 +584,6 @@ const legacyArticleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["SQL reporting dashboard", "query cards", "internal report flow", "permission gate"],
     palette: automationPalette,
   },
-};
-
-export const articleImageConcepts: Record<string, ArticleImageConcept> = {
-  ...legacyArticleImageConcepts,
-  ...entertainmentImageConcepts,
 };
 
 export const articleImageConceptEntries: ArticleImageConcept[] = Object.values(articleImageConcepts);

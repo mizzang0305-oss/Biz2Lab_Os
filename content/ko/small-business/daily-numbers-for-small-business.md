@@ -6,18 +6,18 @@ locale: ko
 category: small-business
 cluster: small-business-operations
 type: pillar
-status: draft
-draft: true
+status: published
+draft: false
 author: Biz2Lab
 publishedAt: '2026-06-15'
-updatedAt: '2026-07-16'
+updatedAt: '2026-07-24'
 tags:
   - 소상공인
   - 운영 지표
 heroImage: /images/posts/daily-numbers-for-small-business-hero.webp
 heroAlt: 소상공인이 매일 확인할 매출 달성률 계산과 주문, 입금, 미처리 업무 대시보드
 canonical: 'https://www.biz2lab.com/ko/small-business/daily-numbers-for-small-business'
-noindex: true
+noindex: false
 relatedPosts:
   - daily-sales-goal-breakdown
   - reservation-order-review-management
@@ -40,6 +40,14 @@ faq:
 오늘 매출이 82만 원이라고 해도 운영 상태는 여러 가지일 수 있습니다. 주문은 많았지만 취소가 두 건 생겼을 수 있고, 매출은 잡혔지만 입금이 늦어졌을 수 있으며, 미처리 문의가 쌓여 내일 매출을 놓칠 수도 있습니다.
 
 매일 보는 숫자는 결과와 원인을 함께 보여줘야 합니다.
+
+## 실제 운영 대시보드에서 지킨 원칙
+
+Biz2Lab 콘텐츠 운영 대시보드는 공개 글 수를 화면에 고정값으로 적지 않고 실제 Markdown과 콘텐츠 색인에서 계산합니다. 이번 공개 범위도 같은 방식으로 확인해 공개 20개와 검토 보류 55개를 분리했고, sitemap과 자료실에는 공개 20개만 포함했습니다.
+
+검색 유입이나 광고 수익처럼 실제 연결 데이터가 없는 항목은 임의 숫자를 채우지 않고 빈 상태로 표시합니다. 숫자가 없어 보이는 것보다 출처가 다른 값을 한 지표처럼 섞는 것이 더 위험하기 때문입니다. 이 원칙이 매출, 입금, 미수금, 취소를 각각 분리해 보도록 한 이 글의 출발점입니다.
+
+여기에 제시한 82만 원, 주문 17건 같은 값은 계산을 설명하는 가상 데이터입니다. 실제 매장의 매출 개선 사례가 아니며, 운영자는 POS, 계좌, 예약 시스템에서 같은 기준시각의 값을 가져와야 합니다.
 
 ## 하루 10분 점검용 여덟 항목
 

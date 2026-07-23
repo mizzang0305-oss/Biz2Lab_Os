@@ -21,8 +21,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Biz2Lab PLAY",
-    template: "%s | Biz2Lab PLAY",
+    default: "Biz2Lab",
+    template: "%s | Biz2Lab",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,

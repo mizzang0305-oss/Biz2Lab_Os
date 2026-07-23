@@ -6,8 +6,8 @@ locale: ko
 category: small-business
 cluster: small-business-operations
 type: how-to
-status: draft
-draft: true
+status: published
+draft: false
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/customer-memory-system-hero.webp
 heroAlt: 고객 요청과 선호, 응대 이력, 다음 조치를 정리한 고객 기록 카드
 canonical: 'https://www.biz2lab.com/ko/small-business/customer-memory-system'
-noindex: true
+noindex: false
 relatedPosts:
   - reservation-order-review-management
   - payment-reminder-message

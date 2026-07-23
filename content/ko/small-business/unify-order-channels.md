@@ -6,18 +6,18 @@ locale: ko
 category: small-business
 cluster: small-business-operations
 type: case-study
-status: draft
-draft: true
+status: published
+draft: false
 author: Biz2Lab
 publishedAt: '2026-06-15'
-updatedAt: '2026-07-16'
+updatedAt: '2026-07-24'
 tags:
   - 주문 관리
   - 소상공인 자동화
 heroImage: /images/posts/unify-order-channels-hero.webp
 heroAlt: 전화와 메신저, 플랫폼 주문을 한곳의 처리 상태판으로 모으는 매장 주문 흐름
 canonical: 'https://www.biz2lab.com/ko/small-business/unify-order-channels'
-noindex: true
+noindex: false
 relatedPosts:
   - reservation-order-review-management
   - unify-order-channels-for-sales
@@ -40,6 +40,14 @@ faq:
 전화 고객에게 플랫폼을 쓰라고 강요하거나 메신저 주문을 받지 않는 것은 채널 축소입니다. 주문 통합은 고객 접점은 유지하면서 내부에서 모든 주문을 같은 번호와 상태로 처리하는 방식입니다.
 
 목표는 “어디에서 왔는지”보다 “누가 언제 무엇을 처리해야 하는지”를 한곳에서 보는 것입니다.
+
+## 주문 식별자를 끝까지 보존한 실제 검증
+
+결제 승인 연동을 검증할 때 등록 단계에서 받은 주문 ID를 다음 승인 단계의 두 주문 식별 필드에 동일하게 보존해야 했습니다. 중간 단계에서 새 번호로 바꾸거나 금액 형식을 다르게 보내면 같은 주문을 이어서 처리할 수 없었습니다. 수정 뒤에는 관련 계약 테스트 10건과 전체 테스트 456건을 통과시켜 식별자 전달을 확인했습니다.
+
+물류 데이터 작업에서도 원본 시스템의 대상이 검증되지 않았을 때 다음 주문 상세 단계로 확장하지 않고 중단했습니다. 이 두 경험은 통합 접수함이 원본번호를 지우는 저장소가 아니라 **통합번호와 채널별 원본번호를 함께 보존하는 연결표**여야 한다는 근거가 됐습니다.
+
+이 검증은 실제 매장의 전화·메신저·플랫폼 주문 누락률을 측정한 사례는 아닙니다. 따라서 본문은 누락 감소 수치를 주장하지 않고, 중복과 출처를 확인할 수 있는 필드와 상태 흐름만 제시합니다.
 
 ## 통합 주문번호 만들기
 

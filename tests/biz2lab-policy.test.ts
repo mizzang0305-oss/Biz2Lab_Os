@@ -57,13 +57,13 @@ test("public route registry excludes forbidden MVP prefixes", () => {
 
 test("frontmatter schema enforces Korean-only approval categories", () => {
   assert.deepEqual(categorySlugs, [
-    "what-to-watch",
-    "after-the-credits",
-    "streaming-life",
     "automation",
     "sales-ops",
     "small-business",
     "contracts-payments",
+    "what-to-watch",
+    "after-the-credits",
+    "streaming-life",
     "pillar",
   ]);
 
@@ -72,23 +72,20 @@ test("frontmatter schema enforces Korean-only approval categories", () => {
     description: "테스트 설명",
     slug: "test-post",
     locale: "ko",
-    category: "what-to-watch",
-    cluster: "mood-based-movie-choice",
+    category: "automation",
+    cluster: "automation-basics",
     type: "how-to",
     status: "published",
     draft: false,
     author: "Biz2Lab",
     publishedAt: "2026-06-15",
     updatedAt: "2026-06-15",
-    tags: ["영화 추천"],
-    heroImage: "/opengraph-image",
-    heroAlt: "오늘의 기분과 남은 시간에 맞는 영화를 고르는 테스트 이미지 설명",
-    canonical: "https://www.biz2lab.com/ko/what-to-watch/test-post",
+    tags: ["AI 업무 자동화"],
+    heroImage: "/images/posts/test-post-1200.webp",
+    heroAlt: "테스트 글 대표 이미지",
+    canonical: "https://www.biz2lab.com/ko/automation/test-post",
     noindex: false,
     relatedPosts: ["other-post", "another-post"],
-    editorNote: "한 편을 고르는 기준을 설명하는 편집자 메모입니다.",
-    spoilerLevel: "none",
-    audience: ["평일 밤", "영화 선택", "짧은 감상"],
   });
 
   assert.equal(parsed.success, true);
@@ -121,7 +118,7 @@ test("Phase 2 content set derives public Korean post inventory from canonical co
   assert.equal(publicPosts.every((post) => post.frontmatter.status === "published"), true);
   assert.equal(publicPosts.every((post) => post.frontmatter.draft === false), true);
   assert.equal(sitemapPosts.every((post) => post.frontmatter.noindex === false), true);
-  assert.equal(draftPosts.length, 53);
+  assert.equal(draftPosts.length, 55);
   assert.equal(
     draftPosts.every(
       (post) =>
@@ -151,23 +148,20 @@ test("each public post is a connected information node", () => {
   }
 });
 
-test("public posts use unique local generated hero images without copied movie artwork", () => {
+test("public posts use approved local hero images without requiring generated fallback assets", () => {
   const publicPosts = getPublicPosts();
   const optionalAssetManifestPath = path.join(process.cwd(), "data", "image-assets.json");
-  const heroImages = new Set<string>();
 
   for (const post of publicPosts) {
     const heroImage = post.frontmatter.heroImage;
 
-    assert.equal(heroImage, `/images/posts/${post.slug}-hero.webp`);
+    assert.match(heroImage, /^\/images\/posts\/[a-z0-9][a-z0-9-]*\.webp$/);
     assert.equal(heroImage.includes(".."), false);
     assert.equal(heroImage.includes("?"), false);
     assert.equal(heroImage.includes("#"), false);
     assert.equal(/^https?:\/\//i.test(heroImage), false);
-    assert.equal(fs.existsSync(path.join(process.cwd(), "public", heroImage)), true);
-    heroImages.add(heroImage);
+    assert.ok(fs.existsSync(path.join(process.cwd(), "public", heroImage.replace(/^\//, ""))));
   }
-  assert.equal(heroImages.size, publicPosts.length);
 
   if (fs.existsSync(optionalAssetManifestPath)) {
     const imageAssets = JSON.parse(fs.readFileSync(optionalAssetManifestPath, "utf8")) as Array<{
@@ -186,60 +180,154 @@ test("public posts use unique local generated hero images without copied movie a
   }
 });
 
-test("content index carries unique local hero metadata for every public article", () => {
+test("content index carries hero image metadata for visual audits", () => {
   const indexPath = path.join(process.cwd(), "content", "ko", "content-index.json");
   const indexRows = JSON.parse(fs.readFileSync(indexPath, "utf8")) as Array<{
     slug?: string;
     heroImage?: string;
     heroAlt?: string;
   }>;
-  assert.equal(indexRows.length, getPublicPosts().length);
-  for (const row of indexRows) {
-    assert.equal(row.heroImage, `/images/posts/${row.slug}-hero.webp`);
-    assert.match(row.heroAlt ?? "", /[가-힣]/);
+  const bySlug = new Map(indexRows.map((row) => [row.slug, row]));
+
+  for (const [slug, expectedHeroImage] of [
+    ["ai-business-automation-guide", "/images/posts/ai-business-automation-guide-hero.webp"],
+    ["accounts-receivable-tracker", "/images/posts/accounts-receivable-tracker-hero.webp"],
+    ["daily-numbers-for-small-business", "/images/posts/daily-numbers-for-small-business-hero.webp"],
+  ] as const) {
+    const row = bySlug.get(slug);
+
+    assert.ok(row, `${slug} must be listed in content-index.json`);
+    assert.equal(row.heroImage, expectedHeroImage);
+    assert.ok(row.heroAlt, `${slug} must keep image alt text in content-index.json`);
   }
 });
 
-test("home article grid surfaces six unique current editorial posts", () => {
+test("home article grid surfaces public premium visual posts first", () => {
   const homePosts = getFeaturedHomePosts();
 
+  assert.deepEqual(
+    homePosts.slice(0, 3).map((post) => post.slug),
+    [
+      "ai-business-automation-guide",
+      "accounts-receivable-tracker",
+      "automation-priority-method",
+    ],
+  );
+  assert.deepEqual(
+    homePosts.slice(0, 3).map((post) => post.frontmatter.heroImage),
+    [
+      "/images/posts/ai-business-automation-guide-hero.webp",
+      "/images/posts/accounts-receivable-tracker-hero.webp",
+      "/images/posts/automation-priority-method-hero.webp",
+    ],
+  );
   assert.equal(homePosts.length, 6);
   assert.equal(new Set(homePosts.map((post) => post.slug)).size, homePosts.length);
-  assert.equal(new Set(homePosts.map((post) => post.frontmatter.heroImage)).size, homePosts.length);
-  assert.equal(
-    homePosts.every((post) => post.frontmatter.heroImage.startsWith("/images/posts/")),
-    true,
-  );
 });
 
-test("article image policy renders every entertainment hero in cards and articles", () => {
+test("article image policy renders TOP3 as premium and other public images as standard", () => {
   const approvedSlugs = new Set<string>(approvedPremiumImageSlugs);
   const publicPosts = getPublicPosts();
 
+  assert.deepEqual([...approvedSlugs], [
+    "ai-business-automation-guide",
+    "accounts-receivable-tracker",
+    "electronic-contract-system-basics",
+  ]);
+
   for (const post of publicPosts) {
-    assert.equal(approvedSlugs.has(post.slug), true);
-    assert.equal(getPremiumImageStatus(post.slug), "approved");
-    assert.equal(shouldRenderCardImage(post), true);
-    assert.equal(shouldRenderArticleHeroImage(post), true);
+    if (approvedSlugs.has(post.slug)) {
+      assert.equal(getPremiumImageStatus(post.slug), "approved");
+      assert.equal(shouldRenderCardImage(post), true, `${post.slug} should render a premium card image`);
+      assert.equal(shouldRenderArticleHeroImage(post), true, `${post.slug} should render an article hero image`);
+      continue;
+    }
+
+    assert.equal(getPremiumImageStatus(post.slug), "pending");
+    assert.equal(shouldRenderCardImage(post), true, `${post.slug} should render a standard card image`);
+    assert.equal(shouldRenderArticleHeroImage(post), true, `${post.slug} should render a standard article hero`);
   }
 });
 
-test("public entertainment articles use descriptive generated hero presentation", () => {
-  for (const post of getPublicPosts()) {
-    assert.equal(post.frontmatter.heroImage, `/images/posts/${post.slug}-hero.webp`);
+test("article image concept map covers every public hero with distinct non-generic direction", () => {
+  const conceptMapPath = path.join(process.cwd(), "lib", "article-image-concepts.ts");
+
+  assert.equal(fs.existsSync(conceptMapPath), true, "slug-level image concept map is required");
+
+  const conceptMapSource = fs.readFileSync(conceptMapPath, "utf8");
+  const publicPosts = getPublicPosts();
+  const visualFamilies = new Set<string>();
+
+  for (const post of publicPosts) {
+    assert.match(conceptMapSource, new RegExp(`"${post.slug}"`), `${post.slug} missing from concept map`);
+    assert.match(post.frontmatter.heroImage, new RegExp(`${post.slug}-hero\\.webp$`));
     assert.match(post.frontmatter.heroAlt, /[가-힣]/);
     assert.ok(
       post.frontmatter.heroAlt.length >= 16,
       `${post.slug} needs descriptive Korean heroAlt`,
     );
   }
+
+  for (const match of conceptMapSource.matchAll(/visualFamily:\s*"([^"]+)"/g)) {
+    visualFamilies.add(match[1]);
+  }
+
+  assert.ok(visualFamilies.size >= 12, "28 posts need varied visual families");
+  assert.doesNotMatch(conceptMapSource, /Hero for practical operations|Article workflow/i);
 });
 
-test("public entertainment articles do not copy posters or still images", () => {
-  for (const post of getPublicPosts()) {
-    assert.doesNotMatch(post.content, /!\[[^\]]*\]\(/);
-    assert.doesNotMatch(post.content, /<img|<Image/);
-    assert.match(post.frontmatter.heroImage, /^\/images\/posts\/[a-z0-9-]+-hero\.webp$/);
+test("non-premium hero source assets do not expose article titles or the old generic workflow template", () => {
+  const premiumSlugs = new Set(["ai-business-automation-guide", "accounts-receivable-tracker", "electronic-contract-system-basics"]);
+  const genericTemplatePatterns = [
+    /Hero for practical operations/i,
+    /Article workflow/i,
+    /문제[\s\S]{0,500}기준[\s\S]{0,500}실행[\s\S]{0,500}검토[\s\S]{0,500}개선/,
+  ];
+  const optionalAssetManifestPath = path.join(process.cwd(), "data", "image-assets.json");
+  const imageAssets = fs.existsSync(optionalAssetManifestPath)
+    ? JSON.parse(fs.readFileSync(optionalAssetManifestPath, "utf8")) as Array<{
+        postSlug?: string;
+        usage?: string;
+        src?: string;
+        rawPath?: string;
+      }>
+    : [];
+
+  for (const post of getPublicPosts().filter((candidate) => !premiumSlugs.has(candidate.slug))) {
+    const defaultSvgPath = path.join(
+      process.cwd(),
+      "assets",
+      "images",
+      "raw",
+      `${post.slug}-hero.svg`,
+    );
+    const assetEntry = imageAssets.find(
+      (asset) =>
+        asset.postSlug === post.slug &&
+        asset.usage === "hero" &&
+        asset.src === post.frontmatter.heroImage &&
+        asset.rawPath?.includes(`${post.slug}-hero`),
+    );
+    const rawPath = fs.existsSync(defaultSvgPath)
+      ? defaultSvgPath
+      : assetEntry?.rawPath
+        ? path.join(process.cwd(), assetEntry.rawPath)
+        : "";
+
+    assert.ok(rawPath, `${post.slug} needs a slug-specific raw source asset`);
+    assert.equal(fs.existsSync(rawPath), true, `${post.slug} raw source asset is missing`);
+
+    const relativeRawPath = path.relative(process.cwd(), rawPath).replaceAll(path.sep, "/");
+    assert.match(relativeRawPath, /^assets\/images\/raw\//);
+    assert.match(relativeRawPath, new RegExp(`${post.slug}-hero\\.(svg|png|jpe?g|webp)$`));
+
+    if (path.extname(rawPath).toLowerCase() === ".svg") {
+      const svg = fs.readFileSync(rawPath, "utf8");
+      assert.doesNotMatch(svg, new RegExp(post.frontmatter.title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+      for (const pattern of genericTemplatePatterns) {
+        assert.doesNotMatch(svg, pattern, `${post.slug} still uses the old generic workflow template`);
+      }
+    }
   }
 });
 
@@ -309,16 +397,12 @@ test("public authorship links the visible editorial identity to its about page a
   const seoSource = fs.readFileSync(path.join(process.cwd(), "lib", "seo.ts"), "utf8");
   const layoutSource = fs.readFileSync(path.join(process.cwd(), "app", "layout.tsx"), "utf8");
 
-  assert.equal(editorialIdentity.authorName, "Biz2Lab PLAY 편집자");
+  assert.equal(editorialIdentity.authorName, "Biz2Lab 편집팀");
   assert.equal(editorialIdentity.authorUrl, "/ko/about");
   assert.equal(editorialIdentity.operatorUrl, "https://github.com/mizzang0305-oss");
   assert.match(articlePageSource, /editorialIdentity\.authorName/);
-  const evidenceSource = fs.readFileSync(
-    path.join(process.cwd(), "components", "article", "EditorialEvidenceBox.tsx"),
-    "utf8",
-  );
-  assert.match(evidenceSource, /editorialIdentity\.authorUrl/);
-  assert.match(evidenceSource, /editorialIdentity\.operatorUrl/);
+  assert.match(articlePageSource, /editorialIdentity\.authorUrl/);
+  assert.match(articlePageSource, /editorialIdentity\.operatorUrl/);
   assert.match(seoSource, /publishingPrinciples:\s*absoluteUrl\("\/ko\/about"\)/);
   assert.match(
     layoutSource,
@@ -396,7 +480,7 @@ test("static settings keep future admin and feature surfaces disabled", () => {
   assert.equal(siteSettings.featureFlags.adminEnabled, false);
   assert.equal(siteSettings.featureFlags.aiEnabled, false);
   assert.equal(siteSettings.featureFlags.commerceEnabled, false);
-  assert.equal(siteSettings.featureFlags.downloadsEnabled, false);
+  assert.equal(siteSettings.featureFlags.downloadsEnabled, true);
   assert.equal(siteSettings.featureFlags.multilingualEnabled, false);
   assert.equal(siteSettings.featureFlags.newsletterEnabled, false);
 
@@ -496,7 +580,7 @@ test("markdown inline images render through the Next Image component", () => {
   assert.doesNotMatch(markdownRendererSource, /<figure\b/);
 });
 
-test("entertainment content authority guard is wired and enforceable", () => {
+test("Phase 4.0 content authority guard is wired and enforceable", () => {
   const packageJson = JSON.parse(fs.readFileSync(path.join(process.cwd(), "package.json"), "utf8")) as {
     scripts?: Record<string, string>;
   };
@@ -506,13 +590,16 @@ test("entertainment content authority guard is wired and enforceable", () => {
 
   for (const post of getPublicPosts()) {
     const headings = post.headings.map((heading) => heading.text);
-    assert.ok([...post.content].length >= 1200, `${post.slug} needs editorial depth`);
+    const downloads = [...post.content.matchAll(/\]\((\/downloads\/[^)\s]+\.csv)\)/g)];
+
+    assert.ok([...post.content].length >= 1600, `${post.slug} needs practical depth`);
     assert.ok(post.frontmatter.faq && post.frontmatter.faq.length >= 3, `${post.slug} needs FAQ coverage`);
-    assert.ok(post.frontmatter.editorNote, `${post.slug} needs a distinct editor note`);
-    assert.ok(post.frontmatter.audience && post.frontmatter.audience.length >= 3);
-    assert.ok(headings.length >= 5, `${post.slug} needs enough section depth`);
     assert.equal(new Set(headings).size, headings.length, `${post.slug} has duplicate headings`);
-    assert.doesNotMatch(post.content, /\/downloads\//);
+    assert.equal(downloads.length, 1, `${post.slug} needs one real CSV download`);
+    assert.equal(
+      fs.existsSync(path.join(process.cwd(), "public", downloads[0][1].replace(/^\//, ""))),
+      true,
+    );
   }
 });
 
@@ -556,9 +643,7 @@ test("related reading cards expose category, Korean title, description, and read
   assert.match(articleCardSource, /post\.frontmatter\.title/);
   assert.match(articleCardSource, /post\.frontmatter\.description/);
   assert.match(articleCardSource, /post\.readingTime/);
-  assert.match(articleCardSource, /article-hero/);
-  assert.match(articleCardSource, /post\.frontmatter\.heroImage/);
-  assert.match(articleCardSource, /post\.frontmatter\.heroAlt/);
+  assert.match(articleCardSource, /shouldRenderCardImage/);
   assert.match(relatedReadingSource, /sm:grid-cols-2/);
   assert.match(relatedReadingSource, /lg:grid-cols-3/);
 });

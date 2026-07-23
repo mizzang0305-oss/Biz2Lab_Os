@@ -6,8 +6,8 @@ locale: ko
 category: sales-ops
 cluster: revenue-operations
 type: pillar
-status: draft
-draft: true
+status: published
+draft: false
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/daily-sales-goal-breakdown-hero.webp
 heroAlt: 월 매출 목표를 일일 목표와 현재 매출, 잔여 목표로 나눈 대시보드
 canonical: 'https://www.biz2lab.com/ko/sales-ops/daily-sales-goal-breakdown'
-noindex: true
+noindex: false
 relatedPosts:
   - sales-achievement-rate
   - daily-sales-report

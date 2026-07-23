@@ -6,8 +6,8 @@ locale: ko
 category: after-the-credits
 cluster: work-and-identity
 type: cluster
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/devil-wears-prada-ending-interpretation-hero.webp
 heroAlt: 악마는 프라다를 입는다의 앤디와 미란다를 야망과 경계선의 관점에서 해석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/devil-wears-prada-ending-interpretation'
-noindex: false
+noindex: true
 editorNote: '앤디의 변화는 패션을 좋아하게 된 것이 문제가 아니라, 성공을 위해 어디까지 타인을 밀어낼지 묻지 않았던 데서 시작됩니다.'
 spoilerLevel: full
 audience:

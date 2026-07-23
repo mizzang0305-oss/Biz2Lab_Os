@@ -6,8 +6,8 @@ locale: ko
 category: sales-ops
 cluster: revenue-operations
 type: case-study
-status: draft
-draft: true
+status: published
+draft: false
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/unify-order-channels-for-sales-hero.webp
 heroAlt: 전화와 메일, 현장 요청을 하나의 거래처 주문 보드로 모으는 흐름
 canonical: 'https://www.biz2lab.com/ko/sales-ops/unify-order-channels-for-sales'
-noindex: true
+noindex: false
 relatedPosts:
   - sales-revenue-ar-structure
   - daily-sales-report

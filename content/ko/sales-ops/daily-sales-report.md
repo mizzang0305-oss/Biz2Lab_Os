@@ -6,8 +6,8 @@ locale: ko
 category: sales-ops
 cluster: revenue-operations
 type: how-to
-status: draft
-draft: true
+status: published
+draft: false
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/daily-sales-report-hero.webp
 heroAlt: 실적과 상담, 견적, 다음 행동을 한 화면에 정리한 영업팀 일일 보고서
 canonical: 'https://www.biz2lab.com/ko/sales-ops/daily-sales-report'
-noindex: true
+noindex: false
 relatedPosts:
   - daily-sales-goal-breakdown
   - sales-achievement-rate

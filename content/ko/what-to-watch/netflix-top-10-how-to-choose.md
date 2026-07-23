@@ -6,8 +6,8 @@ locale: ko
 category: what-to-watch
 cluster: platform-ranking-choice
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/netflix-top-10-how-to-choose-hero.webp
 heroAlt: 넷플릭스 인기 순위와 개인 취향 조건을 나란히 비교해 한 작품을 고르는 화면
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/netflix-top-10-how-to-choose'
-noindex: false
+noindex: true
 editorNote: '1위는 가장 좋은 작품이 아니라 지금 가장 많이 선택된 작품입니다. 둘은 자주 겹치지만 같은 뜻은 아닙니다.'
 spoilerLevel: none
 audience:

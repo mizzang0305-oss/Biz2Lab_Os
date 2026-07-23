@@ -6,8 +6,8 @@ locale: ko
 category: what-to-watch
 cluster: runtime-based-movie-choice
 type: cluster
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/ninety-minute-movie-guide-hero.webp
 heroAlt: 90분 타이머와 영화 후보 세 편을 비교하는 간결한 관람 선택 화면
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/ninety-minute-movie-guide'
-noindex: false
+noindex: true
 editorNote: '짧은 영화는 시간을 아껴주지만, 이야기가 빠르다는 뜻은 아닙니다. 오늘 원하는 속도까지 함께 확인하세요.'
 spoilerLevel: none
 audience:

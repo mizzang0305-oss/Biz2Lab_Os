@@ -6,8 +6,8 @@ locale: ko
 category: small-business
 cluster: small-business-operations
 type: checklist
-status: draft
-draft: true
+status: published
+draft: false
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/solo-business-systemization-hero.webp
 heroAlt: 1인 사업자의 상담과 주문, 정산, 고객 기록이 순환하는 업무 시스템
 canonical: 'https://www.biz2lab.com/ko/small-business/solo-business-systemization'
-noindex: true
+noindex: false
 relatedPosts:
   - daily-numbers-for-small-business
   - pre-automation-task-list

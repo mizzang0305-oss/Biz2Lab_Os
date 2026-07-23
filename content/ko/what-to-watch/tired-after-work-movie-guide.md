@@ -6,8 +6,8 @@ locale: ko
 category: what-to-watch
 cluster: mood-based-movie-choice
 type: pillar
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/tired-after-work-movie-guide-hero.webp
 heroAlt: 피곤한 저녁 소파에서 남은 시간과 기분에 맞는 영화를 고르는 장면
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/tired-after-work-movie-guide'
-noindex: false
+noindex: true
 editorNote: '피곤한 날에는 대단한 영화를 고르는 것보다 시작하고 15분 안에 마음이 붙는 영화를 고르는 편이 낫습니다.'
 spoilerLevel: none
 audience:
