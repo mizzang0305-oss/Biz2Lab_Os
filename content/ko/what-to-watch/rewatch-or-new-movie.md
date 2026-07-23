@@ -6,8 +6,8 @@ locale: ko
 category: what-to-watch
 cluster: mood-based-movie-choice
 type: cluster
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/rewatch-or-new-movie-hero.webp
 heroAlt: 익숙한 영화와 새로운 영화 사이에서 오늘의 에너지를 기준으로 선택하는 장면
 canonical: 'https://www.biz2lab.com/ko/what-to-watch/rewatch-or-new-movie'
-noindex: false
+noindex: true
 editorNote: '다시 보는 영화는 게으른 선택이 아닙니다. 이미 아는 이야기에 기대어 쉬는 것도 제대로 된 감상입니다.'
 spoilerLevel: none
 audience:

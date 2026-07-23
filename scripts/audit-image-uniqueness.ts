@@ -4,6 +4,7 @@ import path from "node:path";
 
 import {
   getArticleImageConcept,
+  premiumArticleImageSlugs,
 } from "@/lib/article-image-concepts";
 import { getFeaturedHomePosts, getPublicPosts } from "@/lib/posts";
 
@@ -37,6 +38,7 @@ const genericTemplatePatterns = [
   /Article workflow/i,
   /문제[\s\S]{0,500}기준[\s\S]{0,500}실행[\s\S]{0,500}검토[\s\S]{0,500}개선/,
 ];
+const premiumSlugSet = new Set<string>(premiumArticleImageSlugs);
 
 function repoPath(filePath: string) {
   return filePath.replaceAll("\\", "/");
@@ -116,8 +118,6 @@ function normalizeAssetEntries(raw: unknown): AssetEntry[] {
 
 function rawPathForSlug(slug: string) {
   const manifestPath = imageAssetEntries.find(
-    (entry) => entry.postSlug === slug && entry.usage === "hero" && entry.rawPath,
-  )?.rawPath ?? publicManifestEntries.find(
     (entry) => entry.postSlug === slug && entry.usage === "hero" && entry.rawPath,
   )?.rawPath;
 
@@ -231,12 +231,15 @@ function checkConceptDiversity() {
     familyCounts.set(concept.visualFamily, [...(familyCounts.get(concept.visualFamily) ?? []), post.slug]);
   }
 
-  const publicFamilies = new Set(
-    posts.map((post) => getArticleImageConcept(post.slug)?.visualFamily).filter(Boolean),
+  const nonPremiumFamilies = new Set(
+    posts
+      .filter((post) => !premiumSlugSet.has(post.slug))
+      .map((post) => getArticleImageConcept(post.slug)?.visualFamily)
+      .filter(Boolean),
   );
 
-  if (publicFamilies.size < Math.min(12, posts.length)) {
-    errors.push(`public visual family diversity too low: ${publicFamilies.size}`);
+  if (nonPremiumFamilies.size < 12) {
+    errors.push(`non-TOP3 visual family diversity too low: ${nonPremiumFamilies.size}`);
   }
 
   for (const [family, slugs] of familyCounts) {

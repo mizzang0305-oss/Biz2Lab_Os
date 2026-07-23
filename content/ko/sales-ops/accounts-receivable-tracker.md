@@ -6,18 +6,18 @@ locale: ko
 category: sales-ops
 cluster: revenue-operations
 type: checklist
-status: draft
-draft: true
+status: published
+draft: false
 author: Biz2Lab
 publishedAt: '2026-06-15'
-updatedAt: '2026-07-16'
+updatedAt: '2026-07-24'
 tags:
   - 미수금
   - 거래처 관리
 heroImage: /images/posts/accounts-receivable-tracker-hero.webp
 heroAlt: 미수금 aging 구간과 약속일, 담당자 후속 조치를 함께 보여주는 회수 상태판
 canonical: 'https://www.biz2lab.com/ko/sales-ops/accounts-receivable-tracker'
-noindex: true
+noindex: false
 relatedPosts:
   - payment-reminder-message
   - sales-revenue-ar-structure
@@ -40,6 +40,14 @@ faq:
 미수금 표의 목적은 거래처를 압박하는 것이 아니라 **왜 아직 입금되지 않았는지 확인할 순서를 만드는 것**입니다. 주문은 완료됐지만 청구서가 늦게 발행됐을 수 있고, 약속일이 바뀌었는데 기록되지 않았을 수 있으며, 수량이나 금액에 이견이 있을 수도 있습니다.
 
 청구금액과 미수금만 적으면 이런 차이를 알 수 없습니다. 최소한 청구일, 약속일, 입금 누계, 최근 연락일, 다음 조치일, 분쟁 여부를 함께 봐야 합니다.
+
+## 결제·계약 시스템에서 확인한 기록 원칙
+
+Biz2Lab 운영자가 검증한 결제 승인 흐름에서는 등록 단계의 주문 식별자를 승인 단계까지 그대로 전달하고, 금액을 별도 문자열 값으로 보존해야 했습니다. 주문 식별자와 금액 형식이 단계 사이에서 달라지면 승인 요청이 실패할 수 있어 관련 계약 테스트 10건과 전체 테스트 456건으로 같은 값이 이어지는지 확인했습니다.
+
+이 경험을 미수금 표에 적용하면 원래 청구금액을 남은 금액으로 덮어쓰지 않고, 청구 식별자, 입금 누계, 현재 잔액과 상태 변경을 분리해야 합니다. 그래야 일부 입금이나 이견이 생겼을 때 어느 단계에서 값이 달라졌는지 추적할 수 있습니다.
+
+다만 이 검증은 결제 소프트웨어의 상태·식별자 계약에 관한 것이며 실제 채권 회수율이나 독촉 성과를 측정한 사례가 아닙니다. 이 글은 회수 결과를 약속하지 않고, 연락 전에 사실관계를 확인하기 위한 내부 기록 기준만 제공합니다.
 
 ## aging 구간을 만드는 기준
 

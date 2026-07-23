@@ -6,8 +6,8 @@ locale: ko
 category: after-the-credits
 cluster: character-and-theme
 type: cluster
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/inside-out-2-emotions-interpretation-hero.webp
 heroAlt: 인사이드 아웃 2의 불안과 기존 감정들이 라일리의 선택을 두고 충돌하는 장면을 분석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/inside-out-2-emotions-interpretation'
-noindex: false
+noindex: true
 editorNote: '불안은 악당이라기보다 너무 먼 미래까지 혼자 책임지려는 감정입니다. 이 영화의 따뜻함은 불안을 없애지 않고 운전석에서 잠시 내려오게 한다는 데 있습니다.'
 spoilerLevel: full
 audience:

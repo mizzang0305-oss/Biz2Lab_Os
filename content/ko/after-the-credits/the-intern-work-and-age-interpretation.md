@@ -6,8 +6,8 @@ locale: ko
 category: after-the-credits
 cluster: work-and-identity
 type: cluster
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/the-intern-work-and-age-interpretation-hero.webp
 heroAlt: 영화 인턴의 벤과 줄스를 해결사와 대표가 아닌 좋은 동료의 관계로 해석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/the-intern-work-and-age-interpretation'
-noindex: false
+noindex: true
 editorNote: '벤이 신뢰를 얻는 이유는 답을 많이 알아서가 아니라, 상대가 말할 준비가 될 때까지 기다릴 줄 알기 때문입니다.'
 spoilerLevel: light
 audience:

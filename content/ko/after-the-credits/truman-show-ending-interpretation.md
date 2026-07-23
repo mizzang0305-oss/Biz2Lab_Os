@@ -6,8 +6,8 @@ locale: ko
 category: after-the-credits
 cluster: ending-interpretation
 type: cluster
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/truman-show-ending-interpretation-hero.webp
 heroAlt: 트루먼 쇼의 인공 바다 끝에 놓인 출구와 선택의 의미를 해석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/truman-show-ending-interpretation'
-noindex: false
+noindex: true
 editorNote: '트루먼이 선택한 것은 안전한 현실이 아니라, 누가 대본을 써주지 않는 불확실한 삶입니다.'
 spoilerLevel: full
 audience:

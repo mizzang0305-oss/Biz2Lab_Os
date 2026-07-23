@@ -362,9 +362,7 @@ function heroImageStatus(rootDir: string, post: Post, imageAssets: ImageAsset[])
       asset.status !== "inactive",
   );
 
-  return post.frontmatter.heroImage === "/opengraph-image" ||
-    manifestHasHero ||
-    publicFileExists(rootDir, post.frontmatter.heroImage)
+  return manifestHasHero || publicFileExists(rootDir, post.frontmatter.heroImage)
     ? ("ok" satisfies SeoOpsCheckStatus)
     : ("missing" satisfies SeoOpsCheckStatus);
 }
@@ -436,19 +434,32 @@ function recommendedAction(stage: SeoOpsOptimizationStage) {
   }
 }
 
+function includesAny(value: string, terms: string[]) {
+  return terms.some((term) => value.includes(term));
+}
+
 function adsenseReadinessSignals(post: Post, answerAudit?: SeoAnswerReadinessArticleAudit) {
   const content = post.content;
-  const h2Count = post.headings.filter((heading) => heading.level === 2).length;
+  const headings = post.headings.map((heading) => heading.text).join(" ");
   const hasPracticalTemplate =
-    h2Count >= 5 &&
-    Boolean(post.frontmatter.editorNote) &&
-    Boolean(post.frontmatter.audience && post.frontmatter.audience.length >= 3) &&
-    Boolean(post.frontmatter.faq && post.frontmatter.faq.length >= 3);
+    content.includes("| --- |") ||
+    /^\d+\.\s+/m.test(content) ||
+    /\/downloads\/[a-z0-9-]+\.csv/.test(content) ||
+    includesAny(headings, [
+      "체크리스트",
+      "점검표",
+      "계산",
+      "표로 점검",
+      "운영표에 남길 값",
+      "Biz2Lab 판단 기준",
+      "도입을 검토할 최소 조건",
+      "도입 전 확인 항목",
+      "검토와 실행 순서",
+    ]) ||
+    includesAny(content, ["달성률 =", "부족 금액 =", "남은 기간 하루 필요 실적 =", "도입 전 체크리스트"]);
   const hasOriginalValue =
-    [...content].length >= 1200 &&
-    h2Count >= 5 &&
-    Boolean(post.frontmatter.editorNote) &&
-    !/(?:시사회에서 직접 봤|실제 조회수는|검색 1위)/.test(content);
+    [...content].length >= 1600 &&
+    includesAny(content, ["위험", "예시", "담당자", "승인", "원본", "확인"]);
   const internalLinkStatus =
     post.internalLinks.length > 0 || post.frontmatter.relatedPosts.length >= 3
       ? ("Internal links ready" as const)
@@ -475,10 +486,10 @@ function adsenseReadinessSignals(post: Post, answerAudit?: SeoAnswerReadinessArt
       : internalLinkStatus === "Internal link weak"
         ? "본문 내부 링크를 보강해 독자가 다음 실무 기준으로 이동하게 만들기"
         : !hasPracticalTemplate
-          ? "선택 기준, 설정 순서 또는 장면 근거처럼 독자가 확인할 구조를 보강"
+          ? "계산식, 체크리스트, 표처럼 바로 적용할 자료를 보강"
           : repeatedTemplateRisk === "Medium"
-            ? "요약형 문서처럼 보이지 않도록 고유한 편집 관점과 근거를 보강"
-            : "고유한 편집 가치와 연결 구조 유지";
+            ? "도구 요약처럼 보이지 않도록 Biz2Lab 판단 기준과 사례를 보강"
+            : "핵심 실무 가치와 연결 구조 유지";
   const adsenseReadinessStatus: SeoOpsAdSenseReadinessStatus = post.frontmatter.noindex
     ? "Ready after recrawl"
     : !hasOriginalValue

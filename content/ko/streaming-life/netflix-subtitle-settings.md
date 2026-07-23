@@ -6,8 +6,8 @@ locale: ko
 category: streaming-life
 cluster: netflix-playback-settings
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/netflix-subtitle-settings-hero.webp
 heroAlt: TV와 모바일에서 넷플릭스 자막 언어와 크기와 음성을 조정하는 설정 안내
 canonical: 'https://www.biz2lab.com/ko/streaming-life/netflix-subtitle-settings'
-noindex: false
+noindex: true
 editorNote: '자막이 이상할 때 작품 문제라고 단정하기 전에 프로필 언어와 기기별 표시 설정을 따로 확인하는 편이 빠릅니다.'
 spoilerLevel: none
 audience:

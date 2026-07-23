@@ -1,17 +1,17 @@
 import { z } from "zod";
 
 export const publicCategorySlugs = [
-  "what-to-watch",
-  "after-the-credits",
-  "streaming-life",
+  "automation",
+  "sales-ops",
+  "small-business",
 ] as const;
 
 export const categorySlugs = [
   ...publicCategorySlugs,
-  "automation",
-  "sales-ops",
-  "small-business",
   "contracts-payments",
+  "what-to-watch",
+  "after-the-credits",
+  "streaming-life",
   "pillar",
 ] as const;
 

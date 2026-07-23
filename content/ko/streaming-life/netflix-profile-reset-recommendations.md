@@ -6,8 +6,8 @@ locale: ko
 category: streaming-life
 cluster: netflix-account-settings
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/netflix-profile-reset-recommendations-hero.webp
 heroAlt: 넷플릭스 프로필과 시청기록과 평가를 순서대로 정리해 추천 화면을 다시 맞추는 안내
 canonical: 'https://www.biz2lab.com/ko/streaming-life/netflix-profile-reset-recommendations'
-noindex: false
+noindex: true
 editorNote: '추천을 고치려고 싫은 작품을 계속 눌러보면 오히려 신호가 더 섞일 수 있습니다. 먼저 다른 사람의 기록부터 분리하세요.'
 spoilerLevel: none
 audience:

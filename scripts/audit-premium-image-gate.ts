@@ -205,7 +205,7 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `audit:premium-images PASS (${posts.filter((post) => approvedSlugSet.has(post.slug)).length} approved premium, ${
-    posts.filter((post) => !approvedSlugSet.has(post.slug)).length
+  `audit:premium-images PASS (${approvedPremiumImageSlugs.length} approved premium, ${
+    posts.length - approvedPremiumImageSlugs.length
   } pending standard)`,
 );

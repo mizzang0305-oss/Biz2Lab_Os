@@ -6,8 +6,8 @@ locale: ko
 category: after-the-credits
 cluster: technology-and-relationship
 type: cluster
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/her-ai-relationship-interpretation-hero.webp
 heroAlt: 영화 Her의 목소리 기반 관계와 마지막 이별을 외로움과 성장의 관점에서 해석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/her-ai-relationship-interpretation'
-noindex: false
+noindex: true
 editorNote: 'Her가 오래 남는 이유는 AI가 사람처럼 사랑할 수 있는지보다, 사람도 상대를 자기 필요에 맞게 상상하지 않는지 묻기 때문입니다.'
 spoilerLevel: full
 audience:

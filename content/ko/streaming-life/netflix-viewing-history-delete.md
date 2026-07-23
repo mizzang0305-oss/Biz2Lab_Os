@@ -6,8 +6,8 @@ locale: ko
 category: streaming-life
 cluster: netflix-account-settings
 type: pillar
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/netflix-viewing-history-delete-hero.webp
 heroAlt: 넷플릭스 계정의 시청 활동에서 작품을 숨기고 추천 변화를 확인하는 설정 안내
 canonical: 'https://www.biz2lab.com/ko/streaming-life/netflix-viewing-history-delete'
-noindex: false
+noindex: true
 editorNote: '시청기록 삭제는 모든 추천을 초기 상태로 돌리는 버튼이 아닙니다. 잘못 섞인 몇 편을 바로잡는 정리 도구에 가깝습니다.'
 spoilerLevel: none
 audience:

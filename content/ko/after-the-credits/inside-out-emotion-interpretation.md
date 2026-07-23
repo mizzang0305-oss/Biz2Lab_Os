@@ -6,8 +6,8 @@ locale: ko
 category: after-the-credits
 cluster: character-and-theme
 type: cluster
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-07-17'
 updatedAt: '2026-07-17'
@@ -18,7 +18,7 @@ tags:
 heroImage: /images/posts/inside-out-emotion-interpretation-hero.webp
 heroAlt: 인사이드 아웃의 기쁨과 슬픔이 함께 기억을 다루는 장면을 해석하는 편집 노트
 canonical: 'https://www.biz2lab.com/ko/after-the-credits/inside-out-emotion-interpretation'
-noindex: false
+noindex: true
 editorNote: '이 영화가 따뜻한 이유는 늘 행복하라고 말하지 않고, 슬플 때 누군가 곁에 올 수 있다고 말하기 때문입니다.'
 spoilerLevel: full
 audience:

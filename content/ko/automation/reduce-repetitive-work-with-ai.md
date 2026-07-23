@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: automation-basics
 type: how-to
-status: draft
-draft: true
+status: published
+draft: false
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/reduce-repetitive-work-with-ai-hero.webp
 heroAlt: 반복 업무를 수집하고 분류해 AI 초안과 사람 승인으로 줄이는 칸반 보드
 canonical: 'https://www.biz2lab.com/ko/automation/reduce-repetitive-work-with-ai'
-noindex: true
+noindex: false
 relatedPosts:
   - automation-priority-method
   - ai-business-automation-guide

@@ -78,11 +78,8 @@ async function main() {
         width,
         height: aspectHeight(width),
         output: `/images/posts/${target.postSlug}-${width}.webp`,
-        source: "codex-built-in-image-generation",
+        source: "raw",
         rawPath: normalizeRepoPath(target.rawPath),
-        licenseStatus: "codex-image-skill-generated",
-        visualApprovalStatus: "codex-visual-sanity-checked",
-        status: "active",
       });
     }
 
@@ -97,11 +94,8 @@ async function main() {
         width: 1200,
         height: aspectHeight(1200),
         output: `/images/posts/${target.postSlug}-hero.webp`,
-        source: "codex-built-in-image-generation",
+        source: "raw",
         rawPath: normalizeRepoPath(target.rawPath),
-        licenseStatus: "codex-image-skill-generated",
-        visualApprovalStatus: "codex-visual-sanity-checked",
-        status: "active",
       });
     }
   }

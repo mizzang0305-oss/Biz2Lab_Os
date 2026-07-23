@@ -124,11 +124,7 @@ export function validatePublishedPostInventory({
     if (row.heroAlt !== post.frontmatter.heroAlt) {
       errors.push(`${post.slug}: content-index heroAlt must match frontmatter`);
     }
-    if (
-      !post.frontmatter.heroImage ||
-      (post.frontmatter.heroImage !== "/opengraph-image" &&
-        !publicFileExists(post.frontmatter.heroImage))
-    ) {
+    if (!post.frontmatter.heroImage || !publicFileExists(post.frontmatter.heroImage)) {
       errors.push(`${post.slug}: missing hero image ${post.frontmatter.heroImage}`);
     }
   }
