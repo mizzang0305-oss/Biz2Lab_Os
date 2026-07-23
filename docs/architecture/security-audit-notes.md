@@ -1,28 +1,38 @@
 # Security Audit Notes
 
-Date: 2026-06-15
+Updated: 2026-07-24
 
 ## Dependency Audit
 
-`npm audit --omit=dev` currently reports two moderate advisories through the
-Next.js bundled PostCSS dependency range. The advisory is
-`GHSA-qx2v-qp2m-jg93`, covering PostCSS CSS stringification of unescaped
-`</style>` sequences.
+`npm audit` and `npm audit --omit=dev` report zero known vulnerabilities after
+the 2026-07-24 dependency remediation.
 
-`npm audit fix --force` was not applied. The force fix proposes a breaking
-downgrade to an old Next.js major version, which is outside the MVP scope and
-would risk destabilizing the App Router build.
+The lockfile now resolves patched releases for:
 
-Deferred remediation:
+- Next.js private PostCSS: `8.5.22` (`GHSA-qx2v-qp2m-jg93`,
+  `GHSA-6g55-p6wh-862q`)
+- Next.js private Sharp: `0.35.3` (`GHSA-f88m-g3jw-g9cj`)
+- Gray Matter's JS-YAML: `3.15.0` (`GHSA-h67p-54hq-rp68`,
+  `GHSA-52cp-r559-cp3m`)
+- ESLint's JS-YAML: `4.3.0` (`GHSA-52cp-r559-cp3m`)
+- Brace Expansion: `1.1.16` and `5.0.8` (`GHSA-3jxr-9vmj-r5cp`)
 
-- Track the upstream Next.js/PostCSS dependency update.
-- Upgrade through a current supported Next.js release, not a force downgrade.
-- Re-run `npm audit --omit=dev`, `npm run lint`, `npm run typecheck`,
-  `npm test`, and `npm run build` after the dependency update.
+Next.js `16.2.11` is still the current stable npm release but pins older
+private PostCSS and Sharp versions. A scoped `overrides.next` entry replaces
+only those two private packages. The regression test in
+`tests/dependency-security.test.ts` prevents the patched minimums from
+silently regressing.
+
+The pre-remediation `npm audit fix --force` suggestion was not used because it
+proposed a breaking Next.js downgrade instead of preserving the current App
+Router release.
 
 Current scope note:
 
 - The MVP does not add user-authored CSS input or custom CSS serialization.
+- Image optimization continues to accept only repository-controlled assets;
+  the Sharp override is nevertheless kept patched because image processing is
+  part of the build and editorial automation pipeline.
 - Search excerpts are rendered as plain text.
 - JSON-LD scripts are generated from local structured data and escaped with the
   existing `jsonLd()` helper.
