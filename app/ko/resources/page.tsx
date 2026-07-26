@@ -6,7 +6,7 @@ import { createMetadata } from "@/lib/seo";
 export const metadata: Metadata = createMetadata({
   title: "Biz2Lab 실무 자료실",
   description:
-    "공개된 20개 핵심 가이드와 함께 사용할 수 있는 업무 자동화, 매출, 미수금, 주문, 고객 관리 CSV 실무 자료를 제공합니다.",
+    "업무 자동화, 매출, 미수금, 주문과 고객 관리 가이드에서 사용하는 CSV 실무 자료를 문제별로 제공합니다.",
   path: "/ko/resources",
 });
 
@@ -158,7 +158,7 @@ export default function ResourcesPage() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-14">
       <header className="max-w-3xl">
-        <p className="text-sm font-semibold text-teal-700">20개 핵심 글 · 20개 CSV</p>
+        <p className="text-sm font-semibold text-teal-700">가이드와 함께 쓰는 CSV 양식</p>
         <h1 className="mt-3 text-3xl font-bold tracking-normal text-slate-950 sm:text-4xl">
           Biz2Lab 실무 자료실
         </h1>

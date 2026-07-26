@@ -32,9 +32,10 @@ test("public trust surfaces avoid unfinished wording and expose a working contac
   assert.match(contact, /github\.com\/mizzang0305-oss\/Biz2Lab_Os\/issues\/new/);
   assert.doesNotMatch(contact, /ContactForm/);
   assert.match(about, /AI 도구/);
-  assert.match(about, /독창성 검토/);
-  assert.match(article, /작성·검토: Biz2Lab 편집팀/);
-  assert.match(article, /\/ko\/about/);
+  assert.match(about, /공개 저장소/);
+  assert.match(article, /작성·검토:/);
+  assert.match(article, /editorialIdentity\.authorName/);
+  assert.match(article, /editorialIdentity\.authorUrl/);
 });
 
 test("the Korean homepage is the single indexable homepage", () => {

@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ArticleCard } from "@/components/cards/ArticleCard";
 import { getFeaturedHomePosts } from "@/lib/posts";
+import { publicProjects } from "@/lib/public-projects";
 import { siteSettings } from "@/lib/site-settings";
 
 export function HomePage() {
@@ -201,6 +202,38 @@ export function HomePage() {
               <p className="mt-2 text-sm leading-6 text-slate-600">{item.description}</p>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-slate-950 text-white">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-14">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-3xl">
+              <h2 className="text-2xl font-bold">공개 코드에서 나온 운영 기준</h2>
+              <p className="mt-3 leading-7 text-slate-300">
+                자동화 통제, 매장 운영 SaaS와 승인 로그를 직접 구현하면서 확인한 범위와
+                아직 검증하지 않은 결과를 함께 공개합니다.
+              </p>
+            </div>
+            <Link href="/ko/projects" className="shrink-0 text-sm font-semibold text-teal-300 hover:underline">
+              프로젝트 기록 전체 보기
+            </Link>
+          </div>
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            {publicProjects.map((project) => (
+              <article key={project.repository} className="rounded-lg border border-slate-700 bg-slate-900 p-5">
+                <p className="text-sm font-semibold text-teal-300">{project.repository}</p>
+                <h3 className="mt-2 text-lg font-bold">{project.name}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{project.summary}</p>
+                <Link
+                  href={project.relatedArticle}
+                  className="mt-4 inline-flex text-sm font-semibold text-teal-300 hover:underline"
+                >
+                  {project.relatedLabel}
+                </Link>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
