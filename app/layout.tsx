@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
-  authors: [{ name: siteConfig.author, url: absoluteUrl("/ko/about") }],
+  authors: [{ name: siteConfig.author, url: absoluteUrl("/ko/author/biz2lab") }],
   creator: siteConfig.author,
   publisher: siteConfig.author,
   alternates: {

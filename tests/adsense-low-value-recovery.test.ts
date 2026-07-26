@@ -81,7 +81,7 @@ test("every public article has distinct practical value and a real CSV resource"
   }
 });
 
-test("resources hub exposes all 20 public guides and 20 real downloads", () => {
+test("resources hub exposes all public guides and real downloads without approval-facing copy", () => {
   const html = renderToStaticMarkup(createElement(ResourcesPage));
   const source = read("app/ko/resources/page.tsx");
   const articleRoutes = getPublicPosts().map((post) => post.route);
@@ -89,9 +89,10 @@ test("resources hub exposes all 20 public guides and 20 real downloads", () => {
 
   assert.equal(staticPublicRoutes.includes("/ko/resources"), true);
   assert.equal(resourcesMetadata.alternates?.canonical, "https://www.biz2lab.com/ko/resources");
-  assert.match(html, /20개 핵심 글 · 20개 CSV/);
+  assert.match(html, /가이드와 함께 쓰는 CSV 양식/);
   assert.match(html, /CSV 내려받기/);
   assert.equal(downloads.length, 20);
+  assert.doesNotMatch(html, /20개 핵심 글|AdSense|재심사/);
 
   for (const route of articleRoutes) {
     assert.match(html, new RegExp(route.replaceAll("/", "\\/")));
@@ -123,20 +124,18 @@ test("homepage recommends only reviewed public articles", () => {
   assert.equal(siteSettings.featureFlags.downloadsEnabled, true);
 });
 
-test("about page publishes AI, sample-data, hold, and update-date policies", () => {
+test("about page explains real work, evidence boundaries, and update policy for readers", () => {
   const html = renderToStaticMarkup(createElement(AboutPage));
 
-  assert.match(html, /현재는 품질을 직접 확인한 20개 핵심 글만 공개/);
-  assert.match(html, /도구 비교·계약·결제·엔터테인먼트 글 55개는 검토 보류/);
-  assert.match(html, /AI 도구는 초안 구조화/);
-  assert.match(html, /가상 예시/);
-  assert.match(html, /누가 운영하고 검토하나요/);
-  assert.match(html, /왜 이 콘텐츠를 만드나요/);
-  assert.match(html, /어떻게 작성하고 검토하나요/);
-  assert.match(html, /2026년 6월 15일 처음 공개/);
-  assert.match(html, /광고·협찬과 편집 독립성/);
-  assert.match(html, new RegExp(editorialIdentity.operatorName));
+  assert.match(html, /직접 다루는 문제/);
+  assert.match(html, /공개 프로젝트와 검증 범위/);
+  assert.match(html, /누가 작성하고 검토하나요/);
+  assert.match(html, /글을 만드는 기준/);
+  assert.match(html, /AI 도구는 구조화와 누락 점검/);
+  assert.match(html, /고객사 이름, 개인정보와 내부 매출은 공개하지 않습니다/);
   assert.match(html, /단순 오탈자 수정만으로 최신 글처럼 보이게 날짜를 바꾸지 않습니다/);
+  assert.match(html, new RegExp(editorialIdentity.operatorName));
+  assert.doesNotMatch(html, /20개 핵심 글|55개|AdSense|재심사|검토 보류/);
   assert.match(html, /\/ko\/contact/);
   assert.match(html, /\/ko\/privacy/);
   assert.doesNotMatch(html, /박사|수상|공인 전문가|공식 파트너/);
@@ -177,6 +176,41 @@ test("article template no longer injects the same generic checklist and CTA into
   assert.match(articleSource, /EditorialEvidenceBox/);
   assert.match(articleSource, /editorialIdentity\.authorName/);
   assert.match(articleSource, /isAccessibleForFree/);
+});
+
+test("reader-facing trust surfaces link authorship and public project evidence", () => {
+  const author = read("app/ko/author/biz2lab/page.tsx");
+  const projects = read("app/ko/projects/page.tsx");
+  const home = read("components/layout/HomePage.tsx");
+  const evidence = read("components/article/EditorialEvidenceBox.tsx");
+
+  assert.equal(staticPublicRoutes.includes("/ko/author/biz2lab"), true);
+  assert.equal(staticPublicRoutes.includes("/ko/projects"), true);
+  assert.match(author, /공개 코드로 확인 가능한 작업/);
+  assert.match(projects, /무엇을 만들었고 어디까지 검증했는가/);
+  assert.match(home, /공개 코드에서 나온 운영 기준/);
+  assert.match(evidence, /검증 메모/);
+  assert.match(evidence, /확인 가능한 근거/);
+  assert.doesNotMatch(evidence, /AI 사용 공개/);
+});
+
+test("five representative articles cite verifiable public repositories", () => {
+  const requiredSources = new Map([
+    ["ai-business-automation-guide", "commerce-automation"],
+    ["automation-priority-method", "commerce-automation"],
+    ["accounts-receivable-tracker", "mybizLab"],
+    ["daily-numbers-for-small-business", "mybizLab"],
+    ["unify-order-channels", "mybizLab"],
+  ]);
+
+  for (const [slug, repository] of requiredSources) {
+    const evidence = getEditorialEvidence(slug);
+    assert.equal(
+      evidence.sources.some((source) => source.url.includes(`/${repository}`)),
+      true,
+      `${slug} needs a public repository source`,
+    );
+  }
 });
 
 test("content reset report records the scope and keeps deployment outside this change", () => {

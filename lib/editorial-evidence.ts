@@ -1,6 +1,6 @@
 export const editorialIdentity = {
-  authorName: "Biz2Lab 편집팀",
-  authorUrl: "/ko/about",
+  authorName: "Biz2Lab 운영자",
+  authorUrl: "/ko/author/biz2lab",
   operatorName: "mizzang0305-oss",
   operatorUrl: "https://github.com/mizzang0305-oss",
 } as const;
@@ -30,18 +30,35 @@ const editorialEvidenceBySlug = {
   "ai-business-automation-guide": {
     type: "original-workflow",
     summary:
-      "2026년 7월 합성 JSONL 기반 로컬 자동화 흐름을 재실행해 동일 입력의 결과 해시가 유지되고 webhook·알림·게시·업로드가 발생하지 않는지 확인했습니다.",
+      "공개 자동화 저장소에서 생성 제어 화면과 작업자를 분리하고, 승인 전에는 게시·업로드가 실행되지 않도록 generate-only 상태와 차단 사유를 노출하는 흐름을 구현·검토했습니다.",
     scope:
-      "실제 고객 문의나 결제를 실행하지 않은 로컬 검증이며 특정 AI 도구의 성능, 절감 시간, 비용 또는 수익을 보장하지 않습니다.",
-    sources: [],
+      "외부 게시를 실행한 성과 사례가 아니라 승인되지 않은 부작용을 막는 설계 근거이며, 특정 AI 도구의 절감 시간·비용·수익을 보장하지 않습니다.",
+    sources: [
+      {
+        title: "Commerce Automation Control Center 공개 저장소",
+        url: "https://github.com/mizzang0305-oss/commerce-automation",
+        reviewedAt: "2026-07-26",
+      },
+    ],
   },
   "automation-priority-method": {
     type: "calculation-review",
     summary:
-      "부가 문서 작업보다 합성 입력의 end-to-end 처리와 멱등성 확인을 먼저 선택하고, 외부 전송과 대상이 검증되지 않은 작업은 실행 후보에서 제외했습니다.",
+      "자동화 제어 프로젝트에서 외부 게시보다 입력 검증·작업 상태·수동 검토 패키지를 먼저 구현하고, 대상과 자산이 확인되지 않은 실행은 준비 단계에서 차단했습니다.",
     scope:
       "실제 발생 횟수와 처리시간은 현장에서 다시 측정해야 하며 조직별 위험도, 규제 요건과 최종 자동화 결정을 대신하지 않습니다.",
-    sources: [],
+    sources: [
+      {
+        title: "Commerce Automation Control Center 공개 저장소",
+        url: "https://github.com/mizzang0305-oss/commerce-automation",
+        reviewedAt: "2026-07-26",
+      },
+      {
+        title: "CN EXEFLOW 공개 저장소",
+        url: "https://github.com/mizzang0305-oss/CN_ExeFlow",
+        reviewedAt: "2026-07-26",
+      },
+    ],
   },
   "chatgpt-document-cleanup": {
     type: "official-document-review",
@@ -104,10 +121,16 @@ const editorialEvidenceBySlug = {
   "accounts-receivable-tracker": {
     type: "calculation-review",
     summary:
-      "결제 승인 연동에서 원 주문 식별자와 금액 형식을 단계 사이에 보존하고 관련 계약 테스트 10건과 전체 테스트 456건으로 값 전달을 확인한 경험을 기록 원칙에 반영했습니다.",
+      "공개 매장 운영 SaaS에서 주문 흐름과 결제 웹훅을 분리하고, 알려진 결제 이벤트는 공급자 API로 다시 확인하며 데모 데이터가 실결제로 이어지지 않게 한 원칙을 기록 구조에 반영했습니다.",
     scope:
       "결제 소프트웨어 상태 검증을 미수금 기록에 적용한 것이며 실제 회수율, 채권 추심, 법적 통지, 세무 처리나 회수 가능성을 입증하지 않습니다.",
-    sources: [],
+    sources: [
+      {
+        title: "MyBizLab MVP 공개 저장소",
+        url: "https://github.com/mizzang0305-oss/mybizLab",
+        reviewedAt: "2026-07-26",
+      },
+    ],
   },
   "daily-sales-goal-breakdown": {
     type: "calculation-review",
@@ -176,10 +199,16 @@ const editorialEvidenceBySlug = {
   "daily-numbers-for-small-business": {
     type: "calculation-review",
     summary:
-      "Biz2Lab 공개 글 수를 실제 Markdown과 색인에서 계산하고 연결 데이터가 없는 분석 항목에는 가짜 수치를 넣지 않는 운영 대시보드 원칙을 반영했습니다.",
+      "공개 매장 운영 SaaS에서 주문·설문·문의·수동 지표를 local 데모 데이터로 분리하고, 외부 데이터 연결이 없을 때 실제 운영 수치처럼 보이지 않도록 mock 범위와 남은 production 조건을 명시했습니다.",
     scope:
       "본문의 금액과 주문 수는 가상 계산 예시이며 실제 매장 성과, 손익계산서, 현금흐름표나 세무 자료를 대체하지 않습니다.",
-    sources: [],
+    sources: [
+      {
+        title: "MyBizLab MVP 공개 저장소",
+        url: "https://github.com/mizzang0305-oss/mybizLab",
+        reviewedAt: "2026-07-26",
+      },
+    ],
   },
   "reservation-order-review-management": {
     type: "original-workflow",
@@ -200,10 +229,16 @@ const editorialEvidenceBySlug = {
   "unify-order-channels": {
     type: "original-workflow",
     summary:
-      "결제 승인 단계에서 원 주문 ID를 끝까지 보존하고 데이터 원본 대상이 검증되지 않으면 다음 단계로 확장하지 않은 시스템 검증 경험을 통합번호 설계에 반영했습니다.",
+      "공개 매장 운영 SaaS에서 주문·설문·수동 입력·문의 흐름을 같은 local 데이터 경계 안에서 검증하고, 외부 공급자 연결이 없으면 데모 상태로 유지하는 방식을 통합 접수 원칙에 반영했습니다.",
     scope:
       "실제 매장의 누락률 개선을 측정한 사례가 아니며 결제, 재고 차감, 배송 확정은 담당 시스템과 사람의 확인이 필요합니다.",
-    sources: [],
+    sources: [
+      {
+        title: "MyBizLab MVP 공개 저장소",
+        url: "https://github.com/mizzang0305-oss/mybizLab",
+        reviewedAt: "2026-07-26",
+      },
+    ],
   },
 } as const satisfies Record<string, EditorialEvidence>;
 

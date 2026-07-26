@@ -397,8 +397,8 @@ test("public authorship links the visible editorial identity to its about page a
   const seoSource = fs.readFileSync(path.join(process.cwd(), "lib", "seo.ts"), "utf8");
   const layoutSource = fs.readFileSync(path.join(process.cwd(), "app", "layout.tsx"), "utf8");
 
-  assert.equal(editorialIdentity.authorName, "Biz2Lab 편집팀");
-  assert.equal(editorialIdentity.authorUrl, "/ko/about");
+  assert.equal(editorialIdentity.authorName, "Biz2Lab 운영자");
+  assert.equal(editorialIdentity.authorUrl, "/ko/author/biz2lab");
   assert.equal(editorialIdentity.operatorUrl, "https://github.com/mizzang0305-oss");
   assert.match(articlePageSource, /editorialIdentity\.authorName/);
   assert.match(articlePageSource, /editorialIdentity\.authorUrl/);
@@ -406,7 +406,7 @@ test("public authorship links the visible editorial identity to its about page a
   assert.match(seoSource, /publishingPrinciples:\s*absoluteUrl\("\/ko\/about"\)/);
   assert.match(
     layoutSource,
-    /authors:\s*\[\{ name: siteConfig\.author, url: absoluteUrl\("\/ko\/about"\) \}\]/,
+    /authors:\s*\[\{ name: siteConfig\.author, url: absoluteUrl\("\/ko\/author\/biz2lab"\) \}\]/,
   );
 });
 

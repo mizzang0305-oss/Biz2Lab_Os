@@ -25,7 +25,7 @@ export function EditorialEvidenceBox({
     >
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h2 id="editorial-evidence-title" className="text-base font-semibold text-slate-950">
-          이 글을 만든 방법
+          검증 메모
         </h2>
         <span className="rounded-full border border-teal-200 bg-white px-2.5 py-1 text-xs font-semibold text-teal-800">
           {evidenceTypeLabels[evidence.type]}
@@ -43,7 +43,7 @@ export function EditorialEvidenceBox({
               {editorialIdentity.authorName}
             </Link>
             {" · "}
-            공개 운영 책임 계정{" "}
+            공개 코드 계정{" "}
             <a
               className="font-semibold text-teal-700 underline-offset-4 hover:underline"
               href={editorialIdentity.operatorUrl}
@@ -62,18 +62,11 @@ export function EditorialEvidenceBox({
           <dt className="font-semibold text-slate-950">적용 범위</dt>
           <dd>{evidence.scope}</dd>
         </div>
-        <div>
-          <dt className="font-semibold text-slate-950">AI 사용 공개</dt>
-          <dd>
-            AI는 구조화와 누락 점검을 도울 수 있지만, 공개 결정은 운영자가 내립니다.
-            샘플 수치, 다운로드 파일, 링크와 과장 표현은 별도 검증 규칙으로 확인합니다.
-          </dd>
-        </div>
       </dl>
 
       {evidence.sources.length > 0 ? (
         <div className="mt-4 border-t border-teal-200 pt-4">
-          <h3 className="text-sm font-semibold text-slate-950">확인한 공식 출처</h3>
+          <h3 className="text-sm font-semibold text-slate-950">확인 가능한 근거</h3>
           <ul className="mt-2 grid gap-2 text-sm leading-6">
             {evidence.sources.map((source) => (
               <li key={source.url}>

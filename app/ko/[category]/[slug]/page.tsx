@@ -75,7 +75,7 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
     datePublished: post.frontmatter.publishedAt,
     dateModified: post.frontmatter.updatedAt,
     author: {
-      "@type": "Organization",
+      "@type": "Person",
       name: editorialIdentity.authorName,
       url: absoluteUrl(editorialIdentity.authorUrl),
       sameAs: editorialIdentity.operatorUrl,
@@ -118,8 +118,8 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
           </h1>
           <p className="mt-5 text-lg leading-8 text-slate-600">{post.frontmatter.description}</p>
           <div className="mt-6 flex flex-wrap gap-3 text-sm text-slate-500">
-            <Link className="font-medium text-teal-700 hover:underline" href="/ko/about">
-              작성·검토: Biz2Lab 편집팀
+            <Link className="font-medium text-teal-700 hover:underline" href={editorialIdentity.authorUrl}>
+              작성·검토: {editorialIdentity.authorName}
             </Link>
             <span>게시 {post.frontmatter.publishedAt}</span>
             <span>수정 {post.frontmatter.updatedAt}</span>
