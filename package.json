@@ -39,7 +39,7 @@
     "evidence:validate": "tsx scripts/validate-evidence-assets.ts",
     "evidence:report": "tsx scripts/generate-evidence-report.ts",
     "evidence:inventory": "tsx scripts/generate-evidence-content-inventory.ts",
-    "evidence:qa": "playwright test --config=playwright.evidence.config.ts",
+    "evidence:qa": "tsx scripts/verify-production-evidence.ts && playwright test --config=playwright.evidence.config.ts",
     "evidence:approve": "tsx scripts/approve-evidence.ts",
     "evidence:stage": "tsx scripts/stage-evidence-assets.ts",
     "generate-content-index": "tsx scripts/generate-content-index.ts",

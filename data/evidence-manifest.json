@@ -136,5 +136,30 @@
     "claimSupportedKo": "주문 제출 전에 재고 보류와 한도 보류를 별도 상태로 표시하는 검증 패널",
     "claimNotSupportedKo": "실재고 정확도, 실제 여신 한도 또는 주문 승인 결과",
     "status": "candidate"
+  },
+  {
+    "id": "production-approved-test-fixture",
+    "postSlug": "evidence-staging-test-fixture",
+    "projectKey": "biz2lab-os",
+    "projectLabelKo": "Biz2Lab 증거 자산 격리 테스트",
+    "repositoryName": "Biz2Lab_Os",
+    "sourceCommit": "ef66b27f75ca7b76a04c99aeaaf8a195e2066cc4",
+    "sourceDirty": false,
+    "sourceRoute": "/ko/ops/evidence-review",
+    "image": "/images/evidence/production-approved-test-fixture.webp",
+    "width": 640,
+    "height": 360,
+    "altKo": "승인 자산만 Production에 복사되는지 확인하는 사용자 데이터 없는 테스트 fixture",
+    "captionKo": "fixture 이미지. 승인 자산의 Production HTTP 200 경계만 검증하며 사이트 운영 결과나 사용자 데이터를 증명하지 않습니다.",
+    "capturedAt": "2026-07-29",
+    "dataMode": "fixture",
+    "redactions": [],
+    "piiScan": "pass",
+    "status": "approved",
+    "sha256": "06a265446f5c7bdd9bdc2b80f2775c429fca2544e771d5ffb2b32317f7d6bc2f",
+    "claimSupportedKo": "approved 상태의 등록 자산이 Production staging 대상이 되는 경로",
+    "claimNotSupportedKo": "후보 증거의 사람 승인, 실제 콘텐츠 품질 또는 Production 운영 성과",
+    "approvedBy": "production-isolation-test-fixture",
+    "approvedAt": "2026-07-29T00:00:00.000Z"
   }
 ]
