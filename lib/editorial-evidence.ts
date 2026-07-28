@@ -1,5 +1,10 @@
+const realNameApproved = process.env.AUTHOR_REAL_NAME_APPROVED === "true";
+
 export const editorialIdentity = {
-  authorName: "Biz2Lab 운영자",
+  authorName: realNameApproved
+    ? "박영훈 · Biz2Lab 운영자"
+    : "Biz2Lab 운영자 · B2B 유통 현장 시스템 설계·개발",
+  roleDescription: "B2B 유통 현장 시스템 설계·개발",
   authorUrl: "/ko/author/biz2lab",
   operatorName: "mizzang0305-oss",
   operatorUrl: "https://github.com/mizzang0305-oss",
@@ -37,26 +42,21 @@ const editorialEvidenceBySlug = {
       {
         title: "Commerce Automation Control Center 공개 저장소",
         url: "https://github.com/mizzang0305-oss/commerce-automation",
-        reviewedAt: "2026-07-26",
+        reviewedAt: "2026-07-28",
       },
     ],
   },
   "automation-priority-method": {
-    type: "calculation-review",
+    type: "original-workflow",
     summary:
-      "자동화 제어 프로젝트에서 외부 게시보다 입력 검증·작업 상태·수동 검토 패키지를 먼저 구현하고, 대상과 자산이 확인되지 않은 실행은 준비 단계에서 차단했습니다.",
+      "공개 자동화 저장소의 로컬 fixture에서 실행 결과, 안전 메시지와 실패 상태를 별도 로그로 확인하고 외부 실행보다 복구 가능한 기록 구조를 먼저 구현했습니다.",
     scope:
-      "실제 발생 횟수와 처리시간은 현장에서 다시 측정해야 하며 조직별 위험도, 규제 요건과 최종 자동화 결정을 대신하지 않습니다.",
+      "로컬 실행 로그 UI와 상태 모델을 확인한 것이며 실제 공급자 실행, 장기 로그 보존, 장애 복구 시간과 운영 성과는 검증하지 않았습니다.",
     sources: [
       {
         title: "Commerce Automation Control Center 공개 저장소",
         url: "https://github.com/mizzang0305-oss/commerce-automation",
-        reviewedAt: "2026-07-26",
-      },
-      {
-        title: "CN EXEFLOW 공개 저장소",
-        url: "https://github.com/mizzang0305-oss/CN_ExeFlow",
-        reviewedAt: "2026-07-26",
+        reviewedAt: "2026-07-28",
       },
     ],
   },
@@ -197,16 +197,16 @@ const editorialEvidenceBySlug = {
     sources: [],
   },
   "daily-numbers-for-small-business": {
-    type: "calculation-review",
+    type: "original-workflow",
     summary:
-      "공개 매장 운영 SaaS에서 주문·설문·문의·수동 지표를 local 데모 데이터로 분리하고, 외부 데이터 연결이 없을 때 실제 운영 수치처럼 보이지 않도록 mock 범위와 남은 production 조건을 명시했습니다.",
+      "공개 매장 운영 SaaS의 읽기 전용 로컬 데모에서 고객 기록, 예약, 웨이팅과 QR 주문을 서로 다른 지표로 렌더링하고 운영 쓰기 없이 화면을 재현했습니다.",
     scope:
-      "본문의 금액과 주문 수는 가상 계산 예시이며 실제 매장 성과, 손익계산서, 현금흐름표나 세무 자료를 대체하지 않습니다.",
+      "fixture 숫자와 상단 지표 UI만 확인했으며 실제 고객 수, 재방문율, 매출, AI 예측 정확도와 production 공급자 연결은 검증하지 않았습니다.",
     sources: [
       {
         title: "MyBizLab MVP 공개 저장소",
         url: "https://github.com/mizzang0305-oss/mybizLab",
-        reviewedAt: "2026-07-26",
+        reviewedAt: "2026-07-28",
       },
     ],
   },
@@ -229,16 +229,18 @@ const editorialEvidenceBySlug = {
   "unify-order-channels": {
     type: "original-workflow",
     summary:
-      "공개 매장 운영 SaaS에서 주문·설문·수동 입력·문의 흐름을 같은 local 데이터 경계 안에서 검증하고, 외부 공급자 연결이 없으면 데모 상태로 유지하는 방식을 통합 접수 원칙에 반영했습니다.",
+      "식자재 유통 WMS의 mock 주문 작업대에서 전화·메시지·영업·포털 원본과 재고·한도 보류를 별도 필드와 상태로 렌더링하고 민감 입력을 가려 재검증했습니다.",
     scope:
-      "실제 매장의 누락률 개선을 측정한 사례가 아니며 결제, 재고 차감, 배송 확정은 담당 시스템과 사람의 확인이 필요합니다.",
-    sources: [
-      {
-        title: "MyBizLab MVP 공개 저장소",
-        url: "https://github.com/mizzang0305-oss/mybizLab",
-        reviewedAt: "2026-07-26",
-      },
-    ],
+      "mock fixture 화면의 상태 분리만 확인했으며 실제 거래처, 단가, 가용재고, 주문 누락률과 출고 결과는 포함하지 않았습니다.",
+    sources: [],
+  },
+  "separate-picking-inspection-loading-status": {
+    type: "original-workflow",
+    summary:
+      "식자재 유통 WMS의 mock 운영 흐름에서 출고지시, 피킹, 검수, 상차와 일일 차이 확인을 별도 상태로 렌더링하고 검수 전 상차 완료 차단 문구를 확인했습니다.",
+    scope:
+      "fixture UI와 상태 모델을 확인한 것이며 실제 출고량, 재고 정확도, 작업자 생산성, 스캐너 입력과 운영 DB 연동은 검증하지 않았습니다.",
+    sources: [],
   },
 } as const satisfies Record<string, EditorialEvidence>;
 

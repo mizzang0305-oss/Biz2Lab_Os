@@ -4,6 +4,7 @@ export const publicCategorySlugs = [
   "automation",
   "sales-ops",
   "small-business",
+  "warehouse-logistics",
 ] as const;
 
 export const categorySlugs = [

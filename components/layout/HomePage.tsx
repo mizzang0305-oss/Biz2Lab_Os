@@ -86,6 +86,33 @@ export function HomePage() {
       description: "계산식, 체크리스트, 판단 기준을 문제별로 먼저 봅니다.",
     },
   ];
+  const fieldCases = [
+    {
+      title: "승인 전 외부 업로드를 막은 자동화",
+      href: "/ko/automation/ai-business-automation-guide",
+      description: "생성 결과와 외부 실행을 분리하고 차단 사유를 화면에 남긴 기록",
+    },
+    {
+      title: "전화·메시지·포털 주문 원본 분리",
+      href: "/ko/small-business/unify-order-channels",
+      description: "주문 채널과 재고·한도 검증 상태를 한 값으로 덮지 않은 작업대",
+    },
+    {
+      title: "피킹·검수·상차 상태 분리",
+      href: "/ko/warehouse-logistics/separate-picking-inspection-loading-status",
+      description: "검수 전 상차 완료를 차단하고 차이 확인을 별도 작업으로 남긴 WMS",
+    },
+    {
+      title: "서로 다른 운영 숫자를 한 화면에서 보기",
+      href: "/ko/small-business/daily-numbers-for-small-business",
+      description: "주문·예약·웨이팅·고객 기록을 읽기 전용 데모로 분리한 운영 화면",
+    },
+    {
+      title: "실행 결과와 실패 로그를 남기는 기준",
+      href: "/ko/automation/automation-priority-method",
+      description: "자동 실행보다 상태 기록과 수동 검토를 먼저 만든 이유",
+    },
+  ];
 
   return (
     <div className="bg-white">
@@ -93,7 +120,7 @@ export function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-5 sm:py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center md:py-20">
           <div className="min-w-0">
             <h1 className="max-w-3xl text-3xl font-bold leading-tight tracking-normal text-slate-950 sm:text-4xl md:text-5xl">
-              매출, 주문, 미수금을 매일 확인하는 실무 기준
+              {siteSettings.hero.title}
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
               {siteSettings.hero.description}
@@ -126,6 +153,31 @@ export function HomePage() {
         </div>
       </section>
 
+      <section className="border-b border-slate-200 bg-slate-950 text-white">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-14">
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold text-teal-300">현장 문제 → 구현 화면 → 검증 경계</p>
+            <h2 className="mt-2 text-2xl font-bold">로컬에서 다시 실행한 대표 구축 사례</h2>
+            <p className="mt-3 leading-7 text-slate-300">
+              고객정보와 운영 DB를 쓰지 않은 fixture·로컬 데모만 연결했습니다. 화면으로
+              확인하지 못한 성과는 주장하지 않습니다.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {fieldCases.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-lg border border-slate-700 bg-slate-900 p-5 transition hover:border-teal-400"
+              >
+                <h3 className="font-bold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{item.description}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="border-b border-slate-200 bg-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-14">
           <div className="max-w-3xl">
@@ -133,8 +185,8 @@ export function HomePage() {
               놓치면 손해 보는 실무 숫자
             </h2>
             <p className="mt-3 leading-7 text-slate-600">
-              Biz2Lab은 소상공인·영업팀·1인 사업자가 매일 놓치면 손해 보는 숫자, 주문,
-              미수금, 자동화 기준을 실무형 체크리스트와 계산 기준으로 정리합니다.
+              대표 구축 사례 다음에는 현장에서 같은 문제를 점검할 때 쓸 수 있는 계산 기준과
+              체크리스트를 제공합니다.
             </p>
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

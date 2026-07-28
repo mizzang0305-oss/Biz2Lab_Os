@@ -47,27 +47,27 @@ export type SiteSettings = {
 export const siteSettings = {
   siteName: "Biz2Lab",
   koreanName: "비즈투랩",
-  brandSubtitle: "현장형 AI·SaaS·업무 자동화 기록",
+  brandSubtitle: "B2B 유통 현장 시스템 구축 기록",
   description:
-    "현장에서 겪은 문제를 AI, SaaS, 데이터와 자동화 시스템으로 해결하는 실전 개발·운영 기록입니다.",
+    "식자재 유통과 B2B 영업 현장의 주문, 미수금, 전자계약, 재고와 승인형 자동화를 직접 설계·개발한 화면 기록입니다.",
   author: "Biz2Lab",
   hero: {
-    title: "AI 업무 자동화로 사업 운영을 시스템화하는 방법",
+    title: "주문·미수금·전자계약·재고를 직접 시스템으로 바꾼 기록",
     description:
-      "소상공인과 영업팀이 매일 놓치기 쉬운 숫자, 주문, 미수금, 자동화 기준을 실무형 체크리스트와 계산 기준으로 정리합니다.",
+      "식자재 유통과 B2B 영업 현장에서 반복되는 주문 누락, 입금 약속, 계약 미작성, 피킹·검수 문제를 직접 설계·개발한 화면과 코드, 실패 사례로 설명합니다.",
     bullets: [
-      "직접 내려받아 수정하는 CSV 실무 자료",
-      "계산식과 판단 기준을 함께 공개",
-      "자동 실행보다 사람 승인과 복구를 우선",
-      "검증한 범위와 확인하지 않은 결과를 구분",
+      "직접 구현한 화면과 코드 근거",
+      "고객정보가 없는 로컬 데모 화면",
+      "성공뿐 아니라 미완성 범위와 복구 기준 공개",
     ],
-    primaryCta: { label: "처음 시작하기", href: "/ko/automation" },
-    secondaryCta: { label: "실무 자료실", href: "/ko/resources" },
+    primaryCta: { label: "대표 구축 사례 보기", href: "/ko/projects" },
+    secondaryCta: { label: "운영자 경험 범위", href: "/ko/author/biz2lab" },
   },
   navItems: [
-    { label: "AI 업무 자동화", href: "/ko/automation" },
-    { label: "영업·매출 관리", href: "/ko/sales-ops" },
-    { label: "소상공인 운영", href: "/ko/small-business" },
+    { label: "B2B 영업·미수금", href: "/ko/sales-ops" },
+    { label: "승인형 자동화", href: "/ko/automation" },
+    { label: "주문·운영", href: "/ko/small-business" },
+    { label: "물류·피킹", href: "/ko/warehouse-logistics" },
     { label: "프로젝트 기록", href: "/ko/projects" },
     { label: "실무 자료실", href: "/ko/resources" },
     { label: "소개", href: "/ko/about" },
@@ -75,14 +75,15 @@ export const siteSettings = {
   ],
   footer: {
     description:
-      "소상공인, 영업팀, 1인 사업자가 반복 업무와 운영 지표를 정리할 수 있도록 실전형 AI 자동화 글을 제공합니다.",
+      "식자재 유통과 B2B 영업 현장에서 직접 만든 주문·미수금·물류·승인 시스템의 검증 범위와 한계를 기록합니다.",
     sections: [
       {
         title: "카테고리",
         links: [
-          { label: "AI 업무 자동화", href: "/ko/automation" },
-          { label: "영업·매출 관리", href: "/ko/sales-ops" },
-          { label: "소상공인 운영", href: "/ko/small-business" },
+          { label: "B2B 영업·미수금", href: "/ko/sales-ops" },
+          { label: "승인형 업무 자동화", href: "/ko/automation" },
+          { label: "주문·운영 시스템", href: "/ko/small-business" },
+          { label: "물류·재고·피킹", href: "/ko/warehouse-logistics" },
           { label: "프로젝트 기록", href: "/ko/projects" },
           { label: "실무 자료실", href: "/ko/resources" },
         ],

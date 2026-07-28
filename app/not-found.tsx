@@ -5,11 +5,11 @@ export default function NotFound() {
     <main className="mx-auto flex min-h-[60vh] max-w-3xl flex-col justify-center px-4 py-16 sm:px-5">
       <p className="text-sm font-semibold text-teal-700">404 · 페이지를 찾을 수 없습니다</p>
       <h1 className="mt-3 text-3xl font-bold text-slate-950 sm:text-4xl">
-        검토가 끝난 핵심 글만 공개하고 있습니다
+        요청하신 페이지를 찾을 수 없습니다
       </h1>
       <p className="mt-5 text-lg leading-8 text-slate-600">
-        이전에 공개됐던 일부 도구 비교 또는 계약·결제 글은 정확성과 실용성을 다시 확인하기 위해
-        비공개 검토 상태로 전환했습니다. 아래에서 현재 공개 중인 글과 자료를 확인해 주세요.
+        주소가 변경됐거나 콘텐츠가 이동되었을 수 있습니다. 아래에서 현재 공개된 현장
+        사례와 실무 자료를 확인해 주세요.
       </p>
       <div className="mt-8 flex flex-wrap gap-3">
         <Link
