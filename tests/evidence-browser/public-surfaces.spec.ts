@@ -85,3 +85,11 @@ test("preview shows candidate review badge on five case studies", async ({
     await expect(page.getByText("공개 전 검토 중")).toBeVisible();
   }
 });
+
+test("preview project cards label candidate evidence", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/ko/projects", { waitUntil: "networkidle" });
+
+  await expect(page.getByText("공개 전 검토 중 · Preview 전용")).toHaveCount(3);
+  await expect(page.locator("img[src*='evidence-01']")).toHaveCount(3);
+});
