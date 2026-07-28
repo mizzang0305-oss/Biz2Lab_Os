@@ -45,7 +45,9 @@ for (const viewport of viewports) {
         page.on("console", (message) => {
           if (message.type() === "error") errors.push(message.text());
         });
-        const response = await page.goto(route, { waitUntil: "networkidle" });
+        const response = await page.goto(route, {
+          waitUntil: "domcontentloaded",
+        });
         if (route === "/ko/does-not-exist") {
           expect(response?.status()).toBe(404);
         } else {
@@ -88,14 +90,14 @@ test("preview shows candidate review badge on five case studies", async ({
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   for (const route of routes.slice(4, 9)) {
-    await page.goto(route, { waitUntil: "networkidle" });
+    await page.goto(route, { waitUntil: "domcontentloaded" });
     await expect(page.getByText("공개 전 검토 중").first()).toBeVisible();
   }
 });
 
 test("preview project cards label candidate evidence", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/ko/projects", { waitUntil: "networkidle" });
+  await page.goto("/ko/projects", { waitUntil: "domcontentloaded" });
 
   await expect(page.getByText("공개 전 검토 중 · Preview 전용")).toHaveCount(3);
   await expect(page.locator("img[src*='evidence-01']")).toHaveCount(3);
@@ -107,7 +109,7 @@ test("preview review page is read-only and its evidence remains legible at 390px
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: "reduce" });
   const response = await page.goto("/ko/ops/evidence-review", {
-    waitUntil: "networkidle",
+    waitUntil: "domcontentloaded",
   });
 
   expect(response?.status()).toBe(200);
@@ -125,6 +127,14 @@ test("preview review page is read-only and its evidence remains legible at 390px
     const image = images.nth(index);
     await image.scrollIntoViewIfNeeded();
     await expect(image).toBeVisible();
+    await expect
+      .poll(() =>
+        image.evaluate((element) => {
+          const imageElement = element as HTMLImageElement;
+          return imageElement.complete && imageElement.naturalWidth > 0;
+        }),
+      )
+      .toBe(true);
     const dimensions = await image.evaluate((element) => {
       const imageElement = element as HTMLImageElement;
       const bounds = imageElement.getBoundingClientRect();
