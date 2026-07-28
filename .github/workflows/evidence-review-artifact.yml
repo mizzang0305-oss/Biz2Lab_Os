@@ -1,0 +1,38 @@
+name: Evidence review artifact
+
+on:
+  push:
+    branches:
+      - codex/biz2lab-evidence-first-rebuild-20260728
+    paths:
+      - .github/workflows/evidence-review-artifact.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact branch commit
+        uses: actions/checkout@v4
+      - name: Verify candidate asset set
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f data/evidence-manifest.json
+          test "$(find evidence-assets/candidates -maxdepth 1 -type f -name '*.webp' | wc -l)" -eq 6
+          sha256sum evidence-assets/candidates/*.webp > evidence-assets/candidate-sha256.txt
+      - name: Upload human-review packet
+        uses: actions/upload-artifact@v4
+        with:
+          name: biz2lab-human-evidence-review-${{ github.sha }}
+          path: |
+            evidence-assets/candidates/*.webp
+            evidence-assets/candidate-sha256.txt
+            data/evidence-manifest.json
+            reports/biz2lab-evidence-review-packet-2026-07-29.md
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 0
