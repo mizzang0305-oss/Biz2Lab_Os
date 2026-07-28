@@ -1,11 +1,13 @@
 name: Evidence review artifact
 
 on:
-  push:
+  pull_request:
     branches:
-      - codex/biz2lab-evidence-first-rebuild-20260728
-    paths:
-      - .github/workflows/evidence-review-artifact.yml
+      - master
+    types:
+      - opened
+      - reopened
+      - synchronize
   workflow_dispatch:
 
 permissions:
@@ -13,9 +15,10 @@ permissions:
 
 jobs:
   package:
+    if: github.event.pull_request.number == 123 || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout exact branch commit
+      - name: Checkout exact PR commit
         uses: actions/checkout@v4
       - name: Verify candidate asset set
         shell: bash
