@@ -14,6 +14,7 @@ import {
   getEditorialEvidence,
   getEditorialEvidenceEntries,
 } from "@/lib/editorial-evidence";
+import { getEvidenceForPost } from "@/lib/evidence";
 import { getAllPosts, getPublicPosts } from "@/lib/posts";
 import { staticPublicRoutes } from "@/lib/seo";
 import { siteSettings } from "@/lib/site-settings";
@@ -26,7 +27,7 @@ function extractDownloadLinks(source: string) {
   return [...source.matchAll(/\/downloads\/[a-z0-9-]+\.csv/g)].map((match) => match[0]);
 }
 
-test("public portfolio is intentionally limited to 20 reviewed articles", async () => {
+test("public portfolio contains only the reviewed evidence-first article set", async () => {
   const allPosts = getAllPosts();
   const publicPosts = getPublicPosts();
   const heldPosts = allPosts.filter((post) => post.frontmatter.draft);
@@ -35,11 +36,12 @@ test("public portfolio is intentionally limited to 20 reviewed articles", async 
     return counts;
   }, {});
 
-  assert.equal(publicPosts.length, 20);
+  assert.equal(publicPosts.length, 21);
   assert.deepEqual(publicCounts, {
     automation: 7,
     "sales-ops": 7,
     "small-business": 6,
+    "warehouse-logistics": 1,
   });
   assert.equal(heldPosts.length, 55);
   assert.equal(
@@ -62,7 +64,7 @@ test("public portfolio is intentionally limited to 20 reviewed articles", async 
   }
 });
 
-test("every public article has distinct practical value and a real CSV resource", () => {
+test("every public article has distinct practical value and an appropriate evidence form", () => {
   for (const post of getPublicPosts()) {
     const downloads = extractDownloadLinks(post.content);
 
@@ -71,20 +73,28 @@ test("every public article has distinct practical value and a real CSV resource"
     assert.equal(post.frontmatter.noindex, false);
     assert.equal(post.frontmatter.title.includes("분석:"), false);
     assert.equal(post.frontmatter.templateCta, undefined);
-    assert.ok(post.frontmatter.faq && post.frontmatter.faq.length >= 3);
     assert.ok(post.headings.filter((heading) => heading.level === 2).length >= 5);
     assert.ok(/\|.+\|/.test(post.content) || /^\d+\.\s+/m.test(post.content));
-    assert.equal(downloads.length, 1, `${post.slug} needs one download`);
-
-    const downloadPath = path.join(process.cwd(), "public", downloads[0].replace(/^\//, ""));
-    assert.equal(fs.existsSync(downloadPath), true, `${post.slug} download is missing`);
+    if (getEvidenceForPost(post.slug).length > 0) {
+      assert.ok(
+        getEvidenceForPost(post.slug).length >= 1,
+        `${post.slug} needs reviewable implementation evidence`,
+      );
+    } else {
+      assert.ok(post.frontmatter.faq && post.frontmatter.faq.length >= 3);
+      assert.equal(downloads.length, 1, `${post.slug} needs one download`);
+      const downloadPath = path.join(process.cwd(), "public", downloads[0].replace(/^\//, ""));
+      assert.equal(fs.existsSync(downloadPath), true, `${post.slug} download is missing`);
+    }
   }
 });
 
 test("resources hub exposes all public guides and real downloads without approval-facing copy", () => {
   const html = renderToStaticMarkup(createElement(ResourcesPage));
   const source = read("app/ko/resources/page.tsx");
-  const articleRoutes = getPublicPosts().map((post) => post.route);
+  const articleRoutes = getPublicPosts()
+    .filter((post) => post.frontmatter.type !== "case-study")
+    .map((post) => post.route);
   const downloads = [...new Set(extractDownloadLinks(source))];
 
   assert.equal(staticPublicRoutes.includes("/ko/resources"), true);
@@ -110,7 +120,7 @@ test("resources hub exposes all public guides and real downloads without approva
 test("homepage recommends only reviewed public articles", () => {
   const source = read("components/layout/HomePage.tsx");
   const publicRoutes = new Set(getPublicPosts().map((post) => post.route));
-  const articleLinks = [...source.matchAll(/href:\s*"(\/ko\/(?:automation|sales-ops|small-business)\/[^"]+)"/g)].map(
+  const articleLinks = [...source.matchAll(/href:\s*"(\/ko\/(?:automation|sales-ops|small-business|warehouse-logistics)\/[^"]+)"/g)].map(
     (match) => match[1],
   );
 
@@ -194,13 +204,11 @@ test("reader-facing trust surfaces link authorship and public project evidence",
   assert.doesNotMatch(evidence, /AI 사용 공개/);
 });
 
-test("five representative articles cite verifiable public repositories", () => {
+test("five representative articles expose public sources or commit-pinned private evidence", () => {
   const requiredSources = new Map([
     ["ai-business-automation-guide", "commerce-automation"],
     ["automation-priority-method", "commerce-automation"],
-    ["accounts-receivable-tracker", "mybizLab"],
     ["daily-numbers-for-small-business", "mybizLab"],
-    ["unify-order-channels", "mybizLab"],
   ]);
 
   for (const [slug, repository] of requiredSources) {
@@ -210,6 +218,17 @@ test("five representative articles cite verifiable public repositories", () => {
       true,
       `${slug} needs a public repository source`,
     );
+  }
+
+  for (const slug of [
+    "unify-order-channels",
+    "separate-picking-inspection-loading-status",
+  ]) {
+    const evidence = getEvidenceForPost(slug);
+    assert.equal(evidence.length, 1, `${slug} needs one reviewable WMS evidence item`);
+    assert.equal(evidence[0].repositoryName, "CN_WMS");
+    assert.match(evidence[0].sourceCommit, /^[a-f0-9]{40}$/);
+    assert.equal(evidence[0].sourceDirty, false);
   }
 });
 

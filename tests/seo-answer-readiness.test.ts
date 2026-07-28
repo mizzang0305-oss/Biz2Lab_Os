@@ -23,7 +23,11 @@ test("FAQ answer-source checks reject overclaim wording", () => {
   const audit = auditSeoAnswerReadiness();
 
   for (const article of audit.articles) {
-    assert.equal(article.faqPresent, true, `${article.slug} must expose FAQ content`);
+    assert.equal(
+      article.faqRequired && !article.faqPresent,
+      false,
+      `${article.slug} must expose FAQ content when its format requires it`,
+    );
     assert.equal(article.overclaimingFaq, false, `${article.slug} FAQ must avoid overclaim wording`);
   }
 });

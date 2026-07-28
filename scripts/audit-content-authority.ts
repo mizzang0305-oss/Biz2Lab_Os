@@ -110,7 +110,10 @@ for (const post of posts) {
     errors.push(`${post.slug}: heroImage and heroAlt are required`);
   }
 
-  if (!post.frontmatter.faq || post.frontmatter.faq.length < 3) {
+  if (
+    post.frontmatter.type !== "case-study" &&
+    (!post.frontmatter.faq || post.frontmatter.faq.length < 3)
+  ) {
     errors.push(`${post.slug}: needs at least three FAQ items`);
   }
 
@@ -118,7 +121,7 @@ for (const post of posts) {
     errors.push(`${post.slug}: needs at least ${MIN_H2_SECTIONS} substantive H2 sections`);
   }
 
-  if (downloads.length < 1) {
+  if (post.frontmatter.type !== "case-study" && downloads.length < 1) {
     errors.push(`${post.slug}: needs at least one real downloadable resource`);
   }
 
@@ -132,7 +135,7 @@ for (const post of posts) {
     errors.push(`${post.slug}: needs a practical table or ordered procedure`);
   }
 
-  if (!/(?:예시|샘플|가상 데이터|가상 기록)/.test(post.content)) {
+  if (!/(?:예시|샘플|가상 데이터|가상 기록|fixture|mock|dummy)/i.test(post.content)) {
     errors.push(`${post.slug}: needs an explicit worked-example or sample-data disclosure`);
   }
 

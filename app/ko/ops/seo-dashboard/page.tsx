@@ -361,7 +361,7 @@ function ArticleMobileCard({ row }: { row: SeoOpsArticleRow }) {
           {row.optimizationStage}
         </span>
         <p className="text-sm text-slate-600">
-          FAQ {row.faqPresent ? "있음" : "보강 필요"} · 먼저 결론 {row.conclusionFirstPresent ? "있음" : "보강 필요"} · 체크리스트{" "}
+          FAQ {row.faqPresent ? "있음" : row.faqRequired ? "보강 필요" : "사례형 선택"} · 먼저 결론 {row.conclusionFirstPresent ? "있음" : "보강 필요"} · 체크리스트{" "}
           {row.checklistPresent ? "있음" : "보강 필요"}
         </p>
         <p className="text-sm text-slate-600">
@@ -455,7 +455,7 @@ function ArticleTable({ rows }: { rows: SeoOpsArticleRow[] }) {
                     내부 링크 {row.internalLinkCount} · 깨짐 {row.brokenLinkCount}
                   </p>
                   <p className="mt-2 text-xs leading-5 text-slate-500">
-                    FAQ {row.faqPresent ? "있음" : "보강 필요"} · 결론 {row.conclusionFirstPresent ? "있음" : "보강 필요"} · 체크리스트{" "}
+                    FAQ {row.faqPresent ? "있음" : row.faqRequired ? "보강 필요" : "사례형 선택"} · 결론 {row.conclusionFirstPresent ? "있음" : "보강 필요"} · 체크리스트{" "}
                     {row.checklistPresent ? "있음" : "보강 필요"} · 비교표 {row.comparisonTablePresent ? "있음" : "필요 시 보강"}
                   </p>
                   <p className="mt-2 text-xs leading-5 text-slate-500">
