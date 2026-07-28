@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/article/Breadcrumbs";
 import { EditorialEvidenceBox } from "@/components/article/EditorialEvidenceBox";
+import { EvidenceGallery } from "@/components/article/EvidenceGallery";
 import { FAQBox } from "@/components/article/FAQBox";
 import { MarkdownRenderer } from "@/components/article/MarkdownRenderer";
 import { ReadingProgress } from "@/components/article/ReadingProgress";
@@ -14,6 +15,7 @@ import { TableOfContents } from "@/components/article/TableOfContents";
 import { NextStepBox } from "@/components/cta/NextStepBox";
 import { categories } from "@/lib/categories";
 import { editorialIdentity, getEditorialEvidence } from "@/lib/editorial-evidence";
+import { getEvidenceForPost } from "@/lib/evidence";
 import { shouldRenderArticleHeroImage } from "@/lib/images/premium-image-policy";
 import { getPostBySlug, getPublicPosts, getRelatedPosts } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/site";
@@ -61,6 +63,8 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
   const categoryInfo = categories[post.category];
   const relatedPosts = getRelatedPosts(post);
   const editorialEvidence = getEditorialEvidence(post.slug);
+  const evidence = getEvidenceForPost(post.slug);
+  const isCaseStudy = post.frontmatter.type === "case-study";
   const renderHeroImage = shouldRenderArticleHeroImage(post);
   const breadcrumbs = [
     { label: categoryInfo.name, href: `/ko/${categoryInfo.slug}` },
@@ -113,6 +117,23 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
         <div className="mx-auto max-w-3xl px-4 py-8 sm:px-5 sm:py-10">
           <Breadcrumbs items={breadcrumbs} />
           <p className="mt-6 text-sm font-semibold text-teal-700">{categoryInfo.name}</p>
+          {isCaseStudy ? (
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="rounded-full bg-teal-700 px-3 py-1 text-xs font-bold text-white">
+                직접 구축 사례
+              </span>
+              {evidence.length > 0 ? (
+                <>
+                  <span className="rounded-full border border-slate-300 bg-white px-3 py-1 text-xs font-bold text-slate-700">
+                    로컬 데모
+                  </span>
+                  <span className="rounded-full border border-slate-300 bg-white px-3 py-1 text-xs font-bold text-slate-700">
+                    검증 commit {evidence[0].sourceCommit.slice(0, 7)}
+                  </span>
+                </>
+              ) : null}
+            </div>
+          ) : null}
           <h1 className="mt-3 text-3xl font-bold leading-tight tracking-normal text-slate-950 sm:text-4xl">
             {post.frontmatter.title}
           </h1>
@@ -148,7 +169,8 @@ export default async function ArticlePage({ params }: ArticleRouteProps) {
             evidence={editorialEvidence}
             updatedAt={post.frontmatter.updatedAt}
           />
-          <TableOfContents headings={post.headings} />
+          <EvidenceGallery evidence={evidence} />
+          {post.headings.length >= 3 ? <TableOfContents headings={post.headings} /> : null}
           <MarkdownRenderer content={post.content} />
           <FAQBox faq={post.frontmatter.faq} />
           <RelatedReadingBox posts={relatedPosts} />
