@@ -30,6 +30,14 @@
     "audit:image-prompts": "tsx scripts/audit-image-prompt-packages.ts",
     "audit:image-uniqueness": "tsx scripts/audit-image-uniqueness.ts",
     "audit:premium-images": "tsx scripts/audit-premium-image-gate.ts",
+    "evidence:discover": "tsx scripts/discover-evidence-sources.ts",
+    "evidence:capture": "tsx scripts/capture-project-evidence.ts",
+    "evidence:capture:all": "tsx scripts/capture-project-evidence.ts --all",
+    "evidence:validate": "tsx scripts/validate-evidence-assets.ts",
+    "evidence:report": "tsx scripts/generate-evidence-report.ts",
+    "evidence:inventory": "tsx scripts/generate-evidence-content-inventory.ts",
+    "evidence:qa": "playwright test --config=playwright.evidence.config.ts",
+    "evidence:approve": "tsx scripts/approve-evidence.ts",
     "generate-content-index": "tsx scripts/generate-content-index.ts",
     "audit:adsense-inventory": "tsx scripts/generate-adsense-content-inventory.ts",
     "ruflo:review-pr": "tsx scripts/ruflo-pr-reviewer.ts",
@@ -53,6 +61,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
