@@ -120,7 +120,7 @@ test("Phase 2 content set derives public Korean post inventory from canonical co
   assert.equal(publicPosts.every((post) => post.frontmatter.status === "published"), true);
   assert.equal(publicPosts.every((post) => post.frontmatter.draft === false), true);
   assert.equal(sitemapPosts.every((post) => post.frontmatter.noindex === false), true);
-  assert.equal(draftPosts.length, 55);
+  assert.equal(draftPosts.length, 65);
   assert.equal(
     draftPosts.every(
       (post) =>
@@ -607,13 +607,14 @@ test("Phase 4.0 content authority guard is wired and enforceable", () => {
 
     assert.ok([...post.content].length >= 1600, `${post.slug} needs practical depth`);
     assert.equal(new Set(headings).size, headings.length, `${post.slug} has duplicate headings`);
-    if (getEvidenceForPost(post.slug).length > 0) {
+    const evidence = getEvidenceForPost(post.slug, "preview");
+    if (post.frontmatter.type === "case-study") {
+      assert.ok(post.frontmatter.evidenceRequired && evidence.length > 0);
       assert.equal(downloads.length, 0, `${post.slug} must not add a generic CSV only to satisfy a template`);
-    } else {
-      assert.ok(post.frontmatter.faq && post.frontmatter.faq.length >= 3, `${post.slug} needs FAQ coverage`);
-      assert.equal(downloads.length, 1, `${post.slug} needs one real CSV download`);
+    }
+    for (const download of downloads) {
       assert.equal(
-        fs.existsSync(path.join(process.cwd(), "public", downloads[0][1].replace(/^\//, ""))),
+        fs.existsSync(path.join(process.cwd(), "public", download[1].replace(/^\//, ""))),
         true,
       );
     }

@@ -19,10 +19,12 @@ heroImage: /images/posts/ai-business-automation-guide-hero.webp
 heroAlt: 반복 업무와 판단 업무를 분리해 사람 검토와 연결한 AI 자동화 설계 지도
 canonical: 'https://www.biz2lab.com/ko/automation/ai-business-automation-guide'
 noindex: false
+evidenceRequired: true
+evidenceMode: visual
 relatedPosts:
   - automation-priority-method
-  - pre-automation-task-list
-  - reduce-repetitive-work-with-ai
+  - unify-order-channels
+  - daily-sales-report
 nextStep:
   label: 실행 로그를 먼저 만든 이유
   href: /ko/automation/automation-priority-method
@@ -78,4 +80,4 @@ fixture나 로컬 데모라는 표시가 있어도 실제 고객 사례가 되�
 4. UI와 서버 양쪽에서 승인 조건을 검증합니다.
 5. 실패 로그와 재시도 대상을 남기고 자동 재실행 횟수를 제한합니다.
 
-처음부터 모든 채널을 연결하기보다 [자동화 전 업무 목록](/ko/automation/pre-automation-task-list)에서 외부 영향이 있는 단계만 표시한 뒤, 한 개의 내부 초안 흐름에서 승인 경계를 검증하는 편이 안전합니다.
+처음부터 모든 채널을 연결하기보다 [실행·실패 로그를 먼저 만든 사례](/ko/automation/automation-priority-method)처럼 외부 영향이 있는 단계와 수동 확인 대상을 표시한 뒤, 한 개의 내부 초안 흐름에서 승인 경계를 검증하는 편이 안전합니다.

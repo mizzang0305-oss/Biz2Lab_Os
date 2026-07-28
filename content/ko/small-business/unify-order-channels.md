@@ -19,10 +19,12 @@ heroImage: /images/posts/unify-order-channels-hero.webp
 heroAlt: 전화와 메신저, 플랫폼 주문을 한곳의 처리 상태판으로 모으는 매장 주문 흐름
 canonical: 'https://www.biz2lab.com/ko/small-business/unify-order-channels'
 noindex: false
+evidenceRequired: true
+evidenceMode: visual
 relatedPosts:
-  - unify-order-channels-for-sales
+  - sales-revenue-ar-structure
   - daily-numbers-for-small-business
-  - reservation-order-review-management
+  - separate-picking-inspection-loading-status
 nextStep:
   label: 물류 단계 상태 분리 보기
   href: /ko/warehouse-logistics/separate-picking-inspection-loading-status

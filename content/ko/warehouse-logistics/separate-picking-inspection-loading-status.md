@@ -19,6 +19,8 @@ heroImage: /images/posts/separate-picking-inspection-loading-status-hero.webp
 heroAlt: 출고지시와 피킹, 검수, 상차 및 차이 확인을 분리한 물류 상태 흐름
 canonical: 'https://www.biz2lab.com/ko/warehouse-logistics/separate-picking-inspection-loading-status'
 noindex: false
+evidenceRequired: true
+evidenceMode: visual
 relatedPosts:
   - unify-order-channels
   - accounts-receivable-tracker

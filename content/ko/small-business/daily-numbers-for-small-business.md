@@ -19,9 +19,11 @@ heroImage: /images/posts/daily-numbers-for-small-business-hero.webp
 heroAlt: 소상공인이 매일 확인할 매출 달성률 계산과 주문, 입금, 미처리 업무 대시보드
 canonical: 'https://www.biz2lab.com/ko/small-business/daily-numbers-for-small-business'
 noindex: false
+evidenceRequired: true
+evidenceMode: visual
 relatedPosts:
   - unify-order-channels
-  - reservation-order-review-management
+  - sales-achievement-rate
   - daily-sales-goal-breakdown
 nextStep:
   label: 주문 원본 분리 사례 보기

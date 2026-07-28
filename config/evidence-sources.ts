@@ -12,6 +12,12 @@ export type EvidenceCaptureDefinition = {
   route: string;
   readySelector: string;
   captureSelector: string;
+  captureBounds?: {
+    startSelector: string;
+    endSelector: string;
+  };
+  captureStyle?: string;
+  inputValues?: Array<{ selector: string; value: string }>;
   maskSelectors: string[];
   hideSelectors: string[];
   viewport: { width: number; height: number };
@@ -20,6 +26,8 @@ export type EvidenceCaptureDefinition = {
   dataMode: "fixture" | "local-demo";
   claimSupportedKo: string;
   claimNotSupportedKo: string;
+  minRenderedHeightAt390?: number;
+  aspectRatio?: { min: number; max: number };
 };
 
 export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
@@ -68,15 +76,34 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
     route: "/runs",
     readySelector: "h1:has-text('실행 로그')",
     captureSelector: "main > div.space-y-5",
+    captureStyle: `
+      main > div.space-y-5 { width: 390px !important; }
+      table { min-width: 0 !important; display: block !important; }
+      thead { display: none !important; }
+      tbody { display: grid !important; gap: 12px !important; }
+      tr { display: grid !important; gap: 9px !important; padding: 16px !important; border-radius: 12px !important; }
+      td { display: none !important; }
+      td:nth-child(1), td:nth-child(3), td:nth-child(8), td:nth-child(9) {
+        display: block !important; max-width: none !important; padding: 0 !important;
+      }
+      td:nth-child(1)::before, td:nth-child(3)::before, td:nth-child(8)::before, td:nth-child(9)::before {
+        display: block; margin-bottom: 3px; color: #64748b; font-size: 11px; font-weight: 700;
+      }
+      td:nth-child(1)::before { content: "실행 유형"; }
+      td:nth-child(3)::before { content: "상태"; }
+      td:nth-child(8)::before { content: "안전 메시지"; }
+      td:nth-child(9)::before { content: "로그 / 수동 확인"; }
+    `,
     maskSelectors: [],
     hideSelectors: ["nextjs-portal"],
-    viewport: { width: 1440, height: 960 },
+    viewport: { width: 520, height: 960 },
     altKo: "자동화 실행 결과와 안전 메시지, 실패 상태를 구분해 확인하는 로컬 실행 로그 화면",
     captionKo:
-      "fixture 화면. 실행 결과와 실패 상태를 남기는 구조만 보여 주며 실제 외부 게시 실행을 증명하지 않습니다.",
+      "fixture 화면. 후보 검수용으로 실행 유형·상태·안전 메시지·로그 열만 세로로 재배치했으며 실제 외부 게시 실행을 증명하지 않습니다.",
     dataMode: "fixture",
     claimSupportedKo: "자동화 작업의 실행 결과와 실패 상태를 별도 로그로 남기는 화면 구조",
     claimNotSupportedKo: "운영 환경의 장기 보존, 장애 복구 시간 또는 외부 서비스 처리 결과",
+    minRenderedHeightAt390: 220,
   },
   {
     id: "wms-order-source-workbench",
@@ -91,19 +118,50 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
     postSlug: "unify-order-channels",
     route: "/orders/workbench",
     readySelector: "h1:has-text('주문 작업대')",
-    captureSelector: "section.screen.v262-page",
-    maskSelectors: [
-      "[aria-label='거래처 빠른 검색']",
-      "[aria-label='source_reference']",
+    captureSelector:
+      "section.screen.v262-page > div.v262-grid-two > section:nth-child(1)",
+    inputValues: [
+      { selector: "[aria-label='거래처 빠른 검색']", value: "검수용 샘플 거래처" },
+      { selector: "[aria-label='source_reference']", value: "FIXTURE-ORDER-001" },
     ],
+    maskSelectors: [],
     hideSelectors: [],
     viewport: { width: 1440, height: 960 },
     altKo: "전화와 카카오, 영업, 포털 주문 원본과 재고·한도 보류 상태를 분리한 WMS 주문 작업대",
     captionKo:
-      "fixture 화면. 거래처와 원본 참조값은 가렸으며 주문 채널과 검증 상태를 분리하는 설계만 확인할 수 있습니다.",
+      "fixture 화면. 검수 전용 샘플 거래처와 원본 참조값을 주입해 주문 채널 필드 구조만 확인하며 실제 주문 처리 결과는 증명하지 않습니다.",
     dataMode: "fixture",
     claimSupportedKo: "주문 원본 종류와 재고·한도 검증 상태를 별도 필드로 유지하는 작업대",
     claimNotSupportedKo: "실제 거래처 주문 누락 감소율, 실재고 또는 거래처별 가격",
+  },
+  {
+    id: "wms-order-hold-validation",
+    projectKey: "cn-wms",
+    repositoryName: "CN_WMS",
+    projectLabelKo: "식자재 유통 WMS",
+    repoCandidates: ["CN_WMS"],
+    startCommand: "npm --prefix apps/ops-console run dev -- --host 127.0.0.1 --port 4312",
+    port: 4312,
+    healthPath: "/orders/workbench",
+    env: { VITE_PORTAL_DATA_SOURCE: "mock" },
+    postSlug: "unify-order-channels",
+    route: "/orders/workbench",
+    readySelector: "h1:has-text('주문 작업대')",
+    captureSelector:
+      "section.screen.v262-page > div.v262-grid-two > section:nth-child(2)",
+    inputValues: [
+      { selector: "[aria-label='거래처 빠른 검색']", value: "검수용 샘플 거래처" },
+      { selector: "[aria-label='source_reference']", value: "FIXTURE-ORDER-001" },
+    ],
+    maskSelectors: [],
+    hideSelectors: [],
+    viewport: { width: 980, height: 960 },
+    altKo: "재고 보류와 한도 보류, 검토 대기 상태를 분리해 표시한 WMS 주문 검증 패널",
+    captionKo:
+      "fixture 화면. 재고·한도 보류와 검토 대기 상태의 분리만 확인하며 실제 재고 수량이나 거래처 한도 적용 결과는 증명하지 않습니다.",
+    dataMode: "fixture",
+    claimSupportedKo: "주문 제출 전에 재고 보류와 한도 보류를 별도 상태로 표시하는 검증 패널",
+    claimNotSupportedKo: "실재고 정확도, 실제 여신 한도 또는 주문 승인 결과",
   },
   {
     id: "wms-picking-inspection-loading",
@@ -142,16 +200,22 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
     postSlug: "daily-numbers-for-small-business",
     route: "/demo/dashboard",
     readySelector: "main[data-demo-dashboard='readonly']",
-    captureSelector:
-      "main[data-demo-dashboard='readonly'] > div > section:nth-of-type(1)",
+    captureSelector: "main[data-demo-dashboard='readonly'] > div",
+    captureBounds: {
+      startSelector:
+        "main[data-demo-dashboard='readonly'] > div > div:first-child",
+      endSelector:
+        "main[data-demo-dashboard='readonly'] > div > section:nth-of-type(1)",
+    },
     maskSelectors: [],
     hideSelectors: ["footer"],
-    viewport: { width: 1440, height: 960 },
+    viewport: { width: 1000, height: 960 },
     altKo: "고객 기억과 예약, 웨이팅, QR 주문을 서로 다른 운영 숫자로 표시한 읽기 전용 매장 데모",
     captionKo:
       "로컬 데모 화면. 모든 값은 가상 데이터이며 지표를 분리해 보는 UI만 확인할 수 있고 실제 매장 성과를 뜻하지 않습니다.",
     dataMode: "local-demo",
     claimSupportedKo: "고객 기록·예약·웨이팅·주문을 서로 다른 운영 지표로 표시하는 읽기 전용 화면",
     claimNotSupportedKo: "실제 고객 수, 재방문율, 매출 또는 AI 예측 정확도",
+    aspectRatio: { min: 1.25, max: 1.65 },
   },
 ];

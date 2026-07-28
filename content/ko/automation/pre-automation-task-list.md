@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: automation-basics
 type: checklist
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/pre-automation-task-list-hero.webp
 heroAlt: 자동화 전에 입력 원본과 예외 상황을 확인하는 준비 체크리스트
 canonical: 'https://www.biz2lab.com/ko/automation/pre-automation-task-list'
-noindex: false
+noindex: true
 relatedPosts:
   - automation-priority-method
   - ai-business-automation-guide

@@ -77,7 +77,8 @@ export type ContentOriginalityIssue = {
     | "overused-heading"
     | "overused-heading-pattern"
     | "high-similarity"
-    | "particle-error";
+    | "particle-error"
+    | "template-skeleton";
   message: string;
   slugs: string[];
 };
@@ -90,6 +91,7 @@ export type ContentOriginalityAudit = {
   maxPairSimilarity: number;
   particleErrorCount: number;
   emptySectionCount: number;
+  templateSkeletonCount: number;
   issues: ContentOriginalityIssue[];
 };
 
@@ -107,6 +109,8 @@ type AuditedPost = {
   sections: MarkdownSection[];
   paragraphs: string[];
   shingles: Set<string>;
+  faqCount: number;
+  downloadCount: number;
 };
 
 function walkMarkdownFiles(dir: string): string[] {
@@ -238,6 +242,10 @@ function loadPublishedPosts(rootDir: string): AuditedPost[] {
       sections: extractH2Sections(parsed.content),
       paragraphs: extractComparableBlocks(parsed.content),
       shingles: buildShingles(parsed.content),
+      faqCount: Array.isArray(parsed.data.faq) ? parsed.data.faq.length : 0,
+      downloadCount: [
+        ...parsed.content.matchAll(/\]\(\/downloads\/[^)\s]+\)/g),
+      ].length,
     }));
 }
 
@@ -249,6 +257,13 @@ export function auditContentOriginality(rootDir = process.cwd()): ContentOrigina
   const paragraphOwners = new Map<string, string[]>();
 
   for (const post of posts) {
+    if (post.faqCount >= 3 && post.downloadCount === 1) {
+      issues.push({
+        type: "template-skeleton",
+        message: `${post.slug} combines the legacy three-FAQ and one-download publication skeleton`,
+        slugs: [post.slug],
+      });
+    }
     if (post.content.length < MIN_CONTENT_CHARS) {
       issues.push({
         type: "thin-content",
@@ -364,6 +379,9 @@ export function auditContentOriginality(rootDir = process.cwd()): ContentOrigina
     maxPairSimilarity: Number(maxPairSimilarity.toFixed(3)),
     particleErrorCount: issues.filter((issue) => issue.type === "particle-error").length,
     emptySectionCount: issues.filter((issue) => issue.type === "empty-section").length,
+    templateSkeletonCount: issues.filter(
+      (issue) => issue.type === "template-skeleton",
+    ).length,
     issues,
   };
 }

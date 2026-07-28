@@ -1,80 +1,113 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { evidenceCaptureDefinitions } from "../config/evidence-sources";
-import { getPublicPosts } from "../lib/posts";
+import { getAllPosts, getPublicPosts } from "../lib/posts";
 
-const flagshipBySlug = new Map(
-  evidenceCaptureDefinitions.map((item) => [item.postSlug, item]),
+type Decision = {
+  slug: string;
+  route: string;
+  action:
+    | "KEEP_EVIDENCE_CASE"
+    | "DEEP_REWRITE"
+    | "CONSOLIDATE_AND_REDIRECT"
+    | "MOVE_TO_DRAFT";
+  destination?: string;
+  finalRisk: "LOW" | "REMOVED_FROM_PUBLIC";
+  reason: string;
+};
+
+const root = process.cwd();
+const decisions = JSON.parse(
+  fs.readFileSync(
+    path.join(root, "data", "evidence-content-decisions.json"),
+    "utf8",
+  ),
+) as Decision[];
+const allPosts = new Map(getAllPosts().map((post) => [post.slug, post]));
+const publicSlugs = new Set(getPublicPosts().map((post) => post.slug));
+const issues: string[] = [];
+
+if (decisions.length !== 21) {
+  issues.push(`original URL decision inventory must contain 21 rows, found ${decisions.length}`);
+}
+if (new Set(decisions.map((item) => item.slug)).size !== decisions.length) {
+  issues.push("decision inventory contains duplicate slugs");
+}
+
+for (const decision of decisions) {
+  const post = allPosts.get(decision.slug);
+  if (!post) {
+    issues.push(`${decision.slug}: source article is missing`);
+    continue;
+  }
+  if (post.route !== decision.route) {
+    issues.push(`${decision.slug}: route mismatch`);
+  }
+  if (
+    decision.action === "KEEP_EVIDENCE_CASE" ||
+    decision.action === "DEEP_REWRITE"
+  ) {
+    if (!publicSlugs.has(decision.slug) || decision.finalRisk !== "LOW") {
+      issues.push(`${decision.slug}: retained article must be public with LOW final risk`);
+    }
+  } else if (
+    !post.frontmatter.draft ||
+    post.frontmatter.status !== "draft" ||
+    !post.frontmatter.noindex ||
+    publicSlugs.has(decision.slug)
+  ) {
+    issues.push(`${decision.slug}: removed article must be draft/noindex and absent from public inventory`);
+  }
+}
+
+const redirect = decisions.find(
+  (item) => item.action === "CONSOLIDATE_AND_REDIRECT",
 );
-const rows = getPublicPosts().map((post) => {
-  const flagship = flagshipBySlug.get(post.slug);
-  const hasFaq = (post.frontmatter.faq?.length ?? 0) > 0;
-  const hasDownload = /\]\(\/downloads\//.test(post.content);
-  const genericToolArticle =
-    post.frontmatter.type !== "case-study" &&
-    /도구|오픈소스|가이드|자동화/.test(post.frontmatter.title);
-  return {
-    slug: post.slug,
-    title: post.frontmatter.title,
-    route: post.route,
-    currentType: post.frontmatter.type,
-    actualExperience: flagship ? "YES — 실행 화면·commit 연결" : "PARTIAL — 글별 검증 메모",
-    sourceProject: flagship?.projectLabelKo ?? "직접 연결된 화면 없음",
-    screenshotPossible: flagship ? "YES — candidate 확보" : "미확인",
-    uniqueValue: flagship
-      ? flagship.claimSupportedKo
-      : "현재 글의 계산·절차 설명. 고유 현장 화면은 아직 없음",
-    templateRisk:
-      hasFaq && hasDownload
-        ? "HIGH — FAQ·다운로드 반복"
-        : hasFaq
-          ? "MEDIUM — FAQ 반복"
-          : "LOW",
-    recommendedAction: flagship
-      ? "KEEP"
-      : genericToolArticle
-        ? "NOINDEX_CANDIDATE"
-        : "DEEP_REWRITE",
-    reason: flagship
-      ? "안전한 local demo/fixture와 exact source commit을 자동 캡처함"
-      : genericToolArticle
-        ? "일반 도구 설명보다 현장 구축 사례와의 직접 연결을 먼저 보강해야 함"
-        : "URL은 유지하고 실제 화면·실패·검증 경계를 추가할 후보",
-  };
-});
+const nextConfig = fs.readFileSync(path.join(root, "next.config.ts"), "utf8");
+if (
+  !redirect?.destination ||
+  !nextConfig.includes(`source: "${redirect.route}"`) ||
+  !nextConfig.includes(`destination: "${redirect.destination}"`) ||
+  !nextConfig.includes("permanent: true")
+) {
+  issues.push("consolidated URL is missing its permanent Next.js redirect");
+}
 
+if (issues.length > 0) {
+  console.error(issues.map((issue) => `- ${issue}`).join("\n"));
+  process.exit(1);
+}
+
+const unresolvedHighRisk = decisions.filter(
+  (item) => item.finalRisk !== "LOW" && item.finalRisk !== "REMOVED_FROM_PUBLIC",
+);
 const lines = [
-  "# Biz2Lab evidence content inventory — 2026-07-28",
+  "# Biz2Lab evidence content inventory — 2026-07-29",
   "",
-  "> 이 보고서는 URL 삭제나 noindex 적용을 실행하지 않습니다. 5개 대표 사례만 이번 PR에서 깊게 재작성했고 나머지는 제안 상태입니다.",
+  "> PR #123 Phase 2의 원본 21개 공개 URL 판정입니다. `MOVE_TO_DRAFT`는 noindex만 추가한 것이 아니라 공개 인벤토리·sitemap·RSS·자료실에서 제외합니다.",
   "",
-  "| slug | title | route | currentType | actualExperience | sourceProject | screenshotPossible | uniqueValue | templateRisk | recommendedAction | reason |",
-  "|---|---|---|---|---|---|---|---|---|---|---|",
-  ...rows.map(
-    (row) =>
-      `| ${row.slug} | ${escape(row.title)} | ${row.route} | ${row.currentType} | ${row.actualExperience} | ${row.sourceProject} | ${row.screenshotPossible} | ${escape(row.uniqueValue)} | ${row.templateRisk} | **${row.recommendedAction}** | ${escape(row.reason)} |`,
+  "| slug | original route | decision | destination | final risk | reason |",
+  "|---|---|---|---|---|---|",
+  ...decisions.map(
+    (item) =>
+      `| ${item.slug} | ${item.route} | **${item.action}** | ${item.destination ?? "-"} | ${item.finalRisk} | ${item.reason.replace(/\|/g, "\\|")} |`,
   ),
   "",
-  "## 이번 적용 범위",
+  "## 결과",
   "",
-  `- 공개 글 인벤토리: ${rows.length}개`,
-  `- 화면·commit 연결 대표 사례: ${rows.filter((row) => row.recommendedAction === "KEEP").length}개`,
-  `- 제안만 기록한 글: ${rows.filter((row) => row.recommendedAction !== "KEEP").length}개`,
-  "- 대량 삭제·archive·noindex 변경: 0개",
+  `- 원본 URL 판정: ${decisions.length}개`,
+  `- 공개 유지: ${decisions.filter((item) => item.finalRisk === "LOW").length}개`,
+  `- draft 이동: ${decisions.filter((item) => item.action === "MOVE_TO_DRAFT").length}개`,
+  `- 통합·영구 redirect: ${decisions.filter((item) => item.action === "CONSOLIDATE_AND_REDIRECT").length}개`,
+  `- 미해결 HIGH risk: ${unresolvedHighRisk.length}개`,
+  "- 전자계약(CN_FOOD_Contract)과 지시사항(CN_ExeFlow)은 공개 안전 fixture가 없어 이번 증거 manifest에 추가하지 않음",
 ];
 
-fs.mkdirSync(path.join(process.cwd(), "reports"), { recursive: true });
+fs.mkdirSync(path.join(root, "reports"), { recursive: true });
 fs.writeFileSync(
-  path.join(
-    process.cwd(),
-    "reports",
-    "biz2lab-evidence-content-inventory-2026-07-28.md",
-  ),
+  path.join(root, "reports", "biz2lab-evidence-content-inventory-2026-07-29.md"),
   `${lines.join("\n")}\n`,
 );
-console.log(`Evidence content inventory generated (${rows.length} public posts).`);
-
-function escape(value: string) {
-  return value.replace(/\|/g, "\\|").replace(/\r?\n/g, " ");
-}
+console.log(
+  `Evidence content inventory generated (${decisions.length} original URLs, ${unresolvedHighRisk.length} unresolved HIGH risk).`,
+);

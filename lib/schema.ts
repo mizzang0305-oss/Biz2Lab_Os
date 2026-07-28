@@ -60,6 +60,8 @@ export const postFrontmatterSchema = z.object({
   heroAlt: z.string().min(1),
   canonical: z.string().url(),
   noindex: z.boolean(),
+  evidenceRequired: z.boolean().default(false),
+  evidenceMode: z.enum(["visual", "source-only"]).optional(),
   relatedPosts: z.array(z.string().min(1)).min(1),
   editorNote: z.string().min(1).optional(),
   spoilerLevel: z.enum(["none", "light", "full"]).optional(),
@@ -67,6 +69,21 @@ export const postFrontmatterSchema = z.object({
   templateCta: z.string().min(1).optional(),
   nextStep: nextStepSchema.optional(),
   faq: z.array(faqItemSchema).optional(),
+}).superRefine((frontmatter, context) => {
+  if (frontmatter.evidenceRequired && !frontmatter.evidenceMode) {
+    context.addIssue({
+      code: "custom",
+      path: ["evidenceMode"],
+      message: "evidenceRequired posts must declare visual or source-only mode",
+    });
+  }
+  if (!frontmatter.evidenceRequired && frontmatter.evidenceMode) {
+    context.addIssue({
+      code: "custom",
+      path: ["evidenceMode"],
+      message: "evidenceMode is only valid when evidenceRequired is true",
+    });
+  }
 });
 
 export type PostFrontmatter = z.infer<typeof postFrontmatterSchema>;

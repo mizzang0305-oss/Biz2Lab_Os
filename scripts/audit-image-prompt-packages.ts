@@ -43,11 +43,17 @@ const evidenceImagePaths = new Set<string>(
     try {
       const manifest = JSON.parse(
         fs.readFileSync(path.join(root, "data", "evidence-manifest.json"), "utf8"),
-      ) as Array<{ image?: string }>;
+      ) as Array<{ image?: string; status?: string }>;
       return manifest
-        .map((item) => item.image)
-        .filter((image): image is string => typeof image === "string")
-        .map((image) => `public${image}`);
+        .filter(
+          (item) =>
+            typeof item.image === "string" &&
+            (item.status === "candidate" || item.status === "approved"),
+        )
+        .map(
+          (item) =>
+            `evidence-assets/${item.status}s/${path.basename(item.image!)}`,
+        );
     } catch {
       return [];
     }
@@ -83,7 +89,7 @@ function normalizeRepoPath(filePath: string) {
 
 function isManifestEvidenceScreenshot(changedPath: string) {
   return (
-    /^public\/images\/posts\/[a-z0-9][a-z0-9-]*-evidence-\d{2}\.webp$/.test(
+    /^evidence-assets\/(?:candidates|approved)\/[a-z0-9][a-z0-9-]*-evidence-\d{2}\.webp$/.test(
       changedPath,
     ) && evidenceImagePaths.has(changedPath)
   );

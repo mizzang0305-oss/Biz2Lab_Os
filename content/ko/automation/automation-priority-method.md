@@ -19,10 +19,12 @@ heroImage: /images/posts/automation-priority-method-hero.webp
 heroAlt: 업무 후보를 반복 빈도와 실패 비용으로 나누는 자동화 우선순위 매트릭스
 canonical: 'https://www.biz2lab.com/ko/automation/automation-priority-method'
 noindex: false
+evidenceRequired: true
+evidenceMode: visual
 relatedPosts:
   - ai-business-automation-guide
-  - pre-automation-task-list
-  - reduce-repetitive-work-with-ai
+  - separate-picking-inspection-loading-status
+  - daily-sales-report
 nextStep:
   label: 승인형 자동화 화면 보기
   href: /ko/automation/ai-business-automation-guide

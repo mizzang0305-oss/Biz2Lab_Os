@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import type { EvidenceItem } from "@/lib/evidence-schema";
+import type { PublicEvidenceItem } from "@/lib/evidence-schema";
 
-export function EvidenceFigure({ evidence }: { evidence: EvidenceItem }) {
+export function EvidenceFigure({ evidence }: { evidence: PublicEvidenceItem }) {
   return (
     <figure className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
       <a

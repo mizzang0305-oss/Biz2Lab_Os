@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: data-automation
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/google-sheets-ai-automation-hero.webp
 heroAlt: 스프레드시트 상태 열에서 AI 요약과 알림 패널로 이어지는 자동화 구조
 canonical: 'https://www.biz2lab.com/ko/automation/google-sheets-ai-automation'
-noindex: false
+noindex: true
 relatedPosts:
   - chatgpt-document-cleanup
   - pre-automation-task-list

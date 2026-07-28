@@ -27,8 +27,8 @@
     "updatedAt": "2026-07-28",
     "relatedPosts": [
       "automation-priority-method",
-      "pre-automation-task-list",
-      "reduce-repetitive-work-with-ai"
+      "unify-order-channels",
+      "daily-sales-report"
     ]
   },
   {
@@ -43,88 +43,8 @@
     "updatedAt": "2026-07-28",
     "relatedPosts": [
       "ai-business-automation-guide",
-      "pre-automation-task-list",
-      "reduce-repetitive-work-with-ai"
-    ]
-  },
-  {
-    "title": "ChatGPT 문서 정리: 원문을 지키면서 회의·상담 메모를 구조화하는 법",
-    "slug": "chatgpt-document-cleanup",
-    "route": "/ko/automation/chatgpt-document-cleanup",
-    "category": "automation",
-    "cluster": "document-automation",
-    "type": "how-to",
-    "heroImage": "/images/posts/chatgpt-document-cleanup-hero.webp",
-    "heroAlt": "흩어진 회의 메모와 고객 요청을 정리된 업무 문서로 바꾸는 문서 정리 보드",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "google-sheets-ai-automation",
-      "obsidian-business-knowledge-base",
-      "ai-business-automation-guide"
-    ]
-  },
-  {
-    "title": "Google Sheets 자동화: 승인 열과 실행 로그로 안전하게 연결하기",
-    "slug": "google-sheets-ai-automation",
-    "route": "/ko/automation/google-sheets-ai-automation",
-    "category": "automation",
-    "cluster": "data-automation",
-    "type": "how-to",
-    "heroImage": "/images/posts/google-sheets-ai-automation-hero.webp",
-    "heroAlt": "스프레드시트 상태 열에서 AI 요약과 알림 패널로 이어지는 자동화 구조",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "chatgpt-document-cleanup",
-      "pre-automation-task-list",
+      "separate-picking-inspection-loading-status",
       "daily-sales-report"
-    ]
-  },
-  {
-    "title": "옵시디언 업무 지식창고: 기준·결정·폐기 기록을 다시 찾는 구조",
-    "slug": "obsidian-business-knowledge-base",
-    "route": "/ko/automation/obsidian-business-knowledge-base",
-    "category": "automation",
-    "cluster": "knowledge-management",
-    "type": "how-to",
-    "heroImage": "/images/posts/obsidian-business-knowledge-base-hero.webp",
-    "heroAlt": "업무 기준과 고객 응대 노트가 서로 연결된 회사 지식창고 그래프",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "chatgpt-document-cleanup",
-      "ai-knowledge-store-for-small-business",
-      "solo-business-systemization"
-    ]
-  },
-  {
-    "title": "자동화 전 업무 목록 만들기: 5일 관찰로 입력·예외·완료조건 찾기",
-    "slug": "pre-automation-task-list",
-    "route": "/ko/automation/pre-automation-task-list",
-    "category": "automation",
-    "cluster": "automation-basics",
-    "type": "checklist",
-    "heroImage": "/images/posts/pre-automation-task-list-hero.webp",
-    "heroAlt": "자동화 전에 입력 원본과 예외 상황을 확인하는 준비 체크리스트",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "automation-priority-method",
-      "ai-business-automation-guide",
-      "solo-business-systemization"
-    ]
-  },
-  {
-    "title": "반복 업무 줄이기: 시간기록으로 규칙 자동화와 AI 초안을 구분하는 법",
-    "slug": "reduce-repetitive-work-with-ai",
-    "route": "/ko/automation/reduce-repetitive-work-with-ai",
-    "category": "automation",
-    "cluster": "automation-basics",
-    "type": "how-to",
-    "heroImage": "/images/posts/reduce-repetitive-work-with-ai-hero.webp",
-    "heroAlt": "반복 업무를 수집하고 분류해 AI 초안과 사람 승인으로 줄이는 칸반 보드",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "automation-priority-method",
-      "ai-business-automation-guide",
-      "google-sheets-ai-automation"
     ]
   },
   {
@@ -172,7 +92,7 @@
     "relatedPosts": [
       "daily-sales-goal-breakdown",
       "sales-achievement-rate",
-      "unify-order-channels-for-sales"
+      "automation-priority-method"
     ]
   },
   {
@@ -188,7 +108,7 @@
     "relatedPosts": [
       "accounts-receivable-tracker",
       "sales-revenue-ar-structure",
-      "customer-memory-system"
+      "daily-sales-report"
     ]
   },
   {
@@ -220,55 +140,7 @@
     "relatedPosts": [
       "accounts-receivable-tracker",
       "sales-achievement-rate",
-      "unify-order-channels-for-sales"
-    ]
-  },
-  {
-    "title": "거래처 주문 등록표: 이메일·메신저·전화를 한 번호로 묶는 방법",
-    "slug": "unify-order-channels-for-sales",
-    "route": "/ko/sales-ops/unify-order-channels-for-sales",
-    "category": "sales-ops",
-    "cluster": "revenue-operations",
-    "type": "case-study",
-    "heroImage": "/images/posts/unify-order-channels-for-sales-hero.webp",
-    "heroAlt": "전화와 메일, 현장 요청을 하나의 거래처 주문 보드로 모으는 흐름",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "sales-revenue-ar-structure",
-      "daily-sales-report",
       "unify-order-channels"
-    ]
-  },
-  {
-    "title": "소상공인 AI 지식 원본 관리: 답변 전에 출처와 사용기한 붙이기",
-    "slug": "ai-knowledge-store-for-small-business",
-    "route": "/ko/small-business/ai-knowledge-store-for-small-business",
-    "category": "small-business",
-    "cluster": "small-business-operations",
-    "type": "how-to",
-    "heroImage": "/images/posts/ai-knowledge-store-for-small-business-hero.webp",
-    "heroAlt": "운영 기준과 고객 질문을 AI 점장 답변 기준으로 연결한 소상공인 지식 카드",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "obsidian-business-knowledge-base",
-      "customer-memory-system",
-      "ai-business-automation-guide"
-    ]
-  },
-  {
-    "title": "고객 응대 기록: 선호보다 약속과 다음 연락일을 남기는 최소 양식",
-    "slug": "customer-memory-system",
-    "route": "/ko/small-business/customer-memory-system",
-    "category": "small-business",
-    "cluster": "small-business-operations",
-    "type": "how-to",
-    "heroImage": "/images/posts/customer-memory-system-hero.webp",
-    "heroAlt": "고객 요청과 선호, 응대 이력, 다음 조치를 정리한 고객 기록 카드",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "reservation-order-review-management",
-      "payment-reminder-message",
-      "solo-business-systemization"
     ]
   },
   {
@@ -283,40 +155,8 @@
     "updatedAt": "2026-07-28",
     "relatedPosts": [
       "unify-order-channels",
-      "reservation-order-review-management",
+      "sales-achievement-rate",
       "daily-sales-goal-breakdown"
-    ]
-  },
-  {
-    "title": "예약·주문·리뷰 통합 보드: 고객 약속을 상태로 이어서 관리하기",
-    "slug": "reservation-order-review-management",
-    "route": "/ko/small-business/reservation-order-review-management",
-    "category": "small-business",
-    "cluster": "small-business-operations",
-    "type": "how-to",
-    "heroImage": "/images/posts/reservation-order-review-management-hero.webp",
-    "heroAlt": "예약과 주문, 리뷰 응대를 같은 운영표에서 상태별로 관리하는 보드",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "unify-order-channels",
-      "customer-memory-system",
-      "daily-numbers-for-small-business"
-    ]
-  },
-  {
-    "title": "1인 사업자 주간 운영표: 매출·주문·입금·고객 후속을 한 번에 점검하기",
-    "slug": "solo-business-systemization",
-    "route": "/ko/small-business/solo-business-systemization",
-    "category": "small-business",
-    "cluster": "small-business-operations",
-    "type": "checklist",
-    "heroImage": "/images/posts/solo-business-systemization-hero.webp",
-    "heroAlt": "1인 사업자의 상담과 주문, 정산, 고객 기록이 순환하는 업무 시스템",
-    "updatedAt": "2026-07-16",
-    "relatedPosts": [
-      "daily-numbers-for-small-business",
-      "pre-automation-task-list",
-      "customer-memory-system"
     ]
   },
   {
@@ -330,9 +170,9 @@
     "heroAlt": "전화와 메신저, 플랫폼 주문을 한곳의 처리 상태판으로 모으는 매장 주문 흐름",
     "updatedAt": "2026-07-28",
     "relatedPosts": [
-      "unify-order-channels-for-sales",
+      "sales-revenue-ar-structure",
       "daily-numbers-for-small-business",
-      "reservation-order-review-management"
+      "separate-picking-inspection-loading-status"
     ]
   }
 ]

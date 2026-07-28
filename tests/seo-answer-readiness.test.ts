@@ -49,11 +49,6 @@ test("reviewed automation guides expose answer-friendly sections", () => {
   const requiredReadySlugs = new Set([
     "ai-business-automation-guide",
     "automation-priority-method",
-    "chatgpt-document-cleanup",
-    "google-sheets-ai-automation",
-    "obsidian-business-knowledge-base",
-    "pre-automation-task-list",
-    "reduce-repetitive-work-with-ai",
   ]);
   const auditsBySlug = new Map(auditSeoAnswerReadiness().articles.map((article) => [article.slug, article]));
 

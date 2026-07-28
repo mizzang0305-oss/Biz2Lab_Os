@@ -12,7 +12,7 @@ import {
 } from "../config/evidence-sources";
 import {
   evidenceManifestSchema,
-  type EvidenceItem,
+  type PublicEvidenceItem,
 } from "../lib/evidence-schema";
 import {
   assertLocalUrl,
@@ -24,7 +24,7 @@ const root = process.cwd();
 const manifestPath = path.join(root, "data", "evidence-manifest.json");
 const rawDirectory = path.join(root, "artifacts", "evidence", "raw");
 const reportDirectory = path.join(root, "artifacts", "evidence", "reports");
-const publicImageDirectory = path.join(root, "public", "images", "posts");
+const candidateImageDirectory = path.join(root, "evidence-assets", "candidates");
 
 type CaptureResult = {
   id: string;
@@ -49,7 +49,7 @@ async function main() {
 
   fs.mkdirSync(rawDirectory, { recursive: true });
   fs.mkdirSync(reportDirectory, { recursive: true });
-  fs.mkdirSync(publicImageDirectory, { recursive: true });
+  fs.mkdirSync(candidateImageDirectory, { recursive: true });
 
   const discovered = new Map(
     discoverEvidenceSources().map((source) => [source.projectKey, source]),
@@ -191,7 +191,7 @@ async function captureOne(
   browser: Browser,
   definition: EvidenceCaptureDefinition,
   sourceCommit: string,
-): Promise<EvidenceItem> {
+): Promise<PublicEvidenceItem> {
   const context = await browser.newContext({
     viewport: definition.viewport,
     reducedMotion: "reduce",
@@ -214,6 +214,17 @@ async function captureOne(
       timeout: 45_000,
     });
     await page.waitForLoadState("networkidle", { timeout: 10_000 }).catch(() => undefined);
+
+    if (definition.captureStyle) {
+      await page.addStyleTag({ content: definition.captureStyle });
+    }
+    for (const input of definition.inputValues ?? []) {
+      const locator = page.locator(input.selector);
+      if ((await locator.count()) !== 1) {
+        throw new Error(`input selector must resolve exactly once: ${input.selector}`);
+      }
+      await locator.fill(input.value);
+    }
 
     for (const selector of definition.hideSelectors) {
       await page.locator(selector).evaluateAll((elements) => {
@@ -242,16 +253,42 @@ async function captureOne(
       .findIndex((item) => item.id === definition.id) + 1;
     const baseName = `${definition.postSlug}-evidence-${String(sequence).padStart(2, "0")}`;
     const rawPath = path.join(rawDirectory, `${baseName}.png`);
-    const outputPath = path.join(publicImageDirectory, `${baseName}.webp`);
+    const outputPath = path.join(candidateImageDirectory, `${baseName}.webp`);
     const masks = definition.maskSelectors.map((selector) => page.locator(selector));
 
-    await target.screenshot({
-      path: rawPath,
-      animations: "disabled",
-      caret: "hide",
-      mask: masks,
-      maskColor: "#64748b",
-    });
+    if (definition.captureBounds) {
+      const [targetBox, startBox, endBox] = await Promise.all([
+        target.boundingBox(),
+        page.locator(definition.captureBounds.startSelector).boundingBox(),
+        page.locator(definition.captureBounds.endSelector).boundingBox(),
+      ]);
+      if (!targetBox || !startBox || !endBox) {
+        throw new Error("capture bounds could not be measured");
+      }
+      const y = startBox.y;
+      const bottom = endBox.y + endBox.height;
+      await page.screenshot({
+        path: rawPath,
+        animations: "disabled",
+        caret: "hide",
+        mask: masks,
+        maskColor: "#64748b",
+        clip: {
+          x: targetBox.x,
+          y,
+          width: targetBox.width,
+          height: bottom - y,
+        },
+      });
+    } else {
+      await target.screenshot({
+        path: rawPath,
+        animations: "disabled",
+        caret: "hide",
+        mask: masks,
+        maskColor: "#64748b",
+      });
+    }
 
     await sharp(rawPath)
       .rotate()
@@ -269,10 +306,29 @@ async function captureOne(
       metadata.format !== "webp" ||
       !metadata.width ||
       !metadata.height ||
-      metadata.width < 640 ||
+      metadata.width < 360 ||
       metadata.height < 160
     ) {
       throw new Error("Evidence image is too small or not WebP.");
+    }
+    const renderedHeightAt390 = (390 * metadata.height) / metadata.width;
+    if (
+      definition.minRenderedHeightAt390 &&
+      renderedHeightAt390 < definition.minRenderedHeightAt390
+    ) {
+      throw new Error(
+        `Evidence image renders at ${renderedHeightAt390.toFixed(1)}px high at 390px, below ${definition.minRenderedHeightAt390}px.`,
+      );
+    }
+    const aspectRatio = metadata.width / metadata.height;
+    if (
+      definition.aspectRatio &&
+      (aspectRatio < definition.aspectRatio.min ||
+        aspectRatio > definition.aspectRatio.max)
+    ) {
+      throw new Error(
+        `Evidence image aspect ratio ${aspectRatio.toFixed(2)} is outside ${definition.aspectRatio.min}-${definition.aspectRatio.max}.`,
+      );
     }
 
     const sha256 = createHash("sha256")
@@ -295,16 +351,22 @@ async function captureOne(
       sourceCommit,
       sourceDirty: false,
       sourceRoute: definition.route,
-      image: `/images/posts/${baseName}.webp`,
+      image: `/images/evidence/${baseName}.webp`,
       width: metadata.width,
       height: metadata.height,
       altKo: definition.altKo,
       captionKo: definition.captionKo,
-      capturedAt: "2026-07-28",
+      capturedAt: new Date().toISOString().slice(0, 10),
       dataMode: definition.dataMode,
       redactions: definition.maskSelectors.map((selector) =>
         selector.replace(/[^a-zA-Z0-9가-힣_-]+/g, " ").trim(),
       ),
+      ...(definition.maskSelectors.length > 0
+        ? {
+            redactionReason:
+              "캡처 대상의 운영 식별값이 공개 후보 이미지에 포함되지 않도록 마스킹",
+          }
+        : {}),
       piiScan: "pass",
       status: "candidate",
       sha256,
@@ -366,7 +428,7 @@ function removeCaptureFiles(definition: EvidenceCaptureDefinition) {
   const baseName = `${definition.postSlug}-evidence-${String(sequence).padStart(2, "0")}`;
   for (const filePath of [
     path.join(rawDirectory, `${baseName}.png`),
-    path.join(publicImageDirectory, `${baseName}.webp`),
+    path.join(candidateImageDirectory, `${baseName}.webp`),
   ]) {
     if (!fs.existsSync(filePath)) continue;
     try {

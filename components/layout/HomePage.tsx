@@ -59,9 +59,9 @@ export function HomePage() {
       description: "반복 빈도, 소요 시간, 오류 비용, 표준화 가능성으로 첫 자동화 후보를 고릅니다.",
     },
     {
-      title: "Google Sheets 자동화 기준",
-      href: "/ko/automation/google-sheets-ai-automation",
-      description: "원본 시트, 실행 조건, 승인자, 오류 기록이 준비됐는지 먼저 확인합니다.",
+      title: "실패 로그와 수동 확인 기준",
+      href: "/ko/sales-ops/daily-sales-report",
+      description: "성공 건수보다 실패 사유, 안전 메시지와 수동 확인 대상을 먼저 남깁니다.",
     },
     {
       title: "AI 업무 자동화 기준",

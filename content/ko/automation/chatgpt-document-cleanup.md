@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: document-automation
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/chatgpt-document-cleanup-hero.webp
 heroAlt: 흩어진 회의 메모와 고객 요청을 정리된 업무 문서로 바꾸는 문서 정리 보드
 canonical: 'https://www.biz2lab.com/ko/automation/chatgpt-document-cleanup'
-noindex: false
+noindex: true
 relatedPosts:
   - google-sheets-ai-automation
   - obsidian-business-knowledge-base

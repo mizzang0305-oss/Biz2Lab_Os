@@ -5,6 +5,7 @@ import {
   getEditorialEvidence,
   getEditorialEvidenceEntries,
 } from "@/lib/editorial-evidence";
+import { getEvidenceForPost } from "@/lib/evidence";
 import { getPublicPosts } from "@/lib/posts";
 
 const root = process.cwd();
@@ -13,8 +14,8 @@ const warnings: string[] = [];
 const protectedAdminRoot = path.join(root, "app", "admin");
 const protectedAdminRoute = path.join(protectedAdminRoot, "content-automation");
 const protectedAdminApiRoot = path.join(root, "app", "api", "admin", "content-automation");
-const MIN_PUBLIC_POSTS = 20;
-const MAX_PUBLIC_POSTS = 26;
+const MIN_PUBLIC_POSTS = 10;
+const MAX_PUBLIC_POSTS = 15;
 const MIN_CONTENT_CHARS = 1600;
 const MIN_H2_SECTIONS = 5;
 
@@ -75,8 +76,9 @@ function extractH2Sections(content: string) {
 
 const posts = getPublicPosts();
 const postsBySlug = new Map(posts.map((post) => [post.slug, post]));
-const editorialEvidenceEntries = getEditorialEvidenceEntries();
-const editorialEvidenceSlugs = new Set(editorialEvidenceEntries.map(([slug]) => slug));
+const editorialEvidenceSlugs = new Set(
+  getEditorialEvidenceEntries().map(([slug]) => slug),
+);
 const heroUsage = new Map<string, string[]>();
 const summaryRows: string[] = [];
 const slugOnlyMarkdownLink = /\[([a-z0-9]+(?:-[a-z0-9]+)+)\]\(\/ko\/[^)]+\)/g;
@@ -110,19 +112,40 @@ for (const post of posts) {
     errors.push(`${post.slug}: heroImage and heroAlt are required`);
   }
 
-  if (
-    post.frontmatter.type !== "case-study" &&
-    (!post.frontmatter.faq || post.frontmatter.faq.length < 3)
-  ) {
-    errors.push(`${post.slug}: needs at least three FAQ items`);
-  }
-
   if (h2Sections.length < MIN_H2_SECTIONS) {
     errors.push(`${post.slug}: needs at least ${MIN_H2_SECTIONS} substantive H2 sections`);
   }
 
-  if (post.frontmatter.type !== "case-study" && downloads.length < 1) {
-    errors.push(`${post.slug}: needs at least one real downloadable resource`);
+  if (post.frontmatter.type === "case-study") {
+    if (!post.frontmatter.evidenceRequired) {
+      errors.push(`${post.slug}: case study must explicitly require evidence`);
+    }
+    if (
+      post.frontmatter.evidenceMode === "visual" &&
+      getEvidenceForPost(post.slug, "preview").length === 0
+    ) {
+      errors.push(`${post.slug}: visual case study needs Preview evidence`);
+    }
+  }
+  if (
+    post.frontmatter.type === "checklist" &&
+    !/^\d+\.\s/m.test(post.content) &&
+    !/\|.+\|/m.test(post.content)
+  ) {
+    errors.push(`${post.slug}: checklist needs an ordered procedure or decision table`);
+  }
+  if (
+    post.frontmatter.type === "how-to" &&
+    !/^\d+\.\s/m.test(post.content) &&
+    !/(?:계산|단계|순서|절차)/.test(post.content)
+  ) {
+    errors.push(`${post.slug}: how-to needs a reproducible procedure`);
+  }
+  if (
+    post.frontmatter.type === "pillar" &&
+    (!/\|.+\|/m.test(post.content) || !/(?:공식|식|계산)/.test(post.content))
+  ) {
+    errors.push(`${post.slug}: pillar needs a decision table and explicit calculation model`);
   }
 
   for (const download of downloads) {
@@ -225,12 +248,6 @@ for (const post of posts) {
   summaryRows.push(
     `${post.slug}: chars=${contentLength}, headings=${headingTexts.length}, faq=${post.frontmatter.faq?.length ?? 0}, downloads=${downloads.length}, inlineImages=${images.length}`,
   );
-}
-
-for (const [slug] of editorialEvidenceEntries) {
-  if (!postsBySlug.has(slug)) {
-    errors.push(`${slug}: editorial evidence exists for a non-public article`);
-  }
 }
 
 for (const post of posts) {

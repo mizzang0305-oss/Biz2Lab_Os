@@ -1,5 +1,11 @@
 import { expect, test } from "@playwright/test";
 
+import evidenceManifest from "../../data/evidence-manifest.json";
+
+const reviewableEvidenceCount = evidenceManifest.filter(
+  (item) => item.status === "candidate" || item.status === "approved",
+).length;
+
 const routes = [
   "/ko",
   "/ko/author/biz2lab",
@@ -15,6 +21,7 @@ const routes = [
   "/ko/small-business",
   "/ko/warehouse-logistics",
   "/ko/resources",
+  "/ko/ops/evidence-review",
   "/ko/privacy",
   "/ko/terms",
   "/ko/does-not-exist",
@@ -82,7 +89,7 @@ test("preview shows candidate review badge on five case studies", async ({
   await page.emulateMedia({ reducedMotion: "reduce" });
   for (const route of routes.slice(4, 9)) {
     await page.goto(route, { waitUntil: "networkidle" });
-    await expect(page.getByText("공개 전 검토 중")).toBeVisible();
+    await expect(page.getByText("공개 전 검토 중").first()).toBeVisible();
   }
 });
 
@@ -92,4 +99,45 @@ test("preview project cards label candidate evidence", async ({ page }) => {
 
   await expect(page.getByText("공개 전 검토 중 · Preview 전용")).toHaveCount(3);
   await expect(page.locator("img[src*='evidence-01']")).toHaveCount(3);
+});
+
+test("preview review page is read-only and its evidence remains legible at 390px", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  const response = await page.goto("/ko/ops/evidence-review", {
+    waitUntil: "networkidle",
+  });
+
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("meta[name='robots']")).toHaveAttribute(
+    "content",
+    "noindex, nofollow, nocache",
+  );
+  await expect(page.locator("article")).toHaveCount(reviewableEvidenceCount);
+  await expect(page.locator("main form, main button, main input")).toHaveCount(0);
+  await expect(page.getByText("--apply", { exact: false })).toHaveCount(0);
+
+  const images = page.locator("article img");
+  await expect(images).toHaveCount(reviewableEvidenceCount);
+  for (let index = 0; index < reviewableEvidenceCount; index += 1) {
+    const image = images.nth(index);
+    await image.scrollIntoViewIfNeeded();
+    await expect(image).toBeVisible();
+    const dimensions = await image.evaluate((element) => {
+      const imageElement = element as HTMLImageElement;
+      const bounds = imageElement.getBoundingClientRect();
+      return {
+        naturalWidth: imageElement.naturalWidth,
+        naturalHeight: imageElement.naturalHeight,
+        renderedWidth: bounds.width,
+        renderedHeight: bounds.height,
+      };
+    });
+    expect(dimensions.naturalWidth).toBeGreaterThan(0);
+    expect(dimensions.naturalHeight).toBeGreaterThan(0);
+    expect(dimensions.renderedWidth).toBeGreaterThanOrEqual(280);
+    expect(dimensions.renderedHeight).toBeGreaterThan(120);
+  }
 });

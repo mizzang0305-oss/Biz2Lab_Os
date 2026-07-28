@@ -1,7 +1,7 @@
 import { EvidenceFigure } from "@/components/article/EvidenceFigure";
-import type { EvidenceItem } from "@/lib/evidence-schema";
+import type { PublicEvidenceItem } from "@/lib/evidence-schema";
 
-export function EvidenceGallery({ evidence }: { evidence: EvidenceItem[] }) {
+export function EvidenceGallery({ evidence }: { evidence: PublicEvidenceItem[] }) {
   if (evidence.length === 0) {
     return null;
   }

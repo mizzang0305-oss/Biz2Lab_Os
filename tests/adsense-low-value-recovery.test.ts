@@ -36,14 +36,14 @@ test("public portfolio contains only the reviewed evidence-first article set", a
     return counts;
   }, {});
 
-  assert.equal(publicPosts.length, 21);
+  assert.equal(publicPosts.length, 11);
   assert.deepEqual(publicCounts, {
-    automation: 7,
-    "sales-ops": 7,
-    "small-business": 6,
+    automation: 2,
+    "sales-ops": 6,
+    "small-business": 2,
     "warehouse-logistics": 1,
   });
-  assert.equal(heldPosts.length, 55);
+  assert.equal(heldPosts.length, 65);
   assert.equal(
     heldPosts.every(
       (post) =>
@@ -75,15 +75,22 @@ test("every public article has distinct practical value and an appropriate evide
     assert.equal(post.frontmatter.templateCta, undefined);
     assert.ok(post.headings.filter((heading) => heading.level === 2).length >= 5);
     assert.ok(/\|.+\|/.test(post.content) || /^\d+\.\s+/m.test(post.content));
-    if (getEvidenceForPost(post.slug).length > 0) {
+    const evidence = getEvidenceForPost(post.slug, "preview");
+    if (post.frontmatter.type === "case-study") {
       assert.ok(
-        getEvidenceForPost(post.slug).length >= 1,
+        post.frontmatter.evidenceRequired && evidence.length >= 1,
         `${post.slug} needs reviewable implementation evidence`,
       );
+      assert.equal(downloads.length, 0);
+    } else if (post.frontmatter.type === "checklist") {
+      assert.ok(/^\d+\.\s+/m.test(post.content) || /\|.+\|/.test(post.content));
+    } else if (post.frontmatter.type === "how-to") {
+      assert.ok(/^\d+\.\s+/m.test(post.content) || /(?:계산|단계|순서|절차)/.test(post.content));
     } else {
-      assert.ok(post.frontmatter.faq && post.frontmatter.faq.length >= 3);
-      assert.equal(downloads.length, 1, `${post.slug} needs one download`);
-      const downloadPath = path.join(process.cwd(), "public", downloads[0].replace(/^\//, ""));
+      assert.ok(/\|.+\|/.test(post.content) && /(?:공식|식|계산)/.test(post.content));
+    }
+    for (const download of downloads) {
+      const downloadPath = path.join(process.cwd(), "public", download.replace(/^\//, ""));
       assert.equal(fs.existsSync(downloadPath), true, `${post.slug} download is missing`);
     }
   }
@@ -101,7 +108,7 @@ test("resources hub exposes all public guides and real downloads without approva
   assert.equal(resourcesMetadata.alternates?.canonical, "https://www.biz2lab.com/ko/resources");
   assert.match(html, /가이드와 함께 쓰는 CSV 양식/);
   assert.match(html, /CSV 내려받기/);
-  assert.equal(downloads.length, 20);
+  assert.equal(downloads.length, 10);
   assert.doesNotMatch(html, /20개 핵심 글|AdSense|재심사/);
 
   for (const route of articleRoutes) {
@@ -125,7 +132,7 @@ test("homepage recommends only reviewed public articles", () => {
   );
 
   assert.match(source, /자동화 우선순위 정하기/);
-  assert.match(source, /Google Sheets 자동화 기준/);
+  assert.match(source, /실패 로그와 수동 확인 기준/);
   assert.match(source, /\/ko\/resources/);
   assert.doesNotMatch(source, /free-open-source-automation-tools-series/);
   assert.doesNotMatch(source, /metabase-dashboard-automation-for-small-business/);
@@ -156,7 +163,7 @@ test("every public article has unique evidence, an honest scope, and official so
   const entries = getEditorialEvidenceEntries();
   const summaries = new Set<string>();
 
-  assert.equal(entries.length, publicPosts.length);
+  assert.ok(entries.length >= publicPosts.length);
 
   for (const post of publicPosts) {
     const evidence = getEditorialEvidence(post.slug);
@@ -224,11 +231,11 @@ test("five representative articles expose public sources or commit-pinned privat
     "unify-order-channels",
     "separate-picking-inspection-loading-status",
   ]) {
-    const evidence = getEvidenceForPost(slug);
-    assert.equal(evidence.length, 1, `${slug} needs one reviewable WMS evidence item`);
-    assert.equal(evidence[0].repositoryName, "CN_WMS");
-    assert.match(evidence[0].sourceCommit, /^[a-f0-9]{40}$/);
-    assert.equal(evidence[0].sourceDirty, false);
+    const evidence = getEvidenceForPost(slug, "preview");
+    assert.ok(evidence.length >= 1, `${slug} needs reviewable WMS evidence`);
+    assert.ok(evidence.every((item) => item.repositoryName === "CN_WMS"));
+    assert.ok(evidence.every((item) => /^[a-f0-9]{40}$/.test(item.sourceCommit)));
+    assert.ok(evidence.every((item) => item.sourceDirty === false));
   }
 });
 

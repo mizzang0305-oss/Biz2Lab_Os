@@ -11,6 +11,11 @@ export default defineConfig({
   webServer: {
     command: "npm run dev -- --hostname 127.0.0.1 --port 4320",
     url: "http://127.0.0.1:4320/ko",
+    env: {
+      ...process.env,
+      VERCEL_ENV: "preview",
+      EVIDENCE_REVIEW_MODE: "false",
+    },
     reuseExistingServer: false,
     timeout: 120_000,
   },

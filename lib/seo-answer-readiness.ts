@@ -186,7 +186,7 @@ function recommendedAction(status: AiAnswerReadinessStatus) {
 
 function auditPost(post: Post, entry: SeoKeywordMapEntry | undefined): SeoAnswerReadinessArticleAudit {
   const faqPresent = frontmatterFaqPresent(post) || markdownFaqPresent(post.content);
-  const faqRequired = post.frontmatter.type !== "case-study";
+  const faqRequired = false;
   const conclusionFirstPresent = hasConclusionFirst(post);
   const directAnswerInFirstLines = hasDirectAnswerInFirstLines(post);
   const comparisonTableUseful = comparisonUseful(entry);

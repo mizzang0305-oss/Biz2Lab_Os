@@ -6,8 +6,8 @@ locale: ko
 category: small-business
 cluster: small-business-operations
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/ai-knowledge-store-for-small-business-hero.webp
 heroAlt: 운영 기준과 고객 질문을 AI 점장 답변 기준으로 연결한 소상공인 지식 카드
 canonical: 'https://www.biz2lab.com/ko/small-business/ai-knowledge-store-for-small-business'
-noindex: false
+noindex: true
 relatedPosts:
   - obsidian-business-knowledge-base
   - customer-memory-system
