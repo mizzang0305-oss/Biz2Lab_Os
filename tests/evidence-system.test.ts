@@ -59,3 +59,17 @@ test("candidate images are unique to one article and identify fixture data", () 
     owners.set(item.image, item.postSlug);
   }
 });
+
+test("image prompt audit exempts only evidence screenshots registered in the manifest", () => {
+  const auditSource = fs.readFileSync(
+    path.join(process.cwd(), "scripts", "audit-image-prompt-packages.ts"),
+    "utf8",
+  );
+
+  assert.match(auditSource, /isManifestEvidenceScreenshot/);
+  assert.match(auditSource, /evidenceImagePaths\.has\(changedPath\)/);
+  assert.match(
+    auditSource,
+    /public\\\/images\\\/posts\\\/\[a-z0-9\].+-evidence-/,
+  );
+});
