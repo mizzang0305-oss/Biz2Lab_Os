@@ -58,6 +58,11 @@ export default function ProjectsPage() {
             </div>
             {evidence ? (
               <figure className="mt-6 overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
+                {evidence.status === "candidate" ? (
+                  <div className="border-b border-amber-200 bg-amber-50 px-4 py-2 text-xs font-bold text-amber-900">
+                    공개 전 검토 중 · Preview 전용
+                  </div>
+                ) : null}
                 <div className="relative aspect-[3/2] w-full">
                   <Image
                     src={evidence.image}
