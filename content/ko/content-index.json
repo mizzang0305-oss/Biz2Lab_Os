@@ -1,14 +1,30 @@
 [
   {
-    "title": "AI 업무 자동화 설계: 초안·검토·실행을 분리하는 5단계",
+    "title": "피킹·검수·상차를 하나의 완료 상태로 묶지 않은 이유",
+    "slug": "separate-picking-inspection-loading-status",
+    "route": "/ko/warehouse-logistics/separate-picking-inspection-loading-status",
+    "category": "warehouse-logistics",
+    "cluster": "warehouse-state-model",
+    "type": "case-study",
+    "heroImage": "/images/posts/separate-picking-inspection-loading-status-hero.webp",
+    "heroAlt": "출고지시와 피킹, 검수, 상차 및 차이 확인을 분리한 물류 상태 흐름",
+    "updatedAt": "2026-07-28",
+    "relatedPosts": [
+      "unify-order-channels",
+      "accounts-receivable-tracker",
+      "automation-priority-method"
+    ]
+  },
+  {
+    "title": "AI 자동 게시를 막고 사람 승인 뒤에만 실행되게 만든 이유",
     "slug": "ai-business-automation-guide",
     "route": "/ko/automation/ai-business-automation-guide",
     "category": "automation",
-    "cluster": "automation-basics",
-    "type": "pillar",
+    "cluster": "approval-gated-automation",
+    "type": "case-study",
     "heroImage": "/images/posts/ai-business-automation-guide-hero.webp",
     "heroAlt": "반복 업무와 판단 업무를 분리해 사람 검토와 연결한 AI 자동화 설계 지도",
-    "updatedAt": "2026-07-24",
+    "updatedAt": "2026-07-28",
     "relatedPosts": [
       "automation-priority-method",
       "pre-automation-task-list",
@@ -16,19 +32,19 @@
     ]
   },
   {
-    "title": "업무 자동화 우선순위: 반복시간·오류비용으로 후보를 고르는 계산법",
+    "title": "자동화 기능보다 실행·실패 로그를 먼저 만든 이유",
     "slug": "automation-priority-method",
     "route": "/ko/automation/automation-priority-method",
     "category": "automation",
-    "cluster": "automation-basics",
-    "type": "checklist",
+    "cluster": "approval-gated-automation",
+    "type": "case-study",
     "heroImage": "/images/posts/automation-priority-method-hero.webp",
     "heroAlt": "업무 후보를 반복 빈도와 실패 비용으로 나누는 자동화 우선순위 매트릭스",
-    "updatedAt": "2026-07-24",
+    "updatedAt": "2026-07-28",
     "relatedPosts": [
+      "ai-business-automation-guide",
       "pre-automation-task-list",
-      "reduce-repetitive-work-with-ai",
-      "ai-business-automation-guide"
+      "reduce-repetitive-work-with-ai"
     ]
   },
   {
@@ -120,7 +136,7 @@
     "type": "checklist",
     "heroImage": "/images/posts/accounts-receivable-tracker-hero.webp",
     "heroAlt": "미수금 aging 구간과 약속일, 담당자 후속 조치를 함께 보여주는 회수 상태판",
-    "updatedAt": "2026-07-24",
+    "updatedAt": "2026-07-26",
     "relatedPosts": [
       "payment-reminder-message",
       "sales-revenue-ar-structure",
@@ -256,19 +272,19 @@
     ]
   },
   {
-    "title": "소상공인 매일 볼 숫자 8개: 매출부터 미처리 문의까지",
+    "title": "주문·예약·웨이팅을 같은 숫자로 보지 않도록 분리한 운영 대시보드",
     "slug": "daily-numbers-for-small-business",
     "route": "/ko/small-business/daily-numbers-for-small-business",
     "category": "small-business",
-    "cluster": "small-business-operations",
-    "type": "pillar",
+    "cluster": "order-operations-system",
+    "type": "case-study",
     "heroImage": "/images/posts/daily-numbers-for-small-business-hero.webp",
     "heroAlt": "소상공인이 매일 확인할 매출 달성률 계산과 주문, 입금, 미처리 업무 대시보드",
-    "updatedAt": "2026-07-24",
+    "updatedAt": "2026-07-28",
     "relatedPosts": [
-      "daily-sales-goal-breakdown",
+      "unify-order-channels",
       "reservation-order-review-management",
-      "unify-order-channels"
+      "daily-sales-goal-breakdown"
     ]
   },
   {
@@ -304,19 +320,19 @@
     ]
   },
   {
-    "title": "주문 채널 통합: 전화·메신저·플랫폼 주문을 한 접수함으로 모으기",
+    "title": "전화·메시지·포털 주문 원본을 지우지 않고 한 작업대로 모은 방법",
     "slug": "unify-order-channels",
     "route": "/ko/small-business/unify-order-channels",
     "category": "small-business",
-    "cluster": "small-business-operations",
+    "cluster": "order-operations-system",
     "type": "case-study",
     "heroImage": "/images/posts/unify-order-channels-hero.webp",
     "heroAlt": "전화와 메신저, 플랫폼 주문을 한곳의 처리 상태판으로 모으는 매장 주문 흐름",
-    "updatedAt": "2026-07-24",
+    "updatedAt": "2026-07-28",
     "relatedPosts": [
-      "reservation-order-review-management",
       "unify-order-channels-for-sales",
-      "daily-numbers-for-small-business"
+      "daily-numbers-for-small-business",
+      "reservation-order-review-management"
     ]
   }
 ]

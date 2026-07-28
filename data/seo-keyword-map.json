@@ -427,7 +427,7 @@
   {
     "slug": "ai-business-automation-guide",
     "route": "/ko/automation/ai-business-automation-guide",
-    "primaryKeyword": "AI 업무 자동화",
+    "primaryKeyword": "AI 자동 게시",
     "secondaryKeywords": [
       "소상공인 AI 자동화",
       "업무 자동화 가이드",
@@ -444,7 +444,7 @@
   {
     "slug": "automation-priority-method",
     "route": "/ko/automation/automation-priority-method",
-    "primaryKeyword": "업무 자동화 우선순위",
+    "primaryKeyword": "자동화 실행 로그",
     "secondaryKeywords": [
       "자동화할 업무 고르는 법",
       "반복 업무 분류",
@@ -784,7 +784,7 @@
   {
     "slug": "daily-numbers-for-small-business",
     "route": "/ko/small-business/daily-numbers-for-small-business",
-    "primaryKeyword": "소상공인 매일 볼 숫자",
+    "primaryKeyword": "주문 예약 웨이팅",
     "secondaryKeywords": [
       "매출 달성률 계산",
       "목표 달성률 계산",
@@ -906,5 +906,21 @@
     "recommendedAction": "Redash를 Redash를 SQL 기반 대시보드와 리포팅 자동화 후보로 검토하고, 소규모 팀에서 확인해야 할 운영 조건을 정리합니다 관점에서 검토합니다.",
     "hookStatus": "strong",
     "lossAvoidanceAngle": "Redash를 도입 기준 없이 연결하면 권한, 데이터 품질, 운영 비용 리스크가 커질 수 있습니다."
+  },
+  {
+    "slug": "separate-picking-inspection-loading-status",
+    "route": "/ko/warehouse-logistics/separate-picking-inspection-loading-status",
+    "primaryKeyword": "피킹 검수 상차",
+    "secondaryKeywords": [
+      "WMS 상태 관리",
+      "물류 검수 절차",
+      "출고 단계 분리"
+    ],
+    "searchIntent": "business-use",
+    "audience": "운영자",
+    "cluster": "business-automation",
+    "recommendedAction": "출고 완료 하나로 묶인 상태를 피킹, 검수, 상차 단계로 분리하고 차이 확인 지점을 설계합니다.",
+    "hookStatus": "strong",
+    "lossAvoidanceAngle": "피킹·검수·상차를 한 상태로 묶으면 수량 차이의 발생 단계와 책임 지점을 찾기 어려워집니다."
   }
 ]

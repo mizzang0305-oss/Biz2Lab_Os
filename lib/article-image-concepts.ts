@@ -364,6 +364,16 @@ export const articleImageConcepts: Record<string, ArticleImageConcept> = {
     labels: ["전화", "메신저", "플랫폼", "처리"],
     palette: smallBusinessPalette,
   },
+  "separate-picking-inspection-loading-status": {
+    slug: "separate-picking-inspection-loading-status",
+    category: "warehouse-logistics",
+    visualFamily: "warehouse-stage-control",
+    conceptKo: "출고지시, 피킹, 검수, 상차와 일일 차이 확인이 별도 상태로 보이는 WMS 운영 화면",
+    altKo: "출고지시와 피킹, 검수, 상차 및 차이 확인을 분리한 물류 상태 흐름",
+    captionKo: "검수 통과 전 상차 완료를 막고 단계별 책임과 차이 확인을 남기는 fixture 화면입니다.",
+    labels: ["출고지시", "피킹", "검수", "상차"],
+    palette: smallBusinessPalette,
+  },
   "appsmith-internal-dashboard-automation": {
     slug: "appsmith-internal-dashboard-automation",
     category: "automation",
