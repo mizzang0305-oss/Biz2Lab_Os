@@ -1,55 +1,45 @@
 # Biz2Lab evidence review packet — 2026-07-29
 
-> 자동 검사 통과는 공개 승인이 아닙니다. 후보는 원본 이미지와 350px 모바일 렌더링을 독립적으로 확인한 뒤에만 승인합니다.
-> GitHub 공개 PR branch와 commit은 비공개 저장소가 아닙니다. 후보 바이너리를 `public/` 밖에 두는 조치는 URL 직접 노출을 막지만 저장소 읽기 권한 자체를 제한하지 않습니다.
+> 자동 WebP decode·크기·overflow 검사는 사람의 모바일 가독성 판단을 대신하지 않습니다.
+> 모든 재캡처 이미지는 독립 검수 전까지 `candidate`이며 Production에는 포함되지 않습니다.
 
-## 위임 검수 결과
+## 보호된 승인 증거
 
-- 검수자: `owner-delegated-gpt-5.6-pro-visual-review`
-- 위임 근거: 저장소 소유자가 PR #123 후보 검수를 직접 처리하도록 요청함
-- 검수 시각: `2026-07-29 03:27 KST`
-- 방법: GitHub Actions의 1일 보존 artifact로 exact PR 후보 6개와 SHA 목록을 내려받아 원본 및 350px 렌더링을 직접 비교함
-- 자동 OCR 사용: 없음
-- Production, AdSense, Search Console 변경: 없음
+| evidence ID | path | source commit | SHA-256 | status | next human action |
+|---|---|---|---|---|---|
+| `commerce-run-audit-log` | `/images/evidence/automation-priority-method-evidence-01.webp` | `29ef9efbf46ebe8ef7d8137dd866516056092f4f` | `84285ba7cb777118e5cdabe1e69c8424e7e6063c793cf022f1fedab8ea6f1237` | **approved · read only** | none; integrity control only |
+| `wms-order-source-workbench` | `/images/evidence/unify-order-channels-evidence-01.webp` | `6838b13b26610f576ece45e0f16886d522bb4c73` | `3adda0629180499127a879f0798e1496dac4a6ae8c0c306e5b0c1c0e99ff0a52` | **approved · read only** | none; integrity control only |
 
-| evidence ID | 원본 크기 | 모바일 판정 | 결정 | 근거 / 후속 조치 |
-|---|---:|---|---|---|
-| `commerce-run-audit-log` | 390×529 | 읽기 가능 | **APPROVED** | 실패·성공 상태, 안전 메시지, mock queue 설명이 세로 구조에서 명확하며 실서비스 성과를 주장하지 않음 |
-| `wms-order-source-workbench` | 543×519 | 읽기 가능 | **APPROVED** | `검수용 샘플 거래처`, `FIXTURE-ORDER-001`, 전화 채널이 명확하고 실제 거래처·운영 식별자가 없음 |
-| `commerce-upload-approval-gate` | 1086×694 | 읽기 어려움 | **RECAPTURE** | 350px에서 두 열의 차단 사유와 환경 상태 글자가 지나치게 작음. 차단 사유와 안전 상태를 세로형 1~2장으로 분리할 것 |
-| `wms-order-hold-validation` | 890×519 | 읽기 어려움 | **RECAPTURE** | 데스크톱 목록을 축소하면 `stock_hold`, `credit_hold`, `pending_review` 핵심 라벨이 작음. 390px 세로 검증 카드로 다시 촬영할 것 |
-| `wms-picking-inspection-loading` | 1142×886 | 읽기 어려움 | **RECAPTURE** | 전체 운영 흐름을 한 장에 담아 모바일에서 상태·차이 항목·차단 문구를 읽기 어려움. 상태 전환과 검수 전 상차 차단을 각각 집중 촬영할 것 |
-| `mybiz-readonly-operations-dashboard` | 1000×618 | 일부 숫자만 읽힘 | **RECAPTURE** | 카드 제목·보조 설명이 작고 `서울 단골 커피`가 실제 매장명처럼 보일 수 있음. `가상 데모 매장`으로 교체하고 390px 모바일 레이아웃으로 촬영할 것 |
+## 재캡처 후보
 
-## 현재 manifest 상태
+| evidence ID | source | original → new | data mode | capture selector | transformations | 350px decision | 390px decision | PII | status | next human action |
+|---|---|---|---|---|---|---|---|---|---|---|
+| `commerce-upload-approval-gate` | commerce-automation `29ef9efbf46ebe8ef7d8137dd866516056092f4f` | 1086×694 → 390×492 | local-demo | `main > div.space-y-5 > section:nth-of-type(3)` | 390px 세로형으로 기존 readiness 섹션을 재배치<br>기존 차단 사유 패널까지만 집중 캡처<br>로컬 데모·외부 업로드 비활성화 disclosure 배너 추가<br>navigation·Next.js 개발 overlay 제외 | 자동 렌더 PASS · 사람 가독성 판단 필요 | 자동 렌더 PASS · 사람 가독성 판단 필요 | pass | **candidate** | APPROVE / REJECT / RECAPTURE |
+| `wms-order-hold-validation` | CN_WMS `6838b13b26610f576ece45e0f16886d522bb4c73` | 890×519 → 390×677 | fixture | `section.screen.v262-page > div.v262-grid-two > section:nth-child(2)` | 390px 세로형으로 기존 검증 패널을 재배치<br>fixture disclosure 배너 추가<br>주문 입력·상품·수량·가격 영역 제외 | 자동 렌더 PASS · 사람 가독성 판단 필요 | 자동 렌더 PASS · 사람 가독성 판단 필요 | pass | **candidate** | APPROVE / REJECT / RECAPTURE |
+| `wms-picking-inspection-loading` | CN_WMS `6838b13b26610f576ece45e0f16886d522bb4c73` | 1142×886 → 390×1127 | fixture | `section.screen.v262-page` | 390px 세로형으로 기존 작업 lane을 재배치<br>fixture disclosure 배너 추가<br>재고 차이·품목·수량·담당자 영역 제외 | 자동 렌더 PASS · 사람 가독성 판단 필요 | 자동 렌더 PASS · 사람 가독성 판단 필요 | pass | **candidate** | APPROVE / REJECT / RECAPTURE |
+| `wms-loading-block-before-inspection` | CN_WMS `6838b13b26610f576ece45e0f16886d522bb4c73` | 1142×886 split source → 390×245 | fixture | `article.v262-blocking-alert` | 기존 검수 전 상차 차단 alert만 390px로 집중 캡처<br>fixture disclosure 배너 추가<br>창고·직원·차량·상품·수량·시각 영역 제외 | 자동 렌더 PASS · 사람 가독성 판단 필요 | 자동 렌더 PASS · 사람 가독성 판단 필요 | pass | **candidate** | APPROVE / REJECT / RECAPTURE |
+| `mybiz-readonly-operations-dashboard` | mybizLab `267ea722ccedc881909cb8c543966cdfc82a495d` | 1000×618 → 390×811 | local-demo | `main[data-demo-dashboard='readonly'] > div` | 기존 매장명을 가상 데모 매장으로 치환<br>기존 운영 상태 문구를 로컬 데모·읽기 전용으로 치환<br>DOM의 데모 고객명을 샘플 고객 A·B·C로 치환<br>390px 세로형으로 기존 4개 지표 카드를 재배치<br>fixture 수치의 변화율·성과성 보조 문구 제외<br>로컬 데모·가상 데이터·읽기 전용 disclosure 배너 추가<br>고객명·메모·차트·매출·예측 영역 제외<br>기존 count-up 애니메이션 종료 후 캡처 | 자동 렌더 PASS · 사람 가독성 판단 필요 | 자동 렌더 PASS · 사람 가독성 판단 필요 | pass | **candidate** | APPROVE / REJECT / RECAPTURE |
 
-| evidence ID | post | data mode | PII scan | status |
-|---|---|---|---|---|
-| `commerce-run-audit-log` | `automation-priority-method` | fixture | pass | **approved** |
-| `wms-order-source-workbench` | `unify-order-channels` | fixture | pass | **approved** |
-| `commerce-upload-approval-gate` | `ai-business-automation-guide` | local-demo | pass | candidate — recapture required |
-| `wms-order-hold-validation` | `unify-order-channels` | fixture | pass | candidate — recapture required |
-| `wms-picking-inspection-loading` | `separate-picking-inspection-loading-status` | fixture | pass | candidate — recapture required |
-| `mybiz-readonly-operations-dashboard` | `daily-numbers-for-small-business` | local-demo | pass | candidate — recapture required |
-| `production-approved-test-fixture` | test only | fixture | pass | approved test-only — 콘텐츠 증거로 사용 금지 |
+## Production 격리와 test fixture 제거
 
-## 승인 명령
+- `production-approved-test-fixture`는 manifest와 approved asset에서 제거했습니다.
+- Production 200 control은 `commerce-run-audit-log`, `wms-order-source-workbench` 두 실제 승인 증거입니다.
+- 모든 candidate URL, 제거된 fixture URL과 `/ko/ops/evidence-review`는 Production에서 404여야 합니다.
+- Preview는 승인 증거와 candidate를 함께 staging하지만 승인 상태를 변경하지 않습니다.
+
+## 승인 명령 dry-run
+
+각 후보에 다음 형식의 명령을 `--apply` 없이 실행합니다.
 
 ```powershell
-npm run evidence:approve -- --id <evidence-id> --reviewer <reviewer-id>
+npm run evidence:approve -- --id <evidence-id> --reviewer pending-independent-review
 ```
 
-기본 명령은 현재 이미지 SHA와 source commit, PII scan을 다시 확인하고 diff 및 `DRY_RUN_ONLY`만 출력합니다. 실제 로컬 반영은 검토 후 같은 명령 끝에 `--apply`를 명시해야 하며 git, push, deploy는 수행하지 않습니다.
+필수 결과는 `DRY_RUN_ONLY`, manifest/image byte stability, git 무변경입니다.
 
-## 재촬영 완료 조건
+## 차단 상태 유지
 
-1. 350~390px 본문 폭에서 핵심 문구를 원본 열기 없이 읽을 수 있어야 합니다.
-2. UI 안에서 `fixture`, `로컬 데모`, `가상 데이터` 중 하나가 직접 보이도록 합니다.
-3. 실제처럼 보이는 상호·거래처·식별자는 `샘플 매장 A`, `샘플 거래처 A`, `FIXTURE-*`로 교체합니다.
-4. 한 이미지에는 한 가지 주장만 담고, 화면 밖 캡션의 설명에 의존하지 않습니다.
-5. 재촬영 후 PII·secret·절대경로 검사와 SHA 검증을 다시 실행합니다.
+- CN_FOOD_Contract: 개인정보·계약·결제와 분리된 공개 fixture 부재
+- CN_ExeFlow: 실제 지시사항과 분리된 공개 fixture 부재
 
-## 이번 단계에서 차단한 프로젝트
-
-- CN_FOOD_Contract: 전자계약·결제 화면은 안전한 전용 fixture와 개인정보 비포함 캡처 경계가 없어 manifest에 추가하지 않았습니다.
-- CN_ExeFlow: 실제 지시사항 데이터와 분리된 공개 전용 fixture가 없어 manifest에 추가하지 않았습니다.
+No recaptured candidate was auto-approved.

@@ -38,6 +38,7 @@
     "evidence:capture:all": "tsx scripts/capture-project-evidence.ts --all",
     "evidence:validate": "tsx scripts/validate-evidence-assets.ts",
     "evidence:report": "tsx scripts/generate-evidence-report.ts",
+    "evidence:review-renders": "tsx scripts/generate-evidence-review-renders.ts",
     "evidence:inventory": "tsx scripts/generate-evidence-content-inventory.ts",
     "evidence:qa": "tsx scripts/verify-production-evidence.ts && playwright test --config=playwright.evidence.config.ts",
     "evidence:approve": "tsx scripts/approve-evidence.ts",

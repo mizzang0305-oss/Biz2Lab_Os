@@ -15,6 +15,7 @@
 /.tmp/
 /artifacts/evidence/raw/
 /artifacts/evidence/reports/*.json
+/artifacts/evidence/review/
 /public/images/evidence/
 /data/evidence-runtime-manifest.json
 /test-results/
