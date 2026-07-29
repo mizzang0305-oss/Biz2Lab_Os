@@ -209,7 +209,9 @@ async function captureOne(
     const url = `http://127.0.0.1:${definition.port}${definition.route}`;
     assertLocalUrl(url);
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60_000 });
-    await page.locator(definition.readySelector).waitFor({
+    await page.locator(
+      definition.initialReadySelector ?? definition.readySelector,
+    ).waitFor({
       state: "visible",
       timeout: 45_000,
     });
@@ -218,12 +220,54 @@ async function captureOne(
     if (definition.captureStyle) {
       await page.addStyleTag({ content: definition.captureStyle });
     }
+    for (const selector of definition.clickSelectors ?? []) {
+      const locator = page.locator(selector);
+      if ((await locator.count()) !== 1) {
+        throw new Error(`click selector must resolve exactly once: ${selector}`);
+      }
+      await locator.click();
+    }
+    await page.locator(definition.readySelector).waitFor({
+      state: "visible",
+      timeout: 45_000,
+    });
+    if (definition.settleTimeMs) {
+      await page.waitForTimeout(definition.settleTimeMs);
+    }
     for (const input of definition.inputValues ?? []) {
       const locator = page.locator(input.selector);
       if ((await locator.count()) !== 1) {
         throw new Error(`input selector must resolve exactly once: ${input.selector}`);
       }
       await locator.fill(input.value);
+    }
+    for (const replacement of definition.textReplacements ?? []) {
+      const locator = page.locator(replacement.selector);
+      if ((await locator.count()) !== 1) {
+        throw new Error(
+          `text replacement selector must resolve exactly once: ${replacement.selector}`,
+        );
+      }
+      await locator.evaluate(
+        (element, value) => {
+          element.textContent = value;
+        },
+        replacement.value,
+      );
+    }
+    if (definition.textSubstitutions?.length) {
+      await page.locator("body").evaluate((body, substitutions) => {
+        const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);
+        let node = walker.nextNode();
+        while (node) {
+          let text = node.textContent ?? "";
+          for (const substitution of substitutions) {
+            text = text.split(substitution.from).join(substitution.to);
+          }
+          node.textContent = text;
+          node = walker.nextNode();
+        }
+      }, definition.textSubstitutions);
     }
 
     for (const selector of definition.hideSelectors) {
@@ -241,6 +285,25 @@ async function captureOne(
       );
     }
     await target.waitFor({ state: "visible" });
+    if (definition.disclosureLabel) {
+      await target.evaluate((element, label) => {
+        const banner = document.createElement("aside");
+        banner.dataset.evidenceDisclosure = "true";
+        banner.textContent = label;
+        Object.assign(banner.style, {
+          border: "2px solid #0f766e",
+          borderRadius: "12px",
+          background: "#ecfdf5",
+          color: "#134e4a",
+          fontSize: "15px",
+          fontWeight: "800",
+          lineHeight: "1.5",
+          marginBottom: "14px",
+          padding: "10px 12px",
+        });
+        element.prepend(banner);
+      }, definition.disclosureLabel);
+    }
 
     const scanText = await collectScanText(page, definition);
     const findings = scanForSensitiveText(scanText);
@@ -358,6 +421,7 @@ async function captureOne(
       captionKo: definition.captionKo,
       capturedAt: new Date().toISOString().slice(0, 10),
       dataMode: definition.dataMode,
+      transformations: definition.transformations,
       redactions: definition.maskSelectors.map((selector) =>
         selector.replace(/[^a-zA-Z0-9가-힣_-]+/g, " ").trim(),
       ),
@@ -404,11 +468,27 @@ async function collectScanText(
 function scanForSensitiveText(text: string) {
   const patterns: Array<[string, RegExp]> = [
     ["Korean mobile number", /\b01[016789][-\s]?\d{3,4}[-\s]?\d{4}\b/],
+    [
+      "Korean landline number",
+      /\b0(?:2|3[1-3]|4[1-4]|5[1-5]|6[1-4])[-\s]?\d{3,4}[-\s]?\d{4}\b/,
+    ],
     ["email", /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i],
     ["resident number", /\b\d{6}[-\s]?[1-4]\d{6}\b/],
     ["business number", /\b\d{3}[-\s]?\d{2}[-\s]?\d{5}\b/],
     ["Windows absolute path", /[A-Za-z]:\\[^\s]+/],
     ["Unix home path", /\/(?:Users|home)\/[^\s]+/],
+    [
+      "private repository URL",
+      /https?:\/\/(?:www\.)?(?:github\.com|gitlab\.com|bitbucket\.org)\/[^\s]+/i,
+    ],
+    [
+      "real-looking address",
+      /\b(?:서울|부산|대구|인천|광주|대전|울산|세종|경기|강원|충북|충남|전북|전남|경북|경남|제주)[가-힣]{0,8}(?:시|도|구|군)\s+[가-힣0-9-]+/,
+    ],
+    [
+      "known real-looking fixture name",
+      /서울 단골 커피|서울푸드|Golden Coffee|김하린|박지훈|이서연/i,
+    ],
     [
       "credential-like value",
       /\b(?:secret|token|api[-_]?key|authorization|account)\s*[:=]\s*[A-Za-z0-9_./+-]{16,}/i,

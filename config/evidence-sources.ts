@@ -10,6 +10,7 @@ export type EvidenceCaptureDefinition = {
   env: Record<string, string>;
   postSlug: string;
   route: string;
+  initialReadySelector?: string;
   readySelector: string;
   captureSelector: string;
   captureBounds?: {
@@ -18,6 +19,12 @@ export type EvidenceCaptureDefinition = {
   };
   captureStyle?: string;
   inputValues?: Array<{ selector: string; value: string }>;
+  clickSelectors?: string[];
+  textReplacements?: Array<{ selector: string; value: string }>;
+  textSubstitutions?: Array<{ from: string; to: string }>;
+  disclosureLabel?: string;
+  settleTimeMs?: number;
+  transformations: string[];
   maskSelectors: string[];
   hideSelectors: string[];
   viewport: { width: number; height: number };
@@ -49,14 +56,42 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
     postSlug: "ai-business-automation-guide",
     route: "/uploads",
     readySelector: "h1:has-text('업로드 준비 대시보드')",
-    captureSelector:
-      "main > div.space-y-5 > section:nth-of-type(3) > div:nth-of-type(2)",
+    captureSelector: "main > div.space-y-5 > section:nth-of-type(3)",
+    captureBounds: {
+      startSelector: "[data-evidence-disclosure]",
+      endSelector:
+        "main > div.space-y-5 > section:nth-of-type(3) > div:nth-of-type(2) > div:first-child",
+    },
+    captureStyle: `
+      main > div.space-y-5 > section:nth-of-type(3) {
+        width: 390px !important;
+        padding: 16px !important;
+      }
+      main > div.space-y-5 > section:nth-of-type(3) > div:first-of-type {
+        display: grid !important;
+        gap: 12px !important;
+      }
+      main > div.space-y-5 > section:nth-of-type(3) > div:nth-of-type(2) {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+      main > div.space-y-5 > section:nth-of-type(3) > div:nth-of-type(2) > div:first-child {
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+      }
+    `,
+    disclosureLabel: "로컬 데모 · 가상 readiness 데이터 · 외부 업로드 비활성화",
+    transformations: [
+      "390px 세로형으로 기존 readiness 섹션을 재배치",
+      "기존 차단 사유 패널까지만 집중 캡처",
+      "로컬 데모·외부 업로드 비활성화 disclosure 배너 추가",
+      "navigation·Next.js 개발 overlay 제외",
+    ],
     maskSelectors: [],
     hideSelectors: ["nextjs-portal"],
-    viewport: { width: 1440, height: 960 },
+    viewport: { width: 460, height: 1100 },
     altKo: "외부 업로드 가능 여부와 차단 사유, 다음 조치가 분리된 승인형 자동화 준비 화면",
     captionKo:
-      "로컬 데모 화면. 승인 조건이 충족되지 않으면 외부 업로드가 차단되고 비밀값 대신 상태 요약만 표시됩니다.",
+      "로컬 데모 화면. 승인 조건이 충족되지 않으면 외부 업로드가 차단되고 비밀값 대신 상태 요약만 표시되며 실제 플랫폼 업로드 성공은 증명하지 않습니다.",
     dataMode: "local-demo",
     claimSupportedKo: "승인 문구와 준비 조건이 충족되기 전 외부 업로드를 차단하는 UI 경계",
     claimNotSupportedKo: "실제 플랫폼 업로드 성공, 매출 또는 운영시간 절감",
@@ -94,6 +129,11 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
       td:nth-child(8)::before { content: "안전 메시지"; }
       td:nth-child(9)::before { content: "로그 / 수동 확인"; }
     `,
+    transformations: [
+      "390px 세로형으로 기존 실행 로그 열을 재배치",
+      "실행 유형·상태·안전 메시지·로그 열만 표시",
+      "navigation·Next.js 개발 overlay 제외",
+    ],
     maskSelectors: [],
     hideSelectors: ["nextjs-portal"],
     viewport: { width: 520, height: 960 },
@@ -124,6 +164,10 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
       { selector: "[aria-label='거래처 빠른 검색']", value: "검수용 샘플 거래처" },
       { selector: "[aria-label='source_reference']", value: "FIXTURE-ORDER-001" },
     ],
+    transformations: [
+      "검수용 합성 거래처명과 fixture 주문 참조값 입력",
+      "주문 원본 패널만 집중 캡처",
+    ],
     maskSelectors: [],
     hideSelectors: [],
     viewport: { width: 1440, height: 960 },
@@ -149,13 +193,34 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
     readySelector: "h1:has-text('주문 작업대')",
     captureSelector:
       "section.screen.v262-page > div.v262-grid-two > section:nth-child(2)",
+    captureStyle: `
+      section.screen.v262-page > div.v262-grid-two > section:nth-child(2) {
+        width: 390px !important;
+        padding: 18px !important;
+      }
+      .v262-error-summary, .v262-error-summary li, .v262-badge {
+        font-size: 15px !important;
+        line-height: 1.55 !important;
+      }
+      .v262-badge-row {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 10px !important;
+      }
+    `,
     inputValues: [
       { selector: "[aria-label='거래처 빠른 검색']", value: "검수용 샘플 거래처" },
       { selector: "[aria-label='source_reference']", value: "FIXTURE-ORDER-001" },
     ],
+    disclosureLabel: "FIXTURE · 합성 주문 검증 상태",
+    transformations: [
+      "390px 세로형으로 기존 검증 패널을 재배치",
+      "fixture disclosure 배너 추가",
+      "주문 입력·상품·수량·가격 영역 제외",
+    ],
     maskSelectors: [],
     hideSelectors: [],
-    viewport: { width: 980, height: 960 },
+    viewport: { width: 460, height: 1100 },
     altKo: "재고 보류와 한도 보류, 검토 대기 상태를 분리해 표시한 WMS 주문 검증 패널",
     captionKo:
       "fixture 화면. 재고·한도 보류와 검토 대기 상태의 분리만 확인하며 실제 재고 수량이나 거래처 한도 적용 결과는 증명하지 않습니다.",
@@ -177,15 +242,82 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
     route: "/operations/flow",
     readySelector: "h1:has-text('운영 흐름')",
     captureSelector: "section.screen.v262-page",
+    captureStyle: `
+      section.screen.v262-page {
+        width: 390px !important;
+      }
+      section.screen.v262-page > div.v262-grid-four {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 12px !important;
+      }
+      .v262-card {
+        min-width: 0 !important;
+      }
+    `,
+    disclosureLabel: "FIXTURE · 가상 작업 상태",
+    transformations: [
+      "390px 세로형으로 기존 작업 lane을 재배치",
+      "fixture disclosure 배너 추가",
+      "재고 차이·품목·수량·담당자 영역 제외",
+    ],
     maskSelectors: [],
-    hideSelectors: [],
-    viewport: { width: 1440, height: 960 },
+    hideSelectors: [
+      ".sidebar",
+      ".top-status-bar",
+      ".api-boundary-notice",
+      "section.screen.v262-page > section",
+      "section.screen.v262-page > article.v262-blocking-alert",
+    ],
+    viewport: { width: 460, height: 1200 },
     altKo: "출고지시와 피킹, 검수, 상차 및 차이 확인을 별도 상태로 표시한 식자재 유통 WMS 화면",
     captionKo:
       "fixture 화면. 가상 작업 건으로 단계 분리와 검수 전 상차 차단 설계를 보여 주며 실제 출고 성과는 포함하지 않습니다.",
     dataMode: "fixture",
     claimSupportedKo: "피킹·검수·상차를 별도 상태로 두고 검수 전 상차 완료를 차단하는 설계",
     claimNotSupportedKo: "실제 물류 처리시간, 오배송 감소율 또는 운영 DB의 출고 상태",
+    minRenderedHeightAt390: 220,
+  },
+  {
+    id: "wms-loading-block-before-inspection",
+    projectKey: "cn-wms",
+    repositoryName: "CN_WMS",
+    projectLabelKo: "식자재 유통 WMS",
+    repoCandidates: ["CN_WMS"],
+    startCommand: "npm --prefix apps/ops-console run dev -- --host 127.0.0.1 --port 4312",
+    port: 4312,
+    healthPath: "/operations/flow",
+    env: { VITE_PORTAL_DATA_SOURCE: "mock" },
+    postSlug: "separate-picking-inspection-loading-status",
+    route: "/operations/flow",
+    readySelector: "article.v262-blocking-alert",
+    captureSelector: "article.v262-blocking-alert",
+    captureStyle: `
+      article.v262-blocking-alert {
+        width: 390px !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 12px !important;
+        padding: 18px !important;
+        font-size: 16px !important;
+        line-height: 1.65 !important;
+      }
+    `,
+    disclosureLabel: "FIXTURE · 가상 검수/상차 상태",
+    transformations: [
+      "기존 검수 전 상차 차단 alert만 390px로 집중 캡처",
+      "fixture disclosure 배너 추가",
+      "창고·직원·차량·상품·수량·시각 영역 제외",
+    ],
+    maskSelectors: [],
+    hideSelectors: [".sidebar", ".top-status-bar", ".api-boundary-notice"],
+    viewport: { width: 460, height: 900 },
+    altKo: "검수 통과 전 상차 완료 처리가 차단되고 다음 행동으로 검수 통과가 제시된 WMS fixture 알림",
+    captionKo:
+      "fixture 화면. 검수 통과 전 상차 완료 차단과 다음 필수 행동만 보여 주며 실제 창고 처리 결과나 운영 DB 상태는 포함하지 않습니다.",
+    dataMode: "fixture",
+    claimSupportedKo: "검수 통과 전 상차 완료 처리를 차단하는 설계",
+    claimNotSupportedKo: "실제 처리시간, 오배송 감소율, 재고 정확도 또는 Production 데이터베이스 상태",
+    minRenderedHeightAt390: 220,
   },
   {
     id: "mybiz-readonly-operations-dashboard",
@@ -201,21 +333,68 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
     route: "/demo/dashboard",
     readySelector: "main[data-demo-dashboard='readonly']",
     captureSelector: "main[data-demo-dashboard='readonly'] > div",
-    captureBounds: {
-      startSelector:
-        "main[data-demo-dashboard='readonly'] > div > div:first-child",
-      endSelector:
-        "main[data-demo-dashboard='readonly'] > div > section:nth-of-type(1)",
-    },
+    captureStyle: `
+      main[data-demo-dashboard='readonly'] > div {
+        width: 390px !important;
+        padding: 20px !important;
+      }
+      main[data-demo-dashboard='readonly'] > div > div:nth-of-type(2) {
+        align-items: flex-start !important;
+      }
+      main[data-demo-dashboard='readonly'] > div > section:nth-of-type(1) {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+      main[data-demo-dashboard='readonly'] > div > div:nth-of-type(2) > div:nth-of-type(2) {
+        display: none !important;
+      }
+      main[data-demo-dashboard='readonly'] > div > section:nth-of-type(1) article p:nth-of-type(n+3),
+      main[data-demo-dashboard='readonly'] > div > section:nth-of-type(1) article > span {
+        display: none !important;
+      }
+    `,
+    textReplacements: [
+      {
+        selector:
+          "main[data-demo-dashboard='readonly'] > div > div:nth-of-type(2) h1",
+        value: "가상 데모 매장",
+      },
+      {
+        selector:
+          "main[data-demo-dashboard='readonly'] > div > div:nth-of-type(2) > div:first-child p",
+        value: "로컬 데모 · 읽기 전용",
+      },
+    ],
+    textSubstitutions: [
+      { from: "서울 단골 커피", to: "가상 데모 매장" },
+      { from: "김하린", to: "샘플 고객 A" },
+      { from: "박지훈", to: "샘플 고객 B" },
+      { from: "이서연", to: "샘플 고객 C" },
+    ],
+    disclosureLabel: "로컬 데모 · 가상 데이터 · 읽기 전용",
+    settleTimeMs: 1600,
+    transformations: [
+      "기존 매장명을 가상 데모 매장으로 치환",
+      "기존 운영 상태 문구를 로컬 데모·읽기 전용으로 치환",
+      "DOM의 데모 고객명을 샘플 고객 A·B·C로 치환",
+      "390px 세로형으로 기존 4개 지표 카드를 재배치",
+      "fixture 수치의 변화율·성과성 보조 문구 제외",
+      "로컬 데모·가상 데이터·읽기 전용 disclosure 배너 추가",
+      "고객명·메모·차트·매출·예측 영역 제외",
+      "기존 count-up 애니메이션 종료 후 캡처",
+    ],
     maskSelectors: [],
-    hideSelectors: ["footer"],
-    viewport: { width: 1000, height: 960 },
+    hideSelectors: [
+      "footer",
+      "main[data-demo-dashboard='readonly'] > div > div:nth-of-type(3)",
+      "main[data-demo-dashboard='readonly'] > div > section:nth-of-type(1) ~ *",
+    ],
+    viewport: { width: 460, height: 1200 },
     altKo: "고객 기억과 예약, 웨이팅, QR 주문을 서로 다른 운영 숫자로 표시한 읽기 전용 매장 데모",
     captionKo:
       "로컬 데모 화면. 모든 값은 가상 데이터이며 지표를 분리해 보는 UI만 확인할 수 있고 실제 매장 성과를 뜻하지 않습니다.",
     dataMode: "local-demo",
     claimSupportedKo: "고객 기록·예약·웨이팅·주문을 서로 다른 운영 지표로 표시하는 읽기 전용 화면",
     claimNotSupportedKo: "실제 고객 수, 재방문율, 매출 또는 AI 예측 정확도",
-    aspectRatio: { min: 1.25, max: 1.65 },
+    minRenderedHeightAt390: 220,
   },
 ];

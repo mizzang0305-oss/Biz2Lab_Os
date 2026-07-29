@@ -39,6 +39,7 @@ const publicAssetSchema = z.object({
     ),
   capturedAt: z.string().regex(yyyyMmDd),
   dataMode: z.enum(["fixture", "local-demo"]),
+  transformations: z.array(z.string().min(1)).optional(),
   redactions: z.array(z.string().min(1)),
   redactionReason: z.string().min(1).optional(),
   piiScan: z.literal("pass"),
