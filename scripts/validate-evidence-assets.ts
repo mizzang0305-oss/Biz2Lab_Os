@@ -84,6 +84,12 @@ async function validatePublicItem(
   if (item.sourceDirty && item.status === "approved") {
     issues.push(`${item.id}: dirty source cannot be approved`);
   }
+  if (
+    item.status === "candidate" &&
+    (!item.transformations || item.transformations.length === 0)
+  ) {
+    issues.push(`${item.id}: recaptured candidate transformations are missing`);
+  }
 }
 
 main().catch((error) => {

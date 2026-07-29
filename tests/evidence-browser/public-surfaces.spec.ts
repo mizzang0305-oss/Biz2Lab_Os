@@ -85,14 +85,16 @@ for (const viewport of viewports) {
   });
 }
 
-test("preview shows candidate review badge on five case studies", async ({
+test("preview shows candidate review badge only on case studies with candidates", async ({
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  for (const route of routes.slice(4, 9)) {
+  for (const route of [routes[4], routes[6], routes[7], routes[8]]) {
     await page.goto(route, { waitUntil: "domcontentloaded" });
     await expect(page.getByText("공개 전 검토 중").first()).toBeVisible();
   }
+  await page.goto(routes[5], { waitUntil: "domcontentloaded" });
+  await expect(page.getByText("공개 전 검토 중")).toHaveCount(0);
 });
 
 test("preview project cards label candidate evidence", async ({ page }) => {
@@ -118,6 +120,12 @@ test("preview review page is read-only and its evidence remains legible at 390px
     "noindex, nofollow, nocache",
   );
   await expect(page.locator("article")).toHaveCount(reviewableEvidenceCount);
+  await expect(page.locator("article[data-evidence-status='approved']")).toHaveCount(
+    evidenceManifest.filter((item) => item.status === "approved").length,
+  );
+  await expect(page.locator("article[data-evidence-status='candidate']")).toHaveCount(
+    evidenceManifest.filter((item) => item.status === "candidate").length,
+  );
   await expect(page.locator("main form, main button, main input")).toHaveCount(0);
   await expect(page.getByText("--apply", { exact: false })).toHaveCount(0);
 
@@ -148,6 +156,16 @@ test("preview review page is read-only and its evidence remains legible at 390px
     expect(dimensions.naturalWidth).toBeGreaterThan(0);
     expect(dimensions.naturalHeight).toBeGreaterThan(0);
     expect(dimensions.renderedWidth).toBeGreaterThanOrEqual(280);
-    expect(dimensions.renderedHeight).toBeGreaterThan(120);
+    const status = await image
+      .locator("xpath=ancestor::article[1]")
+      .getAttribute("data-evidence-status");
+    const evidenceId = await image
+      .locator("xpath=ancestor::article[1]")
+      .getAttribute("data-evidence-id");
+    expect(dimensions.renderedHeight).toBeGreaterThan(
+      status === "candidate" && evidenceId !== "wms-loading-block-before-inspection"
+        ? 219
+        : 190,
+    );
   }
 });

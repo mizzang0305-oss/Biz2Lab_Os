@@ -51,7 +51,31 @@ const manifest = evidenceManifestSchema.parse(
 const candidates = manifest.filter((item) => item.status === "candidate");
 const approved = manifest.filter((item) => item.status === "approved");
 if (candidates.length === 0 || approved.length === 0) {
-  throw new Error("Production isolation QA requires candidate and approved fixtures.");
+  throw new Error("Production isolation QA requires candidate and approved evidence.");
+}
+const expectedApprovedIds = [
+  "commerce-run-audit-log",
+  "wms-order-source-workbench",
+];
+if (
+  JSON.stringify(approved.map((item) => item.id).sort()) !==
+  JSON.stringify(expectedApprovedIds.sort())
+) {
+  throw new Error("Production controls must be the two real approved evidence items.");
+}
+const runtimeManifest = evidenceManifestSchema.parse(
+  JSON.parse(
+    fs.readFileSync(
+      path.join(root, "data", "evidence-runtime-manifest.json"),
+      "utf8",
+    ),
+  ),
+);
+if (
+  runtimeManifest.some((item) => item.status !== "approved") ||
+  runtimeManifest.length !== approved.length
+) {
+  throw new Error("Production runtime manifest must contain approved evidence only.");
 }
 
 for (const candidate of candidates) {
@@ -105,11 +129,31 @@ async function verifyProductionHttp() {
           );
         }
       }
+      const removedFixture = await client.get(
+        "/images/evidence/production-approved-test-fixture.webp",
+      );
+      if (removedFixture.status() !== 404) {
+        throw new Error(
+          `Removed Production test fixture expected 404, received ${removedFixture.status()}`,
+        );
+      }
       const reviewPage = await client.get("/ko/ops/evidence-review");
       if (reviewPage.status() !== 404) {
         throw new Error(
           `Production review page expected 404, received ${reviewPage.status()}`,
         );
+      }
+      for (const route of [
+        "/ko/automation/ai-business-automation-guide",
+        "/ko/small-business/unify-order-channels",
+        "/ko/warehouse-logistics/separate-picking-inspection-loading-status",
+        "/ko/small-business/daily-numbers-for-small-business",
+      ]) {
+        const response = await client.get(route);
+        const html = await response.text();
+        if (/공개 전 검토 중|CANDIDATE · HUMAN REVIEW/.test(html)) {
+          throw new Error(`${route}: candidate label found in Production HTML`);
+        }
       }
     } finally {
       await client.dispose();
@@ -119,7 +163,7 @@ async function verifyProductionHttp() {
   }
 
   console.log(
-    `Production evidence isolation PASS (${candidates.length} candidate URLs 404; ${approved.length} approved fixture URLs 200; review page 404; candidate SHA hits 0).`,
+    `Production evidence isolation PASS (${candidates.length} candidate URLs 404; ${approved.length} real approved URLs 200; removed fixture 404; review page 404; candidate SHA hits 0; candidate labels 0).`,
   );
 }
 

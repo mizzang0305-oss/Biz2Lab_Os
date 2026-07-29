@@ -25,6 +25,14 @@ const manifest = evidenceManifestSchema.parse(
 const candidates = manifest.filter(
   (item): item is PublicEvidenceItem => item.status === "candidate",
 );
+const approved = manifest.filter(
+  (item): item is PublicEvidenceItem => item.status === "approved",
+);
+const approvedControlIds = [
+  "wms-order-source-workbench",
+  "commerce-run-audit-log",
+] as const;
+const removedFixtureImage = "production-approved-test-fixture.webp";
 
 test("candidate evidence visibility is fail-closed", () => {
   const cases = [
@@ -135,106 +143,87 @@ test("evidence schema enforces status invariants and unique ids/images", () => {
   );
 });
 
-test("stage script copies preview candidates and production approved fixture only", () => {
+test("stage script uses the two real approved items as Production controls", () => {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-evidence-"));
   try {
-    const sample = candidates[0];
-    assert.ok(sample);
-    const second = candidates[1];
-    assert.ok(second);
-    const candidateBytes = fs.readFileSync(
-      path.join(root, "evidence-assets", "candidates", path.basename(sample.image)),
-    );
-    const approvedBytes = fs.readFileSync(
-      path.join(root, "evidence-assets", "candidates", path.basename(second.image)),
-    );
-    const approved: PublicEvidenceItem = {
-      ...second,
-      status: "approved",
-      approvedBy: "test-fixture",
-      approvedAt: "2026-07-29T00:00:00.000Z",
-    };
-    fs.mkdirSync(path.join(tempRoot, "data"), { recursive: true });
-    fs.mkdirSync(path.join(tempRoot, "evidence-assets", "candidates"), {
-      recursive: true,
-    });
-    fs.mkdirSync(path.join(tempRoot, "evidence-assets", "approved"), {
-      recursive: true,
-    });
-    fs.writeFileSync(
-      path.join(tempRoot, "data", "evidence-manifest.json"),
-      JSON.stringify([sample, approved]),
-    );
-    fs.writeFileSync(
-      path.join(
-        tempRoot,
-        "evidence-assets",
-        "candidates",
-        path.basename(sample.image),
-      ),
-      candidateBytes,
-    );
-    fs.writeFileSync(
-      path.join(
-        tempRoot,
-        "evidence-assets",
-        "approved",
-        path.basename(approved.image),
-      ),
-      approvedBytes,
-    );
-
     const destination = path.join(tempRoot, "public", "images", "evidence");
+    const runtimeManifestPath = path.join(
+      tempRoot,
+      "data",
+      "evidence-runtime-manifest.json",
+    );
     stageEvidenceAssets({
-      root: tempRoot,
+      root,
       destination,
+      runtimeManifestPath,
       runtime: { vercelEnvironment: "production" },
     });
+    for (const candidate of candidates) {
+      assert.equal(
+        fs.existsSync(path.join(destination, path.basename(candidate.image))),
+        false,
+      );
+    }
+    for (const item of approved) {
+      assert.equal(
+        fs.existsSync(path.join(destination, path.basename(item.image))),
+        true,
+      );
+    }
     assert.equal(
-      fs.existsSync(path.join(destination, path.basename(sample.image))),
+      fs.existsSync(path.join(destination, removedFixtureImage)),
       false,
     );
-    assert.equal(
-      fs.existsSync(path.join(destination, path.basename(approved.image))),
-      true,
-    );
     const productionRuntime = JSON.parse(
-      fs.readFileSync(
-        path.join(tempRoot, "data", "evidence-runtime-manifest.json"),
-        "utf8",
-      ),
+      fs.readFileSync(runtimeManifestPath, "utf8"),
     ) as PublicEvidenceItem[];
     assert.deepEqual(
-      productionRuntime.map((item) => item.id),
-      [approved.id],
+      productionRuntime.map((item) => item.id).sort(),
+      [...approvedControlIds].sort(),
     );
 
     stageEvidenceAssets({
-      root: tempRoot,
+      root,
       destination,
+      runtimeManifestPath,
       runtime: { vercelEnvironment: "preview" },
     });
-    assert.equal(
-      fs.existsSync(path.join(destination, path.basename(sample.image))),
-      true,
-    );
-    assert.equal(
-      fs.existsSync(path.join(destination, path.basename(approved.image))),
-      true,
-    );
+    for (const item of [...approved, ...candidates]) {
+      assert.equal(
+        fs.existsSync(path.join(destination, path.basename(item.image))),
+        true,
+      );
+    }
     const previewRuntime = JSON.parse(
-      fs.readFileSync(
-        path.join(tempRoot, "data", "evidence-runtime-manifest.json"),
-        "utf8",
-      ),
+      fs.readFileSync(runtimeManifestPath, "utf8"),
     ) as PublicEvidenceItem[];
     assert.deepEqual(
-      previewRuntime.map((item) => item.id),
-      [sample.id, approved.id],
+      previewRuntime.map((item) => item.id).sort(),
+      [...approved, ...candidates].map((item) => item.id).sort(),
     );
   } finally {
     fs.rmSync(tempRoot, { recursive: true, force: true });
   }
+});
+
+test("recaptured candidates record transformations and mobile-useful height", () => {
+  for (const item of candidates) {
+    assert.ok(item.transformations?.length, `${item.id} transformations missing`);
+    assert.ok(
+      (390 * item.height) / item.width >= 220,
+      `${item.id} is shorter than 220 CSS px at 390px`,
+    );
+  }
+  assert.equal(
+    manifest.some((item) => item.id === "production-approved-test-fixture"),
+    false,
+  );
+  assert.equal(
+    fs.existsSync(
+      path.join(root, "evidence-assets", "approved", removedFixtureImage),
+    ),
+    false,
+  );
 });
 
 test("approval command defaults to a byte-stable dry run", () => {
