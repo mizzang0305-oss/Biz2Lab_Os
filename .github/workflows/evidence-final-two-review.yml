@@ -1,0 +1,43 @@
+name: Final two evidence review artifact
+
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      - synchronize
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    if: github.event.pull_request.number == 123 || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact PR commit
+        uses: actions/checkout@v4
+      - name: Verify final candidates
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            evidence-assets/candidates/ai-business-automation-guide-evidence-01.webp
+            evidence-assets/candidates/daily-numbers-for-small-business-evidence-01.webp
+          )
+          for file in "${files[@]}"; do test -f "$file"; done
+          sha256sum "${files[@]}" > evidence-assets/final-two-sha256.txt
+      - name: Upload review packet
+        uses: actions/upload-artifact@v4
+        with:
+          name: biz2lab-final-two-review-${{ github.sha }}
+          path: |
+            evidence-assets/candidates/ai-business-automation-guide-evidence-01.webp
+            evidence-assets/candidates/daily-numbers-for-small-business-evidence-01.webp
+            evidence-assets/final-two-sha256.txt
+            data/evidence-manifest.json
+            reports/biz2lab-evidence-review-packet-2026-07-29.md
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 0
