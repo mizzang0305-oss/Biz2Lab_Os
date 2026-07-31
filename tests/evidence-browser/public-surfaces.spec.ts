@@ -5,6 +5,12 @@ import evidenceManifest from "../../data/evidence-manifest.json";
 const reviewableEvidenceCount = evidenceManifest.filter(
   (item) => item.status === "candidate" || item.status === "approved",
 ).length;
+const approvedEvidenceCount = evidenceManifest.filter(
+  (item) => item.status === "approved",
+).length;
+const candidateEvidenceCount = evidenceManifest.filter(
+  (item) => item.status === "candidate",
+).length;
 
 const routes = [
   "/ko",
@@ -85,29 +91,28 @@ for (const viewport of viewports) {
   });
 }
 
-test("preview shows candidate review badge only on case studies with candidates", async ({
+test("preview shows no candidate review badges after final approval", async ({
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  for (const route of [routes[4], routes[7]]) {
-    await page.goto(route, { waitUntil: "domcontentloaded" });
-    await expect(page.getByText("공개 전 검토 중").first()).toBeVisible();
-  }
-  for (const route of [routes[5], routes[6], routes[8]]) {
+  expect(candidateEvidenceCount).toBe(0);
+  for (const route of routes.slice(4, 9)) {
     await page.goto(route, { waitUntil: "domcontentloaded" });
     await expect(page.getByText("공개 전 검토 중")).toHaveCount(0);
   }
 });
 
-test("preview project cards label candidate evidence", async ({ page }) => {
+test("preview project cards render approved evidence without candidate labels", async ({
+  page,
+}) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/ko/projects", { waitUntil: "domcontentloaded" });
 
-  await expect(page.getByText("공개 전 검토 중 · Preview 전용")).toHaveCount(2);
-  await expect(page.locator("img[src*='evidence-01']")).toHaveCount(3);
+  await expect(page.getByText("공개 전 검토 중 · Preview 전용")).toHaveCount(0);
+  await expect(page.locator("img[src*='/images/evidence/']")).toHaveCount(3);
 });
 
-test("preview review page is read-only and its evidence remains legible at 390px", async ({
+test("preview review page is read-only and all approved evidence remains legible at 390px", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
@@ -123,11 +128,9 @@ test("preview review page is read-only and its evidence remains legible at 390px
   );
   await expect(page.locator("article")).toHaveCount(reviewableEvidenceCount);
   await expect(page.locator("article[data-evidence-status='approved']")).toHaveCount(
-    evidenceManifest.filter((item) => item.status === "approved").length,
+    approvedEvidenceCount,
   );
-  await expect(page.locator("article[data-evidence-status='candidate']")).toHaveCount(
-    evidenceManifest.filter((item) => item.status === "candidate").length,
-  );
+  await expect(page.locator("article[data-evidence-status='candidate']")).toHaveCount(0);
   await expect(page.locator("main form, main button, main input")).toHaveCount(0);
   await expect(page.getByText("--apply", { exact: false })).toHaveCount(0);
 
@@ -158,16 +161,6 @@ test("preview review page is read-only and its evidence remains legible at 390px
     expect(dimensions.naturalWidth).toBeGreaterThan(0);
     expect(dimensions.naturalHeight).toBeGreaterThan(0);
     expect(dimensions.renderedWidth).toBeGreaterThanOrEqual(280);
-    const status = await image
-      .locator("xpath=ancestor::article[1]")
-      .getAttribute("data-evidence-status");
-    const evidenceId = await image
-      .locator("xpath=ancestor::article[1]")
-      .getAttribute("data-evidence-id");
-    expect(dimensions.renderedHeight).toBeGreaterThan(
-      status === "candidate" && evidenceId !== "wms-loading-block-before-inspection"
-        ? 219
-        : 190,
-    );
+    expect(dimensions.renderedHeight).toBeGreaterThan(190);
   }
 });
