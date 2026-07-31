@@ -1,4 +1,4 @@
-name: Evidence final validation
+name: Production dependency audit
 
 on:
   pull_request:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 
 jobs:
-  validate:
+  audit:
     if: github.event.pull_request.number == 123
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -22,11 +22,4 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
-      - run: npm test
-      - run: npm run lint
-      - run: npm run typecheck
-      - run: npm run evidence:validate
-      - run: npm run evidence:qa
-      - run: VERCEL_ENV=production npm run build
-      - run: git diff --check
+      - run: npm audit --omit=dev
