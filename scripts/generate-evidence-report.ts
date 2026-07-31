@@ -21,16 +21,24 @@ const originalDimensions: Record<string, string> = {
 const approvedIds = [
   "commerce-run-audit-log",
   "wms-order-source-workbench",
+  "wms-order-hold-validation",
+  "wms-picking-inspection-loading",
+  "wms-loading-block-before-inspection",
 ];
-const candidateIds = evidenceCaptureDefinitions
-  .map((item) => item.id)
-  .filter((id) => !approvedIds.includes(id));
+const candidateIds = [
+  "commerce-upload-approval-gate",
+  "mybiz-readonly-operations-dashboard",
+];
+const finalRecaptureOldDimensions: Record<string, string> = {
+  "commerce-upload-approval-gate": "390×492",
+  "mybiz-readonly-operations-dashboard": "390×811",
+};
 
 const lines = [
   "# Biz2Lab evidence review packet — 2026-07-29",
   "",
   "> 자동 WebP decode·크기·overflow 검사는 사람의 모바일 가독성 판단을 대신하지 않습니다.",
-  "> 모든 재캡처 이미지는 독립 검수 전까지 `candidate`이며 Production에는 포함되지 않습니다.",
+  "> 최종 재캡처 2개는 독립 검수 전까지 `candidate`이며 Production에는 포함되지 않습니다.",
   "",
   "## 보호된 승인 증거",
   "",
@@ -50,7 +58,7 @@ for (const id of approvedIds) {
 
 lines.push(
   "",
-  "## 재캡처 후보",
+  "## 최종 재캡처 후보",
   "",
   "| evidence ID | source | original → new | data mode | capture selector | transformations | 350px decision | 390px decision | PII | status | next human action |",
   "|---|---|---|---|---|---|---|---|---|---|---|",
@@ -72,7 +80,7 @@ lines.push(
   "## Production 격리와 test fixture 제거",
   "",
   "- `production-approved-test-fixture`는 manifest와 approved asset에서 제거했습니다.",
-  "- Production 200 control은 `commerce-run-audit-log`, `wms-order-source-workbench` 두 실제 승인 증거입니다.",
+  "- Production 200 control은 보호된 실제 승인 증거 5개입니다.",
   "- 모든 candidate URL, 제거된 fixture URL과 `/ko/ops/evidence-review`는 Production에서 404여야 합니다.",
   "- Preview는 승인 증거와 candidate를 함께 staging하지만 승인 상태를 변경하지 않습니다.",
   "",
@@ -90,9 +98,30 @@ lines.push(
   "",
   "- CN_FOOD_Contract: 개인정보·계약·결제와 분리된 공개 fixture 부재",
   "- CN_ExeFlow: 실제 지시사항과 분리된 공개 fixture 부재",
-  "",
-  "No recaptured candidate was auto-approved.",
 );
+
+lines.push(
+  "",
+  "## Final two recapture — human review pending",
+  "",
+  "Automated QA does not replace independent human approval.",
+  "",
+  "| evidence ID | old → new | source / route | capture selector | visible disclosure | transformations | PII | SHA-256 | 350px | 390px | supported claim | unsupported claim | status | decision required |",
+  "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|",
+);
+
+for (const id of candidateIds) {
+  const definition = evidenceCaptureDefinitions.find((item) => item.id === id);
+  const item = byId.get(id);
+  if (!definition || !item || item.status !== "candidate") {
+    throw new Error(`${id}: final recapture candidate is missing`);
+  }
+  lines.push(
+    `| \`${item.id}\` | ${finalRecaptureOldDimensions[id]} → ${item.width}×${item.height} | ${item.repositoryName} \`${item.sourceCommit}\` / \`${item.sourceRoute}\` | \`${definition.captureSelector}\` | ${definition.disclosureLabel ?? "n/a"} | ${(item.transformations ?? []).join("<br>")} | ${item.piiScan} | \`${item.sha256}\` | 자동 렌더 PASS · 직접 확인 가능 · 독립 승인 필요 | 자동 렌더 PASS · 직접 확인 가능 · 독립 승인 필요 | ${item.claimSupportedKo} | ${item.claimNotSupportedKo} | **candidate** | APPROVE / REJECT / RECAPTURE |`,
+  );
+}
+
+lines.push("", "No recaptured candidate was auto-approved.");
 
 const output = path.join(
   root,
