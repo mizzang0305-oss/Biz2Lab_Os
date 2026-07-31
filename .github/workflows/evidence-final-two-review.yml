@@ -75,9 +75,11 @@ jobs:
               path.write_text(text, encoding="utf-8")
           PY
 
-      - name: Remove temporary workflow
+      - name: Remove temporary files
         shell: bash
-        run: rm -f .github/workflows/evidence-final-two-review.yml
+        run: |
+          rm -f .github/workflows/evidence-final-two-review.yml
+          rm -f reports/.final-two-approval-trigger
 
       - name: Validate approved state
         shell: bash
@@ -99,5 +101,5 @@ jobs:
           git config user.name "Biz2Lab delegated review"
           git config user.email "mizzang0305@gmail.com"
           git add -A
-          git commit -m "review(evidence): approve final two mobile captures" -m "Approve the complete upload-blocker card and non-promotional MyBiz read-only dashboard after delegated visual review. Remove the temporary review workflow. PR remains Draft; Production, AdSense, and Search Console remain untouched."
+          git commit -m "review(evidence): approve final two mobile captures" -m "Approve the complete upload-blocker card and non-promotional MyBiz read-only dashboard after delegated visual review. Remove temporary review files. PR remains Draft; Production, AdSense, and Search Console remain untouched."
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
