@@ -52,3 +52,20 @@ Automated QA does not replace independent human approval.
 | `mybiz-readonly-operations-dashboard` | 390×811 → 390×831 | mybizLab `267ea722ccedc881909cb8c543966cdfc82a495d` / `/demo/dashboard` | `main[data-demo-dashboard='readonly'] > div` | 로컬 데모 · 가상 데이터 · 읽기 전용 | 기존 매장명을 가상 데모 매장으로 치환<br>기존 운영 상태 문구를 로컬 데모·읽기 전용으로 치환<br>무료 시작·실제 매장 관리 홍보 문구를 저장되지 않는 가상 데이터 안내로 치환<br>첫 지표를 고객 기록으로 명확화<br>DOM의 데모 고객명을 샘플 고객 A·B·C로 치환<br>390px 세로형으로 기존 4개 지표 카드를 재배치<br>fixture 수치의 변화율·성과성 보조 문구 제외<br>로컬 데모·가상 데이터·읽기 전용 disclosure 배너 추가<br>고객명·메모·차트·매출·예측 영역 제외<br>기존 count-up 애니메이션 종료 후 캡처 | pass | `6ebeaa03f68bd1441e3ad06eacdb9eeb2a4b3fcbf5080fe10a9a61bd455bd6eb` | 자동 렌더 PASS · 직접 확인 가능 · 독립 승인 필요 | 자동 렌더 PASS · 직접 확인 가능 · 독립 승인 필요 | 고객 기록·예약·웨이팅·주문을 서로 다른 운영 지표로 표시하는 읽기 전용 화면 | 실제 고객 수, 재방문율, 매출 또는 AI 예측 정확도 | **candidate** | APPROVE / REJECT / RECAPTURE |
 
 No recaptured candidate was auto-approved.
+
+## 2026-08-01 최종 2개 위임 시각 검수
+
+- 검수자: `owner-delegated-gpt-5.6-thinking-final-two-visual-review`
+- 위임 근거: 저장소 소유자가 최종 후보 2개의 직접 검수와 안전한 승인 반영을 요청함
+- 검수 시각: `2026-08-01 01:53 KST`
+- 검수 대상: exact PR 후보 원본 2개와 350px 모바일 가독성
+- 검수 방법: 원본 이미지를 직접 확대해 완결성, fixture/local-demo 표시, 실제 식별자, 홍보성 주장, 지원 주장 일치를 확인함
+- 자동 OCR 사용: 없음
+- Production, AdSense, Search Console 변경: 없음
+
+| evidence ID | 결정 | 최종 판단 |
+|---|---|---|
+| `commerce-upload-approval-gate` | **APPROVED** | `로컬 데모`, 외부 업로드 비활성화, `can_upload=false`, 완전한 quota 차단 사유와 다음 행동이 하나의 완결된 카드 안에서 읽힘. token·secret·실제 업로드 성과 주장이 없음 |
+| `mybiz-readonly-operations-dashboard` | **APPROVED** | `가상 데모 매장`, 읽기 전용·가상 데이터 고지와 고객 기록·예약·웨이팅·QR 주문 분리가 모바일에서 명확함. 기존 홍보 문구와 실제 성과 주장이 제거됨 |
+
+두 항목의 SHA-256은 manifest와 일치했으며 PII/secret scan은 pass입니다. 이 승인으로 콘텐츠 증거 7개가 모두 approved 상태가 됩니다.
