@@ -11,7 +11,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "pretest": "tsx scripts/prepare-evidence-test-runtime.ts",
-    "test": "tsx --test tests/**/*.test.ts",
+    "test": "tsx scripts/run-node-tests.ts",
     "validate:posts": "tsx scripts/validate-posts.ts",
     "validate:seo": "tsx scripts/validate-seo.ts",
     "validate:images": "tsx scripts/validate-images.ts",
@@ -62,7 +62,7 @@
     "react-dom": "19.2.4",
     "react-markdown": "^10.1.0",
     "reading-time": "^1.5.0",
-    "remark-gfm": "^4.0.1",
+    "remark-gfm": "^4.4.3",
     "zod": "^4.4.3"
   },
   "devDependencies": {
