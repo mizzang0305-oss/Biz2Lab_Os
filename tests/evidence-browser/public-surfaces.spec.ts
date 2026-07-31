@@ -109,7 +109,18 @@ test("preview project cards render approved evidence without candidate labels", 
   await page.goto("/ko/projects", { waitUntil: "domcontentloaded" });
 
   await expect(page.getByText("공개 전 검토 중 · Preview 전용")).toHaveCount(0);
-  await expect(page.locator("img[src*='/images/evidence/']")).toHaveCount(3);
+  const evidenceImageCount = await page.locator("img").evaluateAll((images) =>
+    images.filter((image) => {
+      try {
+        return decodeURIComponent((image as HTMLImageElement).src).includes(
+          "/images/evidence/",
+        );
+      } catch {
+        return false;
+      }
+    }).length,
+  );
+  expect(evidenceImageCount).toBe(3);
 });
 
 test("preview review page is read-only and all approved evidence remains legible at 390px", async ({
