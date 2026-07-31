@@ -50,8 +50,8 @@ const manifest = evidenceManifestSchema.parse(
 );
 const candidates = manifest.filter((item) => item.status === "candidate");
 const approved = manifest.filter((item) => item.status === "approved");
-if (candidates.length === 0 || approved.length === 0) {
-  throw new Error("Production isolation QA requires candidate and approved evidence.");
+if (approved.length === 0) {
+  throw new Error("Production evidence QA requires approved evidence.");
 }
 const expectedApprovedIds = [
   "commerce-run-audit-log",
@@ -59,12 +59,17 @@ const expectedApprovedIds = [
   "wms-order-hold-validation",
   "wms-picking-inspection-loading",
   "wms-loading-block-before-inspection",
+  "commerce-upload-approval-gate",
+  "mybiz-readonly-operations-dashboard",
 ];
 if (
   JSON.stringify(approved.map((item) => item.id).sort()) !==
   JSON.stringify(expectedApprovedIds.sort())
 ) {
-  throw new Error("Production controls must be the five protected approved evidence items.");
+  throw new Error("Production controls must be the seven approved evidence items.");
+}
+if (candidates.length !== 0) {
+  throw new Error("Final Production evidence QA expects zero remaining candidates.");
 }
 const runtimeManifest = evidenceManifestSchema.parse(
   JSON.parse(
@@ -166,7 +171,7 @@ async function verifyProductionHttp() {
   }
 
   console.log(
-    `Production evidence isolation PASS (${candidates.length} candidate URLs 404; ${approved.length} real approved URLs 200; removed fixture 404; review page 404; candidate SHA hits 0; candidate labels 0).`,
+    `Production evidence approval PASS (${approved.length} approved URLs 200; ${candidates.length} candidates; removed fixture 404; review page 404; candidate labels 0).`,
   );
 }
 
