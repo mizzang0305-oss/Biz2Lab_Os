@@ -43,3 +43,28 @@ npm run evidence:approve -- --id <evidence-id> --reviewer pending-independent-re
 - CN_ExeFlow: 실제 지시사항과 분리된 공개 fixture 부재
 
 No recaptured candidate was auto-approved.
+
+
+## 2026-07-31 위임 최종 시각 검수
+
+- 검수자: `owner-delegated-gpt-5.6-thinking-final-visual-review`
+- 위임 근거: 저장소 소유자가 바쁜 상황에서 후보 증거의 최종 검수와 안전한 승인 반영을 요청함
+- 검수 시각: `2026-07-31 19:23 KST`
+- 검수 대상: exact PR recapture 후보 원본 5개와 350px 모바일 렌더링
+- 방법: 원본 이미지를 직접 확대하고 350px에서 핵심 문구, fixture 표시, 식별자, 잘림, 주장 일치를 비교함
+- 자동 OCR 사용: 없음
+- Production, AdSense, Search Console 변경: 없음
+
+| evidence ID | 결정 | 최종 판단 |
+|---|---|---|
+| `wms-order-hold-validation` | **APPROVED** | `stock_hold`, `credit_hold`, `pending_review`가 350px에서 직접 읽히며 합성 fixture 표시와 미검증 범위가 명확함 |
+| `wms-picking-inspection-loading` | **APPROVED** | 피킹·검수·상차·차이 확인 상태가 세로로 분리되고 검수 전 loading 차단 문구가 모바일에서 읽힘 |
+| `wms-loading-block-before-inspection` | **APPROVED** | 검수 미완료 시 상차 완료 차단이라는 단일 주장만 집중적으로 표시하며 실제 운영 성과를 주장하지 않음 |
+| `commerce-upload-approval-gate` | **RECAPTURE** | 핵심 차단 상태는 읽히지만 이미지 하단이 두 번째 준비 항목 중간에서 잘려 완결된 증거 화면이 아님. 논리적 카드 경계에서 다시 촬영해야 함 |
+| `mybiz-readonly-operations-dashboard` | **RECAPTURE** | 지표 분리는 읽히지만 `무료로 시작하면 실제 매장을 관리할 수 있습니다` 문구는 이번 증거 범위에서 검증되지 않은 홍보성 주장임. 읽기 전용 가상 데이터 안내로 교체해야 함 |
+
+### 재촬영 완료 조건
+
+1. `commerce-upload-approval-gate`: 두 번째 준비 항목을 완전히 포함하거나 첫 번째 항목 종료 지점에서 정확히 잘라 이미지가 카드 중간에서 끝나지 않게 합니다.
+2. `mybiz-readonly-operations-dashboard`: 무료 시작·실제 매장 관리 문구를 제거하고 `이 화면은 저장되지 않는 읽기 전용 가상 데이터입니다`처럼 검증 가능한 안내만 표시합니다.
+3. 두 후보는 재촬영 뒤에도 자동 승인하지 않고 PII·SHA·350px 가독성 검사를 다시 거칩니다.

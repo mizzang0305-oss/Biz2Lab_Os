@@ -50,7 +50,9 @@
     "sha256": "f0d85e70e968f88322b4bea6472101e1a2ac905d541b784fe5a35c7a1ce20999",
     "claimSupportedKo": "피킹·검수·상차를 별도 상태로 두고 검수 전 상차 완료를 차단하는 설계",
     "claimNotSupportedKo": "실제 물류 처리시간, 오배송 감소율 또는 운영 DB의 출고 상태",
-    "status": "candidate"
+    "status": "approved",
+    "approvedBy": "owner-delegated-gpt-5.6-thinking-final-visual-review",
+    "approvedAt": "2026-07-31T10:23:30.000Z"
   },
   {
     "id": "mybiz-readonly-operations-dashboard",
@@ -165,7 +167,9 @@
     "sha256": "8a5684022dd2b304d2e4e729f4b224fd1837cdc985dee6dea21f2dd413a409ba",
     "claimSupportedKo": "주문 제출 전에 재고 보류와 한도 보류를 별도 상태로 표시하는 검증 패널",
     "claimNotSupportedKo": "실재고 정확도, 실제 여신 한도 또는 주문 승인 결과",
-    "status": "candidate"
+    "status": "approved",
+    "approvedBy": "owner-delegated-gpt-5.6-thinking-final-visual-review",
+    "approvedAt": "2026-07-31T10:23:30.000Z"
   },
   {
     "id": "wms-loading-block-before-inspection",
@@ -193,6 +197,8 @@
     "sha256": "40dbf948089166181e37223c4d8f26bab782cc31a311e276250c22fd87ab29ff",
     "claimSupportedKo": "검수 통과 전 상차 완료 처리를 차단하는 설계",
     "claimNotSupportedKo": "실제 처리시간, 오배송 감소율, 재고 정확도 또는 Production 데이터베이스 상태",
-    "status": "candidate"
+    "status": "approved",
+    "approvedBy": "owner-delegated-gpt-5.6-thinking-final-visual-review",
+    "approvedAt": "2026-07-31T10:23:30.000Z"
   }
 ]
