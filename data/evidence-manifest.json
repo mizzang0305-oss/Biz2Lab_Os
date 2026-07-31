@@ -87,7 +87,9 @@
     "sha256": "6ebeaa03f68bd1441e3ad06eacdb9eeb2a4b3fcbf5080fe10a9a61bd455bd6eb",
     "claimSupportedKo": "고객 기록·예약·웨이팅·주문을 서로 다른 운영 지표로 표시하는 읽기 전용 화면",
     "claimNotSupportedKo": "실제 고객 수, 재방문율, 매출 또는 AI 예측 정확도",
-    "status": "candidate"
+    "status": "approved",
+    "approvedBy": "owner-delegated-gpt-5.6-thinking-final-two-visual-review",
+    "approvedAt": "2026-07-31T16:53:30.000Z"
   },
   {
     "id": "commerce-run-audit-log",
@@ -143,7 +145,9 @@
     "sha256": "f1f2bdfe272fbfa054aaeb77905b388fcb232087606ffa090c52e3960772f0fb",
     "claimSupportedKo": "승인 문구와 준비 조건이 충족되기 전 외부 업로드를 차단하는 UI 경계",
     "claimNotSupportedKo": "실제 플랫폼 업로드 성공, 매출 또는 운영시간 절감",
-    "status": "candidate"
+    "status": "approved",
+    "approvedBy": "owner-delegated-gpt-5.6-thinking-final-two-visual-review",
+    "approvedAt": "2026-07-31T16:53:30.000Z"
   },
   {
     "id": "wms-order-hold-validation",
