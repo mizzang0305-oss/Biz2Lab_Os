@@ -56,12 +56,15 @@ if (candidates.length === 0 || approved.length === 0) {
 const expectedApprovedIds = [
   "commerce-run-audit-log",
   "wms-order-source-workbench",
+  "wms-order-hold-validation",
+  "wms-picking-inspection-loading",
+  "wms-loading-block-before-inspection",
 ];
 if (
   JSON.stringify(approved.map((item) => item.id).sort()) !==
   JSON.stringify(expectedApprovedIds.sort())
 ) {
-  throw new Error("Production controls must be the two real approved evidence items.");
+  throw new Error("Production controls must be the five protected approved evidence items.");
 }
 const runtimeManifest = evidenceManifestSchema.parse(
   JSON.parse(

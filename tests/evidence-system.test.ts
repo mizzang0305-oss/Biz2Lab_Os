@@ -31,6 +31,13 @@ const approved = manifest.filter(
 const approvedControlIds = [
   "wms-order-source-workbench",
   "commerce-run-audit-log",
+  "wms-order-hold-validation",
+  "wms-picking-inspection-loading",
+  "wms-loading-block-before-inspection",
+] as const;
+const finalCandidateIds = [
+  "commerce-upload-approval-gate",
+  "mybiz-readonly-operations-dashboard",
 ] as const;
 const removedFixtureImage = "production-approved-test-fixture.webp";
 
@@ -143,7 +150,7 @@ test("evidence schema enforces status invariants and unique ids/images", () => {
   );
 });
 
-test("stage script uses the two real approved items as Production controls", () => {
+test("stage script uses the five protected approved items as Production controls", () => {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-evidence-"));
   try {
     const destination = path.join(tempRoot, "public", "images", "evidence");
@@ -207,6 +214,10 @@ test("stage script uses the two real approved items as Production controls", () 
 });
 
 test("recaptured candidates record transformations and mobile-useful height", () => {
+  assert.deepEqual(
+    candidates.map((item) => item.id).sort(),
+    [...finalCandidateIds].sort(),
+  );
   for (const item of candidates) {
     assert.ok(item.transformations?.length, `${item.id} transformations missing`);
     assert.ok(

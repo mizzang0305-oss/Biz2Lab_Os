@@ -89,19 +89,21 @@ test("preview shows candidate review badge only on case studies with candidates"
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  for (const route of [routes[4], routes[6], routes[7], routes[8]]) {
+  for (const route of [routes[4], routes[7]]) {
     await page.goto(route, { waitUntil: "domcontentloaded" });
     await expect(page.getByText("공개 전 검토 중").first()).toBeVisible();
   }
-  await page.goto(routes[5], { waitUntil: "domcontentloaded" });
-  await expect(page.getByText("공개 전 검토 중")).toHaveCount(0);
+  for (const route of [routes[5], routes[6], routes[8]]) {
+    await page.goto(route, { waitUntil: "domcontentloaded" });
+    await expect(page.getByText("공개 전 검토 중")).toHaveCount(0);
+  }
 });
 
 test("preview project cards label candidate evidence", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/ko/projects", { waitUntil: "domcontentloaded" });
 
-  await expect(page.getByText("공개 전 검토 중 · Preview 전용")).toHaveCount(3);
+  await expect(page.getByText("공개 전 검토 중 · Preview 전용")).toHaveCount(2);
   await expect(page.locator("img[src*='evidence-01']")).toHaveCount(3);
 });
 
