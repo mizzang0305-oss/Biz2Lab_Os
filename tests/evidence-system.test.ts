@@ -17,16 +17,25 @@ import {
 import { getPublicPosts } from "@/lib/posts";
 import { stageEvidenceAssets } from "@/scripts/stage-evidence-assets";
 
+type CandidateEvidenceItem = Extract<
+  PublicEvidenceItem,
+  { status: "candidate" }
+>;
+type ApprovedEvidenceItem = Extract<
+  PublicEvidenceItem,
+  { status: "approved" }
+>;
+
 const root = process.cwd();
 const manifestPath = path.join(root, "data", "evidence-manifest.json");
 const manifest = evidenceManifestSchema.parse(
   JSON.parse(fs.readFileSync(manifestPath, "utf8")),
 );
 const candidates = manifest.filter(
-  (item): item is PublicEvidenceItem => item.status === "candidate",
+  (item): item is CandidateEvidenceItem => item.status === "candidate",
 );
 const approved = manifest.filter(
-  (item): item is PublicEvidenceItem => item.status === "approved",
+  (item): item is ApprovedEvidenceItem => item.status === "approved",
 );
 const approvedControlIds = [
   "commerce-run-audit-log",
