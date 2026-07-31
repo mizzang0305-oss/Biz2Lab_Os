@@ -1,25 +1,21 @@
 name: Apply final two evidence approvals
 
 on:
-  pull_request:
+  push:
     branches:
-      - master
-    types:
-      - synchronize
+      - codex/biz2lab-evidence-first-rebuild-20260728
 
 permissions:
   contents: write
 
 jobs:
   apply-review:
-    if: github.event.pull_request.number == 123
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout exact PR head branch
+      - name: Checkout exact branch head
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: codex/biz2lab-evidence-first-rebuild-20260728
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -27,7 +23,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "${{ github.event.pull_request.head.ref }}" = "codex/biz2lab-evidence-first-rebuild-20260728"
+          test "${{ github.ref_name }}" = "codex/biz2lab-evidence-first-rebuild-20260728"
+          test -f reports/.final-two-approval-trigger
           test -f evidence-assets/candidates/ai-business-automation-guide-evidence-01.webp
           test -f evidence-assets/candidates/daily-numbers-for-small-business-evidence-01.webp
           sha256sum evidence-assets/candidates/ai-business-automation-guide-evidence-01.webp | grep '^f1f2bdfe272fbfa054aaeb77905b388fcb232087606ffa090c52e3960772f0fb '
@@ -102,4 +99,4 @@ jobs:
           git config user.email "mizzang0305@gmail.com"
           git add -A
           git commit -m "review(evidence): approve final two mobile captures" -m "Approve the complete upload-blocker card and non-promotional MyBiz read-only dashboard after delegated visual review. Remove temporary review files. PR remains Draft; Production, AdSense, and Search Console remain untouched."
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          git push origin HEAD:codex/biz2lab-evidence-first-rebuild-20260728
