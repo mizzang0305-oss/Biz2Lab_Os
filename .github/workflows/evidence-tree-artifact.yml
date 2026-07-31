@@ -1,0 +1,37 @@
+name: Evidence tree artifact
+
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      - synchronize
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    if: github.event.pull_request.number == 123
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - name: Record exact Git objects
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD > head-sha.txt
+          git rev-parse 'HEAD^{tree}' > tree-sha.txt
+      - name: Upload Git object packet
+        uses: actions/upload-artifact@v4
+        with:
+          name: biz2lab-tree-${{ github.event.pull_request.head.sha }}
+          path: |
+            head-sha.txt
+            tree-sha.txt
+          retention-days: 1
+          compression-level: 0
