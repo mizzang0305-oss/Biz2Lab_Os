@@ -29,19 +29,21 @@ const approved = manifest.filter(
   (item): item is PublicEvidenceItem => item.status === "approved",
 );
 const approvedControlIds = [
-  "wms-order-source-workbench",
   "commerce-run-audit-log",
+  "wms-order-source-workbench",
   "wms-order-hold-validation",
   "wms-picking-inspection-loading",
   "wms-loading-block-before-inspection",
+  "commerce-upload-approval-gate",
+  "mybiz-readonly-operations-dashboard",
 ] as const;
-const finalCandidateIds = [
+const finalRecaptureIds = [
   "commerce-upload-approval-gate",
   "mybiz-readonly-operations-dashboard",
 ] as const;
 const removedFixtureImage = "production-approved-test-fixture.webp";
 
-test("candidate evidence visibility is fail-closed", () => {
+test("candidate evidence visibility remains fail-closed", () => {
   const cases = [
     [{ vercelEnvironment: "preview" }, true],
     [
@@ -87,27 +89,21 @@ test("candidate evidence visibility is fail-closed", () => {
   for (const [runtime, expected] of cases) {
     assert.equal(isCandidateEvidenceVisible(runtime), expected);
   }
-
-  for (const item of candidates) {
-    assert.ok(
-      getEvidenceForPost(item.postSlug, {
-        vercelEnvironment: "preview",
-      }).some((entry) => entry.id === item.id),
-    );
-    assert.equal(
-      getEvidenceForPost(item.postSlug, {
-        vercelEnvironment: "production",
-        nodeEnvironment: "production",
-        reviewMode: "true",
-      }).some((entry) => entry.id === item.id),
-      false,
-    );
-  }
+  assert.equal(candidates.length, 0);
 });
 
 test("evidence schema enforces status invariants and unique ids/images", () => {
-  const sample = candidates[0];
-  assert.ok(sample);
+  const approvedSample = approved[0];
+  assert.ok(approvedSample);
+  const {
+    approvedBy: removedApprovedBy,
+    approvedAt: removedApprovedAt,
+    ...candidateFields
+  } = approvedSample;
+  void removedApprovedBy;
+  void removedApprovedAt;
+  const sample = { ...candidateFields, status: "candidate" as const };
+  assert.equal(evidenceItemSchema.safeParse(sample).success, true);
 
   assert.equal(
     evidenceItemSchema.safeParse({
@@ -150,7 +146,7 @@ test("evidence schema enforces status invariants and unique ids/images", () => {
   );
 });
 
-test("stage script uses the five protected approved items as Production controls", () => {
+test("stage script uses all seven approved evidence items as Production controls", () => {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-evidence-"));
   try {
     const destination = path.join(tempRoot, "public", "images", "evidence");
@@ -165,12 +161,6 @@ test("stage script uses the five protected approved items as Production controls
       runtimeManifestPath,
       runtime: { vercelEnvironment: "production" },
     });
-    for (const candidate of candidates) {
-      assert.equal(
-        fs.existsSync(path.join(destination, path.basename(candidate.image))),
-        false,
-      );
-    }
     for (const item of approved) {
       assert.equal(
         fs.existsSync(path.join(destination, path.basename(item.image))),
@@ -195,34 +185,33 @@ test("stage script uses the five protected approved items as Production controls
       runtimeManifestPath,
       runtime: { vercelEnvironment: "preview" },
     });
-    for (const item of [...approved, ...candidates]) {
-      assert.equal(
-        fs.existsSync(path.join(destination, path.basename(item.image))),
-        true,
-      );
-    }
     const previewRuntime = JSON.parse(
       fs.readFileSync(runtimeManifestPath, "utf8"),
     ) as PublicEvidenceItem[];
     assert.deepEqual(
       previewRuntime.map((item) => item.id).sort(),
-      [...approved, ...candidates].map((item) => item.id).sort(),
+      approved.map((item) => item.id).sort(),
     );
   } finally {
     fs.rmSync(tempRoot, { recursive: true, force: true });
   }
 });
 
-test("recaptured candidates record transformations and mobile-useful height", () => {
+test("final recaptures are approved and retain mobile-useful evidence metadata", () => {
+  assert.equal(candidates.length, 0);
   assert.deepEqual(
-    candidates.map((item) => item.id).sort(),
-    [...finalCandidateIds].sort(),
+    approved.map((item) => item.id).sort(),
+    [...approvedControlIds].sort(),
   );
-  for (const item of candidates) {
-    assert.ok(item.transformations?.length, `${item.id} transformations missing`);
+  for (const id of finalRecaptureIds) {
+    const item = approved.find((entry) => entry.id === id);
+    assert.ok(item, `${id} is not approved`);
+    assert.ok(item.approvedBy);
+    assert.ok(item.approvedAt);
+    assert.ok(item.transformations?.length, `${id} transformations missing`);
     assert.ok(
       (390 * item.height) / item.width >= 220,
-      `${item.id} is shorter than 220 CSS px at 390px`,
+      `${id} is shorter than 220 CSS px at 390px`,
     );
   }
   assert.equal(
@@ -237,48 +226,57 @@ test("recaptured candidates record transformations and mobile-useful height", ()
   );
 });
 
-test("approval command defaults to a byte-stable dry run", () => {
-  const item = candidates[0];
+test("approval command refuses already approved evidence without mutation", () => {
+  const item = approved.find(
+    (entry) => entry.id === "commerce-upload-approval-gate",
+  );
   assert.ok(item);
   const assetPath = path.join(
     root,
     "evidence-assets",
-    "candidates",
+    "approved",
     path.basename(item.image),
   );
   const manifestBefore = fs.readFileSync(manifestPath);
   const assetBefore = fs.readFileSync(assetPath);
-  const output = execFileSync(
-    process.execPath,
-    [
-      path.join(root, "node_modules", "tsx", "dist", "cli.mjs"),
-      path.join(root, "scripts", "approve-evidence.ts"),
-      "--id",
-      item.id,
-      "--reviewer",
-      "dry-run-test",
-    ],
-    { cwd: root, encoding: "utf8" },
-  );
-  assert.match(output, /DRY_RUN_ONLY/);
+  let rejected = false;
+  try {
+    execFileSync(
+      process.execPath,
+      [
+        path.join(root, "node_modules", "tsx", "dist", "cli.mjs"),
+        path.join(root, "scripts", "approve-evidence.ts"),
+        "--id",
+        item.id,
+        "--reviewer",
+        "duplicate-approval-test",
+      ],
+      { cwd: root, encoding: "utf8", stdio: "pipe" },
+    );
+  } catch {
+    rejected = true;
+  }
+  assert.equal(rejected, true);
   assert.deepEqual(fs.readFileSync(manifestPath), manifestBefore);
   assert.deepEqual(fs.readFileSync(assetPath), assetBefore);
 });
 
-test("every explicit evidence-backed public post has Preview evidence", () => {
+test("every explicit evidence-backed public post has approved evidence", () => {
   const posts = getPublicPosts().filter(
     (post) => post.frontmatter.evidenceRequired,
   );
   assert.ok(posts.length > 0);
   for (const post of posts) {
     const evidence = getEvidenceForPost(post.slug, {
-      vercelEnvironment: "preview",
+      vercelEnvironment: "production",
+      nodeEnvironment: "production",
     });
     if (post.frontmatter.evidenceMode === "source-only") continue;
-    assert.ok(evidence.length > 0, `${post.slug} has no Preview evidence`);
+    assert.ok(evidence.length > 0, `${post.slug} has no approved evidence`);
     assert.ok(
       evidence.every(
         (item) =>
+          item.status === "approved" &&
           item.sourceCommit.length === 40 &&
           item.piiScan === "pass" &&
           item.sourceDirty === false,
