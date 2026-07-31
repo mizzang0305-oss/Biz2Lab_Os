@@ -23,6 +23,9 @@ export type EvidenceCaptureDefinition = {
   textReplacements?: Array<{ selector: string; value: string }>;
   textSubstitutions?: Array<{ from: string; to: string }>;
   disclosureLabel?: string;
+  focusedListItem?: { listSelector: string; includesText: string };
+  requiredVisibleText?: string[];
+  forbiddenVisibleText?: string[];
   settleTimeMs?: number;
   transformations: string[];
   maskSelectors: string[];
@@ -57,11 +60,6 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
     route: "/uploads",
     readySelector: "h1:has-text('업로드 준비 대시보드')",
     captureSelector: "main > div.space-y-5 > section:nth-of-type(3)",
-    captureBounds: {
-      startSelector: "[data-evidence-disclosure]",
-      endSelector:
-        "main > div.space-y-5 > section:nth-of-type(3) > div:nth-of-type(2) > div:first-child",
-    },
     captureStyle: `
       main > div.space-y-5 > section:nth-of-type(3) {
         width: 390px !important;
@@ -78,16 +76,41 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
         font-size: 15px !important;
         line-height: 1.6 !important;
       }
+      main > div.space-y-5 > section:nth-of-type(3) ul > li ~ li,
+      main > div.space-y-5 > section:nth-of-type(3) > div:nth-of-type(2) > div + div,
+      main > div.space-y-5 > section:nth-of-type(3) > div:nth-of-type(n+3) {
+        display: none !important;
+      }
     `,
     disclosureLabel: "로컬 데모 · 가상 readiness 데이터 · 외부 업로드 비활성화",
+    focusedListItem: {
+      listSelector:
+        "main > div.space-y-5 > section:nth-of-type(3) > div:nth-of-type(2) > div:first-child > ul",
+      includesText: "YouTube 할당량 준비",
+    },
+    requiredVisibleText: [
+      "로컬 데모",
+      "외부 업로드 비활성화",
+      "업로드 실행 차단",
+      "왜 실행이 막혔나요?",
+      "YouTube 할당량 준비",
+      "Confirm quota in Google Cloud Console and set YOUTUBE_QUOTA_READY=true.",
+      "token, client secret, raw auth header는 렌더링하지 않습니다.",
+    ],
     transformations: [
       "390px 세로형으로 기존 readiness 섹션을 재배치",
-      "기존 차단 사유 패널까지만 집중 캡처",
+      "첫 번째 차단 사유와 사람의 다음 조치를 행 전체로 표시",
+      "추가 차단 항목과 관련 없는 서버 env 안내 카드 제외",
+      "외곽 readiness 섹션의 하단 padding까지 전체 캡처해 카드 중간 잘림 방지",
       "로컬 데모·외부 업로드 비활성화 disclosure 배너 추가",
       "navigation·Next.js 개발 overlay 제외",
     ],
     maskSelectors: [],
-    hideSelectors: ["nextjs-portal"],
+    hideSelectors: [
+      "nextjs-portal",
+      "main > div.space-y-5 > section:nth-of-type(3) > div:nth-of-type(2) > div:nth-child(2)",
+      "main > div.space-y-5 > section:nth-of-type(3) > div:nth-of-type(n+3)",
+    ],
     viewport: { width: 460, height: 1100 },
     altKo: "외부 업로드 가능 여부와 차단 사유, 다음 조치가 분리된 승인형 자동화 준비 화면",
     captionKo:
@@ -95,6 +118,7 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
     dataMode: "local-demo",
     claimSupportedKo: "승인 문구와 준비 조건이 충족되기 전 외부 업로드를 차단하는 UI 경계",
     claimNotSupportedKo: "실제 플랫폼 업로드 성공, 매출 또는 운영시간 절감",
+    minRenderedHeightAt390: 420,
   },
   {
     id: "commerce-run-audit-log",
@@ -355,6 +379,12 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
     textReplacements: [
       {
         selector:
+          "main[data-demo-dashboard='readonly'] > div > div:first-child p",
+        value:
+          "이 화면은 저장되지 않는 가상 데이터입니다. 실제 고객·매출·재방문 성과를 뜻하지 않습니다.",
+      },
+      {
+        selector:
           "main[data-demo-dashboard='readonly'] > div > div:nth-of-type(2) h1",
         value: "가상 데모 매장",
       },
@@ -362,6 +392,11 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
         selector:
           "main[data-demo-dashboard='readonly'] > div > div:nth-of-type(2) > div:first-child p",
         value: "로컬 데모 · 읽기 전용",
+      },
+      {
+        selector:
+          "main[data-demo-dashboard='readonly'] > div > section:nth-of-type(1) > article:first-child > p:first-of-type",
+        value: "고객 기록",
       },
     ],
     textSubstitutions: [
@@ -371,10 +406,32 @@ export const evidenceCaptureDefinitions: EvidenceCaptureDefinition[] = [
       { from: "이서연", to: "샘플 고객 C" },
     ],
     disclosureLabel: "로컬 데모 · 가상 데이터 · 읽기 전용",
+    requiredVisibleText: [
+      "로컬 데모 · 가상 데이터 · 읽기 전용",
+      "가상 데모 매장",
+      "이 화면은 저장되지 않는 가상 데이터입니다.",
+      "실제 고객·매출·재방문 성과를 뜻하지 않습니다.",
+      "고객 기록",
+      "예약",
+      "웨이팅",
+      "QR 주문",
+    ],
+    forbiddenVisibleText: [
+      "무료로 시작",
+      "실제 매장 관리",
+      "매출 상승",
+      "고객 증가",
+      "재방문 향상",
+      "AI 예측",
+      "실시간 성과",
+      "production-ready",
+    ],
     settleTimeMs: 1600,
     transformations: [
       "기존 매장명을 가상 데모 매장으로 치환",
       "기존 운영 상태 문구를 로컬 데모·읽기 전용으로 치환",
+      "무료 시작·실제 매장 관리 홍보 문구를 저장되지 않는 가상 데이터 안내로 치환",
+      "첫 지표를 고객 기록으로 명확화",
       "DOM의 데모 고객명을 샘플 고객 A·B·C로 치환",
       "390px 세로형으로 기존 4개 지표 카드를 재배치",
       "fixture 수치의 변화율·성과성 보조 문구 제외",

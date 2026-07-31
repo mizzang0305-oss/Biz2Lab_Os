@@ -273,9 +273,33 @@ async function captureOne(
     for (const selector of definition.hideSelectors) {
       await page.locator(selector).evaluateAll((elements) => {
         for (const element of elements) {
-          (element as HTMLElement).style.display = "none";
+          element.remove();
         }
       });
+    }
+    if (definition.focusedListItem) {
+      const list = page.locator(definition.focusedListItem.listSelector);
+      if ((await list.count()) !== 1) {
+        throw new Error(
+          `focused list selector must resolve exactly once: ${definition.focusedListItem.listSelector}`,
+        );
+      }
+      const items = list.locator(":scope > li");
+      if ((await items.count()) < 1) {
+        throw new Error("focused list selector has no direct list items");
+      }
+      await items.evaluateAll((elements, includesText) => {
+        for (const element of elements) {
+          if (!(element.textContent ?? "").includes(includesText)) {
+            element.remove();
+          }
+        }
+      }, definition.focusedListItem.includesText);
+      if ((await list.locator(":scope > li").count()) !== 1) {
+        throw new Error(
+          `focused list must retain exactly one item containing: ${definition.focusedListItem.includesText}`,
+        );
+      }
     }
 
     const target = page.locator(definition.captureSelector);
@@ -303,6 +327,46 @@ async function captureOne(
         });
         element.prepend(banner);
       }, definition.disclosureLabel);
+    }
+
+    const visibleCaptureText = (await target.evaluate((element) => {
+      const visibleText: string[] = [];
+      const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+      let node = walker.nextNode();
+      while (node) {
+        const parent = node.parentElement;
+        if (parent) {
+          const style = window.getComputedStyle(parent);
+          if (
+            parent.getClientRects().length > 0 &&
+            style.display !== "none" &&
+            style.visibility !== "hidden" &&
+            style.opacity !== "0"
+          ) {
+            visibleText.push(node.textContent ?? "");
+          }
+        }
+        node = walker.nextNode();
+      }
+      return visibleText.join(" ");
+    }))
+      .replace(/\s+/g, " ")
+      .trim();
+    const missingVisibleText = (definition.requiredVisibleText ?? []).filter(
+      (value) => !visibleCaptureText.includes(value),
+    );
+    if (missingVisibleText.length > 0) {
+      throw new Error(
+        `Capture target is missing required visible text: ${missingVisibleText.join(", ")}`,
+      );
+    }
+    const forbiddenVisibleText = (definition.forbiddenVisibleText ?? []).filter(
+      (value) => visibleCaptureText.includes(value),
+    );
+    if (forbiddenVisibleText.length > 0) {
+      throw new Error(
+        `Capture target contains forbidden visible text: ${forbiddenVisibleText.join(", ")}`,
+      );
     }
 
     const scanText = await collectScanText(page, definition);
@@ -447,12 +511,8 @@ async function collectScanText(
   definition: EvidenceCaptureDefinition,
 ) {
   const captureSelector = JSON.stringify(definition.captureSelector);
-  const excludedSelectors = JSON.stringify([
-    ...definition.maskSelectors,
-    ...definition.hideSelectors,
-  ]);
   return (await page.evaluate(`(() => {
-    const excluded = ["script", "style", "noscript", ...${excludedSelectors}];
+    const excluded = ["script", "style", "noscript"];
     const collect = (element) => {
       if (!element) return "";
       const clone = element.cloneNode(true);
