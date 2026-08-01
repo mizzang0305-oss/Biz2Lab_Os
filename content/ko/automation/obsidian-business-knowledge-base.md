@@ -6,8 +6,8 @@ locale: ko
 category: automation
 cluster: knowledge-management
 type: how-to
-status: published
-draft: false
+status: draft
+draft: true
 author: Biz2Lab
 publishedAt: '2026-06-15'
 updatedAt: '2026-07-16'
@@ -17,7 +17,7 @@ tags:
 heroImage: /images/posts/obsidian-business-knowledge-base-hero.webp
 heroAlt: 업무 기준과 고객 응대 노트가 서로 연결된 회사 지식창고 그래프
 canonical: 'https://www.biz2lab.com/ko/automation/obsidian-business-knowledge-base'
-noindex: false
+noindex: true
 relatedPosts:
   - chatgpt-document-cleanup
   - ai-knowledge-store-for-small-business

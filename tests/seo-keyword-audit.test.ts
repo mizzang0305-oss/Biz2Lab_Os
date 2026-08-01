@@ -91,7 +91,7 @@ test("reviewed core articles keep descriptive related links without draft-series
     "automation-priority-method",
     "accounts-receivable-tracker",
     "daily-sales-goal-breakdown",
-    "customer-memory-system",
+    "daily-numbers-for-small-business",
     "unify-order-channels",
   ]);
   const auditBySlug = new Map(auditSeoKeywords().articles.map((article) => [article.slug, article]));

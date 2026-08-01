@@ -26,16 +26,19 @@ export default function AuthorPage() {
       "@type": "Person",
       name: editorialIdentity.authorName,
       url: absoluteUrl(editorialIdentity.authorUrl),
-      sameAs: [editorialIdentity.operatorUrl, ...publicProjects.map((project) => project.url)],
+      sameAs: [
+        editorialIdentity.operatorUrl,
+        ...publicProjects.map((project) => project.url).filter(Boolean),
+      ],
       worksFor: {
         "@type": "Organization",
         name: "Biz2Lab",
         url: absoluteUrl("/ko"),
       },
       knowsAbout: [
-        "AI 업무 자동화",
-        "SaaS 개발",
-        "주문·영업 운영",
+        "B2B 식자재 유통 영업과 현장 운영",
+        "주문·미수금·전자계약·재고·피킹 업무 개선",
+        "운영 화면과 상태 모델 설계",
         "승인·감사 로그",
       ],
     },
@@ -53,9 +56,10 @@ export default function AuthorPage() {
           {editorialIdentity.authorName}
         </h1>
         <p className="mt-5 text-lg leading-8 text-slate-600">
-          업무 자동화와 SaaS를 만들면서 입력 원본, 사람 승인, 실패 기록과 복구 경계를
-          먼저 설계합니다. Biz2Lab에는 공개 코드나 재현 가능한 절차로 설명할 수 있는
-          내용만 직접 경험으로 표시합니다.
+          B2B 식자재 유통 영업과 현장 운영에서 주문·미수금·전자계약·재고·피킹 업무를
+          시스템으로 옮겨 왔습니다. 운영 화면과 상태 모델을 직접 설계하고, AI가 바로
+          실행하지 못하도록 승인·감사 경계를 둡니다. 실제 구현과 미검증 영역은 분리해
+          기록합니다.
         </p>
         <a
           className="mt-6 inline-flex rounded-md border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-900 hover:border-teal-600 hover:text-teal-700"
@@ -74,14 +78,20 @@ export default function AuthorPage() {
             <article key={project.repository} className="rounded-xl border border-slate-200 bg-slate-50 p-5">
               <h3 className="text-lg font-bold text-slate-950">{project.name}</h3>
               <p className="mt-3 text-sm leading-6 text-slate-700">{project.summary}</p>
-              <a
-                className="mt-4 inline-flex text-sm font-semibold text-teal-700 hover:underline"
-                href={project.url}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {project.repository} 저장소
-              </a>
+              {project.url ? (
+                <a
+                  className="mt-4 inline-flex text-sm font-semibold text-teal-700 hover:underline"
+                  href={project.url}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {project.repository} 저장소
+                </a>
+              ) : (
+                <p className="mt-4 text-sm font-semibold text-slate-500">
+                  비공개 구현 · 공개 저장소 링크 없음
+                </p>
+              )}
             </article>
           ))}
         </div>

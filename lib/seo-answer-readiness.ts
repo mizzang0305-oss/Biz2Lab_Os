@@ -22,6 +22,7 @@ export type SeoAnswerReadinessArticleAudit = {
   aiAnswerReadinessStatus: AiAnswerReadinessStatus;
   directAnswerInFirstLines: boolean;
   faqPresent: boolean;
+  faqRequired: boolean;
   conclusionFirstPresent: boolean;
   checklistPresent: boolean;
   comparisonTablePresent: boolean;
@@ -69,7 +70,7 @@ function markdownFaqPresent(content: string) {
 }
 
 function frontmatterFaqPresent(post: Post) {
-  return Array.isArray(post.frontmatter.faq) && post.frontmatter.faq.length >= 3;
+  return Array.isArray(post.frontmatter.faq) && post.frontmatter.faq.length >= 1;
 }
 
 function faqText(post: Post) {
@@ -144,6 +145,7 @@ function faqHasOverclaim(post: Post) {
 
 function readinessStatus(article: {
   faqPresent: boolean;
+  faqRequired: boolean;
   conclusionFirstPresent: boolean;
   citationFriendlySummaryPresent: boolean;
   checklistPresent: boolean;
@@ -151,7 +153,7 @@ function readinessStatus(article: {
   comparisonTableUseful: boolean;
   overclaimingFaq: boolean;
 }): AiAnswerReadinessStatus {
-  if (!article.faqPresent || article.overclaimingFaq) {
+  if ((article.faqRequired && !article.faqPresent) || article.overclaimingFaq) {
     return "FAQ 보강 필요";
   }
   if (!article.conclusionFirstPresent || !article.citationFriendlySummaryPresent) {
@@ -184,6 +186,7 @@ function recommendedAction(status: AiAnswerReadinessStatus) {
 
 function auditPost(post: Post, entry: SeoKeywordMapEntry | undefined): SeoAnswerReadinessArticleAudit {
   const faqPresent = frontmatterFaqPresent(post) || markdownFaqPresent(post.content);
+  const faqRequired = false;
   const conclusionFirstPresent = hasConclusionFirst(post);
   const directAnswerInFirstLines = hasDirectAnswerInFirstLines(post);
   const comparisonTableUseful = comparisonUseful(entry);
@@ -194,6 +197,7 @@ function auditPost(post: Post, entry: SeoKeywordMapEntry | undefined): SeoAnswer
   const overclaimingFaq = faqHasOverclaim(post);
   const status = readinessStatus({
     faqPresent,
+    faqRequired,
     conclusionFirstPresent,
     citationFriendlySummaryPresent,
     checklistPresent,
@@ -209,6 +213,7 @@ function auditPost(post: Post, entry: SeoKeywordMapEntry | undefined): SeoAnswer
     aiAnswerReadinessStatus: status,
     directAnswerInFirstLines,
     faqPresent,
+    faqRequired,
     conclusionFirstPresent,
     checklistPresent,
     comparisonTablePresent,

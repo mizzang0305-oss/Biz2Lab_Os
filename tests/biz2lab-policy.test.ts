@@ -14,6 +14,7 @@ import {
   type ContentIndexRow,
 } from "@/lib/content-validation";
 import { editorialIdentity } from "@/lib/editorial-evidence";
+import { getEvidenceForPost } from "@/lib/evidence";
 import { googleSetup } from "@/lib/google-setup";
 import { categorySlugs, postFrontmatterSchema } from "@/lib/schema";
 import {
@@ -60,6 +61,7 @@ test("frontmatter schema enforces Korean-only approval categories", () => {
     "automation",
     "sales-ops",
     "small-business",
+    "warehouse-logistics",
     "contracts-payments",
     "what-to-watch",
     "after-the-credits",
@@ -118,7 +120,7 @@ test("Phase 2 content set derives public Korean post inventory from canonical co
   assert.equal(publicPosts.every((post) => post.frontmatter.status === "published"), true);
   assert.equal(publicPosts.every((post) => post.frontmatter.draft === false), true);
   assert.equal(sitemapPosts.every((post) => post.frontmatter.noindex === false), true);
-  assert.equal(draftPosts.length, 55);
+  assert.equal(draftPosts.length, 65);
   assert.equal(
     draftPosts.every(
       (post) =>
@@ -206,19 +208,23 @@ test("home article grid surfaces public premium visual posts first", () => {
   const homePosts = getFeaturedHomePosts();
 
   assert.deepEqual(
-    homePosts.slice(0, 3).map((post) => post.slug),
+    homePosts.slice(0, 5).map((post) => post.slug),
     [
       "ai-business-automation-guide",
-      "accounts-receivable-tracker",
       "automation-priority-method",
+      "unify-order-channels",
+      "daily-numbers-for-small-business",
+      "separate-picking-inspection-loading-status",
     ],
   );
   assert.deepEqual(
-    homePosts.slice(0, 3).map((post) => post.frontmatter.heroImage),
+    homePosts.slice(0, 5).map((post) => post.frontmatter.heroImage),
     [
       "/images/posts/ai-business-automation-guide-hero.webp",
-      "/images/posts/accounts-receivable-tracker-hero.webp",
       "/images/posts/automation-priority-method-hero.webp",
+      "/images/posts/unify-order-channels-hero.webp",
+      "/images/posts/daily-numbers-for-small-business-hero.webp",
+      "/images/posts/separate-picking-inspection-loading-status-hero.webp",
     ],
   );
   assert.equal(homePosts.length, 6);
@@ -397,7 +403,14 @@ test("public authorship links the visible editorial identity to its about page a
   const seoSource = fs.readFileSync(path.join(process.cwd(), "lib", "seo.ts"), "utf8");
   const layoutSource = fs.readFileSync(path.join(process.cwd(), "app", "layout.tsx"), "utf8");
 
-  assert.equal(editorialIdentity.authorName, "Biz2Lab 운영자");
+  assert.equal(
+    editorialIdentity.authorName,
+    "Biz2Lab 운영자 · B2B 유통 현장 시스템 설계·개발",
+  );
+  assert.match(
+    fs.readFileSync(path.join(process.cwd(), "lib", "editorial-evidence.ts"), "utf8"),
+    /AUTHOR_REAL_NAME_APPROVED/,
+  );
   assert.equal(editorialIdentity.authorUrl, "/ko/author/biz2lab");
   assert.equal(editorialIdentity.operatorUrl, "https://github.com/mizzang0305-oss");
   assert.match(articlePageSource, /editorialIdentity\.authorName/);
@@ -593,13 +606,18 @@ test("Phase 4.0 content authority guard is wired and enforceable", () => {
     const downloads = [...post.content.matchAll(/\]\((\/downloads\/[^)\s]+\.csv)\)/g)];
 
     assert.ok([...post.content].length >= 1600, `${post.slug} needs practical depth`);
-    assert.ok(post.frontmatter.faq && post.frontmatter.faq.length >= 3, `${post.slug} needs FAQ coverage`);
     assert.equal(new Set(headings).size, headings.length, `${post.slug} has duplicate headings`);
-    assert.equal(downloads.length, 1, `${post.slug} needs one real CSV download`);
-    assert.equal(
-      fs.existsSync(path.join(process.cwd(), "public", downloads[0][1].replace(/^\//, ""))),
-      true,
-    );
+    const evidence = getEvidenceForPost(post.slug, "preview");
+    if (post.frontmatter.type === "case-study") {
+      assert.ok(post.frontmatter.evidenceRequired && evidence.length > 0);
+      assert.equal(downloads.length, 0, `${post.slug} must not add a generic CSV only to satisfy a template`);
+    }
+    for (const download of downloads) {
+      assert.equal(
+        fs.existsSync(path.join(process.cwd(), "public", download[1].replace(/^\//, ""))),
+        true,
+      );
+    }
   }
 });
 

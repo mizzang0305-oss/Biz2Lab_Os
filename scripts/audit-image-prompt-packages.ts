@@ -38,6 +38,27 @@ const root = process.cwd();
 const errors: string[] = [];
 const outputNames = new Map<string, OutputRecord>();
 const promptFingerprints = new Map<string, string[]>();
+const evidenceImagePaths = new Set<string>(
+  (() => {
+    try {
+      const manifest = JSON.parse(
+        fs.readFileSync(path.join(root, "data", "evidence-manifest.json"), "utf8"),
+      ) as Array<{ image?: string; status?: string }>;
+      return manifest
+        .filter(
+          (item) =>
+            typeof item.image === "string" &&
+            (item.status === "candidate" || item.status === "approved"),
+        )
+        .map(
+          (item) =>
+            `evidence-assets/${item.status}s/${path.basename(item.image!)}`,
+        );
+    } catch {
+      return [];
+    }
+  })(),
+);
 const allowedTop3ProductionDiffPaths = new Set([
   "assets/images/raw/ai-business-automation-guide-hero.png",
   "assets/images/raw/accounts-receivable-tracker-hero.png",
@@ -64,6 +85,14 @@ const allowedTop3ProductionDiffPaths = new Set([
 
 function normalizeRepoPath(filePath: string) {
   return filePath.replaceAll("\\", "/");
+}
+
+function isManifestEvidenceScreenshot(changedPath: string) {
+  return (
+    /^evidence-assets\/(?:candidates|approved)\/[a-z0-9][a-z0-9-]*-evidence-\d{2}\.webp$/.test(
+      changedPath,
+    ) && evidenceImagePaths.has(changedPath)
+  );
 }
 
 function listFiles(dir: string, extension: string): string[] {
@@ -434,6 +463,7 @@ function checkProductionPathDiffAgainstOrigin() {
           return paths.some(
             (changedPath) =>
               !allowedTop3ProductionDiffPaths.has(changedPath) &&
+              !isManifestEvidenceScreenshot(changedPath) &&
               !isPhase40ContentAuthorityDiff(changedPath) &&
               !isPhase42A3ImageRepairDiff(changedPath) &&
               !isCanonicalOnlyContentDiff(changedPath),

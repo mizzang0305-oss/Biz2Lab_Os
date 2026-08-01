@@ -31,6 +31,10 @@ const nextConfig: NextConfig = {
   images: {
     localPatterns: [
       {
+        pathname: "/images/evidence/**",
+        search: "",
+      },
+      {
         pathname: "/images/posts/**",
         search: "",
       },
@@ -39,6 +43,15 @@ const nextConfig: NextConfig = {
         search: "",
       },
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: "/ko/sales-ops/unify-order-channels-for-sales",
+        destination: "/ko/small-business/unify-order-channels",
+        permanent: true,
+      },
+    ];
   },
 };
 

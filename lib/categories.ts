@@ -49,20 +49,20 @@ export const categories: Record<Exclude<CategorySlug, "pillar">, Category> = {
   },
   automation: {
     slug: "automation",
-    name: "AI 업무 자동화",
-    title: "AI 업무 자동화 허브",
+    name: "승인형 업무 자동화",
+    title: "승인형 업무 자동화 구축 기록",
     description:
-      "반복 업무, 문서 정리, 데이터 흐름을 작게 자동화하는 실전 가이드입니다.",
+      "생성, 검토, 승인과 외부 실행을 분리한 자동화 제어 시스템의 구현 기록입니다.",
     hubIntro:
-      "처음부터 거대한 시스템을 만들기보다 매일 반복되는 업무, 원본 데이터, 사람의 검토 지점을 기준으로 자동화 대상을 고르는 방법을 정리합니다.",
+      "AI가 만든 결과를 바로 외부로 보내지 않고, 원본·실행 상태·증빙·사람 승인·복구 경계를 어떻게 나눴는지 실제 화면으로 설명합니다.",
     startGuide:
-      "자동화가 처음이라면 업무 목록화, 반복 빈도 확인, 실패 비용 점검 순서로 읽어보세요.",
-    pillarIdea: "AI 업무 자동화 시작 가이드",
+      "외부 실행이 있는 업무라면 승인 차단 화면과 실행 로그 사례부터 확인하세요.",
+    pillarIdea: "사람 승인 뒤에만 실행되는 자동화",
   },
   "sales-ops": {
     slug: "sales-ops",
-    name: "영업·매출 관리",
-    title: "영업·매출 관리 자동화 허브",
+    name: "B2B 영업·미수금",
+    title: "B2B 영업·미수금 운영 기록",
     description:
       "일일 매출, 미수금, 거래처 응대를 놓치지 않기 위한 운영 구조를 다룹니다.",
     hubIntro:
@@ -73,8 +73,8 @@ export const categories: Record<Exclude<CategorySlug, "pillar">, Category> = {
   },
   "small-business": {
     slug: "small-business",
-    name: "소상공인 운영",
-    title: "소상공인 운영 시스템 허브",
+    name: "주문·운영 시스템",
+    title: "주문·운영 시스템 구축 기록",
     description:
       "주문, 예약, 고객 기록, 매장 체크리스트를 단순하게 시스템화합니다.",
     hubIntro:
@@ -85,8 +85,8 @@ export const categories: Record<Exclude<CategorySlug, "pillar">, Category> = {
   },
   "contracts-payments": {
     slug: "contracts-payments",
-    name: "전자계약·결제",
-    title: "전자계약·결제 자동화 허브",
+    name: "전자계약·본인확인",
+    title: "전자계약·본인확인 구축 기록",
     description:
       "계약서 미작성, 서명, 결제 상태, 거래처 관리가 끊기지 않도록 연결합니다.",
     hubIntro:
@@ -95,10 +95,22 @@ export const categories: Record<Exclude<CategorySlug, "pillar">, Category> = {
       "계약서 작성, 서명 확인, 결제 요청, 미완료 후속 조치를 한 흐름으로 보는 글부터 읽어보세요.",
     pillarIdea: "전자계약·결제 자동화 가이드",
   },
+  "warehouse-logistics": {
+    slug: "warehouse-logistics",
+    name: "물류·재고·피킹",
+    title: "식자재 물류·재고·피킹 구축 기록",
+    description:
+      "출고지시, 피킹, 검수, 상차와 재고 차이를 별도 상태로 관리한 WMS 구현을 다룹니다.",
+    hubIntro:
+      "물류 화면에서 완료 상태 하나로 모든 작업을 덮으면 검수 누락과 차이 원인을 찾기 어렵습니다. 로컬 fixture로 다시 확인한 상태 모델과 차단 경계를 기록합니다.",
+    startGuide:
+      "피킹·검수·상차를 분리한 사례에서 어떤 상태가 다음 단계를 막는지 먼저 확인하세요.",
+    pillarIdea: "피킹·검수·상차 상태를 분리한 이유",
+  },
 };
 
 export const categoryList = (
-  ["automation", "sales-ops", "small-business"] as PublicCategorySlug[]
+  ["sales-ops", "automation", "small-business", "warehouse-logistics"] as PublicCategorySlug[]
 ).map((slug) => categories[slug]);
 
 export function getCategory(slug: string) {

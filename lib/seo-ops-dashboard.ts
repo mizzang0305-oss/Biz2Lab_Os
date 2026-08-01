@@ -66,6 +66,7 @@ export type SeoOpsArticleRow = {
   lossAvoidanceAngle: string;
   aiAnswerReadinessStatus: AiAnswerReadinessStatus;
   faqPresent: boolean;
+  faqRequired: boolean;
   conclusionFirstPresent: boolean;
   checklistPresent: boolean;
   comparisonTablePresent: boolean;
@@ -566,6 +567,7 @@ function buildArticleRows({
       lossAvoidanceAngle: keywordAudit?.lossAvoidanceAngle ?? "손실 회피 각도 미등록",
       aiAnswerReadinessStatus: answerAudit?.aiAnswerReadinessStatus ?? "결론 요약 보강 필요",
       faqPresent: answerAudit?.faqPresent ?? false,
+      faqRequired: answerAudit?.faqRequired ?? true,
       conclusionFirstPresent: answerAudit?.conclusionFirstPresent ?? false,
       checklistPresent: answerAudit?.checklistPresent ?? false,
       comparisonTablePresent: answerAudit?.comparisonTablePresent ?? false,

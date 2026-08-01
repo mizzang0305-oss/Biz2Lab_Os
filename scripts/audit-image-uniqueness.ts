@@ -231,15 +231,20 @@ function checkConceptDiversity() {
     familyCounts.set(concept.visualFamily, [...(familyCounts.get(concept.visualFamily) ?? []), post.slug]);
   }
 
+  const nonPremiumPosts = posts.filter(
+    (post) => !premiumSlugSet.has(post.slug),
+  );
   const nonPremiumFamilies = new Set(
-    posts
-      .filter((post) => !premiumSlugSet.has(post.slug))
+    nonPremiumPosts
       .map((post) => getArticleImageConcept(post.slug)?.visualFamily)
       .filter(Boolean),
   );
 
-  if (nonPremiumFamilies.size < 12) {
-    errors.push(`non-TOP3 visual family diversity too low: ${nonPremiumFamilies.size}`);
+  const requiredNonPremiumFamilies = Math.min(12, nonPremiumPosts.length);
+  if (nonPremiumFamilies.size < requiredNonPremiumFamilies) {
+    errors.push(
+      `non-TOP3 visual family diversity too low: ${nonPremiumFamilies.size}/${requiredNonPremiumFamilies}`,
+    );
   }
 
   for (const [family, slugs] of familyCounts) {

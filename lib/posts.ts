@@ -29,8 +29,10 @@ export type Post = {
 
 export const premiumVisualPostSlugs = [
   "ai-business-automation-guide",
-  "accounts-receivable-tracker",
-  "electronic-contract-system-basics",
+  "automation-priority-method",
+  "unify-order-channels",
+  "daily-numbers-for-small-business",
+  "separate-picking-inspection-loading-status",
 ] as const;
 
 function walkMarkdownFiles(dir: string): string[] {

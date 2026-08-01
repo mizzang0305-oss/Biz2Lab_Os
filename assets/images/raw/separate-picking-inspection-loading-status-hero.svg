@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-family="warehouse-stage-control" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">출고 단계별 상태 흐름</title>
+  <desc id="desc">출고지시에서 피킹, 검수, 상차, 출고완료까지 단계별 상태와 차이 확인 지점을 보여 주는 도식</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a2e"/>
+      <stop offset="1" stop-color="#123755"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#00101f" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1060" cy="90" r="190" fill="#17b8a6" opacity=".08"/>
+  <circle cx="80" cy="640" r="250" fill="#48a5ff" opacity=".07"/>
+  <text x="82" y="104" fill="#7ee7d8" font-family="Arial, sans-serif" font-size="22" font-weight="700">WAREHOUSE EXECUTION FLOW</text>
+  <text x="82" y="153" fill="#f2f7fb" font-family="Arial, sans-serif" font-size="38" font-weight="800">단계가 분리되어야 차이를 찾을 수 있습니다</text>
+  <g filter="url(#shadow)" font-family="Arial, sans-serif">
+    <g transform="translate(82 238)">
+      <rect width="205" height="160" rx="20" fill="#10324f" stroke="#4d7d9d" stroke-width="2"/>
+      <text x="26" y="45" fill="#8fb9d2" font-size="17">01</text>
+      <text x="26" y="88" fill="#fff" font-size="27" font-weight="700">출고지시</text>
+      <text x="26" y="122" fill="#b6ccda" font-size="16">주문·수량 확정</text>
+    </g>
+    <g transform="translate(349 238)">
+      <rect width="205" height="160" rx="20" fill="#10324f" stroke="#4d7d9d" stroke-width="2"/>
+      <text x="26" y="45" fill="#8fb9d2" font-size="17">02</text>
+      <text x="26" y="88" fill="#fff" font-size="27" font-weight="700">피킹</text>
+      <text x="26" y="122" fill="#b6ccda" font-size="16">실물 수량 기록</text>
+    </g>
+    <g transform="translate(616 238)">
+      <rect width="205" height="160" rx="20" fill="#123f4e" stroke="#28c4b3" stroke-width="3"/>
+      <text x="26" y="45" fill="#7ee7d8" font-size="17">03</text>
+      <text x="26" y="88" fill="#fff" font-size="27" font-weight="700">검수</text>
+      <text x="26" y="122" fill="#b9e4df" font-size="16">차이·보류 확인</text>
+    </g>
+    <g transform="translate(883 238)">
+      <rect width="205" height="160" rx="20" fill="#10324f" stroke="#4d7d9d" stroke-width="2"/>
+      <text x="26" y="45" fill="#8fb9d2" font-size="17">04</text>
+      <text x="26" y="88" fill="#fff" font-size="27" font-weight="700">상차</text>
+      <text x="26" y="122" fill="#b6ccda" font-size="16">차량 적재 확인</text>
+    </g>
+  </g>
+  <g stroke="#65a4c7" stroke-width="4" fill="none">
+    <path d="M294 318h42"/>
+    <path d="M561 318h42"/>
+    <path d="M828 318h42"/>
+  </g>
+  <g fill="#65a4c7">
+    <path d="M336 318l-12-8v16z"/>
+    <path d="M603 318l-12-8v16z"/>
+    <path d="M870 318l-12-8v16z"/>
+  </g>
+  <g transform="translate(82 474)" font-family="Arial, sans-serif">
+    <rect width="1006" height="112" rx="18" fill="#081e34" stroke="#224e6b"/>
+    <circle cx="53" cy="56" r="22" fill="#f0b75a"/>
+    <text x="45" y="64" fill="#142637" font-size="24" font-weight="900">!</text>
+    <text x="91" y="48" fill="#f6d596" font-size="18" font-weight="700">완료 전 확인</text>
+    <text x="91" y="78" fill="#d6e3eb" font-size="18">피킹 수량 = 검수 수량 = 상차 수량인지 단계별 기록으로 확인</text>
+  </g>
+</svg>

@@ -28,36 +28,6 @@ const resourceSections = [
         download: "/downloads/automation-priority-scorecard.csv",
         description: "반복 빈도, 소요 시간, 오류 비용, 표준화 가능성을 기준으로 후보를 비교합니다.",
       },
-      {
-        title: "문서 정리 검토 기록",
-        article: "/ko/automation/chatgpt-document-cleanup",
-        download: "/downloads/document-cleanup-review-log.csv",
-        description: "원문 보존 여부와 AI 수정 항목, 검토 결과를 기록합니다.",
-      },
-      {
-        title: "Google Sheets 승인 로그",
-        article: "/ko/automation/google-sheets-ai-automation",
-        download: "/downloads/sheets-automation-approval-log.csv",
-        description: "시트 자동화 실행 전후의 담당자 승인과 오류 상태를 남깁니다.",
-      },
-      {
-        title: "업무 지식 노트 색인",
-        article: "/ko/automation/obsidian-business-knowledge-base",
-        download: "/downloads/knowledge-note-index.csv",
-        description: "업무 노트의 출처, 소유자, 갱신일, 연결 문서를 관리합니다.",
-      },
-      {
-        title: "자동화 전 업무 목록",
-        article: "/ko/automation/pre-automation-task-list",
-        download: "/downloads/pre-automation-work-inventory.csv",
-        description: "자동화에 들어가기 전 현재 절차와 예외, 담당자를 먼저 적습니다.",
-      },
-      {
-        title: "반복 업무 시간 기록표",
-        article: "/ko/automation/reduce-repetitive-work-with-ai",
-        download: "/downloads/repetitive-work-time-log.csv",
-        description: "반복 횟수와 건당 시간을 기록해 실제 절감 후보를 찾습니다.",
-      },
     ],
   },
   {
@@ -101,12 +71,6 @@ const resourceSections = [
         download: "/downloads/cash-conversion-bridge.csv",
         description: "매출 발생부터 청구, 입금, 미수금까지 현금 흐름을 연결합니다.",
       },
-      {
-        title: "B2B 주문 등록부",
-        article: "/ko/sales-ops/unify-order-channels-for-sales",
-        download: "/downloads/b2b-order-register.csv",
-        description: "전화, 메일, 메시지 주문을 한 등록부에서 상태별로 관리합니다.",
-      },
     ],
   },
   {
@@ -115,34 +79,10 @@ const resourceSections = [
       "여러 채널의 주문과 고객 요청을 한곳에 모으고, 매일과 매주의 운영 상태를 확인하는 자료입니다.",
     resources: [
       {
-        title: "AI 지식 원본 등록부",
-        article: "/ko/small-business/ai-knowledge-store-for-small-business",
-        download: "/downloads/ai-knowledge-source-register.csv",
-        description: "AI가 참고할 업무 자료의 출처, 공개 범위, 갱신 책임자를 기록합니다.",
-      },
-      {
-        title: "고객 후속 기억표",
-        article: "/ko/small-business/customer-memory-system",
-        download: "/downloads/customer-follow-up-memory.csv",
-        description: "고객 요청, 선호, 이전 응대, 다음 조치를 최소 정보로 관리합니다.",
-      },
-      {
         title: "일일 사업 점검표",
         article: "/ko/small-business/daily-numbers-for-small-business",
         download: "/downloads/daily-business-scorecard.csv",
         description: "매출, 주문, 입금, 예약, 미처리 문의를 매일 같은 기준으로 봅니다.",
-      },
-      {
-        title: "예약·주문·리뷰 보드",
-        article: "/ko/small-business/reservation-order-review-management",
-        download: "/downloads/reservation-order-review-board.csv",
-        description: "예약, 주문, 리뷰 대응을 담당자와 다음 행동 중심으로 정리합니다.",
-      },
-      {
-        title: "1인 사업 주간 통제표",
-        article: "/ko/small-business/solo-business-systemization",
-        download: "/downloads/solo-business-weekly-control.csv",
-        description: "혼자 운영할 때 밀리기 쉬운 판매, 정산, 고객, 문서 업무를 주간 단위로 점검합니다.",
       },
       {
         title: "주문 채널 통합함",
