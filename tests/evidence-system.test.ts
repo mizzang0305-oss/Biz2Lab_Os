@@ -16,6 +16,7 @@ import {
 } from "@/lib/evidence";
 import { getPublicPosts } from "@/lib/posts";
 import { stageEvidenceAssets } from "@/scripts/stage-evidence-assets";
+import { validateEvidencePreviewRuntime } from "@/scripts/start-evidence-preview-server";
 
 type CandidateEvidenceItem = Extract<
   PublicEvidenceItem,
@@ -51,6 +52,26 @@ const finalRecaptureIds = [
   "mybiz-readonly-operations-dashboard",
 ] as const;
 const removedFixtureImage = "production-approved-test-fixture.webp";
+
+test("evidence Preview server refuses to start without a reviewed build", () => {
+  const tempRoot = fs.mkdtempSync(
+    path.join(os.tmpdir(), "biz2lab-evidence-preview-server-"),
+  );
+  try {
+    assert.throws(
+      () => validateEvidencePreviewRuntime(tempRoot),
+      /reviewed \.next\/BUILD_ID/,
+    );
+    fs.mkdirSync(path.join(tempRoot, ".next"), { recursive: true });
+    fs.writeFileSync(path.join(tempRoot, ".next", "BUILD_ID"), "reviewed\n");
+    assert.throws(
+      () => validateEvidencePreviewRuntime(tempRoot),
+      /evidence-runtime-manifest\.json/,
+    );
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
 
 test("candidate evidence visibility remains fail-closed", () => {
   const cases = [

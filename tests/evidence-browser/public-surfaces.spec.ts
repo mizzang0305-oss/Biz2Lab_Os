@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
 import evidenceManifest from "../../data/evidence-manifest.json";
 
@@ -40,17 +40,87 @@ const viewports = [
   { width: 1440, height: 960 },
 ];
 
+type SameOriginFailure = {
+  method: string;
+  resourceType: string;
+  url: string;
+  failure: string;
+};
+
+function collectPageSignals(page: Page, baseURL: string) {
+  const origin = new URL(baseURL).origin;
+  const sameOriginFailures: SameOriginFailure[] = [];
+  const sameOriginServerErrors: Array<{ status: number; url: string }> = [];
+  const consoleErrors: Array<{ text: string; url: string }> = [];
+  const pageErrors: string[] = [];
+
+  page.on("requestfailed", (request) => {
+    if (new URL(request.url()).origin === origin) {
+      sameOriginFailures.push({
+        method: request.method(),
+        resourceType: request.resourceType(),
+        url: request.url(),
+        failure: request.failure()?.errorText ?? "unknown",
+      });
+    }
+  });
+  page.on("response", (response) => {
+    if (new URL(response.url()).origin === origin && response.status() >= 500) {
+      sameOriginServerErrors.push({
+        status: response.status(),
+        url: response.url(),
+      });
+    }
+  });
+  page.on("console", (message) => {
+    if (message.type() === "error") {
+      consoleErrors.push({
+        text: message.text(),
+        url: message.location().url,
+      });
+    }
+  });
+  page.on("pageerror", (error) => pageErrors.push(error.message));
+
+  return {
+    sameOriginFailures,
+    sameOriginServerErrors,
+    consoleErrors,
+    pageErrors,
+  };
+}
+
+function actionableConsoleErrors(
+  errors: Array<{ text: string; url: string }>,
+  allowNotFound: boolean,
+) {
+  return errors.filter(({ text }) => {
+    if (
+      text.includes("Framing 'https://www.google.com/'") &&
+      text.includes("report-only Content Security Policy")
+    ) {
+      return false;
+    }
+    return !(
+      allowNotFound &&
+      text ===
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    );
+  });
+}
+
 for (const viewport of viewports) {
   test.describe(`${viewport.width}px public QA`, () => {
     test.use({ viewport });
 
     for (const route of routes) {
-      test(`${route} has no overflow or broken image`, async ({ page }) => {
+      test(`${route} has no overflow or broken image`, async ({
+        page,
+        baseURL,
+      }) => {
         await page.emulateMedia({ reducedMotion: "reduce" });
-        const errors: string[] = [];
-        page.on("console", (message) => {
-          if (message.type() === "error") errors.push(message.text());
-        });
+        expect(baseURL).toBeTruthy();
+        const signals = collectPageSignals(page, baseURL!);
         const response = await page.goto(route, {
           waitUntil: "domcontentloaded",
         });
@@ -59,6 +129,7 @@ for (const viewport of viewports) {
         } else {
           expect(response?.status()).toBeLessThan(500);
         }
+        await page.evaluate(() => document.fonts.ready);
         const dimensions = await page.evaluate(() => ({
           scrollWidth: document.documentElement.scrollWidth,
           innerWidth: window.innerWidth,
@@ -70,22 +141,15 @@ for (const viewport of viewports) {
           dimensions.innerWidth + 1,
         );
         expect(dimensions.brokenImages).toBe(0);
-        const actionableErrors = errors.filter(
-          (error) =>
-            !(
-              error.includes("Framing 'https://www.google.com/'") &&
-              error.includes("report-only Content Security Policy")
-            ),
-        );
-        const unexpectedErrors =
-          route === "/ko/does-not-exist"
-            ? actionableErrors.filter(
-                (error) =>
-                  error !==
-                  "Failed to load resource: the server responded with a status of 404 (Not Found)",
-              )
-            : actionableErrors;
-        expect(unexpectedErrors).toEqual([]);
+        expect(signals.sameOriginFailures).toEqual([]);
+        expect(signals.sameOriginServerErrors).toEqual([]);
+        expect(signals.pageErrors).toEqual([]);
+        expect(
+          actionableConsoleErrors(
+            signals.consoleErrors,
+            route === "/ko/does-not-exist",
+          ),
+        ).toEqual([]);
       });
     }
   });
@@ -173,5 +237,52 @@ test("preview review page is read-only and all approved evidence remains legible
     expect(dimensions.naturalHeight).toBeGreaterThan(0);
     expect(dimensions.renderedWidth).toBeGreaterThanOrEqual(280);
     expect(dimensions.renderedHeight).toBeGreaterThan(190);
+  }
+});
+
+test("font assets remain available across repeated 350px navigations", async ({
+  browser,
+  baseURL,
+}) => {
+  expect(baseURL).toBeTruthy();
+
+  for (let index = 0; index < 5; index += 1) {
+    const context = await browser.newContext({
+      viewport: { width: 350, height: 800 },
+    });
+    try {
+      const page = await context.newPage();
+      const signals = collectPageSignals(page, baseURL!);
+      const response = await page.goto("/ko/warehouse-logistics", {
+        waitUntil: "domcontentloaded",
+      });
+      expect(response?.status()).toBeLessThan(500);
+      await page.evaluate(() => document.fonts.ready);
+
+      const fontUrls = await page
+        .locator('link[rel="preload"][as="font"]')
+        .evaluateAll((links) =>
+          links.map((link) => (link as HTMLLinkElement).href),
+        );
+      expect(fontUrls.length).toBeGreaterThan(0);
+      for (const fontUrl of fontUrls) {
+        const fontResponse = await context.request.get(fontUrl);
+        expect(fontResponse.status(), fontUrl).toBe(200);
+        expect(
+          fontResponse.headers()["content-type"] ?? "",
+          fontUrl,
+        ).toMatch(/^font\/woff2(?:;|$)/i);
+        expect((await fontResponse.body()).byteLength, fontUrl).toBeGreaterThan(
+          0,
+        );
+      }
+      expect(signals.sameOriginFailures, `context ${index + 1}`).toEqual([]);
+      expect(signals.sameOriginServerErrors, `context ${index + 1}`).toEqual(
+        [],
+      );
+      expect(signals.pageErrors, `context ${index + 1}`).toEqual([]);
+    } finally {
+      await context.close();
+    }
   }
 });
