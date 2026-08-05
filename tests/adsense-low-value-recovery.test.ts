@@ -272,6 +272,44 @@ test("five representative articles expose public sources or commit-pinned privat
   }
 });
 
+test("two operational articles expose deterministic fixture, CSV, test, and visual evidence contracts", () => {
+  const contracts = [
+    {
+      slug: "accounts-receivable-tracker",
+      content: "content/ko/sales-ops/accounts-receivable-tracker.md",
+      fixture: "data/evidence-fixtures/accounts-receivable.json",
+      download: "/downloads/accounts-receivable-aging.csv",
+    },
+    {
+      slug: "sales-revenue-ar-structure",
+      content: "content/ko/sales-ops/sales-revenue-ar-structure.md",
+      fixture: "data/evidence-fixtures/cash-conversion.json",
+      download: "/downloads/cash-conversion-bridge.csv",
+    },
+  ];
+
+  for (const contract of contracts) {
+    const source = read(contract.content);
+    const evidence = getEvidenceForPost(contract.slug, "preview");
+
+    assert.equal(fs.existsSync(path.join(process.cwd(), contract.fixture)), true);
+    assert.equal(
+      fs.existsSync(
+        path.join(process.cwd(), "public", contract.download.replace(/^\//, "")),
+      ),
+      true,
+    );
+    assert.match(source, /재현용 익명 예시 데이터/);
+    assert.match(source, /tests\/operational-evidence\.test\.ts/);
+    assert.match(source, new RegExp(contract.download.replaceAll("/", "\\/")));
+    assert.match(source, /실운영 성과|실제 회수율/);
+    assert.equal(evidence.length, 1);
+    assert.equal(evidence[0]?.dataMode, "fixture");
+    assert.equal(evidence[0]?.piiScan, "pass");
+    assert.equal(evidence[0]?.repositoryName, "Biz2Lab_Os");
+  }
+});
+
 test("content reset report records the scope and keeps deployment outside this change", () => {
   const report = read("reports/adsense-content-reset-2026-07-16.md");
 

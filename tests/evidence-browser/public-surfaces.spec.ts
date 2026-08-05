@@ -38,6 +38,7 @@ const flagshipRoutes = [
   "/ko/automation/ai-business-automation-guide",
   "/ko/automation/automation-priority-method",
   "/ko/sales-ops/accounts-receivable-tracker",
+  "/ko/sales-ops/sales-revenue-ar-structure",
   "/ko/small-business/unify-order-channels",
   "/ko/small-business/daily-numbers-for-small-business",
   "/ko/warehouse-logistics/separate-picking-inspection-loading-status",
@@ -167,7 +168,7 @@ test("preview shows no candidate review badges after final approval", async ({
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   expect(candidateEvidenceCount).toBe(0);
-  for (const route of flagshipRoutes.slice(1, 6)) {
+  for (const route of flagshipRoutes.slice(1)) {
     await page.goto(route, { waitUntil: "domcontentloaded" });
     await expect(page.getByText("공개 전 검토 중")).toHaveCount(0);
   }
@@ -208,7 +209,8 @@ test("preview review page is read-only and all approved evidence remains legible
     "content",
     "noindex, nofollow, nocache",
   );
-  await expect(page.locator("article")).toHaveCount(reviewableEvidenceCount);
+  const evidenceArticles = page.locator("article[data-evidence-status]");
+  await expect(evidenceArticles).toHaveCount(reviewableEvidenceCount);
   await expect(page.locator("article[data-evidence-status='approved']")).toHaveCount(
     approvedEvidenceCount,
   );
@@ -216,7 +218,7 @@ test("preview review page is read-only and all approved evidence remains legible
   await expect(page.locator("main form, main button, main input")).toHaveCount(0);
   await expect(page.getByText("--apply", { exact: false })).toHaveCount(0);
 
-  const images = page.locator("article img");
+  const images = evidenceArticles.locator("img");
   await expect(images).toHaveCount(reviewableEvidenceCount);
   for (let index = 0; index < reviewableEvidenceCount; index += 1) {
     const image = images.nth(index);

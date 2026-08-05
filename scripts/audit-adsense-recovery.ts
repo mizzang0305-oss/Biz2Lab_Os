@@ -60,6 +60,7 @@ type InventoryRow = {
   topic_fit: number;
   originality: number;
   evidence: number;
+  reproducibility: number;
   actionability: number;
   trust: number;
   ux: number;
@@ -89,6 +90,11 @@ const FLAGSHIP_SLUGS = new Set([
   "unify-order-channels",
   "separate-picking-inspection-loading-status",
   "accounts-receivable-tracker",
+  "sales-revenue-ar-structure",
+]);
+const REPRODUCIBLE_FLAGSHIP_SLUGS = new Set([
+  "accounts-receivable-tracker",
+  "sales-revenue-ar-structure",
 ]);
 const SUPPORTING_SLUGS = new Set([
   "daily-sales-goal-breakdown",
@@ -272,16 +278,16 @@ function contentClassification(slug: string, route: string, category: string, is
   return "NOINDEX_ISOLATE";
 }
 
-function scoreFor(classification: Classification, hasVisualEvidence: boolean) {
+function scoreFor(classification: Classification, hasVisualEvidence: boolean, hasReproduciblePackage: boolean) {
   const scores = classification === "FLAGSHIP"
-    ? { topic_fit: 5, originality: 5, evidence: hasVisualEvidence ? 5 : 3, actionability: 5, trust: 5, ux: 4, index_readiness: hasVisualEvidence ? 5 : 4 }
+    ? { topic_fit: 5, originality: 5, evidence: hasVisualEvidence ? 5 : 3, reproducibility: hasReproduciblePackage ? 5 : 4, actionability: 5, trust: 5, ux: 4, index_readiness: hasVisualEvidence ? 5 : 4 }
     : classification === "SUPPORTING"
-      ? { topic_fit: 5, originality: 4, evidence: 2, actionability: 5, trust: 4, ux: 4, index_readiness: 5 }
+      ? { topic_fit: 5, originality: 4, evidence: 2, reproducibility: 2, actionability: 5, trust: 4, ux: 4, index_readiness: 5 }
       : classification === "EXPAND_WITH_EVIDENCE"
-        ? { topic_fit: 4, originality: 3, evidence: 1, actionability: 3, trust: 3, ux: 3, index_readiness: 1 }
+        ? { topic_fit: 4, originality: 3, evidence: 1, reproducibility: 1, actionability: 3, trust: 3, ux: 3, index_readiness: 1 }
         : classification === "REDIRECT_301"
-          ? { topic_fit: 5, originality: 1, evidence: 2, actionability: 1, trust: 4, ux: 3, index_readiness: 4 }
-          : { topic_fit: 1, originality: 2, evidence: 1, actionability: 2, trust: 2, ux: 3, index_readiness: 0 };
+          ? { topic_fit: 5, originality: 1, evidence: 2, reproducibility: 1, actionability: 1, trust: 4, ux: 3, index_readiness: 4 }
+          : { topic_fit: 1, originality: 2, evidence: 1, reproducibility: 0, actionability: 2, trust: 2, ux: 3, index_readiness: 0 };
   return { ...scores, total_score: Object.values(scores).reduce((sum, value) => sum + value, 0) };
 }
 
@@ -470,7 +476,8 @@ async function buildInventory(baseUrl: string, sitemapPaths: string[]) {
       ? contentClassification(post.slug, post.route, post.category, isPublic)
       : entry.pageType === "ops-noindex" ? "NOINDEX_ISOLATE" : "SUPPORTING";
     const evidenceCount = post ? approvedBySlug.get(post.slug) ?? 0 : 0;
-    const score = scoreFor(classification, evidenceCount > 0);
+    const hasReproduciblePackage = Boolean(post && REPRODUCIBLE_FLAGSHIP_SLUGS.has(post.slug));
+    const score = scoreFor(classification, evidenceCount > 0, hasReproduciblePackage);
     const images = imageSources(result.html);
     const redirectText = result.redirectChain.map((item) => `${item.status} ${normalizedPath(item.from)} -> ${normalizedPath(item.to)}`).join(" | ");
     const structuredAssets = post
@@ -509,7 +516,7 @@ async function buildInventory(baseUrl: string, sitemapPaths: string[]) {
       image_count: images.length,
       unique_image: images.length > 0 && images.every((image) => imageUsage.get(image) === 1),
       structured_assets: structuredAssets,
-      actual_evidence: post ? evidenceCount > 0 ? `approved_visual:${evidenceCount}` : post.frontmatter.evidenceRequired ? "source_only_or_missing_visual" : "editorial_or_calculation_only" : "not_applicable",
+      actual_evidence: post ? evidenceCount > 0 ? `approved_visual:${evidenceCount}${hasReproduciblePackage ? "|deterministic_fixture_code_test" : ""}` : post.frontmatter.evidenceRequired ? "source_only_or_missing_visual" : "editorial_or_calculation_only" : "not_applicable",
       author: post?.frontmatter.author ?? "Biz2Lab",
       published_at: post?.frontmatter.publishedAt ?? "",
       updated_at: post?.frontmatter.updatedAt ?? "",
@@ -598,7 +605,7 @@ async function writeFullReports(baseUrl: string, outputDir: string) {
   const statusCounts = countBy(inventory.map((row) => String(row.http_status)));
   fs.writeFileSync(
     path.join(outputDir, "current-state-audit.md"),
-    `# AdSense low-value-content 복구 기준선 감사\n\n- 감사일: 2026-08-05\n- 기준 URL: ${baseUrl}\n- 방법: Production 읽기 전용 GET + 저장소 route/frontmatter 교차검증\n- AdSense 조작: 수행하지 않음\n\n## 요약\n\n- inventory: ${inventory.length}\n- sitemap: ${sitemapPaths.length}\n- HTTP 상태: ${Object.entries(statusCounts).map(([status, count]) => `${status}=${count}`).join(", ")}\n- 분류: ${Object.entries(classificationCounts).map(([classification, count]) => `${classification}=${count}`).join(", ")}\n- broken/redirect internal target: ${brokenLinks.length}\n- sitemap/canonical/indexability 오류: ${sitemapErrors.length}\n- duplicate title: ${metadataDuplicates.titles.length}\n- duplicate description: ${metadataDuplicates.descriptions.length}\n- 민감 패턴 finding: ${sensitive.findings.length}\n\n## 확인된 근본 원인\n\n- HIGH: 과거 공개 URL 65개 중 동일 의도 redirect 1개를 제외한 URL은 route 미생성 404이며, Search Console 근거 없이 삭제·복원·홈 redirect를 결정할 수 없다.\n- HIGH: 전자계약·결제 공개 증거가 부족해 관련 허브와 글을 정직하게 복원할 수 없다.\n- HIGH: 수정 전 기본 OG 이미지는 영화·OTT 브랜드를 노출했다.\n- MEDIUM: 수정 전 404는 homepage canonical을 상속했다.\n- MEDIUM: 공개 허브 4개의 글 수가 6/2/2/1로 불균형했다.\n- MEDIUM: apex/protocol/root 조합 redirect는 Production 설정 경계이며 이번 PR에서 변경하지 않는다.\n\n## 감사 한계\n\n- Search Console과 AdSense 정책 센터는 계정 접근 없이 자동 통과시키지 않는다.\n- 이미지 OCR은 수행하지 않았으며 승인 증거와 Preview 캡처의 마스킹은 HUMAN_CHECK다.\n- 본 문서는 승인 보장이 아니라 위험 감소 기록이다.\n`,
+    `# AdSense low-value-content 복구 증거 보강 감사\n\n- 최초 감사일: 2026-08-05\n- 증거 보강일: 2026-08-06\n- 기준 URL: ${baseUrl}\n- 방법: 읽기 전용 GET + 저장소 route/frontmatter + deterministic fixture 교차검증\n- Production 변경: 수행하지 않음\n- AdSense 조작: 수행하지 않음\n\n## 요약\n\n- inventory: ${inventory.length}\n- sitemap: ${sitemapPaths.length}\n- HTTP 상태: ${Object.entries(statusCounts).map(([status, count]) => `${status}=${count}`).join(", ")}\n- 분류: ${Object.entries(classificationCounts).map(([classification, count]) => `${classification}=${count}`).join(", ")}\n- broken/redirect internal target: ${brokenLinks.length}\n- sitemap/canonical/indexability 오류: ${sitemapErrors.length}\n- duplicate title: ${metadataDuplicates.titles.length}\n- duplicate description: ${metadataDuplicates.descriptions.length}\n- 민감 패턴 finding: ${sensitive.findings.length}\n\n## 이번 보강에서 확인한 사실\n\n- \`accounts-receivable-tracker\`은 익명 fixture, 계산 코드, 생성 CSV, 자동 테스트와 승인된 캡처를 연결했다.\n- \`sales-revenue-ar-structure\`는 단계별 익명 fixture, 매출-현금 간극 계산, 생성 CSV, 자동 테스트와 승인된 캡처를 연결했다.\n- 두 증거 패키지는 실제 운영 성과가 아니라 저장소에서 재현되는 입력·출력 검증이다.\n- 기존 FLAGSHIP 6개에는 미수금 페이지가 이미 포함돼 있었다. 따라서 두 페이지를 보강한 뒤 독립 URL 기준 FLAGSHIP은 7개이며 8개로 계산하지 않는다.\n\n## 남은 위험과 사람 게이트\n\n- HIGH: 과거 공개 URL 64개는 대체 검색 의도가 확인되지 않아 404를 유지한다. Search Console 근거 없이 삭제·복원·홈 redirect를 결정하지 않는다.\n- HIGH: 전자계약·결제 공개 증거가 부족해 관련 허브와 글을 복원하지 않는다.\n- MEDIUM: 독립적인 FLAGSHIP 8개 기준에는 사실 기반 페이지 1개가 더 필요하다.\n- MEDIUM: apex/protocol/root 조합 redirect는 Production 설정 경계이며 이번 PR에서 변경하지 않는다.\n- LOW: 공개 문의 경로는 GitHub Issues이며 공개 게시판이라는 경고가 있다. 비공개 이메일 또는 endpoint는 승인된 값이 없어 추가하지 않았다.\n\n## 감사 한계\n\n- Search Console과 AdSense 정책 센터는 계정 접근 없이 자동 통과시키지 않는다.\n- OCR 도구는 사용할 수 없어 16개 이미지를 원본 픽셀 기준으로 수동 검토했다. 이미지 교체 시 재검토가 필요하다.\n- 본 문서는 승인 보장이 아니라 위험 감소와 사람 검토 준비 기록이다.\n`,
     "utf8",
   );
 
