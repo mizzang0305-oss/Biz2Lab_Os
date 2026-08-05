@@ -8,6 +8,7 @@ export type Category = {
   hubIntro: string;
   startGuide: string;
   pillarIdea: string;
+  coverageNote?: string;
 };
 
 export const categories: Record<Exclude<CategorySlug, "pillar">, Category> = {
@@ -58,6 +59,8 @@ export const categories: Record<Exclude<CategorySlug, "pillar">, Category> = {
     startGuide:
       "외부 실행이 있는 업무라면 승인 차단 화면과 실행 로그 사례부터 확인하세요.",
     pillarIdea: "사람 승인 뒤에만 실행되는 자동화",
+    coverageNote:
+      "현재는 공개 저장소와 로컬 fixture에서 다시 확인한 승인 차단·실패 로그 사례 2개만 공개합니다. 실제 외부 게시 성과는 검증 범위에 포함하지 않습니다.",
   },
   "sales-ops": {
     slug: "sales-ops",
@@ -70,6 +73,8 @@ export const categories: Record<Exclude<CategorySlug, "pillar">, Category> = {
     startGuide:
       "매출 목표를 일일 행동으로 나누고, 미수금과 거래처 후속 조치를 같은 표에서 관리하는 흐름부터 시작하세요.",
     pillarIdea: "영업·매출 관리 자동화 가이드",
+    coverageNote:
+      "계산식과 가상 CSV로 재현할 수 있는 매출·미수금 운영 기준을 공개합니다. 실제 회수율이나 매출 성과는 주장하지 않습니다.",
   },
   "small-business": {
     slug: "small-business",
@@ -82,6 +87,8 @@ export const categories: Record<Exclude<CategorySlug, "pillar">, Category> = {
     startGuide:
       "주문 채널 통합, 매일 볼 숫자, 고객 기록 방식 순서로 운영의 빈틈을 줄여보세요.",
     pillarIdea: "소상공인 운영 자동화 가이드",
+    coverageNote:
+      "고객정보가 없는 로컬 데모와 WMS mock fixture로 다시 확인한 주문·운영 사례 2개를 공개합니다.",
   },
   "contracts-payments": {
     slug: "contracts-payments",
@@ -106,6 +113,8 @@ export const categories: Record<Exclude<CategorySlug, "pillar">, Category> = {
     startGuide:
       "피킹·검수·상차를 분리한 사례에서 어떤 상태가 다음 단계를 막는지 먼저 확인하세요.",
     pillarIdea: "피킹·검수·상차 상태를 분리한 이유",
+    coverageNote:
+      "현재 공개 범위는 mock WMS의 상태 분리와 검수 전 상차 차단입니다. 실제 재고 정확도와 작업 생산성은 검증하지 않았습니다.",
   },
 };
 

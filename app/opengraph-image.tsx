@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Biz2Lab PLAY - 오늘 뭐 볼까";
+export const alt = "Biz2Lab - B2B 유통 현장 시스템 구축 기록";
 export const size = {
   width: 1200,
   height: 630,
@@ -23,12 +23,12 @@ export default function Image() {
           border: "24px solid #ff7a59",
         }}
       >
-        <div style={{ fontSize: 54, fontWeight: 800 }}>Biz2Lab PLAY</div>
+        <div style={{ fontSize: 54, fontWeight: 800 }}>Biz2Lab</div>
         <div style={{ marginTop: 24, maxWidth: 820, fontSize: 42, lineHeight: 1.25, fontWeight: 700 }}>
-          오늘 뭐 볼지, 이제 오래 고민하지 마세요
+          주문·미수금·물류를 시스템으로 바꾼 기록
         </div>
         <div style={{ marginTop: 28, fontSize: 24, color: "#675f72" }}>
-          영화 추천 · 결말 해석 · OTT 생활
+          구현 화면 · 운영 기준 · 검증 범위
         </div>
       </div>
     ),

@@ -25,7 +25,7 @@ export function SiteFooter() {
           </div>
         ))}
       </div>
-      <div className="border-t border-slate-800 px-5 py-4 text-center text-xs text-slate-500">
+      <div className="border-t border-slate-800 px-5 py-4 text-center text-xs text-slate-400">
         {siteSettings.footer.copyright}
       </div>
     </footer>

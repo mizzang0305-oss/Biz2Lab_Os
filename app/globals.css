@@ -51,6 +51,13 @@ code {
   overflow-wrap: anywhere;
 }
 
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #0f766e;
+  outline-offset: 3px;
+}
+
 img,
 svg {
   max-width: 100%;
@@ -108,7 +115,7 @@ svg {
 }
 
 .prose-biz2lab a {
-  color: #d6422d;
+  color: #b93824;
   overflow-wrap: anywhere;
 }
 

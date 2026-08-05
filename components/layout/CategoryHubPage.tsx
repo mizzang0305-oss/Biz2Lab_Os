@@ -34,20 +34,30 @@ export function CategoryHubPage({ category, posts }: { category: Category; posts
           <aside className="min-w-0 rounded-md border border-amber-200 bg-amber-50 p-5">
             <h2 className="text-xl font-bold tracking-normal text-slate-950">어디서 시작할까</h2>
             <p className="mt-3 leading-7 text-slate-700">{category.startGuide}</p>
+            {category.coverageNote ? (
+              <div className="mt-5 border-t border-amber-200 pt-4">
+                <h3 className="text-sm font-bold text-slate-950">현재 공개 범위</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-700">
+                  {category.coverageNote}
+                </p>
+              </div>
+            ) : null}
           </aside>
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-5">
-          <h2 className="text-2xl font-bold tracking-normal text-slate-950">클러스터 글</h2>
-          <div className="mt-6 grid min-w-0 gap-5 md:grid-cols-2">
-            {clusters.map((post) => (
-              <ArticleCard key={post.slug} post={post} />
-            ))}
+      {clusters.length > 0 ? (
+        <section className="border-y border-slate-200 bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-12 sm:px-5">
+            <h2 className="text-2xl font-bold tracking-normal text-slate-950">함께 읽을 실무 글</h2>
+            <div className="mt-6 grid min-w-0 gap-5 md:grid-cols-2">
+              {clusters.map((post) => (
+                <ArticleCard key={post.slug} post={post} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-5">
         <h2 className="text-2xl font-bold tracking-normal text-slate-950">관련 허브</h2>

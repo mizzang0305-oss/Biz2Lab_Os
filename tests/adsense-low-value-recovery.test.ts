@@ -9,13 +9,15 @@ import AboutPage from "@/app/ko/about/page";
 import ResourcesPage, { metadata as resourcesMetadata } from "@/app/ko/resources/page";
 import { GET as getRss } from "@/app/rss.xml/route";
 import sitemap from "@/app/sitemap";
+import { CategoryHubPage } from "@/components/layout/CategoryHubPage";
+import { categories } from "@/lib/categories";
 import {
   editorialIdentity,
   getEditorialEvidence,
   getEditorialEvidenceEntries,
 } from "@/lib/editorial-evidence";
 import { getEvidenceForPost } from "@/lib/evidence";
-import { getAllPosts, getPublicPosts } from "@/lib/posts";
+import { getAllPosts, getPostsByCategory, getPublicPosts } from "@/lib/posts";
 import { staticPublicRoutes } from "@/lib/seo";
 import { siteSettings } from "@/lib/site-settings";
 
@@ -62,6 +64,37 @@ test("public portfolio contains only the reviewed evidence-first article set", a
     assert.equal(sitemapUrls.some((url) => url.endsWith(post.route)), false);
     assert.equal(rss.includes(post.route), false);
   }
+});
+
+test("sitewide surfaces no longer promise unpublished contract content or entertainment branding", () => {
+  const layout = read("app/layout.tsx");
+  const openGraphImage = read("app/opengraph-image.tsx");
+  const home = read("components/layout/HomePage.tsx");
+
+  assert.doesNotMatch(siteSettings.description, /전자계약/);
+  assert.doesNotMatch(siteSettings.hero.title, /전자계약/);
+  assert.doesNotMatch(siteSettings.hero.description, /계약 미작성/);
+  assert.doesNotMatch(openGraphImage, /Biz2Lab PLAY|영화 추천|결말 해석|OTT 생활/);
+  assert.match(openGraphImage, /주문·미수금·물류/);
+  assert.doesNotMatch(layout, /alternates:\s*{\s*canonical:\s*siteConfig\.url/);
+  assert.match(layout, /href="#site-content"/);
+  assert.match(layout, /id="site-content"/);
+  assert.match(home, /getFeaturedHomePosts\(6\)/);
+  assert.doesNotMatch(home, /lossNumberLinks|pathLinks/);
+});
+
+test("a one-article category hub hides the empty cluster section and states its evidence boundary", () => {
+  const html = renderToStaticMarkup(
+    createElement(CategoryHubPage, {
+      category: categories["warehouse-logistics"],
+      posts: getPostsByCategory("warehouse-logistics"),
+    }),
+  );
+
+  assert.doesNotMatch(html, /함께 읽을 실무 글/);
+  assert.match(html, /현재 공개 범위/);
+  assert.match(html, /mock WMS/);
+  assert.match(html, /실제 재고 정확도와 작업 생산성은 검증하지 않았습니다/);
 });
 
 test("every public article has distinct practical value and an appropriate evidence form", () => {

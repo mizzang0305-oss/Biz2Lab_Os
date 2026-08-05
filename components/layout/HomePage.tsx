@@ -7,7 +7,7 @@ import { publicProjects } from "@/lib/public-projects";
 import { siteSettings } from "@/lib/site-settings";
 
 export function HomePage() {
-  const posts = getFeaturedHomePosts(10);
+  const posts = getFeaturedHomePosts(6);
   const practicalLinks = [
     {
       title: "달성률 계산 / 매출 달성률",
@@ -35,23 +35,6 @@ export function HomePage() {
       description: "전화, 메시지, 현장 주문을 누락 없이 확인하는 기준",
     },
   ];
-  const lossNumberLinks = [
-    {
-      title: "달성률과 부족 금액",
-      href: "/ko/sales-ops/sales-achievement-rate",
-      description: "목표 대비 현재 위치와 남은 기간 하루 필요 실적을 계산합니다.",
-    },
-    {
-      title: "매일 확인해야 할 숫자",
-      href: "/ko/small-business/daily-numbers-for-small-business",
-      description: "매출, 주문, 입금, 예약, 미처리 문의를 하루 단위로 보고 다음 행동으로 연결합니다.",
-    },
-    {
-      title: "미수금과 입금 약속",
-      href: "/ko/sales-ops/accounts-receivable-tracker",
-      description: "청구일, 약속일, 경과일, 담당자 후속 조치를 분리합니다.",
-    },
-  ];
   const decisionGuideLinks = [
     {
       title: "자동화 우선순위 정하기",
@@ -67,23 +50,6 @@ export function HomePage() {
       title: "AI 업무 자동화 기준",
       href: "/ko/automation/ai-business-automation-guide",
       description: "초안, 검토, 승인, 기록을 분리할 수 있을 때만 자동화를 검토합니다.",
-    },
-  ];
-  const pathLinks = [
-    {
-      title: "매출 목표를 쪼개야 할 때",
-      href: "/ko/sales-ops/daily-sales-goal-breakdown",
-      description: "월 목표가 막연하면 오늘 행동량부터 계산합니다.",
-    },
-    {
-      title: "주문 채널이 흩어졌을 때",
-      href: "/ko/small-business/unify-order-channels",
-      description: "전화, 메시지, 현장 주문을 하나의 확인표로 묶습니다.",
-    },
-    {
-      title: "도구 선택 전에 비교할 때",
-      href: "/ko/resources",
-      description: "계산식, 체크리스트, 판단 기준을 문제별로 먼저 봅니다.",
     },
   ];
   const fieldCases = [
@@ -172,32 +138,6 @@ export function HomePage() {
               >
                 <h3 className="font-bold text-white">{item.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-slate-300">{item.description}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-14">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-bold tracking-normal text-slate-950">
-              놓치면 손해 보는 실무 숫자
-            </h2>
-            <p className="mt-3 leading-7 text-slate-600">
-              대표 구축 사례 다음에는 현장에서 같은 문제를 점검할 때 쓸 수 있는 계산 기준과
-              체크리스트를 제공합니다.
-            </p>
-          </div>
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {lossNumberLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-md border border-slate-200 bg-white p-4 shadow-sm transition hover:border-teal-300 hover:shadow-md"
-              >
-                <h3 className="font-bold text-slate-950">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{item.description}</p>
               </Link>
             ))}
           </div>
@@ -311,26 +251,6 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-14">
-        <div className="max-w-2xl min-w-0">
-          <h2 className="text-2xl font-bold tracking-normal text-slate-950">추천 탐색 경로</h2>
-          <p className="mt-3 leading-7 text-slate-600">
-            지금 겪는 문제가 숫자, 주문, 도구 선택 중 어디에 가까운지에 따라 다음 글로 이동하세요.
-          </p>
-        </div>
-        <div className="mt-8 grid min-w-0 gap-4 md:grid-cols-3">
-          {pathLinks.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md border border-teal-200 bg-teal-50 p-4 transition hover:border-teal-400 hover:bg-white"
-            >
-              <h3 className="font-bold text-slate-950">{item.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-700">{item.description}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
     </div>
   );
 }

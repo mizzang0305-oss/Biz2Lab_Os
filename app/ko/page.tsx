@@ -5,7 +5,8 @@ import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
   title: "Biz2Lab",
-  description: "현장형 AI 업무 자동화와 사업 운영 시스템을 정리하는 한국어 중심 콘텐츠 허브입니다.",
+  description:
+    "식자재 유통과 B2B 영업 현장의 주문, 미수금, 재고, 피킹과 승인형 자동화를 직접 구현·검증한 범위로 설명합니다.",
   path: "/ko",
 });
 
