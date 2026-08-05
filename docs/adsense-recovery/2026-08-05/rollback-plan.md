@@ -2,23 +2,27 @@
 
 ## 원칙
 
-- 변경은 감사 자동화, 기술 SEO·접근성, IA·카피, 문서 커밋으로 분리한다.
 - Production에는 아직 배포하지 않는다.
-- rollback은 해당 커밋의 `git revert <sha>`로 수행하며 force push나 history rewrite를 사용하지 않는다.
+- force push나 history rewrite 없이 논리 커밋을 `git revert <sha>`로 되돌린다.
+- 사용자 승인 없이 redirect, noindex, sitemap, URL 삭제 또는 Production 설정을 바꾸지 않는다.
 
-## 변경별 영향
+## 변경 경계
 
-| 변경 | 롤백 시 영향 | 안전한 복원 |
-| --- | --- | --- |
-| root canonical 제거 | 되돌리면 404가 homepage canonical을 다시 상속할 수 있음 | 해당 기술 SEO 커밋만 revert 후 404 metadata를 재검증 |
-| OG 이미지 카피 | 되돌리면 영화·OTT 미리보기 브랜드가 다시 노출됨 | IA·카피 커밋만 revert 후 `/opengraph-image` 확인 |
-| homepage·navigation 축소 | 되돌리면 반복 링크와 mobile header 밀도가 다시 증가 | IA·카피 커밋만 revert |
-| 빈 허브 섹션 제거·공개 범위 추가 | 되돌리면 1개 글 물류 허브에 빈 섹션이 재생성 | IA·카피 커밋만 revert |
-| sitemap/noindex | 이번 구현에서는 기존 sitemap/noindex 집합을 변경하지 않음 | 해당 없음 |
-| redirect | 이번 구현에서는 기존 permanent 308을 변경하지 않음 | 해당 없음 |
-| 콘텐츠 통합·URL 제거 | 이번 구현에서 수행하지 않음 | 해당 없음 |
-| 감사 스크립트·QA | 되돌리면 재발 방지 gate와 inventory 생성 명령이 사라짐 | 감사 자동화 커밋만 revert |
+| 커밋 | 변경 | 롤백 영향 | 안전한 복원 |
+| --- | --- | --- | --- |
+| `c2455bc` | 익명 fixture·계산 코드·CSV | 재현 입력과 공개 다운로드가 함께 사라짐 | 이 커밋을 revert하고 테스트·링크 재검증 |
+| `52535c9` | 두 기존 글·승인 이미지·manifest | 증거 설명과 시각 증거가 이전 상태로 돌아감 | 이 커밋을 revert하고 canonical·sitemap·image validation 확인 |
+| `f247cfc` | audit 분류·reproducibility·QA 계약 | inventory가 이전 6 FLAGSHIP 기준으로 돌아가고 Preview gate가 7개 증거를 기대함 | 이 커밋을 revert한 뒤 보고서 재생성 및 Playwright 재실행 |
+| `docs: update evidence expansion and human gates` | 문서·체크리스트 | 최신 사람 게이트와 개인정보 검토가 사라짐 | 같은 제목의 문서 커밋을 revert |
+
+## 이번 작업에서 건드리지 않은 경계
+
+- redirect: 변경 없음. 기존 동일 의도 permanent redirect만 유지한다.
+- noindex와 sitemap 제외: 기존 주제 이탈·초안 정책을 변경하지 않는다.
+- 콘텐츠 통합과 URL 제거: 수행하지 않는다.
+- Contact endpoint: 공개 GitHub Issues만 확인했고 새 endpoint나 이메일을 추가하지 않는다.
+- Production/AdSense/Search Console/DNS/도메인/광고 코드/analytics: 변경 없음.
 
 ## 재검증
 
-revert 후 `npm test`, `npm run lint`, `npm run typecheck`, `npm run build`, `npm run audit:adsense`와 Preview smoke를 다시 실행한다. sitemap/noindex/redirect에 후속 변경이 생겼다면 이 문서가 아니라 그 변경의 별도 rollback 기록을 따른다.
+revert 후 `npm test`, `npm run lint`, `npm run typecheck`, `npm run build`, `npm run evidence:validate`, `npm run audit:adsense`와 Preview smoke를 다시 실행한다. noindex, sitemap 또는 redirect가 이후 별도 변경됐다면 해당 커밋의 롤백 문서를 우선한다.

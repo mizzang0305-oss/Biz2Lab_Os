@@ -3,7 +3,7 @@
 - 기준: 5-token normalized shingle Jaccard
 - 전체 Markdown: 76
 - 공개 Markdown: 11
-- 공개 최대 유사도: 0.003
+- 공개 최대 유사도: 0.005
 - 전체 최대 유사도: 0.343
 - 0.200 이상 pair: 16
 

@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-05T08:10:55.837Z",
+  "generatedAt": "2026-08-05T23:05:41.633Z",
   "algorithm": "5-token normalized shingle Jaccard similarity",
   "postCount": 76,
   "publicPostCount": 11,
   "overallMaxSimilarity": 0.343,
-  "publicMaxSimilarity": 0.003,
+  "publicMaxSimilarity": 0.005,
   "highSimilarityThreshold": 0.2,
   "highSimilarityPairs": [
     {

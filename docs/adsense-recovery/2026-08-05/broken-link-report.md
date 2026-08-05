@@ -1,8 +1,8 @@
 # 내부 링크·사이트맵 보고서
 
-- 감사 기준: https://www.biz2lab.com
+- 감사 기준: http://127.0.0.1:4320
 - sitemap URL: 26
-- rendered internal target: 43
+- rendered internal target: 45
 - broken 또는 redirect target: 0
 - sitemap/canonical/indexability 오류: 0
 
