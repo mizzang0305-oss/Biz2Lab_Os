@@ -49,6 +49,7 @@
     "evidence:review-renders": "tsx scripts/generate-evidence-review-renders.ts",
     "evidence:inventory": "tsx scripts/generate-evidence-content-inventory.ts",
     "evidence:qa": "tsx scripts/verify-production-evidence.ts && playwright test --config=playwright.evidence.config.ts",
+    "evidence:operational": "tsx scripts/generate-operational-evidence.ts",
     "evidence:approve": "tsx scripts/approve-evidence.ts",
     "evidence:stage": "tsx scripts/stage-evidence-assets.ts",
     "generate-content-index": "tsx scripts/generate-content-index.ts",

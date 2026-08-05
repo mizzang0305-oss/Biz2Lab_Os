@@ -1,3 +1,4 @@
-거래처,청구번호,청구일,약속일,청구금액,입금금액,미수금,경과일,구간,최근연락일,다음조치일,담당자,분쟁여부
-샘플상사,INV-001,2026-06-20,2026-07-05,1200000,700000,500000,11,8-14일,2026-07-14,2026-07-17,김담당,FALSE
-예시유통,INV-002,2026-06-10,2026-06-30,850000,0,850000,16,15-30일,2026-07-15,2026-07-16,이담당,TRUE
+account_id,account_name,outstanding_amount,promised_payment_date,last_payment_date,overdue_days,credit_limit,payment_status,follow_up_status,dispute_status,aging_bucket,priority_score,priority_band,priority_rank,recommended_next_step,data_notice
+AR-A,거래처 A,500000,2026-07-26,2026-07-30,11,2000000,partial,scheduled,none,8~14일,30,중간,1,다음 조치일과 입금 원본 확인,"재현용 익명 예시 데이터이며 실제 거래처, 실제 미수금 또는 실운영 성과가 아닙니다."
+AR-B,거래처 B,850000,2026-07-21,,16,1500000,unpaid,dispute_review,open,15~30일,,사람 분쟁 검토,,계약·납품·청구 원본을 사람이 대조,"재현용 익명 예시 데이터이며 실제 거래처, 실제 미수금 또는 실운영 성과가 아닙니다."
+AR-C,거래처 C,300000,2026-08-10,,-4,3000000,unpaid,scheduled,none,약속일 전,5,관찰,2,약속일까지 모니터링,"재현용 익명 예시 데이터이며 실제 거래처, 실제 미수금 또는 실운영 성과가 아닙니다."

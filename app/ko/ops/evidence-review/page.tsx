@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
 
+import { OperationalEvidenceSection } from "@/components/evidence/OperationalEvidencePanels";
 import {
   getReviewableEvidence,
   isCandidateEvidenceVisible,
@@ -39,6 +40,8 @@ export default async function EvidenceReviewPage() {
           확인해야 하며 이 페이지에는 승인·배포 동작이 없습니다.
         </p>
       </header>
+
+      <OperationalEvidenceSection />
 
       <EvidenceSection
         heading="승인된 증거 · 읽기 전용"
