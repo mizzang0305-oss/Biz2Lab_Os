@@ -1,6 +1,11 @@
+import fs from "node:fs";
+import path from "node:path";
+
 import { expect, test, type Page } from "@playwright/test";
 
 import evidenceManifest from "../../data/evidence-manifest.json";
+import { getPublicPosts } from "../../lib/posts";
+import { staticPublicRoutes } from "../../lib/seo";
 
 const reviewableEvidenceCount = evidenceManifest.filter(
   (item) => item.status === "candidate" || item.status === "approved",
@@ -13,31 +18,29 @@ const candidateEvidenceCount = evidenceManifest.filter(
 ).length;
 
 const routes = [
-  "/ko",
-  "/ko/author/biz2lab",
-  "/ko/about",
-  "/ko/projects",
-  "/ko/automation/ai-business-automation-guide",
-  "/ko/automation/automation-priority-method",
-  "/ko/small-business/unify-order-channels",
-  "/ko/small-business/daily-numbers-for-small-business",
-  "/ko/warehouse-logistics/separate-picking-inspection-loading-status",
-  "/ko/automation",
-  "/ko/sales-ops",
-  "/ko/small-business",
-  "/ko/warehouse-logistics",
-  "/ko/resources",
-  "/ko/ops/evidence-review",
-  "/ko/privacy",
-  "/ko/terms",
-  "/ko/does-not-exist",
+  ...staticPublicRoutes.map((route) => ({ route, expectedStatus: 200 })),
+  ...getPublicPosts().map((post) => ({ route: post.route, expectedStatus: 200 })),
+  { route: "/ko/ops/seo-dashboard", expectedStatus: 200 },
+  { route: "/ko/ops/evidence-review", expectedStatus: 200 },
+  { route: "/ko/does-not-exist", expectedStatus: 404 },
 ];
 
 const viewports = [
-  { width: 350, height: 800 },
+  { width: 360, height: 800 },
   { width: 390, height: 844 },
-  { width: 768, height: 900 },
-  { width: 1440, height: 960 },
+  { width: 430, height: 932 },
+  { width: 768, height: 1024 },
+  { width: 1440, height: 900 },
+];
+
+const flagshipRoutes = [
+  "/ko",
+  "/ko/automation/ai-business-automation-guide",
+  "/ko/automation/automation-priority-method",
+  "/ko/sales-ops/accounts-receivable-tracker",
+  "/ko/small-business/unify-order-channels",
+  "/ko/small-business/daily-numbers-for-small-business",
+  "/ko/warehouse-logistics/separate-picking-inspection-loading-status",
 ];
 
 type SameOriginFailure = {
@@ -113,8 +116,8 @@ for (const viewport of viewports) {
   test.describe(`${viewport.width}px public QA`, () => {
     test.use({ viewport });
 
-    for (const route of routes) {
-      test(`${route} has no overflow or broken image`, async ({
+    for (const { route, expectedStatus } of routes) {
+      test(`${route} has exact status, no overflow, and no broken image`, async ({
         page,
         baseURL,
       }) => {
@@ -124,11 +127,7 @@ for (const viewport of viewports) {
         const response = await page.goto(route, {
           waitUntil: "domcontentloaded",
         });
-        if (route === "/ko/does-not-exist") {
-          expect(response?.status()).toBe(404);
-        } else {
-          expect(response?.status()).toBeLessThan(500);
-        }
+        expect(response?.status()).toBe(expectedStatus);
         await page.evaluate(() => document.fonts.ready);
         const dimensions = await page.evaluate(() => ({
           scrollWidth: document.documentElement.scrollWidth,
@@ -147,9 +146,16 @@ for (const viewport of viewports) {
         expect(
           actionableConsoleErrors(
             signals.consoleErrors,
-            route === "/ko/does-not-exist",
+            expectedStatus === 404,
           ),
         ).toEqual([]);
+        if (expectedStatus === 404) {
+          await expect(page.locator("meta[name='robots']")).toHaveAttribute(
+            "content",
+            /noindex/i,
+          );
+          await expect(page.locator("link[rel='canonical']")).toHaveCount(0);
+        }
       });
     }
   });
@@ -160,7 +166,7 @@ test("preview shows no candidate review badges after final approval", async ({
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   expect(candidateEvidenceCount).toBe(0);
-  for (const route of routes.slice(4, 9)) {
+  for (const route of flagshipRoutes.slice(1, 6)) {
     await page.goto(route, { waitUntil: "domcontentloaded" });
     await expect(page.getByText("공개 전 검토 중")).toHaveCount(0);
   }
@@ -248,7 +254,7 @@ test("font assets remain available across repeated 350px navigations", async ({
 
   for (let index = 0; index < 5; index += 1) {
     const context = await browser.newContext({
-      viewport: { width: 350, height: 800 },
+      viewport: { width: 360, height: 800 },
     });
     try {
       const page = await context.newPage();
@@ -286,3 +292,50 @@ test("font assets remain available across repeated 350px navigations", async ({
     }
   }
 });
+
+test("the permanent order-channel redirect has one hop and the verified destination", async ({
+  request,
+}) => {
+  const response = await request.get(
+    "/ko/sales-ops/unify-order-channels-for-sales",
+    { maxRedirects: 0 },
+  );
+  expect(response.status()).toBe(308);
+  expect(response.headers().location).toBe(
+    "/ko/small-business/unify-order-channels",
+  );
+});
+
+test("keyboard users can skip to the main content with a visible focus target", async ({
+  page,
+}) => {
+  await page.goto("/ko", { waitUntil: "domcontentloaded" });
+  await page.keyboard.press("Tab");
+  const skipLink = page.getByRole("link", { name: "본문으로 건너뛰기" });
+  await expect(skipLink).toBeFocused();
+  await expect(skipLink).toBeVisible();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#site-content")).toBeFocused();
+});
+
+for (const viewport of [
+  { width: 390, height: 844, label: "mobile" },
+  { width: 1440, height: 900, label: "desktop" },
+]) {
+  test(`capture ${viewport.label} flagship evidence when requested`, async ({ page }) => {
+    const captureRoot = process.env.ADSENSE_QA_CAPTURE_DIR;
+    test.skip(!captureRoot, "ADSENSE_QA_CAPTURE_DIR is not set");
+    await page.setViewportSize(viewport);
+    fs.mkdirSync(captureRoot!, { recursive: true });
+    for (const route of flagshipRoutes) {
+      await page.goto(route, { waitUntil: "networkidle" });
+      await page.screenshot({
+        path: path.join(
+          captureRoot!,
+          `${viewport.label}-${route.replace(/^\/ko\/?/, "").replaceAll("/", "-") || "home"}.png`,
+        ),
+        fullPage: true,
+      });
+    }
+  });
+}
