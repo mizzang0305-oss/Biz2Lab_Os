@@ -1,0 +1,229 @@
+{
+  "generatedAt": "2026-08-05T08:10:55.837Z",
+  "algorithm": "5-token normalized shingle Jaccard similarity",
+  "postCount": 76,
+  "publicPostCount": 11,
+  "overallMaxSimilarity": 0.343,
+  "publicMaxSimilarity": 0.003,
+  "highSimilarityThreshold": 0.2,
+  "highSimilarityPairs": [
+    {
+      "left": "/ko/contracts-payments/e-signature-identity-check",
+      "right": "/ko/contracts-payments/manage-unsigned-contracts",
+      "similarity": 0.343,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/e-signature-identity-check",
+      "right": "/ko/contracts-payments/offline-card-payment-pg-van",
+      "similarity": 0.317,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/manage-unsigned-contracts",
+      "right": "/ko/contracts-payments/offline-card-payment-pg-van",
+      "similarity": 0.317,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/electronic-contract-system-basics",
+      "right": "/ko/contracts-payments/manage-unsigned-contracts",
+      "similarity": 0.316,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/e-signature-identity-check",
+      "right": "/ko/contracts-payments/electronic-contract-system-basics",
+      "similarity": 0.313,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/connect-contract-payment-customer-management",
+      "right": "/ko/contracts-payments/electronic-contract-system-basics",
+      "similarity": 0.31,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/connect-contract-payment-customer-management",
+      "right": "/ko/contracts-payments/manage-unsigned-contracts",
+      "similarity": 0.308,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/connect-contract-payment-customer-management",
+      "right": "/ko/contracts-payments/e-signature-identity-check",
+      "similarity": 0.302,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/electronic-contract-system-basics",
+      "right": "/ko/contracts-payments/offline-card-payment-pg-van",
+      "similarity": 0.293,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/connect-contract-payment-customer-management",
+      "right": "/ko/contracts-payments/offline-card-payment-pg-van",
+      "similarity": 0.281,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/dify-llm-app-builder-business-automation",
+      "right": "/ko/automation/langflow-ai-workflow-automation",
+      "similarity": 0.277,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/dify-llm-app-builder-business-automation",
+      "right": "/ko/automation/open-webui-local-llm-admin-portal",
+      "similarity": 0.244,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/langflow-ai-workflow-automation",
+      "right": "/ko/automation/open-webui-local-llm-admin-portal",
+      "similarity": 0.244,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/flowise-ai-agent-workflow-automation",
+      "right": "/ko/automation/langflow-ai-workflow-automation",
+      "similarity": 0.205,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/dify-llm-app-builder-business-automation",
+      "right": "/ko/automation/flowise-ai-agent-workflow-automation",
+      "similarity": 0.202,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/flowise-ai-agent-workflow-automation",
+      "right": "/ko/automation/open-webui-local-llm-admin-portal",
+      "similarity": 0.201,
+      "publicPair": false
+    }
+  ],
+  "topPairs": [
+    {
+      "left": "/ko/contracts-payments/e-signature-identity-check",
+      "right": "/ko/contracts-payments/manage-unsigned-contracts",
+      "similarity": 0.343,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/e-signature-identity-check",
+      "right": "/ko/contracts-payments/offline-card-payment-pg-van",
+      "similarity": 0.317,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/manage-unsigned-contracts",
+      "right": "/ko/contracts-payments/offline-card-payment-pg-van",
+      "similarity": 0.317,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/electronic-contract-system-basics",
+      "right": "/ko/contracts-payments/manage-unsigned-contracts",
+      "similarity": 0.316,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/e-signature-identity-check",
+      "right": "/ko/contracts-payments/electronic-contract-system-basics",
+      "similarity": 0.313,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/connect-contract-payment-customer-management",
+      "right": "/ko/contracts-payments/electronic-contract-system-basics",
+      "similarity": 0.31,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/connect-contract-payment-customer-management",
+      "right": "/ko/contracts-payments/manage-unsigned-contracts",
+      "similarity": 0.308,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/connect-contract-payment-customer-management",
+      "right": "/ko/contracts-payments/e-signature-identity-check",
+      "similarity": 0.302,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/electronic-contract-system-basics",
+      "right": "/ko/contracts-payments/offline-card-payment-pg-van",
+      "similarity": 0.293,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/contracts-payments/connect-contract-payment-customer-management",
+      "right": "/ko/contracts-payments/offline-card-payment-pg-van",
+      "similarity": 0.281,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/dify-llm-app-builder-business-automation",
+      "right": "/ko/automation/langflow-ai-workflow-automation",
+      "similarity": 0.277,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/dify-llm-app-builder-business-automation",
+      "right": "/ko/automation/open-webui-local-llm-admin-portal",
+      "similarity": 0.244,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/langflow-ai-workflow-automation",
+      "right": "/ko/automation/open-webui-local-llm-admin-portal",
+      "similarity": 0.244,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/flowise-ai-agent-workflow-automation",
+      "right": "/ko/automation/langflow-ai-workflow-automation",
+      "similarity": 0.205,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/dify-llm-app-builder-business-automation",
+      "right": "/ko/automation/flowise-ai-agent-workflow-automation",
+      "similarity": 0.202,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/flowise-ai-agent-workflow-automation",
+      "right": "/ko/automation/open-webui-local-llm-admin-portal",
+      "similarity": 0.201,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/apache-superset-bi-dashboard-automation",
+      "right": "/ko/automation/redash-open-source-dashboard-automation",
+      "similarity": 0.196,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/metabase-dashboard-automation-for-small-business",
+      "right": "/ko/automation/redash-open-source-dashboard-automation",
+      "similarity": 0.195,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/apache-superset-bi-dashboard-automation",
+      "right": "/ko/automation/metabase-dashboard-automation-for-small-business",
+      "similarity": 0.187,
+      "publicPair": false
+    },
+    {
+      "left": "/ko/automation/dify-llm-app-builder-business-automation",
+      "right": "/ko/automation/directus-headless-cms-data-automation",
+      "similarity": 0.173,
+      "publicPair": false
+    }
+  ]
+}
