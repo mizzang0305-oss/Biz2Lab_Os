@@ -56,7 +56,7 @@
     "type": "checklist",
     "heroImage": "/images/posts/accounts-receivable-tracker-hero.webp",
     "heroAlt": "미수금 aging 구간과 약속일, 담당자 후속 조치를 함께 보여주는 회수 상태판",
-    "updatedAt": "2026-07-26",
+    "updatedAt": "2026-08-06",
     "relatedPosts": [
       "payment-reminder-message",
       "sales-revenue-ar-structure",
@@ -136,7 +136,7 @@
     "type": "how-to",
     "heroImage": "/images/posts/sales-revenue-ar-structure-hero.webp",
     "heroAlt": "매출 목표와 청구, 입금, 미수금 대기 상태를 연결한 영업관리 지도",
-    "updatedAt": "2026-07-16",
+    "updatedAt": "2026-08-06",
     "relatedPosts": [
       "accounts-receivable-tracker",
       "sales-achievement-rate",

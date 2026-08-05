@@ -121,9 +121,9 @@ const editorialEvidenceBySlug = {
   "accounts-receivable-tracker": {
     type: "calculation-review",
     summary:
-      "공개 매장 운영 SaaS에서 주문 흐름과 결제 웹훅을 분리하고, 알려진 결제 이벤트는 공급자 API로 다시 확인하며 데모 데이터가 실결제로 이어지지 않게 한 원칙을 기록 구조에 반영했습니다.",
+      "고정 기준일과 거래처 A·B·C 익명 fixture를 순수 계산 함수에 넣어 약속일 경과, aging, 한도 대비 잔액, 분쟁 분리와 검토 순위가 같은 결과를 내는지 자동 테스트했습니다.",
     scope:
-      "결제 소프트웨어 상태 검증을 미수금 기록에 적용한 것이며 실제 회수율, 채권 추심, 법적 통지, 세무 처리나 회수 가능성을 입증하지 않습니다.",
+      "저장소 계산 구조의 재현성만 확인하며 실제 회수율, 채권 추심, 신용 판단, 법적 통지, 세무 처리나 회수 가능성을 입증하지 않습니다.",
     sources: [
       {
         title: "MyBizLab MVP 공개 저장소",
@@ -167,9 +167,9 @@ const editorialEvidenceBySlug = {
   "sales-revenue-ar-structure": {
     type: "calculation-review",
     summary:
-      "주문, 매출 인식, 청구, 입금, 미수금 단계를 가상 거래 한 건으로 연결하고 단계별 금액 합계가 일치하는지 확인했습니다.",
+      "거래 TX-A·B·C 익명 fixture를 주문, 매출 인식, 청구, 입금 단계로 분리해 미수잔액과 매출-현금 차이, 정체 단계가 코드와 CSV에서 동일한지 자동 테스트했습니다.",
     scope:
-      "현금 흐름을 이해하기 위한 운영 모델이며 기업별 회계 기준, 부가세, 세무 신고 판단을 대신하지 않습니다.",
+      "현금 전환 단계의 운영 연결만 재현하며 기업별 회계 기준, 부가세, 세무 신고, 실제 채권 회수 결과를 대신하지 않습니다.",
     sources: [],
   },
   "unify-order-channels-for-sales": {
