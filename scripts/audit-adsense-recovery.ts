@@ -397,7 +397,14 @@ async function loadSitemapPaths(baseUrl: string) {
   const response = await fetchWithTimeout(`${baseUrl}/sitemap.xml`, "follow");
   if (response.status !== 200) throw new Error(`sitemap.xml returned ${response.status}`);
   const xml = await response.text();
-  return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => normalizedPath(match[1]));
+  const paths = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => normalizedPath(match[1]));
+  const expectedCount = staticPublicRoutes.length + getPublicPosts().length;
+  if (paths.length !== expectedCount) {
+    throw new Error(
+      `sitemap inventory mismatch: expected ${expectedCount} URLs, found ${paths.length}; the target may be protected or returning non-sitemap HTML`,
+    );
+  }
+  return paths;
 }
 
 async function auditPublicGraph(baseUrl: string, sitemapPaths: string[]) {
