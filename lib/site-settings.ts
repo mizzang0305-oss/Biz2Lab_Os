@@ -49,12 +49,12 @@ export const siteSettings = {
   koreanName: "비즈투랩",
   brandSubtitle: "B2B 유통 현장 시스템 구축 기록",
   description:
-    "식자재 유통과 B2B 영업 현장의 주문, 미수금, 전자계약, 재고와 승인형 자동화를 직접 설계·개발한 화면 기록입니다.",
+    "식자재 유통과 B2B 영업 현장의 주문, 미수금, 재고와 승인형 자동화를 직접 설계·개발한 화면 기록입니다.",
   author: "Biz2Lab",
   hero: {
-    title: "주문·미수금·전자계약·재고를 직접 시스템으로 바꾼 기록",
+    title: "주문·미수금·재고를 직접 시스템으로 바꾼 기록",
     description:
-      "식자재 유통과 B2B 영업 현장에서 반복되는 주문 누락, 입금 약속, 계약 미작성, 피킹·검수 문제를 직접 설계·개발한 화면과 코드, 실패 사례로 설명합니다.",
+      "식자재 유통과 B2B 영업 현장에서 반복되는 주문 누락, 입금 약속, 피킹·검수 문제를 직접 설계·개발한 화면과 코드, 실패 사례로 설명합니다.",
     bullets: [
       "직접 구현한 화면과 코드 근거",
       "고객정보가 없는 로컬 데모 화면",
@@ -70,8 +70,6 @@ export const siteSettings = {
     { label: "물류·피킹", href: "/ko/warehouse-logistics" },
     { label: "프로젝트 기록", href: "/ko/projects" },
     { label: "실무 자료실", href: "/ko/resources" },
-    { label: "소개", href: "/ko/about" },
-    { label: "문의", href: "/ko/contact" },
   ],
   footer: {
     description:

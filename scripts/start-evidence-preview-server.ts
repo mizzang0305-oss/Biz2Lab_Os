@@ -5,6 +5,8 @@ import path from "node:path";
 import { evidenceManifestSchema } from "../lib/evidence-schema";
 
 const expectedApprovedIds = [
+  "accounts-receivable-deterministic-fixture",
+  "cash-conversion-deterministic-fixture",
   "commerce-run-audit-log",
   "wms-order-source-workbench",
   "wms-order-hold-validation",
@@ -52,7 +54,7 @@ export function validateEvidencePreviewRuntime(root = process.cwd()) {
       JSON.stringify([...expectedApprovedIds].sort())
   ) {
     throw new Error(
-      "Evidence Preview server requires exactly seven reviewed approved items and zero candidates.",
+      `Evidence Preview server requires exactly ${expectedApprovedIds.length} reviewed approved items and zero candidates.`,
     );
   }
 

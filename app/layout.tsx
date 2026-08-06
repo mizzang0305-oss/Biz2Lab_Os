@@ -29,9 +29,6 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.author, url: absoluteUrl("/ko/author/biz2lab") }],
   creator: siteConfig.author,
   publisher: siteConfig.author,
-  alternates: {
-    canonical: siteConfig.url,
-  },
   other: {
     "google-adsense-account": googleSetup.adsenseClientId,
   },
@@ -76,8 +73,16 @@ export default function RootLayout({
             gtag('config', '${googleSetup.ga4MeasurementId}');
           `}
         </Script>
+        <a
+          href="#site-content"
+          className="sr-only z-50 rounded-md bg-white px-4 py-2 font-semibold text-slate-950 focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        >
+          본문으로 건너뛰기
+        </a>
         <SiteHeader />
-        <main className="flex-1">{children}</main>
+        <main id="site-content" tabIndex={-1} className="flex-1">
+          {children}
+        </main>
         <SiteFooter />
       </body>
     </html>

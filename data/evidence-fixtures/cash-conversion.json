@@ -1,0 +1,39 @@
+{
+  "fixture_notice": "재현용 익명 예시 데이터이며 실제 주문, 매출, 청구, 입금 또는 회계 처리 결과가 아닙니다.",
+  "as_of_date": "2026-08-06",
+  "transactions": [
+    {
+      "transaction_id": "TX-A",
+      "order_amount": 1200000,
+      "recognized_revenue_amount": 1200000,
+      "invoiced_amount": 1200000,
+      "paid_amount": 1200000,
+      "fulfillment_date": "2026-07-24",
+      "invoice_date": "2026-07-25",
+      "promised_payment_date": "2026-08-04",
+      "last_payment_date": "2026-08-03"
+    },
+    {
+      "transaction_id": "TX-B",
+      "order_amount": 850000,
+      "recognized_revenue_amount": 850000,
+      "invoiced_amount": 850000,
+      "paid_amount": 300000,
+      "fulfillment_date": "2026-07-25",
+      "invoice_date": "2026-07-26",
+      "promised_payment_date": "2026-08-02",
+      "last_payment_date": "2026-07-31"
+    },
+    {
+      "transaction_id": "TX-C",
+      "order_amount": 640000,
+      "recognized_revenue_amount": 640000,
+      "invoiced_amount": 0,
+      "paid_amount": 0,
+      "fulfillment_date": "2026-08-04",
+      "invoice_date": null,
+      "promised_payment_date": null,
+      "last_payment_date": null
+    }
+  ]
+}

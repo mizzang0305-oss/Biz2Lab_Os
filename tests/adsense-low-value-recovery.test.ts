@@ -9,13 +9,15 @@ import AboutPage from "@/app/ko/about/page";
 import ResourcesPage, { metadata as resourcesMetadata } from "@/app/ko/resources/page";
 import { GET as getRss } from "@/app/rss.xml/route";
 import sitemap from "@/app/sitemap";
+import { CategoryHubPage } from "@/components/layout/CategoryHubPage";
+import { categories } from "@/lib/categories";
 import {
   editorialIdentity,
   getEditorialEvidence,
   getEditorialEvidenceEntries,
 } from "@/lib/editorial-evidence";
 import { getEvidenceForPost } from "@/lib/evidence";
-import { getAllPosts, getPublicPosts } from "@/lib/posts";
+import { getAllPosts, getPostsByCategory, getPublicPosts } from "@/lib/posts";
 import { staticPublicRoutes } from "@/lib/seo";
 import { siteSettings } from "@/lib/site-settings";
 
@@ -62,6 +64,37 @@ test("public portfolio contains only the reviewed evidence-first article set", a
     assert.equal(sitemapUrls.some((url) => url.endsWith(post.route)), false);
     assert.equal(rss.includes(post.route), false);
   }
+});
+
+test("sitewide surfaces no longer promise unpublished contract content or entertainment branding", () => {
+  const layout = read("app/layout.tsx");
+  const openGraphImage = read("app/opengraph-image.tsx");
+  const home = read("components/layout/HomePage.tsx");
+
+  assert.doesNotMatch(siteSettings.description, /전자계약/);
+  assert.doesNotMatch(siteSettings.hero.title, /전자계약/);
+  assert.doesNotMatch(siteSettings.hero.description, /계약 미작성/);
+  assert.doesNotMatch(openGraphImage, /Biz2Lab PLAY|영화 추천|결말 해석|OTT 생활/);
+  assert.match(openGraphImage, /주문·미수금·물류/);
+  assert.doesNotMatch(layout, /alternates:\s*{\s*canonical:\s*siteConfig\.url/);
+  assert.match(layout, /href="#site-content"/);
+  assert.match(layout, /id="site-content"/);
+  assert.match(home, /getFeaturedHomePosts\(6\)/);
+  assert.doesNotMatch(home, /lossNumberLinks|pathLinks/);
+});
+
+test("a one-article category hub hides the empty cluster section and states its evidence boundary", () => {
+  const html = renderToStaticMarkup(
+    createElement(CategoryHubPage, {
+      category: categories["warehouse-logistics"],
+      posts: getPostsByCategory("warehouse-logistics"),
+    }),
+  );
+
+  assert.doesNotMatch(html, /함께 읽을 실무 글/);
+  assert.match(html, /현재 공개 범위/);
+  assert.match(html, /mock WMS/);
+  assert.match(html, /실제 재고 정확도와 작업 생산성은 검증하지 않았습니다/);
 });
 
 test("every public article has distinct practical value and an appropriate evidence form", () => {
@@ -237,6 +270,102 @@ test("five representative articles expose public sources or commit-pinned privat
     assert.ok(evidence.every((item) => /^[a-f0-9]{40}$/.test(item.sourceCommit)));
     assert.ok(evidence.every((item) => item.sourceDirty === false));
   }
+});
+
+test("two operational articles expose deterministic fixture, CSV, test, and visual evidence contracts", () => {
+  const contracts = [
+    {
+      slug: "accounts-receivable-tracker",
+      content: "content/ko/sales-ops/accounts-receivable-tracker.md",
+      fixture: "data/evidence-fixtures/accounts-receivable.json",
+      download: "/downloads/accounts-receivable-aging.csv",
+    },
+    {
+      slug: "sales-revenue-ar-structure",
+      content: "content/ko/sales-ops/sales-revenue-ar-structure.md",
+      fixture: "data/evidence-fixtures/cash-conversion.json",
+      download: "/downloads/cash-conversion-bridge.csv",
+    },
+  ];
+
+  for (const contract of contracts) {
+    const source = read(contract.content);
+    const evidence = getEvidenceForPost(contract.slug, "preview");
+
+    assert.equal(fs.existsSync(path.join(process.cwd(), contract.fixture)), true);
+    assert.equal(
+      fs.existsSync(
+        path.join(process.cwd(), "public", contract.download.replace(/^\//, "")),
+      ),
+      true,
+    );
+    assert.match(source, /재현용 익명 예시 데이터/);
+    assert.match(source, /tests\/operational-evidence\.test\.ts/);
+    assert.match(source, new RegExp(contract.download.replaceAll("/", "\\/")));
+    assert.match(source, /실운영 성과|실제 회수율/);
+    assert.equal(evidence.length, 1);
+    assert.equal(evidence[0]?.dataMode, "fixture");
+    assert.equal(evidence[0]?.piiScan, "pass");
+    assert.equal(evidence[0]?.repositoryName, "Biz2Lab_Os");
+  }
+});
+
+test("seven independent flagships pass an evidence quality gate without a fixed eight-page minimum", () => {
+  const auditSource = read("scripts/audit-adsense-recovery.ts");
+  const inventory = JSON.parse(
+    read("docs/adsense-recovery/2026-08-05/url-inventory.json"),
+  ) as {
+    flagshipQualityGate: {
+      status: string;
+      count: number;
+      recommendedRange: string;
+      officialGoogleMinimum: number | null;
+      countAloneCanPass: boolean;
+      issues: string[];
+    };
+    rows: Array<Record<string, string | number | boolean>>;
+  };
+  const flagships = inventory.rows.filter((row) => row.classification === "FLAGSHIP");
+  const scoreFields = [
+    "topic_fit",
+    "originality",
+    "evidence",
+    "reproducibility",
+    "actionability",
+    "trust",
+    "ux",
+    "index_readiness",
+  ];
+
+  assert.match(auditSource, /recommendedRange: "6-8"/);
+  assert.match(auditSource, /countAloneCanPass: false/);
+  assert.doesNotMatch(auditSource, /독립적인 FLAGSHIP 8개 기준에는/);
+  assert.equal(flagships.length, 7);
+  assert.equal(new Set(flagships.map((row) => row.url)).size, 7);
+  assert.equal(
+    flagships.every((row) => scoreFields.every((field) => Number(row[field]) >= 3)),
+    true,
+  );
+  assert.equal(
+    flagships.every(
+      (row) =>
+        row.http_status === 200 &&
+        row.canonical === row.url &&
+        row.sitemap_included === true &&
+        Number(row.inbound_internal_links) > 0 &&
+        row.privacy_risk === "manual_review_pass_current_sha",
+    ),
+    true,
+  );
+  assert.deepEqual(inventory.flagshipQualityGate, {
+    ...inventory.flagshipQualityGate,
+    status: "PASS_EVIDENCE_QUALITY_GATE",
+    count: 7,
+    recommendedRange: "6-8",
+    officialGoogleMinimum: null,
+    countAloneCanPass: false,
+    issues: [],
+  });
 });
 
 test("content reset report records the scope and keeps deployment outside this change", () => {

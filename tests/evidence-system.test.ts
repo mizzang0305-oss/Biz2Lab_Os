@@ -39,6 +39,8 @@ const approved = manifest.filter(
   (item): item is ApprovedEvidenceItem => item.status === "approved",
 );
 const approvedControlIds = [
+  "accounts-receivable-deterministic-fixture",
+  "cash-conversion-deterministic-fixture",
   "commerce-run-audit-log",
   "wms-order-source-workbench",
   "wms-order-hold-validation",
@@ -48,6 +50,8 @@ const approvedControlIds = [
   "mybiz-readonly-operations-dashboard",
 ] as const;
 const finalRecaptureIds = [
+  "accounts-receivable-deterministic-fixture",
+  "cash-conversion-deterministic-fixture",
   "commerce-upload-approval-gate",
   "mybiz-readonly-operations-dashboard",
 ] as const;
@@ -68,6 +72,29 @@ test("evidence Preview server refuses to start without a reviewed build", () => 
       () => validateEvidencePreviewRuntime(tempRoot),
       /evidence-runtime-manifest\.json/,
     );
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("evidence Preview server accepts the exact reviewed nine-item runtime manifest", () => {
+  const tempRoot = fs.mkdtempSync(
+    path.join(os.tmpdir(), "biz2lab-evidence-preview-contract-"),
+  );
+  try {
+    fs.mkdirSync(path.join(tempRoot, ".next"), { recursive: true });
+    fs.mkdirSync(path.join(tempRoot, "data"), { recursive: true });
+    fs.writeFileSync(path.join(tempRoot, ".next", "BUILD_ID"), "reviewed\n");
+    fs.writeFileSync(
+      path.join(tempRoot, "data", "evidence-runtime-manifest.json"),
+      `${JSON.stringify(approved, null, 2)}\n`,
+    );
+
+    assert.deepEqual(validateEvidencePreviewRuntime(tempRoot), {
+      buildId: "reviewed",
+      approvedCount: 9,
+      candidateCount: 0,
+    });
   } finally {
     fs.rmSync(tempRoot, { recursive: true, force: true });
   }
@@ -176,7 +203,7 @@ test("evidence schema enforces status invariants and unique ids/images", () => {
   );
 });
 
-test("stage script uses all seven approved evidence items as Production controls", () => {
+test("stage script uses every approved evidence item as a Production control", () => {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "biz2lab-evidence-"));
   try {
     const destination = path.join(tempRoot, "public", "images", "evidence");

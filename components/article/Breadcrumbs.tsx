@@ -9,14 +9,20 @@ export function Breadcrumbs({ items }: { items: { label: string; href: string }[
             홈
           </Link>
         </li>
-        {items.map((item) => (
+        {items.map((item, index) => (
           <li key={item.href} className="flex min-w-0 items-center gap-2">
             <span aria-hidden="true" className="shrink-0">
               /
             </span>
-            <Link href={item.href} className="min-w-0 break-words hover:text-teal-700">
-              {item.label}
-            </Link>
+            {index === items.length - 1 ? (
+              <span aria-current="page" className="min-w-0 break-words text-slate-700">
+                {item.label}
+              </span>
+            ) : (
+              <Link href={item.href} className="min-w-0 break-words hover:text-teal-700">
+                {item.label}
+              </Link>
+            )}
           </li>
         ))}
       </ol>
