@@ -24,8 +24,9 @@
 
 - [ ] 사람 검토자가 독립 FLAGSHIP 7개를 처음부터 끝까지 읽었다.
 - [ ] 미수금과 주문·매출·청구·입금 증거가 fixture·코드·CSV·테스트 결과와 일치한다.
-- [ ] 두 신규 패키지의 Evidence와 Reproducibility가 각각 3점 이상이라는 판단에 동의한다.
-- [ ] `HUMAN_CONTENT_REQUIRED` 독립 FLAGSHIP 8개를 내부 게이트로 유지한다면 사실 기반 페이지 1개를 더 확보했다.
+- [ ] 7개 모두 Topic fit, Originality, Evidence, Reproducibility, Actionability, Trust, UX, Index readiness가 각각 3점 이상이라는 판단에 동의한다.
+- [ ] FLAGSHIP 6~8개는 내부 권장 범위이고 Google 공식 최소 글 수 조건이 아님을 확인했다.
+- [ ] 숫자를 맞추기 위해 새 글을 만들거나 근거가 약한 글을 FLAGSHIP으로 승격하지 않았다.
 - [ ] 전자계약·결제처럼 공개 근거가 없는 주제를 과장 카피로 복원하지 않았다.
 - [ ] 주제 이탈 초안이 sitemap, RSS, navigation과 핵심 내부링크에서 빠져 있다.
 - [ ] 64개 과거 URL을 Search Console 근거 없이 일괄 삭제·홈 redirect하지 않았다.
