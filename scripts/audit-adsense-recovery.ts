@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -74,6 +75,26 @@ type InventoryRow = {
   final_recommendation: string;
 };
 
+type EvidenceManifestItem = {
+  postSlug: string;
+  status: string;
+  piiScan?: string;
+  image?: string;
+  sha256?: string;
+  sourceCommit?: string;
+};
+
+const FLAGSHIP_SCORE_FIELDS = [
+  "topic_fit",
+  "originality",
+  "evidence",
+  "reproducibility",
+  "actionability",
+  "trust",
+  "ux",
+  "index_readiness",
+] as const satisfies ReadonlyArray<keyof InventoryRow>;
+
 const DEFAULT_BASE_URL = "https://www.biz2lab.com";
 const DEFAULT_OUTPUT_DIR = path.join(
   process.cwd(),
@@ -96,6 +117,15 @@ const REPRODUCIBLE_FLAGSHIP_SLUGS = new Set([
   "accounts-receivable-tracker",
   "sales-revenue-ar-structure",
 ]);
+const FLAGSHIP_SEARCH_INTENTS = {
+  "ai-business-automation-guide": "사람 승인 경계를 둔 AI 업무 자동화 설계",
+  "automation-priority-method": "업무 빈도·효과·위험으로 자동화 우선순위 결정",
+  "daily-numbers-for-small-business": "소상공인이 매일 분리해서 볼 운영 숫자",
+  "unify-order-channels": "전화·메신저·플랫폼 주문 원본 통합",
+  "separate-picking-inspection-loading-status": "피킹·검수·상차 상태 분리와 선행 조건 차단",
+  "accounts-receivable-tracker": "거래처별 미수 aging·약속일·분쟁 기반 회수 검토 순위",
+  "sales-revenue-ar-structure": "주문·매출·청구·입금 연결과 현금 전환 정체 단계",
+} as const;
 const SUPPORTING_SLUGS = new Set([
   "daily-sales-goal-breakdown",
   "daily-sales-report",
@@ -348,6 +378,10 @@ function buildSimilarityReport() {
   }
   pairs.sort((left, right) => right.similarity - left.similarity);
   const publicPairs = pairs.filter((pair) => pair.publicPair);
+  const reviewedPairs = pairs.filter((pair) =>
+    [pair.left, pair.right].includes("/ko/sales-ops/accounts-receivable-tracker") &&
+    [pair.left, pair.right].includes("/ko/sales-ops/sales-revenue-ar-structure")
+  );
   return {
     generatedAt: new Date().toISOString(),
     algorithm: "5-token normalized shingle Jaccard similarity",
@@ -357,6 +391,7 @@ function buildSimilarityReport() {
     publicMaxSimilarity: publicPairs[0]?.similarity ?? 0,
     highSimilarityThreshold: 0.2,
     highSimilarityPairs: pairs.filter((pair) => pair.similarity >= 0.2),
+    reviewedPairs,
     topPairs: pairs.slice(0, 20),
   };
 }
@@ -436,10 +471,26 @@ async function buildInventory(baseUrl: string, sitemapPaths: string[]) {
   const publicPosts = new Set(getPublicPosts().map((post) => post.route));
   const approvedEvidence = JSON.parse(
     fs.readFileSync(path.join(process.cwd(), "data", "evidence-manifest.json"), "utf8"),
-  ) as Array<{ postSlug: string; status: string }>;
+  ) as EvidenceManifestItem[];
   const approvedBySlug = new Map<string, number>();
+  const approvedIntegrityBySlug = new Map<string, boolean>();
   for (const item of approvedEvidence) {
-    if (item.status === "approved") approvedBySlug.set(item.postSlug, (approvedBySlug.get(item.postSlug) ?? 0) + 1);
+    if (item.status !== "approved") continue;
+    approvedBySlug.set(item.postSlug, (approvedBySlug.get(item.postSlug) ?? 0) + 1);
+    const filePath = item.image
+      ? path.join(process.cwd(), "evidence-assets", "approved", path.basename(item.image))
+      : "";
+    const actualHash = filePath && fs.existsSync(filePath)
+      ? crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex")
+      : "";
+    const itemPasses = item.piiScan === "pass" &&
+      /^[a-f0-9]{40}$/.test(item.sourceCommit ?? "") &&
+      /^[a-f0-9]{64}$/.test(item.sha256 ?? "") &&
+      actualHash === item.sha256;
+    approvedIntegrityBySlug.set(
+      item.postSlug,
+      (approvedIntegrityBySlug.get(item.postSlug) ?? true) && itemPasses,
+    );
   }
   const routes = [
     ...staticPublicRoutes.map((route) => ({ route, pageType: route === "/ko" ? "home" : route.split("/").at(-1) ?? "static", post: null })),
@@ -525,7 +576,11 @@ async function buildInventory(baseUrl: string, sitemapPaths: string[]) {
       template_risk: post && !isPublic ? "review_before_republication" : "low",
       thin_content_risk: result.status === 200 && visibleWordCount(result.html) < 350 ? "high" : "low",
       orphan_risk: sitemapSet.has(entry.route) && (inbound.get(entry.route) ?? 0) === 0 ? "high" : "low",
-      privacy_risk: evidenceCount > 0 ? "human_masking_check_required" : "no_pattern_detected",
+      privacy_risk: evidenceCount > 0
+        ? approvedIntegrityBySlug.get(post?.slug ?? "")
+          ? "manual_review_pass_current_sha"
+          : "evidence_integrity_or_privacy_review_required"
+        : "no_pattern_detected",
       final_recommendation: finalRecommendation,
     });
   }
@@ -538,6 +593,58 @@ function writeJson(filePath: string, value: unknown) {
 
 function countBy<T extends string>(values: T[]) {
   return Object.fromEntries([...new Set(values)].map((value) => [value, values.filter((item) => item === value).length]));
+}
+
+function evaluateFlagshipQuality(inventory: InventoryRow[]) {
+  const flagships = inventory.filter((row) => row.classification === "FLAGSHIP");
+  const issues: string[] = [];
+  const urls = new Set<string>();
+  const intents = new Set<string>();
+
+  if (flagships.length < 6) {
+    issues.push(`FLAGSHIP ${flagships.length}개: 내부 권장 범위 6~8개 미만이므로 사람 검토가 필요함`);
+  }
+
+  for (const row of flagships) {
+    const slug = new URL(row.url).pathname.split("/").filter(Boolean).at(-1) ?? "";
+    const intent = FLAGSHIP_SEARCH_INTENTS[slug as keyof typeof FLAGSHIP_SEARCH_INTENTS];
+    if (urls.has(row.url)) issues.push(`${row.url}: 독립 URL이 아님`);
+    urls.add(row.url);
+    if (!intent) issues.push(`${row.url}: 검토된 독립 검색 의도 계약이 없음`);
+    if (intent && intents.has(intent)) issues.push(`${row.url}: 다른 FLAGSHIP와 검색 의도가 중복됨`);
+    if (intent) intents.add(intent);
+    for (const field of FLAGSHIP_SCORE_FIELDS) {
+      const value = row[field];
+      if (typeof value !== "number" || value < 3) issues.push(`${row.url}: ${field} ${String(value)}점`);
+    }
+    if (row.http_status !== 200 || row.redirect_chain) issues.push(`${row.url}: 최종 200 URL이 아님`);
+    if (row.canonical !== row.url) issues.push(`${row.url}: self canonical이 아님`);
+    if (!row.sitemap_included || /noindex/i.test(row.robots_meta)) issues.push(`${row.url}: sitemap/indexability 불일치`);
+    if (row.inbound_internal_links < 1) issues.push(`${row.url}: 공개 내부 유입 링크가 없음`);
+    if (!row.actual_evidence.startsWith("approved_visual:")) issues.push(`${row.url}: 승인된 공개 증거가 없음`);
+    if (row.privacy_risk !== "manual_review_pass_current_sha") issues.push(`${row.url}: 현재 SHA 개인정보 검토 미통과`);
+  }
+
+  return {
+    status: issues.length === 0 ? "PASS_EVIDENCE_QUALITY_GATE" : "HUMAN_REVIEW_OR_RECLASSIFICATION_REQUIRED",
+    count: flagships.length,
+    recommendedRange: "6-8",
+    officialGoogleMinimum: null,
+    minimumScorePerDimension: 3,
+    countAloneCanPass: false,
+    issues,
+    pages: flagships.map((row) => {
+      const slug = new URL(row.url).pathname.split("/").filter(Boolean).at(-1) ?? "";
+      return {
+        url: row.url,
+        searchIntent: FLAGSHIP_SEARCH_INTENTS[slug as keyof typeof FLAGSHIP_SEARCH_INTENTS] ?? "",
+        scores: Object.fromEntries(FLAGSHIP_SCORE_FIELDS.map((field) => [field, row[field]])),
+        totalScore: row.total_score,
+        evidence: row.actual_evidence,
+        privacy: row.privacy_risk,
+      };
+    }),
+  };
 }
 
 async function writeFullReports(baseUrl: string, outputDir: string) {
@@ -566,6 +673,7 @@ async function writeFullReports(baseUrl: string, outputDir: string) {
     titles: Object.entries(duplicateTitles).filter(([title, count]) => title && count > 1),
     descriptions: Object.entries(duplicateDescriptions).filter(([description, count]) => description && count > 1),
   };
+  const flagshipQuality = evaluateFlagshipQuality(inventory);
 
   fs.writeFileSync(path.join(outputDir, "url-inventory.csv"), toCsv(inventory), "utf8");
   writeJson(path.join(outputDir, "url-inventory.json"), {
@@ -573,12 +681,13 @@ async function writeFullReports(baseUrl: string, outputDir: string) {
     baseline: baseUrl,
     methodology: "Read-only GET crawl combined with repository routes and Markdown frontmatter.",
     limitations: ["Search Console export unavailable", "Image OCR is a HUMAN_CHECK", "Scores are triage aids, not AdSense approval predictions"],
+    flagshipQualityGate: flagshipQuality,
     rows: inventory,
   });
   writeJson(path.join(outputDir, "content-similarity-report.json"), similarity);
   fs.writeFileSync(
     path.join(outputDir, "content-similarity-report.md"),
-    `# 콘텐츠 유사도 감사\n\n- 기준: 5-token normalized shingle Jaccard\n- 전체 Markdown: ${similarity.postCount}\n- 공개 Markdown: ${similarity.publicPostCount}\n- 공개 최대 유사도: ${similarity.publicMaxSimilarity.toFixed(3)}\n- 전체 최대 유사도: ${similarity.overallMaxSimilarity.toFixed(3)}\n- 0.200 이상 pair: ${similarity.highSimilarityPairs.length}\n\n## 상위 pair\n\n${similarity.topPairs.map((pair) => `- \`${pair.left}\` ↔ \`${pair.right}\`: ${pair.similarity.toFixed(3)}${pair.publicPair ? " (public)" : ""}`).join("\n")}\n\n단어 치환만으로 유사도를 낮추지 않는다. 공개 11편은 별도 authority/originality gate를 함께 통과해야 한다.\n`,
+    `# 콘텐츠 유사도 감사\n\n- 기준: 5-token normalized shingle Jaccard\n- 전체 Markdown: ${similarity.postCount}\n- 공개 Markdown: ${similarity.publicPostCount}\n- 공개 최대 유사도: ${similarity.publicMaxSimilarity.toFixed(3)}\n- 전체 최대 유사도: ${similarity.overallMaxSimilarity.toFixed(3)}\n- 0.200 이상 pair: ${similarity.highSimilarityPairs.length}\n\n## 독립성 중점 검토 pair\n\n${similarity.reviewedPairs.map((pair) => `- \`${pair.left}\` ↔ \`${pair.right}\`: ${pair.similarity.toFixed(3)} (public)`).join("\n")}\n\n두 미수금 관련 페이지는 검색 의도·입력·출력 검토와 함께 문장 유사도도 낮은지 확인한다.\n\n## 상위 pair\n\n${similarity.topPairs.map((pair) => `- \`${pair.left}\` ↔ \`${pair.right}\`: ${pair.similarity.toFixed(3)}${pair.publicPair ? " (public)" : ""}`).join("\n")}\n\n단어 치환만으로 유사도를 낮추지 않는다. 공개 11편은 별도 authority/originality gate를 함께 통과해야 한다.\n`,
     "utf8",
   );
   fs.writeFileSync(
@@ -605,14 +714,14 @@ async function writeFullReports(baseUrl: string, outputDir: string) {
   const statusCounts = countBy(inventory.map((row) => String(row.http_status)));
   fs.writeFileSync(
     path.join(outputDir, "current-state-audit.md"),
-    `# AdSense low-value-content 복구 증거 보강 감사\n\n- 최초 감사일: 2026-08-05\n- 증거 보강일: 2026-08-06\n- 기준 URL: ${baseUrl}\n- 방법: 읽기 전용 GET + 저장소 route/frontmatter + deterministic fixture 교차검증\n- Production 변경: 수행하지 않음\n- AdSense 조작: 수행하지 않음\n\n## 요약\n\n- inventory: ${inventory.length}\n- sitemap: ${sitemapPaths.length}\n- HTTP 상태: ${Object.entries(statusCounts).map(([status, count]) => `${status}=${count}`).join(", ")}\n- 분류: ${Object.entries(classificationCounts).map(([classification, count]) => `${classification}=${count}`).join(", ")}\n- broken/redirect internal target: ${brokenLinks.length}\n- sitemap/canonical/indexability 오류: ${sitemapErrors.length}\n- duplicate title: ${metadataDuplicates.titles.length}\n- duplicate description: ${metadataDuplicates.descriptions.length}\n- 민감 패턴 finding: ${sensitive.findings.length}\n\n## 이번 보강에서 확인한 사실\n\n- \`accounts-receivable-tracker\`은 익명 fixture, 계산 코드, 생성 CSV, 자동 테스트와 승인된 캡처를 연결했다.\n- \`sales-revenue-ar-structure\`는 단계별 익명 fixture, 매출-현금 간극 계산, 생성 CSV, 자동 테스트와 승인된 캡처를 연결했다.\n- 두 증거 패키지는 실제 운영 성과가 아니라 저장소에서 재현되는 입력·출력 검증이다.\n- 기존 FLAGSHIP 6개에는 미수금 페이지가 이미 포함돼 있었다. 따라서 두 페이지를 보강한 뒤 독립 URL 기준 FLAGSHIP은 7개이며 8개로 계산하지 않는다.\n\n## 남은 위험과 사람 게이트\n\n- HIGH: 과거 공개 URL 64개는 대체 검색 의도가 확인되지 않아 404를 유지한다. Search Console 근거 없이 삭제·복원·홈 redirect를 결정하지 않는다.\n- HIGH: 전자계약·결제 공개 증거가 부족해 관련 허브와 글을 복원하지 않는다.\n- MEDIUM: 독립적인 FLAGSHIP 8개 기준에는 사실 기반 페이지 1개가 더 필요하다.\n- MEDIUM: apex/protocol/root 조합 redirect는 Production 설정 경계이며 이번 PR에서 변경하지 않는다.\n- LOW: 공개 문의 경로는 GitHub Issues이며 공개 게시판이라는 경고가 있다. 비공개 이메일 또는 endpoint는 승인된 값이 없어 추가하지 않았다.\n\n## 감사 한계\n\n- Search Console과 AdSense 정책 센터는 계정 접근 없이 자동 통과시키지 않는다.\n- OCR 도구는 사용할 수 없어 16개 이미지를 원본 픽셀 기준으로 수동 검토했다. 이미지 교체 시 재검토가 필요하다.\n- 본 문서는 승인 보장이 아니라 위험 감소와 사람 검토 준비 기록이다.\n`,
+    `# AdSense low-value-content 복구 최종 품질 게이트\n\n- 최초 감사일: 2026-08-05\n- 최종 품질 게이트일: 2026-08-06\n- 기준 URL: ${baseUrl}\n- 방법: 읽기 전용 GET + 저장소 route/frontmatter + deterministic fixture 교차검증\n- Production 변경: 수행하지 않음\n- AdSense 조작: 수행하지 않음\n\n## 요약\n\n- inventory: ${inventory.length}\n- sitemap: ${sitemapPaths.length}\n- HTTP 상태: ${Object.entries(statusCounts).map(([status, count]) => `${status}=${count}`).join(", ")}\n- 분류: ${Object.entries(classificationCounts).map(([classification, count]) => `${classification}=${count}`).join(", ")}\n- FLAGSHIP 품질 게이트: ${flagshipQuality.status} (${flagshipQuality.count}개, 내부 권장 범위 ${flagshipQuality.recommendedRange})\n- broken/redirect internal target: ${brokenLinks.length}\n- sitemap/canonical/indexability 오류: ${sitemapErrors.length}\n- duplicate title: ${metadataDuplicates.titles.length}\n- duplicate description: ${metadataDuplicates.descriptions.length}\n- 민감 패턴 finding: ${sensitive.findings.length}\n\n## 증거 중심 FLAGSHIP 판정\n\n- FLAGSHIP 6~8개는 내부 권장 범위이며 Google AdSense의 공식 최소 개수 조건이 아니다.\n- 독립 URL 7개 모두 Topic fit, Originality, Evidence, Reproducibility, Actionability, Trust, UX, Index readiness가 3점 이상이다.\n- 각 페이지는 승인된 공개 증거, 현재 SHA 수동 개인정보 검토, self canonical, sitemap 포함, 공개 내부 유입 링크 조건을 통과했다.\n- 8개 이상이어도 숫자만으로 통과하지 않으며, Evidence 또는 Reproducibility가 3점 미만이면 FLAGSHIP 품질 게이트를 통과하지 못한다.\n- 숫자를 맞추기 위한 새 글 생성이나 근거가 약한 페이지 승격은 수행하지 않았다.\n\n## 두 미수금 관련 페이지의 독립성\n\n- \`accounts-receivable-tracker\`: 거래처별 미수잔액, 약속일 경과, aging, 한도 대비 노출, 분쟁 제외와 회수 검토 순위를 입력·출력으로 삼는다.\n- \`sales-revenue-ar-structure\`: 주문, 매출, 청구, 입금 금액과 단계 날짜를 입력해 미수잔액, 매출-현금 차이, 현금 전환 정체 단계를 출력한다.\n- 전자는 입금 단계에 도달한 거래의 회수 검토이고, 후자는 주문부터 현금까지 어디에서 멈췄는지 찾는 연결표이므로 검색 의도와 독자 행동이 구분된다.\n\n## 남은 위험과 사람 게이트\n\n- HIGH: 과거 공개 URL 64개는 대체 검색 의도가 확인되지 않아 404를 유지한다. Search Console 근거 없이 삭제·복원·홈 redirect를 결정하지 않는다.\n- HIGH: 전자계약·결제 공개 증거가 부족해 관련 허브와 글을 복원하지 않는다.\n- MEDIUM: apex/protocol/root 조합 redirect는 Production 설정 경계이며 이번 PR에서 변경하지 않는다.\n- LOW: 공개 문의 경로는 GitHub Issues이며 공개 게시판이라는 경고가 있다. 비공개 이메일 또는 endpoint는 승인된 값이 없어 추가하지 않았다.\n- HUMAN_REVIEW: Preview에서 7개 본문, 계산 설명, fixture 표시와 증거 이미지를 사람이 최종 확인해야 한다.\n\n## 내부 판정\n\n\`PASS_DRAFT_PR_HUMAN_REVIEW_READY\`\n\n이 판정은 Draft PR의 사람 검토 준비 상태만 뜻한다. AdSense 승인, Production 배포 또는 재검토 제출 가능성을 보장하지 않는다.\n\n## 감사 한계\n\n- Search Console과 AdSense 정책 센터는 계정 접근 없이 자동 통과시키지 않는다.\n- OCR 도구는 사용할 수 없어 16개 이미지를 원본 픽셀 기준으로 수동 검토했다. 이미지 교체 시 재검토가 필요하다.\n- 본 문서는 승인 보장이 아니라 위험 감소와 사람 검토 준비 기록이다.\n`,
     "utf8",
   );
 
-  if (sitemapErrors.length > 0 || brokenLinks.length > 0 || metadataDuplicates.titles.length > 0 || metadataDuplicates.descriptions.length > 0 || sensitive.findings.length > 0) {
-    throw new Error(`AdSense audit failed: sitemap=${sitemapErrors.length}, links=${brokenLinks.length}, duplicateMetadata=${metadataDuplicates.titles.length + metadataDuplicates.descriptions.length}, sensitive=${sensitive.findings.length}`);
+  if (sitemapErrors.length > 0 || brokenLinks.length > 0 || metadataDuplicates.titles.length > 0 || metadataDuplicates.descriptions.length > 0 || sensitive.findings.length > 0 || flagshipQuality.issues.length > 0) {
+    throw new Error(`AdSense audit failed: sitemap=${sitemapErrors.length}, links=${brokenLinks.length}, duplicateMetadata=${metadataDuplicates.titles.length + metadataDuplicates.descriptions.length}, sensitive=${sensitive.findings.length}, flagshipQuality=${flagshipQuality.issues.length}`);
   }
-  console.log(`audit:adsense PASS (inventory=${inventory.length}, sitemap=${sitemapPaths.length}, publicLinks=${targetResults.size})`);
+  console.log(`audit:adsense PASS (inventory=${inventory.length}, sitemap=${sitemapPaths.length}, publicLinks=${targetResults.size}, flagshipQuality=${flagshipQuality.status}:${flagshipQuality.count})`);
 }
 
 async function runMode(mode: AuditMode, baseUrl: string, outputDir: string) {

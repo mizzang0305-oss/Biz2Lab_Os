@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T23:05:41.679Z",
+  "generatedAt": "2026-08-06T00:27:55.284Z",
   "baseline": "http://127.0.0.1:4320",
   "methodology": "Read-only GET crawl combined with repository routes and Markdown frontmatter.",
   "limitations": [
@@ -7,6 +7,136 @@
     "Image OCR is a HUMAN_CHECK",
     "Scores are triage aids, not AdSense approval predictions"
   ],
+  "flagshipQualityGate": {
+    "status": "PASS_EVIDENCE_QUALITY_GATE",
+    "count": 7,
+    "recommendedRange": "6-8",
+    "officialGoogleMinimum": null,
+    "minimumScorePerDimension": 3,
+    "countAloneCanPass": false,
+    "issues": [],
+    "pages": [
+      {
+        "url": "https://www.biz2lab.com/ko/automation/ai-business-automation-guide",
+        "searchIntent": "사람 승인 경계를 둔 AI 업무 자동화 설계",
+        "scores": {
+          "topic_fit": 5,
+          "originality": 5,
+          "evidence": 5,
+          "reproducibility": 4,
+          "actionability": 5,
+          "trust": 5,
+          "ux": 4,
+          "index_readiness": 5
+        },
+        "totalScore": 38,
+        "evidence": "approved_visual:1",
+        "privacy": "manual_review_pass_current_sha"
+      },
+      {
+        "url": "https://www.biz2lab.com/ko/automation/automation-priority-method",
+        "searchIntent": "업무 빈도·효과·위험으로 자동화 우선순위 결정",
+        "scores": {
+          "topic_fit": 5,
+          "originality": 5,
+          "evidence": 5,
+          "reproducibility": 4,
+          "actionability": 5,
+          "trust": 5,
+          "ux": 4,
+          "index_readiness": 5
+        },
+        "totalScore": 38,
+        "evidence": "approved_visual:1",
+        "privacy": "manual_review_pass_current_sha"
+      },
+      {
+        "url": "https://www.biz2lab.com/ko/sales-ops/accounts-receivable-tracker",
+        "searchIntent": "거래처별 미수 aging·약속일·분쟁 기반 회수 검토 순위",
+        "scores": {
+          "topic_fit": 5,
+          "originality": 5,
+          "evidence": 5,
+          "reproducibility": 5,
+          "actionability": 5,
+          "trust": 5,
+          "ux": 4,
+          "index_readiness": 5
+        },
+        "totalScore": 39,
+        "evidence": "approved_visual:1|deterministic_fixture_code_test",
+        "privacy": "manual_review_pass_current_sha"
+      },
+      {
+        "url": "https://www.biz2lab.com/ko/sales-ops/sales-revenue-ar-structure",
+        "searchIntent": "주문·매출·청구·입금 연결과 현금 전환 정체 단계",
+        "scores": {
+          "topic_fit": 5,
+          "originality": 5,
+          "evidence": 5,
+          "reproducibility": 5,
+          "actionability": 5,
+          "trust": 5,
+          "ux": 4,
+          "index_readiness": 5
+        },
+        "totalScore": 39,
+        "evidence": "approved_visual:1|deterministic_fixture_code_test",
+        "privacy": "manual_review_pass_current_sha"
+      },
+      {
+        "url": "https://www.biz2lab.com/ko/small-business/daily-numbers-for-small-business",
+        "searchIntent": "소상공인이 매일 분리해서 볼 운영 숫자",
+        "scores": {
+          "topic_fit": 5,
+          "originality": 5,
+          "evidence": 5,
+          "reproducibility": 4,
+          "actionability": 5,
+          "trust": 5,
+          "ux": 4,
+          "index_readiness": 5
+        },
+        "totalScore": 38,
+        "evidence": "approved_visual:1",
+        "privacy": "manual_review_pass_current_sha"
+      },
+      {
+        "url": "https://www.biz2lab.com/ko/small-business/unify-order-channels",
+        "searchIntent": "전화·메신저·플랫폼 주문 원본 통합",
+        "scores": {
+          "topic_fit": 5,
+          "originality": 5,
+          "evidence": 5,
+          "reproducibility": 4,
+          "actionability": 5,
+          "trust": 5,
+          "ux": 4,
+          "index_readiness": 5
+        },
+        "totalScore": 38,
+        "evidence": "approved_visual:2",
+        "privacy": "manual_review_pass_current_sha"
+      },
+      {
+        "url": "https://www.biz2lab.com/ko/warehouse-logistics/separate-picking-inspection-loading-status",
+        "searchIntent": "피킹·검수·상차 상태 분리와 선행 조건 차단",
+        "scores": {
+          "topic_fit": 5,
+          "originality": 5,
+          "evidence": 5,
+          "reproducibility": 4,
+          "actionability": 5,
+          "trust": 5,
+          "ux": 4,
+          "index_readiness": 5
+        },
+        "totalScore": 38,
+        "evidence": "approved_visual:2",
+        "privacy": "manual_review_pass_current_sha"
+      }
+    ]
+  },
   "rows": [
     {
       "url": "https://www.biz2lab.com/ko",
@@ -980,7 +1110,7 @@
       "template_risk": "low",
       "thin_content_risk": "low",
       "orphan_risk": "low",
-      "privacy_risk": "human_masking_check_required",
+      "privacy_risk": "manual_review_pass_current_sha",
       "final_recommendation": "KEEP_AND_LINK_AS_FLAGSHIP"
     },
     {
@@ -1097,7 +1227,7 @@
       "template_risk": "low",
       "thin_content_risk": "low",
       "orphan_risk": "low",
-      "privacy_risk": "human_masking_check_required",
+      "privacy_risk": "manual_review_pass_current_sha",
       "final_recommendation": "KEEP_AND_LINK_AS_FLAGSHIP"
     },
     {
@@ -2501,7 +2631,7 @@
       "template_risk": "low",
       "thin_content_risk": "low",
       "orphan_risk": "low",
-      "privacy_risk": "human_masking_check_required",
+      "privacy_risk": "manual_review_pass_current_sha",
       "final_recommendation": "KEEP_AND_LINK_AS_FLAGSHIP"
     },
     {
@@ -2696,7 +2826,7 @@
       "template_risk": "low",
       "thin_content_risk": "low",
       "orphan_risk": "low",
-      "privacy_risk": "human_masking_check_required",
+      "privacy_risk": "manual_review_pass_current_sha",
       "final_recommendation": "KEEP_AND_LINK_AS_FLAGSHIP"
     },
     {
@@ -2852,7 +2982,7 @@
       "template_risk": "low",
       "thin_content_risk": "low",
       "orphan_risk": "low",
-      "privacy_risk": "human_masking_check_required",
+      "privacy_risk": "manual_review_pass_current_sha",
       "final_recommendation": "KEEP_AND_LINK_AS_FLAGSHIP"
     },
     {
@@ -2969,7 +3099,7 @@
       "template_risk": "low",
       "thin_content_risk": "low",
       "orphan_risk": "low",
-      "privacy_risk": "human_masking_check_required",
+      "privacy_risk": "manual_review_pass_current_sha",
       "final_recommendation": "KEEP_AND_LINK_AS_FLAGSHIP"
     },
     {
@@ -3242,7 +3372,7 @@
       "template_risk": "low",
       "thin_content_risk": "low",
       "orphan_risk": "low",
-      "privacy_risk": "human_masking_check_required",
+      "privacy_risk": "manual_review_pass_current_sha",
       "final_recommendation": "KEEP_AND_LINK_AS_FLAGSHIP"
     },
     {

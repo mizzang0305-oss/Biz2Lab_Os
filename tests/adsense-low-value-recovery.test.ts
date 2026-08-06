@@ -310,6 +310,64 @@ test("two operational articles expose deterministic fixture, CSV, test, and visu
   }
 });
 
+test("seven independent flagships pass an evidence quality gate without a fixed eight-page minimum", () => {
+  const auditSource = read("scripts/audit-adsense-recovery.ts");
+  const inventory = JSON.parse(
+    read("docs/adsense-recovery/2026-08-05/url-inventory.json"),
+  ) as {
+    flagshipQualityGate: {
+      status: string;
+      count: number;
+      recommendedRange: string;
+      officialGoogleMinimum: number | null;
+      countAloneCanPass: boolean;
+      issues: string[];
+    };
+    rows: Array<Record<string, string | number | boolean>>;
+  };
+  const flagships = inventory.rows.filter((row) => row.classification === "FLAGSHIP");
+  const scoreFields = [
+    "topic_fit",
+    "originality",
+    "evidence",
+    "reproducibility",
+    "actionability",
+    "trust",
+    "ux",
+    "index_readiness",
+  ];
+
+  assert.match(auditSource, /recommendedRange: "6-8"/);
+  assert.match(auditSource, /countAloneCanPass: false/);
+  assert.doesNotMatch(auditSource, /독립적인 FLAGSHIP 8개 기준에는/);
+  assert.equal(flagships.length, 7);
+  assert.equal(new Set(flagships.map((row) => row.url)).size, 7);
+  assert.equal(
+    flagships.every((row) => scoreFields.every((field) => Number(row[field]) >= 3)),
+    true,
+  );
+  assert.equal(
+    flagships.every(
+      (row) =>
+        row.http_status === 200 &&
+        row.canonical === row.url &&
+        row.sitemap_included === true &&
+        Number(row.inbound_internal_links) > 0 &&
+        row.privacy_risk === "manual_review_pass_current_sha",
+    ),
+    true,
+  );
+  assert.deepEqual(inventory.flagshipQualityGate, {
+    ...inventory.flagshipQualityGate,
+    status: "PASS_EVIDENCE_QUALITY_GATE",
+    count: 7,
+    recommendedRange: "6-8",
+    officialGoogleMinimum: null,
+    countAloneCanPass: false,
+    issues: [],
+  });
+});
+
 test("content reset report records the scope and keeps deployment outside this change", () => {
   const report = read("reports/adsense-content-reset-2026-07-16.md");
 

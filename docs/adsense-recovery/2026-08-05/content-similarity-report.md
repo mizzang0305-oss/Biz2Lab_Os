@@ -7,6 +7,12 @@
 - 전체 최대 유사도: 0.343
 - 0.200 이상 pair: 16
 
+## 독립성 중점 검토 pair
+
+- `/ko/sales-ops/accounts-receivable-tracker` ↔ `/ko/sales-ops/sales-revenue-ar-structure`: 0.005 (public)
+
+두 미수금 관련 페이지는 검색 의도·입력·출력 검토와 함께 문장 유사도도 낮은지 확인한다.
+
 ## 상위 pair
 
 - `/ko/contracts-payments/e-signature-identity-check` ↔ `/ko/contracts-payments/manage-unsigned-contracts`: 0.343

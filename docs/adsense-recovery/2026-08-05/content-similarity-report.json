@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T23:05:41.633Z",
+  "generatedAt": "2026-08-06T00:27:55.222Z",
   "algorithm": "5-token normalized shingle Jaccard similarity",
   "postCount": 76,
   "publicPostCount": 11,
@@ -102,6 +102,14 @@
       "right": "/ko/automation/open-webui-local-llm-admin-portal",
       "similarity": 0.201,
       "publicPair": false
+    }
+  ],
+  "reviewedPairs": [
+    {
+      "left": "/ko/sales-ops/accounts-receivable-tracker",
+      "right": "/ko/sales-ops/sales-revenue-ar-structure",
+      "similarity": 0.005,
+      "publicPair": true
     }
   ],
   "topPairs": [
