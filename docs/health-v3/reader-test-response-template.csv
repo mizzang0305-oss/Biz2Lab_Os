@@ -1,0 +1,4 @@
+test_id,participant_alias,non_medical_reader_confirmed,consent_recorded,article,started_at,completed_at,disease_understood,first_action_answer,urgent_signs_answer,difficult_part,repetitive_part,untrustworthy_part,would_save_or_print,would_share_with_family,diagnosis_or_prescription_concern,machine_generated_impression,observer_notes,contains_personal_medical_information,follow_up_required
+TEST-PENDING-01,,UNKNOWN,NO,,,,,,,,,,,,,,,,NO
+TEST-PENDING-02,,UNKNOWN,NO,,,,,,,,,,,,,,,,NO
+TEST-PENDING-03,,UNKNOWN,NO,,,,,,,,,,,,,,,,NO
