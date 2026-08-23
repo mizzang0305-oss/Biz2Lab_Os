@@ -1,6 +1,8 @@
 ---
 surface: corrections-policy
 status: DRAFT_NOT_PUBLISHED
+selected_destination: health@biz2lab.com
+activation_status: PENDING_ACTIVATION
 required_owner_inputs:
   - PUBLIC_HEALTH_BRAND_NAME
   - CORRECTION_CHANNEL_DESTINATION
@@ -22,6 +24,8 @@ required_owner_inputs:
 - 답변을 원하는 경우 optional reply email
 
 접수 destination: `{{CORRECTION_CHANNEL_DESTINATION}}`
+
+Owner 선택값은 `health@biz2lab.com`이지만 실제 생성·수신 테스트가 끝날 때까지 위 token을 교체하거나 활성 채널로 공개하지 않습니다.
 
 처리 담당: `{{CORRECTION_CHANNEL_OPERATOR}}`
 

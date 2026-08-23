@@ -9,7 +9,7 @@
 | Label | 허용 조건 | 예시 표시 |
 |---|---|---|
 | `COMPOSITE_SCENARIO` | 여러 일반 상황을 합친 창작 예시이며 특정 실존 인물이 아님 | `아래 장면은 이해를 돕기 위한 복합 예시입니다.` |
-| `ANONYMIZED_CONSENTED_EXPERIENCE` | 실제 경험자와 필요한 동의권자의 명시적 동의·익명화·철회 절차가 있음 | `당사자 동의를 받아 식별 정보를 바꾼 경험입니다.` |
+| `ANONYMIZED_CONSENTED_CAREGIVER_EXPERIENCE` | 실제 보호자와 필요한 동의권자의 명시적 동의·익명화·재식별 검토·철회 및 삭제 절차가 있음 | `당사자 동의를 받아 식별 정보를 바꾼 보호자 경험입니다.` |
 | `GENERAL_EVERYDAY_EXAMPLE` | 특정 경험 주장 없이 누구나 상상할 수 있는 상황 | `예를 들어 가족이 갑자기 말을 어눌하게 한다면…` |
 
 모든 scenario는 원고 metadata와 본문 가까이에 label을 기록한다.
@@ -32,4 +32,4 @@
 - [ ] 의료 결과를 일반화하지 않음
 - [ ] 법률·개인정보 검토 필요 여부 확인
 
-Batch 0에서는 실제 환자·사용자 경험을 사용하지 않는다. 현재 네 파일럿의 생활 장면은 `GENERAL_EVERYDAY_EXAMPLE`로 취급하며, 필요한 창작 장면은 `COMPOSITE_SCENARIO`로 명시한다. 실제 경험은 별도 문서화된 동의 승인 전까지 금지한다.
+Owner는 2026-08-23 KST에 실제 보호자 경험을 `ANONYMIZED_CONSENTED_CAREGIVER_EXPERIENCE` 조건으로만 허용했다. 현재 네 파일럿에는 실제 보호자 경험을 추가하지 않으며 생활 장면은 `GENERAL_EVERYDAY_EXAMPLE`로 유지한다. 실제 사용 전에는 당사자 동의 기록, 익명화, 재식별 위험 검토, 철회·삭제 경로를 모두 증빙해야 한다.

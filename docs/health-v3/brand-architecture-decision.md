@@ -1,13 +1,13 @@
 # Health V3 브랜드 아키텍처 3안
 
-상태: `OWNER_DECISION_REQUIRED`
+상태: `OPTION_B_OWNER_APPROVED_NAME_PENDING`
 
-도메인은 이번 배치에서 변경하지 않는다. 아래 세 안은 Owner 결정을 위한 비교안이며 아직 선택되지 않았다.
+도메인은 이번 배치에서 변경하지 않는다. 2026-08-23 KST Owner는 Option B를 승인했으며, 최종 건강 브랜드명과 tagline은 사전조사 후 별도 확정한다.
 
 - 현재 작업 상태: 비공개 staging 문서만 준비
-- 선택 상태: `NO_OPTION_SELECTED`
-- 건강 편집 브랜드와 `Biz2Lab`의 표시 관계는 Owner 입력이 필요하다.
-- 실제 건강 브랜드명과 tagline은 `OWNER_INPUT_REQUIRED`다.
+- 선택 상태: `OPTION_B_OWNER_APPROVED`
+- 건강 편집 브랜드를 전면에 두고 `Biz2Lab`을 사이트 운영 주체로 표시한다.
+- 실제 건강 브랜드명과 tagline은 `PENDING_NAME_CLEARANCE`다.
 - 이 결정은 구현·공개 승인이 아니다.
 
 | 평가 | Option A — Biz2Lab + 건강 subtitle | Option B — 건강 편집 브랜드 + Biz2Lab 운영자 | Option C — 별도 브랜드/도메인 승인까지 staging |
@@ -31,7 +31,7 @@
 
 ## 현재 결정
 
-`NO_OPTION_SELECTED`. 실제 option·브랜드명·tagline이 확정되고 별도 공개 승인을 받기 전에는 이름·도메인·metadata·navigation을 변경하지 않는다.
+`OPTION_B_OWNER_APPROVED_NAME_PENDING`. 이 결정은 브랜드 관계에 대한 비공개 파일럿 설계 승인이다. 최종 브랜드명·tagline 확정과 별도 공개 승인을 받기 전에는 이름·도메인·metadata·navigation을 변경하지 않는다.
 
 ## 기존 B2B Production 보존 계약
 

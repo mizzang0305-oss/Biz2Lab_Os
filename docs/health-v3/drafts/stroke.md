@@ -4,8 +4,9 @@ slug: "stroke"
 disease_id: "H15"
 status: "draft"
 editorial_state: "PUBLICATION_BLOCKED"
+pilot_scope: "PUBLICATION_BLOCKED"
 noindex: true
-author_id: "HUMAN_INPUT_REQUIRED"
+author_id: "PARK_YOUNG_HOON"
 medical_reviewer_id: "NOT_MEDICALLY_REVIEWED"
 last_medically_reviewed_at: null
 source_registry_ids: ["KR-017"]

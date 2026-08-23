@@ -4,7 +4,7 @@ status: DRAFT_NOT_PUBLISHED
 required_owner_inputs:
   - PUBLIC_HEALTH_BRAND_NAME
   - PUBLIC_HEALTH_TAGLINE
-  - SITE_OPERATOR_PUBLIC_IDENTITY
+site_operator_owner_approved: Biz2Lab
 ---
 
 # About / Editorial Policy 공개 문구 초안
@@ -19,7 +19,7 @@ required_owner_inputs:
 
 이 사이트는 의료기관, 진단 서비스 또는 개인 의료상담 서비스가 아닙니다. 콘텐츠는 일반 교육 목적이며 개인의 증상, 검사 결과, 진단, 처방 또는 치료 결정을 대신하지 않습니다. 응급 상황이 의심되면 온라인 정보를 더 찾느라 기다리지 말고 119 또는 가까운 응급실에 도움을 요청하세요.
 
-{{PUBLIC_HEALTH_BRAND_NAME}}는 독자에게 표시되는 건강 편집 브랜드이며, 사이트 운영 주체는 `{{SITE_OPERATOR_PUBLIC_IDENTITY}}`입니다. 운영 역할은 저자 또는 의료 검토자 역할과 구분됩니다. `Biz2Lab` 표시는 현재 `RECOMMENDED_OWNER_PROPOSAL`일 뿐 Owner 승인 전 token을 교체하지 않습니다.
+{{PUBLIC_HEALTH_BRAND_NAME}}는 독자에게 표시되는 건강 편집 브랜드이며, 사이트 운영 주체는 `Biz2Lab`입니다. 운영 역할은 저자 또는 의료 검토자 역할과 구분됩니다. 이 관계는 Owner가 2026-08-23 KST 승인했지만 공개 자체는 승인하지 않았습니다.
 
 Batch 0 콘텐츠에서는 실제 환자나 사용자의 경험을 사용하지 않습니다. 이해를 위한 장면은 `일반적인 생활 예시` 또는 `여러 일반 상황을 합친 복합 예시`라고 명확히 표시합니다.
 
@@ -41,4 +41,4 @@ Batch 0 콘텐츠에서는 실제 환자나 사용자의 경험을 사용하지 
 
 ## 공개 전 조건
 
-이 문서는 `{{PUBLIC_HEALTH_BRAND_NAME}}`, `{{PUBLIC_HEALTH_TAGLINE}}`, `{{SITE_OPERATOR_PUBLIC_IDENTITY}}`가 실제 값으로 확정되고 Owner가 별도로 공개를 승인할 때까지 문서 초안으로만 유지한다.
+이 문서는 `{{PUBLIC_HEALTH_BRAND_NAME}}`, `{{PUBLIC_HEALTH_TAGLINE}}`이 실제 값으로 확정되고 Owner가 별도로 공개를 승인할 때까지 문서 초안으로만 유지한다.

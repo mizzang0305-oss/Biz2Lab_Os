@@ -1,8 +1,8 @@
 ---
 type: trust-gate
 project: Biz2Lab Health V3
-status: P01_HEALTH_V3_OWNER_TRUST_COMPLETION_PREPARED_NOT_PUBLISHED
-updated: 2026-08-21
+status: OWNER_DECISIONS_PARTIALLY_RECORDED_NOT_PUBLISHED
+updated: 2026-08-23
 tags:
   - biz2lab
   - health-v3
@@ -14,28 +14,25 @@ tags:
 
 ## A. Overall Result
 
-`PREPARED_NOT_COMPLETED` — 요청된 Batch 0 trust gate를 문서 계약과 공개 문구 초안으로 준비했다. 실제 Owner 입력은 A–F 여섯 묶음이 남아 있다. 네 파일럿은 모두 `PUBLICATION_BLOCKED`이며 공개·배포 승인이 아니다.
+`OWNER_DECISIONS_PARTIALLY_RECORDED` — 박영훈, Option B, 정정 주소 선택, 의료 검수자 sourcing, 동의·익명화된 보호자 경험 정책과 AI 공개 방향을 기록했다. 고혈압·제2형 당뇨병은 비공개 파일럿만 승인되었고 네 파일럿 모두 `PUBLICATION_BLOCKED`다. 공개·배포 승인이 아니다.
 
 ## B. Remaining Owner Inputs
 
 | ID | 필요한 실제 입력 | 미입력 시 상태 |
 |---|---|---|
-| A | 공개 건강 브랜드명·Biz2Lab 표시 방식·tagline·사이트 목적·Option 선택 | `OWNER_INPUT_REQUIRED` |
-| B | 실제 저자명 또는 승인 필명·공개 동의·사실 기반 biography·역할 한계 | `OWNER_INPUT_REQUIRED` |
-| C | 실제 면허 의료 검수자 이름·면허 종류·검증 방법·공개 동의 범위, 또는 명시적 `NONE` | `BLOCKED_LICENSED_REVIEWER_INPUT_REQUIRED` |
-| D | 실제 비공개 정정 destination·operator·보관·삭제·백업·로그 정책 | `OWNER_INPUT_REQUIRED` |
-| E | 실제 AI 보조·사람 fact-check·최종 승인·이미지 공개 workflow | `OWNER_INPUT_REQUIRED` |
-| F | 실제 경험 사용·동의·privacy·철회 또는 composite-only 결정 | `OWNER_INPUT_REQUIRED` |
+| A | 최종 건강 브랜드명과 tagline | `PENDING_NAME_CLEARANCE` |
+| C | 실제 면허 의료 검수자 이름·면허 종류·검증 방법·공개 동의 범위와 review record | `LICENSED_REVIEWER_SOURCING` |
+| D | `health@biz2lab.com` 실제 활성화·operator·보관·삭제·백업·로그 정책 | `ADDRESS_SELECTED_ACTIVATION_PENDING` |
 
 안전 경계만 고정되어 있으며 위 정책·신원·운영 값은 Owner 입력 전 확정하지 않는다. 값을 추정하거나 token을 public route에 노출하지 않는다.
 
 ## C. Final Brand Architecture
 
 - 현재 공개 상태: `OPTION_C_STAGING`
-- 목표 공개 아키텍처: `OWNER_DECISION_REQUIRED`
+- 목표 공개 아키텍처: `OPTION_B_OWNER_APPROVED_NAME_PENDING`
 - 독자-facing entity: `{{PUBLIC_HEALTH_BRAND_NAME}}`
 - tagline: `{{PUBLIC_HEALTH_TAGLINE}}`
-- Biz2Lab 공개 표시 방식: `{{BIZ2LAB_PUBLIC_DISPLAY_MODE}}`
+- Biz2Lab 공개 표시 방식: 사이트 운영 주체
 - 기존 Biz2Lab B2B Production: 보존
 - 이번 단계 허용 범위: `docs/health-v3/**` 비공개 문서
 
@@ -82,14 +79,15 @@ redirect·deletion·canonical·sitemap·navigation·AdSense·Search Console 변�
 - 의료상담·진단·약물 조언·검사값 해석·응급상담 금지
 - 첨부 비활성화와 공개 issue 자동 생성 금지
 - 최소 필드: page URL, correction category, correction description, optional reply email
-- 보관·삭제·백업·로그 정책: `OWNER_INPUT_REQUIRED`
-- 실제 destination·operator: Owner 입력 전 미확정·미활성화
+- 보관·삭제·백업·로그 정책: `PENDING_OWNER_POLICY`
+- 실제 destination: `health@biz2lab.com` 선택, `PENDING_ACTIVATION`
+- 실제 operator: `PENDING_OWNER_ASSIGNMENT`
 
 ## H. AI Disclosure Contract
 
 AI는 자료 정리, 구조 설계, 초안 작성, 시각 아이디어 구상에 보조적으로 사용할 수 있다. AI를 저자·source checker·medical reviewer로 표시하지 않는다. 공식 출처 근거, 사람 source check, 최종 편집 승인, 면허 의료 검토는 각각 독립 기록으로 유지한다.
 
-Batch 0에서는 실제 환자·사용자 경험을 사용하지 않는다. `GENERAL_EVERYDAY_EXAMPLE` 또는 명시된 `COMPOSITE_SCENARIO`만 허용한다.
+현재 파일럿은 `GENERAL_EVERYDAY_EXAMPLE`만 사용한다. 실제 보호자 경험은 동의 기록·익명화·재식별 검토·철회 및 삭제 경로가 있을 때만 `ANONYMIZED_CONSENTED_CAREGIVER_EXPERIENCE`로 사용할 수 있다.
 
 ## I. Reader-Test Status
 
@@ -100,7 +98,7 @@ Batch 0에서는 실제 환자·사용자 경험을 사용하지 않는다. `GEN
 ## J. Validation
 
 - 네 draft: `status: draft`·`editorial_state: PUBLICATION_BLOCKED`·`noindex: true`
-- author: `HUMAN_INPUT_REQUIRED`
+- author: `PARK_YOUNG_HOON` — Owner 승인, 비의료 편집자
 - medical reviewer: `NOT_MEDICALLY_REVIEWED`
 - story: `GENERAL_EVERYDAY_EXAMPLE`
 - claim registry 45개 전부 `PENDING_HUMAN_SOURCE_CHECKER`, `medical_review_required: YES`, `medical_review_status: NOT_STARTED`, `PUBLICATION_BLOCKED`
@@ -110,13 +108,13 @@ Batch 0에서는 실제 환자·사용자 경험을 사용하지 않는다. `GEN
 ## K. Git / Production Safety
 
 - 격리 worktree: `codex/biz2lab-v3-health-education-rebuild`
-- 기준 commit: `cde7471f339f00e962f5d1a560f3226b7a2b6985`
+- 기준 commit: `dee43ce6efaa1790aed9a10e5eea072fc248779a`
 - 변경 범위: `docs/health-v3/**`
 - commit·push·PR·merge·Preview·Production·Google console write 금지
 - 기존 B2B route·content·navigation·metadata·canonical·sitemap·redirect 변경 금지
 
 ## L. Exact Next Owner Gate
 
-다음 gate는 `P01_HEALTH_V3_OWNER_TRUST_INPUTS_CONFIRMED`다. Owner는 `batch0-owner-input-required.md`의 A–F를 실제 값으로 작성한다. 의료 검수자가 없으면 C의 availability에 `NO`를 기록하고 나머지 실제 검수자 필드를 `N/A`로 둔다.
+다음 gate는 최종 브랜드 사전조사와 정정 주소 활성화·운영정책 확인이다. 의료 검수자는 `LICENSED_REVIEWER_SOURCING`을 유지하며 실제 신원·면허·검토 기록 전에는 검수 완료로 표시하지 않는다.
 
 이 gate는 trust copy token 해소만 승인하며 public route·Preview·Production·SEO·AdSense·Search Console 변경을 승인하지 않는다.

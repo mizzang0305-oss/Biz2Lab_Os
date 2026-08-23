@@ -1,8 +1,14 @@
 # 비공개 연락·정정 접수 요구사항
 
-상태: `DESIGN_ONLY_OWNER_APPROVAL_REQUIRED`
+상태: `ADDRESS_SELECTED_ACTIVATION_PENDING`
 
-GitHub 공개 issue만으로 건강 관련 정정·개인정보 접수 경로를 대체하지 않는다. 이 배치에서는 endpoint를 만들거나 활성화하지 않는다.
+Owner가 2026-08-23 KST에 정정 전용 주소로 `health@biz2lab.com`을 선택했다. GitHub 공개 issue만으로 건강 관련 정정·개인정보 접수 경로를 대체하지 않는다. 이 배치에서는 주소 또는 endpoint를 만들거나 활성화하지 않는다.
+
+- 선택 주소: `health@biz2lab.com`
+- 활성화·실제 수신 테스트: `PENDING_ACTIVATION`
+- 운영 담당자: `PENDING_OWNER_ASSIGNMENT`
+- 보관·삭제·백업·로그 정책: `PENDING_OWNER_POLICY`
+- 공개 상태: `NOT_PUBLISHED`
 
 ## 유일한 허용 목적
 
@@ -54,7 +60,9 @@ GitHub 공개 issue만으로 건강 관련 정정·개인정보 접수 경로를
 
 ## 활성화 게이트
 
-- [ ] Owner가 실제 endpoint와 담당자 승인
+- [x] Owner가 정정 전용 주소 선택
+- [ ] 선택 주소의 실제 생성·수신·회신 운영 테스트
+- [ ] Owner가 실제 담당자 승인
 - [ ] 개인정보 처리방침과 실제 수집 필드 일치
 - [ ] 실제 보관·삭제·백업·로그 기간과 절차
 - [ ] 보안·스팸·로그 검증

@@ -1,9 +1,9 @@
 ---
 type: owner-trust-completion
 project: Biz2Lab Health V3
-status: PREPARED_NOT_COMPLETED
+status: OWNER_DECISIONS_PARTIALLY_RECORDED
 publication_status: PUBLICATION_BLOCKED
-updated: 2026-08-21
+updated: 2026-08-23
 tags:
   - biz2lab
   - health-v3
@@ -17,9 +17,9 @@ tags:
 
 ## A. Overall Result
 
-`PREPARED_NOT_COMPLETED`
+`OWNER_DECISIONS_PARTIALLY_RECORDED`
 
-- Owner 입력은 A–D 네 묶음으로 축소했다.
+- Owner는 박영훈 비의료 편집자, Option B, `health@biz2lab.com` 주소 선택, 의료 검수자 sourcing, 동의·익명화된 보호자 경험 정책과 AI 활용 공개 방향을 승인했다.
 - 공개 신뢰 표면 7종의 정확한 카피 초안을 준비했다.
 - 네 파일럿의 evidence-backed readiness matrix를 준비했다.
 - 네 파일럿은 모두 `PUBLICATION_BLOCKED`다.
@@ -29,32 +29,31 @@ tags:
 
 | ID | 남은 실제 입력 | 미입력 시 상태 |
 |---|---|---|
-| A | 공개 건강 브랜드명과 tagline | `BLOCKED_BRAND_IDENTITY_INPUT_REQUIRED` |
-| B | 실제 저자명 또는 승인 필명 | `BLOCKED_AUTHOR_NAME_INPUT_REQUIRED` |
-| C | 실제 면허 의료 검수자 details 또는 명시적 `NONE` | `BLOCKED_LICENSED_REVIEWER_INPUT_REQUIRED` |
-| D | 실제 비공개 정정 채널 destination과 operator | `BLOCKED_CORRECTION_CHANNEL_INPUT_REQUIRED` |
+| A | 최종 건강 브랜드명과 tagline | `PENDING_NAME_CLEARANCE` |
+| C | 실제 면허 의료 검수자 details와 문서별 review record | `LICENSED_REVIEWER_SOURCING` |
+| D | `health@biz2lab.com` 활성화·operator·보관정책 | `ADDRESS_SELECTED_ACTIVATION_PENDING` |
 
 이름, 자격, 임상 경험, 소속, 추천, endpoint를 추정하거나 만들지 않는다.
 
 ## C. Brand Architecture Proposal
 
 - Current publication state: `OPTION_C_STAGING`
-- Recommended owner proposal: `OPTION_B`
-- Decision state: `NO_OPTION_SELECTED`
+- Owner-approved architecture: `OPTION_B`
+- Decision state: `OPTION_B_OWNER_APPROVED_NAME_PENDING`
 - Final brand name: `PENDING_NAME_CLEARANCE`
 - 독자-facing brand: `{{PUBLIC_HEALTH_BRAND_NAME}}`
 - tagline: `{{PUBLIC_HEALTH_TAGLINE}}`
 - Recommended site operator disclosure: `Biz2Lab`
-- Site operator identity status: `OWNER_APPROVAL_PENDING`
+- Site operator identity status: `OWNER_APPROVED_BIZ2LAB`
 - 기존 Biz2Lab B2B Production: 그대로 보존
 
-`OPTION_B`는 `RECOMMENDED_OWNER_PROPOSAL`이며 Owner 승인이나 구현 결정이 아니다.
+`OPTION_B`는 Owner 승인되었지만 구현·공개 결정은 아니다.
 
 이번 결정은 redirect, deletion, canonical, sitemap, navigation 또는 기존 B2B SEO 변경 권한이 아니다.
 
 ## D. Trust Surface Contracts
 
-모든 surface는 `DRAFT_NOT_PUBLISHED`이며 `SITE_OPERATOR_PUBLIC_IDENTITY`를 포함한 token이 남아 있는 동안 구현·공개할 수 없다.
+모든 surface는 `DRAFT_NOT_PUBLISHED`다. Biz2Lab 운영 주체와 박영훈 저자는 승인되었지만 최종 브랜드·tagline·정정 채널 운영 token과 별도 publication gate가 남아 있어 구현·공개할 수 없다.
 
 | Surface | 파일 |
 |---|---|
@@ -99,7 +98,8 @@ tags:
 - 최소 필드: page URL, correction category, correction description, optional reply email
 - automatic public issue: prohibited
 - retention/deletion policy: `PENDING_OWNER_POLICY`
-- 실제 destination/operator: Owner 입력 D 전까지 미확정·미활성화
+- 실제 destination: `health@biz2lab.com` 선택, `PENDING_ACTIVATION`
+- 실제 operator: `PENDING_OWNER_ASSIGNMENT`
 
 ## H. AI Disclosure Contract
 
@@ -120,7 +120,7 @@ AI는 research organization, structuring, drafting, visual ideation을 보조할
 2026-08-21 로컬 evidence:
 
 - four drafts: `status: draft`, `editorial_state: PUBLICATION_BLOCKED`, `noindex: true`
-- author: `HUMAN_INPUT_REQUIRED`
+- author: `PARK_YOUNG_HOON` — Owner 승인, 비의료 편집자
 - medical reviewer: `NOT_MEDICALLY_REVIEWED`
 - story: `GENERAL_EVERYDAY_EXAMPLE`
 - claim registry: 45 rows, 전부 `PENDING_HUMAN_SOURCE_CHECKER`, `medical_review_required: YES`, `medical_review_status: NOT_STARTED`, `PUBLICATION_BLOCKED`
@@ -130,7 +130,7 @@ AI는 research organization, structuring, drafting, visual ideation을 보조할
 ## K. Git / Production Safety
 
 - worktree: `codex/biz2lab-v3-health-education-rebuild`
-- baseline: `cde7471f339f00e962f5d1a560f3226b7a2b6985`
+- baseline: `dee43ce6efaa1790aed9a10e5eea072fc248779a`
 - P01 변경 범위: 이 문서 전용 하위 폴더
 - commit, push, PR, merge: 미수행
 - Preview, deployment, Production publication: 미수행
@@ -139,15 +139,15 @@ AI는 research organization, structuring, drafting, visual ideation을 보조할
 
 ## L. Exact Next Owner Gate
 
-다음 gate는 `P01_HEALTH_V3_OWNER_TRUST_INPUTS_CONFIRMED`다.
+다음 gate는 `P01_HEALTH_V3_REMAINING_GATES_CONFIRMED`다.
 
 ```text
-P01_HEALTH_V3_OWNER_TRUST_INPUTS_CONFIRMED
+P01_HEALTH_V3_REMAINING_GATES_CONFIRMED
 
 A.public_health_brand_name =
 A.public_health_tagline =
 
-B.public_author_name_or_approved_pen_name =
+B.public_author_name = PARK_YOUNG_HOON (OWNER_APPROVED)
 
 C.licensed_medical_reviewer = DETAILS | NONE
 C.reviewer_real_name =
@@ -156,8 +156,9 @@ C.license_verification_method =
 C.public_affiliation_if_approved =
 C.public_display_permission = YES | NO
 
-D.correction_channel_destination =
+D.correction_channel_destination = health@biz2lab.com (SELECTED_PENDING_ACTIVATION)
 D.correction_channel_operator =
+D.correction_retention_and_deletion_policy =
 ```
 
-`C.licensed_medical_reviewer = NONE`이면 나머지 C 세부 필드는 `N/A`로 둔다. 이 gate는 token 해소만 승인하며 구현·공개·배포·SEO·Google 시스템 변경 권한이 아니다.
+현재 C 상태는 `LICENSED_REVIEWER_SOURCING`이다. 실제 reviewer와 review record가 생기기 전에는 검수 완료로 표시하지 않는다. 이 gate는 남은 입력 확인만 승인하며 구현·공개·배포·SEO·Google 시스템 변경 권한이 아니다.

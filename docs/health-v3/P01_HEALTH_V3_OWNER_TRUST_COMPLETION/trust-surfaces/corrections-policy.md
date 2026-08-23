@@ -1,6 +1,8 @@
 ---
 surface: corrections-policy
 status: DRAFT_NOT_PUBLISHED
+selected_destination: health@biz2lab.com
+activation_status: PENDING_ACTIVATION
 owner_tokens: [PUBLIC_HEALTH_BRAND_NAME, CORRECTION_CHANNEL_DESTINATION, CORRECTION_CHANNEL_OPERATOR]
 ---
 
@@ -14,6 +16,8 @@ owner_tokens: [PUBLIC_HEALTH_BRAND_NAME, CORRECTION_CHANNEL_DESTINATION, CORRECT
 - 처리 operator: `{{CORRECTION_CHANNEL_OPERATOR}}`
 - attachments: disabled
 - automatic public issue: prohibited
+
+Owner 선택값은 `health@biz2lab.com`이지만 실제 생성·수신 테스트가 끝날 때까지 destination token을 교체하거나 활성 채널로 공개하지 않습니다.
 
 의료기록, 처방전, 검사 이미지, 건강 문서 또는 개인의 상세 증상·검사값을 보내지 마세요. 이 채널은 의료상담, 진단, 약물·용량 조언, 검사 결과 해석 또는 응급상담을 제공하지 않습니다. 응급 상황이 의심되면 답변을 기다리지 말고 119 또는 가까운 응급실에 도움을 요청하세요.
 

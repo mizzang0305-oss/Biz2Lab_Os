@@ -4,8 +4,9 @@ slug: "type-2-diabetes"
 disease_id: "H02"
 status: "draft"
 editorial_state: "PUBLICATION_BLOCKED"
+pilot_scope: "PRIVATE_PILOT_AUTHORIZED"
 noindex: true
-author_id: "HUMAN_INPUT_REQUIRED"
+author_id: "PARK_YOUNG_HOON"
 medical_reviewer_id: "NOT_MEDICALLY_REVIEWED"
 last_medically_reviewed_at: null
 source_registry_ids: ["KR-004"]

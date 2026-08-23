@@ -1,6 +1,7 @@
 ---
 surface: ai-assistance-disclosure
 status: DRAFT_NOT_PUBLISHED
+owner_decision: AI_DISCLOSURE_APPROVED_NOT_PUBLISHED_2026_08_23
 owner_tokens: [PUBLIC_HEALTH_BRAND_NAME]
 ---
 

@@ -23,7 +23,7 @@
 - `LICENSED_CLINICIAN_REVIEWED`는 검수자 실제 신원, 면허 종류, 검토 범위, 날짜, 결과가 있어야 한다.
 - 응급 신호, 치료 개요, 약물, 특수 대상, 고위험 warning은 강화 검토 대상으로 분류한다.
 - 고혈압·제2형 당뇨병은 비공개 환경에서 claim별 사람 검증을 완료해 `OFFICIAL_SOURCE_CHECKED` 후보까지 진행할 수 있다. 이 상태는 공개 승인이나 면허 검수 완료가 아니다.
-- 고혈압·제2형 당뇨병은 Owner 정체성 승인, 실제 작동하는 비공개 정정 연락처, claim 검증 완료, 사람 독자 테스트, trust page 승인 전에는 `PUBLICATION_BLOCKED`다.
+- 고혈압·제2형 당뇨병은 Owner가 비공개 파일럿을 승인했다. 다만 실제 작동하는 비공개 정정 연락처, claim 검증 완료, 사람 독자 테스트, trust page 승인과 별도 publication 승인 전에는 `PUBLICATION_BLOCKED`다.
 - 고혈압·제2형 당뇨병 안에서도 응급·진단·검사·치료·약물·특수 대상 고위험 claim은 별도의 `LICENSED_REVIEW_REQUIRED`를 적용한다.
 - 뇌졸중·심근경색은 페이지 전체가 `LICENSED_REVIEW_REQUIRED`이며 실제 자격 있는 검수자와 문서별 검토 기록이 생길 때까지 `PUBLICATION_BLOCKED`다.
 - source check는 면허 의료 검토를 대체하거나 생략시키지 않는다.
@@ -36,10 +36,10 @@
 
 | Article | State | Reason |
 |---|---|---|
-| 고혈압 | `DRAFT_NOT_SOURCE_CHECKED` + `PUBLICATION_BLOCKED` | private source check 후보이나 Owner 정체성·실제 정정 연락처·claim 검증·독자 테스트·trust page 승인이 없음 |
-| 제2형 당뇨병 | `DRAFT_NOT_SOURCE_CHECKED` + `PUBLICATION_BLOCKED` | private source check 후보이나 Owner 정체성·실제 정정 연락처·claim 검증·독자 테스트·trust page 승인이 없음 |
-| 뇌졸중 | `LICENSED_REVIEW_REQUIRED` + `PUBLICATION_BLOCKED` | 실제 자격 있는 검수자와 검토 기록이 없음 |
-| 심근경색 | `LICENSED_REVIEW_REQUIRED` + `PUBLICATION_BLOCKED` | 실제 자격 있는 검수자와 검토 기록이 없음 |
+| 고혈압 | `PRIVATE_PILOT_AUTHORIZED` + `DRAFT_NOT_SOURCE_CHECKED` + `PUBLICATION_BLOCKED` | Owner가 비공개 파일럿만 승인함; 실제 정정 연락처·claim 검증·독자 테스트·trust page·publication 승인이 없음 |
+| 제2형 당뇨병 | `PRIVATE_PILOT_AUTHORIZED` + `DRAFT_NOT_SOURCE_CHECKED` + `PUBLICATION_BLOCKED` | Owner가 비공개 파일럿만 승인함; 실제 정정 연락처·claim 검증·독자 테스트·trust page·publication 승인이 없음 |
+| 뇌졸중 | `LICENSED_REVIEW_REQUIRED` + `PUBLICATION_BLOCKED` | Owner가 공개 차단을 유지했으며 실제 자격 있는 검수자와 검토 기록이 없음 |
+| 심근경색 | `LICENSED_REVIEW_REQUIRED` + `PUBLICATION_BLOCKED` | Owner가 공개 차단을 유지했으며 실제 자격 있는 검수자와 검토 기록이 없음 |
 
 이번 batch에서 어떤 페이지도 `PUBLICATION_READY` 상태를 받지 않는다.
 
