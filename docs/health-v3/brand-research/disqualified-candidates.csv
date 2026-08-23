@@ -1,0 +1,40 @@
+candidate_id,korean_name,disqualification_or_screenout_reason,evidence_type,source,query,checked_at,status,confidence,limitation
+BR-001,몸신호,응급 알림 서비스로 오인될 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,사람 반응 미검증
+BR-002,몸알림,의료 알림 또는 경보 서비스로 오인될 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,사람 반응 미검증
+BR-004,몸결,동명 영업 사업자와 사진 관련 기존 사용 신호,public search,BigValue/MarketBz,exact 몸결,2026-08-23 KST,DISQUALIFIED_EXACT_USE_SIGNAL,HIGH,KIPRIS 충돌 결론 아님
+BR-008,몸지도,해부학 또는 진단 지도 연상,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-010,몸살피기,자가검진 약속처럼 읽힐 위험,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-011,건강풀이,사주·운세성 결과와의 강한 검색 결합,public search,Kmong/FateUp,exact 건강풀이,2026-08-23 KST,DISQUALIFIED_SEARCH_ASSOCIATION,HIGH,KIPRIS 충돌 결론 아님
+BR-012,쉬운건강,일반명사로 차별성 부족,internal linguistic screen,internal,brand quality screen,2026-08-23 KST,SCREENED_OUT,MEDIUM,상표 검색 미완료
+BR-014,알기건강,부자연스러운 어순,internal linguistic screen,internal,read-aloud desk review,2026-08-23 KST,SCREENED_OUT,MEDIUM,사람 반응 미검증
+BR-015,건강한눈,눈 건강 전문 서비스로 좁혀질 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-018,건강한차례,의례·식사 의미로 흐를 위험,internal linguistic screen,internal,read-aloud desk review,2026-08-23 KST,SCREENED_OUT,LOW,사람 반응 미검증
+BR-019,건강설명서,일반 출판명으로 차별성 부족,internal linguistic screen,internal,brand quality screen,2026-08-23 KST,SCREENED_OUT,MEDIUM,상표 검색 미완료
+BR-021,가족건강노트,개인 의료기록 수집 서비스로 오인될 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-022,함께건강,캠페인·일반명사 가능성이 높음,internal linguistic screen,internal,brand quality screen,2026-08-23 KST,SCREENED_OUT,MEDIUM,상표 검색 미완료
+BR-024,건강곁,자연스러운 발화가 약함,internal linguistic screen,internal,read-aloud desk review,2026-08-23 KST,SCREENED_OUT,MEDIUM,사람 반응 미검증
+BR-025,가족살핌,요양·돌봄 제공자로 오인될 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-030,곁의안내,건강 정체성과 차별성이 약함,internal linguistic screen,internal,brand quality screen,2026-08-23 KST,SCREENED_OUT,LOW,검색 미완료
+BR-032,건강길잡이,일반적 기존 사용 가능성이 높음,internal linguistic screen,internal,brand quality screen,2026-08-23 KST,SCREENED_OUT,MEDIUM,KIPRIS 미확인
+BR-033,한걸음건강,운동·캠페인 서비스로 좁혀질 수 있음,internal linguistic screen,internal,brand quality screen,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-037,건강나침반,보험·교육 표현으로 일반적,internal linguistic screen,internal,brand quality screen,2026-08-23 KST,SCREENED_OUT,MEDIUM,KIPRIS 미확인
+BR-038,건강안내,공공기관 안내문처럼 보일 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-039,건강동행,요양·의료 동행 서비스로 오인될 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-040,하루건강,건강식품·습관 서비스와 혼동 가능,internal linguistic screen,internal,brand quality screen,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-041,몸기록,개인 건강기록 수집 서비스로 오인될 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-043,기록건강,의료기록 수집 서비스로 오인될 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-044,건강체크,건강검진·진단 도구 의미,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,HIGH,검색 미완료
+BR-045,살핌표,체크리스트 단일 기능으로 확장성 부족,internal linguistic screen,internal,brand quality screen,2026-08-23 KST,SCREENED_OUT,LOW,검색 미완료
+BR-047,건강준비,보험·검진 준비 서비스로 오인될 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-048,몸준비,운동·시술 준비 의미로 흐를 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-049,알아두기,건강 브랜드 정체성 부족,internal linguistic screen,internal,brand quality screen,2026-08-23 KST,SCREENED_OUT,LOW,검색 미완료
+BR-050,건강차림,복장·건강식품 의미 혼동,internal linguistic screen,internal,read-aloud desk review,2026-08-23 KST,SCREENED_OUT,LOW,검색 미완료
+BR-052,몸알이,뜻과 발음이 불명확함,internal linguistic screen,internal,read-aloud desk review,2026-08-23 KST,SCREENED_OUT,MEDIUM,사람 반응 미검증
+BR-053,알아몸,성인 건강교육 브랜드로서 어순과 신뢰가 약함,internal linguistic screen,internal,read-aloud desk review,2026-08-23 KST,SCREENED_OUT,MEDIUM,사람 반응 미검증
+BR-054,보담건강,건강 정보 의미가 약함,internal linguistic screen,internal,brand quality screen,2026-08-23 KST,SCREENED_OUT,LOW,검색 미완료
+BR-055,모아살핌,정보 수집 서비스로 오인될 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-056,온몸말,증상 해석·진단 약속처럼 읽힐 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
+BR-057,몸담,의미가 불명확함,internal linguistic screen,internal,read-aloud desk review,2026-08-23 KST,SCREENED_OUT,LOW,사람 반응 미검증
+BR-058,살핌결,뜻·철자 불명확함,internal linguistic screen,internal,read-aloud desk review,2026-08-23 KST,SCREENED_OUT,MEDIUM,사람 반응 미검증
+BR-059,곁봄,계절·관찰 서비스로 오인될 수 있음,internal linguistic screen,internal,brand quality screen,2026-08-23 KST,SCREENED_OUT,LOW,검색 미완료
+BR-060,몸봄,검진·관찰 서비스로 오인될 수 있음,internal linguistic screen,internal,brand mission safety review,2026-08-23 KST,SCREENED_OUT,MEDIUM,검색 미완료
