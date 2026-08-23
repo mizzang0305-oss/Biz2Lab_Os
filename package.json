@@ -60,7 +60,14 @@
     "ops:autopilot-status": "node scripts/biz2lab-autopilot-status.mjs",
     "ops:autopilot-run": "node scripts/biz2lab-autopilot-runner.mjs",
     "ops:continue": "node scripts/biz2lab-continuous-orchestrator.mjs",
-    "repair:article-images": "tsx scripts/repair-article-hero-images.ts"
+    "repair:article-images": "tsx scripts/repair-article-hero-images.ts",
+    "audit:health-content": "tsx scripts/audit-health-v3.ts --mode content",
+    "audit:health-claims": "tsx scripts/audit-health-v3.ts --mode claims",
+    "audit:health-safety": "tsx scripts/audit-health-v3.ts --mode safety",
+    "audit:health-sources": "tsx scripts/audit-health-v3.ts --mode sources",
+    "audit:health-images": "tsx scripts/audit-health-v3.ts --mode images",
+    "audit:health-ai-genericness": "tsx scripts/audit-health-v3.ts --mode genericness",
+    "audit:health-v3": "tsx scripts/audit-health-v3.ts --mode all"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.1",

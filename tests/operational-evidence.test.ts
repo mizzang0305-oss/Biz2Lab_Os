@@ -15,6 +15,10 @@ import {
   calculateCashConversionEvidence,
 } from "@/lib/operational-evidence";
 
+function normalizeCsvLineEndings(value: string) {
+  return value.replace(/\r\n/g, "\n");
+}
+
 test("accounts receivable fixture calculates overdue days and keeps disputes out of automatic ranking", () => {
   const first = calculateAccountsReceivableEvidence(accountsReceivableFixture);
   const second = calculateAccountsReceivableEvidence(accountsReceivableFixture);
@@ -53,12 +57,12 @@ test("cash conversion fixture identifies the exact stalled stage without treatin
 
 test("download CSV files are exact outputs of the reviewed fixtures", () => {
   assert.equal(
-    fs.readFileSync(path.join(process.cwd(), "public", "downloads", "accounts-receivable-aging.csv"), "utf8"),
-    buildAccountsReceivableCsv(accountsReceivableFixture),
+    normalizeCsvLineEndings(fs.readFileSync(path.join(process.cwd(), "public", "downloads", "accounts-receivable-aging.csv"), "utf8")),
+    normalizeCsvLineEndings(buildAccountsReceivableCsv(accountsReceivableFixture)),
   );
   assert.equal(
-    fs.readFileSync(path.join(process.cwd(), "public", "downloads", "cash-conversion-bridge.csv"), "utf8"),
-    buildCashConversionCsv(cashConversionFixture),
+    normalizeCsvLineEndings(fs.readFileSync(path.join(process.cwd(), "public", "downloads", "cash-conversion-bridge.csv"), "utf8")),
+    normalizeCsvLineEndings(buildCashConversionCsv(cashConversionFixture)),
   );
 });
 
