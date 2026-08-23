@@ -1,0 +1,6 @@
+respondent_id,participation_date,adult_nonmedical_confirmed,first_impression,health_information_impression,medical_provider_confusion,government_or_public_service_confusion,warmth_score_1_to_5,trust_score_1_to_5,recall_after_delay,heard_spelling_attempt,mobile_input_attempt,tagline_preference,negative_association,verbatim_notes,consent_to_record,review_status
+R-01,,,,,,,,,,,,,,,,HUMAN_RESPONSES_PENDING
+R-02,,,,,,,,,,,,,,,,HUMAN_RESPONSES_PENDING
+R-03,,,,,,,,,,,,,,,,HUMAN_RESPONSES_PENDING
+R-04,,,,,,,,,,,,,,,,HUMAN_RESPONSES_PENDING
+R-05,,,,,,,,,,,,,,,,HUMAN_RESPONSES_PENDING

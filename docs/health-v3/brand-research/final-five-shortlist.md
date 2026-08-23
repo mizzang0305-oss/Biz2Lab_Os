@@ -1,6 +1,16 @@
 # Final Five Shortlist
 
-상태: `OWNER_DECISION_REQUIRED_AFTER_HUMAN_VERIFICATION`
+상태: `HISTORICAL_SHORTLIST_SUPERSEDED_BY_BATCH_0_7`
+
+## Batch 0.7 Current Screening Status
+
+이 문서는 Batch 0.6 시점의 다섯 후보 스냅샷을 보존한다. 현재 검토 대상은 `곁살핌` 1개이며, backup은 `살핌길`이다. 이는 상표·도메인·공개 사용 승인이나 법적 clearance가 아니다.
+
+- `살핌노트`: Owner의 외부 관찰상 active health-information usage 우려로 primary shortlist에서 제외
+- `몸안내`: 일반명사성이 높아 primary shortlist에서 제외
+- `곁건강`: 일반적 건강·공공서비스 표현과의 혼동 우려로 primary shortlist에서 제외
+- `곁살핌`: `GYEOTSALPIM_HUMAN_KIPRIS_CHECK_READY`
+- `살핌길`: `BACKUP_ONLY_NOT_CLEARED`
 
 아래 다섯 후보는 언어·역할 경계와 제한된 공개 조사에서 남긴 후보일 뿐이다. 모두 `TRADEMARK_HUMAN_VERIFICATION_REQUIRED`이며 법적·상표상 clearance가 아니다.
 
