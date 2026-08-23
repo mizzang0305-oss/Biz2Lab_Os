@@ -39,6 +39,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isVercelPreview = process.env.VERCEL_ENV === "preview";
+
   return (
     <html
       lang="ko"
@@ -53,26 +55,30 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLd(websiteJsonLd()) }}
         />
-        <Script
-          id="biz2lab-adsense-client"
-          src={googleSetup.adsenseScriptUrl}
-          strategy="beforeInteractive"
-          async
-          crossOrigin="anonymous"
-        />
-        <Script
-          id="biz2lab-ga4-loader"
-          src={googleSetup.ga4ScriptUrl}
-          strategy="afterInteractive"
-        />
-        <Script id="biz2lab-ga4-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${googleSetup.ga4MeasurementId}');
-          `}
-        </Script>
+        {!isVercelPreview ? (
+          <>
+            <Script
+              id="biz2lab-adsense-client"
+              src={googleSetup.adsenseScriptUrl}
+              strategy="beforeInteractive"
+              async
+              crossOrigin="anonymous"
+            />
+            <Script
+              id="biz2lab-ga4-loader"
+              src={googleSetup.ga4ScriptUrl}
+              strategy="afterInteractive"
+            />
+            <Script id="biz2lab-ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${googleSetup.ga4MeasurementId}');
+              `}
+            </Script>
+          </>
+        ) : null}
         <a
           href="#site-content"
           className="sr-only z-50 rounded-md bg-white px-4 py-2 font-semibold text-slate-950 focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
