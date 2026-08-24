@@ -67,7 +67,8 @@
     "audit:health-sources": "tsx scripts/audit-health-v3.ts --mode sources",
     "audit:health-images": "tsx scripts/audit-health-v3.ts --mode images",
     "audit:health-ai-genericness": "tsx scripts/audit-health-v3.ts --mode genericness",
-    "audit:health-v3": "tsx scripts/audit-health-v3.ts --mode all"
+    "audit:health-v3": "tsx scripts/audit-health-v3.ts --mode all",
+    "qa:health-v3:playwright": "tsx scripts/qa-health-v3-playwright.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.1",

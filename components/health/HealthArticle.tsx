@@ -65,6 +65,90 @@ const imageMeta: Record<string, { src: string; alt: string; caption: string; wid
     width: 1024,
     height: 1536,
   },
+  "ar-hero": {
+    src: "/images/onurim/allergic-rhinitis/hero.webp",
+    alt: "실외와 실내에서 생긴 코와 눈의 변화를 관찰표에 적는 성인의 교육용 삽화",
+    caption: "증상과 장소의 흐름을 적어도 알레르기 원인을 이 그림으로 확정할 수는 없습니다.",
+    width: 1536,
+    height: 1024,
+  },
+  "ar-explainer": {
+    src: "/images/onurim/allergic-rhinitis/explainer.webp",
+    alt: "실외 꽃가루와 실내 먼지처럼 보이는 입자가 단순화한 코 주변으로 향하는 교육용 삽화",
+    caption: "실외·실내 자극과 코 증상의 관계를 단순화한 그림이며 진단 도구가 아닙니다.",
+    width: 1536,
+    height: 1024,
+  },
+  "ar-action": {
+    src: "/images/onurim/allergic-rhinitis/checklist.webp",
+    alt: "성인 두 명이 창문과 옷, 표면 정리와 관찰표를 함께 살피는 교육용 삽화",
+    caption: "환경 변화는 개인마다 다릅니다. 기록은 원인을 확정하는 검사표가 아닙니다.",
+    width: 1024,
+    height: 1536,
+  },
+  "gerd-hero": {
+    src: "/images/onurim/gastroesophageal-reflux-disease/hero.webp",
+    alt: "식사와 자세, 불편의 시간 흐름을 관찰 노트에 적는 성인의 교육용 삽화",
+    caption: "시간표는 음식 금지표가 아니라 진료에서 질문할 흐름을 남기는 도구입니다.",
+    width: 1536,
+    height: 1024,
+  },
+  "gerd-explainer": {
+    src: "/images/onurim/gastroesophageal-reflux-disease/explainer.webp",
+    alt: "위 내용물이 식도 쪽으로 올라오는 흐름을 세 단계로 단순화한 교육용 삽화",
+    caption: "역류의 기본 흐름을 단순화한 그림이며 흉부 불편의 원인을 진단하지 않습니다.",
+    width: 1536,
+    height: 1024,
+  },
+  "gerd-action": {
+    src: "/images/onurim/gastroesophageal-reflux-disease/checklist.webp",
+    alt: "두 성인이 식사 뒤 증상 시간표와 질문 카드를 함께 살피는 교육용 삽화",
+    caption: "증상·자세·수면의 흐름을 함께 적어 의료진과 상의할 질문을 준비합니다.",
+    width: 1024,
+    height: 1536,
+  },
+  "oa-hero": {
+    src: "/images/onurim/osteoarthritis/hero.webp",
+    alt: "일상 활동 전후의 무릎 불편과 변화를 관찰 노트에 적는 성인의 교육용 삽화",
+    caption: "활동 기록은 병명이나 치료를 스스로 결정하는 계산표가 아닙니다.",
+    width: 1536,
+    height: 1024,
+  },
+  "oa-explainer": {
+    src: "/images/onurim/osteoarthritis/explainer.webp",
+    alt: "관절의 뼈 끝과 완충 조직을 단순화해 보여 주는 교육용 삽화",
+    caption: "관절의 여러 조직을 단순화한 그림이며 개인의 영상 검사나 상태를 보여 주지 않습니다.",
+    width: 1536,
+    height: 1024,
+  },
+  "oa-action": {
+    src: "/images/onurim/osteoarthritis/checklist.webp",
+    alt: "두 성인이 일상 활동 기록과 질문 카드를 차분히 준비하는 교육용 삽화",
+    caption: "가족은 통증을 판단하기보다 당사자의 기록과 질문 준비를 도울 수 있습니다.",
+    width: 1024,
+    height: 1536,
+  },
+  "op-hero": {
+    src: "/images/onurim/osteoporosis/hero.webp",
+    alt: "성인이 골밀도와 낙상, 복용 약에 관한 진료 질문을 정리하는 교육용 삽화",
+    caption: "질문 준비는 검사 결과를 혼자 해석하거나 치료를 정하는 일이 아닙니다.",
+    width: 1536,
+    height: 1024,
+  },
+  "op-explainer": {
+    src: "/images/onurim/osteoporosis/explainer.webp",
+    alt: "뼈 내부 구조가 달라질 수 있다는 개념을 단순화해 보여 주는 교육용 삽화",
+    caption: "뼈 구조 변화를 단순화한 그림이며 개인의 골밀도 검사 결과가 아닙니다.",
+    width: 1536,
+    height: 1024,
+  },
+  "op-action": {
+    src: "/images/onurim/osteoporosis/checklist.webp",
+    alt: "두 성인이 집 안 통로와 느슨한 매트를 살피고 질문 카드를 준비하는 교육용 삽화",
+    caption: "집안 점검은 낙상 위험을 줄이기 위한 한 부분이며 골절 예방을 보장하지 않습니다.",
+    width: 1024,
+    height: 1536,
+  },
 };
 
 function ClaimStatus({ ids }: { ids: string[] }) {
@@ -94,6 +178,9 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
             <span>의료인 검수 미완료</span>
             <span>Production 공개 차단</span>
           </div>
+          <p className="onurim-byline">
+            작성: <Link href="/health/trust/author">박영훈 · 비의료인 건강정보 편집자</Link>
+          </p>
         </div>
         <figure className="onurim-hero-figure">
           <Image
@@ -116,17 +203,20 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
       <section className="onurim-summary" aria-labelledby="summary-title">
         <h2 id="summary-title">먼저 기억할 세 가지</h2>
         <ul>{article.summary.map((item) => <li key={item}>{item}</li>)}</ul>
+        <a className="onurim-urgent-jump" href="#urgent-action">응급 신호와 119 안내 바로 보기</a>
       </section>
 
       <div className="onurim-article-grid">
         <div className="onurim-article-body">
           {article.sections.map((section, index) => {
             const imageIndex = index === 1 ? 1 : index === 4 ? 3 : section.tone === "warning" ? 2 : -1;
-            const image = imageIndex >= 0 ? imageMeta[article.imageIds[imageIndex]] : undefined;
+            const imageId = section.imageId === null ? undefined : section.imageId ?? (imageIndex >= 0 ? article.imageIds[imageIndex] : undefined);
+            const image = imageId ? imageMeta[imageId] : undefined;
             return (
               <section
                 key={section.title}
                 className={`onurim-content-section onurim-tone-${section.tone ?? "default"}`}
+                id={section.tone === "warning" ? "urgent-action" : undefined}
                 data-claim-ids={section.claimIds.join(",")}
               >
                 <div className="onurim-section-heading">
@@ -175,7 +265,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
               ))}
             </ol>
             <p className="onurim-state-note">
-              마지막 출처 대조: 2026-08-24 · claim {articleClaims.length}개 · OFFICIAL_SOURCE_CHECKED ·
+              마지막 출처 대조: 2026-08-25 · claim {articleClaims.length}개 · OFFICIAL_SOURCE_CHECKED ·
               NOT_MEDICALLY_REVIEWED · PRODUCTION_BLOCKED
             </p>
           </section>

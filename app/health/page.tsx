@@ -1,11 +1,29 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { healthTools } from "@/lib/health-v3/content";
+import { healthArticles, healthTools } from "@/lib/health-v3/content";
 
 export const metadata: Metadata = {
   title: { absolute: "어려운 질환을 쉬운 말과 그림으로 이해해요 | 오누림 Preview" },
-  description: "고혈압과 제2형 당뇨병을 이해하고 기록과 진료 질문을 준비하는 오누림 비공개 Preview입니다.",
+  description: "여섯 가지 건강 주제의 흐름을 이해하고 기록과 진료 질문을 준비하는 오누림 비공개 Preview입니다.",
+};
+
+const guideCards = [
+  { slug: "hypertension", cluster: "심장·혈관", detail: "혈압 숫자, 안정된 측정, 7일 기록과 진료 질문" },
+  { slug: "type-2-diabetes", cluster: "대사·혈당", detail: "혈당과 인슐린, 검사 용어, 관찰 기록과 가족 지원" },
+  { slug: "allergic-rhinitis", cluster: "호흡·알레르기", detail: "증상·환경 관찰, 진료 질문과 가족의 준비" },
+  { slug: "gastroesophageal-reflux-disease", cluster: "소화", detail: "속쓰림 흐름, 시간 기록과 위험 신호 질문" },
+  { slug: "osteoarthritis", cluster: "뼈·관절", detail: "관절의 일상 변화, 활동 기록과 진료 준비" },
+  { slug: "osteoporosis", cluster: "뼈·관절", detail: "골밀도 질문, 낙상 환경 점검과 진료 준비" },
+] as const;
+
+const guideLabel: Record<keyof typeof healthArticles, string> = {
+  hypertension: "고혈압",
+  "type-2-diabetes": "제2형 당뇨병",
+  "allergic-rhinitis": "알레르기 비염",
+  "gastroesophageal-reflux-disease": "위식도역류질환",
+  osteoarthritis: "골관절염",
+  osteoporosis: "골다공증",
 };
 
 export default function OnurimHomePage() {
@@ -18,7 +36,7 @@ export default function OnurimHomePage() {
           <p>읽고 끝나는 글보다, 무엇을 기록하고 진료에서 무엇을 물어볼지 준비할 수 있는 안내서를 만듭니다.</p>
           <div className="onurim-hero-actions">
             <Link href="/health/hypertension">고혈압 안내 보기</Link>
-            <Link href="/health/type-2-diabetes">제2형 당뇨병 안내 보기</Link>
+            <Link href="/health/allergic-rhinitis">알레르기 비염 안내 보기</Link>
           </div>
         </div>
         <div className="onurim-orbit" aria-hidden>
@@ -38,11 +56,14 @@ export default function OnurimHomePage() {
       </section>
 
       <section className="onurim-home-section">
-        <p className="onurim-mini-label">두 개의 비공개 파일럿</p>
+        <p className="onurim-mini-label">현재 읽을 수 있는 Preview 안내</p>
         <h2>지금 읽어볼 안내</h2>
         <div className="onurim-pilot-grid">
-          <Link href="/health/hypertension"><span>심장·혈관</span><h3>고혈압</h3><p>혈압 숫자, 안정된 측정, 7일 기록과 진료 질문</p><strong>안내 열기 →</strong></Link>
-          <Link href="/health/type-2-diabetes"><span>대사·혈당</span><h3>제2형 당뇨병</h3><p>혈당과 인슐린, 검사 용어, 관찰 기록과 가족 지원</p><strong>안내 열기 →</strong></Link>
+          {guideCards.map((guide) => (
+            <Link key={guide.slug} href={`/health/${guide.slug}`}>
+              <span>{guide.cluster}</span><h3>{guideLabel[guide.slug]}</h3><p>{guide.detail}</p><strong>안내 열기 →</strong>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -52,7 +73,7 @@ export default function OnurimHomePage() {
         <div className="onurim-tools-grid">
           {healthTools.map((tool) => (
             <Link key={tool.slug} href={`/health/tools/${tool.slug}`}>
-              <span>{tool.articleSlug === "hypertension" ? "고혈압" : "제2형 당뇨병"}</span>
+              <span>{guideLabel[tool.articleSlug]}</span>
               <strong>{tool.title}</strong><p>{tool.description}</p>
             </Link>
           ))}

@@ -1,0 +1,9 @@
+# SYNTHETIC TEST — NOT REAL HUMAN FEEDBACK
+FINDING_ID,FILE,CHANGE_TYPE,BEFORE,AFTER,SAFETY_SCOPE,STATUS
+SYN-P1-001,components/health/HealthArticle.tsx,DISCOVERABILITY,"요약 뒤에 응급 안내 이동 수단 없음","기존 warning section으로 이동하는 응급 신호와 119 안내 링크","새 응급 기준 추가 없음",APPLIED
+SYN-P1-001,components/health/HealthArticle.tsx,ACCESSIBILITY,"경고 section에 이동 대상 ID 없음","warning section에 urgent-action ID 부여","기존 내용만 연결",APPLIED
+SYN-P1-002,lib/health-v3/content.ts,CLARITY,"즉시 응급 의료 도움","가까운 응급의료기관이나 119에 도움 요청","SRC-CDC-DKA 및 SRC-KDCA-CPR 범위, 의료인 검수 미완료 유지",APPLIED
+SYN-P1-003,components/health/HealthArticle.tsx,TRUST_DISCOVERABILITY,"작성자 정책은 별도 페이지에만 있음","비의료인 건강정보 편집자 링크 표시","의료인·활성 정정 채널로 허위 표시하지 않음",APPLIED
+SYN-P1-003,app/health/layout.tsx,TRUST_DISCOVERABILITY,"푸터에 작성자·정정 정책 링크 없음","작성자 및 정정 정책 링크 추가","정정 이메일은 활성화했다고 표시하지 않음",APPLIED
+SYN-P2-001,lib/health-v3/content.ts,PLAIN_LANGUAGE,"커프, 수축기·이완기","혈압계 팔띠(커프), 위·아래 혈압 숫자(수축기·이완기)","의학적 의미 변경 없음",APPLIED
+SYN-P2-002,lib/health-v3/content.ts,PLAIN_LANGUAGE,"HbA1c, 건강관리팀, 추천 엔진·투약 계산기","당화혈색소(HbA1c), 진료를 맡은 의료진, 약을 바꾸는 계산표","의학적 의미 변경 없음",APPLIED

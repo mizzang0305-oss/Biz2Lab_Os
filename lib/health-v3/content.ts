@@ -1,3 +1,10 @@
+import {
+  batch2HealthArticles,
+  batch2HealthClaims,
+  batch2HealthSources,
+  batch2HealthTools,
+} from "./batch2";
+
 export type HealthSource = {
   id: string;
   organization: string;
@@ -28,7 +35,13 @@ export type HealthClaim = {
   wordingRisk: "LOW" | "MEDIUM" | "HIGH";
 };
 
-export type HealthArticleSlug = "hypertension" | "type-2-diabetes";
+export type HealthArticleSlug =
+  | "hypertension"
+  | "type-2-diabetes"
+  | "allergic-rhinitis"
+  | "gastroesophageal-reflux-disease"
+  | "osteoarthritis"
+  | "osteoporosis";
 
 export type HealthSection = {
   title: string;
@@ -36,6 +49,7 @@ export type HealthSection = {
   bullets?: string[];
   claimIds: string[];
   tone?: "default" | "note" | "warning";
+  imageId?: string | null;
 };
 
 export type HealthArticle = {
@@ -165,6 +179,7 @@ export const healthSources: HealthSource[] = [
     sourceDate: "2023",
     retrievedAt: "2026-08-24",
   },
+  ...batch2HealthSources,
 ];
 
 export const healthClaims: HealthClaim[] = [
@@ -428,6 +443,7 @@ export const healthClaims: HealthClaim[] = [
     clinicalReviewRequired: false,
     wordingRisk: "LOW",
   },
+  ...batch2HealthClaims,
 ];
 
 export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
@@ -479,7 +495,7 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
           "측정 30분 전에는 흡연, 카페인 음료와 운동을 피합니다.",
           "화장실을 다녀온 뒤 조용한 곳에서 5분 정도 쉽니다.",
           "등을 기대고 발을 바닥에 둡니다. 다리는 꼬지 않습니다.",
-          "커프는 옷 위가 아닌 맨팔에 두고 팔을 심장 높이에서 받칩니다.",
+          "혈압계 팔띠(커프)는 옷 위가 아닌 맨팔에 두고 팔을 심장 높이에서 받칩니다.",
           "측정 중에는 말하거나 휴대전화를 보지 않습니다.",
         ],
         claimIds: ["HTN-B1-006", "HTN-B1-007"],
@@ -487,7 +503,7 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
       {
         title: "무엇을 기록할까요?",
         paragraphs: [
-          "날짜와 시간, 수축기·이완기 혈압, 맥박, 쉬기 전후, 증상과 이미 처방받아 복용한 약 여부를 적습니다. 한 번에 1분 간격으로 두 번 측정한 원래 값을 남기고 평균을 임의로 치료 판단에 사용하지 않습니다.",
+          "날짜와 시간, 위·아래 혈압 숫자(수축기·이완기), 맥박, 쉬기 전후, 증상과 이미 처방받아 복용한 약 여부를 적습니다. 한 번에 1분 간격으로 두 번 측정한 원래 값을 남기고 평균을 임의로 치료 판단에 사용하지 않습니다.",
         ],
         claimIds: ["HTN-B1-008", "HTN-B1-010"],
       },
@@ -560,7 +576,7 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
     outcome: "혈당 검사의 뜻을 구분하고, 혼자 진단하지 않으며, 진료에서 물어볼 내용을 준비합니다.",
     summary: [
       "제2형 당뇨병은 음식 하나나 의지 부족만으로 설명할 수 없습니다.",
-      "공복혈당과 HbA1c는 서로 다른 시간 범위를 보여 주는 혈액검사입니다.",
+      "공복혈당과 당화혈색소(HbA1c)는 서로 다른 시간 범위를 보여 주는 혈액검사입니다.",
       "가정 측정값은 관찰 기록이며 진단이나 약 조절 지시가 아닙니다.",
     ],
     sections: [
@@ -612,21 +628,21 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
       {
         title: "치료는 숫자 하나만 낮추는 일이 아닙니다",
         paragraphs: [
-          "식사, 신체 활동, 수면, 금연과 처방약을 함께 고려하며 혈당뿐 아니라 혈압과 콜레스테롤, 눈·콩팥·신경·심혈관 건강도 살핍니다. 구체적인 목표와 약은 건강관리팀과 정합니다.",
+          "식사, 신체 활동, 수면, 금연과 처방약을 함께 고려하며 혈당뿐 아니라 혈압과 콜레스테롤, 눈·콩팥·신경·심혈관 건강도 살핍니다. 구체적인 목표와 약은 진료를 맡은 의료진과 정합니다.",
         ],
         claimIds: ["DIA-B1-010", "DIA-B1-011"],
       },
       {
         title: "관찰 기록에는 맥락을 남깁니다",
         paragraphs: [
-          "이미 혈당을 재는 사람이라면 날짜, 식사 시점, 활동, 측정값, 증상, 수면과 메모를 함께 적습니다. 기록은 추천 엔진이나 투약 계산기가 아니라 진료 질문을 준비하는 재료입니다.",
+          "이미 혈당을 재는 사람이라면 날짜, 식사 시점, 활동, 측정값, 증상, 수면과 메모를 함께 적습니다. 기록은 약을 바꾸는 계산표가 아니라 진료 질문을 준비하는 재료입니다.",
         ],
         claimIds: ["DIA-B1-006", "DIA-B1-011"],
       },
       {
         title: "빠르게 의료 도움을 받아야 할 변화",
         paragraphs: [
-          "당뇨병이 있는 사람이 반복해서 토해 물도 마시기 어렵거나 숨쉬기 힘들고 의식이 흐려지는 등 상태가 빠르게 나빠지면 기록을 계속하지 말고 즉시 응급 의료 도움을 받습니다. 반응이 없거나 생명이 위급하면 119에 신고합니다.",
+          "당뇨병이 있는 사람이 반복해서 토해 물도 마시기 어렵거나 숨쉬기 힘들고 의식이 흐려지는 등 상태가 빠르게 나빠지면 기록을 계속하지 말고 즉시 가까운 응급의료기관이나 119에 도움을 요청합니다. 반응이 없거나 생명이 위급하면 즉시 119에 신고합니다.",
         ],
         claimIds: ["DIA-B1-012"],
         tone: "warning",
@@ -670,6 +686,7 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
     imageIds: ["dia-hero", "dia-process", "dia-warning", "dia-checklist"],
     toolSlugs: ["glucose-observation-log", "diabetes-questions", "family-support-checklist", "diabetes-test-terms"],
   },
+  ...batch2HealthArticles,
 };
 
 export const healthTools: HealthTool[] = [
@@ -783,6 +800,7 @@ export const healthTools: HealthTool[] = [
       "가정용 한 번의 측정값은 자가 진단이나 약 변경 지시가 아님",
     ],
   },
+  ...batch2HealthTools,
 ];
 
 export const trustPages = [
@@ -801,7 +819,7 @@ export const trustPages = [
     title: "박영훈 | 비의료인 건강정보 편집자",
     intro: "공공기관과 의료기관의 환자용 자료를 일반인이 이해하기 쉬운 말과 그림, 기록표와 질문 도구로 다시 정리합니다.",
     sections: [
-      { title: "역할", body: "출처 기반 건강정보 편집자이며 의사, 간호사, 약사, 치료사, 영양사 또는 임상 연구자가 아닙니다." },
+      { title: "역할", body: "역할 상태는 NON_CLINICIAN_HEALTH_INFORMATION_EDITOR입니다. 출처 기반 건강정보 편집자이며 의사, 간호사, 약사, 치료사, 영양사 또는 임상 연구자가 아닙니다." },
       { title: "제공하지 않는 것", body: "진단, 처방, 개인별 치료 결정이나 응급상담을 제공하지 않습니다." },
       { title: "검증의 구분", body: "작성자 표시, 공식 출처 확인과 면허 의료인 검수는 서로 다른 상태이며 페이지마다 따로 공개합니다." },
     ],
@@ -832,7 +850,7 @@ export const trustPages = [
     intro: "공식 출처 확인은 면허 의료인 검수와 같지 않습니다.",
     sections: [
       { title: "공식 출처 확인 ≠ 의료인 검수", body: "출처와 문장을 대조해도 실제 면허 의료인이 해당 버전과 claim을 검토하지 않았다면 의료 검수 완료로 표시하지 않습니다." },
-      { title: "현재 상태", body: "고혈압과 제2형 당뇨병은 공식 출처 매핑을 마친 Preview 초안이지만 면허 의료인 검수는 완료되지 않았고 Production 공개가 차단되어 있습니다." },
+      { title: "현재 상태", body: "현재 면허 의료인 검토자 상태는 LICENSED_REVIEWER_SOURCING입니다. 모든 건강 안내는 공식 출처 매핑을 마친 Preview 초안이지만 면허 의료인 검수는 완료되지 않았고 Production 공개가 차단되어 있습니다." },
       { title: "고위험 질환", body: "뇌졸중과 심근경색은 LICENSED_REVIEW_REQUIRED, PUBLICATION_BLOCKED 상태이며 이번 Preview에 페이지를 만들지 않습니다." },
     ],
   },

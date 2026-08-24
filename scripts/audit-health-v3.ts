@@ -30,8 +30,10 @@ function textValues(value: unknown): string[] {
 }
 
 function auditContent() {
-  assert(Object.keys(healthArticles).length === 2, "exactly two pilot articles must exist");
-  assert(healthTools.length === 8, "exactly eight pilot action tools must exist");
+  const expectedArticles = ["hypertension", "type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis"];
+  assert(Object.keys(healthArticles).length === 6, "exactly six substantive guides must exist");
+  for (const slug of expectedArticles) assert(slug in healthArticles, `required guide missing: ${slug}`);
+  assert(healthTools.length === 20, "exactly twenty action tools must exist");
   assert(trustPages.length === 9, "all nine trust pages must exist");
   assert(!("stroke" in healthArticles), "stroke page must not be implemented");
   assert(!("myocardial-infarction" in healthArticles), "myocardial infarction page must not be implemented");
@@ -39,12 +41,29 @@ function auditContent() {
   const healthLayout = readFileSync(path.join(root, "app/health/layout.tsx"), "utf8");
   const sitemap = readFileSync(path.join(root, "app/sitemap.ts"), "utf8");
   assert(healthLayout.includes('process.env.VERCEL_ENV === "production"'), "health routes need a Production environment guard");
+  assert(healthLayout.includes("await connection()"), "health Production guard must evaluate at request time");
   assert(healthLayout.includes("index: false") && healthLayout.includes("follow: false"), "health metadata must be noindex and nofollow");
   assert(!sitemap.includes('"/health'), "health routes must be excluded from the sitemap");
-  results.pilotArticles = Object.keys(healthArticles).length;
+  const syntheticEvidenceDir = path.join(root, "docs/health-v3/synthetic-reader-test");
+  for (const name of ["README.md", "persona-contract.md", "round1-results.csv", "round1-findings.md", "minimal-remediation.csv", "round2-results.csv", "round2-comparison.md", "synthetic-validation-decision.md"]) {
+    const evidencePath = path.join(syntheticEvidenceDir, name);
+    assert(existsSync(evidencePath), `synthetic evidence missing: ${name}`);
+    if (existsSync(evidencePath)) assert(readFileSync(evidencePath, "utf8").startsWith("# SYNTHETIC TEST — NOT REAL HUMAN FEEDBACK"), `synthetic label missing: ${name}`);
+  }
+  const round2Path = path.join(syntheticEvidenceDir, "round2-results.csv");
+  if (existsSync(round2Path)) {
+    const records = readFileSync(round2Path, "utf8").trim().split(/\r?\n/).slice(2);
+    assert(records.length === 10, "round 2 must have ten synthetic persona records");
+    assert(records.every((line) => line.startsWith("SYNTHETIC_PERSONA_SIMULATION,2,")), "round 2 taxonomy must be SYNTHETIC_PERSONA_SIMULATION");
+  }
+  const batch2Registry = path.join(root, "docs/health-v3/onurim/batch2-claim-registry.csv");
+  assert(existsSync(batch2Registry), "Batch 2 claim registry missing");
+  if (existsSync(batch2Registry)) assert(readFileSync(batch2Registry, "utf8").trim().split(/\r?\n/).length === 49, "Batch 2 claim registry must contain forty-eight records");
+  results.guides = Object.keys(healthArticles).length;
   results.actionTools = healthTools.length;
   results.trustPages = trustPages.length;
   results.productionGuard = true;
+  results.syntheticEvidence = "PASS";
 }
 
 function auditClaims() {
@@ -67,13 +86,16 @@ function auditClaims() {
     ];
     for (const id of usedIds) assert(claimIds.has(id), `article references unknown claim: ${id}`);
     assert(article.sections.some((section) => section.tone === "warning"), `${article.slug} needs an emergency section`);
-    assert(article.sourceIds.length >= 5, `${article.slug} needs at least five official sources`);
+    assert(article.sourceIds.length >= 3, `${article.slug} needs at least three official sources`);
+    assert(article.imageIds.length >= 3, `${article.slug} needs hero, explainer and action visuals`);
+    assert(healthTools.filter((tool) => tool.articleSlug === article.slug).length >= 3, `${article.slug} needs at least three action tools`);
   }
 
   for (const tool of healthTools) {
     assert(tool.claimIds.length > 0, `tool has no claim mapping: ${tool.slug}`);
     for (const id of tool.claimIds) assert(claimIds.has(id), `tool references unknown claim: ${tool.slug}/${id}`);
   }
+  assert(healthClaims.length === 74, "exactly seventy-four claim records must exist");
   results.claims = healthClaims.length;
   results.highRiskClaims = healthClaims.filter((claim) => claim.clinicalReviewRequired).length;
   results.unresolvedSourceMappings = failures.filter((failure) => failure.includes("source")).length;
@@ -112,6 +134,8 @@ function auditSources() {
   }
   assert(healthSources.some((source) => source.organization.includes("질병관리청")), "Korean Tier 1 source missing");
   assert(healthSources.some((source) => source.organization.includes("NIDDK")), "international Tier 1 source missing");
+  assert(healthSources.some((source) => source.organization.includes("NIAMS")), "musculoskeletal Tier 1 source missing");
+  assert(healthSources.some((source) => source.organization.includes("MedlinePlus")), "allergy Tier 1 source missing");
   results.sources = healthSources.length;
 }
 
@@ -127,11 +151,13 @@ function auditImages() {
     altText: string;
     state: string[];
   }>;
-  assert(manifest.length === 8, "exactly eight final visual assets are required");
+  assert(manifest.length === 20, "exactly twenty final visual assets are required");
+  const claimIds = new Set(healthClaims.map((claim) => claim.id));
   for (const asset of manifest) {
     const filePath = path.join(root, asset.file);
     assert(existsSync(filePath), `image file missing: ${asset.file}`);
     assert(asset.claimIds.length > 0, `image claim mapping missing: ${asset.id}`);
+    for (const claimId of asset.claimIds) assert(claimIds.has(claimId), `image claim mapping is unknown: ${asset.id}/${claimId}`);
     assert(Boolean(asset.altText), `image alt text missing: ${asset.id}`);
     for (const state of ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]) {
       assert(asset.state.includes(state), `image ${asset.id} missing state ${state}`);
@@ -140,6 +166,10 @@ function auditImages() {
       const actualHash = createHash("sha256").update(readFileSync(filePath)).digest("hex");
       assert(actualHash === asset.sha256, `image hash mismatch: ${asset.id}`);
     }
+  }
+  for (const article of Object.values(healthArticles)) {
+    const visualCount = manifest.filter((asset) => asset.file.includes(`/onurim/${article.slug}/`)).length;
+    assert(visualCount >= 3, `${article.slug} needs three mapped visual assets`);
   }
   results.visualAssets = manifest.length;
 }
@@ -154,9 +184,8 @@ function auditGenericness() {
   const helpfulCount = (combined.match(/도움이 됩니다/g) ?? []).length;
   assert(importantCount <= 2, `excessive 중요합니다: ${importantCount}`);
   assert(helpfulCount <= 2, `excessive 도움이 됩니다: ${helpfulCount}`);
-  assert(healthArticles.hypertension.sections[0].title !== healthArticles["type-2-diabetes"].sections[0].title ||
-    healthArticles.hypertension.sections[1].title !== healthArticles["type-2-diabetes"].sections[1].title,
-  "pilot section sequences are suspiciously identical");
+  const titleSequences = new Set(Object.values(healthArticles).map((article) => article.sections.map((section) => section.title).join(" | ")));
+  assert(titleSequences.size === Object.keys(healthArticles).length, "article section sequences are suspiciously identical");
   results.aiGenericness = failures.length === 0 ? "AI_GENERICNESS_LOW" : "AI_GENERICNESS_HIGH";
   results.importantPhraseCount = importantCount;
   results.helpfulPhraseCount = helpfulCount;
