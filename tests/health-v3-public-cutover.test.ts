@@ -65,6 +65,20 @@ test("root and discovery surfaces are health-only while legacy source stays arch
   assert.match(proxy, /status: 410/);
 });
 
+test("public privacy disclosure matches the enabled Google scripts", () => {
+  const content = read("lib/health-v3/content.ts");
+  const trustPage = read("app/health/trust/[slug]/page.tsx");
+  const layout = read("app/layout.tsx");
+
+  assert.match(layout, /googleSetup\.adsenseScriptUrl/);
+  assert.match(layout, /googleSetup\.ga4ScriptUrl/);
+  assert.match(content, /Google Analytics/);
+  assert.match(content, /Google AdSense/);
+  assert.match(content, /쿠키/);
+  assert.match(trustPage, /adssettings\.google\.com/);
+  assert.match(trustPage, /policies\.google\.com\/technologies\/partner-sites/);
+});
+
 test("public health routes are indexable and internal review remains fail-closed", () => {
   const healthLayout = read("app/health/layout.tsx");
   const reviewLayout = read("app/health/review/layout.tsx");
