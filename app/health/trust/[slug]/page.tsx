@@ -34,6 +34,12 @@ export default async function TrustPage({ params }: { params: Promise<{ slug: st
           </a>
         </p>
       ) : null}
+      {slug === "privacy" ? (
+        <ul>
+          <li><a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Google 광고 설정</a></li>
+          <li><a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">Google 파트너 사이트 정보 처리 안내</a></li>
+        </ul>
+      ) : null}
       <footer><p>운영: Biz2Lab · 작성: 박영훈(비의료인 건강정보 편집자) · 의료인 검수 완료 표기 없음</p></footer>
     </article>
   );

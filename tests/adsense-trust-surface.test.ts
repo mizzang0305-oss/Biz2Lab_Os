@@ -12,14 +12,15 @@ function readSource(...segments: string[]) {
   return fs.readFileSync(path.join(rootDir, ...segments), "utf8");
 }
 
-test("privacy policy discloses active Google measurement and advertising services", () => {
-  const privacy = readSource("app", "ko", "privacy", "page.tsx");
+test("public ONURIM privacy policy discloses active Google measurement and advertising services", () => {
+  const privacy = readSource("lib", "health-v3", "content.ts");
+  const trustPage = readSource("app", "health", "trust", "[slug]", "page.tsx");
 
   assert.match(privacy, /Google Analytics/);
   assert.match(privacy, /Google AdSense/);
-  assert.match(privacy, /adssettings\.google\.com/);
-  assert.match(privacy, /policies\.google\.com\/technologies\/partner-sites/);
   assert.match(privacy, /쿠키/);
+  assert.match(trustPage, /adssettings\.google\.com/);
+  assert.match(trustPage, /policies\.google\.com\/technologies\/partner-sites/);
 });
 
 test("public trust surfaces avoid unfinished wording and expose a working contact path", () => {
