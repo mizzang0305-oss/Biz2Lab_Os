@@ -1,0 +1,61 @@
+candidate_id,korean_name,source,query,url,checked_at,result,confidence,limitation
+R2-001,도아림,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,SOFT_COLLISION_PERSON_NAME_REJECTED,MEDIUM,ranking and personal-name databases vary
+R2-002,라하움,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COMMERCIAL_USE_SIGNAL_REJECTED,MEDIUM,non-health furniture use is not a legal conclusion
+R2-003,모이든,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COLLISION_CANDIDATE_REJECTED,MEDIUM,active hair-service/media usage is a business-screen signal
+R2-004,노이담,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COLLISION_CANDIDATE_REJECTED,MEDIUM,active media-channel signal
+R2-005,루아든,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COMMERCIAL_USE_SIGNAL_REJECTED,MEDIUM,apparel product use is not trademark analysis
+R2-006,세루온,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,LOW_MATERIAL_WEB_COLLISION_DOMAIN_REVIEW_REQUIRED,LOW,user-name/search sparsity is not clearance
+R2-007,다로움,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_LANGUAGE_SIGNAL_REJECTED,MEDIUM,phrase matches not trademark analysis
+R2-008,아르빈,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COLLISION_CANDIDATE_REJECTED,HIGH,established commercial brand signal
+R2-009,로미안,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,ADVANCE_TO_KIPRIS,LOW,absence of a top material hit is not clearance
+R2-010,유라온,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COLLISION_CANDIDATE_REJECTED,HIGH,active health/supplement usage
+R2-011,하도림,GOOGLE_PUBLIC_SEARCH,"\"하도림\"",https://www.google.com/search?q=%22%ED%95%98%EB%8F%84%EB%A6%BC%22,2026-08-24 KST,ADVANCE_TO_KIPRIS,HIGH,personalized/indexed result limitations
+R2-012,레노움,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,ADVANCE_TO_KIPRIS,LOW,domain later reduced suitability
+R2-013,바루엔,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,NO_TOP_MATERIAL_HEALTH_RESULT_OBSERVED,LOW,one pass only
+R2-014,이노별,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,NO_TOP_MATERIAL_HEALTH_RESULT_OBSERVED,LOW,one pass only
+R2-015,소라움,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,NO_TOP_MATERIAL_HEALTH_RESULT_OBSERVED,LOW,one pass only
+R2-016,오르담,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COLLISION_CANDIDATE_REJECTED,HIGH,active health commerce usage
+R2-017,네아론,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,ADVANCE_TO_KIPRIS,LOW,domain later reduced suitability
+R2-018,루모아,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COMMERCIAL_USE_SIGNAL_REJECTED,MEDIUM,company result observed
+R2-019,다루온,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COMMERCIAL_USE_SIGNAL_REJECTED,MEDIUM,company result observed
+R2-020,마로움,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,NO_TOP_MATERIAL_HEALTH_RESULT_OBSERVED,LOW,one pass only
+R2-021,세이담,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,ADVANCE_TO_KIPRIS,LOW,one pass only
+R2-022,노루안,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,ADVANCE_TO_KIPRIS,LOW,domain later reduced suitability
+R2-023,아리온,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COLLISION_CANDIDATE_REJECTED,HIGH,active technology brand
+R2-024,로아든,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,ADVANCE_TO_KIPRIS,LOW,phonetic-family red team required
+R2-025,미로담,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COLLISION_CANDIDATE_REJECTED,HIGH,active skincare brand
+R2-026,도루안,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COMMERCIAL_USE_SIGNAL_REJECTED,MEDIUM,company use observed
+R2-027,누아림,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,ADVANCE_TO_KIPRIS,LOW,personal-name risk remains
+R2-028,라모든,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,NO_TOP_MATERIAL_HEALTH_RESULT_OBSERVED,LOW,one pass only
+R2-029,오리담,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,NO_TOP_MATERIAL_HEALTH_RESULT_OBSERVED,LOW,one pass only
+R2-030,베루온,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,NO_TOP_MATERIAL_HEALTH_RESULT_OBSERVED,LOW,one pass only
+R2-031,이라움,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,ADVANCE_TO_KIPRIS,LOW,domain later reduced suitability
+R2-032,다모안,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_OR_NEAR_MATCH_REJECTED,LOW,public community similarity signal
+R2-033,루비담,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,NO_TOP_MATERIAL_HEALTH_RESULT_OBSERVED,LOW,one pass only
+R2-034,아노림,GOOGLE_PUBLIC_SEARCH,"\"아노림\"",https://www.google.com/search?q=%22%EC%95%84%EB%85%B8%EB%A6%BC%22,2026-08-24 KST,ADVANCE_TO_KIPRIS,HIGH,personalized/indexed result limitations
+R2-035,세라온,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COMMERCIAL_USE_SIGNAL_REJECTED,HIGH,active e-commerce use
+R2-036,모루담,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,NO_TOP_MATERIAL_HEALTH_RESULT_OBSERVED,LOW,one pass only
+R2-037,노아든,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,NO_TOP_MATERIAL_HEALTH_RESULT_OBSERVED,LOW,one pass only
+R2-038,라두온,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,NO_TOP_MATERIAL_HEALTH_RESULT_OBSERVED,LOW,one pass only
+R2-039,오누림,GOOGLE_PUBLIC_SEARCH,"\"오누림\"",https://www.google.com/search?q=%22%EC%98%A4%EB%88%84%EB%A6%BC%22,2026-08-24 KST,ADVANCE_TO_KIPRIS,HIGH,personalized/indexed result limitations
+R2-040,유로담,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,ADVANCE_TO_KIPRIS,LOW,ship-name association requires reader review
+R2-051,맑은결,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COLLISION_CANDIDATE_REJECTED,HIGH,active clinic name
+R2-052,한줄빛,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_PHRASE_REJECTED,MEDIUM,phrase matches are not legal analysis
+R2-053,여는말,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_EDITORIAL_TERM_REJECTED,MEDIUM,descriptive editorial phrase
+R2-054,첫물음,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_QUESTION_TERM_REJECTED,MEDIUM,descriptive concept
+R2-055,다음결,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_SEMANTIC_TERM_REJECTED,LOW,source-identifier weakness
+R2-056,새이음,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,ROMANIZATION_AMBIGUITY_REJECTED,LOW,ieum spelling ambiguity
+R2-057,고른말,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_EDITORIAL_TERM_REJECTED,MEDIUM,descriptive term
+R2-058,한칸빛,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_SEMANTIC_TERM_REJECTED,LOW,source-identifier weakness
+R2-059,차례빛,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_SEMANTIC_TERM_REJECTED,LOW,source-identifier weakness
+R2-060,물음결,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,ROMANIZATION_AMBIGUITY_REJECTED,LOW,eo/eu spelling ambiguity
+R2-061,이음자리,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COLLISION_CANDIDATE_REJECTED,HIGH,community/welfare space result
+R2-062,알찬결,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_SEMANTIC_TERM_REJECTED,LOW,source-identifier weakness
+R2-063,여백말,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_EDITORIAL_TERM_REJECTED,LOW,descriptive term
+R2-064,맑은줄,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_SEMANTIC_TERM_REJECTED,LOW,source-identifier weakness
+R2-065,오늘이음,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COLLISION_CANDIDATE_REJECTED,HIGH,active public-market consulting company
+R2-066,바른물음,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_QUESTION_TERM_REJECTED,LOW,descriptive concept
+R2-067,다정결,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,NO_TOP_MATERIAL_HEALTH_RESULT_OBSERVED,LOW,one pass only
+R2-068,한눈빛,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_SEMANTIC_TERM_REJECTED,LOW,source-identifier weakness
+R2-069,이어봄,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,HARD_COLLISION_CANDIDATE_REJECTED,HIGH,active wellness and public-care use
+R2-070,새결말,PUBLIC_WEB_SEARCH,"quoted exact + health|hospital|medical|app|company",https://www.google.com/search,2026-08-24 KST,GENERIC_EDITORIAL_TERM_REJECTED,LOW,phrase/search association

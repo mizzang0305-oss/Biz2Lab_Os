@@ -1,0 +1,21 @@
+disease_id,disease_slug,hero_asset,explainer_asset,warning_signs_asset,management_asset,medical_source_gate,status
+H01,high-blood-pressure,혈압 측정과 심혈관 개요,혈압이 혈관에 미치는 영향,응급성 고혈압 관련 경고 신호,정확한 측정·진료·생활 관리,KR-003,PROMPT_REQUIRED
+H02,type-2-diabetes,혈당과 일상생활 개요,인슐린과 혈당 흐름,심한 고혈당·저혈당 도움 신호,검사·식사·활동·약물 상담,KR-004,PROMPT_REQUIRED
+H03,dyslipidemia,혈관과 혈중 지질 개요,LDL·HDL·중성지방 역할,흉통·뇌졸중 등 합병증 경고,검사·식생활·활동·진료,KR-005,PROMPT_REQUIRED
+H04,obesity,체중보다 건강 행동 중심의 대표 이미지,에너지 균형과 다양한 영향 요인,호흡 곤란 등 즉시 평가 신호,낙인 없는 수면·식사·활동 관리,KR-006,PROMPT_REQUIRED
+H05,metabolic-fatty-liver,간과 대사 건강 개요,간에 지방이 쌓이는 과정,황달·심한 복통 등 평가 신호,검사·체중·대사 위험 관리,KR-007,PROMPT_REQUIRED
+H06,gerd,식도와 위의 위치,위 내용물 역류 흐름,삼킴 곤란·출혈 등 경고 신호,식사 습관·진료·약물 상담,KR-008,PROMPT_REQUIRED
+H07,influenza,호흡기 감염 예방 장면,바이러스 전파와 증상 흐름,호흡 곤란·의식 저하 등 응급 신호,휴식·위생·예방접종 상담,KR-009,PROMPT_REQUIRED
+H08,pneumonia,폐와 호흡 건강 개요,폐포 염증의 단순 흐름,심한 호흡 곤란·청색증 등 응급 신호,예방접종·위생·진료,KR-010,PROMPT_REQUIRED
+H09,asthma,기도와 호흡 개요,기도 염증과 수축 흐름,흡입제에도 악화되는 호흡 곤란,유발 요인·흡입기 교육·계획,KR-011,PROMPT_REQUIRED
+H10,allergic-rhinitis,코와 알레르기 환경 개요,알레르겐 반응 흐름,호흡 곤란 동반 시 도움 신호,회피·환경 관리·진료,KR-012,PROMPT_REQUIRED
+H11,atopic-dermatitis,피부 장벽을 존중하는 대표 이미지,피부 장벽과 염증 흐름,감염 의심·급격한 악화 신호,보습·자극 회피·진료,KR-013,PROMPT_REQUIRED
+H12,urinary-tract-infection,비뇨기계 위치 개요,감염 경로의 단순 흐름,고열·옆구리 통증 등 신우신염 신호,수분·검사·진료,KR-014,PROMPT_REQUIRED
+H13,osteoporosis,뼈 건강과 낙상 예방,정상 뼈와 골밀도 저하 비교,골절 의심·갑작스러운 통증 신호,검사·운동·영양·낙상 예방,KR-015,PROMPT_REQUIRED
+H14,osteoarthritis,무릎 관절과 일상 움직임,연골 변화의 단순 설명,관절 급성 붓기·발열 평가 신호,적정 활동·체중·진료,KR-016,PROMPT_REQUIRED
+H15,stroke,뇌혈관과 빠른 행동 개요,혈관 막힘·출혈의 단순 비교,얼굴·팔·말 FAST형 신호와 119,위험 요인 관리·재활 상담,KR-017,PROMPT_REQUIRED
+H16,myocardial-infarction,심장과 응급 행동 개요,관상동맥 막힘 흐름,흉통·호흡 곤란·식은땀과 119,금연·위험 요인·재활,KR-018,PROMPT_REQUIRED
+H17,depression,낙인 없는 일상 지원 장면,증상 영역과 도움 경로,자해·자살 생각 시 109·112·119,상담·치료·지지망,KR-019+KR-020+KR-021,PROMPT_REQUIRED
+H18,dementia,존중받는 고령자와 돌봄 장면,기억·인지 변화와 평가 과정,갑작스러운 혼돈은 응급 평가,진단 상담·안전·돌봄 지원,INT-001,PROMPT_REQUIRED
+H19,migraine,빛 자극을 낮춘 생활 장면,편두통 증상 흐름,새로운 극심 두통·신경 증상,유발 요인 기록·진료,KR-022,PROMPT_REQUIRED
+H20,thyroid-disorders,목의 갑상선 위치 개요,기능 저하·항진의 단순 비교,심한 두근거림·의식 변화 평가 신호,검사·약물 상담·추적 관리,KR-023+KR-024,PROMPT_REQUIRED

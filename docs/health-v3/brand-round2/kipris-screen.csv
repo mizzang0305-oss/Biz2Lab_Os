@@ -1,0 +1,25 @@
+candidate_id,korean_name,source,query,url,checked_at,result,confidence,limitation
+R2-001,도아림,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,similar-mark and goods review not performed
+R2-002,라하움,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,web commercial collision rejected it
+R2-004,노이담,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,media collision rejected it
+R2-005,루아든,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,commercial product collision rejected it
+R2-006,세루온,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,active .com later reduced it
+R2-008,아르빈,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_2_OBSERVED,HIGH,exact hits need detail but web collision already rejects
+R2-009,로미안,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_1_OBSERVED,HIGH,remove from final ten
+R2-010,유라온,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_6_OBSERVED,HIGH,active health use also rejects
+R2-011,하도림,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,manual similar-mark review required
+R2-012,레노움,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,active .com domain later reduced it
+R2-017,네아론,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,active .com domain later reduced it
+R2-018,루모아,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_3_OBSERVED,HIGH,web collision also rejects
+R2-019,다루온,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,active company/domain later reduced it
+R2-021,세이담,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_1_OBSERVED,HIGH,remove from final ten
+R2-022,노루안,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,active .com domain later reduced it
+R2-024,로아든,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,manual similar-mark review required
+R2-026,도루안,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,web company signal rejects
+R2-027,누아림,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,manual similar-mark review required
+R2-031,이라움,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,active .com domain later reduced it
+R2-034,아노림,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,manual similar-mark review required
+R2-035,세라온,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_10_OBSERVED,HIGH,web e-commerce signal rejects
+R2-039,오누림,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,manual similar-mark review required
+R2-040,유로담,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,ship-name/search association reduces it
+R2-041,누아든,KIPRIS,"상표명칭(TN) 완전일치",https://www.kipris.or.kr/khome/search/searchResult.do?tab=trademark,2026-08-24 KST,EXACT_0_OBSERVED,HIGH,commercial product signal rejects

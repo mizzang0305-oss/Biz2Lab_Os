@@ -1,0 +1,11 @@
+candidate_id,korean_name,exact_search_state,health_provider_confusion,government_confusion,genericness,romanization_state,decision
+R2-011,하도림,NO_TOP_MATERIAL_HEALTH_PROVIDER_RESULT_OBSERVED,LOW,LOW,LOW,hadorim_one_obvious_form,FINAL_THREE
+R2-034,아노림,NO_TOP_MATERIAL_HEALTH_PROVIDER_RESULT_OBSERVED,LOW,LOW,LOW,anorim_one_obvious_form,FINAL_THREE
+R2-039,오누림,NO_TOP_MATERIAL_HEALTH_PROVIDER_RESULT_OBSERVED,LOW,LOW,LOW,onurim_one_obvious_form,FINAL_THREE
+R2-024,로아든,NO_TOP_MATERIAL_HEALTH_PROVIDER_RESULT_OBSERVED,LOW,LOW,LOW,roadeun_one_obvious_form,RESERVE
+R2-027,누아림,PERSON_NAME_SIGNAL,LOW,LOW,MEDIUM,nuarim_one_obvious_form,RESERVE
+R2-001,도아림,PERSON_NAME_SIGNAL,LOW,LOW,MEDIUM,doarim_one_obvious_form,REJECT
+R2-005,루아든,APPAREL_PRODUCT_SIGNAL,LOW,LOW,LOW,luadeun_one_obvious_form,REJECT
+R2-010,유라온,HEALTH_SUPPLEMENT_SIGNAL,HIGH,LOW,LOW,uraon_one_obvious_form,REJECT
+R2-051,맑은결,CLINIC_SIGNAL,HIGH,LOW,HIGH,malgeungyeol_ambiguous,REJECT
+R2-061,이음자리,WELFARE_SPACE_SIGNAL,MEDIUM,MEDIUM,MEDIUM,ieumjari_ambiguous,REJECT

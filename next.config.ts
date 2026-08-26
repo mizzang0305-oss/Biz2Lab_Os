@@ -42,6 +42,10 @@ const nextConfig: NextConfig = {
         pathname: "/images/editorial/**",
         search: "",
       },
+      {
+        pathname: "/images/onurim/**",
+        search: "",
+      },
     ],
   },
   async redirects() {

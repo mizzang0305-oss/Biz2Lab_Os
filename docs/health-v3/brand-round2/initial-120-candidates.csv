@@ -1,0 +1,121 @@
+candidate_id,korean_name,roman_spelling,territory,candidate_type,concept_note
+R2-001,도아림,doarim,H,fully_coined,clear-and-kind sound
+R2-002,라하움,rahaum,H,fully_coined,calm contained sound
+R2-003,모이든,moideun,H,fully_coined,gathered-understanding sound
+R2-004,노이담,noidam,H,fully_coined,learning-and-story sound
+R2-005,루아든,luadeun,H,fully_coined,soft forward-moving sound
+R2-006,세루온,seruon,H,fully_coined,clean signal sound
+R2-007,다로움,daroum,H,fully_coined,calm breadth sound
+R2-008,아르빈,arbin,H,fully_coined,firm editorial sound
+R2-009,로미안,romian,H,fully_coined,readable warm sound
+R2-010,유라온,uraon,H,fully_coined,light direction sound
+R2-011,하도림,hadorim,H,fully_coined,calm next-step sound
+R2-012,레노움,renoum,H,fully_coined,rounded editorial sound
+R2-013,바루엔,baruen,H,fully_coined,steady useful sound
+R2-014,이노별,inobyeol,H,fully_coined,noticing-point sound
+R2-015,소라움,soraum,H,fully_coined,calm open sound
+R2-016,오르담,ordam,H,fully_coined,organized information sound
+R2-017,네아론,nearon,H,fully_coined,clear reference sound
+R2-018,루모아,rumoa,H,fully_coined,shared-learning sound
+R2-019,다루온,daruon,H,fully_coined,preparedness sound
+R2-020,마로움,maroum,H,fully_coined,quiet confidence sound
+R2-021,세이담,seidam,H,fully_coined,clear note sound
+R2-022,노루안,noruan,H,fully_coined,gentle direction sound
+R2-023,아리온,arion,H,fully_coined,bright editorial sound
+R2-024,로아든,roadeun,H,fully_coined,route-and-learning sound
+R2-025,미로담,mirodam,H,fully_coined,understanding-in-layers sound
+R2-026,도루안,doruan,H,fully_coined,calm question sound
+R2-027,누아림,nuarim,H,fully_coined,kind readability sound
+R2-028,라모든,ramodeun,H,fully_coined,balanced preparation sound
+R2-029,오리담,oridam,H,fully_coined,clear archive sound
+R2-030,베루온,beruon,H,fully_coined,steady signal sound
+R2-031,이라움,iraum,H,fully_coined,open-learning sound
+R2-032,다모안,damoan,H,fully_coined,calm information sound
+R2-033,루비담,rubidam,H,fully_coined,small useful insight sound
+R2-034,아노림,anorim,H,fully_coined,notice-and-learn sound
+R2-035,세라온,seraon,H,fully_coined,clean reference sound
+R2-036,모루담,morudam,H,fully_coined,patient-reading sound
+R2-037,노아든,noadeun,H,fully_coined,forward question sound
+R2-038,라두온,raduon,H,fully_coined,clear route sound
+R2-039,오누림,onurim,H,fully_coined,shared-learning sound
+R2-040,유로담,yurodam,H,fully_coined,calm record sound
+R2-041,누아든,nuadeun,H,fully_coined,quiet shared-learning sound
+R2-042,미라온,miraon,H,fully_coined,bright guide sound
+R2-043,도이담,doidam,H,fully_coined,understanding note sound
+R2-044,나루온,naruon,H,fully_coined,arrival-and-direction sound
+R2-045,르아움,reuaum,H,fully_coined,abstract warm sound
+R2-046,라니온,ranion,H,fully_coined,clear signal sound
+R2-047,오라담,oradam,H,fully_coined,quiet story sound
+R2-048,루노아,runoa,H,fully_coined,soft reference sound
+R2-049,다리온,darion,H,fully_coined,bridge-to-next-step sound
+R2-050,마이든,maideun,H,fully_coined,understanding-and-preparation sound
+R2-051,맑은결,malgeungyeol,A,natural_compound,clear understanding
+R2-052,한줄빛,hanjulbit,A,natural_compound,one clear helpful line
+R2-053,여는말,yeoneunmal,A,natural_compound,opening hard information
+R2-054,첫물음,cheotmureum,A,natural_compound,first useful question
+R2-055,다음결,daeumgyeol,B,natural_compound,next signal and direction
+R2-056,새이음,saeieum,B,natural_compound,new connection in understanding
+R2-057,고른말,goreunmal,B,natural_compound,balanced wording
+R2-058,한칸빛,hankanbit,B,natural_compound,small clear insight
+R2-059,차례빛,charyebit,C,natural_compound,order before action
+R2-060,물음결,mureumgyeol,C,natural_compound,question-led direction
+R2-061,이음자리,ieumjari,C,natural_compound,place of shared understanding
+R2-062,알찬결,alchangiyeol,C,natural_compound,substantive useful learning
+R2-063,여백말,yeobaekmal,D,natural_compound,space to ask and remember
+R2-064,맑은줄,malgeunjul,D,natural_compound,clear summary line
+R2-065,오늘이음,oneulieum,D,natural_compound,today's connected learning
+R2-066,바른물음,bareunmureum,D,natural_compound,better questions not answers
+R2-067,다정결,dajeonggyeol,E,natural_compound,warm practical record
+R2-068,한눈빛,hannunbit,E,natural_compound,visible signal at a glance
+R2-069,이어봄,ieobom,E,natural_compound,continue observing and learning
+R2-070,새결말,saegyeolmal,E,natural_compound,newly organized wording
+R2-071,한결말,hangyeolmal,F,natural_compound,consistent shared words
+R2-072,다음자리,daeumjari,F,natural_compound,next useful place
+R2-073,푸른줄,pureunjul,F,natural_compound,calm dependable line
+R2-074,맑은자리,malgeunjari,F,natural_compound,clear shared place
+R2-075,첫이음,cheotieum,G,natural_compound,first learning connection
+R2-076,여는결,yeoneungyeol,G,natural_compound,opening a topic calmly
+R2-077,고른빛,goreunbit,G,natural_compound,balanced learning signal
+R2-078,한줄결,hanjulgyeol,G,natural_compound,one actionable thread
+R2-079,다정말,dajeongmal,G,natural_compound,warm non-clinical wording
+R2-080,새로운말,saerounmal,G,natural_compound,new accessible wording
+R2-081,아람결,aramgyeol,A,semantic_distinct,ripe understanding
+R2-082,다봄결,dabomgyeol,B,semantic_distinct,noticing and learning
+R2-083,새움말,saeummal,C,semantic_distinct,building a clear language
+R2-084,온이음,onieum,D,semantic_distinct,warm shared connection
+R2-085,늘이음,neulieum,E,semantic_distinct,ongoing reference
+R2-086,마주결,majugyeol,F,semantic_distinct,face information together
+R2-087,한울말,hanulmal,G,semantic_distinct,wide shared wording
+R2-088,아우름,aureum,A,semantic_distinct,bringing understanding together
+R2-089,오롯결,orotgyeol,B,semantic_distinct,focused helpful signal
+R2-090,서로빛,seorobit,C,semantic_distinct,shared clarity
+R2-091,두루결,durugyeol,D,semantic_distinct,whole-picture preparation
+R2-092,새로움,saeroum,E,semantic_distinct,renewed learning
+R2-093,이룸말,irummal,F,semantic_distinct,make sense through words
+R2-094,다온결,daongyeol,G,semantic_distinct,helpful information arriving
+R2-095,가온빛,gaonbit,A,semantic_distinct,centered clear signal
+R2-096,온새말,onsaemal,B,semantic_distinct,warm fresh explanation
+R2-097,이음봄,ieumbom,C,semantic_distinct,observe connections
+R2-098,누리결,nurigyeol,D,semantic_distinct,shared public learning
+R2-099,하늬말,hanwimal,E,semantic_distinct,gentle directional word
+R2-100,라온결,raongyeol,F,semantic_distinct,joyful learning tone
+R2-101,노하움,nohaum,H,hybrid_abstract,know-and-understand sound
+R2-102,세리온,serion,H,hybrid_abstract,clean abstract sound
+R2-103,루모엔,rumoen,H,hybrid_abstract,soft editorial sound
+R2-104,도이온,doion,H,hybrid_abstract,noticing sound
+R2-105,마루온,maruon,H,hybrid_abstract,stable open sound
+R2-106,리오담,riodam,H,hybrid_abstract,quiet record sound
+R2-107,아로움,aroum,H,hybrid_abstract,learning arc sound
+R2-108,누아온,nuaon,H,hybrid_abstract,shared warmth sound
+R2-109,도나움,donaum,H,hybrid_abstract,calm direction sound
+R2-110,라무온,ramuon,H,hybrid_abstract,abstract soft signal
+R2-111,오비담,obidam,H,hybrid_abstract,contained story sound
+R2-112,미도온,midoon,H,hybrid_abstract,clear path sound
+R2-113,로유담,royudam,H,hybrid_abstract,quiet learning sound
+R2-114,아미온,amion,H,hybrid_abstract,warm reference sound
+R2-115,바노아,banoa,H,hybrid_abstract,calm first-step sound
+R2-116,루다온,rudaon,H,hybrid_abstract,helpful arrival sound
+R2-117,모리안,morian,H,hybrid_abstract,editorial depth sound
+R2-118,아도움,adoum,H,hybrid_abstract,helpful understanding sound
+R2-119,리노온,rinoon,H,hybrid_abstract,bright abstract sound
+R2-120,노아담,noadam,H,hybrid_abstract,calm human sound

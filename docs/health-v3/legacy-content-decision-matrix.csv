@@ -1,0 +1,28 @@
+route,type,current_state,decision,reason,production_action_now,owner_approval_required
+/ko,homepage,indexable,REWRITE_HEALTH_CONTEXT_NOT_APPLICABLE,"V3 homepage로 교체 대상",NO,YES
+/ko/automation,category-hub,indexable,REMOVE_FROM_MAIN_NAV,"legacy 업무 자동화 cluster",NO,YES
+/ko/sales-ops,category-hub,indexable,REMOVE_FROM_MAIN_NAV,"legacy 영업·미수금 cluster",NO,YES
+/ko/small-business,category-hub,indexable,REMOVE_FROM_MAIN_NAV,"legacy 주문·운영 cluster",NO,YES
+/ko/warehouse-logistics,category-hub,indexable,REMOVE_FROM_MAIN_NAV,"legacy 물류 cluster",NO,YES
+/ko/projects,static,indexable,REMOVE_FROM_MAIN_NAV,"건강교육 primary identity와 불일치",NO,YES
+/ko/resources,static,indexable,REMOVE_FROM_MAIN_NAV,"legacy 자료실",NO,YES
+/ko/author/biz2lab,trust,indexable,REWRITE_HEALTH_CONTEXT_NOT_APPLICABLE,"실제 작성 범위와 의료 자격 부재를 정확히 표현",NO,YES
+/ko/about,trust,indexable,REWRITE_HEALTH_CONTEXT_NOT_APPLICABLE,"건강교육 목적·source-check workflow 필요",NO,YES
+/ko/contact,trust,indexable,REWRITE_HEALTH_CONTEXT_NOT_APPLICABLE,"의학상담을 받지 않으며 오류 제보만 받는 경계 필요",NO,YES
+/ko/editorial-policy,trust,indexable,REWRITE_HEALTH_CONTEXT_NOT_APPLICABLE,"의료 출처·검토·정정 workflow 필요",NO,YES
+/ko/advertising,trust,indexable,REWRITE_HEALTH_CONTEXT_NOT_APPLICABLE,"건강정보와 광고 독립성 강화",NO,YES
+/ko/disclaimer,trust,indexable,REWRITE_HEALTH_CONTEXT_NOT_APPLICABLE,"진단·응급·약물 경계 추가",NO,YES
+/ko/privacy,trust,indexable,REWRITE_HEALTH_CONTEXT_NOT_APPLICABLE,"건강정보 수집 여부와 민감정보 금지 명시",NO,YES
+/ko/terms,trust,indexable,REWRITE_HEALTH_CONTEXT_NOT_APPLICABLE,"건강교육 적용 범위로 수정",NO,YES
+/ko/automation/ai-business-automation-guide,article,indexable,REMOVE_FROM_MAIN_NAV,"legacy evidence article; 즉시 삭제하지 않음",NO,YES
+/ko/automation/automation-priority-method,article,indexable,REMOVE_FROM_MAIN_NAV,"legacy evidence article; 즉시 삭제하지 않음",NO,YES
+/ko/sales-ops/accounts-receivable-tracker,article,indexable,REMOVE_FROM_MAIN_NAV,"legacy B2B article",NO,YES
+/ko/sales-ops/daily-sales-goal-breakdown,article,indexable,REMOVE_FROM_MAIN_NAV,"legacy B2B article",NO,YES
+/ko/sales-ops/daily-sales-report,article,indexable,REMOVE_FROM_MAIN_NAV,"legacy B2B article",NO,YES
+/ko/sales-ops/payment-reminder-message,article,indexable,REMOVE_FROM_MAIN_NAV,"legacy B2B article",NO,YES
+/ko/sales-ops/sales-achievement-rate,article,indexable,REMOVE_FROM_MAIN_NAV,"legacy B2B article",NO,YES
+/ko/sales-ops/sales-revenue-ar-structure,article,indexable,REMOVE_FROM_MAIN_NAV,"legacy B2B article",NO,YES
+/ko/small-business/daily-numbers-for-small-business,article,indexable,REMOVE_FROM_MAIN_NAV,"legacy operations article",NO,YES
+/ko/small-business/unify-order-channels,article,indexable,REMOVE_FROM_MAIN_NAV,"legacy operations article",NO,YES
+/ko/warehouse-logistics/separate-picking-inspection-loading-status,article,indexable,REMOVE_FROM_MAIN_NAV,"legacy logistics article",NO,YES
+content/ko/**/drafts,collection,65-draft-noindex,KEEP_LEGACY_NOINDEX,"현재 public sitemap 밖; 별도 archive 판단 전 보존",NO,YES

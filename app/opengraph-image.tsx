@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Biz2Lab - B2B 유통 현장 시스템 구축 기록";
+export const alt = "오누림 - 질환을 쉽게 이해하고 필요한 도움을 찾는 건강 안내서";
 export const size = {
   width: 1200,
   height: 630,
@@ -17,18 +17,18 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          background: "#fff9f1",
-          color: "#1f1b2d",
+          background: "#fffdf8",
+          color: "#18332f",
           padding: "72px",
-          border: "24px solid #ff7a59",
+          border: "24px solid #6fc3a8",
         }}
       >
-        <div style={{ fontSize: 54, fontWeight: 800 }}>Biz2Lab</div>
+        <div style={{ fontSize: 54, fontWeight: 800 }}>오누림 · ONURIM</div>
         <div style={{ marginTop: 24, maxWidth: 820, fontSize: 42, lineHeight: 1.25, fontWeight: 700 }}>
-          주문·미수금·물류를 시스템으로 바꾼 기록
+          어려운 질환을 쉬운 말과 그림으로 이해하는 건강 안내서
         </div>
-        <div style={{ marginTop: 28, fontSize: 24, color: "#675f72" }}>
-          구현 화면 · 운영 기준 · 검증 범위
+        <div style={{ marginTop: 28, fontSize: 24, color: "#536964" }}>
+          이해 · 기록 · 진료 질문 · 필요한 도움
         </div>
       </div>
     ),

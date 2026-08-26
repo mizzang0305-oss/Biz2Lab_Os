@@ -2,22 +2,21 @@ import type { Metadata } from "next";
 
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
-export const staticPublicRoutes = [
-  "/ko",
-  "/ko/automation",
-  "/ko/sales-ops",
-  "/ko/small-business",
-  "/ko/warehouse-logistics",
-  "/ko/projects",
-  "/ko/author/biz2lab",
-  "/ko/about",
-  "/ko/resources",
-  "/ko/contact",
-  "/ko/editorial-policy",
-  "/ko/advertising",
-  "/ko/disclaimer",
-  "/ko/privacy",
-  "/ko/terms",
+export const staticPublicRoutes: readonly string[] = [
+  "/",
+  "/health",
+  "/health/trust/about",
+  "/health/trust/author",
+  "/health/trust/editorial-policy",
+  "/health/trust/sources-policy",
+  "/health/trust/medical-review-policy",
+  "/health/trust/corrections-policy",
+  "/health/trust/ai-disclosure",
+  "/health/trust/advertising",
+  "/health/trust/disclaimer",
+  "/health/trust/privacy",
+  "/health/trust/terms",
+  "/health/trust/contact",
 ] as const;
 
 type MetadataInput = {
@@ -80,7 +79,7 @@ export function organizationJsonLd() {
     alternateName: siteConfig.koreanName,
     url: siteConfig.url,
     description: siteConfig.description,
-    publishingPrinciples: absoluteUrl("/ko/about"),
+    publishingPrinciples: absoluteUrl("/health/trust/editorial-policy"),
     sameAs: ["https://github.com/mizzang0305-oss"],
   };
 }
@@ -90,7 +89,7 @@ export function websiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteConfig.name,
-    url: absoluteUrl("/ko"),
+    url: absoluteUrl("/"),
     inLanguage: "ko-KR",
   };
 }

@@ -1,0 +1,61 @@
+candidate_id,korean_name,romanized,pronunciation,meaning,territory,proposed_tagline,intended_tone,potential_misunderstanding,medical_authority_risk,expansion_potential,stage1_status
+BR-001,몸신호,momsinho,몸-신호,몸의 변화를 알아차림,A,몸의 신호를 쉬운 말로 이해하기,차분함,응급 알림 서비스,MEDIUM,HIGH,SCREENED_OUT
+BR-002,몸알림,momalrim,몸-알림,몸의 변화를 알림,A,알아두고 필요한 도움 찾기,즉시성,의료 알림 또는 경보,MEDIUM,MEDIUM,SCREENED_OUT
+BR-003,몸의말,momeui-mal,모메말,몸이 보내는 말,A,몸의 이야기를 쉬운 말로,따뜻함,증상 해석·진단,MEDIUM,HIGH,STAGE2
+BR-004,몸결,momgyeol,몸-결,몸의 상태와 결,A,몸의 변화를 살피는 안내,감성적,동명 영업 사업자,LOW,HIGH,DISQUALIFIED_EXACT_USE_SIGNAL
+BR-005,몸살핌,momsalpim,몸-살핌,몸을 살핌,A,몸의 변화를 차분히 이해하기,차분함,몸살로 잘못 끊어 읽음,MEDIUM,HIGH,STAGE2
+BR-006,몸안내,momannae,몸-안내,몸에 관한 안내,A,쉬운 말로 보는 건강 정보,명료함,일반 안내 서비스,LOW,HIGH,STAGE2
+BR-007,몸읽기,momilgki,몸-읽기,몸을 이해하기,A,몸의 정보를 함께 읽기,지적임,자가진단 연상,MEDIUM,HIGH,STAGE2
+BR-008,몸지도,momjido,몸-지도,몸을 이해하는 지도,A,건강 정보를 찾아보는 지도,탐색적,해부학·진단 지도,MEDIUM,HIGH,SCREENED_OUT
+BR-009,몸한눈,momhanun,몸-한눈,몸 정보를 한눈에,A,한눈에 이해하는 건강 정보,간결함,다이어트·체형 서비스,LOW,MEDIUM,STAGE2
+BR-010,몸살피기,momsalpigi,몸-살피기,몸을 살피기,A,몸의 변화를 이해하고 준비하기,돌봄,자가검진 약속,MEDIUM,HIGH,SCREENED_OUT
+BR-011,건강풀이,geongangpuli,건강-풀이,건강을 쉽게 풀이,B,어려운 건강말을 쉽게 풀기,친근함,사주·운세 결과 결합,MEDIUM,HIGH,DISQUALIFIED_SEARCH_ASSOCIATION
+BR-012,쉬운건강,swiungeongang,쉬운-건강,쉬운 건강 설명,B,쉬운 말로 이해하는 건강 정보,직관적,지나치게 일반적,LOW,MEDIUM,SCREENED_OUT
+BR-013,건강말,geongangmal,건강-말,건강에 관한 쉬운 말,B,건강을 쉬운 말로,따뜻함,일반 문구·검색 포화,LOW,HIGH,STAGE2
+BR-014,알기건강,algigeongang,알기-건강,알아가는 건강,B,알아두고 준비하는 건강 안내,교육적,어순이 부자연스러움,LOW,MEDIUM,SCREENED_OUT
+BR-015,건강한눈,geonganghannun,건강한-눈,건강을 보는 눈,B,한눈에 이해하는 건강 정보,신뢰감,눈 건강 전문 서비스,LOW,HIGH,SCREENED_OUT
+BR-016,건강첫걸음,geongangcheotgeoreum,건강-첫걸음,건강 이해의 시작,B,처음부터 쉬운 건강 설명,친근함,지나치게 일반적,LOW,HIGH,STAGE2
+BR-017,건강한장면,geonganghanjangmyeon,건강한-장면,건강을 이해하는 생활 장면,B,생활 속 건강을 쉬운 말로,따뜻함,문학·영상 브랜드,LOW,MEDIUM,STAGE2
+BR-018,건강한차례,geonganghancharye,건강한-차례,건강 행동의 순서,B,알아두고 차근히 준비하기,차분함,의례·식사 연상,LOW,MEDIUM,SCREENED_OUT
+BR-019,건강설명서,geongangseolmyeongseo,건강-설명서,건강 정보 설명서,B,복잡한 건강 정보를 쉽게,실용적,매우 일반적 출판명,LOW,HIGH,SCREENED_OUT
+BR-020,건강한문장,geonganghanmunjang,건강한-문장,건강을 이해하는 문장,B,건강 정보를 바르게 읽기,편집적,글쓰기 서비스,LOW,MEDIUM,SCREENED_OUT
+BR-021,가족건강노트,gajokgeongangnote,가족-건강-노트,가족이 함께 보는 기록,C,가족을 위한 쉬운 건강 정보,가족적,개인 의료기록 앱,MEDIUM,MEDIUM,SCREENED_OUT
+BR-022,함께건강,hamkkegeongang,함께-건강,함께하는 건강,C,함께 알아가는 건강 정보,포용적,기존 캠페인·일반명사,LOW,HIGH,SCREENED_OUT
+BR-023,곁건강,gyeotgeongang,곁-건강,곁에서 돕는 건강,C,가까이에서 읽는 쉬운 건강 정보,따뜻함,돌봄기관으로 오해,LOW,HIGH,STAGE2
+BR-024,건강곁,geonganggyeot,건강-곁,건강 곁의 동행,C,건강 곁에서 차분히 안내하기,따뜻함,어순 부자연스러움,LOW,MEDIUM,SCREENED_OUT
+BR-025,가족살핌,gajoksalpim,가족-살핌,가족을 살핌,C,가족과 함께 이해하는 건강 정보,돌봄,요양·돌봄 서비스,MEDIUM,MEDIUM,SCREENED_OUT
+BR-026,곁살핌,gyeotsalpim,곁-살핌,곁에서 함께 살핌,C,몸의 신호를 이해하고 도움을 찾는 안내,따뜻함,돌봄 기관으로 오해,LOW,HIGH,STAGE2
+BR-027,함께살핌,hamkkesalpim,함께-살핌,함께 살피는 일,C,가족과 함께 준비하는 건강 정보,포용적,공공 캠페인처럼 보임,LOW,HIGH,STAGE2
+BR-028,건강질문집,geongangjilmunjip,건강-질문집,건강 질문 모음,C,의료진에게 물을 것을 준비하기,실용적,개인 상담 서비스,MEDIUM,MEDIUM,STAGE2
+BR-029,가족기록,gajokgirok,가족-기록,가족의 기록,C,가족과 함께 준비하는 건강 정보,정서적,가족 의료기록 수집,MEDIUM,MEDIUM,STAGE2
+BR-030,곁의안내,gyeoteuianna,곁의-안내,곁에서 하는 안내,C,필요한 도움을 찾는 건강 안내,차분함,일반 컨시어지,LOW,MEDIUM,SCREENED_OUT
+BR-031,살핌길,salpimgil,살핌-길,살피는 길,D,알아두고 차분히 준비하는 건강 안내,차분함,일반 길찾기·생활서비스,LOW,HIGH,STAGE2
+BR-032,건강길잡이,geonganggiljabi,건강-길잡이,건강의 길잡이,D,쉬운 건강 정보 길잡이,친숙함,매우 일반적이고 기존 사용 가능성,LOW,HIGH,SCREENED_OUT
+BR-033,한걸음건강,hangeoreumgeongang,한걸음-건강,한 걸음씩 건강 이해,D,한 걸음씩 이해하는 건강 정보,격려,캠페인·운동 서비스,LOW,HIGH,SCREENED_OUT
+BR-034,차분건강,chabungeongang,차분-건강,차분한 건강 안내,D,차분히 읽는 건강 정보,안정감,어색한 합성어,LOW,MEDIUM,STAGE2
+BR-035,다음건강,daeumgeongang,다음-건강,다음 행동을 위한 건강,D,다음 도움을 찾는 건강 안내,실용적,치료 다음 단계 약속,MEDIUM,HIGH,STAGE2
+BR-036,몸의길,momeuigil,모메길,몸을 이해하는 길,D,몸의 신호를 이해하는 안내,차분함,치료 경로·재활 서비스,MEDIUM,HIGH,STAGE2
+BR-037,건강나침반,geongangnachimban,건강-나침반,건강 방향 안내,D,건강 정보를 찾는 방향,신뢰감,기존 교육·보험 표현,LOW,HIGH,SCREENED_OUT
+BR-038,건강안내,geongangannae,건강-안내,건강 안내,D,쉬운 건강 정보 안내,명료함,매우 일반적·공공기관 연상,MEDIUM,HIGH,SCREENED_OUT
+BR-039,건강동행,geongangdonghaeng,건강-동행,건강과 함께,D,가족과 함께 읽는 건강 정보,따뜻함,요양·의료 동행 서비스,MEDIUM,HIGH,SCREENED_OUT
+BR-040,하루건강,harugeongang,하루-건강,일상의 건강,D,매일 이해하는 건강 정보,일상적,건강식품·습관 서비스,LOW,HIGH,SCREENED_OUT
+BR-041,몸기록,momgirok,몸-기록,몸 관련 기록,E,기록을 준비하는 건강 정보,실용적,개인 건강기록 앱,MEDIUM,MEDIUM,SCREENED_OUT
+BR-042,살핌노트,salpimnote,살핌-노트,살핌을 적는 노트,E,알아두고 기록하고 질문하는 건강 안내,실용적,노트·문구 브랜드,LOW,HIGH,STAGE2
+BR-043,기록건강,girokgeongang,기록-건강,기록하는 건강,E,건강 정보를 기록으로 준비하기,실용적,의료기록 수집 서비스,MEDIUM,MEDIUM,SCREENED_OUT
+BR-044,건강체크,geongangcheck,건강-체크,건강 확인,E,알아두고 필요한 도움 찾기,즉시성,건강검진·진단 도구,MEDIUM,HIGH,SCREENED_OUT
+BR-045,살핌표,salpimpyo,살핌-표,살핌 체크표,E,기록하고 물어볼 것을 준비하기,실용적,체크리스트 단일 기능,LOW,MEDIUM,SCREENED_OUT
+BR-046,질문노트,jilmunnote,질문-노트,질문을 적는 노트,E,의료진에게 물을 것을 준비하기,실용적,범용 노트 브랜드,LOW,MEDIUM,STAGE2
+BR-047,건강준비,geongangjunbi,건강-준비,건강을 준비,E,알아두고 준비하는 건강 안내,실용적,보험·검진 준비 서비스,MEDIUM,HIGH,SCREENED_OUT
+BR-048,몸준비,momjunbi,몸-준비,몸을 위한 준비,E,기록하고 도움을 찾는 준비,실용적,운동·시술 준비,MEDIUM,MEDIUM,SCREENED_OUT
+BR-049,알아두기,aradugi,알아-두기,미리 알아 두기,E,알아두고 필요한 도움 찾기,친근함,건강 정체성 부족,LOW,MEDIUM,SCREENED_OUT
+BR-050,건강차림,geongangcharim,건강-차림,건강을 갖춤,E,필요한 정보를 갖추기,실용적,복장·건강식품 연상,LOW,MEDIUM,SCREENED_OUT
+BR-051,살핌온,salpimon,살핌-온,살핌에 온기를 더함,F,따뜻하게 읽는 건강 안내,따뜻함,뜻 불명·AI 브랜드 느낌,LOW,HIGH,STAGE2
+BR-052,몸알이,momali,몸-알이,몸을 아는 일,F,몸을 쉬운 말로 알아가기,친근함,어감·의미 불명,LOW,MEDIUM,SCREENED_OUT
+BR-053,알아몸,aramom,알아-몸,알아가는 몸,F,몸을 이해하는 첫걸음,경쾌함,어순·성인 신뢰 부족,LOW,MEDIUM,SCREENED_OUT
+BR-054,보담건강,bodamgeongang,보담-건강,더 보태어 담는 건강,F,건강 정보를 차분히 담기,따뜻함,건강 의미 부족,LOW,HIGH,SCREENED_OUT
+BR-055,모아살핌,moasalpim,모아-살핌,정보를 모아 살핌,F,정보를 모아 이해하는 건강 안내,실용적,데이터 수집 서비스,MEDIUM,HIGH,SCREENED_OUT
+BR-056,온몸말,onmommal,온몸-말,몸 전체의 말,F,몸의 정보를 쉬운 말로,감성적,증상 해석·진단,MEDIUM,HIGH,SCREENED_OUT
+BR-057,몸담,momdam,몸-담,몸 이야기를 담음,F,몸의 이야기를 쉽게 담다,감성적,의미 불명,LOW,MEDIUM,SCREENED_OUT
+BR-058,살핌결,salpimgyeol,살핌-결,살핌의 결,F,차분하게 살피는 건강 정보,감성적,의미·철자 불명,LOW,HIGH,SCREENED_OUT
+BR-059,곁봄,gyeotbom,곁-봄,곁에서 봄,F,가까이에서 이해하는 건강 정보,따뜻함,계절·관찰 서비스,LOW,MEDIUM,SCREENED_OUT
+BR-060,몸봄,mombom,몸-봄,몸을 봄,F,몸의 변화를 이해하기,친근함,검진·의료 관찰,MEDIUM,MEDIUM,SCREENED_OUT

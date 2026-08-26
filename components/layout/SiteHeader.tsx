@@ -8,12 +8,12 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:px-5 lg:flex-row lg:items-center">
         <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between lg:flex-1">
           <Link
-            href="/ko"
+            href="/"
             className="flex min-w-0 items-center gap-2"
-            aria-label="Biz2Lab 홈"
+            aria-label="오누림 홈"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-md bg-teal-700 text-sm font-bold text-white">
-              B2
+              O
             </span>
             <span className="min-w-0">
               <span className="block text-base font-semibold tracking-normal text-slate-950">
