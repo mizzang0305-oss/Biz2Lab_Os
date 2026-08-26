@@ -7,6 +7,8 @@ import {
   healthTools,
   type HealthArticle,
 } from "@/lib/health-v3/content";
+import { expansionGuideSummaries } from "@/lib/health-v3/public-expansion";
+import { absoluteUrl } from "@/lib/site";
 
 const imageMeta: Record<string, { src: string; alt: string; caption: string; width: number; height: number }> = {
   "htn-hero": {
@@ -151,6 +153,31 @@ const imageMeta: Record<string, { src: string; alt: string; caption: string; wid
   },
 };
 
+for (const guide of expansionGuideSummaries) {
+  const key = guide.prefix.toLowerCase();
+  imageMeta[`${key}-hero`] = {
+    src: `/images/onurim/${guide.slug}/hero.webp`,
+    alt: `${guide.title}의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화`,
+    caption: `이 그림은 ${guide.title}을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.`,
+    width: 1536,
+    height: 1024,
+  };
+  imageMeta[`${key}-concept`] = {
+    src: `/images/onurim/${guide.slug}/concept.webp`,
+    alt: `${guide.title}과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식`,
+    caption: "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    width: 1536,
+    height: 1024,
+  };
+  imageMeta[`${key}-action`] = {
+    src: `/images/onurim/${guide.slug}/action.webp`,
+    alt: `${guide.title}의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식`,
+    caption: "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    width: 1536,
+    height: 1024,
+  };
+}
+
 function ClaimStatus({ ids }: { ids: string[] }) {
   return (
     <span className="onurim-claim-status" data-claim-ids={ids.join(",")}>
@@ -165,18 +192,40 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
     .map((slug) => healthTools.find((tool) => tool.slug === slug))
     .filter(Boolean);
   const articleClaims = healthClaims.filter((claim) => claim.articleSlug === article.slug);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    inLanguage: "ko-KR",
+    mainEntityOfPage: absoluteUrl(`/health/${article.slug}`),
+    dateModified: "2026-08-26",
+    author: {
+      "@type": "Person",
+      name: "박영훈",
+      jobTitle: "비의료인 건강정보 편집자",
+      url: absoluteUrl("/health/trust/author"),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "오누림",
+      url: absoluteUrl("/"),
+    },
+    isBasedOn: sources.map((source) => source.url),
+  };
 
   return (
     <article className="onurim-article">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       <header className="onurim-article-hero">
         <div>
           <p className="onurim-eyebrow">{article.eyebrow}</p>
           <h1>{article.title}</h1>
           <p className="onurim-lead">{article.description}</p>
           <div className="onurim-review-strip" aria-label="콘텐츠 검토 상태">
-            <span>공식 출처 매핑 완료</span>
-            <span>의료인 검수 미완료</span>
-            <span>Production 공개 차단</span>
+            <span>공식 출처 확인</span>
+            <span>일반 건강교육</span>
+            <span>면허 의료인 검수 미완료</span>
           </div>
           <p className="onurim-byline">
             작성: <Link href="/health/trust/author">박영훈 · 비의료인 건강정보 편집자</Link>
@@ -265,8 +314,8 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
               ))}
             </ol>
             <p className="onurim-state-note">
-              마지막 출처 대조: 2026-08-25 · claim {articleClaims.length}개 · OFFICIAL_SOURCE_CHECKED ·
-              NOT_MEDICALLY_REVIEWED · PRODUCTION_BLOCKED
+              마지막 출처 대조: 2026-08-26 · claim {articleClaims.length}개 · OFFICIAL_SOURCE_CHECKED ·
+              PUBLIC_SAFETY_ADJUDICATED · NOT_MEDICALLY_REVIEWED
             </p>
           </section>
         </div>

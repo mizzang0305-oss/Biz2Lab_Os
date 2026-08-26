@@ -1,63 +1,17 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { connection } from "next/server";
 
 import { onurimTagline } from "@/lib/health-v3/content";
 import styles from "./onurim.module.css";
 
 export const metadata: Metadata = {
-  title: { default: "오누림 Preview", template: "%s | 오누림 Preview" },
+  title: { default: "오누림", template: "%s | 오누림" },
   description: onurimTagline,
-  robots: { index: false, follow: false, noarchive: true, nosnippet: true, nocache: true },
 };
 
-const nav = [
-  { href: "/health", label: "건강 첫걸음" },
-  { href: "/health/hypertension", label: "심장·혈관" },
-  { href: "/health/type-2-diabetes", label: "대사·혈당" },
-  { href: "/health/allergic-rhinitis", label: "호흡·알레르기" },
-  { href: "/health/gastroesophageal-reflux-disease", label: "소화" },
-  { href: "/health/osteoarthritis", label: "뼈·관절" },
-  { href: "/health#tools", label: "기록 도구" },
-  { href: "/health/trust/about", label: "오누림 소개" },
-];
-
-export default async function HealthLayout({ children }: { children: React.ReactNode }) {
-  // `connection()` makes this check request-time so a Preview build cannot
-  // accidentally serve the health pilot after a Production promotion.
-  await connection();
-  if (process.env.VERCEL_ENV === "production") notFound();
-
+export default function HealthLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className={`onurim-app ${styles.shell}`}>
-      <header className={styles.header}>
-        <div className={styles.previewBar}>보호된 Preview · 의료인 검수 미완료 · Production 공개 차단</div>
-        <div className={styles.headerInner}>
-          <Link href="/health" className={styles.brand} aria-label="오누림 Preview 홈">
-            <strong>오누림</strong>
-            <span>{onurimTagline}</span>
-          </Link>
-          <nav aria-label="오누림 Preview 주요 메뉴" className={styles.nav}>
-            {nav.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
-          </nav>
-        </div>
-      </header>
       <div className={styles.main}>{children}</div>
-      <footer className={styles.footer}>
-        <div><strong>오누림</strong><p>질환을 이해하고, 기록하고, 필요한 도움을 제때 찾도록 돕는 건강정보 Preview</p></div>
-        <div className={styles.footerLinks}>
-          <Link href="/health/trust/editorial-policy">편집 정책</Link>
-          <Link href="/health/trust/author">작성자</Link>
-          <Link href="/health/trust/sources-policy">출처 정책</Link>
-          <Link href="/health/trust/medical-review-policy">의료 검토 정책</Link>
-          <Link href="/health/trust/corrections-policy">정정 정책</Link>
-          <Link href="/health/trust/ai-disclosure">AI 활용 공개</Link>
-          <Link href="/health/trust/disclaimer">면책 안내</Link>
-          <Link href="/health/trust/privacy">개인정보</Link>
-        </div>
-        <p className={styles.operator}>운영: Biz2Lab · 정정 연락처 준비 중</p>
-      </footer>
     </div>
   );
 }

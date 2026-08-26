@@ -4,6 +4,12 @@ import {
   batch2HealthSources,
   batch2HealthTools,
 } from "./batch2";
+import {
+  expansionHealthArticles,
+  expansionHealthClaims,
+  expansionHealthSources,
+  expansionHealthTools,
+} from "./public-expansion";
 
 export type HealthSource = {
   id: string;
@@ -33,6 +39,13 @@ export type HealthClaim = {
   sourceIds: string[];
   clinicalReviewRequired: boolean;
   wordingRisk: "LOW" | "MEDIUM" | "HIGH";
+  riskClass?: "P0_EMERGENCY" | "P1_CLINICAL" | "P2_PATIENT_EDUCATION" | "P3_EDITORIAL";
+  publicReleaseDecision?: "KEEP_AS_SAFE_GENERAL_EDUCATION" | "SIMPLIFY" | "REMOVE";
+  publicDecisionRationale?: string;
+  lastVerified?: string;
+  emergencyRelevance?: boolean;
+  treatmentRelevance?: boolean;
+  diagnosticRelevance?: boolean;
 };
 
 export type HealthArticleSlug =
@@ -41,7 +54,21 @@ export type HealthArticleSlug =
   | "allergic-rhinitis"
   | "gastroesophageal-reflux-disease"
   | "osteoarthritis"
-  | "osteoporosis";
+  | "osteoporosis"
+  | "dyslipidemia"
+  | "obesity"
+  | "metabolic-dysfunction-associated-steatotic-liver-disease"
+  | "irritable-bowel-syndrome"
+  | "asthma"
+  | "sleep-apnea"
+  | "gout"
+  | "migraine"
+  | "kidney-stones"
+  | "urinary-tract-infection"
+  | "depression"
+  | "anxiety-disorder"
+  | "stroke"
+  | "acute-myocardial-infarction";
 
 export type HealthSection = {
   title: string;
@@ -64,6 +91,7 @@ export type HealthArticle = {
   sourceIds: string[];
   imageIds: string[];
   toolSlugs: string[];
+  archetype?: "BODY_SIGNAL" | "FAMILY_SITUATION" | "MYTH_FIRST" | "QUESTION_FIRST" | "SIMPLE_ANALOGY";
 };
 
 export type HealthTool = {
@@ -180,6 +208,7 @@ export const healthSources: HealthSource[] = [
     retrievedAt: "2026-08-24",
   },
   ...batch2HealthSources,
+  ...expansionHealthSources,
 ];
 
 export const healthClaims: HealthClaim[] = [
@@ -444,6 +473,7 @@ export const healthClaims: HealthClaim[] = [
     wordingRisk: "LOW",
   },
   ...batch2HealthClaims,
+  ...expansionHealthClaims,
 ];
 
 export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
@@ -687,6 +717,7 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
     toolSlugs: ["glucose-observation-log", "diabetes-questions", "family-support-checklist", "diabetes-test-terms"],
   },
   ...batch2HealthArticles,
+  ...expansionHealthArticles,
 };
 
 export const healthTools: HealthTool[] = [
@@ -801,17 +832,18 @@ export const healthTools: HealthTool[] = [
     ],
   },
   ...batch2HealthTools,
+  ...expansionHealthTools,
 ];
 
 export const trustPages = [
   {
     slug: "about",
     title: "오누림 소개",
-    intro: "오누림은 질환을 쉬운 말과 그림으로 이해하고, 기록하고, 진료에서 질문할 준비를 돕는 비공개 건강정보 파일럿입니다.",
+    intro: "오누림은 질환을 쉬운 말과 그림으로 이해하고, 기록하고, 진료에서 질문할 준비를 돕는 일반 건강교육 안내서입니다.",
     sections: [
       { title: "무엇을 하는가", body: "공식기관과 의료기관의 환자용 자료를 바탕으로 설명, 기록표와 질문 도구를 새로 구성합니다." },
       { title: "무엇을 하지 않는가", body: "진단, 처방, 개인 치료 결정, 의료 상담, 병원 서비스 또는 정부기관 소속을 제공하거나 주장하지 않습니다." },
-      { title: "운영", body: "운영 주체는 Biz2Lab입니다. 현재 모든 건강 페이지는 Preview 전용이며 Production 공개가 차단되어 있습니다." },
+      { title: "운영", body: "운영 주체는 Biz2Lab입니다. 박영훈 비의료인 건강정보 편집자가 공개 문장과 출처 연결을 관리합니다." },
     ],
   },
   {
@@ -850,16 +882,16 @@ export const trustPages = [
     intro: "공식 출처 확인은 면허 의료인 검수와 같지 않습니다.",
     sections: [
       { title: "공식 출처 확인 ≠ 의료인 검수", body: "출처와 문장을 대조해도 실제 면허 의료인이 해당 버전과 claim을 검토하지 않았다면 의료 검수 완료로 표시하지 않습니다." },
-      { title: "현재 상태", body: "현재 면허 의료인 검토자 상태는 LICENSED_REVIEWER_SOURCING입니다. 모든 건강 안내는 공식 출처 매핑을 마친 Preview 초안이지만 면허 의료인 검수는 완료되지 않았고 Production 공개가 차단되어 있습니다." },
-      { title: "고위험 질환", body: "뇌졸중과 심근경색은 LICENSED_REVIEW_REQUIRED, PUBLICATION_BLOCKED 상태이며 이번 Preview에 페이지를 만들지 않습니다." },
+      { title: "현재 상태", body: "기존 47개 고위험 Claim 검토 패킷은 ONURIM_MEDICAL_REVIEW_PACKAGE_READY입니다. 검토자 섭외 상태는 LICENSED_REVIEWER_SOURCING이며 REVIEWER_ASSIGNED = NO, ONURIM_MEDICAL_REVIEW_IN_PROGRESS = NO, MEDICAL_REVIEW_COMPLETED = NO입니다. 공개 문장은 공식 출처에 다시 대조하고 개인 진단·치료·약물 결정을 제거한 일반 건강교육 범위로 제한했습니다." },
+      { title: "응급 문장", body: "뇌졸중·급성심근경색·심한 호흡곤란·자해 위험처럼 행동 지연이 위험한 문장은 질병관리청·보건복지부·NIH 등 권위 출처에 직접 연결하고 119 또는 확인된 국내 위기 연락처만 간단히 안내합니다." },
     ],
   },
   {
     slug: "corrections-policy",
     title: "정정 정책",
-    intro: "사실 오류, 출처 문제와 오해를 부르는 표현을 접수하고 변경 이유를 기록하는 절차를 준비하고 있습니다.",
+    intro: "사실 오류, 출처 문제와 오해를 부르는 표현을 실제 공개 GitHub Issues에서 접수하고 변경 이유를 기록합니다.",
     sections: [
-      { title: "현재 채널", body: "정정 연락처 준비 중입니다. health@biz2lab.com은 활성화·송수신 테스트 전이므로 연락처로 표시하지 않습니다." },
+      { title: "현재 채널", body: "현재 실동작 정정 채널은 Biz2Lab 공개 GitHub Issues입니다. 문제 페이지 URL, 정정할 문장과 확인 가능한 출처를 적어 주세요. health@biz2lab.com은 활성화·송수신 검증 전이므로 공개 연락처로 사용하지 않습니다." },
       { title: "받지 않는 정보", body: "의료기록, 처방전, 검사 이미지, 주민번호와 개인 건강정보를 받지 않습니다." },
       { title: "응급·의료상담", body: "정정 채널은 응급, 진단, 치료 또는 약물 상담을 제공하지 않습니다." },
     ],
@@ -887,11 +919,41 @@ export const trustPages = [
   {
     slug: "privacy",
     title: "개인정보 안내",
-    intro: "현재 Preview 도구는 입력값을 서버에 전송하거나 저장하지 않는 인쇄용 양식입니다.",
+    intro: "건강 도구는 입력값을 서버에 전송하거나 저장하지 않는 브라우저·인쇄용 양식입니다.",
     sections: [
-      { title: "최소 수집", body: "정정 채널이 활성화되기 전에는 건강정보 문의 폼을 운영하지 않습니다." },
+      { title: "최소 수집", body: "공개 GitHub Issues 정정 채널에는 건강정보·의료기록·연락처를 올리지 않습니다. GitHub 계정과 공개 게시물은 GitHub 정책에 따라 처리됩니다." },
       { title: "기록표", body: "브라우저에서 적은 내용은 제출되지 않습니다. 공용 기기에서는 입력하지 말고 출력물 보관에 주의하세요." },
       { title: "향후 변경", body: "수집 기능을 추가하려면 목적, 항목, 보관 기간, 삭제 방법과 운영 책임자를 먼저 공개합니다." },
+    ],
+  },
+  {
+    slug: "advertising",
+    title: "광고 정책",
+    intro: "광고가 콘텐츠의 결론, 질환 선정 또는 출처 판단을 바꾸지 않도록 편집과 광고를 분리합니다.",
+    sections: [
+      { title: "독립성", body: "광고주·제약사·건강기능식품 판매자로부터 질환 문장, 추천 또는 순위를 제공받지 않습니다." },
+      { title: "표시", body: "광고가 노출되면 콘텐츠와 구분되는 표시를 사용하며 광고를 의료 권고처럼 배치하지 않습니다." },
+      { title: "금지", body: "치료 보장, 공포 유도, 허위 전후 비교와 개인의 건강 상태를 이용한 과장 광고를 직접 만들지 않습니다." },
+    ],
+  },
+  {
+    slug: "terms",
+    title: "이용약관",
+    intro: "오누림 자료는 개인의 일반 건강교육과 진료 질문 준비를 위한 정보입니다.",
+    sections: [
+      { title: "허용 범위", body: "페이지를 읽고 개인용 기록표를 출력할 수 있습니다. 출처를 지우거나 오누림의 의료 권고처럼 재판매할 수 없습니다." },
+      { title: "의료 한계", body: "콘텐츠와 도구는 의료기관의 진단·치료·응급 판단을 대체하지 않습니다." },
+      { title: "변경", body: "출처 갱신, 안전성 보완 또는 서비스 운영상 필요에 따라 내용을 수정할 수 있으며 중요한 정정은 기록합니다." },
+    ],
+  },
+  {
+    slug: "contact",
+    title: "문의",
+    intro: "현재 공개 문의와 정정 제보는 실제 운영 중인 Biz2Lab GitHub Issues를 이용합니다.",
+    sections: [
+      { title: "보낼 내용", body: "문제가 있는 페이지 URL, 정정할 문장, 오류라고 판단한 이유와 확인 가능한 공식 출처를 적어 주세요." },
+      { title: "보내지 않을 내용", body: "이름·전화번호·주민번호·진단명·검사값·처방전·의료기록·계정정보는 공개 Issue에 올리지 마세요." },
+      { title: "상담 한계", body: "이 채널은 의료상담이나 응급상담을 제공하지 않습니다. 위급한 상황에서는 답변을 기다리지 말고 119에 연락하세요." },
     ],
   },
 ] as const;

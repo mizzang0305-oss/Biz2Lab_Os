@@ -1,4 +1,4 @@
-import { getPublicPosts } from "@/lib/posts";
+import { healthArticles } from "@/lib/health-v3/content";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -13,14 +13,14 @@ function escapeXml(value: string) {
 }
 
 export function GET() {
-  const items = getPublicPosts()
+  const items = Object.values(healthArticles)
     .map(
-      (post) => `<item>
-  <title>${escapeXml(post.frontmatter.title)}</title>
-  <link>${absoluteUrl(post.route)}</link>
-  <guid>${absoluteUrl(post.route)}</guid>
-  <description>${escapeXml(post.frontmatter.description)}</description>
-  <pubDate>${new Date(post.frontmatter.publishedAt).toUTCString()}</pubDate>
+      (article) => `<item>
+  <title>${escapeXml(article.title)}</title>
+  <link>${absoluteUrl(`/health/${article.slug}`)}</link>
+  <guid>${absoluteUrl(`/health/${article.slug}`)}</guid>
+  <description>${escapeXml(article.description)}</description>
+  <pubDate>${new Date("2026-08-26T00:00:00+09:00").toUTCString()}</pubDate>
 </item>`,
     )
     .join("");
@@ -28,7 +28,7 @@ export function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-  <title>${escapeXml(siteConfig.name)}</title>
+  <title>${escapeXml(siteConfig.name)} 건강 안내</title>
   <link>${siteConfig.url}</link>
   <description>${escapeXml(siteConfig.description)}</description>
   <language>ko-KR</language>

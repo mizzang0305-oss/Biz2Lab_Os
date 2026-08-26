@@ -6,7 +6,7 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
 import AboutPage from "@/app/ko/about/page";
-import ResourcesPage, { metadata as resourcesMetadata } from "@/app/ko/resources/page";
+import OnurimHomePage, { metadata as healthMetadata } from "@/app/health/page";
 import { GET as getRss } from "@/app/rss.xml/route";
 import sitemap from "@/app/sitemap";
 import { CategoryHubPage } from "@/components/layout/CategoryHubPage";
@@ -17,6 +17,8 @@ import {
   getEditorialEvidenceEntries,
 } from "@/lib/editorial-evidence";
 import { getEvidenceForPost } from "@/lib/evidence";
+import { healthArticles, healthTools } from "@/lib/health-v3/content";
+import { healthSupportGuides } from "@/lib/health-v3/support-guides";
 import { getAllPosts, getPostsByCategory, getPublicPosts } from "@/lib/posts";
 import { staticPublicRoutes } from "@/lib/seo";
 import { siteSettings } from "@/lib/site-settings";
@@ -69,17 +71,18 @@ test("public portfolio contains only the reviewed evidence-first article set", a
 test("sitewide surfaces no longer promise unpublished contract content or entertainment branding", () => {
   const layout = read("app/layout.tsx");
   const openGraphImage = read("app/opengraph-image.tsx");
-  const home = read("components/layout/HomePage.tsx");
+  const home = read("app/health/page.tsx");
 
   assert.doesNotMatch(siteSettings.description, /전자계약/);
   assert.doesNotMatch(siteSettings.hero.title, /전자계약/);
   assert.doesNotMatch(siteSettings.hero.description, /계약 미작성/);
   assert.doesNotMatch(openGraphImage, /Biz2Lab PLAY|영화 추천|결말 해석|OTT 생활/);
-  assert.match(openGraphImage, /주문·미수금·물류/);
+  assert.match(openGraphImage, /ONURIM|건강 안내/);
   assert.doesNotMatch(layout, /alternates:\s*{\s*canonical:\s*siteConfig\.url/);
   assert.match(layout, /href="#site-content"/);
   assert.match(layout, /id="site-content"/);
-  assert.match(home, /getFeaturedHomePosts\(6\)/);
+  assert.match(home, /20개 주요 질환 안내/);
+  assert.match(home, /의료인 검수는 미완료/);
   assert.doesNotMatch(home, /lossNumberLinks|pathLinks/);
 });
 
@@ -129,32 +132,29 @@ test("every public article has distinct practical value and an appropriate evide
   }
 });
 
-test("resources hub exposes all public guides and real downloads without approval-facing copy", () => {
-  const html = renderToStaticMarkup(createElement(ResourcesPage));
-  const source = read("app/ko/resources/page.tsx");
-  const articleRoutes = getPublicPosts()
-    .filter((post) => post.frontmatter.type !== "case-study")
-    .map((post) => post.route);
-  const downloads = [...new Set(extractDownloadLinks(source))];
+test("ONURIM hub exposes every public guide and tool while retired resources stay undiscoverable", () => {
+  const html = renderToStaticMarkup(createElement(OnurimHomePage));
+  const sitemapUrls = new Set(sitemap().map((entry) => entry.url));
 
-  assert.equal(staticPublicRoutes.includes("/ko/resources"), true);
-  assert.equal(resourcesMetadata.alternates?.canonical, "https://www.biz2lab.com/ko/resources");
-  assert.match(html, /가이드와 함께 쓰는 CSV 양식/);
-  assert.match(html, /CSV 내려받기/);
-  assert.equal(downloads.length, 10);
-  assert.doesNotMatch(html, /20개 핵심 글|AdSense|재심사/);
+  assert.equal(staticPublicRoutes.includes("/health"), true);
+  assert.equal(healthMetadata.alternates?.canonical, "https://www.biz2lab.com/health");
+  assert.equal(Object.keys(healthArticles).length, 20);
+  assert.equal(healthSupportGuides.length, 9);
+  assert.equal(healthTools.length, 34);
+  assert.doesNotMatch(html, /AdSense|재심사/);
 
-  for (const route of articleRoutes) {
-    assert.match(html, new RegExp(route.replaceAll("/", "\\/")));
+  for (const article of Object.values(healthArticles)) {
+    assert.match(html, new RegExp(`/health/${article.slug}`));
   }
-  for (const download of downloads) {
-    assert.equal(fs.existsSync(path.join(process.cwd(), "public", download.replace(/^\//, ""))), true);
+  for (const guide of healthSupportGuides) {
+    assert.match(html, new RegExp(`/health/guides/${guide.slug}`));
+  }
+  for (const tool of healthTools) {
+    assert.match(html, new RegExp(`/health/tools/${tool.slug}`));
   }
 
-  assert.doesNotMatch(html, /free-open-source-automation-tools-series/);
-  assert.doesNotMatch(html, /metabase-dashboard-automation-for-small-business/);
-  assert.doesNotMatch(html, /contracts-payments/);
-  assert.equal(sitemap().some((entry) => entry.url === "https://www.biz2lab.com/ko/resources"), true);
+  assert.equal(sitemapUrls.has("https://www.biz2lab.com/ko/resources"), false);
+  assert.equal(sitemapUrls.has("https://www.biz2lab.com/health"), true);
 });
 
 test("homepage recommends only reviewed public articles", () => {
@@ -228,20 +228,18 @@ test("article template no longer injects the same generic checklist and CTA into
   assert.match(articleSource, /isAccessibleForFree/);
 });
 
-test("reader-facing trust surfaces link authorship and public project evidence", () => {
-  const author = read("app/ko/author/biz2lab/page.tsx");
-  const projects = read("app/ko/projects/page.tsx");
-  const home = read("components/layout/HomePage.tsx");
-  const evidence = read("components/article/EditorialEvidenceBox.tsx");
+test("reader-facing ONURIM trust surfaces disclose authorship, corrections, and review limits", () => {
+  const trustPage = read("app/health/trust/[slug]/page.tsx");
+  const home = read("app/health/page.tsx");
+  const layout = read("app/layout.tsx");
 
-  assert.equal(staticPublicRoutes.includes("/ko/author/biz2lab"), true);
-  assert.equal(staticPublicRoutes.includes("/ko/projects"), true);
-  assert.match(author, /공개 코드로 확인 가능한 작업/);
-  assert.match(projects, /무엇을 만들었고 어디까지 검증했는가/);
-  assert.match(home, /공개 코드에서 나온 운영 기준/);
-  assert.match(evidence, /검증 메모/);
-  assert.match(evidence, /확인 가능한 근거/);
-  assert.doesNotMatch(evidence, /AI 사용 공개/);
+  assert.equal(staticPublicRoutes.includes("/health/trust/author"), true);
+  assert.equal(staticPublicRoutes.includes("/health/trust/corrections-policy"), true);
+  assert.match(trustPage, /박영훈\(비의료인 건강정보 편집자\)/);
+  assert.match(trustPage, /github\.com\/mizzang0305-oss\/Biz2Lab_Os\/issues\/new/);
+  assert.match(home, /현재 의료인 검수는 미완료/);
+  assert.match(home, /AI 활용 공개/);
+  assert.match(layout, /\/health\/trust\/author/);
 });
 
 test("five representative articles expose public sources or commit-pinned private evidence", () => {

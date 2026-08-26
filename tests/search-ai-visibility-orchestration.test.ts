@@ -6,6 +6,7 @@ import test from "node:test";
 import { GET as getRss } from "@/app/rss.xml/route";
 import robots from "@/app/robots";
 import sitemap from "@/app/sitemap";
+import { healthArticles } from "@/lib/health-v3/content";
 import { getPublicPosts } from "@/lib/posts";
 import { auditSeoAnswerReadiness } from "@/lib/seo-answer-readiness";
 import { auditSeoKeywords } from "@/lib/seo-keyword-audit";
@@ -86,20 +87,23 @@ test("webmaster owner action pack keeps verification owner-driven", () => {
   assert.match(googleNextActions, /Search Console showing 0 clicks is normal for a new property/);
 });
 
-test("search discovery files cover published posts without exposing ops dashboard", async () => {
-  const posts = getPublicPosts();
+test("search discovery files cover ONURIM guides without exposing retired content or ops", async () => {
   const sitemapUrls = new Set(sitemap().map((entry) => entry.url));
   const rss = await getRss().text();
   const robotsConfig = robots();
 
-  for (const post of posts) {
-    const absoluteRoute = `https://www.biz2lab.com${post.route}`;
-    assert.equal(sitemapUrls.has(absoluteRoute), true, `${post.route} must be in sitemap`);
-    assert.equal(rss.includes(absoluteRoute), true, `${post.route} must be in RSS`);
-    assert.equal(post.frontmatter.canonical, absoluteRoute, `${post.route} must use www canonical`);
-    assert.equal(post.frontmatter.noindex, false, `${post.route} must be indexable`);
+  for (const article of Object.values(healthArticles)) {
+    const absoluteRoute = `https://www.biz2lab.com/health/${article.slug}`;
+    assert.equal(sitemapUrls.has(absoluteRoute), true, `${article.slug} must be in sitemap`);
+    assert.equal(rss.includes(absoluteRoute), true, `${article.slug} must be in RSS`);
   }
 
+  for (const post of getPublicPosts()) {
+    assert.equal(sitemapUrls.has(`https://www.biz2lab.com${post.route}`), false);
+    assert.equal(rss.includes(post.route), false);
+  }
+
+  assert.equal(sitemapUrls.has("https://www.biz2lab.com/ko"), false);
   assert.equal(sitemapUrls.has("https://www.biz2lab.com/ko/ops/seo-dashboard"), false);
   assert.equal(rss.includes("/ko/ops/seo-dashboard"), false);
   assert.equal(robotsConfig.sitemap, "https://www.biz2lab.com/sitemap.xml");

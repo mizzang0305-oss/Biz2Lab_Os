@@ -36,6 +36,20 @@ function denied(status: number, error: string) {
 }
 
 export function proxy(request: NextRequest) {
+  if (request.nextUrl.pathname === "/ko") {
+    return NextResponse.redirect(new URL("/", request.url), 308);
+  }
+
+  if (request.nextUrl.pathname.startsWith("/ko/")) {
+    return new NextResponse("LEGACY_BIZ2LAB_PUBLIC_ROUTE_RETIRED", {
+      status: 410,
+      headers: {
+        "Cache-Control": "public, max-age=3600",
+        "X-Robots-Tag": "noindex, nofollow",
+      },
+    });
+  }
+
   if (!isAdminConsoleEnabled()) {
     return denied(404, "ADMIN_CONSOLE_DISABLED");
   }
@@ -57,5 +71,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: "/admin/content-automation/:path*",
+  matcher: ["/admin/content-automation/:path*", "/ko", "/ko/:path*"],
 };

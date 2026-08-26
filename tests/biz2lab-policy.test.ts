@@ -366,21 +366,21 @@ test("Supabase admin client is disabled gracefully when env vars are missing", (
   }
 });
 
-test("metadata titles avoid duplicate Biz2Lab branding", () => {
+test("metadata titles avoid duplicate ONURIM branding", () => {
   const contactMetadata = createMetadata({
     title: "문의",
     description: "문의 페이지",
-    path: "/ko/contact",
+    path: "/health/trust/contact",
   });
   const homeMetadata = createMetadata({
-    title: "Biz2Lab",
+    title: "ONURIM",
     description: "홈",
-    path: "/ko",
+    path: "/",
   });
 
   assert.equal(contactMetadata.title, "문의");
-  assert.equal(contactMetadata.openGraph?.title, "문의 | Biz2Lab");
-  assert.deepEqual(homeMetadata.title, { absolute: "Biz2Lab" });
+  assert.equal(contactMetadata.openGraph?.title, "문의 | ONURIM");
+  assert.deepEqual(homeMetadata.title, { absolute: "ONURIM" });
 });
 
 test("official canonical metadata uses the www production domain", () => {
@@ -396,30 +396,20 @@ test("official canonical metadata uses the www production domain", () => {
 });
 
 test("public authorship links the visible editorial identity to its about page and operator account", () => {
-  const articlePageSource = fs.readFileSync(
-    path.join(process.cwd(), "app", "ko", "[category]", "[slug]", "page.tsx"),
+  const trustPageSource = fs.readFileSync(
+    path.join(process.cwd(), "app", "health", "trust", "[slug]", "page.tsx"),
     "utf8",
   );
   const seoSource = fs.readFileSync(path.join(process.cwd(), "lib", "seo.ts"), "utf8");
   const layoutSource = fs.readFileSync(path.join(process.cwd(), "app", "layout.tsx"), "utf8");
 
-  assert.equal(
-    editorialIdentity.authorName,
-    "Biz2Lab 운영자 · B2B 유통 현장 시스템 설계·개발",
-  );
-  assert.match(
-    fs.readFileSync(path.join(process.cwd(), "lib", "editorial-evidence.ts"), "utf8"),
-    /AUTHOR_REAL_NAME_APPROVED/,
-  );
-  assert.equal(editorialIdentity.authorUrl, "/ko/author/biz2lab");
-  assert.equal(editorialIdentity.operatorUrl, "https://github.com/mizzang0305-oss");
-  assert.match(articlePageSource, /editorialIdentity\.authorName/);
-  assert.match(articlePageSource, /editorialIdentity\.authorUrl/);
-  assert.match(articlePageSource, /editorialIdentity\.operatorUrl/);
-  assert.match(seoSource, /publishingPrinciples:\s*absoluteUrl\("\/ko\/about"\)/);
+  assert.equal(siteSettings.author, "박영훈");
+  assert.match(trustPageSource, /박영훈\(비의료인 건강정보 편집자\)/);
+  assert.match(trustPageSource, /mizzang0305-oss\/Biz2Lab_Os\/issues\/new/);
+  assert.match(seoSource, /publishingPrinciples:\s*absoluteUrl\("\/health\/trust\/editorial-policy"\)/);
   assert.match(
     layoutSource,
-    /authors:\s*\[\{ name: siteConfig\.author, url: absoluteUrl\("\/ko\/author\/biz2lab"\) \}\]/,
+    /authors:\s*\[\{ name: siteConfig\.author, url: absoluteUrl\("\/health\/trust\/author"\) \}\]/,
   );
 });
 
@@ -509,9 +499,9 @@ test("static settings keep future admin and feature surfaces disabled", () => {
   for (const href of publicLinks) {
     const route = String(href);
     assert.equal(
-      route.startsWith("/ko") || route === "/",
+      route.startsWith("/health") || route === "/",
       true,
-      `${route} must stay Korean-only`,
+      `${route} must stay in the public ONURIM surface`,
     );
     assert.equal(route.startsWith("/admin"), false);
     assert.equal(route.startsWith("/login"), false);
@@ -549,7 +539,7 @@ test("content automation admin route is protected and not registered as public c
   assert.match(authSource, /BIZ2LAB_ADMIN_TOKEN/);
   assert.match(authSource, /timingSafeEqual/);
   assert.match(authSource, /Basic/);
-  assert.match(proxySource, /matcher:\s*"\/admin\/content-automation\/:path\*"/);
+  assert.match(proxySource, /matcher:\s*\["\/admin\/content-automation\/:path\*", "\/ko", "\/ko\/:path\*"\]/);
   assert.match(proxySource, /WWW-Authenticate/);
   assert.match(actionsSource, /WEB_PUBLICATION_DISABLED/);
   assert.doesNotMatch(actionsSource, /dryRun:\s*false/);

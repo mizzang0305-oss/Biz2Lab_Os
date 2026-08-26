@@ -21,12 +21,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Biz2Lab",
-    template: "%s | Biz2Lab",
+    default: "오누림",
+    template: "%s | 오누림",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
-  authors: [{ name: siteConfig.author, url: absoluteUrl("/ko/author/biz2lab") }],
+  authors: [{ name: siteConfig.author, url: absoluteUrl("/health/trust/author") }],
   creator: siteConfig.author,
   publisher: siteConfig.author,
   other: {

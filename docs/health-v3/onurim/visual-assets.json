@@ -5,11 +5,19 @@
     "generationDate": "2026-08-24",
     "dimensions": "1536x1024",
     "sha256": "e17739f64bd0ec9327c91a05979048adf7d6c8ae2848c5c6ef3afc738b060c7e",
-    "claimIds": ["HTN-B1-004", "HTN-B1-008"],
+    "claimIds": [
+      "HTN-B1-004",
+      "HTN-B1-008"
+    ],
     "altText": "집에서 혈압을 잰 뒤 기록표에 숫자와 시간을 적는 성인의 차분한 교육용 삽화",
     "caption": "한 번의 숫자보다 같은 조건에서 남긴 기록이 진료 질문을 구체적으로 만듭니다.",
     "prompt": "ordinary Korean adult at home using an upper-arm blood pressure cuff and writing a paper log; calm teal and sand editorial illustration; no values, text, medical authority symbols or personal data",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-HTN-B1-02",
@@ -17,11 +25,19 @@
     "generationDate": "2026-08-24",
     "dimensions": "1536x1024",
     "sha256": "81b0fbeff22d1e72521110007b025dbe899e0549a806723a40be50f405aff6ce",
-    "claimIds": ["HTN-B1-001", "HTN-B1-005"],
+    "claimIds": [
+      "HTN-B1-001",
+      "HTN-B1-005"
+    ],
     "altText": "심장이 혈관으로 피를 보내며 혈관 벽에 압력이 생기는 과정을 단순화한 교육용 삽화",
     "caption": "혈압은 피가 혈관 벽을 미는 힘입니다. 그림은 이해를 돕는 단순화이며 진단 영상이 아닙니다.",
     "prompt": "simplified heart pumping flowing dots through a flexible blood vessel path; maximum four stages; original teal and sand educational diagram; no labels, anatomy detail, gore or diagnosis",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-HTN-B1-03",
@@ -29,11 +45,19 @@
     "generationDate": "2026-08-24",
     "dimensions": "1536x1024",
     "sha256": "7326d7da0b88d333f6e7fb5fa421f45e3d9eea8102dff125d814efd070c631a4",
-    "claimIds": ["HTN-B1-011", "HTN-B1-012"],
+    "claimIds": [
+      "HTN-B1-011",
+      "HTN-B1-012"
+    ],
     "altText": "가슴 통증과 호흡곤란 갑작스러운 한쪽 힘 빠짐과 말 이상 시 119 도움을 우선하는 경고 삽화",
     "caption": "갑작스러운 심한 증상이 있으면 측정을 반복하며 기다리지 말고 119에 도움을 요청합니다.",
     "prompt": "four human-centered panels for severe chest discomfort, breathing difficulty, one-sided weakness and speech difficulty with phone-help action; non-gory, no diagnosis, text or authority symbols",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-HTN-B1-04",
@@ -41,11 +65,20 @@
     "generationDate": "2026-08-24",
     "dimensions": "1024x1536",
     "sha256": "2d82ffdc1a3a86b37be7dd0d2021253c953adefdb5732ba5eadf7b4e1cb9fa73",
-    "claimIds": ["HTN-B1-006", "HTN-B1-007", "HTN-B1-008"],
+    "claimIds": [
+      "HTN-B1-006",
+      "HTN-B1-007",
+      "HTN-B1-008"
+    ],
     "altText": "등과 팔을 받치고 두 발을 바닥에 둔 채 맨팔 커프로 혈압을 재는 자세의 교육용 삽화",
     "caption": "5분 휴식, 안정된 자세와 맞는 커프가 기록의 출발점입니다.",
     "prompt": "four-panel seated rest, correctly placed bare-arm cuff with supported arm, quiet measurement and blank paper log; remove all numbers and text; no beverage, ECG, icon or medical logo",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-DIA-B1-01",
@@ -53,11 +86,19 @@
     "generationDate": "2026-08-24",
     "dimensions": "1536x1024",
     "sha256": "f775f46b3279283ded401c836736e660d72e8f729157af835443575220e76d1e",
-    "claimIds": ["DIA-B1-006", "DIA-B1-011"],
+    "claimIds": [
+      "DIA-B1-006",
+      "DIA-B1-011"
+    ],
     "altText": "식사와 활동 수면과 혈당 측정값을 관찰 기록지에 적는 다양한 연령의 가족 삽화",
     "caption": "관찰 기록은 약을 바꾸는 계산표가 아니라 진료에서 질문할 맥락을 남기는 도구입니다.",
     "prompt": "ordinary Korean adults organizing meal timing, walking, sleep and an optional glucose reading into a paper observation log; no visible values, medication decision, food policing or stereotypes",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-DIA-B1-02",
@@ -65,11 +106,19 @@
     "generationDate": "2026-08-24",
     "dimensions": "1536x1024",
     "sha256": "2108c1371b105a941900ed3d6388cf6d370e988e7544b766dd5eb0608d76a029",
-    "claimIds": ["DIA-B1-001", "DIA-B1-002"],
+    "claimIds": [
+      "DIA-B1-001",
+      "DIA-B1-002"
+    ],
     "altText": "포도당과 인슐린 신호가 세포의 에너지 사용과 연결되는 기본 흐름을 단순화한 삽화",
     "caption": "인슐린은 포도당이 세포에서 쓰이도록 돕습니다. 실제 몸의 작용은 그림보다 복잡합니다.",
     "prompt": "food energy to glucose dots in blood flow, abstract insulin signal helping dots enter a stylized cell; maximum four stages; no literal key, labels, values or diagnostic imagery",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-DIA-B1-03",
@@ -77,11 +126,18 @@
     "generationDate": "2026-08-24",
     "dimensions": "1536x1024",
     "sha256": "ed9ab87124650dc1d2ea753594a93578ffa47c8fff7aef166daf67a3ff0d163b",
-    "claimIds": ["DIA-B1-012"],
+    "claimIds": [
+      "DIA-B1-012"
+    ],
     "altText": "반복되는 구토와 호흡곤란 의식 변화가 있을 때 기록보다 응급 도움을 우선하는 경고 삽화",
     "caption": "상태가 빠르게 나빠지면 기록을 계속하지 말고 응급 의료 도움을 받습니다.",
     "prompt": "four respectful panels for repeated vomiting unable to drink, difficult breathing, reduced responsiveness and calling emergency help; no diagnosis label, text, blood or hospital symbols",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-DIA-B1-04",
@@ -89,11 +145,20 @@
     "generationDate": "2026-08-24",
     "dimensions": "1024x1536",
     "sha256": "02fd45da44d3fe55bbc0353d8eb860e1ef7842bfb5ea84e3a72c22c188b7060b",
-    "claimIds": ["DIA-B1-010", "DIA-B1-011", "DIA-B1-013"],
+    "claimIds": [
+      "DIA-B1-010",
+      "DIA-B1-011",
+      "DIA-B1-013"
+    ],
     "altText": "당사자의 선택을 존중하며 검사 결과와 진료 질문을 함께 정리하는 가족 삽화",
     "caption": "가족의 역할은 감시보다 동의, 기록 정리와 질문 준비입니다.",
     "prompt": "adult and supportive Korean family member side by side while the adult selects questions and both organize a paper list; equal posture and autonomy; no food policing or medication handling",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-AR-B2-01",
@@ -101,11 +166,19 @@
     "generationDate": "2026-08-25",
     "dimensions": "1536x1024",
     "sha256": "328806d453e26c703532c00b14912e2d165fd9de586f3db5684295bc94b938e0",
-    "claimIds": ["AR-B2-003", "AR-B2-005"],
+    "claimIds": [
+      "AR-B2-003",
+      "AR-B2-005"
+    ],
     "altText": "실외와 실내에서 생긴 코와 눈의 변화를 관찰표에 적는 성인의 교육용 삽화",
     "caption": "증상과 장소의 흐름을 적어도 알레르기 원인을 이 그림으로 확정할 수는 없습니다.",
     "prompt": "Korean adult observes symptom timing across ordinary indoor and outdoor settings with a paper log; original teal, mint and sand editorial art; no text, values, medicine, diagnostic imagery or authority symbols",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-AR-B2-02",
@@ -113,11 +186,19 @@
     "generationDate": "2026-08-25",
     "dimensions": "1536x1024",
     "sha256": "2c5fc2e098820cc0e148408e03ab02efcd93d05717d3da7952bc59f17b930f6d",
-    "claimIds": ["AR-B2-001", "AR-B2-004"],
+    "claimIds": [
+      "AR-B2-001",
+      "AR-B2-004"
+    ],
     "altText": "실외 꽃가루와 실내 먼지처럼 보이는 입자가 단순화한 코 주변으로 향하는 교육용 삽화",
     "caption": "실외·실내 자극과 코 증상의 관계를 단순화한 그림이며 진단 도구가 아닙니다.",
     "prompt": "three-stage abstract outside and indoor particles moving toward a stylized nose; original non-diagnostic educational illustration without labels or anatomy realism",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-AR-B2-03",
@@ -125,11 +206,20 @@
     "generationDate": "2026-08-25",
     "dimensions": "1024x1536",
     "sha256": "c3202ebb3c2af07cb248b63ddcb3c4e3ad8e5b825c83ef60f2d42ae1f9d29016",
-    "claimIds": ["AR-B2-006", "AR-B2-010", "AR-B2-012"],
+    "claimIds": [
+      "AR-B2-006",
+      "AR-B2-010",
+      "AR-B2-012"
+    ],
     "altText": "성인 두 명이 창문과 옷, 표면 정리와 관찰표를 함께 살피는 교육용 삽화",
     "caption": "환경 변화는 개인마다 다릅니다. 기록은 원인을 확정하는 검사표가 아닙니다.",
     "prompt": "supportive adults discuss a blank environment observation checklist at home; no medication, checklist text, diagnosis or prevention promise",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-GERD-B2-01",
@@ -137,11 +227,19 @@
     "generationDate": "2026-08-25",
     "dimensions": "1536x1024",
     "sha256": "3d7ac5ea2b51f4c962db43f3ac3c73e106c6f935777183144619708a6e59c501",
-    "claimIds": ["GERD-B2-004", "GERD-B2-005"],
+    "claimIds": [
+      "GERD-B2-004",
+      "GERD-B2-005"
+    ],
     "altText": "식사와 자세, 불편의 시간 흐름을 관찰 노트에 적는 성인의 교육용 삽화",
     "caption": "시간표는 음식 금지표가 아니라 진료에서 질문할 흐름을 남기는 도구입니다.",
     "prompt": "Korean adult records meal timing, posture and discomfort in a blank paper log; no values, diet prescription, diagnosis or medicine",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-GERD-B2-02",
@@ -149,11 +247,19 @@
     "generationDate": "2026-08-25",
     "dimensions": "1536x1024",
     "sha256": "f1faf37861765aae5e6279c09d7b855fc3256dfe4938c4ca3d7ddd88bc648f4b",
-    "claimIds": ["GERD-B2-001", "GERD-B2-003"],
+    "claimIds": [
+      "GERD-B2-001",
+      "GERD-B2-003"
+    ],
     "altText": "위 내용물이 식도 쪽으로 올라오는 흐름을 세 단계로 단순화한 교육용 삽화",
     "caption": "역류의 기본 흐름을 단순화한 그림이며 흉부 불편의 원인을 진단하지 않습니다.",
     "prompt": "simple stomach and esophagus concept with gentle upward dots, original non-diagnostic diagram without labels or medical imagery",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-GERD-B2-03",
@@ -161,11 +267,20 @@
     "generationDate": "2026-08-25",
     "dimensions": "1024x1536",
     "sha256": "a591f872e0a4336b47817ec623e4b7c895092314d2d0729da28cc3d3a94f0967",
-    "claimIds": ["GERD-B2-004", "GERD-B2-009", "GERD-B2-010"],
+    "claimIds": [
+      "GERD-B2-004",
+      "GERD-B2-009",
+      "GERD-B2-010"
+    ],
     "altText": "두 성인이 식사 뒤 증상 시간표와 질문 카드를 함께 살피는 교육용 삽화",
     "caption": "증상·자세·수면의 흐름을 함께 적어 의료진과 상의할 질문을 준비합니다.",
     "prompt": "supportive family appointment-question and timeline preparation after a meal; no diet advice, medicine or clinical authority",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-OA-B2-01",
@@ -173,11 +288,19 @@
     "generationDate": "2026-08-25",
     "dimensions": "1536x1024",
     "sha256": "b8fdf638dac222275556b63ea74bd8e6152538a60c9a67035f3c702082940453",
-    "claimIds": ["OA-B2-002", "OA-B2-004"],
+    "claimIds": [
+      "OA-B2-002",
+      "OA-B2-004"
+    ],
     "altText": "일상 활동 전후의 무릎 불편과 변화를 관찰 노트에 적는 성인의 교육용 삽화",
     "caption": "활동 기록은 병명이나 치료를 스스로 결정하는 계산표가 아닙니다.",
     "prompt": "capable adult notes ordinary activity and joint changes with a paper log; no diagnosis, x-ray, medicine or age stereotype",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-OA-B2-02",
@@ -185,11 +308,19 @@
     "generationDate": "2026-08-25",
     "dimensions": "1536x1024",
     "sha256": "d0475f4204fb25b7f293823a8da3a62d2b89b6a83ed8cf0d27bc37ea00a561b6",
-    "claimIds": ["OA-B2-001", "OA-B2-003"],
+    "claimIds": [
+      "OA-B2-001",
+      "OA-B2-003"
+    ],
     "altText": "관절의 뼈 끝과 완충 조직을 단순화해 보여 주는 교육용 삽화",
     "caption": "관절의 여러 조직을 단순화한 그림이며 개인의 영상 검사나 상태를 보여 주지 않습니다.",
     "prompt": "non-diagnostic joint concept with bone ends and cushioning tissue next to a walking adult; no x-ray, labels or severity scale",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-OA-B2-03",
@@ -197,11 +328,20 @@
     "generationDate": "2026-08-25",
     "dimensions": "1024x1536",
     "sha256": "e60e5fa049349e4e3f1118daff0d7766b310f8c39e23a365dd910ee0d4681176",
-    "claimIds": ["OA-B2-005", "OA-B2-009", "OA-B2-010"],
+    "claimIds": [
+      "OA-B2-005",
+      "OA-B2-009",
+      "OA-B2-010"
+    ],
     "altText": "두 성인이 일상 활동 기록과 질문 카드를 차분히 준비하는 교육용 삽화",
     "caption": "가족은 통증을 판단하기보다 당사자의 기록과 질문 준비를 도울 수 있습니다.",
     "prompt": "supportive adults prepare a blank activity record and appointment card, no exercise prescription, medicine or medical authority",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-OP-B2-01",
@@ -209,11 +349,19 @@
     "generationDate": "2026-08-25",
     "dimensions": "1536x1024",
     "sha256": "c7721a139400c116c0b2fb1d6adfd76afa95fbfd74056a940d5b46c3c6dcb8ea",
-    "claimIds": ["OP-B2-004", "OP-B2-005"],
+    "claimIds": [
+      "OP-B2-004",
+      "OP-B2-005"
+    ],
     "altText": "성인이 골밀도와 낙상, 복용 약에 관한 진료 질문을 정리하는 교육용 삽화",
     "caption": "질문 준비는 검사 결과를 혼자 해석하거나 치료를 정하는 일이 아닙니다.",
     "prompt": "capable adult prepares bone-health appointment questions on a blank page, without scans, diagnosis, pills or values",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-OP-B2-02",
@@ -221,11 +369,19 @@
     "generationDate": "2026-08-25",
     "dimensions": "1536x1024",
     "sha256": "e179eb388f125ea86f882e1ae6087b46d40e00ef9add7440a95a27997e29fc12",
-    "claimIds": ["OP-B2-001", "OP-B2-004"],
+    "claimIds": [
+      "OP-B2-001",
+      "OP-B2-004"
+    ],
     "altText": "뼈 내부 구조가 달라질 수 있다는 개념을 단순화해 보여 주는 교육용 삽화",
     "caption": "뼈 구조 변화를 단순화한 그림이며 개인의 골밀도 검사 결과가 아닙니다.",
     "prompt": "abstract porous bone structure concept beside a walking adult, no fracture, x-ray, labels or risk score",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
   },
   {
     "id": "VIS-OP-B2-03",
@@ -233,10 +389,901 @@
     "generationDate": "2026-08-25",
     "dimensions": "1024x1536",
     "sha256": "11c3ab5da620d298dbec2e50b6e5aacf03280d843f0be44e5be3d06cb1b7537a",
-    "claimIds": ["OP-B2-006", "OP-B2-010", "OP-B2-012"],
+    "claimIds": [
+      "OP-B2-006",
+      "OP-B2-010",
+      "OP-B2-012"
+    ],
     "altText": "두 성인이 집 안 통로와 느슨한 매트를 살피고 질문 카드를 준비하는 교육용 삽화",
     "caption": "집안 점검은 낙상 위험을 줄이기 위한 한 부분이며 골절 예방을 보장하지 않습니다.",
     "prompt": "supportive adults check a clear home walkway and loose rug, then prepare a blank question card; no fall, medicine or guarantee",
-    "state": ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "MEDICAL_CLAIM_VERIFIED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE"
+    ]
+  },
+  {
+    "id": "VIS-DLP-P3-HERO",
+    "file": "public/images/onurim/dyslipidemia/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "33be16c6047aac04ddef51df86cfd72d3f2f624b959012ad027c3c62b4eeab76",
+    "claimIds": [
+      "DLP-P3-002",
+      "DLP-P3-003"
+    ],
+    "altText": "이상지질혈증의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 이상지질혈증을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 이상지질혈증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-DLP-P3-CONCEPT",
+    "file": "public/images/onurim/dyslipidemia/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "6ea46436e9363282d75ec06cfc2cd67396aca4bc1be29994d8b740cbc175ca27",
+    "claimIds": [
+      "DLP-P3-001",
+      "DLP-P3-003"
+    ],
+    "altText": "이상지질혈증과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 이상지질혈증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-DLP-P3-ACTION",
+    "file": "public/images/onurim/dyslipidemia/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "20656bb45db7f4c4b7efab1176d07e52a02d49ebc41c8d00272fe185dc927b40",
+    "claimIds": [
+      "DLP-P3-004",
+      "DLP-P3-005"
+    ],
+    "altText": "이상지질혈증의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 이상지질혈증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-OBS-P3-HERO",
+    "file": "public/images/onurim/obesity/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "1ea163bd6566ac8482faf809eae5a8f8d4f9ce5f26aae86c27b74e9cf879c837",
+    "claimIds": [
+      "OBS-P3-002",
+      "OBS-P3-003"
+    ],
+    "altText": "비만의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 비만을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 비만; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-OBS-P3-CONCEPT",
+    "file": "public/images/onurim/obesity/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "392a9c7d14a773d66b89d60c83405aa0d7c79fd9e07a439a23f20f5208a9b2dc",
+    "claimIds": [
+      "OBS-P3-001",
+      "OBS-P3-003"
+    ],
+    "altText": "비만과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 비만; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-OBS-P3-ACTION",
+    "file": "public/images/onurim/obesity/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "b8b50518c3567e76393d148101091a5c828a088fd859d966358f415add538a9e",
+    "claimIds": [
+      "OBS-P3-004",
+      "OBS-P3-005"
+    ],
+    "altText": "비만의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 비만; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-MASLD-P3-HERO",
+    "file": "public/images/onurim/metabolic-dysfunction-associated-steatotic-liver-disease/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "f0e87a24d653b9dbeb4a5f1fa28a7f4c7e8086fd5f1e367c27e48f5f969e8174",
+    "claimIds": [
+      "MASLD-P3-002",
+      "MASLD-P3-003"
+    ],
+    "altText": "지방간(MASLD)의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 지방간(MASLD)을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 지방간(MASLD); no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-MASLD-P3-CONCEPT",
+    "file": "public/images/onurim/metabolic-dysfunction-associated-steatotic-liver-disease/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "60c2e145581de9e0cbe0ef2a8619ac23567aae02dd1776b110760baf66aade7a",
+    "claimIds": [
+      "MASLD-P3-001",
+      "MASLD-P3-003"
+    ],
+    "altText": "지방간(MASLD)과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 지방간(MASLD); no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-MASLD-P3-ACTION",
+    "file": "public/images/onurim/metabolic-dysfunction-associated-steatotic-liver-disease/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "99f916a70af2db751f31d137b4451d11d9fb0b559a8c10a0f31724eb72b1735b",
+    "claimIds": [
+      "MASLD-P3-004",
+      "MASLD-P3-005"
+    ],
+    "altText": "지방간(MASLD)의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 지방간(MASLD); no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-IBS-P3-HERO",
+    "file": "public/images/onurim/irritable-bowel-syndrome/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "84489c064fb5798156da74d727fcd0b6d8fac0187fdb6e43752cfb68c1b046f6",
+    "claimIds": [
+      "IBS-P3-002",
+      "IBS-P3-003"
+    ],
+    "altText": "과민성장증후군의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 과민성장증후군을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 과민성장증후군; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-IBS-P3-CONCEPT",
+    "file": "public/images/onurim/irritable-bowel-syndrome/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "ee73819f85aa06af4a533af99220d6807c308f97efdee8d0293f011a64f015e1",
+    "claimIds": [
+      "IBS-P3-001",
+      "IBS-P3-003"
+    ],
+    "altText": "과민성장증후군과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 과민성장증후군; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-IBS-P3-ACTION",
+    "file": "public/images/onurim/irritable-bowel-syndrome/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "2dd84e6272e8e07a3457049b8e6452b4f26a3597290695eca07e2f2ec85c562d",
+    "claimIds": [
+      "IBS-P3-004",
+      "IBS-P3-005"
+    ],
+    "altText": "과민성장증후군의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 과민성장증후군; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-AST-P3-HERO",
+    "file": "public/images/onurim/asthma/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "2a07170bf5262b53761bd1b2bfff0927e137ef02a2772c857b7376e1e05d8402",
+    "claimIds": [
+      "AST-P3-002",
+      "AST-P3-003"
+    ],
+    "altText": "천식의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 천식을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 천식; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-AST-P3-CONCEPT",
+    "file": "public/images/onurim/asthma/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "83b89c2de7b29154817eec01e37c83f686271e5bdca061413c9fc9c27ad6eaa3",
+    "claimIds": [
+      "AST-P3-001",
+      "AST-P3-003"
+    ],
+    "altText": "천식과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 천식; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-AST-P3-ACTION",
+    "file": "public/images/onurim/asthma/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "7769a28255a0886ee97cfbcb79c348a33672cad22a4e79665096ee77684ba98e",
+    "claimIds": [
+      "AST-P3-004",
+      "AST-P3-005"
+    ],
+    "altText": "천식의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 천식; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-OSA-P3-HERO",
+    "file": "public/images/onurim/sleep-apnea/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "b95624015110c3d48e2d43f04eeb71736ff806bb31935854b5d8cd6e4c8144ac",
+    "claimIds": [
+      "OSA-P3-002",
+      "OSA-P3-003"
+    ],
+    "altText": "수면무호흡증의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 수면무호흡증을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 수면무호흡증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-OSA-P3-CONCEPT",
+    "file": "public/images/onurim/sleep-apnea/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "05bfba2e3e9f71d343e500d3cbbd50647d886857d787290a0174f12ba4177b8c",
+    "claimIds": [
+      "OSA-P3-001",
+      "OSA-P3-003"
+    ],
+    "altText": "수면무호흡증과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 수면무호흡증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-OSA-P3-ACTION",
+    "file": "public/images/onurim/sleep-apnea/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "2b4f487faeffccbf991e22a6cab18b8ba9285be966b1b6a926345fc19c147051",
+    "claimIds": [
+      "OSA-P3-004",
+      "OSA-P3-005"
+    ],
+    "altText": "수면무호흡증의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 수면무호흡증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-GOUT-P3-HERO",
+    "file": "public/images/onurim/gout/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "4e4e5e8518361350e939df405b980bed87774473426702bbc546a78b9fa62e74",
+    "claimIds": [
+      "GOUT-P3-002",
+      "GOUT-P3-003"
+    ],
+    "altText": "통풍의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 통풍을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 통풍; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-GOUT-P3-CONCEPT",
+    "file": "public/images/onurim/gout/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "8cd34a9cf5afce782d5477162d842d3915e02132086394b302d1efd040de77fe",
+    "claimIds": [
+      "GOUT-P3-001",
+      "GOUT-P3-003"
+    ],
+    "altText": "통풍과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 통풍; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-GOUT-P3-ACTION",
+    "file": "public/images/onurim/gout/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "d1a35481d248ec15089a5c7c13f211be09d8691d1be37ba88cae55f74488624c",
+    "claimIds": [
+      "GOUT-P3-004",
+      "GOUT-P3-005"
+    ],
+    "altText": "통풍의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 통풍; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-MIG-P3-HERO",
+    "file": "public/images/onurim/migraine/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "3e3ca63e581499571179aec8c5309873011505ec66ae51a179728429dc983d40",
+    "claimIds": [
+      "MIG-P3-002",
+      "MIG-P3-003"
+    ],
+    "altText": "편두통의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 편두통을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 편두통; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-MIG-P3-CONCEPT",
+    "file": "public/images/onurim/migraine/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "df6778b7852a53175d8d4ae009966ed63b0db80ef271a63afe02966ae0d25a71",
+    "claimIds": [
+      "MIG-P3-001",
+      "MIG-P3-003"
+    ],
+    "altText": "편두통과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 편두통; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-MIG-P3-ACTION",
+    "file": "public/images/onurim/migraine/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "8d8d38fec523cfe505587176d9063a7bfc917dc8bb34ea51b25b30d5464f69e7",
+    "claimIds": [
+      "MIG-P3-004",
+      "MIG-P3-005"
+    ],
+    "altText": "편두통의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 편두통; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-KST-P3-HERO",
+    "file": "public/images/onurim/kidney-stones/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "a94cd920a5c156c096a5902b40d08df27ebbe5c72a7135ed2587ee91f8be379c",
+    "claimIds": [
+      "KST-P3-002",
+      "KST-P3-003"
+    ],
+    "altText": "신장결석의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 신장결석을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 신장결석; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-KST-P3-CONCEPT",
+    "file": "public/images/onurim/kidney-stones/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "635eaff0563817f72ee79bb806e50f168b32aff0018c4cfab88a0f36a2548685",
+    "claimIds": [
+      "KST-P3-001",
+      "KST-P3-003"
+    ],
+    "altText": "신장결석과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 신장결석; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-KST-P3-ACTION",
+    "file": "public/images/onurim/kidney-stones/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "dd402b905f5492daa44a8d444ae728d219992e64825836200f3f55f8d26f49e8",
+    "claimIds": [
+      "KST-P3-004",
+      "KST-P3-005"
+    ],
+    "altText": "신장결석의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 신장결석; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-UTI-P3-HERO",
+    "file": "public/images/onurim/urinary-tract-infection/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "4626444a4e6d13d3b494746c7c21923c5fdc67eb7cbe0c777469e71507cc4888",
+    "claimIds": [
+      "UTI-P3-002",
+      "UTI-P3-003"
+    ],
+    "altText": "요로감염의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 요로감염을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 요로감염; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-UTI-P3-CONCEPT",
+    "file": "public/images/onurim/urinary-tract-infection/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "0d0e3fe3e9b79e7598f40d0b1d0ee713e4b9bc6975ab423a00054e80caa19429",
+    "claimIds": [
+      "UTI-P3-001",
+      "UTI-P3-003"
+    ],
+    "altText": "요로감염과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 요로감염; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-UTI-P3-ACTION",
+    "file": "public/images/onurim/urinary-tract-infection/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "2eb665ae982dbe7d09ca456e6e4759e210f63f5ba3f9839d5cdcd99c3b9e299e",
+    "claimIds": [
+      "UTI-P3-004",
+      "UTI-P3-005"
+    ],
+    "altText": "요로감염의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 요로감염; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-DEP-P3-HERO",
+    "file": "public/images/onurim/depression/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "1ae7e88a4831c9598579a42c56b411aad71542a81d6154f8f243ca90428b7187",
+    "claimIds": [
+      "DEP-P3-002",
+      "DEP-P3-003"
+    ],
+    "altText": "우울증의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 우울증을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 우울증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-DEP-P3-CONCEPT",
+    "file": "public/images/onurim/depression/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "061682dfaecbcb93a532ea3b367ebe5ee42e9ccc041386052cc464ce4880625c",
+    "claimIds": [
+      "DEP-P3-001",
+      "DEP-P3-003"
+    ],
+    "altText": "우울증과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 우울증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-DEP-P3-ACTION",
+    "file": "public/images/onurim/depression/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "d4608c0f094eeccd4e3b3db07984658b58d3fb221a0f85216bd95cf6c5ee5153",
+    "claimIds": [
+      "DEP-P3-004",
+      "DEP-P3-005"
+    ],
+    "altText": "우울증의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 우울증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-ANX-P3-HERO",
+    "file": "public/images/onurim/anxiety-disorder/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "3423482e0b091aa9532d8007d1323d2511015b21bfce32177e499930ccf65d09",
+    "claimIds": [
+      "ANX-P3-002",
+      "ANX-P3-003"
+    ],
+    "altText": "불안장애의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 불안장애을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 불안장애; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-ANX-P3-CONCEPT",
+    "file": "public/images/onurim/anxiety-disorder/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "f530147a7f2054c063596908e0dbf03fd396c8e8c5d75a9e0ec9a95ee3be02b6",
+    "claimIds": [
+      "ANX-P3-001",
+      "ANX-P3-003"
+    ],
+    "altText": "불안장애과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 불안장애; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-ANX-P3-ACTION",
+    "file": "public/images/onurim/anxiety-disorder/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "3d0467fc410226cd44a676fbf7de51c69136aac76fe2a0b4916b7e8fd8a67d54",
+    "claimIds": [
+      "ANX-P3-004",
+      "ANX-P3-005"
+    ],
+    "altText": "불안장애의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 불안장애; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-STR-P3-HERO",
+    "file": "public/images/onurim/stroke/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "c9ce914bec6ed2810d70bc904a4551b73985d46976ca20e7cf8ce7a17533b940",
+    "claimIds": [
+      "STR-P3-002",
+      "STR-P3-003"
+    ],
+    "altText": "뇌졸중의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 뇌졸중을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 뇌졸중; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-STR-P3-CONCEPT",
+    "file": "public/images/onurim/stroke/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "5873875e0a2a25d809231534002f5ed109dd1ee105c4ef6b8c6d5a522172ee63",
+    "claimIds": [
+      "STR-P3-001",
+      "STR-P3-003"
+    ],
+    "altText": "뇌졸중과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 뇌졸중; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-STR-P3-ACTION",
+    "file": "public/images/onurim/stroke/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "290a5171e08104345f684cf691a0de5cce99cc1e507f052f1f12cd47a4dfad2a",
+    "claimIds": [
+      "STR-P3-004",
+      "STR-P3-005"
+    ],
+    "altText": "뇌졸중의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 뇌졸중; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-AMI-P3-HERO",
+    "file": "public/images/onurim/acute-myocardial-infarction/hero.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "6eb14716fee15115586274ce38f62e036c14e7f4dfb79f246836897e89262e2a",
+    "claimIds": [
+      "AMI-P3-002",
+      "AMI-P3-003"
+    ],
+    "altText": "급성심근경색의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
+    "caption": "이 그림은 급성심근경색을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "prompt": "local deterministic original ONURIM educational hero illustration for 급성심근경색; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-AMI-P3-CONCEPT",
+    "file": "public/images/onurim/acute-myocardial-infarction/concept.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "06dc83b8f3a4977258c8fbb7050d4559ce171829c3c40c2609d93c7d8441cdd3",
+    "claimIds": [
+      "AMI-P3-001",
+      "AMI-P3-003"
+    ],
+    "altText": "급성심근경색과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
+    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
+    "prompt": "local deterministic original ONURIM educational concept illustration for 급성심근경색; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
+  },
+  {
+    "id": "VIS-AMI-P3-ACTION",
+    "file": "public/images/onurim/acute-myocardial-infarction/action.webp",
+    "generationDate": "2026-08-26",
+    "dimensions": "1536x1024",
+    "sha256": "8410fa497b6a6e7d49f3fb34188b6c39bbd299e17e62e16a56ff01cd88aaa019",
+    "claimIds": [
+      "AMI-P3-004",
+      "AMI-P3-005"
+    ],
+    "altText": "급성심근경색의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
+    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
+    "prompt": "local deterministic original ONURIM educational action illustration for 급성심근경색; no people, text, diagnosis, medicine, values or copied anatomy",
+    "state": [
+      "ORIGINAL_EDUCATIONAL_ART",
+      "SOURCE_CONCEPT_CHECKED",
+      "ALT_TEXT_PRESENT",
+      "PRIVACY_SAFE",
+      "NOT_DIAGNOSTIC"
+    ]
   }
 ]

@@ -7,7 +7,7 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
   return (
     <article className="onurim-tool-page" data-claim-ids={tool.claimIds.join(",")}>
       <header className="onurim-tool-header">
-        <p className="onurim-eyebrow">오누림 기록 도구 · Preview</p>
+        <p className="onurim-eyebrow">오누림 기록 도구</p>
         <h1>{tool.title}</h1>
         <p>{tool.description}</p>
         <div className="onurim-tool-actions">
@@ -63,7 +63,7 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
 
       <footer className="onurim-tool-footer">
         <p>교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음</p>
-        <p>공식 출처 연결: {tool.claimIds.join(", ")} · 의료인 검수 미완료 · Production 공개 차단</p>
+        <p>공식 출처 연결: {tool.claimIds.join(", ")} · 일반 건강교육 · 면허 의료인 검수 미완료</p>
       </footer>
     </article>
   );

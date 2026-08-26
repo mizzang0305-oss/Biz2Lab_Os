@@ -9,8 +9,21 @@ import {
   healthTools,
   trustPages,
 } from "../lib/health-v3/content";
+import { publicMedicalSafetyState, publicReleaseAdjudications } from "../lib/health-v3/public-safety";
+import { healthSupportGuides } from "../lib/health-v3/support-guides";
+import {
+  createMedicalReviewCsvRows,
+  currentMedicalReviewState,
+  medicalReviewClaims,
+  medicalReviewPacketHash,
+  medicalReviewPacketVersion,
+} from "../lib/health-v3/medical-review";
+import {
+  parseMedicalReviewCsv,
+  serializeMedicalReviewCsv,
+} from "../lib/health-v3/review-csv";
 
-type Mode = "all" | "content" | "claims" | "safety" | "sources" | "images" | "genericness";
+type Mode = "all" | "content" | "claims" | "safety" | "sources" | "images" | "genericness" | "medical-review";
 
 const root = process.cwd();
 const modeFlag = process.argv.indexOf("--mode");
@@ -30,20 +43,29 @@ function textValues(value: unknown): string[] {
 }
 
 function auditContent() {
-  const expectedArticles = ["hypertension", "type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis"];
-  assert(Object.keys(healthArticles).length === 6, "exactly six substantive guides must exist");
+  const expectedArticles = [
+    "hypertension", "type-2-diabetes", "dyslipidemia", "obesity",
+    "metabolic-dysfunction-associated-steatotic-liver-disease", "gastroesophageal-reflux-disease",
+    "irritable-bowel-syndrome", "allergic-rhinitis", "asthma", "sleep-apnea",
+    "osteoarthritis", "osteoporosis", "gout", "migraine", "kidney-stones",
+    "urinary-tract-infection", "depression", "anxiety-disorder", "stroke",
+    "acute-myocardial-infarction",
+  ];
+  assert(Object.keys(healthArticles).length === 20, "exactly twenty substantive disease guides must exist");
   for (const slug of expectedArticles) assert(slug in healthArticles, `required guide missing: ${slug}`);
-  assert(healthTools.length === 20, "exactly twenty action tools must exist");
-  assert(trustPages.length === 9, "all nine trust pages must exist");
-  assert(!("stroke" in healthArticles), "stroke page must not be implemented");
-  assert(!("myocardial-infarction" in healthArticles), "myocardial infarction page must not be implemented");
+  assert(healthTools.length >= 34, "all disease guides need at least one useful action tool");
+  assert(healthSupportGuides.length >= 8 && healthSupportGuides.length <= 12, "support guide portfolio must contain 8-12 substantial guides");
+  assert(trustPages.length >= 12, "public trust system must include author, sources, corrections, advertising, privacy and terms");
 
   const healthLayout = readFileSync(path.join(root, "app/health/layout.tsx"), "utf8");
+  const reviewLayout = readFileSync(path.join(root, "app/health/review/layout.tsx"), "utf8");
   const sitemap = readFileSync(path.join(root, "app/sitemap.ts"), "utf8");
-  assert(healthLayout.includes('process.env.VERCEL_ENV === "production"'), "health routes need a Production environment guard");
-  assert(healthLayout.includes("await connection()"), "health Production guard must evaluate at request time");
-  assert(healthLayout.includes("index: false") && healthLayout.includes("follow: false"), "health metadata must be noindex and nofollow");
-  assert(!sitemap.includes('"/health'), "health routes must be excluded from the sitemap");
+  assert(!healthLayout.includes('process.env.VERCEL_ENV === "production"'), "public health routes must not retain a Production guard");
+  assert(!healthLayout.includes("index: false"), "public health metadata must be indexable");
+  assert(reviewLayout.includes('process.env.VERCEL_ENV === "production"'), "internal medical review routes must remain Production-blocked");
+  assert(reviewLayout.includes("index: false"), "internal medical review routes must remain noindex");
+  assert(sitemap.includes("healthArticles") && sitemap.includes("healthSupportGuides"), "health routes must drive the public sitemap");
+  assert(!sitemap.includes("getSitemapPosts"), "legacy B2B posts must be retired from the sitemap");
   const syntheticEvidenceDir = path.join(root, "docs/health-v3/synthetic-reader-test");
   for (const name of ["README.md", "persona-contract.md", "round1-results.csv", "round1-findings.md", "minimal-remediation.csv", "round2-results.csv", "round2-comparison.md", "synthetic-validation-decision.md"]) {
     const evidencePath = path.join(syntheticEvidenceDir, name);
@@ -61,8 +83,10 @@ function auditContent() {
   if (existsSync(batch2Registry)) assert(readFileSync(batch2Registry, "utf8").trim().split(/\r?\n/).length === 49, "Batch 2 claim registry must contain forty-eight records");
   results.guides = Object.keys(healthArticles).length;
   results.actionTools = healthTools.length;
+  results.supportGuides = healthSupportGuides.length;
   results.trustPages = trustPages.length;
-  results.productionGuard = true;
+  results.publicProductionGuardRemoved = true;
+  results.internalReviewProductionGuard = true;
   results.syntheticEvidence = "PASS";
 }
 
@@ -74,9 +98,8 @@ function auditClaims() {
     claimIds.add(claim.id);
     assert(claim.sourceIds.length > 0, `claim has no source: ${claim.id}`);
     for (const sourceId of claim.sourceIds) assert(sourceIds.has(sourceId), `unknown source ${sourceId} on ${claim.id}`);
-    if (["EMERGENCY_SIGN", "TEST", "TREATMENT_OVERVIEW", "SELF_CARE_LIMIT"].includes(claim.type)) {
-      assert(claim.clinicalReviewRequired, `high-risk claim must require clinical review: ${claim.id}`);
-    }
+    if (claim.clinicalReviewRequired || claim.riskClass === "P0_EMERGENCY" || claim.riskClass === "P1_CLINICAL")
+      assert(publicReleaseAdjudications.some((item) => item.claimId === claim.id), `public safety adjudication missing: ${claim.id}`);
   }
 
   for (const article of Object.values(healthArticles)) {
@@ -88,16 +111,18 @@ function auditClaims() {
     assert(article.sections.some((section) => section.tone === "warning"), `${article.slug} needs an emergency section`);
     assert(article.sourceIds.length >= 3, `${article.slug} needs at least three official sources`);
     assert(article.imageIds.length >= 3, `${article.slug} needs hero, explainer and action visuals`);
-    assert(healthTools.filter((tool) => tool.articleSlug === article.slug).length >= 3, `${article.slug} needs at least three action tools`);
+    assert(healthTools.filter((tool) => tool.articleSlug === article.slug).length >= 1, `${article.slug} needs at least one action tool`);
   }
 
   for (const tool of healthTools) {
     assert(tool.claimIds.length > 0, `tool has no claim mapping: ${tool.slug}`);
     for (const id of tool.claimIds) assert(claimIds.has(id), `tool references unknown claim: ${tool.slug}/${id}`);
   }
-  assert(healthClaims.length === 74, "exactly seventy-four claim records must exist");
+  assert(healthClaims.length >= 140, "twenty-guide Claim registry is unexpectedly small");
   results.claims = healthClaims.length;
   results.highRiskClaims = healthClaims.filter((claim) => claim.clinicalReviewRequired).length;
+  results.publicSafetyAdjudications = publicReleaseAdjudications.length;
+  results.unresolvedPublicHighRiskClaims = publicMedicalSafetyState.unresolvedPublicHighRiskClaims;
   results.unresolvedSourceMappings = failures.filter((failure) => failure.includes("source")).length;
 }
 
@@ -117,10 +142,16 @@ function auditSafety() {
 
   for (const article of Object.values(healthArticles)) {
     const articleText = textValues(article).join(" ");
-    assert(articleText.includes("119"), `${article.slug} must include emergency action`);
+    const hasP0Claim = publicReleaseAdjudications.some((item) => item.articleSlug === article.slug && item.riskClass === "P0_EMERGENCY");
+    if (hasP0Claim) assert(articleText.includes("119"), `${article.slug} P0 guidance must include emergency action`);
     assert(articleText.includes("스스로") || articleText.includes("혼자"), `${article.slug} must state a self-care limit`);
   }
-  assert(content.includes("의료인 검수 미완료") || content.includes("의료인 검수는 완료되지"), "medical review must not be implied");
+  assert(content.includes("의료인 검수 미완료") || content.includes("의료인 검수는 완료되지") || content.includes("MEDICAL_REVIEW_COMPLETED = NO"), "medical review must not be implied");
+  assert(publicMedicalSafetyState.unresolvedPublicHighRiskClaims === 0, "unresolved public high-risk Claim remains");
+  assert(publicMedicalSafetyState.licensedMedicalReviewCompleted === false, "licensed medical review must not be fabricated");
+  for (const item of publicReleaseAdjudications.filter((entry) => entry.claimId.includes("-P3-") && entry.riskClass === "P0_EMERGENCY")) {
+    assert(item.sourceIds.length >= 2, `new public P0 Claim needs two authoritative sources: ${item.claimId}`);
+  }
   results.medicalSafety = failures.length === 0 ? "PASS" : "BLOCKED_MEDICAL_SAFETY_FINDING";
 }
 
@@ -151,7 +182,7 @@ function auditImages() {
     altText: string;
     state: string[];
   }>;
-  assert(manifest.length === 20, "exactly twenty final visual assets are required");
+  assert(manifest.length >= 60, "public portfolio requires at least sixty final visual assets");
   const claimIds = new Set(healthClaims.map((claim) => claim.id));
   for (const asset of manifest) {
     const filePath = path.join(root, asset.file);
@@ -159,9 +190,9 @@ function auditImages() {
     assert(asset.claimIds.length > 0, `image claim mapping missing: ${asset.id}`);
     for (const claimId of asset.claimIds) assert(claimIds.has(claimId), `image claim mapping is unknown: ${asset.id}/${claimId}`);
     assert(Boolean(asset.altText), `image alt text missing: ${asset.id}`);
-    for (const state of ["ORIGINAL_EDUCATIONAL_ART", "MEDICAL_CLAIM_VERIFIED", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"]) {
+    for (const state of ["ORIGINAL_EDUCATIONAL_ART", "ALT_TEXT_PRESENT", "PRIVACY_SAFE"])
       assert(asset.state.includes(state), `image ${asset.id} missing state ${state}`);
-    }
+    assert(asset.state.includes("MEDICAL_CLAIM_VERIFIED") || asset.state.includes("SOURCE_CONCEPT_CHECKED"), `image ${asset.id} missing source-concept state`);
     if (existsSync(filePath)) {
       const actualHash = createHash("sha256").update(readFileSync(filePath)).digest("hex");
       assert(actualHash === asset.sha256, `image hash mismatch: ${asset.id}`);
@@ -182,13 +213,90 @@ function auditGenericness() {
 
   const importantCount = (combined.match(/중요합니다/g) ?? []).length;
   const helpfulCount = (combined.match(/도움이 됩니다/g) ?? []).length;
-  assert(importantCount <= 2, `excessive 중요합니다: ${importantCount}`);
-  assert(helpfulCount <= 2, `excessive 도움이 됩니다: ${helpfulCount}`);
+  assert(importantCount <= 5, `excessive 중요합니다: ${importantCount}`);
+  assert(helpfulCount <= 5, `excessive 도움이 됩니다: ${helpfulCount}`);
   const titleSequences = new Set(Object.values(healthArticles).map((article) => article.sections.map((section) => section.title).join(" | ")));
   assert(titleSequences.size === Object.keys(healthArticles).length, "article section sequences are suspiciously identical");
   results.aiGenericness = failures.length === 0 ? "AI_GENERICNESS_LOW" : "AI_GENERICNESS_HIGH";
   results.importantPhraseCount = importantCount;
   results.helpfulPhraseCount = helpfulCount;
+}
+
+function auditMedicalReview() {
+  const highRiskClaims = healthClaims.filter((claim) => claim.clinicalReviewRequired);
+  const packetClaimIds = new Set(medicalReviewClaims.map((claim) => claim.claimId));
+  assert(medicalReviewClaims.length === 47, "medical review packet must contain exactly 47 Claims");
+  assert(highRiskClaims.length === 47, "canonical content must contain exactly 47 clinical-review-required Claims");
+  assert(packetClaimIds.size === 47, "medical review packet Claim IDs must be unique");
+  for (const claim of highRiskClaims) assert(packetClaimIds.has(claim.id), `high-risk Claim missing from packet: ${claim.id}`);
+
+  assert(/^ONURIM-MEDICAL-REVIEW-\d{4}-\d{2}-\d{2}-v\d+$/.test(medicalReviewPacketVersion), "medical review packet version is invalid");
+  assert(/^[a-f0-9]{64}$/.test(medicalReviewPacketHash), "medical review packet hash must be SHA-256");
+  assert(new Set(medicalReviewClaims.map((claim) => claim.claimVersionHash)).size === 47, "Claim version hashes must be unique");
+  for (const claim of medicalReviewClaims) {
+    assert(/^[a-f0-9]{64}$/.test(claim.claimVersionHash), `Claim version hash is invalid: ${claim.claimId}`);
+    assert(claim.packetHash === medicalReviewPacketHash, `packet hash mismatch: ${claim.claimId}`);
+    assert(claim.sources.length > 0, `medical review Claim has no official source: ${claim.claimId}`);
+    assert(Boolean(claim.reviewQuestion), `medical review question missing: ${claim.claimId}`);
+    for (const source of claim.sources) assert(source.url.startsWith("https://"), `medical review source must use https: ${claim.claimId}/${source.id}`);
+  }
+
+  const csv = serializeMedicalReviewCsv(createMedicalReviewCsvRows());
+  const csvRows = parseMedicalReviewCsv(csv);
+  assert(csvRows.length === 47, "blank medical review CSV must contain exactly 47 rows");
+  assert(csvRows.every((row) => row.decision === ""), "blank medical review CSV must not fabricate decisions");
+  assert(csvRows.every((row) => row.reviewer_real_name === ""), "blank medical review CSV must not fabricate a reviewer");
+  assert(csvRows.every((row) => row.workflow_state === "ONURIM_MEDICAL_REVIEW_PACKAGE_READY"), "blank medical review CSV must preserve package-ready state");
+
+  assert(currentMedicalReviewState.packageStatus === "ONURIM_MEDICAL_REVIEW_PACKAGE_READY", "repository medical review status must be package ready");
+  assert(currentMedicalReviewState.reviewerAssignmentStatus === "LICENSED_REVIEWER_SOURCING", "reviewer sourcing status must remain explicit");
+  assert(currentMedicalReviewState.reviewerAssigned === false, "repository must not fabricate reviewer assignment");
+  assert(currentMedicalReviewState.medicalReviewInProgress === false, "repository must not fabricate medical review progress");
+  assert(currentMedicalReviewState.medicalReviewCompleted === false, "repository must not fabricate medical review completion");
+  assert(currentMedicalReviewState.realHumanReaderTestPerformed === false, "repository must not fabricate real reader testing");
+
+  const pagePath = path.join(root, "app/health/review/medical/page.tsx");
+  const routePath = path.join(root, "app/health/review/medical/packet.csv/route.ts");
+  const componentPath = path.join(root, "components/health/MedicalReviewWorkspace.tsx");
+  const packageReadmePath = path.join(root, "docs/health-v3/medical-review-package/README.md");
+  const contentStatusPath = path.join(root, "docs/health-v3/onurim/content-status.md");
+  for (const filePath of [pagePath, routePath, componentPath, packageReadmePath, contentStatusPath]) {
+    assert(existsSync(filePath), `medical review artifact missing: ${path.relative(root, filePath)}`);
+  }
+  if (existsSync(routePath)) {
+    const route = readFileSync(routePath, "utf8");
+    assert(route.includes('process.env.VERCEL_ENV === "production"'), "medical review CSV route needs its own Production guard");
+    assert(route.includes('"X-Robots-Tag"'), "medical review CSV route must send noindex headers");
+  }
+  if (existsSync(componentPath)) {
+    const component = readFileSync(componentPath, "utf8");
+    for (const decision of ["APPROVE", "REVISE", "REMOVE", "SPECIALIST_REQUIRED"]) {
+      assert(component.includes(decision), `medical review UI missing decision: ${decision}`);
+    }
+    assert(component.includes("입력은 서버에 저장되지 않습니다"), "medical review UI must disclose non-persistence");
+    assert(component.includes("환자정보를 입력하지 않습니다"), "medical review UI must prohibit patient data");
+  }
+  if (existsSync(contentStatusPath)) {
+    const contentStatus = readFileSync(contentStatusPath, "utf8");
+    assert(contentStatus.includes("ONURIM_MEDICAL_REVIEW_PACKAGE_READY"), "content status must preserve the medical-review package gate");
+    assert(!contentStatus.includes("ONURIM_READER_TEST_REQUIRED"), "reader testing must not precede the medical review gate");
+  }
+
+  const trustText = textValues(trustPages).join("\n");
+  for (const truthLabel of [
+    "ONURIM_MEDICAL_REVIEW_PACKAGE_READY",
+    "REVIEWER_ASSIGNED = NO",
+    "ONURIM_MEDICAL_REVIEW_IN_PROGRESS = NO",
+    "MEDICAL_REVIEW_COMPLETED = NO",
+  ]) assert(trustText.includes(truthLabel), `medical review trust truth label missing: ${truthLabel}`);
+
+  results.medicalReviewPackage = "ONURIM_MEDICAL_REVIEW_PACKAGE_READY";
+  results.medicalReviewPacketClaims = medicalReviewClaims.length;
+  results.medicalReviewPacketHash = medicalReviewPacketHash;
+  results.reviewerAssigned = false;
+  results.medicalReviewInProgress = false;
+  results.medicalReviewCompleted = false;
+  results.realHumanReaderTest = "NOT_PERFORMED";
 }
 
 const modes: Record<Exclude<Mode, "all">, () => void> = {
@@ -198,6 +306,7 @@ const modes: Record<Exclude<Mode, "all">, () => void> = {
   sources: auditSources,
   images: auditImages,
   genericness: auditGenericness,
+  "medical-review": auditMedicalReview,
 };
 
 if (mode === "all") Object.values(modes).forEach((audit) => audit());

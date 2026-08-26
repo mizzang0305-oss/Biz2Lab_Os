@@ -38,14 +38,15 @@ test("public trust surfaces avoid unfinished wording and expose a working contac
   assert.match(article, /editorialIdentity\.authorUrl/);
 });
 
-test("the Korean homepage is the single indexable homepage", () => {
+test("the ONURIM root is the single indexable homepage", () => {
   const rootPage = readSource("app", "page.tsx");
   const sitemapUrls = sitemap().map((entry) => entry.url);
 
-  assert.match(rootPage, /permanentRedirect\("\/ko"\)/);
-  assert.equal(staticPublicRoutes.includes("/" as never), false);
-  assert.equal(sitemapUrls.includes("https://www.biz2lab.com"), false);
-  assert.equal(sitemapUrls.includes("https://www.biz2lab.com/ko"), true);
+  assert.match(rootPage, /OnurimHomePage/);
+  assert.doesNotMatch(rootPage, /permanentRedirect/);
+  assert.equal(staticPublicRoutes.includes("/"), true);
+  assert.equal(sitemapUrls.includes("https://www.biz2lab.com/"), true);
+  assert.equal(sitemapUrls.includes("https://www.biz2lab.com/ko"), false);
 });
 
 test("structured data only advertises real public capabilities", () => {
@@ -55,5 +56,6 @@ test("structured data only advertises real public capabilities", () => {
   assert.equal("contactPoint" in organization, false);
   assert.deepEqual(organization.sameAs, ["https://github.com/mizzang0305-oss"]);
   assert.equal("potentialAction" in website, false);
-  assert.equal(website.url, "https://www.biz2lab.com/ko");
+  assert.equal(website.url, "https://www.biz2lab.com/");
+  assert.equal(organization.publishingPrinciples, "https://www.biz2lab.com/health/trust/editorial-policy");
 });

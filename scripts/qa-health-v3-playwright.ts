@@ -1,14 +1,10 @@
 import { chromium } from "playwright";
 
+import { healthArticles, healthTools, trustPages } from "../lib/health-v3/content";
+import { healthSupportGuides } from "../lib/health-v3/support-guides";
+
 const baseUrl = process.env.HEALTH_QA_URL ?? "http://localhost:3212";
-const guideRoutes = [
-  "/health/hypertension",
-  "/health/type-2-diabetes",
-  "/health/allergic-rhinitis",
-  "/health/gastroesophageal-reflux-disease",
-  "/health/osteoarthritis",
-  "/health/osteoporosis",
-];
+const guideRoutes = Object.keys(healthArticles).map((slug) => `/health/${slug}`);
 const viewports = [
   { width: 360, height: 800 },
   { width: 390, height: 844 },
@@ -17,25 +13,12 @@ const viewports = [
   { width: 1440, height: 900 },
 ];
 const trustAndHomeRoutes = [
+  "/",
   "/health",
-  "/health/trust/about",
-  "/health/trust/author",
-  "/health/trust/editorial-policy",
-  "/health/trust/sources-policy",
-  "/health/trust/medical-review-policy",
-  "/health/trust/corrections-policy",
-  "/health/trust/ai-disclosure",
-  "/health/trust/disclaimer",
-  "/health/trust/privacy",
+  ...trustPages.map((page) => `/health/trust/${page.slug}`),
+  ...healthSupportGuides.map((guide) => `/health/guides/${guide.slug}`),
 ];
-const toolSlugs = [
-  "blood-pressure-log", "blood-pressure-questions", "blood-pressure-prep", "blood-pressure-warning",
-  "glucose-observation-log", "diabetes-questions", "family-support-checklist", "diabetes-test-terms",
-  "allergy-trigger-observation", "allergy-environment-check", "allergy-appointment-questions",
-  "gerd-symptom-timing-log", "gerd-everyday-patterns", "gerd-appointment-prep",
-  "oa-daily-activity-log", "oa-visit-questions", "oa-family-support",
-  "osteoporosis-appointment-prep", "osteoporosis-home-check", "osteoporosis-terms",
-];
+const toolSlugs = healthTools.map((tool) => tool.slug);
 
 type QaRecord = {
   route: string;
@@ -132,7 +115,7 @@ async function run() {
     record.overflow > 0 ||
     (record.kind === "guide" && (
       record.h2 === undefined || record.h2 < 4 || !record.images || (record.sources ?? 0) < 3 ||
-      !record.urgent || !record.author || !record.noindex || !record.keyboard
+      !record.urgent || !record.author || record.noindex || !record.keyboard
     )),
   );
 

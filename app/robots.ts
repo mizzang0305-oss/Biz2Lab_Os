@@ -11,6 +11,8 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: [
           "/api/",
+          "/ko/",
+          "/health/review/",
           ...forbiddenPublicRoutePrefixes.map((prefix) => `${prefix}/`),
         ],
       },
