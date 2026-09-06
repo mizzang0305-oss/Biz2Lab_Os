@@ -370,17 +370,62 @@ export const healthSupportGuides: HealthSupportGuide[] = [
   },
   {
     slug: "appointment-questions",
-    title: "진료 전에 준비하면 좋은 질문",
-    description: "진료시간에 가장 중요한 내용을 놓치지 않도록 질문을 세 묶음으로 정리합니다.",
+    title: "진료에서 꼭 묻고 싶은 것부터 준비하세요",
+    seoTitle: "병원 진료 전 질문 준비: 검사·치료·다음 연락 확인",
+    description: "가장 걱정되는 질문부터 고르고 검사 목적·치료 선택지·다음 일정을 확인합니다. 설명을 이해하지 못했거나 실행이 어려울 때 말하는 방법과 귀가 후 문의할 내용을 정리합니다.",
+    publishedAt: "2026-08-26", updatedAt: "2026-09-06", sourceCheckedAt: "2026-09-06",
+    faqTitle: "질문하기가 망설여질 때",
     sections: [
-      { title: "무엇을 확인하나요", bullets: ["가능한 원인과 아직 모르는 점은 무엇인가요?", "어떤 검사로 무엇을 확인하나요?", "다른 질환 가능성도 살펴야 하나요?"] },
-      { title: "어떤 선택지가 있나요", bullets: ["치료 선택지의 목적과 주의점은 무엇인가요?", "제 다른 질환·약과 함께 고려할 점은 무엇인가요?", "효과와 이상 반응을 어떻게 확인하나요?"] },
-      { title: "다음은 언제인가요", bullets: ["어떤 변화가 생기면 빨리 연락해야 하나요?", "다음 진료나 검사는 언제인가요?", "응급실·119를 생각할 신호는 무엇인가요?"] },
-      { title: "질문을 줄여도 됩니다", paragraphs: ["가장 걱정되는 질문 세 개를 먼저 표시합니다. 모든 항목을 한 번에 해결하지 못해도 괜찮습니다."] },
+      { title: "가장 중요한 두세 가지부터 표시합니다", paragraphs: [
+        "진료에서 꼭 확인하고 싶은 걱정을 먼저 적습니다. AHRQ는 중요한 질문 세 가지를, NHS는 두세 가지를 먼저 준비하는 방법을 제안합니다. 질문을 그 개수까지만 해야 한다는 뜻은 아닙니다. 새로운 증상이나 약 알레르기 같은 중요한 정보는 개수 때문에 빼지 않습니다.",
+        "‘큰 병인가요?’라는 걱정도 말해도 됩니다. 이어서 ‘지금 무엇을 확인하고 있나요? 아직 모르는 점은 무엇인가요? 다음에 무엇으로 확인하나요?’처럼 설명받고 싶은 부분을 나눠 보세요. 질문을 잘해야만 진료받을 자격이 생기거나 좋은 결과가 보장되는 것은 아닙니다.",
+        "증상의 시작과 변화, 현재 쓰는 약·비타민·보충제, 알레르기와 과거 약 사용 중 겪은 문제를 아는 범위에서 준비합니다. 전부 외우려 하지 말고 메모나 실제 용기·안내문을 가져갈 수 있습니다.",
+      ], sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-NHS-DOCTOR-QUESTIONS", "SUP-MEDLINEPLUS-TALK"], links: [
+        { href: "/health/guides/symptom-journal", label: "증상이 언제·어떻게 달라졌는지 짧게 정리" },
+        { href: "/health/guides/medication-list", label: "약·보충제와 복용 정보를 빠뜨리지 않고 준비" },
+      ] },
+      { title: "검사·치료·다음 계획은 이렇게 물을 수 있습니다", paragraphs: [
+        "아래는 본인에게 해당하는 질문을 고르는 예시입니다. 특정 검사를 요구하거나, 모든 치료 선택지가 누구에게나 맞는다고 전제하는 목록이 아닙니다. 이미 설명받은 항목은 반복해서 모두 읽지 않아도 됩니다.",
+      ], table: { caption: "이번 진료에서 필요한 질문만 고르세요", columns: ["이야기할 주제", "확인할 질문"], rows: [
+        ["검사를 권유받았을 때", "무엇을 확인하나요? 어떻게 진행되고 어떤 준비가 필요한가요? 결과는 언제 어떤 방법으로 받나요?"],
+        ["치료를 선택할 때", "제 상황에서 가능한 선택지와 권하는 이유는 무엇인가요? 기대 효과·위험·기간은 어떻게 다른가요?"],
+        ["약을 처방받았을 때", "어떻게 사용하고 어떤 변화를 살펴야 하나요? 다른 약·보충제나 이전 이상 반응과 함께 고려할 점은 무엇인가요?"],
+        ["다음 계획을 정할 때", "다시 진료·검사할 시점은 언제인가요? 예상대로 결과나 예약 연락이 없으면 어디로 문의하나요?"],
+      ] }, sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-NHS-DOCTOR-QUESTIONS"], links: [{ href: "/health/guides/reading-health-results", label: "검사 결과의 표시를 다음 질문으로 바꾸기" }] },
+      { title: "이해가 안 되는 것과 실행이 어려운 것을 따로 말합니다", paragraphs: [
+        "설명이 어렵다면 ‘그 단어를 쉬운 말로 다시 설명해 주실 수 있나요?’라고 묻고 필요한 이름이나 안내를 적어 달라고 요청할 수 있습니다. 이해한 부분을 자신의 말로 말한 뒤 맞는지 확인하는 것도 방법입니다. 고개를 끄덕였다고 이해가 끝난 것은 아닙니다.",
+        "설명은 알겠지만 생활 여건, 불편, 비용 등으로 실행이 어렵다면 그 어려움을 알립니다. 가능하지 않은 일을 했다고 말하기보다 조정하거나 도움받을 방법이 있는지 상담하세요. 치료를 스스로 바꾸겠다는 통보가 아니라 함께 계획을 확인하는 대화입니다.",
+        "메모를 돕는 사람과 함께 가고 싶거나 통역·의사소통 지원이 필요하면 기관에 미리 가능 여부를 문의합니다. 모든 기관이 같은 서비스를 제공한다고 보장하지 않습니다. 동행인이 본인 대신 모든 답을 정하기보다 본인이 원하는 도움을 상의합니다.",
+      ], sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-NHS-DOCTOR-QUESTIONS", "SUP-MEDLINEPLUS-TALK"] },
+      { title: "귀가 전, 행동으로 옮길 내용을 확인합니다", paragraphs: [
+        "‘제가 이해한 것은 이렇습니다’라고 짧게 말하고 맞는지 확인해 보세요. 이어서 지금 할 일, 다음 확인 날짜, 결과를 받는 방법, 문제가 생기거나 연락이 오지 않을 때 문의할 곳을 적습니다. 날짜나 담당자를 모르면 임의로 정하지 말고 확인합니다.",
+        "여러 검사가 예정됐다면 어떤 예약을 본인이 해야 하는지와 결과를 누가 설명하는지도 묻습니다. 종이나 전자 안내를 받을 수 있는지 확인하되, 안내를 받았다는 사실과 내용을 이해했다는 것은 구분합니다.",
+      ], bullets: [
+        "지금 할 일: 안내받은 내용을 본인 말로 확인",
+        "다음 확인: 무엇을 언제·어디에서 확인할지",
+        "연락 방법: 결과를 받을 경로와 문제가 있을 때 문의처",
+        "아직 남은 질문: 어디에서 다시 확인할지",
+      ], sourceIds: ["SUP-NHS-DOCTOR-QUESTIONS", "SUP-AHRQ-ENGAGED", "SUP-MEDLINEPLUS-TALK"] },
+      { title: "집에 와서 헷갈리면, 추측 대신 다시 문의합니다", paragraphs: [
+        "안내문을 보아도 뜻이 분명하지 않거나 실제로 따르기 어렵다면 진료기관에 문의합니다. 약에 관한 질문은 처방 의료진·약사에게 확인할 수 있습니다. 기억이 나지 않는다는 이유로 임의로 약을 끊거나 복용법을 바꾸지 않습니다.",
+        "기대한 때 결과가 오지 않으면 ‘연락이 없으니 정상’이라고 결론 내리지 말고 확인할 경로를 이용합니다. 문의할 때는 어느 진료·검사인지와 이해되지 않는 부분을 짧게 말합니다. 개인 결과·처방전은 기관이 안내한 안전한 경로로 전달하고 공개 게시판에 올리지 않습니다.",
+      ], sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-NHS-DOCTOR-QUESTIONS", "SUP-MEDLINEPLUS-TALK"] },
+      { id: "urgent-action", title: "위급한 변화는 예약이나 답변을 기다리지 않습니다", paragraphs: [
+        "심한 호흡곤란이나 갑자기 반응이 떨어지는 변화 등 위급한 상태라면 즉시 119에 연락합니다. 질문표를 끝내거나 예약일·문의 답변을 기다리는 일이 먼저가 아닙니다. 평소 상담에서는 본인에게 어떤 변화가 생기면 빨리 도움받아야 하는지도 확인하세요.",
+      ], tone: "warning", sourceIds: ["SUP-APPOINTMENT-EMERGENCY", "SUP-NHS-DOCTOR-QUESTIONS"], links: [{ href: "/health/guides/danger-signals", label: "예약·질문보다 도움 요청이 먼저인 위험 신호" }] },
+    ],
+    faq: [
+      { question: "질문이 너무 많으면 세 개만 해야 하나요?", answer: "두세 개는 우선순위를 정하는 예시이지 질문의 상한이 아닙니다. 중요한 걱정부터 말하고, 새로운 증상이나 약 알레르기 같은 정보는 빠뜨리지 않습니다. 이번에 다루지 못한 질문을 어디에서 확인할지도 물어보세요.", sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-NHS-DOCTOR-QUESTIONS"] },
+      { question: "의학 용어를 다시 물으면 진료를 방해하나요?", answer: "이해되지 않는 단어는 쉬운 말로 다시 설명하거나 적어 달라고 요청할 수 있습니다. 이해한 내용을 자신의 말로 확인하고, 필요하면 서면 안내를 받을 수 있는지도 물어보세요.", sourceIds: ["SUP-NHS-DOCTOR-QUESTIONS", "SUP-MEDLINEPLUS-TALK"] },
+      { question: "검사를 꼭 해 달라고 요청하는 표인가요?", answer: "아닙니다. 검사가 무엇을 확인하고 본인에게 왜 필요한지 설명받는 질문표입니다. 검사를 많이 받을수록 좋다는 뜻이나, 특정 검사·치료를 선택하라는 지시가 아닙니다.", sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-NHS-DOCTOR-QUESTIONS"] },
+      { question: "안내는 이해했지만 지키기 어렵다면 어떻게 하나요?", answer: "무엇이 어려운지 솔직하게 알리고 다른 방법이나 도움을 상담합니다. 실제로 하지 못한 일을 했다고 말하거나 약·치료 계획을 혼자 바꾸지 않습니다. 문의할 곳과 다음 확인 시점을 함께 정하세요.", sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-MEDLINEPLUS-TALK"] },
+      { question: "검사 뒤 연락이 없으면 정상이라는 뜻인가요?", answer: "연락이 없는 것만으로 결과를 정하지 않습니다. 미리 안내받은 결과 확인 방법을 이용하고, 예상한 때 연락이 없으면 기관에 문의하세요. 결과의 의미와 다음에 할 일까지 설명받습니다.", sourceIds: ["SUP-NHS-DOCTOR-QUESTIONS", "SUP-AHRQ-ENGAGED"] },
     ],
     sources: [
-      { id: "SUP-AHRQ-QUESTIONS", organization: "AHRQ", title: "Questions Are the Answer", url: "https://www.ahrq.gov/questions/index.html", sourceDate: "2024", retrievedAt },
-      { id: "SUP-NIA-APPOINTMENT", organization: "NIH/NIA", title: "What Do I Need to Tell the Doctor?", url: "https://www.nia.nih.gov/health/medical-care-and-appointments/what-do-i-need-tell-doctor", sourceDate: "2024", retrievedAt },
+      { id: "SUP-AHRQ-ENGAGED", organization: "AHRQ", title: "Be More Engaged in Your Healthcare", url: "https://www.ahrq.gov/questions/be-engaged/index.html", sourceDate: "2024-11 (Page last reviewed; originally created2012-09)", retrievedAt: "2026-09-06" },
+      { id: "SUP-NHS-DOCTOR-QUESTIONS", organization: "NHS", title: "What to ask your doctor or other healthcare professional", url: "https://www.nhs.uk/nhs-services/gps/what-to-ask-your-doctor/", sourceDate: "2023-01-12 (Page last reviewed; next review2026-01-12와 구분)", retrievedAt: "2026-09-06" },
+      { id: "SUP-MEDLINEPLUS-TALK", organization: "NIH/NLM MedlinePlus", title: "Talking With Your Doctor", url: "https://medlineplus.gov/talkingwithyourdoctor.html", sourceDate: "2024-10-05 (Last updated)", retrievedAt: "2026-09-06" },
+      { id: "SUP-APPOINTMENT-EMERGENCY", organization: "MedlinePlus Medical Encyclopedia / A.D.A.M.", title: "Recognizing medical emergencies", url: "https://medlineplus.gov/ency/article/001927.htm", sourceDate: "2025-01-08 (Review Date)", retrievedAt: "2026-09-06" },
     ],
   },
   {

@@ -178,6 +178,29 @@ test("support contextual links resolve to existing public ONURIM routes", () => 
   }
 });
 
+test("appointment questions prioritize concerns without capping disclosure or promising medical outcomes", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="appointment-questions")!;
+  assert.equal(guide.sections.length, 6);
+  assert.equal(guide.faq?.length, 5);
+  assert.match(JSON.stringify(guide), /질문의 상한이 아닙니다/);
+  assert.match(JSON.stringify(guide), /좋은 결과가 보장되는 것은 아닙니다/);
+  assert.match(JSON.stringify(guide), /연락이 없으니 정상/);
+  assert.match(JSON.stringify(guide), /모든 기관이 같은 서비스를 제공한다고 보장하지/);
+  assert.match(JSON.stringify(guide), /기억이 나지 않는다는 이유로 임의로 약을 끊거나/);
+  assert.match(JSON.stringify(guide), /즉시 119.*예약일·문의 답변을 기다리는/);
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 4);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const unit of [...guide.sections, ...guide.faq!]) {
+    assert.ok(unit.sourceIds?.length);
+    for (const id of unit.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  assert.match(guide.sources.find(s=>s.id==="SUP-NHS-DOCTOR-QUESTIONS")!.sourceDate, /^2023-01-12/);
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+});
+
 test("new support schema does not fabricate a physician or FAQ rich result", () => {
   const source = readFileSync("app/health/guides/[slug]/page.tsx", "utf8");
   assert.doesNotMatch(source, /"Physician"|"MedicalOrganization"|reviewedBy|FAQPage/);

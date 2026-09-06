@@ -1,0 +1,366 @@
+{
+  "route": "/health/guides/appointment-questions",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T11:06:42.135Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "38b6d8e28844915b97d5f48749b64998caf4c321502b2c7ced347492c115a807",
+      "full": "519187ef59477070f112623286e031aac37524a9cfb6499a17177ef006267535"
+    },
+    {
+      "width": 390,
+      "top": "9b83a2cd94e7b1a9c642f38b671aa9e9e49b6f4cc040ff17b6d91dd8f6e40f2f",
+      "full": "f90b03006d56d53254d2efc0db674134731f2013469e1005bfbd3fd33748ba33"
+    },
+    {
+      "width": 430,
+      "top": "46f0f9e0995ecac1ecdfc4792474fff61afb149414bbadc5ad34d6749979b6b9",
+      "full": "cfe61a533a85d1400e012b96f3a72ba842f35ab904581b8621054642b040d252"
+    },
+    {
+      "width": 768,
+      "top": "9dfe609ff9f73b0483c394e88e7cfa72a19543417367ca047ca2d8bbc232e7a2",
+      "full": "b7e024ba3f9c20d58542036d56e18bf059900def994a54136152ae192e579d32"
+    },
+    {
+      "width": 1440,
+      "top": "7607bd5bdba38fc2bad887fdd850bb5d484542b8b36527046041562bf1b981ec",
+      "full": "a216389bc34c2d8c1f05f0efb365a95910a9c2456bcbb6e931f253769cd51c85"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "병원 진료 전 질문 준비: 검사·치료·다음 연락 확인 | 오누림",
+      "h1": [
+        "진료에서 꼭 묻고 싶은 것부터 준비하세요"
+      ],
+      "h2": [
+        "가장 중요한 두세 가지부터 표시합니다",
+        "검사·치료·다음 계획은 이렇게 물을 수 있습니다",
+        "이해가 안 되는 것과 실행이 어려운 것을 따로 말합니다",
+        "귀가 전, 행동으로 옮길 내용을 확인합니다",
+        "집에 와서 헷갈리면, 추측 대신 다시 문의합니다",
+        "위급한 변화는 예약이나 답변을 기다리지 않습니다",
+        "질문하기가 망설여질 때",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/appointment-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "병원 진료 전 질문 준비: 검사·치료·다음 연락 확인 | 오누림",
+      "h1": [
+        "진료에서 꼭 묻고 싶은 것부터 준비하세요"
+      ],
+      "h2": [
+        "가장 중요한 두세 가지부터 표시합니다",
+        "검사·치료·다음 계획은 이렇게 물을 수 있습니다",
+        "이해가 안 되는 것과 실행이 어려운 것을 따로 말합니다",
+        "귀가 전, 행동으로 옮길 내용을 확인합니다",
+        "집에 와서 헷갈리면, 추측 대신 다시 문의합니다",
+        "위급한 변화는 예약이나 답변을 기다리지 않습니다",
+        "질문하기가 망설여질 때",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/appointment-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "병원 진료 전 질문 준비: 검사·치료·다음 연락 확인 | 오누림",
+      "h1": [
+        "진료에서 꼭 묻고 싶은 것부터 준비하세요"
+      ],
+      "h2": [
+        "가장 중요한 두세 가지부터 표시합니다",
+        "검사·치료·다음 계획은 이렇게 물을 수 있습니다",
+        "이해가 안 되는 것과 실행이 어려운 것을 따로 말합니다",
+        "귀가 전, 행동으로 옮길 내용을 확인합니다",
+        "집에 와서 헷갈리면, 추측 대신 다시 문의합니다",
+        "위급한 변화는 예약이나 답변을 기다리지 않습니다",
+        "질문하기가 망설여질 때",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/appointment-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "병원 진료 전 질문 준비: 검사·치료·다음 연락 확인 | 오누림",
+      "h1": [
+        "진료에서 꼭 묻고 싶은 것부터 준비하세요"
+      ],
+      "h2": [
+        "가장 중요한 두세 가지부터 표시합니다",
+        "검사·치료·다음 계획은 이렇게 물을 수 있습니다",
+        "이해가 안 되는 것과 실행이 어려운 것을 따로 말합니다",
+        "귀가 전, 행동으로 옮길 내용을 확인합니다",
+        "집에 와서 헷갈리면, 추측 대신 다시 문의합니다",
+        "위급한 변화는 예약이나 답변을 기다리지 않습니다",
+        "질문하기가 망설여질 때",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/appointment-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "병원 진료 전 질문 준비: 검사·치료·다음 연락 확인 | 오누림",
+      "h1": [
+        "진료에서 꼭 묻고 싶은 것부터 준비하세요"
+      ],
+      "h2": [
+        "가장 중요한 두세 가지부터 표시합니다",
+        "검사·치료·다음 계획은 이렇게 물을 수 있습니다",
+        "이해가 안 되는 것과 실행이 어려운 것을 따로 말합니다",
+        "귀가 전, 행동으로 옮길 내용을 확인합니다",
+        "집에 와서 헷갈리면, 추측 대신 다시 문의합니다",
+        "위급한 변화는 예약이나 답변을 기다리지 않습니다",
+        "질문하기가 망설여질 때",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/appointment-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}
