@@ -1,0 +1,286 @@
+{
+  "route": "/health/trust/privacy",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T17:23:25.265Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "c35c4e308cb4b02eaaaa0c583d38768da065b615988cc952390651837bb836c9",
+      "full": "01d5441531677f7539a71ccbd352fe92dcc6fcfb62dba08c21e6e13e7821ff0d"
+    },
+    {
+      "width": 390,
+      "top": "c2795dd40d516c28b722ce0d37cba72e363d0546b4bd300ae712a875d6d70158",
+      "full": "f2f6f6848ac1f3922e76c11fda0c479b7cd0a13a2f4d76d78fe1fda89923ec8f"
+    },
+    {
+      "width": 430,
+      "top": "31051f89b9cd2206dcd9b8c706daf000d48dc1cc2a3cc8c1ccefcb0ede534513",
+      "full": "c41cddc07d817233b4bdb00867560680482984d0236b868138eaa3fecdd025b4"
+    },
+    {
+      "width": 768,
+      "top": "42dbe94898d3d8a9f6071265748a2f067c27d5792e94e6cccf4d423bd285e21a",
+      "full": "76b0618d9193200cdc931afa854ef5135773c66182c9f75429098c24e65038e9"
+    },
+    {
+      "width": 1440,
+      "top": "738ceefc2e950d34776a098a5d8175e15a8f327cdd6875bab31cbe4c82701558",
+      "full": "a189dce73831ae4ee9a70c10fe1d5e637fc556225f8d0095b6a43f850e1878ec"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "오누림 개인정보 안내: 인쇄 기록과 Google 정보 처리 | 오누림",
+      "h1": [
+        "개인정보 안내"
+      ],
+      "h2": [
+        "기록표와 화면의 체크",
+        "종이와 저장한 파일도 직접 관리하세요",
+        "Google 측정·광고와 방문 정보",
+        "이용자가 확인할 수 있는 설정",
+        "공개 정정 경로에 건강정보를 올리지 마세요",
+        "이 안내의 범위와 변경"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/privacy",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "오누림 개인정보 안내: 인쇄 기록과 Google 정보 처리 | 오누림",
+      "h1": [
+        "개인정보 안내"
+      ],
+      "h2": [
+        "기록표와 화면의 체크",
+        "종이와 저장한 파일도 직접 관리하세요",
+        "Google 측정·광고와 방문 정보",
+        "이용자가 확인할 수 있는 설정",
+        "공개 정정 경로에 건강정보를 올리지 마세요",
+        "이 안내의 범위와 변경"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/privacy",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "오누림 개인정보 안내: 인쇄 기록과 Google 정보 처리 | 오누림",
+      "h1": [
+        "개인정보 안내"
+      ],
+      "h2": [
+        "기록표와 화면의 체크",
+        "종이와 저장한 파일도 직접 관리하세요",
+        "Google 측정·광고와 방문 정보",
+        "이용자가 확인할 수 있는 설정",
+        "공개 정정 경로에 건강정보를 올리지 마세요",
+        "이 안내의 범위와 변경"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/privacy",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "오누림 개인정보 안내: 인쇄 기록과 Google 정보 처리 | 오누림",
+      "h1": [
+        "개인정보 안내"
+      ],
+      "h2": [
+        "기록표와 화면의 체크",
+        "종이와 저장한 파일도 직접 관리하세요",
+        "Google 측정·광고와 방문 정보",
+        "이용자가 확인할 수 있는 설정",
+        "공개 정정 경로에 건강정보를 올리지 마세요",
+        "이 안내의 범위와 변경"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/privacy",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "오누림 개인정보 안내: 인쇄 기록과 Google 정보 처리 | 오누림",
+      "h1": [
+        "개인정보 안내"
+      ],
+      "h2": [
+        "기록표와 화면의 체크",
+        "종이와 저장한 파일도 직접 관리하세요",
+        "Google 측정·광고와 방문 정보",
+        "이용자가 확인할 수 있는 설정",
+        "공개 정정 경로에 건강정보를 올리지 마세요",
+        "이 안내의 범위와 변경"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/privacy",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

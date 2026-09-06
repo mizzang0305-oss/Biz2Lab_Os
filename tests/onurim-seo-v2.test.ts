@@ -111,6 +111,17 @@ test("AI disclosure identifies actual assistance without fabricating human valid
   assert.match(text, /검토자는 미배정이고 의료 검수는 미완료/);
 });
 
+test("privacy distinguishes print-only health records from site analytics and public posts", () => {
+  const page = trustPages.find(page => page.slug === "privacy")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(text, /빈칸은 인쇄한 뒤 손으로 작성/);
+  assert.match(text, /Google Analytics.*Google AdSense 코드가 포함/);
+  assert.match(text, /모든 방문 정보 처리가 중단되는 것은 아닙니다/);
+  assert.match(text, /접수 가능 여부와 이메일 송수신은 검증되지 않았습니다/);
+  assert.doesNotMatch(text, /브라우저에서 적은 내용|자동으로 완전히 삭제/);
+});
+
 test("trust pages distinguish public access from index decisions and use page-specific dates", () => {
   const entries = sitemap();
   const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(slug => `/health/${slug}`),
