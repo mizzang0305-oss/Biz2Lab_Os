@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/gerd-everyday-patterns",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T13:38:28.845Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "b7228019f7de9c37566475fa1fb7488a5517b1dd4eca1f8f745dc769a5a2c8dc",
+      "full": "fc9c57a1867b788fb73d76e023d7765d3d8734c5701c16161e9f46cceac420d6"
+    },
+    {
+      "width": 390,
+      "top": "3dafb934bfaac81de7d26dec704414f22f14b99a84d3fbd2fc808adf2eb95e86",
+      "full": "c31a63d0c6a7e395e2daf8069a147d145fa955dd4492a103952233d0c758c080"
+    },
+    {
+      "width": 430,
+      "top": "c4f17b07b3c76875a8309319cc75bc8cc4252e44b36a711565bf13e9c21af68f",
+      "full": "b22d14a97dd18e828b59cc410b345db3f16ce34264cecde9b967b9c5f2b8cb6f"
+    },
+    {
+      "width": 768,
+      "top": "8d14f1d841df1ea1525885075a30f031c18ba9ddbfd28d88bf917ca680b5ccbe",
+      "full": "2fa8c2ae144ac03cac3828d6ca77a79c595aed44d5a033b6ea4a21053d1aa1df"
+    },
+    {
+      "width": 1440,
+      "top": "a98e05884cb63de6c64a0052a5bffa9a53d8a1569be3986330bcdceb1d41bdab",
+      "full": "9bef86e222e6f34fa6312cbee889b91d94716d4e23c64ce8eb561f5362eee8f1"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "역류 생활 패턴 체크: 이미 바꾼 일과 관찰 사실 구분하기 | 오누림",
+      "h1": [
+        "역류 생활 패턴 관찰 체크"
+      ],
+      "h2": [
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gerd-everyday-patterns",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "역류 생활 패턴 체크: 이미 바꾼 일과 관찰 사실 구분하기 | 오누림",
+      "h1": [
+        "역류 생활 패턴 관찰 체크"
+      ],
+      "h2": [
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gerd-everyday-patterns",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "역류 생활 패턴 체크: 이미 바꾼 일과 관찰 사실 구분하기 | 오누림",
+      "h1": [
+        "역류 생활 패턴 관찰 체크"
+      ],
+      "h2": [
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gerd-everyday-patterns",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "역류 생활 패턴 체크: 이미 바꾼 일과 관찰 사실 구분하기 | 오누림",
+      "h1": [
+        "역류 생활 패턴 관찰 체크"
+      ],
+      "h2": [
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gerd-everyday-patterns",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "역류 생활 패턴 체크: 이미 바꾼 일과 관찰 사실 구분하기 | 오누림",
+      "h1": [
+        "역류 생활 패턴 관찰 체크"
+      ],
+      "h2": [
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gerd-everyday-patterns",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

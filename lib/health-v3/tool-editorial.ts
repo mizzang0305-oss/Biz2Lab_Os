@@ -17,6 +17,26 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "gerd-everyday-patterns": {
+    indexDecision: "NOINDEX_FOLLOW",
+    inheritParentWarning: true,
+    title: "역류 생활 패턴 체크: 이미 바꾼 일과 관찰 사실 구분하기",
+    description: "생활에서 이미 바꾼 일·날짜와 함께 달라진 점을 남기는 인쇄용 보조 체크리스트입니다. 역류 증상 시간 기록표와 함께 쓰며 음식 금지표나 생활습관 점수표가 아닙니다.",
+    updatedAt: "2026-09-06",
+    purpose: "역류 증상 기록표를 작성한 뒤 생활 변화에 대한 메모가 빠졌는지 확인할 때 씁니다. 새로운 식사 실험이나 생활 규칙을 처방하지 않습니다.",
+    steps: [
+      "이미 바꾼 일이 있다면 무엇을 언제 바꿨는지 적습니다. 같은 시기의 다른 변화와 남은 불편도 구분하고, 바꾼 일이 없거나 모르면 그대로 적습니다.",
+      "확인한 항목만 표시합니다. 실제 식사·자세·증상 시각은 연결된 기록표에 남기고, 효과를 확인하려고 불편했던 음식이나 자세를 일부러 반복하지 않습니다.",
+    ],
+    example: "작성 위치 예시: 바꾼 일·날짜 → 아래 메모 / 증상이 시작된 시각·지속 시간 → 역류 증상 기록표. 여러 변화가 겹쳤다면 한 음식이나 한 행동의 효과로 단정하지 않습니다.",
+    limitation: "체크 수는 치료 성적이나 안전 판정이 아닙니다. 증상을 유발하는 음식은 개인마다 다를 수 있으므로 공통 금지 목록을 만들지 않습니다. 삼키기 어렵거나 아프거나, 구토가 계속되거나, 이유 없이 체중이 줄면 기록 완성을 기다리지 말고 의료진에게 알립니다.",
+    sheetNotice: "가슴 압박·통증, 숨참·식은땀 등으로 심근경색이 의심되거나 심한 호흡곤란·의식 저하가 있으면 즉시 119에 연락합니다. 위장약 반응이나 체크 완료를 기다리지 않습니다. 피·커피 찌꺼기 같은 구토 또는 검고 타르 같은 변은 바로 의료 도움을 구하고, 실신 등 위급한 상태라면 119가 먼저입니다.",
+    sourceIds: ["SRC-NIDDK-GERD-DIET", "SRC-NIDDK-GERD-SYMPTOMS", "SRC-NHS-GERD", "SRC-NIDDK-GI-BLEEDING"],
+    links: [
+      { href: "/health/tools/gerd-symptom-timing-log", label: "식사·자세·실제 증상 시각을 적는 역류 기록표" },
+      { href: "/health/tools/gerd-appointment-prep", label: "기록으로 알 수 없는 원인과 검사 목적을 묻는 카드" },
+    ],
+  },
   "gerd-symptom-timing-log": {
     inheritParentWarning: true,
     title: "역류 증상 기록표: 식사·자세·불편이 시작된 시각을 나란히",
