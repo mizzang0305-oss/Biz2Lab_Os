@@ -173,6 +173,32 @@ test("SEO citation counts include declared professional-society sources without 
   assert.match(audit, /DECLARED_SOURCE_BLOCK_NOT_QUALITY_VERDICT/);
 });
 
+test("kidney stones distinguish urinary locations, test roles and passage confirmation without forced hydration", () => {
+  const article = healthArticles["kidney-stones"];
+  assert.equal(article.archetype, "SIMPLE_ANALOGY");
+  assert.equal(article.sections.length, 6);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sections[0].tone, "warning");
+  assert.ok(article.sections[0].paragraphs);
+  assert.match(article.sections[0].paragraphs[0], /즉시 119에 연락합니다/);
+  assert.match(article.sections[0].paragraphs[1], /모두 나타날 때까지 기다리지 않습니다/);
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  const text = JSON.stringify(article);
+  assert.match(text, /배출 여부 및 콩팥 기능/);
+  assert.match(text, /수분 제한을 안내받았다면 임의로 늘리지/);
+  assert.match(text, /칼슘 식품을 모두 끊는 것은 적절하지 않습니다/);
+  assert.match(text, /서로 다른 구간입니다/);
+  assert.doesNotMatch(text, /\d+\s*(mm|리터|mg|주 뒤)|물.*반드시.*배출/);
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
 test("migraine separates a variable symptom history from new emergencies and medication schedules", () => {
   const article = healthArticles.migraine;
   assert.equal(article.archetype, "BODY_SIGNAL");
