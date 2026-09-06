@@ -23,6 +23,7 @@
     "audit:links": "tsx scripts/audit-adsense-recovery.ts --mode links",
     "audit:sitemap": "tsx scripts/audit-adsense-recovery.ts --mode sitemap",
     "audit:content-similarity": "tsx scripts/audit-adsense-recovery.ts --mode similarity",
+    "audit:seo:onurim": "tsx scripts/audit-onurim-seo.ts",
     "audit:metadata": "tsx scripts/audit-adsense-recovery.ts --mode metadata",
     "audit:indexability": "tsx scripts/audit-adsense-recovery.ts --mode indexability",
     "audit:sensitive-content": "tsx scripts/audit-adsense-recovery.ts --mode sensitive",
