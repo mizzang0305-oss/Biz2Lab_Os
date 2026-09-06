@@ -79,12 +79,29 @@ test("editorial policy separates procedures from incomplete medical and real-rea
   assert.doesNotMatch(page.intro, /짧은 설명, 더 깊은 이해, 바로 쓸 행동 도구의 순서/);
 });
 
+test("source policy values claim fit over link counts and preserves unknown source dates", () => {
+  const page = trustPages.find(page => page.slug === "sources-policy")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "INDEX_SUPPORT");
+  assert.match(text, /날짜가 없으면 미표시로 남기/);
+  assert.match(text, /검토일을 실제 수정일로 대신하지 않/);
+  assert.match(text, /출처 개수나 링크 점검 통과가 의료 검수 완료를 뜻하지 않/);
+  assert.ok(page.sections.flatMap(section => section.links ?? []).some(link => link.href === "/health/guides/understanding-hba1c"));
+});
+
 test("trust pages distinguish public access from index decisions and use page-specific dates", () => {
   const entries = sitemap();
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(slug => `/health/${slug}`),
+    ...healthSupportGuides.map(guide => `/health/guides/${guide.slug}`),
+    ...healthTools.map(tool => `/health/tools/${tool.slug}`), ...trustPages.map(page => `/health/trust/${page.slug}`)]);
   for (const page of trustPages) {
     const matches = entries.filter(entry => entry.url === `https://www.biz2lab.com/health/trust/${page.slug}`);
     assert.equal(matches.length, page.indexDecision === "NOINDEX_FOLLOW" ? 0 : 1, page.slug);
     if (matches.length) assert.equal(matches[0].lastModified, page.updatedAt ?? "2026-08-26");
+    for (const link of page.sections.flatMap(section => section.links ?? [])) {
+      if (link.href.startsWith("/")) assert.ok(routes.has(link.href), `${page.slug}: ${link.href}`);
+      else assert.equal(new URL(link.href).protocol, "https:", `${page.slug}: ${link.href}`);
+    }
   }
   const about = trustPages.find(page => page.slug === "about")!;
   assert.equal(about.indexDecision, "INDEX_SUPPORT");
