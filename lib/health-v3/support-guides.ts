@@ -210,17 +210,56 @@ export const healthSupportGuides: HealthSupportGuide[] = [
   },
   {
     slug: "reading-health-results",
-    title: "건강검진 결과지 처음 보는 법",
-    description: "빨간 숫자를 곧바로 병명으로 바꾸지 않고, 검사명·기준·추적 계획을 차례로 확인합니다.",
+    title: "건강검진 결과지, 숫자와 표시를 읽는 순서",
+    seoTitle: "건강검진 결과지 읽는 법: 참고범위·양성·재검 질문",
+    description: "빨간 숫자나 양성 표시만으로 병을 확정하지 않습니다. 혈액·소변 검사 결과에서 비교할 항목과 참고범위의 한계, 다시 검사하거나 진료받을 때 물을 질문을 정리합니다.",
+    publishedAt: "2026-08-26", updatedAt: "2026-09-06", sourceCheckedAt: "2026-09-06",
+    faqTitle: "결과 표시를 보고 생기는 질문",
     sections: [
-      { title: "검사명부터 정확히", bullets: ["비슷한 이름의 검사인지 확인합니다.", "검사 날짜와 금식 여부를 적습니다.", "이전 결과와 같은 검사법인지 묻습니다."] },
-      { title: "기준범위와 진단은 다릅니다", paragraphs: ["검사실 기준범위를 벗어난 값이 곧바로 질환 진단을 뜻하지는 않습니다. 증상, 병력과 다른 검사 결과를 함께 봅니다."], tone: "note" },
-      { title: "한 장에 적을 질문", bullets: ["이 결과가 의미하는 가장 중요한 점은 무엇인가요?", "다시 확인할 검사와 시점은 언제인가요?", "지금 바로 바꿔야 할 행동과 기다려도 되는 일은 무엇인가요?"] },
-      { title: "온라인 계산기의 한계", paragraphs: ["질환 확률이나 치료 목표를 자동 계산하는 사이트에 개인정보와 검사값을 입력하지 않습니다. 오누림 도구도 값을 서버에 보내지 않습니다."] },
+      { title: "빨간 숫자를 읽기 전, 어떤 검사인지", paragraphs: [
+        "결과지의 색이나 화살표부터 병명으로 바꾸지 마세요. 먼저 검사명, 검사한 날짜, 결과와 단위, 그 검사실의 참고범위를 한 줄씩 함께 봅니다. 이 안내는 건강검진 중 혈액·소변 같은 검사실 검사 결과를 읽는 출발점입니다. 영상검사 소견이나 국가건강검진의 모든 종합 판정 등급을 해설하는 표는 아닙니다.",
+        "검사는 증상의 원인을 찾거나, 위험을 살피거나, 치료 중 변화를 확인하는 등 목적이 다릅니다. ‘이 검사는 제 경우 무엇을 확인하려고 했나요?’부터 물으면 같은 숫자를 어떻게 설명받아야 할지 길이 잡힙니다. 검사값만으로 몸 전체의 상태를 확정하지 않습니다.",
+      ], sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-NHS-BLOOD-TESTS"], links: [{ href: "/health/guides/understanding-hba1c", label: "HbA1c·당화혈색소와 혈당의 이름·단위를 구분하기" }] },
+      { title: "표시를 다음 질문으로 바꾸는 표", paragraphs: [
+        "참고범위는 비교에 사용하는 값의 범위입니다. 건강한 사람들의 검사 결과 등을 바탕으로 만들며 나이·집단·검사법 등에 따라 달라질 수 있습니다. 내 결과지의 범위를 확인하고, 인터넷에서 찾은 다른 검사실의 숫자를 그대로 대입하지 않습니다.",
+        "범위 안이라고 질환이 전혀 없다는 보장은 없고, 범위를 벗어났다고 곧바로 질환이 확정되는 것도 아닙니다. 증상, 병력과 다른 검사 결과를 함께 해석합니다. 치료 중이라면 ‘제게 따로 정해진 치료 목표가 있나요?’라고 묻고 목표 숫자를 임의로 정하지 않습니다.",
+      ], table: { caption: "결과를 확정 짓는 표가 아니라, 설명을 요청하는 질문표", columns: ["결과지에서 본 표시", "진료 때 확인할 질문"], rows: [
+        ["참고범위 밖·색 표시·화살표", "이 변화가 제 상황에서 어떤 의미인가요? 다른 결과와 함께 볼 항목은 무엇인가요?"],
+        ["참고범위 안인데 불편이 계속됨", "이 검사로 확인하지 못하는 원인이 있나요? 증상에 대해 더 살필 필요가 있나요?"],
+        ["양성 또는 음성", "이 검사는 무엇을 찾는 검사인가요? 이 표시만으로 알 수 있는 것과 없는 것은 무엇인가요?"],
+        ["판정이 불확실하다는 결과 또는 재검·추가 확인 안내", "무엇을 다시 확인하나요? 어떤 준비를 하고 언제·어디에서 확인하나요?"],
+      ] }, sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-NHS-BLOOD-TESTS"], links: [{ href: "/health/dyslipidemia", label: "콜레스테롤 결과는 개인 위험과 함께 보는 이유" }] },
+      { title: "양성·음성·판정 불확실은 무엇이 다른가요?", paragraphs: [
+        "양성은 보통 검사에서 찾던 물질이나 표지 등이 확인됐다는 뜻이고, 음성은 확인되지 않았다는 뜻입니다. 하지만 무엇을 찾는 검사인지에 따라 의미가 달라집니다. ‘양성은 무조건 나쁜 결과, 음성은 모든 질환이 없다는 뜻’으로 번역하지 않습니다.",
+        "검사에도 한계가 있습니다. 검사 결과가 질환이나 상태가 있다고 가리키지만 실제로는 없는 경우를 위양성, 없다고 가리키지만 실제로는 있는 경우를 위음성이라고 합니다. 판정 불확실은 명확히 결론 내리기 어려운 결과입니다. 이런 한계와 검사 목적에 따라 재검이나 다른 검사가 필요할 수 있지만, 모든 양성·음성에 재검이 반드시 필요한 것은 아닙니다.",
+        "의료진에게 ‘지금 결과로 어느 정도까지 판단할 수 있나요? 추가 확인이 필요하다면 이유가 무엇인가요?’라고 묻습니다. 이 페이지는 특정 검사로 질환을 확정하거나 검사 정확도를 계산하지 않습니다.",
+      ], sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-NHS-BLOOD-TESTS"] },
+      { title: "이전 결과와 비교할 때 빠뜨리기 쉬운 조건", paragraphs: [
+        "검사 이름이 비슷해도 단위·검사 방법·참고범위가 다르면 숫자만 나란히 놓고 좋아졌다거나 나빠졌다고 단정하기 어렵습니다. 이전 결과지를 함께 가져가 날짜와 검사 기관을 알려 주세요. 검사실마다 방법이 다를 수 있으므로 같은 검사실에서 이어서 확인할지 의료진과 상의합니다.",
+        "금식이나 다른 준비가 필요한지는 검사마다 다릅니다. 결과가 걱정된다고 다음 검사 전에 임의로 굶거나 약을 끊지 않습니다. 처방약·일반약·비타민·보충제를 알리고, 검사기관의 준비 안내를 확인하세요. 안내를 지키지 못했다면 숨기지 말고 무엇이 달랐는지 알립니다.",
+        "적어 갈 메모는 ‘검사 날짜 / 전과 다른 준비 조건 / 당시 불편 / 함께 복용한 것 / 묻고 싶은 점’ 정도면 됩니다. 모든 과거 기록을 찾아야 상담받을 수 있다는 뜻은 아닙니다. 모르는 부분은 추측 대신 ‘확인 필요’라고 남깁니다.",
+      ], sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-MEDLINEPLUS-LAB-PREP"], links: [{ href: "/health/guides/medication-list", label: "검사 전 알릴 약·비타민·보충제 목록 정리" }] },
+      { title: "결과지를 덮기 전, 다음 연락과 날짜를 확인하세요", paragraphs: [
+        "다음 행동은 숫자의 색이 아니라 검사 목적과 의료진의 설명에 맞춰 정합니다. 결과지에 재검·진료·추적 안내가 있다면 ‘누구에게, 언제까지, 무엇을 준비해 연락하나요?’를 확인하세요. 시점이 없거나 설명을 이해하기 어려우면 검사를 시행한 기관에 문의합니다.",
+        "모든 검사에 같은 재검 간격을 적용하지 않습니다. 결과를 언제 어떤 방법으로 설명받는지, 연락이 오지 않으면 어디로 문의하는지도 물어 두세요. 서울아산병원 건강증진센터는 결과 전달과 상담을 별도로 안내하는 국내 사례이며, 구체적인 연락 방식과 일정은 본인이 검사한 기관에서 확인해야 합니다.",
+        "상담 후에는 ‘지금 할 일 / 다음 확인 날짜 / 그 전에 변화가 생기면 연락할 곳’을 본인 말로 다시 확인합니다. 검사표를 읽는 일과 증상 때문에 도움을 요청하는 일은 별개입니다. 결과가 괜찮아 보인다는 이유로 현재의 불편을 설명하지 않고 넘기지 마세요.",
+      ], sourceIds: ["SUP-NHS-BLOOD-TESTS", "SUP-MEDLINEPLUS-LAB", "SUP-AMC-RESULT-CONSULT"], links: [
+        { href: "/health/guides/appointment-questions", label: "다음 진료·검사·악화 시 행동을 묻는 질문" },
+        { href: "/health/guides/danger-signals", label: "검사표 해석보다 도움 요청이 먼저인 위험 신호" },
+      ] },
+    ],
+    faq: [
+      { question: "빨간 숫자가 하나 있으면 병이 있다는 뜻인가요?", answer: "그 표시 하나로 병을 확정할 수 없습니다. 해당 검사의 단위·참고범위와 함께 증상·병력·다른 검사 결과를 해석해야 합니다. ‘괜찮겠지’ 하고 무시하는 대신 그 변화의 의미와 다음 확인이 필요한지 물어보세요.", sourceIds: ["SUP-MEDLINEPLUS-LAB"] },
+      { question: "모두 참고범위 안이면 증상도 걱정하지 않아도 되나요?", answer: "검사값이 범위 안이어도 질환이 없다고 보장하지 않습니다. 불편이 계속된다면 그 증상과 검사 목적을 의료진에게 알립니다. 검사가 확인할 수 있는 범위와 추가 평가 필요성을 함께 설명받으세요.", sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-NHS-BLOOD-TESTS"] },
+      { question: "양성이면 재검 없이 치료부터 시작해야 하나요?", answer: "어떤 검사인지와 현재 상황에 따라 판단이 달라집니다. 양성 표시만 보고 약을 시작하거나 멈추지 말고, 결과가 의미하는 것과 추가 확인 또는 치료가 필요한지 의료진에게 설명받습니다.", sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-NHS-BLOOD-TESTS"] },
+      { question: "지난해보다 숫자가 높아졌는데 바로 나빠진 건가요?", answer: "검사명·단위·방법·참고범위와 검사 전 조건을 함께 비교해야 합니다. 두 결과지를 가져가 이번 변화가 의미 있는지 물어보세요. 숫자가 올랐다는 사실만으로 질환의 악화를 확정하지 않습니다.", sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-MEDLINEPLUS-LAB-PREP"] },
+      { question: "재검을 잘 받으려면 약을 쉬고 오래 금식하면 되나요?", answer: "아닙니다. 필요한 준비는 검사별로 확인하고, 의료진의 지시 없이 약을 중단하지 않습니다. 임의로 더 오래 금식하는 것이 아니라 안내받은 조건을 따릅니다. 준비가 달랐다면 검사기관에 알리세요.", sourceIds: ["SUP-MEDLINEPLUS-LAB-PREP"] },
     ],
     sources: [
-      { id: "SUP-MEDLINEPLUS-LAB", organization: "NIH/MedlinePlus", title: "Understanding Your Lab Test Results", url: "https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/", sourceDate: "2024", retrievedAt },
-      { id: "SUP-NIDDK-TESTS", organization: "NIH/NIDDK", title: "Diabetes Tests & Diagnosis", url: "https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis", sourceDate: "2022", retrievedAt },
+      { id: "SUP-MEDLINEPLUS-LAB", organization: "NIH/NLM MedlinePlus", title: "How to Understand Your Lab Results", url: "https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/", sourceDate: "2025-09-04 (Last updated)", retrievedAt: "2026-09-06" },
+      { id: "SUP-MEDLINEPLUS-LAB-PREP", organization: "NIH/NLM MedlinePlus", title: "How to Prepare for a Lab Test", url: "https://medlineplus.gov/lab-tests/how-to-prepare-for-a-lab-test/", sourceDate: "2024-08-20 (Last updated)", retrievedAt: "2026-09-06" },
+      { id: "SUP-NHS-BLOOD-TESTS", organization: "NHS", title: "Blood tests", url: "https://www.nhs.uk/tests-and-treatments/blood-tests/", sourceDate: "2023-11-02 (Page last reviewed)", retrievedAt: "2026-09-06" },
+      { id: "SUP-AMC-RESULT-CONSULT", organization: "서울아산병원 건강증진센터", title: "건강검진 유의사항 — 결과상담", url: "https://health.amc.seoul.kr/health/personal/reference.do", sourceDate: "페이지 자체 날짜 미표시", retrievedAt: "2026-09-06" },
     ],
   },
   {

@@ -96,6 +96,29 @@ test("home blood pressure guide separates measurement conditions from diagnosis 
   assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
 });
 
+test("lab results guide distinguishes reference ranges and result labels from diagnosis", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="reading-health-results")!;
+  assert.equal(guide.sections.length, 5);
+  assert.equal(guide.faq?.length, 5);
+  assert.equal(guide.sources.length, 4);
+  assert.match(JSON.stringify(guide), /혈액·소변 같은 검사실 검사/);
+  assert.match(JSON.stringify(guide), /범위 안이라고 질환이 전혀 없다는 보장은 없고/);
+  assert.match(JSON.stringify(guide), /모든 양성·음성에 재검이 반드시 필요한 것은 아닙니다/);
+  assert.match(JSON.stringify(guide), /위양성.*위음성/);
+  assert.match(JSON.stringify(guide), /의료진의 지시 없이 약을 중단하지/);
+  assert.doesNotMatch(JSON.stringify(guide), /서버에 보내지|6\.5|5\.7|8시간 금식|의료 검수 완료/);
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 4);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const unit of [...guide.sections, ...guide.faq!]) {
+    assert.ok(unit.sourceIds?.length);
+    for (const id of unit.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+});
+
 test("new support schema does not fabricate a physician or FAQ rich result", () => {
   const source = readFileSync("app/health/guides/[slug]/page.tsx", "utf8");
   assert.doesNotMatch(source, /"Physician"|"MedicalOrganization"|reviewedBy|FAQPage/);
