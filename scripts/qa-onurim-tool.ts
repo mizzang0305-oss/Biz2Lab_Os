@@ -45,6 +45,8 @@ async function run() {
       await page.setViewportSize({ width: 390, height: 844 });
     }
     const checkbox = page.locator('.onurim-print-sheet input[type="checkbox"]').first();
+    const expectedChecks = ["guide", "warning"].includes(selected.kind) ? 0 : (selected.itemGroups?.flatMap(g => g.items) ?? selected.items ?? []).length;
+    if (await page.locator('.onurim-print-sheet input[type="checkbox"]').count() !== expectedChecks) failures.push("Checkbox item count mismatch");
     let checkboxToggled = null;
     if (await checkbox.count()) {
       await checkbox.focus(); await page.keyboard.press("Space");

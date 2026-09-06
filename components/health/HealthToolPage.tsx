@@ -11,6 +11,7 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
   const sources = getToolSources(tool);
   const parent = healthArticles[tool.articleSlug];
   const emergency = getToolSafetyNotice(tool);
+  const itemGroups = tool.itemGroups ?? (tool.items ? [{ title: "", items: tool.items }] : []);
   return (
     <article className="onurim-tool-page" data-claim-ids={tool.claimIds.join(",")}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbJsonLd([
@@ -80,16 +81,19 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
           </dl>
         ) : null}
 
-        {tool.items ? (
+        {itemGroups.map((group, groupIndex) => (
+          <div className="onurim-tool-item-group" key={group.title || groupIndex}>
+          {group.title ? <h3>{group.title}</h3> : null}
           <div className={tool.kind === "warning" ? "onurim-warning-list" : "onurim-check-list"}>
-            {tool.items.map((item) => (
+            {group.items.map((item) => (
               <label key={item}>
                 {tool.kind !== "guide" && tool.kind !== "warning" ? <input type="checkbox" /> : <span aria-hidden>•</span>}
                 <span>{item}</span>
               </label>
             ))}
           </div>
-        ) : null}
+          </div>
+        ))}
 
         {tool.kind === "questions" ? (
           <div className="onurim-notes-area">

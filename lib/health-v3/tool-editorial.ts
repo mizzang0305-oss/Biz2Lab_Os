@@ -14,6 +14,39 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "blood-pressure-prep": {
+    "title": "혈압 측정 준비 체크리스트: 측정 전 자세와 측정 후 기록",
+    "description": "AHA의 가정 혈압 측정 안내를 바탕으로 측정 전 준비 5가지와 측정 후 기록 2가지를 나눕니다. 개인 측정 계획과 기기 안내를 확인하며 사용하는 인쇄용 체크리스트입니다.",
+    "updatedAt": "2026-09-06",
+    "purpose": "측정법을 읽은 뒤 같은 준비를 빠뜨리지 않으려 할 때 쓰는 확인표입니다. 체크를 모두 했다는 사실이 기기 정확도나 정상 혈압을 보장하지는 않습니다. AHA 안내를 바탕으로 구성했으며 의료진이 정한 개인 계획과 기기 설명도 함께 확인합니다.",
+    "steps": [
+      "‘측정 전’ 항목은 커프를 작동하기 전에 확인합니다. AHA는 흡연·카페인·운동을 30분 전부터 피하고, 방광을 비운 뒤 최소 5분 조용히 쉬도록 안내합니다.",
+      "팔을 심장 높이로 받치고 맨팔에 맞는 커프를 댑니다. 커프 크기나 기기 사용이 맞는지 불분명하면 의료진·약사에게 확인합니다.",
+      "‘측정 후’ 항목은 실제로 측정한 다음 확인합니다. AHA가 안내하는 1분 간격 두 측정의 원래 값과 시각을 각각 기록합니다. 표를 미리 모두 체크하지 않습니다."
+    ],
+    "example": "사용 순서 예시: 준비가 끝났다면 위쪽 항목을 확인 → 실제 측정 → 두 회차의 원래 값을 기록 → 아래쪽 항목 확인. 조건을 놓쳤다면 무엇이 달랐는지 메모하고, 원하는 값이 나올 때까지 반복 측정하는 방식으로 사용하지 않습니다.",
+    "limitation": "측정 시간·횟수와 결과에 따른 개인 행동은 의료진과 확인합니다. 체크 수로 건강을 판정하거나 약을 바꾸지 않습니다. 가슴 통증·심한 호흡곤란·갑작스러운 마비나 말 이상 같은 위급한 변화가 있다면 준비표나 재측정 대신 즉시 119에 도움을 요청합니다.",
+    "sourceIds": [
+      "SRC-AHA-HOME-BP",
+      "SRC-KDCA-HTN",
+      "SRC-KDCA-STROKE",
+      "SRC-KDCA-MI"
+    ],
+    "links": [
+      {
+        "href": "/health/guides/measuring-blood-pressure",
+        "label": "AHA·국내 기관의 측정 안내와 조건 차이 이해"
+      },
+      {
+        "href": "/health/tools/blood-pressure-log",
+        "label": "두 회차의 원래 값을 나누어 남길 혈압 기록표"
+      },
+      {
+        "href": "/health/tools/blood-pressure-questions",
+        "label": "커프·측정 조건·개인 계획을 확인할 진료 질문"
+      }
+    ]
+  },
   "blood-pressure-questions": {
     "title": "고혈압 진료 질문지: 집에서 잰 기록과 다음 측정 계획 확인",
     "description": "가정 혈압 기록·혈압계·약 정보를 준비하고, 병원과 집의 차이와 개인 측정 일정을 질문합니다. 먼저 물을 내용, 받은 답과 다음 연락 계획을 손으로 남기는 진료 준비 양식입니다.",

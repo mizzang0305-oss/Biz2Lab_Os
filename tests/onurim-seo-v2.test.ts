@@ -66,6 +66,17 @@ test("restored neurological and self-harm fields cannot appear without their exi
   assert.match(readFileSync("app/sitemap.ts", "utf8"), /toolEditorial\[tool.slug\]\?\.updatedAt/);
 });
 
+test("blood pressure preparation separates before-measurement checks from after-measurement facts", () => {
+  const tool = healthTools.find(t => t.slug === "blood-pressure-prep")!;
+  assert.equal(tool.items, undefined);
+  assert.deepEqual(tool.itemGroups?.map(group => group.items.length), [5, 2]);
+  assert.match(tool.itemGroups![0].title, /측정 전/);
+  assert.match(tool.itemGroups![1].title, /측정 후/);
+  assert.match(tool.itemGroups![0].items.join(" "), /최소 5분/);
+  assert.match(toolEditorial[tool.slug].purpose, /보장하지/);
+  assert.match(toolEditorial[tool.slug].steps.join(" "), /미리 모두 체크하지/);
+});
+
 test("SEO audit refuses colliding output paths before HTTP or file writes", () => {
   const run = spawnSync(process.execPath, ["--import", "tsx", "scripts/audit-onurim-seo.ts", "--out", "invalid-output"], { encoding: "utf8" });
   assert.notEqual(run.status, 0);

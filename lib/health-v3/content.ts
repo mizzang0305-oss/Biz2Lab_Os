@@ -111,6 +111,7 @@ export type HealthTool = {
   kind: "log" | "questions" | "checklist" | "guide" | "warning";
   fields?: string[];
   items?: string[];
+  itemGroups?: Array<{ title: string; items: string[] }>;
   columns?: string[];
   rows?: number;
 };
@@ -827,15 +828,16 @@ export const healthTools: HealthTool[] = [
     description: "같은 조건에서 더 안정적으로 측정하기 위한 준비표입니다.",
     claimIds: ["HTN-B1-006", "HTN-B1-007", "HTN-B1-008"],
     kind: "checklist",
-    items: [
+    itemGroups: [{ title: "측정 전: 커프를 작동하기 전에", items: [
       "30분 전 흡연·카페인 음료·운동을 피했습니다.",
       "화장실을 다녀왔습니다.",
-      "조용히 5분 정도 쉬었습니다.",
+      "조용히 최소 5분 쉬었습니다.",
       "등을 기대고 두 발을 바닥에 뒀습니다.",
       "맨팔에 맞는 커프를 두고 팔을 심장 높이에서 받쳤습니다.",
+    ] }, { title: "측정 후: 실제 값과 시각을 남긴 다음", items: [
       "말하지 않고 1분 간격으로 두 번 측정했습니다.",
       "원래 값과 날짜·시간을 기록했습니다.",
-    ],
+    ] }],
   },
   {
     slug: "blood-pressure-warning",
