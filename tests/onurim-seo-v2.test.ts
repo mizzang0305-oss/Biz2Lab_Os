@@ -89,6 +89,17 @@ test("source policy values claim fit over link counts and preserves unknown sour
   assert.ok(page.sections.flatMap(section => section.links ?? []).some(link => link.href === "/health/guides/understanding-hba1c"));
 });
 
+test("medical review policy exposes unstarted review without upgrading the prepared packet", () => {
+  const page = trustPages.find(page => page.slug === "medical-review-policy")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "INDEX_SUPPORT");
+  assert.match(page.intro, /검수는 시작되지 않았고 완료되지도 않았습니다/);
+  assert.match(text, /검토자가 승인한 47개 문장이 아닙니다/);
+  assert.match(text, /대상 문장과 버전을 다시 대조해야/);
+  assert.match(text, /실제 일반 독자 테스트도 아직 실시하지 않았습니다/);
+  assert.doesNotMatch(text, /reviewedBy|의료 검수 완료입니다/);
+});
+
 test("trust pages distinguish public access from index decisions and use page-specific dates", () => {
   const entries = sitemap();
   const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(slug => `/health/${slug}`),

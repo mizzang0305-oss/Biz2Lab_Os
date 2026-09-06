@@ -1,0 +1,276 @@
+{
+  "route": "/health/trust/medical-review-policy",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T17:15:45.033Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "017b921044f575e2bccddfa694676890985bb1e4a9d7ed85731b180ea48c680f",
+      "full": "7ccdd8aaeed84770fac6a62b7539a98269453951578c50ff72d08ff0a35f246e"
+    },
+    {
+      "width": 390,
+      "top": "2447cd0a9b8242ff7a52d7ba94c4ca8f7c262531d0d567c7bb603b6a0790d3d7",
+      "full": "372b8065b51424c6eedc762710fe1843aadade0bb4e067aea482eabe495011cb"
+    },
+    {
+      "width": 430,
+      "top": "380597724a90dfc73f55ea084386970c164bcf08b7c806ca3c00a8790f35aaef",
+      "full": "5897610bd25338055fb21988443013ceddd42615034f10fee12bfbcb6d0d4e30"
+    },
+    {
+      "width": 768,
+      "top": "8b6361933212af79ba74d061a8db85589fb692a353db550e726314aac56d47e9",
+      "full": "e17619b88fc41537b55bc75421064a416700d4b71b30a9837aeb249ad8f9bd2d"
+    },
+    {
+      "width": 1440,
+      "top": "de753a19a8233e89be57a050eb72817e3163d471cf607cb3d5f60d703d60bfd8",
+      "full": "aa42d90820cf342f0edf0ed4299e95dfd1bf198f2a219323158f7c4123065029"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "오누림 의료 검토 현황: 검토자 미배정·검수 미완료 | 오누림",
+      "h1": [
+        "의료 검토 정책"
+      ],
+      "h2": [
+        "준비된 자료와 아직 하지 않은 검토",
+        "누가 무엇을 확인했는지 나눕니다",
+        "검토가 시작되면 구분해 기록할 내용",
+        "독자가 지금 알아야 할 한계"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/medical-review-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "오누림 의료 검토 현황: 검토자 미배정·검수 미완료 | 오누림",
+      "h1": [
+        "의료 검토 정책"
+      ],
+      "h2": [
+        "준비된 자료와 아직 하지 않은 검토",
+        "누가 무엇을 확인했는지 나눕니다",
+        "검토가 시작되면 구분해 기록할 내용",
+        "독자가 지금 알아야 할 한계"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/medical-review-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "오누림 의료 검토 현황: 검토자 미배정·검수 미완료 | 오누림",
+      "h1": [
+        "의료 검토 정책"
+      ],
+      "h2": [
+        "준비된 자료와 아직 하지 않은 검토",
+        "누가 무엇을 확인했는지 나눕니다",
+        "검토가 시작되면 구분해 기록할 내용",
+        "독자가 지금 알아야 할 한계"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/medical-review-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "오누림 의료 검토 현황: 검토자 미배정·검수 미완료 | 오누림",
+      "h1": [
+        "의료 검토 정책"
+      ],
+      "h2": [
+        "준비된 자료와 아직 하지 않은 검토",
+        "누가 무엇을 확인했는지 나눕니다",
+        "검토가 시작되면 구분해 기록할 내용",
+        "독자가 지금 알아야 할 한계"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/medical-review-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "오누림 의료 검토 현황: 검토자 미배정·검수 미완료 | 오누림",
+      "h1": [
+        "의료 검토 정책"
+      ],
+      "h2": [
+        "준비된 자료와 아직 하지 않은 검토",
+        "누가 무엇을 확인했는지 나눕니다",
+        "검토가 시작되면 구분해 기록할 내용",
+        "독자가 지금 알아야 할 한계"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/medical-review-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}
