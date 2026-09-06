@@ -384,6 +384,38 @@ test("obesity uses consent-first family support and separates body measures from
   for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
 });
 
+test("myocardial infarction avoids pain or duration thresholds and separates troponin injury from a single-result diagnosis", () => {
+  const article = healthArticles["acute-myocardial-infarction"];
+  assert.equal(article.archetype, "QUESTION_FIRST");
+  assert.match(article.title, /119/);
+  assert.match(article.description, /확신이 없어도 즉시 119/);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sourceIds.length, 8);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections[0];
+  assert.equal(urgent.tone, "warning");
+  assert.equal(urgent.paragraphs?.length, 1);
+  assert.match(urgent.paragraphs![0], /확신이 없어도 즉시 119/);
+  const text = JSON.stringify(article);
+  assert.match(text, /통증 강도만으로 배제하지/);
+  assert.match(text, /심근경색과 심정지는 같은 말이 아닙니다/);
+  assert.match(text, /트로포닌은 심장근육 세포에 있는 단백질/);
+  assert.match(text, /다른 원인으로 심장근육이 손상된 경우에도/);
+  assert.match(text, /처음 검사에서 높지 않았더라도/);
+  assert.match(text, /아스피린이 모든 상황에서 금지라는 뜻도/);
+  assert.doesNotMatch(text, /\d+(\.\d+)?\s*(mg|시간 이내|분 이상|ng\/L)|911|999|GTN|ST 분절/);
+  assert.ok(article.visuals?.["acute-myocardial-infarction-concept"].caption.includes("완전 폐색이 모든"));
+  assert.ok(article.visuals?.["acute-myocardial-infarction-action"].caption.includes("모르면 모른다고"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
 test("stroke treats each sudden sign as urgent and separates last-known-well from discovery after calling", () => {
   const article = healthArticles.stroke;
   assert.equal(article.archetype, "BODY_SIGNAL");
