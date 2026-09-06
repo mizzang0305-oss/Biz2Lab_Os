@@ -1,0 +1,271 @@
+{
+  "route": "/health/trust/disclaimer",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T17:29:24.997Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "fdedef45c5cd90e4ffccb8e6d2ecb0b924d65536e72d9c075622f078ceb3ea2e",
+      "full": "470601450fa0fba9d8c93d66d5962cd8c43411d629e8b80d7216d76d145a67f1"
+    },
+    {
+      "width": 390,
+      "top": "4719c6d817ccef4237cd6d7c529fc5c8358b224b0b055ad0302b7d25c87e2c4d",
+      "full": "088b8c81f9b7a7496ace549483536a9645dd057974950b3c119070955e2da67b"
+    },
+    {
+      "width": 430,
+      "top": "97dfcb8cdcf72955679e763158bb88ae7d97e0f46dd505fc3955a61ea4201892",
+      "full": "d99569653a8b0a12dea79cf26ba3dea8496bbebb6edb36221b1f0ee0e733e840"
+    },
+    {
+      "width": 768,
+      "top": "0049850f5aef49533687f5abab7bd424852c125763f456207f0477f841c4af3b",
+      "full": "ef2ff5c0c7f95cb88a8dbdb6987e08a0d38dc7a132cb29af0d3de8a3a007c1a0"
+    },
+    {
+      "width": 1440,
+      "top": "aac67f3aa653dd011a5cfe4d8c9dfe9bb78edd09e6a21523265ac9a9e81fe5c1",
+      "full": "cf88fbe9d055b27ddebeb38ca3a02c88faa52220ae66106f15cff397550c987e"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "오누림 이용 한계: 일반 건강정보와 개인 의료 판단 | 오누림",
+      "h1": [
+        "면책 안내"
+      ],
+      "h2": [
+        "글과 기록표가 할 수 없는 일",
+        "위급하면 온라인 확인보다 도움 요청이 먼저입니다",
+        "개인 상황과 검토 상태를 확인하세요"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/disclaimer",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "오누림 이용 한계: 일반 건강정보와 개인 의료 판단 | 오누림",
+      "h1": [
+        "면책 안내"
+      ],
+      "h2": [
+        "글과 기록표가 할 수 없는 일",
+        "위급하면 온라인 확인보다 도움 요청이 먼저입니다",
+        "개인 상황과 검토 상태를 확인하세요"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/disclaimer",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "오누림 이용 한계: 일반 건강정보와 개인 의료 판단 | 오누림",
+      "h1": [
+        "면책 안내"
+      ],
+      "h2": [
+        "글과 기록표가 할 수 없는 일",
+        "위급하면 온라인 확인보다 도움 요청이 먼저입니다",
+        "개인 상황과 검토 상태를 확인하세요"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/disclaimer",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "오누림 이용 한계: 일반 건강정보와 개인 의료 판단 | 오누림",
+      "h1": [
+        "면책 안내"
+      ],
+      "h2": [
+        "글과 기록표가 할 수 없는 일",
+        "위급하면 온라인 확인보다 도움 요청이 먼저입니다",
+        "개인 상황과 검토 상태를 확인하세요"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/disclaimer",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "오누림 이용 한계: 일반 건강정보와 개인 의료 판단 | 오누림",
+      "h1": [
+        "면책 안내"
+      ],
+      "h2": [
+        "글과 기록표가 할 수 없는 일",
+        "위급하면 온라인 확인보다 도움 요청이 먼저입니다",
+        "개인 상황과 검토 상태를 확인하세요"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/disclaimer",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

@@ -132,6 +132,16 @@ test("advertising policy separates editorial principles from approval and medica
   assert.doesNotMatch(text, /광고 승인 완료|거래 이력이 없습니다/);
 });
 
+test("disclaimer preserves urgent help without treating every new symptom as an emergency", () => {
+  const page = trustPages.find(page => page.slug === "disclaimer")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(text, /위급한 변화가 있으면 즉시 119/);
+  assert.match(text, /읽기를 신고의 선행 조건으로 삼지 마세요/);
+  assert.match(text, /여기에 없는 증상이 안전하다는 뜻은 아닙니다/);
+  assert.doesNotMatch(text, /새롭거나 심한 증상/);
+});
+
 test("trust pages distinguish public access from index decisions and use page-specific dates", () => {
   const entries = sitemap();
   const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(slug => `/health/${slug}`),

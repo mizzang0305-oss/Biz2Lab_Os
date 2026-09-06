@@ -1047,11 +1047,15 @@ export const trustPages: readonly HealthTrustPage[] = [
   {
     slug: "disclaimer",
     title: "면책 안내",
+    seoTitle: "오누림 이용 한계: 일반 건강정보와 개인 의료 판단",
+    description: "오누림은 진단·처방·개인 의료상담을 제공하지 않습니다. 기록과 질문 준비에 활용하되, 위급한 상황에서는 글이나 답변을 기다리지 말고 119와 의료 도움을 우선하세요.",
+    updatedAt: "2026-09-07",
+    indexDecision: "NOINDEX_FOLLOW",
     intro: "오누림의 내용은 일반적인 건강정보 교육용이며 개인 의료상담을 대신하지 않습니다.",
     sections: [
-      { title: "개인 판단 금지", body: "이 페이지로 질환을 진단하거나 처방약·인슐린을 시작, 중단 또는 변경하지 마세요." },
-      { title: "도움 요청", body: "새롭거나 심한 증상, 의식 저하 또는 호흡곤란처럼 위급한 변화가 있으면 온라인 정보를 기다리지 말고 119 또는 응급의료 도움을 요청하세요." },
-      { title: "지역 차이", body: "검사와 치료 기준은 개인 상황과 지역 지침에 따라 달라질 수 있으므로 담당 의료진과 확인하세요." },
+      { title: "글과 기록표가 할 수 없는 일", body: "내용이 본인의 경험과 비슷하더라도 이 자료로 질환을 확정하거나 처방약·인슐린을 시작, 중단 또는 변경하지 마세요. 기록표와 질문 카드는 관찰을 정리하고 의료진과 대화하기 위한 도구이며 진단 점수나 치료 지시를 만들지 않습니다.", links: [{ href: "/health/guides/appointment-questions", label: "개인 판단 대신 진료 질문으로 정리하기" }] },
+      { title: "위급하면 온라인 확인보다 도움 요청이 먼저입니다", body: "의식 저하·심한 호흡곤란 같은 위급한 변화가 있으면 즉시 119에 연락하세요. 글을 다 읽거나 기록을 완성하거나 문의 답변을 기다리지 않습니다. 이는 대표적인 예이며 여기에 없는 증상이 안전하다는 뜻은 아닙니다. 신호와 신고 후 전할 내용은 위험 신호 안내에서 확인할 수 있지만 읽기를 신고의 선행 조건으로 삼지 마세요.", links: [{ href: "/health/guides/danger-signals", label: "응급 위험 신호와 신고 후 전할 내용" }, { href: "https://www.nfa.go.kr/nfa/safetyinfo/emergencyservice/119emergencydeclaration/", label: "소방청: 119 구급신고 요령" }, { href: "https://medlineplus.gov/ency/article/001927.htm", label: "MedlinePlus: 응급상황 인지 안내 (영문·연락처는 국가별로 다름)" }] },
+      { title: "개인 상황과 검토 상태를 확인하세요", body: "검사와 치료의 적용은 개인 상황과 지역 지침에 따라 달라질 수 있습니다. 특정 수치·그림·다른 사람의 경험을 본인의 결정 기준으로 옮기지 말고 담당 의료진에게 확인하세요. 공식 출처 연결은 면허 의료인 검수를 뜻하지 않으며 현재 검수는 미완료입니다.", links: [{ href: "/health/trust/medical-review-policy", label: "현재 의료 검토 상태와 범위" }, { href: "/health/trust/sources-policy", label: "출처 설명의 적용 범위" }] },
     ],
   },
   {
