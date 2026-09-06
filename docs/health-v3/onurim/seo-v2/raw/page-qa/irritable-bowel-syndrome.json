@@ -1,0 +1,441 @@
+{
+  "route": "/health/irritable-bowel-syndrome",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T06:35:42.714Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "0e821d65cafdadda58b791b83e32904ae5e6c9de5b4055231e23bd168ee27738",
+      "full": "b1e3ff722c2f0c73cfb59a92c55e810d10ac10b0a21bcea2c472dcf565fd72f8"
+    },
+    {
+      "width": 390,
+      "top": "72ad082bdc0c89d0fa8f367639d9bb1f8c2fdd49cc57ac0b0483478fd45aa367",
+      "full": "bfdd31b1e66166737bfdedea92e09f7fc61e7b939bf8afd467fc007528e1f177"
+    },
+    {
+      "width": 430,
+      "top": "dd60df22816e8620e6aa3f8f02a8155f92802d7c941f2caff1eeba77b0efff9b",
+      "full": "77908a6f0f3a32a64d35db7ab0a80f14c2e016231f5d3e976225a7cbb98d578e"
+    },
+    {
+      "width": 768,
+      "top": "ad35f3d041e0da47db607a98e467240d6de319fa0a2f02c8c7348c1d6737624d",
+      "full": "27a6eadec4733132707ab2e521f6600e863f1c76245f45f3497d2e91177cd2f9"
+    },
+    {
+      "width": 1440,
+      "top": "7407c7aadf38a11931539975b5fa285391a4238d62f3f5ba267511a4b5f3fba5",
+      "full": "cd15e84d80fd922ba5163a944e41fe1b45022bfaf062c4b2635d65df3f6b3887"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "과민성장증후군(IBS): 복통·배변 변화 기록과 진료 신호 | 오누림",
+      "h1": [
+        "배가 아플 때, 배변 전후 무엇이 달라졌나요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "화장실을 다녀온 뒤의 느낌부터 떠올려 보세요",
+        "검사에 뚜렷한 손상이 안 보여도 불편은 실제입니다",
+        "IBS와 IBD는 이름이 비슷해도 다른 질환입니다",
+        "진료에서는 이 다섯 가지를 짧게 설명하세요",
+        "먹지 못하는 음식 목록이 계속 늘어난다면",
+        "익숙한 IBS가 있어도 새 위험 신호는 따로 봅니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/irritable-bowel-syndrome",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 메모 용지와 상담 준비를 상징하는 갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Faction-v2.webp&w=3840&q=75",
+          "alt": "화장실 문 앞에서 복부의 느낌을 살피는 성인과 책상에서 그 변화를 노트에 적는 같은 인물의 두 장면 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "머리의 뇌와 복부의 장 사이에 위쪽과 아래쪽을 향한 두 화살표가 놓인 장-뇌 상호작용 개념도",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "과민성장증후군(IBS): 복통·배변 변화 기록과 진료 신호 | 오누림",
+      "h1": [
+        "배가 아플 때, 배변 전후 무엇이 달라졌나요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "화장실을 다녀온 뒤의 느낌부터 떠올려 보세요",
+        "검사에 뚜렷한 손상이 안 보여도 불편은 실제입니다",
+        "IBS와 IBD는 이름이 비슷해도 다른 질환입니다",
+        "진료에서는 이 다섯 가지를 짧게 설명하세요",
+        "먹지 못하는 음식 목록이 계속 늘어난다면",
+        "익숙한 IBS가 있어도 새 위험 신호는 따로 봅니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/irritable-bowel-syndrome",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 메모 용지와 상담 준비를 상징하는 갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Faction-v2.webp&w=3840&q=75",
+          "alt": "화장실 문 앞에서 복부의 느낌을 살피는 성인과 책상에서 그 변화를 노트에 적는 같은 인물의 두 장면 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "머리의 뇌와 복부의 장 사이에 위쪽과 아래쪽을 향한 두 화살표가 놓인 장-뇌 상호작용 개념도",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "과민성장증후군(IBS): 복통·배변 변화 기록과 진료 신호 | 오누림",
+      "h1": [
+        "배가 아플 때, 배변 전후 무엇이 달라졌나요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "화장실을 다녀온 뒤의 느낌부터 떠올려 보세요",
+        "검사에 뚜렷한 손상이 안 보여도 불편은 실제입니다",
+        "IBS와 IBD는 이름이 비슷해도 다른 질환입니다",
+        "진료에서는 이 다섯 가지를 짧게 설명하세요",
+        "먹지 못하는 음식 목록이 계속 늘어난다면",
+        "익숙한 IBS가 있어도 새 위험 신호는 따로 봅니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/irritable-bowel-syndrome",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 메모 용지와 상담 준비를 상징하는 갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Faction-v2.webp&w=3840&q=75",
+          "alt": "화장실 문 앞에서 복부의 느낌을 살피는 성인과 책상에서 그 변화를 노트에 적는 같은 인물의 두 장면 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "머리의 뇌와 복부의 장 사이에 위쪽과 아래쪽을 향한 두 화살표가 놓인 장-뇌 상호작용 개념도",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "과민성장증후군(IBS): 복통·배변 변화 기록과 진료 신호 | 오누림",
+      "h1": [
+        "배가 아플 때, 배변 전후 무엇이 달라졌나요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "화장실을 다녀온 뒤의 느낌부터 떠올려 보세요",
+        "검사에 뚜렷한 손상이 안 보여도 불편은 실제입니다",
+        "IBS와 IBD는 이름이 비슷해도 다른 질환입니다",
+        "진료에서는 이 다섯 가지를 짧게 설명하세요",
+        "먹지 못하는 음식 목록이 계속 늘어난다면",
+        "익숙한 IBS가 있어도 새 위험 신호는 따로 봅니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/irritable-bowel-syndrome",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 메모 용지와 상담 준비를 상징하는 갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Faction-v2.webp&w=3840&q=75",
+          "alt": "화장실 문 앞에서 복부의 느낌을 살피는 성인과 책상에서 그 변화를 노트에 적는 같은 인물의 두 장면 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "머리의 뇌와 복부의 장 사이에 위쪽과 아래쪽을 향한 두 화살표가 놓인 장-뇌 상호작용 개념도",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "과민성장증후군(IBS): 복통·배변 변화 기록과 진료 신호 | 오누림",
+      "h1": [
+        "배가 아플 때, 배변 전후 무엇이 달라졌나요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "화장실을 다녀온 뒤의 느낌부터 떠올려 보세요",
+        "검사에 뚜렷한 손상이 안 보여도 불편은 실제입니다",
+        "IBS와 IBD는 이름이 비슷해도 다른 질환입니다",
+        "진료에서는 이 다섯 가지를 짧게 설명하세요",
+        "먹지 못하는 음식 목록이 계속 늘어난다면",
+        "익숙한 IBS가 있어도 새 위험 신호는 따로 봅니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/irritable-bowel-syndrome",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 메모 용지와 상담 준비를 상징하는 갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Faction-v2.webp&w=3840&q=75",
+          "alt": "화장실 문 앞에서 복부의 느낌을 살피는 성인과 책상에서 그 변화를 노트에 적는 같은 인물의 두 장면 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Firritable-bowel-syndrome%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "머리의 뇌와 복부의 장 사이에 위쪽과 아래쪽을 향한 두 화살표가 놓인 장-뇌 상호작용 개념도",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

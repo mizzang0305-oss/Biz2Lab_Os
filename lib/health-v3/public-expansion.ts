@@ -2,6 +2,7 @@ import type { HealthArticle, HealthClaim, HealthSource, HealthTool } from "./con
 import { dyslipidemiaArticle, dyslipidemiaSources } from "./seo-v2/dyslipidemia";
 import { obesityArticle, obesitySources } from "./seo-v2/obesity";
 import { masldArticle, masldSources } from "./seo-v2/masld";
+import { ibsArticle, ibsSources } from "./seo-v2/irritable-bowel-syndrome";
 
 type ExpansionSlug = Exclude<HealthArticle["slug"],
   | "hypertension"
@@ -337,6 +338,7 @@ export const expansionHealthSources: HealthSource[] = Array.from(new Map([
   ...dyslipidemiaSources,
   ...obesitySources,
   ...masldSources,
+  ...ibsSources,
 ].map(source => [source.id, source])).values());
 
 function makeClaims(guide: GuideConfig): HealthClaim[] {
@@ -395,6 +397,7 @@ const seoArticles: Partial<Record<ExpansionSlug, HealthArticle>> = {
   dyslipidemia: dyslipidemiaArticle,
   obesity: obesityArticle,
   "metabolic-dysfunction-associated-steatotic-liver-disease": masldArticle,
+  "irritable-bowel-syndrome": ibsArticle,
 };
 
 export const expansionHealthArticles = Object.fromEntries(

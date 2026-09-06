@@ -173,6 +173,31 @@ test("SEO citation counts include declared professional-society sources without 
   assert.match(audit, /DECLARED_SOURCE_BLOCK_NOT_QUALITY_VERDICT/);
 });
 
+test("IBS records either direction of pain change and does not normalize new bleeding or lifelong food restrictions", () => {
+  const article = healthArticles["irritable-bowel-syndrome"];
+  assert.equal(article.archetype, "BODY_SIGNAL");
+  assert.equal(article.sections.length, 6);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const text = JSON.stringify(article);
+  assert.match(text, /덜 아팠다 \/ 더 아팠다 \/ 비슷했다/);
+  assert.match(text, /음식을 다시 넣는 과정/);
+  assert.match(text, /모두에게 대장내시경이 필수라는 뜻도/);
+  assert.match(text, /갑자기 시작된 복통 또는 심한 복통/);
+  assert.match(text, /체중 감소 중 하나라도/);
+  assert.match(text, /마음먹기에 달렸다/);
+  assert.doesNotMatch(text, /몇 개 이상이면|일주일에 \d|\d+개월|\d+\s*(g|mg|그램)/);
+  assert.ok(article.visuals?.["ibs-concept"].caption.includes("실제 신경"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
 test("MASLD separates enzyme, fat and fibrosis questions without self-diagnosis or unsupervised withdrawal", () => {
   const article = healthArticles["metabolic-dysfunction-associated-steatotic-liver-disease"];
   assert.equal(article.archetype, "QUESTION_FIRST");
