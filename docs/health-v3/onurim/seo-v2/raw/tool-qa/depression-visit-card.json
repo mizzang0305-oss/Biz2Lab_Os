@@ -1,0 +1,67 @@
+{
+  "route": "/health/tools/depression-visit-card",
+  "observedAt": "2026-09-06T16:06:49.068Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "본인의 말 / 동의받은 주변 관찰·시점 (구분·미확인 가능)",
+    "기분·흥미·잠·식사·일상 변화 / 실제 약·최근 변경",
+    "먼저 상담할 어려움 / 원하는 도움·함께할 사람·혼자 말할 내용"
+  ],
+  "sourceHrefs": [
+    "https://www.nimh.nih.gov/health/publications/depression",
+    "https://www.nimh.nih.gov/health/publications/suicide-faq",
+    "https://www.nimh.nih.gov/health/publications/5-action-steps-to-help-someone-having-thoughts-of-suicide",
+    "https://www.129.go.kr/109",
+    "https://www.easylaw.go.kr/CSP/CnpClsMain.laf?ccfNo=3&cciNo=3&cnpClsNo=1&csmSeq=1465&popMenu=ov",
+    "https://www.who.int/news-room/fact-sheets/detail/depression"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 6,
+    "overflow": 0,
+    "footerText": "우울감 진료 메모 · 양식·안내 수정 2026-09-07교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료NIH/NIMH — DepressionNIH/NIMH — Frequently Asked Questions About SuicideNIH/NIMH — 5 Action Steps to Help Someone Having Thoughts of Suicide보건복지부 보건복지상담센터 — 자살예방상담전화 — 109 안내와 자주하는 질문찾기쉬운 생활법령정보 — 긴급구조활동 — 긴급구조 관련 특수번호 전화서비스WHO — Depressive disorder (depression)의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 3,
+    "checkedItems": 0,
+    "focusedCheckbox": false,
+    "footerParagraphFontPx": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "links": [
+    {
+      "href": "/health/depression",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/symptom-journal",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/medication-list",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/appointment-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "820d02f19af3331aa204367373b206afca2ee6605e7d7563cefb4a0e8a8de2b8",
+  "pdfBytes": 139389,
+  "failures": []
+}

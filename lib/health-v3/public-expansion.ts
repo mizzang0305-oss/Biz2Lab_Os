@@ -270,6 +270,7 @@ const guides: GuideConfig[] = [
   {
     slug: "depression",
     prefix: "DEP",
+    toolSummary: { title: "우울감 진료 메모", description: "본인의 말과 동의받은 관찰, 일상 어려움과 원하는 도움을 구분해 진료에 가져가는 인쇄 보조표입니다." },
     title: "우울증",
     cluster: "뇌·마음",
     archetype: "FAMILY_SITUATION",
@@ -280,8 +281,8 @@ const guides: GuideConfig[] = [
     evaluation: "정신건강 전문가는 증상의 기간과 일상 영향, 다른 신체 질환이나 약물 가능성을 함께 확인합니다.",
     careBoundary: "온라인 체크리스트만으로 진단하거나 치료를 중단하지 않습니다. 가족은 평가하거나 설득하기보다 안전하게 이야기를 듣고 전문 도움 연결을 돕습니다.",
     urgent: "자해·자살 생각이나 구체적인 위험이 있거나 즉시 안전을 지키기 어렵다면 혼자 두지 말고 119에 연락합니다. 24시간 자살예방 상담전화 109에도 도움을 요청할 수 있습니다.",
-    observationItems: ["기분과 흥미 변화 기간", "수면·식사·집중 변화", "일상에 미친 영향", "자해·자살 생각 여부"],
-    questions: ["다른 건강 문제도 확인해야 하나요?", "어떤 전문 도움을 받을 수 있나요?", "위기 때 가족이 따를 계획을 함께 만들 수 있나요?"],
+    observationItems: ["본인의 말 / 동의받은 주변 관찰·시점 (구분·미확인 가능)", "기분·흥미·잠·식사·일상 변화 / 실제 약·최근 변경", "먼저 상담할 어려움 / 원하는 도움·함께할 사람·혼자 말할 내용"],
+    questions: ["이 변화와 함께 확인할 다른 건강 문제나 약의 영향이 있나요?", "제가 원하는 도움에 맞는 치료·생활 지원과 참여 범위는 무엇인가요?", "악화나 위기 때 연락할 곳과 전문적으로 세울 개인 안전계획을 확인할 수 있나요?"],
     sources: [
       { id: "SRC-NIMH-DEPRESSION", organization: "NIH/NIMH", title: "Depression", url: "https://www.nimh.nih.gov/health/publications/depression", sourceDate: "2024" },
       { id: "SRC-WHO-DEPRESSION", organization: "WHO", title: "Depressive disorder (depression)", url: "https://www.who.int/news-room/fact-sheets/detail/depression", sourceDate: "2025-08-29" },

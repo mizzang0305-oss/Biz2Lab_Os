@@ -1,33 +1,33 @@
 {
   "route": "/health/depression",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T09:06:33.239Z",
+  "observedAt": "2026-09-06T16:05:49.284Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "231cdfdffcee53425843ebe100ccd6534b82a20d0a5debffc498f426c1128749",
-      "full": "89ad6bd72bd2f511dadda4095b6970efc76ed8ed888abd4ca55307b1e1fce340"
+      "full": "033742bd3b554ca36b3d0d17747acfda1d6386e6f066840fe2703cf9816dcff6"
     },
     {
       "width": 390,
       "top": "98536c7102f50158e8becb378aa26c881a2038f1c81a4f37f85bd502c9bfb047",
-      "full": "31a0344b304f6eb1f9fe3aea7a34b8383282bd30257b59710ee0c663c916d824"
+      "full": "61dbe68c9c41913714c671e55da39e5470079e02ce674332f5bb0d6abdf682d0"
     },
     {
       "width": 430,
       "top": "732bb4db786ceb6a29f5f7b1fe3928419103446affd1d437d6b91034e7c31cc0",
-      "full": "95519f72c64b4c3d8fae75abe704bcd989ace6e2475133831af1c5d0290fec53"
+      "full": "57f6fc4b2bc137e7b66e16c36cbb7145092e3e465f5d9200b2bbfc55941df113"
     },
     {
       "width": 768,
       "top": "b5f26018156cf83481a93d17b72132d94e47c2a1c24fea12d32f28b1afe1d552",
-      "full": "17253cbb8a0f1e7712b44357d17967f96dc849954cdc688283e269cbf1b493e1"
+      "full": "a737a56112af4d2529d124c975e86856c7948a91ed3ab3fcc54cd1a34d62bd2e"
     },
     {
       "width": 1440,
       "top": "bb770231637d6a05436ef49da7a1ff29444c95c1e58f8eafa18d82bb0b3b5810",
-      "full": "d2e84b7e1cff73345c6967e464c3800ea368d542c06219f9e6a8d57a44bc4707"
+      "full": "51b2496f919ac69222016f275a0ae01b201caaa7b05431e19c2d8d85b7e4271c"
     }
   ],
   "failures": [],

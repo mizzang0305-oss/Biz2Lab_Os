@@ -36,6 +36,22 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("depression memo distinguishes consent and personal voice without scoring safety or delaying crisis help", () => {
+  const tool = healthTools.find(t => t.slug === "depression-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.match(tool.fields![0], /본인의 말.*동의받은 주변 관찰/);
+  assert.match(copy.purpose, /가족 참여나 기록 완성은 진료의 조건이 아닙니다/);
+  assert.match(copy.limitation, /빈칸·짧은 기록을 위험 없음으로 판단하지/);
+  assert.match(copy.sheetNotice!, /이미 다쳤거나.*즉시 119/);
+  assert.match(copy.sheetNotice!, /혼자 두거나 비밀을 약속하지/);
+  assert.match(copy.sheetNotice!, /109 응답을 기다려 긴급 도움을 미루지/);
+  assert.equal(getToolSources(tool).length, 6);
+  assert.doesNotMatch(JSON.stringify(copy), /PHQ|\d+\s*(점 이상|주간|일간|mg)/);
+});
+
 test("UTI memo stays a parent companion without culture waiting or leftover antibiotic instructions", () => {
   const tool = healthTools.find(t => t.slug === "urinary-tract-infection-visit-card")!;
   const copy = toolEditorial[tool.slug];

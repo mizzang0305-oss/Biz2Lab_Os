@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "depression-visit-card": {
+    indexDecision: "NOINDEX_FOLLOW",
+    inheritParentWarning: true,
+    title: "우울감 진료 메모: 본인의 말·일상 변화·원하는 도움",
+    description: "본인이 느낀 어려움과 동의한 주변 사람의 관찰을 구분해 진료에 가져가는 보조 메모입니다. 우울증 검사·위험 점수표나 가족만의 안전계획이 아닙니다.",
+    updatedAt: "2026-09-07",
+    purpose: "가족 참여나 기록 완성은 진료의 조건이 아닙니다.",
+    steps: [
+      "본인의 말과 관찰을 구분하고, 평소 공유 범위를 상의합니다. 모르면 미확인으로 둡니다.",
+      "기분·일상 변화와 실제 약·최근 변경을 전합니다. 쓰기 어려우면 말로 설명합니다.",
+      "원하는 도움을 묻고 받은 답·다음 확인·연락 방법을 적습니다. 위기에는 도움 연결이 먼저입니다.",
+    ],
+    example: "작성 위치 예시: 잠들기 어렵다 → 본인의 말 / 예약 이동 지원 → 원하는 도움.",
+    limitation: "빈칸·짧은 기록을 위험 없음으로 판단하지 않습니다. 기간·점수를 채우며 기다리거나 약을 혼자 늘리거나 끊지 않습니다. 대화·기록은 전문 치료나 개인 안전계획을 대신하지 않으며 가족에게 모든 책임을 맡기지 않습니다.",
+    sheetNotice: "이미 다쳤거나 자신을 해칠 위험이 임박했거나 지금 안전을 지키기 어렵다면 즉시 119입니다. 경찰 보호가 필요한 위험은 112에 요청합니다. 자살 생각·극심한 괴로움에는 지금 24시간 상담전화 109와 전문 도움을 연결하되 긴급구조를 늦추지 않습니다. 자살 생각을 말한 사람을 혼자 두거나 비밀을 약속하지 말고, 주변 안전을 확보하며 몸싸움·혼자 제압은 피합니다. 기록·약효·예약·109 응답을 기다려 긴급 도움을 미루지 않습니다.",
+    sourceIds: ["SRC-NIMH-DEPRESSION"],
+    links: [
+      { href: "/health/guides/symptom-journal", label: "본인의 경험·주변 관찰·추측을 나눠 적기" },
+      { href: "/health/guides/medication-list", label: "최근 변경과 실제 약·보충제를 전하는 목록" },
+      { href: "/health/guides/appointment-questions", label: "원하는 도움과 다음 연락 계획의 답 남기기" },
+    ],
+  },
   "urinary-tract-infection-visit-card": {
     indexDecision: "NOINDEX_FOLLOW",
     inheritParentWarning: true,

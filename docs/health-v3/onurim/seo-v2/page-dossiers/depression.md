@@ -65,3 +65,7 @@ MEDICAL_REVIEW_COMPLETED=NO · REAL_HUMAN_READER_TEST=NOT_PERFORMED. 웹근거�
 INTENT_PASS · TITLE_PASS · DESCRIPTION_PASS · H1_PASS · CONTENT_UNIQUENESS_PASS · MEDICAL_SOURCE_PASS · INTERNAL_LINK_PASS · IMAGE_PASS · MOBILE_PASS · SCHEMA_PASS · CANONICAL_PASS · INDEXABILITY_PASS.
 
 임상·실제독자·fieldCWV·Google색인보장아님. Preview/Production/색인요청없음.
+
+## Tool31 연계 재확인 — 2026-09-07
+
+우울감 메모의 카드 설명·3필드·3질문을 개별 개선, NOINDEX_FOLLOW 보조 역할 판정. 부모 의료 본문·날짜·Claim·출처 객체는 유지. 부모5폭QA/SEO 재실행 PASS와 raw/page-qa 갱신. 도구 출처·2쪽 인쇄 검증은 `tool-depression-visit-card.md`. 이전 본문 전체 test/build는 당시 증거이지 현재 전체 재실행이 아니다.
