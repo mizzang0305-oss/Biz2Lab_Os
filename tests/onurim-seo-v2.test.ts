@@ -535,6 +535,21 @@ test("GERD separates terms and timing without waiting for severe cardiac pain", 
   assert.match(readFileSync("app/health/onurim.module.css", "utf8"), /onurim-article-hero > \*\) \{ min-width: 0; \}/);
 });
 
+test("OA family checklist is a noindex consent aid and not a pain or caregiver score", () => {
+  const tool = healthTools.find(t=>t.slug==="oa-family-support")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 1);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(copy.steps.length, 2);
+  assert.equal(getToolSources(tool).length, 3);
+  assert.ok(getToolSafetyNotice(tool));
+  assert.match(copy.purpose, /오누림의 편집 원칙/);
+  assert.match(copy.limitation, /통증의 진실성·가족의 성실성·회복 정도를 평가하지/);
+  assert.match(tool.items!.join(" "), /동의한 범위/);
+  assert.match(copy.sheetNotice!, /119/);
+});
+
 test("OA visit questions connect personal activity priorities to choices without requiring procedures", () => {
   const tool = healthTools.find(t=>t.slug==="oa-visit-questions")!;
   const copy = toolEditorial[tool.slug];

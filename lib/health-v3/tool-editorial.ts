@@ -17,6 +17,26 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "oa-family-support": {
+    indexDecision: "NOINDEX_FOLLOW",
+    inheritParentWarning: true,
+    title: "관절 불편 가족 지원 체크: 원하는 도움과 하지 않을 일 확인",
+    description: "당사자가 원하는 기록·일상·진료 준비 도움을 먼저 묻고 함께 정한 역할을 남기는 인쇄용 보조표입니다. 가족이 통증이나 치료를 평가하는 점수표가 아닙니다.",
+    updatedAt: "2026-09-06",
+    purpose: "관절이 불편한 가족과 어떤 도움을 원하고 원하지 않는지 이야기한 뒤 쓰는 보조 체크입니다. 동의를 먼저 묻는 순서는 오누림의 편집 원칙이며 특정 치료 효과를 보장하는 의료 절차가 아닙니다.",
+    steps: [
+      "기록 정리·진료 동행·일상 도움 중 당사자가 원하는 일을 먼저 묻습니다. 원하지 않는 도움은 강요하지 않고 함께 정한 역할만 적습니다. 아직 정하지 않았다면 미정으로 남깁니다.",
+      "실제로 확인한 항목만 표시합니다. 관찰 기록은 당사자의 말을 바꾸지 않고 도우며 공유 범위도 확인합니다. 체크를 채우려고 걷기나 아픈 동작을 시키거나 가족이 약·보조기구를 대신 선택하지 않습니다.",
+    ],
+    example: "작성 위치 예시: 함께 정한 도움·담당 → 아래 메모 / 실제 관절·활동 변화 → 관찰표 / 치료 선택에 대한 궁금증 → 진료 질문 카드. 도움을 거절한 것을 비협조나 실패로 기록하지 않습니다.",
+    limitation: "체크 수로 통증의 진실성·가족의 성실성·회복 정도를 평가하지 않습니다. 관절 상태나 약·재활·보조기구의 적합성은 의료진과 상의합니다. 급한 변화를 일상 도움만으로 해결하려 하지 않습니다.",
+    sheetNotice: "갑작스러운 심한 관절통이나 새 부종, 관절 주변 피부색 변화는 체크보다 당일 신속한 진료가 먼저입니다. 열이 나거나 모든 증상이 모일 때까지 기다리지 않습니다. 심한 외상 뒤 움직일 수 없거나 의식·호흡의 위급한 변화가 있으면 119에 도움을 요청합니다.",
+    sourceIds: ["SRC-NIAMS-OA-TREATMENT", "SRC-NHS-SEPTIC-ARTHRITIS"],
+    links: [
+      { href: "/health/tools/oa-daily-activity-log", label: "당사자의 실제 관절·활동 변화를 남기는 기록표" },
+      { href: "/health/tools/oa-visit-questions", label: "본인의 활동 목표와 치료 선택을 묻는 질문 카드" },
+    ],
+  },
   "oa-visit-questions": {
     indexDecision: "INDEX_UTILITY",
     inheritParentWarning: true,
