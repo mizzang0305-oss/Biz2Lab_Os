@@ -1,33 +1,33 @@
 {
   "route": "/health/hypertension",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T04:27:36.437Z",
+  "observedAt": "2026-09-06T04:46:11.590Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "bac4670e12a213598a29ef96eddf2c6a6bca2e1bef25485a149e8638e4782d62",
-      "full": "0bf592e6f82abbdebade821ff34982385ad2c86de1cf79afe1a25cdcc7ac15f2"
+      "full": "db22b81dc34f28e55b0afe8df2c52bde42bf467b25eb2a1667e1eae35aae71e3"
     },
     {
       "width": 390,
       "top": "1abe2271e28cf6b7692603e80c6d39f1791fd463ef19df564796f6d0e6136a61",
-      "full": "232212cd229ad257a2bf94c11d1d9483460e7cb5f2065a9449ef30326c56ba9f"
+      "full": "345b44b9c63edce56dd675a6fc055828f24da900dc933da0b7bf493483fe28e7"
     },
     {
       "width": 430,
       "top": "b4a9de07dc050b0f31e40f2c97866d8a89274ed7c2bbbcfc6cc50fc6c601705f",
-      "full": "b06fbc054a1a9486604172812f69e0a0ecb25eea0fbe4f4ad80718fc76c34427"
+      "full": "4517a87b9b18c63294ef6fb515434688f7aae7d02fa9edc072639fc8d09ef8b7"
     },
     {
       "width": 768,
       "top": "4aa55a06e87174662a6a3baf72f5c3063b2a2b1c27b65cf9c754fd0b031140c6",
-      "full": "e7ac12c5b98ef4bcf85e77c46b873f55adf4b17838fbd7570ffd1c7a84659c97"
+      "full": "05a406c92c2e4370bf303e0d9d1e4aa1186ef45fbea787b737e28126c1c361ac"
     },
     {
       "width": 1440,
       "top": "298cde98ece9888053a53a53798bf7e07cef7d6ebff33623dfd842ce4b948408",
-      "full": "ad6277b3465f2d9a25ed06915f83e5c026edb91cc274c1446cc83c93128876c0"
+      "full": "e6cb65518d70e566f381df5e30209120547461d25db4d9a7984ea29bc66be723"
     }
   ],
   "failures": [],

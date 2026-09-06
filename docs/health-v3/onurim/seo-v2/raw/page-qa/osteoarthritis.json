@@ -1,0 +1,446 @@
+{
+  "route": "/health/osteoarthritis",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T04:45:59.234Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "3684c0ee6ef7b41f73fb9271ae0f1ea6e474324e47f4bb6421a491675822c379",
+      "full": "76e955d466acd6ca1fcb938021f64c5530a37b23e9945d065d9da989fd48da80"
+    },
+    {
+      "width": 390,
+      "top": "fd3028fb7ca82191278a2fa285309f00c67c5d25f30768381d502766b0fdb54e",
+      "full": "4dbe443c7e013ffde9118e82a4583925c5997334b8011f2914b8b99e569a249a"
+    },
+    {
+      "width": 430,
+      "top": "b89eb13b0675f76ff8ba49cd2ac39008cbf3d0f8f51e4c2bc2c6f7e832c5289a",
+      "full": "b24b4871b42c2c30f2c78983e87b3b56a42416ae50a8fdb653a0dcde3965e177"
+    },
+    {
+      "width": 768,
+      "top": "175c0b6cd90594775ee67f2d264404df384edcecc8c1713a6173a97e714891b6",
+      "full": "628b266d6474865ddd877604fbab1b77aa5e7725dc58c472e251fe4100ebf164"
+    },
+    {
+      "width": 1440,
+      "top": "6cd84c5805f36f6da4ac6f6a596d816e7c11c814c3ea504f342e796e4894259c",
+      "full": "6984d256749d132bfb5f36c2c996b6c2678bb7669716a2beba2ef1864a950a7c"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "골관절염 증상과 운동, 무릎·손 관절 기록법 | 오누림",
+      "h1": [
+        "골관절염, 통증과 일상 변화를 함께 살피기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "어떤 일이 전보다 어려워졌나요?",
+        "연골만 닳는 병, 나이 들면 당연한 병일까요?",
+        "갑자기 붓고 심하게 아프면 기록보다 진료",
+        "진찰과 X선·MRI는 무엇을 확인하나요?",
+        "운동과 휴식은 내 반응을 보며 조정합니다",
+        "약·보조도구는 생활 목표와 함께 질문하세요",
+        "가족에게는 필요한 도움을 골라 부탁합니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/osteoarthritis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fhero.webp&w=3840&q=75",
+          "alt": "일상 활동 전후의 무릎 불편과 변화를 관찰 노트에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "관절의 뼈 끝과 완충 조직을 단순화해 보여 주는 교육용 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fchecklist.webp&w=3840&q=75",
+          "alt": "두 성인이 일상 활동 기록과 질문 카드를 차분히 준비하는 교육용 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 492
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "골관절염 증상과 운동, 무릎·손 관절 기록법 | 오누림",
+      "h1": [
+        "골관절염, 통증과 일상 변화를 함께 살피기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "어떤 일이 전보다 어려워졌나요?",
+        "연골만 닳는 병, 나이 들면 당연한 병일까요?",
+        "갑자기 붓고 심하게 아프면 기록보다 진료",
+        "진찰과 X선·MRI는 무엇을 확인하나요?",
+        "운동과 휴식은 내 반응을 보며 조정합니다",
+        "약·보조도구는 생활 목표와 함께 질문하세요",
+        "가족에게는 필요한 도움을 골라 부탁합니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/osteoarthritis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fhero.webp&w=3840&q=75",
+          "alt": "일상 활동 전후의 무릎 불편과 변화를 관찰 노트에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "관절의 뼈 끝과 완충 조직을 단순화해 보여 주는 교육용 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fchecklist.webp&w=3840&q=75",
+          "alt": "두 성인이 일상 활동 기록과 질문 카드를 차분히 준비하는 교육용 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "골관절염 증상과 운동, 무릎·손 관절 기록법 | 오누림",
+      "h1": [
+        "골관절염, 통증과 일상 변화를 함께 살피기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "어떤 일이 전보다 어려워졌나요?",
+        "연골만 닳는 병, 나이 들면 당연한 병일까요?",
+        "갑자기 붓고 심하게 아프면 기록보다 진료",
+        "진찰과 X선·MRI는 무엇을 확인하나요?",
+        "운동과 휴식은 내 반응을 보며 조정합니다",
+        "약·보조도구는 생활 목표와 함께 질문하세요",
+        "가족에게는 필요한 도움을 골라 부탁합니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/osteoarthritis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fhero.webp&w=3840&q=75",
+          "alt": "일상 활동 전후의 무릎 불편과 변화를 관찰 노트에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "관절의 뼈 끝과 완충 조직을 단순화해 보여 주는 교육용 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fchecklist.webp&w=3840&q=75",
+          "alt": "두 성인이 일상 활동 기록과 질문 카드를 차분히 준비하는 교육용 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "골관절염 증상과 운동, 무릎·손 관절 기록법 | 오누림",
+      "h1": [
+        "골관절염, 통증과 일상 변화를 함께 살피기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "어떤 일이 전보다 어려워졌나요?",
+        "연골만 닳는 병, 나이 들면 당연한 병일까요?",
+        "갑자기 붓고 심하게 아프면 기록보다 진료",
+        "진찰과 X선·MRI는 무엇을 확인하나요?",
+        "운동과 휴식은 내 반응을 보며 조정합니다",
+        "약·보조도구는 생활 목표와 함께 질문하세요",
+        "가족에게는 필요한 도움을 골라 부탁합니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/osteoarthritis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fhero.webp&w=3840&q=75",
+          "alt": "일상 활동 전후의 무릎 불편과 변화를 관찰 노트에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "관절의 뼈 끝과 완충 조직을 단순화해 보여 주는 교육용 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fchecklist.webp&w=3840&q=75",
+          "alt": "두 성인이 일상 활동 기록과 질문 카드를 차분히 준비하는 교육용 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "골관절염 증상과 운동, 무릎·손 관절 기록법 | 오누림",
+      "h1": [
+        "골관절염, 통증과 일상 변화를 함께 살피기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "어떤 일이 전보다 어려워졌나요?",
+        "연골만 닳는 병, 나이 들면 당연한 병일까요?",
+        "갑자기 붓고 심하게 아프면 기록보다 진료",
+        "진찰과 X선·MRI는 무엇을 확인하나요?",
+        "운동과 휴식은 내 반응을 보며 조정합니다",
+        "약·보조도구는 생활 목표와 함께 질문하세요",
+        "가족에게는 필요한 도움을 골라 부탁합니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/osteoarthritis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fhero.webp&w=3840&q=75",
+          "alt": "일상 활동 전후의 무릎 불편과 변화를 관찰 노트에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "관절의 뼈 끝과 완충 조직을 단순화해 보여 주는 교육용 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoarthritis%2Fchecklist.webp&w=3840&q=75",
+          "alt": "두 성인이 일상 활동 기록과 질문 카드를 차분히 준비하는 교육용 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

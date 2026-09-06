@@ -31,6 +31,10 @@ async function run() {
       await page.screenshot({ path: path.join(out, `${width}-top.png`) });
       for (const image of await page.locator("main img").all()) {
         await image.scrollIntoViewIfNeeded();
+        // Lazy loading starts asynchronously after scrolling. decode() alone
+        // can reject before a request starts; retain the final loaded check.
+        await page.waitForFunction(img => img instanceof HTMLImageElement && img.complete && img.naturalWidth > 0,
+          await image.elementHandle(), { timeout: 15000 }).catch(() => undefined);
         await image.evaluate((img: HTMLImageElement) => img.decode().catch(()=>undefined));
       }
       const details = await page.evaluate(() => ({

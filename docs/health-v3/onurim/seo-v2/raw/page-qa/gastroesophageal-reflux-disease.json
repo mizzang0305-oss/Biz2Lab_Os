@@ -1,33 +1,33 @@
 {
   "route": "/health/gastroesophageal-reflux-disease",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T04:28:39.627Z",
+  "observedAt": "2026-09-06T04:46:50.542Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "5df218b0c0b140a22e5b9bbfea9a6a24e4c6cd59c69f028e6120232acf1b6238",
-      "full": "cd6f351298ef825f6d931f24670070025e6b4216da7f09281fd4d015c802ab07"
+      "full": "1e3bf486377cafebbfcedcb3f7d308a4a13a130725042c515df83e85da36619b"
     },
     {
       "width": 390,
       "top": "77761a589fab55bd74299d86e1d8556594dc1d44f900da03ccfcd8d932693f0e",
-      "full": "a41199004a8f7e0936ef9a75dd7621d380f30d4024c88ec5fc940f0c11757613"
+      "full": "8d6f33173b10460b83e2d9499bcbab0d65f649ca88d6ef2e059b926edbab1614"
     },
     {
       "width": 430,
       "top": "c029b09081419378b7dc6a45e195773bb32c296ccc29a92d6b070373684ce501",
-      "full": "0491b044183bbaa939936c6fd2cdcd66985a75dc92142addb9af5ff0e98481c5"
+      "full": "62dce18b16450233702d83341d674ca699324391489495f769c6dd9e75fbb728"
     },
     {
       "width": 768,
       "top": "6cd021f36367ef90cd605c19016bd5cf121fcec41dc09c260e886f37c28fa628",
-      "full": "abda51f9dfa2d22497caca367a4ced8e229860616900ff973753556674b310ce"
+      "full": "b46f935c14868a9be8bdca215bdc8247b30bf827382f085bd8f3edda1b00a44d"
     },
     {
       "width": 1440,
       "top": "e88e913a82d2ba77c87cb9d460641f8c4e07b0c50c58e250fab210245314c28a",
-      "full": "a802263c9783b6119836b3844b98524a0b0abdd22380fce3048964a2f32e4481"
+      "full": "d83057155af6b94c5f126f156019bdddcda44fda7d0332c1a4834577ab2325f9"
     }
   ],
   "failures": [],

@@ -121,3 +121,28 @@ test("GERD separates terms and timing without waiting for severe cardiac pain", 
   assert.match(JSON.stringify(article), /식도 점막/);
   assert.match(readFileSync("app/health/onurim.module.css", "utf8"), /onurim-article-hero > \*\) \{ min-width: 0; \}/);
 });
+
+test("osteoarthritis starts with function and separates acute joint changes from usual activity planning", () => {
+  const article = healthArticles.osteoarthritis;
+  assert.equal(article.faq.length, 6);
+  assert.ok(article.sections[0].table?.rows.some(row=>row[0]==="손가락·엄지"));
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections.find(s=>s.tone==="warning")!;
+  assert.ok(urgent.sourceIds!.includes("SRC-NHS-SEPTIC-ARTHRITIS"));
+  assert.match(JSON.stringify(urgent), /당일 신속히/);
+  assert.match(JSON.stringify(urgent), /열이 날 때까지 기다리는 기준이 아닙니다/);
+  assert.doesNotMatch(article.eyebrow, /Preview|비공개/);
+});
+
+test("article source count badges count distinct sources instead of claim IDs", () => {
+  const component = readFileSync("components/health/HealthArticle.tsx", "utf8");
+  assert.match(component, /new Set\(sourceIds \?\? healthClaims/);
+  assert.match(component, /sourceIds=\{section\.sourceIds\}/);
+  assert.match(component, /sourceIds=\{item\.sourceIds\}/);
+  assert.doesNotMatch(component, /출처 연결 \{ids\.length\}/);
+});

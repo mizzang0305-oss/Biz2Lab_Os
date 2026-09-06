@@ -1,33 +1,33 @@
 {
   "route": "/health/type-2-diabetes",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T04:27:57.095Z",
+  "observedAt": "2026-09-06T04:46:24.903Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "a0dcbc61a91480054dda78401ca4dd55069a8968d4358c2a9dbcdb0e0dc63068",
-      "full": "e490d7910436d987ba2f5f015879851e8d1a3bc8f36bd75b40ccbbd4b473377e"
+      "full": "760aa5066b5817d6fa53c5012ddc6b05d7e136ef348cd0a595e94758350760d3"
     },
     {
       "width": 390,
       "top": "6f8ff15da7c368fe99fd7807f3f5d4a9bd3363ffcf82bb7b998bcc1aaf80e001",
-      "full": "dfd6d11ef842a9ef3f799c5bf0e20263b0ff41dbad646e2ec18b67897a0494e2"
+      "full": "1b421fa7434b5764d21aec0e5775371f6baf7f526073bfb2344dbc12c99104d7"
     },
     {
       "width": 430,
       "top": "c729f0dd3423a42446eb80777506c45d7e6c30de9c8f8a648525f7d2d91dab86",
-      "full": "801a19cf8cc8cdf5e823b22e835c0502c6c8e47cc4f959ea3bd7cd7362c302c0"
+      "full": "7ee54270e096ac29d29a7a18454e9bcd45095e386573881967dd97a478a5e5c7"
     },
     {
       "width": 768,
       "top": "7eb29423d7ce58189b844c809666624aaf1f92542070a65861b50c77844709b1",
-      "full": "0a1ae629758d0afb31be33ba4169a18333c10bc536ed2845731f3d2b2676b10e"
+      "full": "316ece23cb1982140bfbbc0c598be46c6ddf40747bf7c247c8593f443c28ed3d"
     },
     {
       "width": 1440,
       "top": "d374284400ab53476d47713b58ae173d30f562b64819d782ffd640598e71e640",
-      "full": "aa8e45a93ad7d2f72e18c77a1532036b02e9c36542f0678b790eb83178af4ffb"
+      "full": "3fa1b1ba495c61e2d91fce0823466c2b5359630cf7c43481e19bc78d2c389cd4"
     }
   ],
   "failures": [],

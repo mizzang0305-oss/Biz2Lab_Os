@@ -1,33 +1,33 @@
 {
   "route": "/health/allergic-rhinitis",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T04:28:14.011Z",
+  "observedAt": "2026-09-06T04:46:37.758Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "bd630a15a0ea70a082bdaf4d98c00842dda7f9ec816812645f804448e2026c89",
-      "full": "559b2d26a8e309ab8d7a98ed6ebc328b706ad4ac4b82121189815e87492398d9"
+      "full": "2c93c4198d8a63047023eb4b19e1f1498b968bd343419353caed044967b84445"
     },
     {
       "width": 390,
       "top": "91161ef1f270bcd413805ae6fced7459b30cda4242c0ea0bddc7621425223153",
-      "full": "a261b83101ff9cc053a1d09aee4d692b08512f12e3d1a54a9f66cfb321ff4cfd"
+      "full": "c5496bc5dc2b37bd2100c158ea203676b164b1dd34c134bc3d611901d8c0c5a4"
     },
     {
       "width": 430,
       "top": "c0fa2cf6d955b35114c4ac78259eb3234b35b86d9e06c731e16fe6f706959295",
-      "full": "23661a71c511a448628068a94527e0d2f333ec7d3e311536243a840a418e01b3"
+      "full": "0858e752ec740eb454d62feff477a2ede2f1c3c7cf1d95b7ad46ad696844d028"
     },
     {
       "width": 768,
       "top": "e2182044fd11754b3c55b5d7f066c6de3e28e445cee5917a8d238e9ae3eaa877",
-      "full": "82d12370e0518c3ffe32e90bdb0a8f5191ac2d49585f650f42c22850c640b2e5"
+      "full": "67d641b58d8e307f7959af3577ed5cf963dff155364fb97ee486670c9dfe25fe"
     },
     {
       "width": 1440,
       "top": "c89391d91f3702f369832327a57a0f06af689bfeae1ec8b9a40cd35abd89d3e1",
-      "full": "b82e316c9673be402d5c3edd1bb624ba4e39035e1692d38a182fffbdbaf638f5"
+      "full": "7425ae1dd2899af2ed97a13109cb2385da181487fb55e744051f335424352c3e"
     }
   ],
   "failures": [],

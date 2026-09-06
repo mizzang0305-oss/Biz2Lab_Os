@@ -121,7 +121,7 @@ const imageMeta: Record<string, { src: string; alt: string; caption: string; wid
   "oa-explainer": {
     src: "/images/onurim/osteoarthritis/explainer.webp",
     alt: "관절의 뼈 끝과 완충 조직을 단순화해 보여 주는 교육용 삽화",
-    caption: "관절의 여러 조직을 단순화한 그림이며 개인의 영상 검사나 상태를 보여 주지 않습니다.",
+    caption: "관절의 여러 조직을 단순화한 개념도입니다. 개인의 검사 영상이나 연골 재생을 보여 주지 않으며, 걷기 장면이 모두에게 같은 운동을 처방하는 뜻도 아닙니다.",
     width: 1536,
     height: 1024,
   },
@@ -180,10 +180,11 @@ for (const guide of expansionGuideSummaries) {
   };
 }
 
-function ClaimStatus({ ids }: { ids: string[] }) {
+function ClaimStatus({ ids, sourceIds }: { ids: string[]; sourceIds?: string[] }) {
+  const count = new Set(sourceIds ?? healthClaims.filter(claim => ids.includes(claim.id)).flatMap(claim => claim.sourceIds)).size;
   return (
     <span className="onurim-claim-status" data-claim-ids={ids.join(",")}>
-      출처 연결 {ids.length}개
+      근거 출처 {count}개
     </span>
   );
 }
@@ -284,7 +285,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
               >
                 <div className="onurim-section-heading">
                   <h2>{section.title}</h2>
-                  <ClaimStatus ids={section.claimIds} />
+                  <ClaimStatus ids={section.claimIds} sourceIds={section.sourceIds} />
                 </div>
                 {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 {section.bullets ? <ul>{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul> : null}
@@ -314,7 +315,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
                 <details key={item.question} data-claim-ids={item.claimIds.join(",")}>
                   <summary>{item.question}</summary>
                   <p>{item.answer}</p>
-                  <ClaimStatus ids={item.claimIds} />
+                  <ClaimStatus ids={item.claimIds} sourceIds={item.sourceIds} />
                   {sourceLinks(item.sourceIds)}
                 </details>
               ))}
