@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir, access } from "node:fs/promises";
 import path from "node:path";
 
 // Offline, reproducible join of previously observed public/UI evidence.
@@ -23,6 +23,18 @@ type Pair = [string, string];
 type PerformanceRow = [string, number, number, number | null, number | null];
 
 async function run() {
+  // This initializes historical evidence, not the mutable certification ledger.
+  // Never erase subsequent per-page decisions, QA or historical snapshots.
+  let existingSurface = false;
+  try {
+    await access(path.join(dir, "04-index-surface-decision.csv"));
+    existingSurface = true;
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+  }
+  if (existingSurface) {
+    throw new Error("Existing index surface: refuse baseline regeneration. Preserve certifications and use separate after-audit artifacts.");
+  }
   const crawl = await read<{ flat: Flat[]; graph: Record<string, string>[]; similarity: { a: string; b: string; first300WordJaccard: number; headingJaccard: number; faqJaccard: number }[] }>("raw/production-crawl.json");
   const inspection = await read<Inspection>("raw/gsc-url-inspections-2026-09-06.json");
   const aggregate = await read<{ origin: string; indexed: Pair[]; discoveredNotIndexed: string[]; crawledNotIndexed: Pair[]; redirect: Pair[]; notFound: Pair[] }>("raw/gsc-index-report-2026-09-06.json");

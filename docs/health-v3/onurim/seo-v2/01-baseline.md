@@ -64,3 +64,14 @@ HbA1c URL을 실제 페이지 필터로 선택해 `hba1c 뜻` / `hba1c` / `hba1c
 ## 진실성 보존
 
 실제 작성자 박영훈(비의료 건강정보 편집자), 의료인 검수 미완료, 기존 47개 licensed review packet, synthetic reader와 real human reader의 구분을 유지한다. 출처 조사와 SEO QA는 licensed medical review가 아니다.
+
+## 9월 6일 후속 원장 정정 — Production 관측 변경 아님
+
+Tool 13–17 기록 과정에서 `04-index-surface-decision.csv`의 `production_applied`에 로컬 적용을 뜻한 YES가 잘못 입력됐다. 실제 Production 배포·승격·도메인 변경은 0건이다. 같은 5행의 `content_inlinks_now`에는 outbound 수가 들어갔고 두 NOINDEX 행에서는 고유성 열에 indexability 값이 들어갔다. 이 기록 오류를 정정했으며 배포가 있었다가 롤백된 것으로 해석하면 안 된다.
+
+- 전 77행 `production_applied=NO`; 기존 46개 개별 인증과 판정은 유지.
+- 시점이 섞였던 `*_now` 열은 제거했다. `baseline_*`는 변경하지 않은 03 원장으로 복원하고, 제목·설명 고유성은 baseline 77행의 실제 문자열 중복으로 계산했다.
+- `local_qa_*`는 해당 로컬 JSON의 관측 시각·경로와 함께 46개 인증 페이지에 별도 기록했다. 전체 링크 그래프·중복 제목/설명은 단일 페이지 감사로 입증할 수 없어 `local_content_inlinks`, `local_unique_title`, `local_unique_description`을 NOT_AUDITED로 유지한다. 로컬 개별 인증은 전역 중복검사나 Production 적용을 뜻하지 않는다.
+- 기존 baseline 생성기에 재실행 거부 보호를 추가했다. 실제 재실행은 의도한 exit1/refuse baseline regeneration을 반환했고 기존 증거 182파일의 SHA-256 변경은 0건이었다. 기존 실패 실행도 숨기지 않는다: 로컬 정정 스크립트 첫 실행은 확장자 없는 CSV를 JSON으로 읽다 중단됐으며 파일 쓰기 전에 실패했다. 형식 확인 후 재실행해 77행/46인증/Production YES 0을 검증했다.
+
+03 원장과 과거 Google 관측은 그대로 보존한다. 최종 after crawl은 새 산출물로 만들며 baseline 생성기로 덮어쓰지 않는다.
