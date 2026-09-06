@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "osteoporosis-appointment-prep": {
+    indexDecision: "INDEX_UTILITY",
+    inheritParentWarning: true,
+    title: "골다공증 진료 준비표: 골밀도 원본·골절 이력·약을 함께",
+    description: "골밀도 결과 원본, 과거 골절·낙상 상황과 약·보충제 이력을 준비하고 개인별 해석·치료·다음 검사 목적을 묻는 인쇄 양식입니다. T점수 하나로 진단하거나 골절 위험을 계산하지 않습니다.",
+    updatedAt: "2026-09-06",
+    purpose: "골다공증 검사나 치료를 상담할 때 숫자와 개인 이력을 함께 전달하는 준비표입니다. 이미 검사를 받았어야 쓸 수 있는 양식은 아니며 없는 결과나 모르는 이력을 채워 만들지 않습니다.",
+    steps: [
+      "결과지가 있으면 검사 날짜·기관·측정부위가 보이는 원본을 준비합니다. 이전 골절은 언제·어디가·어떤 상황에서 다쳤는지, 낙상이나 균형 변화는 무엇이 달랐는지 아는 만큼 적습니다.",
+      "현재 약·보충제와 관련 과거 약 이력을 목록이나 포장으로 가져갑니다. 해당한다면 스테로이드 사용, 관련 질환·가족력·월경 또는 폐경 이력도 진료에서 알립니다. 날짜·약 이름을 모르면 미확인으로 남깁니다.",
+      "먼저 물을 질문을 고르고 답변 칸에 해석 기준·개인 계획·재평가 시점과 문의처를 적습니다. 먼저 고른 질문 외의 중요한 변화도 알리고, 다른 날짜·부위의 결과를 혼자 비교해 약을 바꾸지 않습니다.",
+    ],
+    example: "준비 위치 예시: 검사 날짜·부위 → 결과 원본 / 골절 당시 상황 → 이력 메모 / 현재 제품 이름·사용법 → 약 목록. 점수 하나를 정상·위험으로 표시하기보다 ‘제 이력과 함께 어떻게 해석하나요?’라고 묻습니다.",
+    limitation: "모두에게 같은 검사 간격이나 약·보충제 용량을 정하는 카드가 아닙니다. 검사값과 나이·골절 위험요인 등 개인 상황을 함께 평가합니다. 약이나 보충제를 스스로 시작·중단·변경하지 않으며 집안 점검만으로 골절 예방을 보장하지 않습니다.",
+    sheetNotice: "넘어지거나 다친 뒤 고관절·사타구니가 심하게 아프거나, 걷거나 체중을 싣지 못하거나, 다친 고관절·다리에 저림·감각 저하가 생기면 의식이 또렷해도 즉시 119에 도움을 요청합니다. 직접 운전하거나 서류 완성을 기다리지 않습니다. 의식·호흡의 위급한 변화도 119가 먼저입니다.",
+    sourceIds: ["SRC-NIAMS-OP-TREATMENT", "SRC-NIAMS-BMD", "SRC-NHS-HIP-FRACTURE"],
+    links: [
+      { href: "/health/tools/osteoporosis-home-check", label: "검사·치료와 별도로 확인할 집안 이동 환경" },
+      { href: "/health/guides/medication-list", label: "현재 약·보충제와 과거 사용 이력을 구분하는 목록" },
+      { href: "/health/guides/reading-health-results", label: "검사 원본의 날짜·부위·단위를 함께 읽는 방법" },
+    ],
+  },
   "oa-family-support": {
     indexDecision: "NOINDEX_FOLLOW",
     inheritParentWarning: true,

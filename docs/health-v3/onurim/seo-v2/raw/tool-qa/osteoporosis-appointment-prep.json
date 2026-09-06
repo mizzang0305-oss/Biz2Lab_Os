@@ -1,0 +1,63 @@
+{
+  "route": "/health/tools/osteoporosis-appointment-prep",
+  "observedAt": "2026-09-06T14:05:07.992Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "기존 검사 날짜·부위 / 골절·낙상 시기·부위·상황 (원본·미확인 가능)",
+    "현재 약·보충제 / 관련 과거 약·질환·가족력 등 진료에 알릴 이력"
+  ],
+  "sourceHrefs": [
+    "https://www.niams.nih.gov/health-topics/osteoporosis/diagnosis-treatment-and-steps-to-take",
+    "https://www.niams.nih.gov/health-topics/bone-mineral-density-tests-what-numbers-mean",
+    "https://www.nhs.uk/conditions/broken-hip/",
+    "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6226"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 4,
+    "overflow": 0,
+    "footerText": "골다공증 진료 준비표 · 양식·안내 수정 2026-09-06교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료NIH/NIAMS — Osteoporosis: Diagnosis, Treatment, and Steps to TakeNIH/NIAMS — Bone Mineral Density Tests: What the Numbers MeanNHS — Broken hip질병관리청 국가건강정보포털 — 심폐소생술의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 2,
+    "checkedItems": 0,
+    "footerParagraphFontPx": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "links": [
+    {
+      "href": "/health/osteoporosis",
+      "status": 200
+    },
+    {
+      "href": "/health/tools/osteoporosis-home-check",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/medication-list",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/reading-health-results",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "654fc39be58af0a7e8f4565bc5f61499ef171dfa0fe7e984353ff7793eb9c98e",
+  "pdfBytes": 136330,
+  "failures": []
+}

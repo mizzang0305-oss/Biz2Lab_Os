@@ -607,6 +607,20 @@ test("article source count badges count distinct sources instead of claim IDs", 
   assert.doesNotMatch(component, /출처 연결 \{ids\.length\}/);
 });
 
+test("osteoporosis preparation joins original test context and fracture history without autonomous score interpretation", () => {
+  const tool = healthTools.find(t=>t.slug==="osteoporosis-appointment-prep")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 2);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(getToolSources(tool).length, 4);
+  assert.ok(getToolSafetyNotice(tool));
+  assert.match(copy.steps.join(" "), /검사 날짜·기관·측정부위/);
+  assert.match(copy.limitation, /모두에게 같은 검사 간격/);
+  assert.match(copy.sheetNotice!, /의식이 또렷해도 즉시 119/);
+  assert.doesNotMatch(JSON.stringify(copy), /-2\.5|\d+\s*mg|\d+년마다/);
+});
+
 test("osteoporosis distinguishes test roles and escalates a fall even without impaired consciousness", () => {
   const article = healthArticles.osteoporosis;
   assert.equal(article.faq.length, 6);
