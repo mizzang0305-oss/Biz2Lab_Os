@@ -1,0 +1,356 @@
+{
+  "route": "/health/guides/family-medication-support",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T10:51:11.335Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "279ccc6ca5a76db2c394462b95b4ab84434ab653006596d8d87eb0d3c5776c59",
+      "full": "82e1f3eb58a1b1cc87be161f6bbe69a3dd52b4f6b6c3551756fd7a022dccc81e"
+    },
+    {
+      "width": 390,
+      "top": "ecfd85e9590a4519486dbc5a8362f71d80f16803f90e5b13a73ad5653f617cfe",
+      "full": "05381e1ecbad16cc26d0de5b79ac156e719bc7e2d40cc19fcbe601f44f1d5565"
+    },
+    {
+      "width": 430,
+      "top": "36e9e5eaec49a25365585156957737ea2b0be0dfbf763ccdd34550b3ee913020",
+      "full": "ce582da4709e0bce44e6f7388b4c38bb23678513f287cdeead2b8f2212aa4503"
+    },
+    {
+      "width": 768,
+      "top": "ca4afc2c8c63a0f91ea3a2751a299614ac39d00bc74cdbedab11c3451685509c",
+      "full": "d152a54e1f787fa4c4fc63bd3a243e720669180f264e296be19453bca4beedbf"
+    },
+    {
+      "width": 1440,
+      "top": "9b532b7e448471b6436eb724cd2e95f8df37950dbe14ff990a5b4d76903228df",
+      "full": "88b3880f71987eea659903f84ed32027f2301d5a3c28575ac0cf0f731bc27568"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "가족 복약 관리 돕는 법: 약 혼동·잊음·삼킴 어려움 | 오누림",
+      "h1": [
+        "가족의 약 챙기기, 대신 결정하지 않고 돕는 법"
+      ],
+      "h2": [
+        "‘어디까지 도와드릴까요?’부터 묻습니다",
+        "먹으라고 재촉하기 전, 어떤 어려움인지 나눕니다",
+        "목록은 같이 만들되, 약을 고르는 일과 구분합니다",
+        "여러 가족이 돕는다면 같은 안내를 보고 인계합니다",
+        "새로운 이상은 약 탓으로 단정하지 말고 도움을 요청합니다",
+        "약을 챙기는 가족이 자주 묻는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/family-medication-support",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "가족 복약 관리 돕는 법: 약 혼동·잊음·삼킴 어려움 | 오누림",
+      "h1": [
+        "가족의 약 챙기기, 대신 결정하지 않고 돕는 법"
+      ],
+      "h2": [
+        "‘어디까지 도와드릴까요?’부터 묻습니다",
+        "먹으라고 재촉하기 전, 어떤 어려움인지 나눕니다",
+        "목록은 같이 만들되, 약을 고르는 일과 구분합니다",
+        "여러 가족이 돕는다면 같은 안내를 보고 인계합니다",
+        "새로운 이상은 약 탓으로 단정하지 말고 도움을 요청합니다",
+        "약을 챙기는 가족이 자주 묻는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/family-medication-support",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "가족 복약 관리 돕는 법: 약 혼동·잊음·삼킴 어려움 | 오누림",
+      "h1": [
+        "가족의 약 챙기기, 대신 결정하지 않고 돕는 법"
+      ],
+      "h2": [
+        "‘어디까지 도와드릴까요?’부터 묻습니다",
+        "먹으라고 재촉하기 전, 어떤 어려움인지 나눕니다",
+        "목록은 같이 만들되, 약을 고르는 일과 구분합니다",
+        "여러 가족이 돕는다면 같은 안내를 보고 인계합니다",
+        "새로운 이상은 약 탓으로 단정하지 말고 도움을 요청합니다",
+        "약을 챙기는 가족이 자주 묻는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/family-medication-support",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "가족 복약 관리 돕는 법: 약 혼동·잊음·삼킴 어려움 | 오누림",
+      "h1": [
+        "가족의 약 챙기기, 대신 결정하지 않고 돕는 법"
+      ],
+      "h2": [
+        "‘어디까지 도와드릴까요?’부터 묻습니다",
+        "먹으라고 재촉하기 전, 어떤 어려움인지 나눕니다",
+        "목록은 같이 만들되, 약을 고르는 일과 구분합니다",
+        "여러 가족이 돕는다면 같은 안내를 보고 인계합니다",
+        "새로운 이상은 약 탓으로 단정하지 말고 도움을 요청합니다",
+        "약을 챙기는 가족이 자주 묻는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/family-medication-support",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "가족 복약 관리 돕는 법: 약 혼동·잊음·삼킴 어려움 | 오누림",
+      "h1": [
+        "가족의 약 챙기기, 대신 결정하지 않고 돕는 법"
+      ],
+      "h2": [
+        "‘어디까지 도와드릴까요?’부터 묻습니다",
+        "먹으라고 재촉하기 전, 어떤 어려움인지 나눕니다",
+        "목록은 같이 만들되, 약을 고르는 일과 구분합니다",
+        "여러 가족이 돕는다면 같은 안내를 보고 인계합니다",
+        "새로운 이상은 약 탓으로 단정하지 말고 도움을 요청합니다",
+        "약을 챙기는 가족이 자주 묻는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/family-medication-support",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

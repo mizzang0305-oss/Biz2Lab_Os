@@ -119,6 +119,30 @@ test("lab results guide distinguishes reference ranges and result labels from di
   assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
 });
 
+test("family medication support keeps consent and individual medicine instructions ahead of convenience", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="family-medication-support")!;
+  assert.equal(guide.sections.length, 5);
+  assert.equal(guide.faq?.length, 5);
+  assert.match(JSON.stringify(guide.sections[0]), /허락 없이.*약을 숨기거나 억지로 먹이지/);
+  assert.match(JSON.stringify(guide), /지시 없이 쪼개거나 갈거나 씹지/);
+  assert.match(JSON.stringify(guide), /임의로 두 배/);
+  assert.match(JSON.stringify(guide), /모든 약이 같은 약통에 옮겨 담기 적합한 것은 아닙니다/);
+  assert.match(JSON.stringify(guide), /확인하지 않은 복용을 완료로 표시하지/);
+  assert.match(JSON.stringify(guide), /즉시 119.*약 목록을 완성하거나/);
+  assert.match(JSON.stringify(guide), /안약·바르는 약/);
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 4);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const unit of [...guide.sections, ...guide.faq!]) {
+    assert.ok(unit.sourceIds?.length);
+    for (const id of unit.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+  assert.doesNotMatch(JSON.stringify(guide), /무료.*배달|우편.*약|1일 2회|500mg|의료 검수 완료/);
+});
+
 test("new support schema does not fabricate a physician or FAQ rich result", () => {
   const source = readFileSync("app/health/guides/[slug]/page.tsx", "utf8");
   assert.doesNotMatch(source, /"Physician"|"MedicalOrganization"|reviewedBy|FAQPage/);

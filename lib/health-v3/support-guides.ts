@@ -264,17 +264,53 @@ export const healthSupportGuides: HealthSupportGuide[] = [
   },
   {
     slug: "family-medication-support",
-    title: "가족의 복약 관리를 도울 때 확인할 것",
-    description: "감시하거나 약을 대신 정하지 않고, 당사자의 동의 아래 정확한 목록과 문의 경로를 준비합니다.",
+    title: "가족의 약 챙기기, 대신 결정하지 않고 돕는 법",
+    seoTitle: "가족 복약 관리 돕는 법: 약 혼동·잊음·삼킴 어려움",
+    description: "당사자가 원하는 도움부터 확인합니다. 약을 헷갈리거나 잊을 때, 삼키기 어렵거나 복용을 거부할 때의 질문과 가족 간 전달 방법을 정리합니다. 용량·복용법은 임의로 바꾸지 않습니다.",
+    publishedAt: "2026-08-26", updatedAt: "2026-09-06", sourceCheckedAt: "2026-09-06",
+    faqTitle: "약을 챙기는 가족이 자주 묻는 질문",
     sections: [
-      { title: "먼저 동의를 구합니다", paragraphs: ["가족이 돕더라도 약을 먹는 사람의 선택과 사생활을 존중합니다. 허락 없이 약을 버리거나 바꾸지 않습니다."] },
-      { title: "목록에 적을 것", bullets: ["처방전이나 용기의 정확한 약 이름", "복용하라고 안내받은 시간", "처방 의료기관과 약국", "알레르기와 이미 겪은 이상 반응"] },
-      { title: "하지 않을 일", bullets: ["증상이 좋아졌다고 중단하지 않습니다.", "놓친 용량을 임의로 두 배 복용하게 하지 않습니다.", "다른 사람의 처방약을 나누지 않습니다."] },
-      { title: "문의 계획", bullets: ["약을 잊었을 때 연락할 곳", "이상 반응이 의심될 때 연락할 곳", "응급 신호가 있을 때 119를 부를 기준"] },
+      { title: "‘어디까지 도와드릴까요?’부터 묻습니다", paragraphs: [
+        "가족이 약을 챙긴다는 이유로 모든 건강정보를 보거나 복용을 대신 결정할 수 있는 것은 아닙니다. 당사자가 어떤 정보를 공유하고 얼마만큼 도움받고 싶은지 먼저 확인합니다. 혼자 할 수 있는 일은 존중하고, 어려운 일을 함께 찾는 것이 출발점입니다.",
+        "‘시간을 알려 드릴까요?’, ‘약사에게 함께 물어볼까요?’처럼 선택할 수 있게 묻습니다. 허락 없이 음료·음식에 약을 숨기거나 억지로 먹이지 않습니다. 복용을 원하지 않는 이유가 걱정, 불편, 삼킴 어려움 중 무엇인지 듣고 의료진·약사와 상의하세요. 이 글은 성인 가족의 일상 지원 안내이며 치료 동의나 의사결정 능력을 대신 판정하지 않습니다.",
+      ], sourceIds: ["SUP-NHS-MED-CARERS"], links: [{ href: "/health/tools/family-support-checklist", label: "당사자가 원하는 도움을 함께 확인할 가족 지원표" }] },
+      { title: "먹으라고 재촉하기 전, 어떤 어려움인지 나눕니다", paragraphs: [
+        "‘약을 잘 안 먹는다’는 말만으로는 도움이 필요한 지점이 보이지 않습니다. 아래 상황처럼 실제 어려움을 구분해 의료진·약사에게 전하세요. 표는 복용법을 바꾸는 지시가 아니라 질문을 준비하는 자료입니다.",
+      ], table: { caption: "가족이 관찰할 어려움과 의료진·약사에게 물을 내용", columns: ["겪는 어려움", "함께 확인할 사실", "문의할 질문"], rows: [
+        ["약 이름·봉투가 헷갈림", "현재 처방·실제 용기·안내문을 함께 보기; 색·모양으로 약을 단정하지 않기", "구별하기 쉬운 표기나 큰 글씨 안내를 받을 수 있나요?"],
+        ["시간을 자꾸 놓침", "어느 시간·상황에서 어려운지 듣기; 먹었는지 불확실하면 추측하지 않기", "이 약을 놓쳤을 때 어떻게 하나요? 알림이나 복약 일정 조정이 가능한가요?"],
+        ["알약을 삼키기 어려움", "무엇을 삼키기 힘든지 알리기; 임의로 쪼개거나 갈지 않기", "이 약을 더 안전하게 복용할 다른 형태나 방법이 있나요?"],
+        ["먹고 싶지 않다고 말함", "이유를 먼저 듣고 동의 없이 투약하지 않기", "불편·걱정을 줄이면서 치료를 이어갈 선택지를 설명받을 수 있나요?"],
+      ] }, sourceIds: ["SUP-NHS-MED-CARERS", "SUP-FDA-AGE-MEDICINES"], links: [{ href: "/health/guides/appointment-questions", label: "진료에서 선택지와 다음 행동을 확인할 질문" }] },
+      { title: "목록은 같이 만들되, 약을 고르는 일과 구분합니다", paragraphs: [
+        "진료나 약국에 갈 때 현재 복용하는 것을 함께 보여 주세요. 처방약만이 아니라 일반약, 안약·바르는 약, 비타민·건강기능식품·허브 제품도 알립니다. 먹는 양·시간과 처방한 곳은 실제 안내에서 확인하고, 모르는 이름은 실제 용기나 안내문으로 확인받습니다.",
+        "가족이 보기에 약이 많거나 증상이 좋아졌다고 중단·감량하지 않습니다. 다른 사람의 처방약을 나누거나, 새 일반약·보충제를 괜찮을 것이라 짐작해 추가하지 않습니다. 함께 사용할 수 있는지는 전체 목록을 보여 주고 의료진·약사에게 확인합니다.",
+        "약을 놓쳤을 때의 대응은 약마다 문의합니다. 가족이 임의로 두 배를 먹이거나 다음 복용 시각을 바꾸지 않습니다. 실제로 언제 복용했는지 불확실하다면 ‘모른다’는 사실까지 알리고 해당 약의 안내를 받으세요.",
+      ], sourceIds: ["SUP-FDA-AGE-MEDICINES", "SUP-FDA-SAFETY-OLDER", "SUP-NHS-MED-CARERS"], links: [{ href: "/health/guides/medication-list", label: "이름·복용 정보·일반약·보충제를 한 목록으로 정리" }] },
+      { title: "여러 가족이 돕는다면 같은 안내를 보고 인계합니다", paragraphs: [
+        "당사자가 동의한 범위에서, 누가 어떤 도움을 맡고 바뀐 안내를 어디에서 확인할지 정합니다. ‘아침 약 챙겼음’만 남기기보다 실제로 확인한 복용과 아직 확인하지 못한 일을 구분하세요. 확인하지 않은 복용을 완료로 표시하지 않는 것은 가족 간 전달 원칙입니다.",
+        "진료 후에는 새 안내를 받았는지, 현재 목록에 반영됐는지 함께 확인합니다. 원래 용기와 안내문을 확인할 수 있게 보관하고, 알림 앱·요일별 약통을 쓰려면 해당 약에 맞는 방법인지 약사에게 물어보세요. 모든 약이 같은 약통에 옮겨 담기 적합한 것은 아닙니다.",
+        "보관은 약마다 제공된 지시를 따르고 어린이가 닿지 않게 합니다. 냉장 보관이 필요한 약 등 조건이 다를 수 있으므로 모든 약을 같은 장소에 두라는 뜻은 아닙니다. 도움을 맡은 사람도 쉬거나 교대할 때 전달할 내용을 정해 혼자 감당하지 않도록 합니다.",
+      ], sourceIds: ["SUP-FDA-CARING", "SUP-FDA-SAFETY-OLDER", "SUP-NHS-MED-CARERS"], links: [{ href: "/health/guides/older-parent-health-organizer", label: "부모님과 합의한 정보·연락처·변경사항 정리" }] },
+      { id: "urgent-action", title: "새로운 이상은 약 탓으로 단정하지 말고 도움을 요청합니다", paragraphs: [
+        "심한 호흡곤란, 반응이 떨어지거나 깨우기 어려운 변화처럼 위급한 상태이면 즉시 119에 연락합니다. 약 목록을 완성하거나 처방기관이 문을 열 때까지 기다리지 않습니다. 어떤 약 때문인지 가족이 먼저 밝혀야 신고할 수 있는 것은 아닙니다.",
+        "위급한 모습이 아니어도 새로 생긴 어지럼·졸림 등 불편이 약과 관련됐다고 의심되면 의료진·약사에게 바로 문의합니다. 나이 탓이나 약 탓으로 단정하지 말고 시작 시점, 바뀐 복용 안내와 관찰한 변화를 알리세요. 임의로 약을 끊거나 더 먹여 반응을 시험하지 않습니다.",
+        "평소 상담에서 ‘이 약에서 살필 변화는 무엇인가요? 생기면 누구에게 어떻게 연락하나요?’를 확인해 둡니다. 안내받은 긴급 행동이 있다면 따르고, 이 페이지의 짧은 목록만으로 모든 위험을 배제하지 않습니다.",
+      ], tone: "warning", sourceIds: ["SUP-FAMILY-EMERGENCY", "SUP-FDA-AGE-MEDICINES", "SUP-FDA-SAFETY-OLDER"], links: [{ href: "/health/guides/danger-signals", label: "복약 확인보다 119가 먼저인 다른 위험 신호" }] },
+    ],
+    faq: [
+      { question: "본인이 거부하면 음식에 몰래 섞어도 되나요?", answer: "동의 없이 숨겨서 투약하거나 억지로 먹이지 않습니다. 거부하는 이유를 듣고 의료진·약사에게 상의합니다. 가루로 만들거나 캡슐을 열어 음식에 섞는 것도 안전한지 먼저 확인해야 하며, 다른 형태가 적합한지는 처방 의료진과 논의합니다.", sourceIds: ["SUP-NHS-MED-CARERS", "SUP-FDA-AGE-MEDICINES"] },
+      { question: "요일별 약통을 사면 모든 약을 옮겨도 되나요?", answer: "모든 약에 적합한 방법은 아닙니다. 약마다 보관 지시를 확인하고, 약통·알림이 실제 복용 방식에 맞는지 약사에게 문의합니다. 가족이 임의로 여러 약의 복용 시각을 하나로 합치지 않습니다.", sourceIds: ["SUP-NHS-MED-CARERS", "SUP-FDA-SAFETY-OLDER"] },
+      { question: "한 번 잊었으니 다음에 두 배 먹으면 되나요?", answer: "임의로 두 배를 먹거나 먹이지 않습니다. 약 이름과 놓친 시점, 마지막 복용을 아는 범위에서 전하고 해당 약의 안내를 받으세요. 이 글은 모든 약에 같은 보충 복용법을 제시하지 않습니다.", sourceIds: ["SUP-NHS-MED-CARERS", "SUP-FDA-AGE-MEDICINES"] },
+      { question: "알약이 크면 반으로 쪼개거나 갈면 되나요?", answer: "그 약에 안전한 방법인지 의료진·약사에게 먼저 확인합니다. 지시 없이 쪼개거나 갈거나 씹지 않습니다. 삼키기 어렵다는 사실을 알리고 사용할 수 있는 형태나 방법을 상담합니다.", sourceIds: ["SUP-FDA-AGE-MEDICINES", "SUP-NHS-MED-CARERS"] },
+      { question: "약국에서 산 약과 영양제도 가족이 알려야 하나요?", answer: "당사자가 동의한 도움 범위에서 처방약뿐 아니라 일반약·안약·바르는 약·비타민·보충제도 목록에 포함하도록 돕습니다. 처방약과 같이 써도 되는지 임의로 판단하지 말고 의료진·약사에게 전체 목록을 보여 주세요.", sourceIds: ["SUP-FDA-AGE-MEDICINES", "SUP-FDA-CARING", "SUP-NHS-MED-CARERS"] },
     ],
     sources: [
-      { id: "SUP-MEDLINEPLUS-MEDICINES", organization: "NIH/MedlinePlus", title: "Medicines", url: "https://medlineplus.gov/medicines.html", sourceDate: "2025", retrievedAt },
-      { id: "SUP-FDA-MED-LIST", organization: "U.S. FDA", title: "My Medicine Record", url: "https://www.fda.gov/media/73856/download", sourceDate: "2011", retrievedAt },
+      { id: "SUP-NHS-MED-CARERS", organization: "NHS", title: "Medicines: tips for carers", url: "https://www.nhs.uk/social-care-and-support/practical-tips-if-you-care-for-someone/medicines-tips-for-carers/", sourceDate: "2024-04-25 (Page last reviewed)", retrievedAt: "2026-09-06" },
+      { id: "SUP-FDA-CARING", organization: "U.S. FDA / Office of Women's Health", title: "Caring for Others: Resources to Help You", url: "https://www.fda.gov/consumers/womens-health-topics/caring-others-resources-help-you", sourceDate: "HTML 본문 자체 날짜 미표시", retrievedAt: "2026-09-06" },
+      { id: "SUP-FDA-SAFETY-OLDER", organization: "U.S. FDA", title: "5 Medication Safety Tips for Older Adults", url: "https://www.fda.gov/consumers/consumer-updates/5-medication-safety-tips-older-adults", sourceDate: "HTML 본문 자체 날짜 미표시", retrievedAt: "2026-09-06" },
+      { id: "SUP-FDA-AGE-MEDICINES", organization: "U.S. FDA", title: "As You Age: You and Your Medicines", url: "https://www.fda.gov/drugs/information-consumers-and-patients-drugs/you-age-you-and-your-medicines", sourceDate: "HTML 본문 자체 날짜 미표시", retrievedAt: "2026-09-06" },
+      { id: "SUP-FAMILY-EMERGENCY", organization: "MedlinePlus Medical Encyclopedia / A.D.A.M.", title: "Recognizing medical emergencies", url: "https://medlineplus.gov/ency/article/001927.htm", sourceDate: "2025-01-08 (Review Date)", retrievedAt: "2026-09-06" },
     ],
   },
   {
