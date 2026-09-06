@@ -173,6 +173,30 @@ test("SEO citation counts include declared professional-society sources without 
   assert.match(audit, /DECLARED_SOURCE_BLOCK_NOT_QUALITY_VERDICT/);
 });
 
+test("obesity uses consent-first family support and separates body measures from sudden fluid-related change", () => {
+  const article = healthArticles.obesity;
+  assert.equal(article.archetype, "FAMILY_SITUATION");
+  assert.match(article.sections[0].title, /가족/);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections.find(s=>s.tone==="warning")!;
+  assert.ok(urgent.sourceIds!.includes("SRC-MEDLINEPLUS-LEG-SWELLING"));
+  assert.match(JSON.stringify(urgent), /수분이 몸에 쌓이는/);
+  assert.match(JSON.stringify(urgent), /즉시 119/);
+  assert.match(JSON.stringify(article), /혼자 중단하거나/);
+  assert.doesNotMatch(JSON.stringify(article), /\d+\s*(kg|㎏|kcal|%|분 운동|시간 수면)/);
+  assert.ok(article.visuals?.["obs-concept"].src.endsWith("concept-v2.webp"));
+  assert.ok(article.visuals?.["obs-action"].src.endsWith("action-v2.webp"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
 test("dyslipidemia distinguishes lipid roles and preparation without a universal fasting or treatment target", () => {
   const article = healthArticles.dyslipidemia;
   assert.equal(article.faq.length, 6);

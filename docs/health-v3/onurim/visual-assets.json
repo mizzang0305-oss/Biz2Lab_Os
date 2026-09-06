@@ -506,8 +506,8 @@
       "OBS-P3-002",
       "OBS-P3-003"
     ],
-    "altText": "비만의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 비만을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "기록 용지와 원형 표지로 건강 상담 준비를 상징하는 장식 삽화",
+    "caption": "표지의 색과 원은 개인 체형이나 체지방률·진단 결과를 뜻하지 않습니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 비만; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -515,49 +515,59 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceCheckedAt": "2026-09-06"
   },
   {
     "id": "VIS-OBS-P3-CONCEPT",
-    "file": "public/images/onurim/obesity/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/obesity/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "392a9c7d14a773d66b89d60c83405aa0d7c79fd9e07a439a23f20f5208a9b2dc",
+    "sha256": "fe6546b9e08ba0792718c325aeb5df1f125e94afd9a5b1d2773b6589ffc7a533",
     "claimIds": [
       "OBS-P3-001",
-      "OBS-P3-003"
+      "OBS-P3-002"
     ],
-    "altText": "비만과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 비만; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "복부 단면에서 근육 벽 바깥의 피하지방과 벽 안 장 사이의 내장·장간막 지방 위치를 구분한 개념도",
+    "caption": "바깥쪽 노란 층은 피부 아래·근육 벽 밖의 피하지방, 안쪽 장 사이 노란 부분은 내장·장간막 지방을 상징합니다. 위치를 단순화한 그림이며 실제 검사 영상·지방량·정상 기준이 아닙니다. BMI나 허리둘레만으로 이 모양을 알 수는 없습니다.",
+    "prompt": "Create an original simplified medical teaching illustration for a Korean adult obesity education page, 1536x1024 landscape. One large clean transverse cross-section of an adult abdomen at approximately the umbilical level, centred on warm ivory paper, refined editorial anatomical illustration with muted peach muscle, dark teal fine outlines and soft golden adipose tissue. The diagram explains ONLY fat location, not an obese-versus-thin comparison. It must clearly separate: (1) an outer continuous pale golden layer of subcutaneous adipose tissue immediately beneath the thin skin border and OUTSIDE a complete abdominal muscular wall; (2) smaller deeper warm amber lobules of visceral/mesenteric fat INSIDE that abdominal wall among simplified bowel loops. Draw credible bilateral abdominal side and posterior muscles, a small vertebral body at the posterior bottom centre with two adjacent psoas regions, and a few stylized bowel loops in the peritoneal space. A SINGLE cross-section, no external torso or head, no second before/after body, no liver/stomach/kidney cutaways at mismatched anatomical levels. Keep outlines simple enough to read on a phone, distinguish compartments by position and outline as well as colour. Do NOT make fat invade the inside of bowel tubes, replace organs, form tumours, depict liquid/edema, or imply a measured percentage. No arrows, measurement marks, CT scans, diagnostic values, red danger zones, pills, weight loss imagery, shaming, food, or people. Absolutely no words, letters, numbers, legend, labels, logos, watermark or pseudotext. All labels and clinical limits will be accessible HTML below the diagram. Educational schematic, not a photorealistic surgical view.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceCheckedAt": "2026-09-06",
+    "supersedesFile": "public/images/onurim/obesity/concept.webp",
+    "rawGenerationFile": "D:/CodexData/.codex/generated_images/01a02fae-2a15-7442-828f-3a8fdbb80e4d/exec-c8b689ba-ec0d-45b3-9a3f-7901839f404b.png"
   },
   {
     "id": "VIS-OBS-P3-ACTION",
-    "file": "public/images/onurim/obesity/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/obesity/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "b8b50518c3567e76393d148101091a5c828a088fd859d966358f415add538a9e",
+    "sha256": "b87e97b5e08dae2c7e530c3e030a734042bbc1c031f0fae2d93d1a7be2d0d105",
     "claimIds": [
-      "OBS-P3-004",
-      "OBS-P3-005"
+      "OBS-P3-003",
+      "OBS-P3-004"
     ],
-    "altText": "비만의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 비만; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "가족이 식사 준비를 나누는 장면, 조용한 침실을 지키는 장면, 성인 두 사람이 평평한 길에서 동행하는 장면",
+    "caption": "동의를 받고 식사 준비·휴식 여건·가능한 동행을 돕는 예입니다. 그림의 음식과 활동은 정해진 식단·운동량이나 감량 효과를 뜻하지 않으며 개인의 상태와 선택에 따라 달라집니다.",
+    "prompt": "Original warm Korean patient-education illustration, landscape 1536x1024, textured ivory paper with muted teal, peach and slate tones. Three distinct, clearly separated illustrated vignettes arranged side by side with ample whitespace, NOT connected by arrows. They show household conditions that can support adult weight-related health without shame or promises. LEFT: in an ordinary kitchen two Korean adult family members share meal preparation, one washing vegetables at a sink and one putting cooked rice and varied dishes on a dining table; ordinary portions, no diet products, food police, calorie counting or crossed-out foods. CENTRE: a peaceful bedroom with a made bed and curtains, a family member softly closing the door from outside to protect a resting household member's sleep; no exposed sleeping body, clocks, time targets or medical equipment. RIGHT: a Korean adult with a naturally larger body and a companion stand on a level neighbourhood path wearing comfortable everyday shoes, calmly considering a short stroll together; upright full-body view, not athletic exertion, not struggling, not a weight-loss before/after. Faces respectful and neutral, ordinary comfortable clothing and natural body proportions, no idealized thin-versus-fat comparisons. Focus on practical family support and the environment, not discipline or success. NO scales, measuring tape, pills, lab coats, medical crosses, graphs, clipboards, diagnostic symbols, checklist panels, arrows, badges, letters, numbers, readable or invented text, logos or watermarks. All scene labels and limits will be provided as HTML: shared food preparation, protected rest, possible companionship; they are optional examples, not a treatment prescription.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceCheckedAt": "2026-09-06",
+    "supersedesFile": "public/images/onurim/obesity/action.webp",
+    "rawGenerationFile": "D:/CodexData/.codex/generated_images/01a02fae-2a15-7442-828f-3a8fdbb80e4d/exec-1fc07893-2462-41ad-be71-cff41e4dd241.png"
   },
   {
     "id": "VIS-MASLD-P3-HERO",

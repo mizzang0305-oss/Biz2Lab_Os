@@ -1,0 +1,446 @@
+{
+  "route": "/health/obesity",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T05:49:38.108Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "b6afe5a33a0e10e447f241d292f8630ca53d1bf0a976627871b72f55f0aaef94",
+      "full": "d23f1b8c117b8e078e43088e0fcf50bd98c63d6ead311c8deb0e64971a5fc007"
+    },
+    {
+      "width": 390,
+      "top": "93dc44e75aa07a09ebb326081066cecb92d548726a2e9d59d5c2a50d9163116c",
+      "full": "dfdf38a38419c76114710baa29a4d7532c4f6b9223c2aca678d461bab8150aad"
+    },
+    {
+      "width": 430,
+      "top": "15cf76134aa56309cb9032a6258d39101888a4e0d861bbbc00cf297ccb895bfe",
+      "full": "670856bccd918ec87d3caed40af012b1b5931f4d3649689f9eba42be369bbc57"
+    },
+    {
+      "width": 768,
+      "top": "662032e9f8b2170d18ce6984b4b2e8b2b31c07253bd408bc6d21f32196b1de25",
+      "full": "47cf6be294ac0a8331488f7c488a66ae1dc5c2247e447827e9bc01fe58d22b11"
+    },
+    {
+      "width": 1440,
+      "top": "b05b90bb9247cfaf07b1afaf7da7da3d92e73a907a9cb203ab115446b1100117",
+      "full": "382f2a0fe56623b7366c7ad8b024dc226e0ea62cbae740bb30ef7b1f2f4c8b5a"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "비만 상담 준비: BMI·허리둘레와 수면·약·생활 변화 | 오누림",
+      "h1": [
+        "비만 상담 전, 체중과 생활 변화를 함께 정리하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가족이라도 먼저 ‘어떤 도움이 필요해?’",
+        "BMI·허리둘레는 무엇을 보고, 무엇을 놓칠까요?",
+        "체중과 함께 달라진 수면·약·생활을 적어 보세요",
+        "갑작스러운 증가와 붓기는 ‘살이 쪘다’로 넘기지 마세요",
+        "본인이 고른 한 가지를 돕는 생활 환경",
+        "치료 목표는 체중 숫자 하나로 정하지 않습니다",
+        "상담에 가져갈 질문과 원하는 도움",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/obesity",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Fhero.webp&w=3840&q=75",
+          "alt": "기록 용지와 원형 표지로 건강 상담 준비를 상징하는 장식 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "복부 단면에서 근육 벽 바깥의 피하지방과 벽 안 장 사이의 내장·장간막 지방 위치를 구분한 개념도",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Faction-v2.webp&w=3840&q=75",
+          "alt": "가족이 식사 준비를 나누는 장면, 조용한 침실을 지키는 장면, 성인 두 사람이 평평한 길에서 동행하는 장면",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 10,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "비만 상담 준비: BMI·허리둘레와 수면·약·생활 변화 | 오누림",
+      "h1": [
+        "비만 상담 전, 체중과 생활 변화를 함께 정리하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가족이라도 먼저 ‘어떤 도움이 필요해?’",
+        "BMI·허리둘레는 무엇을 보고, 무엇을 놓칠까요?",
+        "체중과 함께 달라진 수면·약·생활을 적어 보세요",
+        "갑작스러운 증가와 붓기는 ‘살이 쪘다’로 넘기지 마세요",
+        "본인이 고른 한 가지를 돕는 생활 환경",
+        "치료 목표는 체중 숫자 하나로 정하지 않습니다",
+        "상담에 가져갈 질문과 원하는 도움",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/obesity",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Fhero.webp&w=3840&q=75",
+          "alt": "기록 용지와 원형 표지로 건강 상담 준비를 상징하는 장식 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "복부 단면에서 근육 벽 바깥의 피하지방과 벽 안 장 사이의 내장·장간막 지방 위치를 구분한 개념도",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Faction-v2.webp&w=3840&q=75",
+          "alt": "가족이 식사 준비를 나누는 장면, 조용한 침실을 지키는 장면, 성인 두 사람이 평평한 길에서 동행하는 장면",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 10,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "비만 상담 준비: BMI·허리둘레와 수면·약·생활 변화 | 오누림",
+      "h1": [
+        "비만 상담 전, 체중과 생활 변화를 함께 정리하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가족이라도 먼저 ‘어떤 도움이 필요해?’",
+        "BMI·허리둘레는 무엇을 보고, 무엇을 놓칠까요?",
+        "체중과 함께 달라진 수면·약·생활을 적어 보세요",
+        "갑작스러운 증가와 붓기는 ‘살이 쪘다’로 넘기지 마세요",
+        "본인이 고른 한 가지를 돕는 생활 환경",
+        "치료 목표는 체중 숫자 하나로 정하지 않습니다",
+        "상담에 가져갈 질문과 원하는 도움",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/obesity",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Fhero.webp&w=3840&q=75",
+          "alt": "기록 용지와 원형 표지로 건강 상담 준비를 상징하는 장식 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "복부 단면에서 근육 벽 바깥의 피하지방과 벽 안 장 사이의 내장·장간막 지방 위치를 구분한 개념도",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Faction-v2.webp&w=3840&q=75",
+          "alt": "가족이 식사 준비를 나누는 장면, 조용한 침실을 지키는 장면, 성인 두 사람이 평평한 길에서 동행하는 장면",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 10,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "비만 상담 준비: BMI·허리둘레와 수면·약·생활 변화 | 오누림",
+      "h1": [
+        "비만 상담 전, 체중과 생활 변화를 함께 정리하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가족이라도 먼저 ‘어떤 도움이 필요해?’",
+        "BMI·허리둘레는 무엇을 보고, 무엇을 놓칠까요?",
+        "체중과 함께 달라진 수면·약·생활을 적어 보세요",
+        "갑작스러운 증가와 붓기는 ‘살이 쪘다’로 넘기지 마세요",
+        "본인이 고른 한 가지를 돕는 생활 환경",
+        "치료 목표는 체중 숫자 하나로 정하지 않습니다",
+        "상담에 가져갈 질문과 원하는 도움",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/obesity",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Fhero.webp&w=3840&q=75",
+          "alt": "기록 용지와 원형 표지로 건강 상담 준비를 상징하는 장식 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "복부 단면에서 근육 벽 바깥의 피하지방과 벽 안 장 사이의 내장·장간막 지방 위치를 구분한 개념도",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Faction-v2.webp&w=3840&q=75",
+          "alt": "가족이 식사 준비를 나누는 장면, 조용한 침실을 지키는 장면, 성인 두 사람이 평평한 길에서 동행하는 장면",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 10,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "비만 상담 준비: BMI·허리둘레와 수면·약·생활 변화 | 오누림",
+      "h1": [
+        "비만 상담 전, 체중과 생활 변화를 함께 정리하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가족이라도 먼저 ‘어떤 도움이 필요해?’",
+        "BMI·허리둘레는 무엇을 보고, 무엇을 놓칠까요?",
+        "체중과 함께 달라진 수면·약·생활을 적어 보세요",
+        "갑작스러운 증가와 붓기는 ‘살이 쪘다’로 넘기지 마세요",
+        "본인이 고른 한 가지를 돕는 생활 환경",
+        "치료 목표는 체중 숫자 하나로 정하지 않습니다",
+        "상담에 가져갈 질문과 원하는 도움",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/obesity",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Fhero.webp&w=3840&q=75",
+          "alt": "기록 용지와 원형 표지로 건강 상담 준비를 상징하는 장식 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "복부 단면에서 근육 벽 바깥의 피하지방과 벽 안 장 사이의 내장·장간막 지방 위치를 구분한 개념도",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fobesity%2Faction-v2.webp&w=3840&q=75",
+          "alt": "가족이 식사 준비를 나누는 장면, 조용한 침실을 지키는 장면, 성인 두 사람이 평평한 길에서 동행하는 장면",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 10,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}
