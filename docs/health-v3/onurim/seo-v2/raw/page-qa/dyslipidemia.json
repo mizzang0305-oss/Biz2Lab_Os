@@ -1,33 +1,33 @@
 {
   "route": "/health/dyslipidemia",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T05:24:34.354Z",
+  "observedAt": "2026-09-06T14:34:47.243Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "2bafdaa43d208007d897e672d16939087cfd5c7c587fb96175b0b91e4419a7a0",
-      "full": "71a471cb4a1f2f7311a556b63f560f54b64d7d7820697ff907208a5ae37de29a"
+      "full": "b670b48c6df5626f05fd32ba45c0a71680b54f6bfb8d94cb60372504de759516"
     },
     {
       "width": 390,
       "top": "c06f49faa96c1b6c0c37451e7a1e883abcf95c14243b369511d7731065b2de71",
-      "full": "107db2982c13d290c5a3e303c0a4697be15abdff9928302ed4ba04bcb4758f8c"
+      "full": "e90b52f3e65ffc04d4690ea13c530f26b84c88427656328702b382ac6f69a009"
     },
     {
       "width": 430,
       "top": "395dc6099630cf67ae5dc652e7a45aa516b63c7f1b1640292035c12bad3649e0",
-      "full": "3d8efd9b38ff13cffedd17429755d3c269c35f34504c0c7db3821aac8a32dc81"
+      "full": "e211dd49efbafe9c1f427c8f5a2bd603e8e00d88ed45b5945578d2075ff4874f"
     },
     {
       "width": 768,
       "top": "139b33790a06165d2e77c0641cf686ae31e71545945c9215af4ab1d53d2f101e",
-      "full": "5ae340b1d541d718ea6c1c2cdc242889369658326caa4c7f8e0d1f023d5d001a"
+      "full": "1e7f7bb03698a6899561e58280999284cfe2cd94e7f755017a57f1ec6c2b0418"
     },
     {
       "width": 1440,
       "top": "16fa6553a9dbfbaeede5f016ff1fb4e2a2e8c1ab084cd01a3c92c3922c57d9c0",
-      "full": "05513a66f8026c27cfb5717de056e0011d3b022b0eec51d5250c9aeeffcda436"
+      "full": "8aa0e0e995cc5131f5f5290bd355c0a28ec27a84abd974a3824e5f5299dd4a40"
     }
   ],
   "failures": [],

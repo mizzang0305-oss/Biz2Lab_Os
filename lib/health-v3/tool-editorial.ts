@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "dyslipidemia-visit-card": {
+    indexDecision: "INDEX_UTILITY",
+    inheritParentWarning: true,
+    title: "지질검사 진료 질문지: 결과 원본·식사 조건·개인 목표 확인",
+    description: "LDL·HDL·중성지방·총콜레스테롤 결과 원본과 검사 당시 조건을 가져가 개인 목표·치료 계획·다음 검사를 묻는 인쇄 질문지입니다. 검사값을 계산하거나 공통 목표·금식 시간을 정하지 않습니다.",
+    updatedAt: "2026-09-06",
+    purpose: "검진이나 치료 중 받은 지질검사 설명을 개인 계획으로 연결할 때 씁니다. 증상이 없어도 결과와 이력을 함께 상담하며, 이전 결과가 없으면 미확인으로 남깁니다.",
+    steps: [
+      "이번·이전 결과지의 날짜, LDL·HDL·중성지방·총콜레스테롤 항목과 단위를 원본대로 준비합니다. 일부 값만 골라 옮기거나 다른 항목을 대신 쓰지 않습니다.",
+      "검사기관의 준비 안내와 실제 식사 시각을 구분합니다. 아직 검사 전이면 물·식사·약 지침을 해당 기관에 확인하고, 안내를 지키지 못했다면 채혈 전에 알립니다. 혼자 검사를 취소하거나 평소 약을 건너뛰지 않습니다.",
+      "현재 약·보충제와 아는 개인·가족 이력을 적고 질문을 고릅니다. 답변 칸에는 안내받은 목표·생활과 치료 계획·다음 검사 조건·문의처를 남깁니다. 모르는 이력이나 듣지 못한 목표를 추측하지 않습니다.",
+    ],
+    example: "자료 연결 예시: 검사 날짜·각 항목·단위 → 결과 원본 / 실제 식사 시각 → 조건 메모 / 설명받은 개인 목표 → 진료 답변. 다른 사람의 목표치를 자신의 결과 옆에 채워 넣지 않습니다.",
+    limitation: "검사 준비 조건과 치료 목표는 개인 상황에 따라 확인합니다. 결과가 좋아졌다고 약을 끊거나 생활 조정만 하며 치료를 미루지 않습니다. 새 불편이나 약 관련 궁금증은 의료진에게 문의하고, 한 수치로 다른 위험을 상쇄했다고 판단하지 않습니다.",
+    sheetNotice: "가슴 압박·통증, 숨참·식은땀 등으로 심근경색이 의심되면 가볍더라도 즉시 119에 연락합니다. 갑작스러운 한쪽 마비나 말 이상, 심한 호흡곤란·의식 저하도 119가 먼저입니다. 검사값 재확인이나 질문지 완성을 기다리지 않습니다.",
+    sourceIds: ["SRC-KDCA-LIPID-TEST", "SRC-NHLBI-CHOLESTEROL-DIAGNOSIS", "SRC-NHLBI-CHOLESTEROL-TREATMENT"],
+    links: [
+      { href: "/health/guides/reading-health-results", label: "검사표의 항목·단위·설명을 구분하는 방법" },
+      { href: "/health/guides/medication-list", label: "현재 약·보충제와 최근 변경을 남기는 목록" },
+      { href: "/health/guides/appointment-questions", label: "들은 답과 다음 연락 계획을 확인하는 진료 대화" },
+    ],
+  },
   "osteoporosis-terms": {
     indexDecision: "NOINDEX_FOLLOW",
     title: "골밀도 검사 용어 카드: BMD·DXA·T점수·Z점수 구분",

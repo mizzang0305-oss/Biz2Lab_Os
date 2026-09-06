@@ -40,6 +40,7 @@ type GuideConfig = {
   urgent: string;
   observationItems: string[];
   questions: string[];
+  toolSummary?: Pick<HealthTool, "title" | "description">;
   sources: [SourceInput, SourceInput, SourceInput];
 };
 
@@ -49,6 +50,7 @@ const guides: GuideConfig[] = [
   {
     slug: "dyslipidemia",
     prefix: "DLP",
+    toolSummary: { title: "지질검사 진료 질문지", description: "검사 원본·식사 조건·현재 이력을 모아 개인 목표와 다음 검사 계획을 묻는 인쇄 질문지입니다." },
     title: "이상지질혈증",
     cluster: "심장·혈관",
     archetype: "MYTH_FIRST",
@@ -59,8 +61,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 지질검사 결과뿐 아니라 나이, 가족력, 흡연, 혈압, 당뇨병과 심혈관질환 이력을 함께 살펴봅니다.",
     careBoundary: "검사표의 한 숫자로 약을 시작·중단하거나 인터넷 목표치에 맞추지 않습니다. 결과의 의미와 다음 검사 시점은 의료진에게 확인합니다.",
     urgent: "새롭고 심한 가슴 통증, 숨쉬기 어려움, 갑작스러운 한쪽 마비나 말 이상은 콜레스테롤 수치를 다시 볼 때가 아니라 119 도움을 요청할 때입니다.",
-    observationItems: ["검사 날짜와 검사명", "의료진이 설명한 목표", "가족력과 현재 질환", "복용 중인 약·보충제"],
-    questions: ["각 지질 수치는 제 상황에서 무엇을 뜻하나요?", "다음 검사는 언제 필요한가요?", "생활 조정과 치료 선택지는 어떻게 정하나요?"],
+    observationItems: ["이번·이전 검사 날짜 / 항목·수치·단위 (원본·미확인 가능)", "검사 전 안내 / 실제 식사 시각·준비 조건", "현재 질환 / 아는 심혈관질환 가족력·발병 시기", "현재 약·보충제 / 최근 변경·새 불편"],
+    questions: ["네 지질 항목은 제 이력과 검사 조건에서 각각 무엇을 뜻하나요?", "제게 적용하는 목표와 그 이유는 무엇인가요?", "생활 조정과 치료를 어떻게 함께 진행하며 기대 효과·부담은 무엇인가요?", "다음 검사는 언제 어떤 조건으로 받고, 그 전에 문의할 변화와 연락처는 무엇인가요?"],
     sources: [
       { id: "SRC-MEDLINEPLUS-CHOLESTEROL", organization: "NIH/MedlinePlus", title: "Cholesterol", url: "https://medlineplus.gov/cholesterol.html", sourceDate: "2025" },
       { id: "SRC-CDC-CHOLESTEROL", organization: "CDC", title: "About Cholesterol", url: "https://www.cdc.gov/cholesterol/about/", sourceDate: "2025" },
@@ -437,8 +439,8 @@ export const expansionHealthArticles = Object.fromEntries(
 export const expansionHealthTools: HealthTool[] = guides.map((guide) => ({
   slug: `${guide.slug}-visit-card`,
   articleSlug: guide.slug,
-  title: `${guide.title} 관찰·진료 질문 카드`,
-  description: "개인 진단 대신 증상 흐름과 의료진에게 물을 내용을 한 장에 정리합니다.",
+  title: guide.toolSummary?.title ?? `${guide.title} 관찰·진료 질문 카드`,
+  description: guide.toolSummary?.description ?? "개인 진단 대신 증상 흐름과 의료진에게 물을 내용을 한 장에 정리합니다.",
   claimIds: [`${guide.prefix}-P3-002`, `${guide.prefix}-P3-003`, `${guide.prefix}-P3-004`],
   kind: "questions",
   fields: guide.observationItems,

@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/dyslipidemia-visit-card",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T14:34:05.150Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "2c7fb9c34661cae8097a8c0db8b30193f9cb957095481397342055f799fb0190",
+      "full": "e331a78b948565cc021a280eb9b8404a1caa75162beffb9e332a74d36787dcc1"
+    },
+    {
+      "width": 390,
+      "top": "a7671e6ed6670eb240a8d1b7429a148f9ce473c3a9ffb6943f55c34dee7b9bf8",
+      "full": "295ef5a32b416c345db06a19623ea66fa07c8fc1ba94cce35d758eb2dcc7a838"
+    },
+    {
+      "width": 430,
+      "top": "03d8f400a44f1da20c0e7ef8a12715bb834147cd8d366f59c59de0ac315f19f1",
+      "full": "364b3ce171e21b4501dd132d1c6e8385d6b6ddab8ed8b41b280b1d9edfe1b66a"
+    },
+    {
+      "width": 768,
+      "top": "0b8bd23e1f4eb990b0dc7c7916cd579aa07cc7a02f02b2badd5dd95d4f96f833",
+      "full": "d3a3b67dc028a14ecae1a81563ac677952535bedfaf040a1c1b13597a3429096"
+    },
+    {
+      "width": 1440,
+      "top": "f491abf778618cb015be5657616a8073e66ddad80ba0ae401de650fe99b041a6",
+      "full": "8497cd44e4d1517e778858911528164317194ba71b51735a16c0c767e3563206"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "지질검사 진료 질문지: 결과 원본·식사 조건·개인 목표 확인 | 오누림",
+      "h1": [
+        "지질검사 진료 질문지"
+      ],
+      "h2": [
+        "가슴·마비·말의 갑작스러운 변화는 검사표보다 119",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/dyslipidemia-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "지질검사 진료 질문지: 결과 원본·식사 조건·개인 목표 확인 | 오누림",
+      "h1": [
+        "지질검사 진료 질문지"
+      ],
+      "h2": [
+        "가슴·마비·말의 갑작스러운 변화는 검사표보다 119",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/dyslipidemia-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "지질검사 진료 질문지: 결과 원본·식사 조건·개인 목표 확인 | 오누림",
+      "h1": [
+        "지질검사 진료 질문지"
+      ],
+      "h2": [
+        "가슴·마비·말의 갑작스러운 변화는 검사표보다 119",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/dyslipidemia-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "지질검사 진료 질문지: 결과 원본·식사 조건·개인 목표 확인 | 오누림",
+      "h1": [
+        "지질검사 진료 질문지"
+      ],
+      "h2": [
+        "가슴·마비·말의 갑작스러운 변화는 검사표보다 119",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/dyslipidemia-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "지질검사 진료 질문지: 결과 원본·식사 조건·개인 목표 확인 | 오누림",
+      "h1": [
+        "지질검사 진료 질문지"
+      ],
+      "h2": [
+        "가슴·마비·말의 갑작스러운 변화는 검사표보다 119",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/dyslipidemia-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

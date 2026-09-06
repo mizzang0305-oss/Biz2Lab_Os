@@ -607,6 +607,22 @@ test("article source count badges count distinct sources instead of claim IDs", 
   assert.doesNotMatch(component, /출처 연결 \{ids\.length\}/);
 });
 
+test("lipid visit card keeps report conditions and personal targets distinct", () => {
+  const tool = healthTools.find(t=>t.slug==="dyslipidemia-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 4);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(tool.title, "지질검사 진료 질문지");
+  assert.doesNotMatch(tool.description, /한 장|증상 흐름/);
+  assert.equal(getToolSources(tool).length, 6);
+  assert.ok(getToolSafetyNotice(tool));
+  assert.match(copy.steps.join(" "), /실제 식사 시각/);
+  assert.match(copy.steps.join(" "), /평소 약을 건너뛰지/);
+  assert.match(copy.sheetNotice!, /가볍더라도 즉시 119/);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+시간.*금식|목표.*\d+\s*mg/);
+});
+
 test("bone density reference separates method and comparator without a self-diagnosis form", () => {
   const tool = healthTools.find(t=>t.slug==="osteoporosis-terms")!;
   const copy = toolEditorial[tool.slug];
