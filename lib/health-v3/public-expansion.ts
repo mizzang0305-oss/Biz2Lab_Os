@@ -94,6 +94,7 @@ const guides: GuideConfig[] = [
   {
     slug: "metabolic-dysfunction-associated-steatotic-liver-disease",
     prefix: "MASLD",
+    toolSummary: { title: "지방간 검사 상담표", description: "기존 검사 원문·음주·약 이력을 모아 각 결과의 의미와 다음 확인 계획을 묻는 인쇄 양식입니다." },
     title: "지방간(MASLD)",
     cluster: "위장·간",
     archetype: "QUESTION_FIRST",
@@ -104,8 +105,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 병력, 혈액검사와 영상검사를 바탕으로 간의 상태를 살피고 다른 원인을 확인합니다.",
     careBoundary: "간 수치나 초음파 문구를 혼자 해석해 보충제나 약을 시작하지 않습니다. 음주, 기존 질환과 복용 약을 진료에서 함께 알립니다.",
     urgent: "피부나 눈이 노래지거나, 심한 복통·반복 구토·의식 변화가 새로 나타나면 온라인 기록보다 신속한 의료 평가를 우선합니다.",
-    observationItems: ["검사 날짜와 결과 문구", "음주 여부와 빈도", "대사질환과 복용 약", "새로 생긴 불편"],
-    questions: ["다른 간질환 원인도 확인해야 하나요?", "어떤 추적검사가 필요한가요?", "제 상황에서 우선할 생활 변화는 무엇인가요?"],
+    observationItems: ["검사 날짜·검사명 / 결과 원문·항목·단위·참고범위", "현재·과거 음주 횟수·한 번의 양 / 줄이거나 끊을 때의 불편", "알고 있는 질환 / 현재 약·보충제·생약·변경 시기 / 새 불편"],
+    questions: ["받은 검사는 간효소·지방·섬유화 중 무엇을 살폈고 무엇은 더 확인해야 하나요?", "음주·대사 요인·약과 다른 원인은 어떻게 함께 살피며, 음주 중단을 위한 도움이 필요한가요?", "추가 검사나 관리가 필요하다면 목적·준비 사항·다음 확인 시점과 그 전에 연락할 변화는 무엇인가요?"],
     sources: [
       { id: "SRC-NIDDK-MASLD-DEFINITION", organization: "NIH/NIDDK", title: "Definition & Facts of NAFLD & NASH", url: "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/definition-facts", sourceDate: "2025" },
       { id: "SRC-NIDDK-MASLD-SYMPTOMS", organization: "NIH/NIDDK", title: "Symptoms & Causes of NAFLD & NASH", url: "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/symptoms-causes", sourceDate: "2025" },

@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "metabolic-dysfunction-associated-steatotic-liver-disease-visit-card": {
+    indexDecision: "INDEX_UTILITY",
+    inheritParentWarning: true,
+    title: "지방간(MASLD) 진료 질문지: 검사 원문·음주·약 이력 정리",
+    description: "혈액검사·초음파 등 기존 결과와 음주·약 이력을 가져가 간효소·지방 소견·섬유화 평가의 의미와 다음 계획을 묻는 인쇄 양식입니다. 검사 점수나 간질환 단계를 계산하지 않습니다.",
+    updatedAt: "2026-09-06",
+    purpose: "지방간 소견을 설명받았거나 경과를 상담할 때 서로 다른 검사 자료와 개인 이력을 함께 준비합니다. 검사 목록을 채우려고 새 검사를 받는 양식은 아닙니다.",
+    steps: [
+      "기존 결과지의 날짜·검사명·항목·단위·참고범위와 판독 문구를 원본대로 준비합니다. 받은 적 없는 검사나 모르는 결과는 없음·미확인으로 구분합니다.",
+      "현재·과거 음주 횟수와 한 번의 양, 줄이거나 끊을 때 생겼던 불편을 적습니다. 술 종류·용기 크기도 아는 만큼 남기고 안전한 음주량이나 원인을 스스로 판정하지 않습니다.",
+      "알고 있는 질환·현재 약·보충제·생약과 새 불편을 적고 질문을 고릅니다. 들은 답에는 검사 목적·개인 계획·다음 확인 시점·문의처를 남깁니다. 숫자가 달라졌다고 스스로 추적검사를 취소하지 않습니다.",
+    ],
+    example: "준비 위치 예시: 혈액검사의 항목·수치 → 원본 / 초음파 설명 → 판독 문구 / 술을 줄인 뒤 생긴 불편 → 음주 이력. ‘좋음·나쁨’으로 바꾸어 적거나 서로 다른 검사를 한 점수로 합치지 않습니다.",
+    limitation: "한 수치·영상 문구로 지방간염이나 섬유화 단계를 확정하지 않습니다. 약·보충제를 혼자 시작·중단하지 않습니다. 금단 증상이 있거나 의존이 의심되면 혼자 갑자기 술을 끊기 전에 의료 도움을 받습니다. 이는 음주 지속 권장이나 자가 해독 일정이 아닙니다.",
+    sheetNotice: "새 황달은 당일 의료기관에 연락해 신속히 진료받습니다. 갑작스러운 혼란, 술을 줄인 뒤 환각·경련 등 심한 금단은 즉시 119에 도움을 요청합니다. 토혈과 어지럼·숨참·검은 변 등이 동반돼도 119가 먼저입니다. 토혈이 멈추고 다른 증상이 없어도 신속한 의료 도움을 받으며, 직접 운전하거나 양식 완성을 기다리지 않습니다.",
+    sourceIds: ["SRC-NIDDK-MASLD-DIAGNOSIS", "SRC-NIDDK-MASLD-SYMPTOMS", "SRC-NHS-ALCOHOL-USE-DISORDER"],
+    links: [
+      { href: "/health/guides/reading-health-results", label: "검사 항목·단위·참고범위와 개인 해석의 차이" },
+      { href: "/health/guides/medication-list", label: "보충제·생약까지 빠뜨리지 않는 실제 제품 목록" },
+      { href: "/health/guides/appointment-questions", label: "검사 목적과 다음 연락 계획을 묻는 진료 대화" },
+    ],
+  },
   "obesity-visit-card": {
     indexDecision: "NOINDEX_FOLLOW",
     inheritParentWarning: true,

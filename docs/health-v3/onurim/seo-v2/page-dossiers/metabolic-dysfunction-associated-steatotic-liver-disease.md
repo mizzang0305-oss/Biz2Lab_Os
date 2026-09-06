@@ -57,6 +57,10 @@ HEAD7c04b98의 expansion70 Claim records와 현재70을 읽기 전용 TS 평가�
 | internal outlinks | 16 | 22 |
 | content inlink / depth | HTML2 / 1, 당시 가시성 미검증 | 단일 route 미산출; 최종 전체 그래프 후속 |
 
+## Tool23 연결 재확인 — 2026-09-06
+
+도구 카드의 제목·소개를 검사 원문·음주·약 이력을 준비하는 작업과 맞췄다. 부모 의료 본문·claim은 변경하지 않았다. 부모5폭 UI/SEO 재실행 fail0이며 raw/page-qa의 해당 route는 이 재확인 관찰값이다. 아래 초기 build 기록과 구분한다. Tool23 통합 test/lint/typecheck 및 Health audit 최신 PASS는 별도 도구 dossier에 기록한다.
+
 ## 인증 증거
 
 - INTENT / TITLE / DESCRIPTION / H1: 결과 불일치처럼 보이는 의문에 답하는 고유 metadata/H1 하나.

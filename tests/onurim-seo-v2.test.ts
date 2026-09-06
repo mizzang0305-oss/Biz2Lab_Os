@@ -36,6 +36,22 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("MASLD worksheet joins original tests to individual history without scoring or unsupervised withdrawal", () => {
+  const tool = healthTools.find(t => t.slug === "metabolic-dysfunction-associated-steatotic-liver-disease-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.equal(tool.title, "지방간 검사 상담표");
+  assert.match(copy.steps.join(" "), /없음·미확인/);
+  assert.match(copy.limitation, /술을 끊기 전에 의료 도움/);
+  assert.match(copy.sheetNotice!, /토혈이 멈추고 다른 증상이 없어도/);
+  assert.match(copy.sheetNotice!, /환각·경련/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 6);
+  assert.doesNotMatch(JSON.stringify(copy), /FIB-4|APRI|\d+\s*(시간|mg|점 이상)/);
+});
+
 test("obesity memo preserves consent and actual changes without prescribing weight targets", () => {
   const tool = healthTools.find(t => t.slug === "obesity-visit-card")!;
   const copy = toolEditorial[tool.slug];

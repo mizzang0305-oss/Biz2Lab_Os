@@ -1,33 +1,33 @@
 {
   "route": "/health/metabolic-dysfunction-associated-steatotic-liver-disease",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T06:14:56.167Z",
+  "observedAt": "2026-09-06T14:53:21.099Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "d29a5d07e2b434e68bf0133a80b1840537494cfe25ce10e4e3368e45b63c9d8e",
-      "full": "e92bc7c8eebc22a750af25a00c2c25051264f243ec77c31e1b55940c8089ff2e"
+      "full": "7aa7ace58a6de3983225cf3ba9958f1dcc66780d208b57444c391fdd1122c40c"
     },
     {
       "width": 390,
       "top": "5033a315e2df8f1aaf974145c855eca2c3d727fb8e5c0ddc98cb14dce55e214c",
-      "full": "7afe5b0dabe6bfcd7589100f13af6b76033d69e6c9d837d00dc9b56e75271fe1"
+      "full": "e75bb27611a1e6bf706d6655c1fe187b1eb1635271e3315837ec88f3e5b5587c"
     },
     {
       "width": 430,
       "top": "3985f693c22c1f8fdda2cc570c4fa78de92d105ce015c3279be20a30a64c5057",
-      "full": "e637bce17cf518620551b37827c25356fcf812a89d7486263a27323111e71984"
+      "full": "239880b30f2475c7ec58fd58ba7e83462ffb79c48f19a8df5a66feaa5f9080ef"
     },
     {
       "width": 768,
       "top": "a8c2ac4330e0b13b794ccf56e67213451824d98fe1361c8444b6488311042f24",
-      "full": "dbc700ee104e36f6bf70f9c2e93869a66a95247652d763ee63d44b0d80f85697"
+      "full": "c728d878ef3caddaa1d2c5cda7778aac149486a4db68686b8f6617c54b676980"
     },
     {
       "width": 1440,
       "top": "88dd3dc5d5556552835fb95c6137c5c7c7fee60a8dc0ba9da2bde01740f478d1",
-      "full": "3b12ee3df8ede272ce360692020f6b52ed57f68cc9b1c9388d70774abe73aac0"
+      "full": "68cd858b609b9002d36707bf42c363c7e5ee1dfb75e6e91fcb2883ca83b7a38f"
     }
   ],
   "failures": [],
