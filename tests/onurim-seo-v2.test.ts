@@ -173,6 +173,29 @@ test("SEO citation counts include declared professional-society sources without 
   assert.match(audit, /DECLARED_SOURCE_BLOCK_NOT_QUALITY_VERDICT/);
 });
 
+test("MASLD separates enzyme, fat and fibrosis questions without self-diagnosis or unsupervised withdrawal", () => {
+  const article = healthArticles["metabolic-dysfunction-associated-steatotic-liver-disease"];
+  assert.equal(article.archetype, "QUESTION_FIRST");
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const text = JSON.stringify(article);
+  assert.match(text, /일반 초음파와 역할이 다릅니다/);
+  assert.match(text, /모두가 정밀검사를 받아야/);
+  assert.match(text, /먼저 의료 도움을/);
+  assert.match(text, /토한 뒤 멈췄고 다른 증상이 없어도/);
+  assert.doesNotMatch(text, /승인된 약이 없|\d+\s*(kg|㎏|kcal|%|U\/L|g\/일)/);
+  assert.ok(article.visuals?.["masld-concept"].src.endsWith("concept-v2.webp"));
+  assert.ok(article.visuals?.["masld-action"].caption.includes("AI 생성"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
 test("obesity uses consent-first family support and separates body measures from sudden fluid-related change", () => {
   const article = healthArticles.obesity;
   assert.equal(article.archetype, "FAMILY_SITUATION");

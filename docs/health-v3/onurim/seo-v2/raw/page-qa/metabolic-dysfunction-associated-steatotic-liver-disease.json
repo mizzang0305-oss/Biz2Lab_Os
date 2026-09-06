@@ -1,0 +1,446 @@
+{
+  "route": "/health/metabolic-dysfunction-associated-steatotic-liver-disease",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T06:14:56.167Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "d29a5d07e2b434e68bf0133a80b1840537494cfe25ce10e4e3368e45b63c9d8e",
+      "full": "e92bc7c8eebc22a750af25a00c2c25051264f243ec77c31e1b55940c8089ff2e"
+    },
+    {
+      "width": 390,
+      "top": "5033a315e2df8f1aaf974145c855eca2c3d727fb8e5c0ddc98cb14dce55e214c",
+      "full": "7afe5b0dabe6bfcd7589100f13af6b76033d69e6c9d837d00dc9b56e75271fe1"
+    },
+    {
+      "width": 430,
+      "top": "3985f693c22c1f8fdda2cc570c4fa78de92d105ce015c3279be20a30a64c5057",
+      "full": "e637bce17cf518620551b37827c25356fcf812a89d7486263a27323111e71984"
+    },
+    {
+      "width": 768,
+      "top": "a8c2ac4330e0b13b794ccf56e67213451824d98fe1361c8444b6488311042f24",
+      "full": "dbc700ee104e36f6bf70f9c2e93869a66a95247652d763ee63d44b0d80f85697"
+    },
+    {
+      "width": 1440,
+      "top": "88dd3dc5d5556552835fb95c6137c5c7c7fee60a8dc0ba9da2bde01740f478d1",
+      "full": "3b12ee3df8ede272ce360692020f6b52ed57f68cc9b1c9388d70774abe73aac0"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "지방간(MASLD) 검사 결과: 간 수치·초음파·섬유화 구분 | 오누림",
+      "h1": [
+        "지방간이라는데 간 수치는 정상, 무엇을 더 물어볼까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘간 수치는 정상’과 ‘지방간’ 중 무엇이 맞을까요?",
+        "MASLD·NAFLD, 이름은 어떻게 연결되나요?",
+        "간의 지방·염증·섬유화는 서로 다른 말입니다",
+        "검사마다 답할 수 있는 질문이 다릅니다",
+        "진료에는 결과 원문과 음주·약 정보를 함께",
+        "보충제보다 개인에게 맞는 관리 계획을 확인하세요",
+        "새 황달과 응급 변화는 다음 검진까지 미루지 마세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/metabolic-dysfunction-associated-steatotic-liver-disease",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 기록 용지와 상담 준비를 상징하는 보라색 장식 표지 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "왼쪽 간세포 안의 노란 지방 방울, 가운데 부푼 세포와 주변 염증세포, 오른쪽 세포 사이의 푸른 섬유조직을 구분한 개념도",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Faction-v2.webp&w=3840&q=75",
+          "alt": "성인 한 명이 혈액검사 결과지와 초음파 보고서 폴더를 옆에 놓고 별도 노트에 질문을 정리하는 생성 이미지",
+          "loaded": true,
+          "width": 290,
+          "height": 193
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 12,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "지방간(MASLD) 검사 결과: 간 수치·초음파·섬유화 구분 | 오누림",
+      "h1": [
+        "지방간이라는데 간 수치는 정상, 무엇을 더 물어볼까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘간 수치는 정상’과 ‘지방간’ 중 무엇이 맞을까요?",
+        "MASLD·NAFLD, 이름은 어떻게 연결되나요?",
+        "간의 지방·염증·섬유화는 서로 다른 말입니다",
+        "검사마다 답할 수 있는 질문이 다릅니다",
+        "진료에는 결과 원문과 음주·약 정보를 함께",
+        "보충제보다 개인에게 맞는 관리 계획을 확인하세요",
+        "새 황달과 응급 변화는 다음 검진까지 미루지 마세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/metabolic-dysfunction-associated-steatotic-liver-disease",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 기록 용지와 상담 준비를 상징하는 보라색 장식 표지 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "왼쪽 간세포 안의 노란 지방 방울, 가운데 부푼 세포와 주변 염증세포, 오른쪽 세포 사이의 푸른 섬유조직을 구분한 개념도",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Faction-v2.webp&w=3840&q=75",
+          "alt": "성인 한 명이 혈액검사 결과지와 초음파 보고서 폴더를 옆에 놓고 별도 노트에 질문을 정리하는 생성 이미지",
+          "loaded": true,
+          "width": 320,
+          "height": 213
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 12,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "지방간(MASLD) 검사 결과: 간 수치·초음파·섬유화 구분 | 오누림",
+      "h1": [
+        "지방간이라는데 간 수치는 정상, 무엇을 더 물어볼까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘간 수치는 정상’과 ‘지방간’ 중 무엇이 맞을까요?",
+        "MASLD·NAFLD, 이름은 어떻게 연결되나요?",
+        "간의 지방·염증·섬유화는 서로 다른 말입니다",
+        "검사마다 답할 수 있는 질문이 다릅니다",
+        "진료에는 결과 원문과 음주·약 정보를 함께",
+        "보충제보다 개인에게 맞는 관리 계획을 확인하세요",
+        "새 황달과 응급 변화는 다음 검진까지 미루지 마세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/metabolic-dysfunction-associated-steatotic-liver-disease",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 기록 용지와 상담 준비를 상징하는 보라색 장식 표지 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "왼쪽 간세포 안의 노란 지방 방울, 가운데 부푼 세포와 주변 염증세포, 오른쪽 세포 사이의 푸른 섬유조직을 구분한 개념도",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Faction-v2.webp&w=3840&q=75",
+          "alt": "성인 한 명이 혈액검사 결과지와 초음파 보고서 폴더를 옆에 놓고 별도 노트에 질문을 정리하는 생성 이미지",
+          "loaded": true,
+          "width": 360,
+          "height": 240
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 12,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "지방간(MASLD) 검사 결과: 간 수치·초음파·섬유화 구분 | 오누림",
+      "h1": [
+        "지방간이라는데 간 수치는 정상, 무엇을 더 물어볼까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘간 수치는 정상’과 ‘지방간’ 중 무엇이 맞을까요?",
+        "MASLD·NAFLD, 이름은 어떻게 연결되나요?",
+        "간의 지방·염증·섬유화는 서로 다른 말입니다",
+        "검사마다 답할 수 있는 질문이 다릅니다",
+        "진료에는 결과 원문과 음주·약 정보를 함께",
+        "보충제보다 개인에게 맞는 관리 계획을 확인하세요",
+        "새 황달과 응급 변화는 다음 검진까지 미루지 마세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/metabolic-dysfunction-associated-steatotic-liver-disease",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 기록 용지와 상담 준비를 상징하는 보라색 장식 표지 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "왼쪽 간세포 안의 노란 지방 방울, 가운데 부푼 세포와 주변 염증세포, 오른쪽 세포 사이의 푸른 섬유조직을 구분한 개념도",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Faction-v2.webp&w=3840&q=75",
+          "alt": "성인 한 명이 혈액검사 결과지와 초음파 보고서 폴더를 옆에 놓고 별도 노트에 질문을 정리하는 생성 이미지",
+          "loaded": true,
+          "width": 664,
+          "height": 443
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 12,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "지방간(MASLD) 검사 결과: 간 수치·초음파·섬유화 구분 | 오누림",
+      "h1": [
+        "지방간이라는데 간 수치는 정상, 무엇을 더 물어볼까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘간 수치는 정상’과 ‘지방간’ 중 무엇이 맞을까요?",
+        "MASLD·NAFLD, 이름은 어떻게 연결되나요?",
+        "간의 지방·염증·섬유화는 서로 다른 말입니다",
+        "검사마다 답할 수 있는 질문이 다릅니다",
+        "진료에는 결과 원문과 음주·약 정보를 함께",
+        "보충제보다 개인에게 맞는 관리 계획을 확인하세요",
+        "새 황달과 응급 변화는 다음 검진까지 미루지 마세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/metabolic-dysfunction-associated-steatotic-liver-disease",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 기록 용지와 상담 준비를 상징하는 보라색 장식 표지 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "왼쪽 간세포 안의 노란 지방 방울, 가운데 부푼 세포와 주변 염증세포, 오른쪽 세포 사이의 푸른 섬유조직을 구분한 개념도",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fmetabolic-dysfunction-associated-steatotic-liver-disease%2Faction-v2.webp&w=3840&q=75",
+          "alt": "성인 한 명이 혈액검사 결과지와 초음파 보고서 폴더를 옆에 놓고 별도 노트에 질문을 정리하는 생성 이미지",
+          "loaded": true,
+          "width": 724,
+          "height": 483
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 12,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}
