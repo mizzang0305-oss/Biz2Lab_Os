@@ -16,6 +16,27 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "diabetes-questions": {
+    title: "제2형 당뇨병 진료 질문지: 검사 결과·기록 계획·저혈당 대처",
+    description: "검사명·날짜·단위가 있는 결과지와 이미 남긴 혈당 기록, 현재 약 목록을 준비합니다. 개인 목표와 측정 계획, 저혈당 대처에서 모르는 점을 묻고 받은 답을 손으로 적는 진료 질문지입니다.",
+    updatedAt: "2026-09-06",
+    purpose: "검사표의 숫자와 집에서 남긴 기록을 구분해 질문할 때 쓰는 양식입니다. HbA1c와 한 번의 혈당을 같은 검사처럼 비교하거나 인터넷의 목표를 본인에게 그대로 적용하지 않도록, 개인 설명을 확인할 질문을 준비합니다.",
+    steps: [
+      "검사 결과지는 원본을 준비하고 검사명·검사일·단위를 먼저 확인합니다. 일부 숫자만 떼어 놓고 정상 여부를 단정하지 않습니다.",
+      "이미 측정한 기록과 현재 약 목록에서 궁금한 점을 적습니다. 이 질문지를 채우려고 측정을 새로 시작하거나 처방을 바꾸지 않습니다.",
+      "오늘 먼저 물을 질문을 표시합니다. 질문을 고르는 것이 새 증상·약 관련 변화 같은 중요한 정보를 생략하라는 뜻은 아닙니다.",
+      "아래 답변 칸에 안내받은 개인 목표·측정 시간과 횟수·대처 계획·다음 연락 시점을 나누어 적습니다. 설명대로 하기 어려운 점과 이해하지 못한 부분은 그 자리에서 다시 묻습니다.",
+    ],
+    example: "질문을 구체화하는 예시: ‘검사표의 기준과 제 개인 목표는 같은가요?’, ‘제가 받은 저혈당 대처 계획에서 가족이 알아야 할 부분은 무엇인가요?’ 답변이 확인되지 않은 항목은 미확인으로 남기고 임의의 수치를 채우지 않습니다.",
+    limitation: "질문지가 검사·치료 필요성이나 약·인슐린량을 결정하지 않습니다. 미리 받은 개인 조절·대처 계획은 따르고 불분명하면 의료진에게 확인합니다. 위급한 증상이 있으면 예약일이나 질문지 완성을 기다리지 않습니다.",
+    sheetNotice: "의식이 흐려지거나 반응이 없거나 경련·심한 호흡곤란이 있으면 즉시 119에 연락합니다. 의식이 없거나 안전하게 삼킬 수 없는 사람에게 음식·물·약을 억지로 먹이지 않습니다.",
+    sourceIds: ["SRC-NIDDK-MANAGING", "SRC-NIDDK-A1C", "SRC-NHS-LOW-GLUCOSE", "SRC-CDC-DKA", "SRC-KDCA-CPR"],
+    links: [
+      { href: "/health/guides/understanding-hba1c", label: "검사표의 HbA1c·NGSP·IFCC 표시 이해" },
+      { href: "/health/tools/glucose-observation-log", label: "이미 측정한 값·시각·단위를 가져갈 혈당 기록표" },
+      { href: "/health/guides/appointment-questions", label: "진료 후 답변·다음 일정·문의처 확인 순서" },
+    ],
+  },
   "glucose-observation-log": {
     title: "혈당 기록표: 실제 측정시각·기기 단위·식사와 활동",
     description: "이미 혈당을 측정하는 사람이 실제 잰 시각, 기기의 원래 값과 단위, 식사·활동·증상을 함께 남기는 인쇄 양식입니다. 개인 측정 계획에 따라 기록하며 목표 혈당이나 인슐린량을 계산하지 않습니다.",

@@ -872,6 +872,7 @@ export const healthTools: HealthTool[] = [
     description: "검사 의미와 다음 행동을 의료진에게 확인하기 위한 질문지입니다.",
     claimIds: ["DIA-B1-006", "DIA-B1-009", "DIA-B1-010", "DIA-B1-011"],
     kind: "questions",
+    fields: ["가져갈 검사 결과지: 검사명·검사일·단위", "이미 남긴 혈당 기록·현재 약 목록에서 확인할 점"],
     items: [
       "제 검사 결과는 어떤 기간과 상태를 보여 주나요?",
       "재검이 필요하다면 어떤 검사와 시점인가요?",
