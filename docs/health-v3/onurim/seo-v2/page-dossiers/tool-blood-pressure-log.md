@@ -40,3 +40,7 @@ INTENT_PASS/TITLE_PASS/DESCRIPTION_PASS/H1_PASS/CONTENT_UNIQUENESS_PASS/MEDICAL_
 SEO_PAGE_CERTIFIED는 LOCAL이며 Production/Google/실제독자/의료검수성과가 아니다.
 
 증거: ../raw/page-qa/blood-pressure-log.json, ../raw/tool-qa/blood-pressure-log.json; PDF·최종 PNG는 ignored reports/local/onurim-seo-v2/blood-pressure-log/. 외부변경없음.
+
+## 2026-09-06 키보드·인쇄 회귀 확인
+
+Tool5에서 End키의 세로 스크롤과 캡처 경합을 발견해 QA를 수정했다. 기존 reachedRight는 programmatic 이동을 포함하므로 독립적인 키보드 가로 이동 증거와 구분한다. 이번 혈압표 재검사는 실제ArrowRight→안정화→오른쪽끝/헤더아래 viewport캡처로 keyboardMovedRight=true를 확인했다. Main 최종표 화면과 인쇄2쪽을 직접열람했고 7열14행·출처4·버전·한계 보존, PDF2쪽(1002/869문자), 비GET0·내부링크200이다. 제품 문구 변경 없음.

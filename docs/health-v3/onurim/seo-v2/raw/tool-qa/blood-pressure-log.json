@@ -1,6 +1,6 @@
 {
   "route": "/health/tools/blood-pressure-log",
-  "observedAt": "2026-09-06T11:47:19.627Z",
+  "observedAt": "2026-09-06T12:29:48.214Z",
   "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
   "fields": [],
   "sourceHrefs": [
@@ -12,7 +12,14 @@
   "horizontalNavigation": {
     "client": 318,
     "total": 720,
-    "reachedRight": true
+    "reachedRight": true,
+    "keyboardMovedRight": true,
+    "placement": {
+      "top": 179.640625,
+      "bottom": 897.625,
+      "headerBottom": 139,
+      "viewportHeight": 1500
+    }
   },
   "checkboxToggled": null,
   "printState": {
@@ -51,7 +58,7 @@
     }
   ],
   "nonGetRequests": [],
-  "pdfSha256": "75cffb06106a1c7d860396011cd2521b772b2884d638d91474d80a03837245f7",
+  "pdfSha256": "731f2efbbab9a336840bc071e6f072a39f11160f89798abaa02db2a1e41bb039",
   "pdfBytes": 112266,
   "failures": []
 }
