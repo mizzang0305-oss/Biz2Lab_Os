@@ -226,6 +226,7 @@ const guides: GuideConfig[] = [
   {
     slug: "kidney-stones",
     prefix: "KST",
+    toolSummary: { title: "신장결석 진료 준비표", description: "통증·소변 변화와 기존 검사·수분 제한·약 정보를 모아 배출 확인과 개인 계획을 묻는 인쇄 양식입니다." },
     title: "신장결석",
     cluster: "신장·비뇨기",
     archetype: "SIMPLE_ANALOGY",
@@ -236,8 +237,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 병력과 진찰, 소변·혈액검사와 영상검사를 이용해 결석의 위치와 막힘 여부를 확인할 수 있습니다.",
     careBoundary: "통증만으로 결석의 크기나 통과 여부를 예측하지 않습니다. 심장·신장 질환으로 수분 제한을 받은 사람은 물 섭취를 임의로 늘리지 않습니다.",
     urgent: "열·오한, 반복 구토, 소변이 거의 나오지 않음, 견디기 어려운 통증이 있으면 막힘이나 감염 가능성 때문에 신속한 의료 평가가 필요합니다.",
-    observationItems: ["통증 위치와 파도처럼 변하는지", "소변 색과 양", "열·오한·구토 여부", "과거 결석과 수분 제한"],
-    questions: ["결석의 위치와 크기는 어떻게 확인하나요?", "감염이나 막힘 신호가 있나요?", "결석 종류를 알면 예방이 달라지나요?"],
+    observationItems: ["통증 시기·위치 / 소변·열·오한·구토 등 실제 변화", "기존 소변·혈액·영상검사 원본 / 과거 결석·분석 자료", "다른 질환·안내받은 수분 제한 / 실제 약·보충제·식사"],
+    questions: ["위치·크기뿐 아니라 막힘·감염·콩팥 기능에서 확인할 점과 검사 목적은 무엇인가요?", "통증이 줄어도 배출 여부와 콩팥 상태를 언제 어떻게 확인하며, 그 전에 연락할 변화는 무엇인가요?", "제 결석 성분·다른 질환에 맞는 수분·식사·약 계획과 사용 지침은 무엇인가요?"],
     sources: [
       { id: "SRC-NIDDK-STONE-SYMPTOMS", organization: "NIH/NIDDK", title: "Symptoms & Causes of Kidney Stones", url: "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/symptoms-causes", sourceDate: "2017" },
       { id: "SRC-NIDDK-STONE-DIAGNOSIS", organization: "NIH/NIDDK", title: "Diagnosis of Kidney Stones", url: "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/diagnosis", sourceDate: "2017" },

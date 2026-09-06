@@ -65,3 +65,7 @@ MEDICAL_REVIEW_COMPLETED=NO · REAL_HUMAN_READER_TEST=NOT_PERFORMED. 수분·칼
 INTENT_PASS · TITLE_PASS · DESCRIPTION_PASS · H1_PASS · CONTENT_UNIQUENESS_PASS · MEDICAL_SOURCE_PASS · INTERNAL_LINK_PASS · IMAGE_PASS · MOBILE_PASS · SCHEMA_PASS · CANONICAL_PASS · INDEXABILITY_PASS.
 
 임상·실제독자·fieldCWV·Google색인보장 아님. Preview/Production/색인요청 없음.
+
+## Tool 29 연결 후 확인 — 2026-09-07 LOCAL
+
+실제 변화·기존 검사·개인 수분 제한과 약 정보를 질문으로 연결하는 준비표로 카드 설명/필드/질문만 변경. 부모 의료 본문·날짜·Claim·출처 객체 미변경. 부모5폭/SEO PASS. 상세 개별 인증은 tool-kidney-stones-visit-card.md. Production 미적용.

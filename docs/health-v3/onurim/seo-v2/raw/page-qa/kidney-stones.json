@@ -1,33 +1,33 @@
 {
   "route": "/health/kidney-stones",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T08:19:27.091Z",
+  "observedAt": "2026-09-06T15:45:39.042Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "03739755896e4feb1edb8fe95017865942639deafa2465c528252f162eb0f217",
-      "full": "20431ba13ae934751dc8271a090caa41dd7fc0179536d1b35090848ae680db8c"
+      "full": "a2b2d3fa7a226af53c9fe3869231e4e46e042feebeda7ba6de3c0e71574cd3f0"
     },
     {
       "width": 390,
       "top": "795349024d190666adb8624d53d28ed0e5d093486b688341c045732aaa241372",
-      "full": "4f0343abd33f02b36d922224c889003edf0c09420fd92446f4660134bf553e58"
+      "full": "7b60df39fe0c6ee97ee0ecc5009fbb2f34daecbc9624f1301cb5b6300538d052"
     },
     {
       "width": 430,
       "top": "a19568a014488d5dcab31bc4b880fc181d00503a71f6705e2d0fd81f707a6bff",
-      "full": "09c35be9bb55d7a3c85b9caa929bce211d1c3d64454cff2b44db84871e98c8c3"
+      "full": "08d2fd7a19ad0295f63341334ebcfc3ea8364471a054a9b6d7f3bdc50033176a"
     },
     {
       "width": 768,
       "top": "4c3fc9c394294f77a54a7f354cf1f4280f69263d02f1aa2583d74780454d9d22",
-      "full": "aa27c6594da877e1b525c550f2c5129cb4d5b436292685582e7d0b177def4f86"
+      "full": "d7c83b6630ba920abdb4eb986dec685623135dec53b13925b9c1bfc2cb512f34"
     },
     {
       "width": 1440,
       "top": "dd606f2310c157da82402d8e792c75638a097775bbfa5117a1db7fcbc95fc36e",
-      "full": "59bad7bd9ece804a34b42d9199e5bab52857e84ce17006fc78ef83044071607a"
+      "full": "742678e5fa49344d8c11b8fe89a03ec28930bb88b5801a0b70bd78eb3ab49e0e"
     }
   ],
   "failures": [],

@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "kidney-stones-visit-card": {
+    indexDecision: "INDEX_UTILITY",
+    inheritParentWarning: true,
+    title: "신장결석 진료 준비표: 검사 자료·배출 확인·개인 수분 계획",
+    description: "통증·소변 변화와 기존 검사, 수분 제한·약 정보를 모아 막힘·감염·배출 확인을 질문합니다. 결석 크기로 집에서 기다릴 기간이나 물의 양을 정하지 않습니다.",
+    updatedAt: "2026-09-07",
+    purpose: "결석 평가·치료 뒤 상담에 가져갑니다. 검사 자료나 결석을 갖추는 것은 진료의 조건이 아닙니다.",
+    steps: [
+      "실제 통증 시기·위치와 소변·몸 상태 변화를 적습니다. 모르는 양은 추측하지 않으며, 옆구리를 두드려 증상을 시험하지 않습니다.",
+      "기존 소변·혈액·영상검사와 결석 분석 자료를 준비하고 없으면 미확인으로 둡니다. 과거 결석·다른 질환·수분 제한·실제 약도 함께 알립니다.",
+      "아래 질문 중 먼저 물을 것을 표시하고, 받은 답·다음 확인 시점·연락처를 적습니다. 결석을 모으라는 지침은 해당 병원에 확인합니다.",
+    ],
+    example: "‘덜 아픔’은 몸의 변화 칸에, 의료진이 설명한 배출 확인 방법·시점은 답변 칸에 적습니다. 두 정보를 같은 뜻으로 쓰지 않습니다.",
+    limitation: "통증 감소·소변 색·결석 크기만으로 배출이나 안전한 대기를 판정하지 않습니다. 기존 추적 평가를 임의 취소하지 말고, 수분 제한을 혼자 바꾸거나 물을 억지로 마시지 않습니다. 식사·약·보충제 조정은 개인 계획을 확인하며 남의 약을 사용하지 않습니다.",
+    sheetNotice: "갑작스러운 혼돈·어눌한 말이나 매우 빠르거나 어려운 호흡은 즉시 119입니다. 심한 통증, 발열 또는 오한, 소변이 없거나 매우 적음, 반복 구토는 각각 즉시 의료 도움을 받으며 바로 진료가 어려우면 응급기관에 연락합니다. 새 혈뇨·배뇨 통증도 신속히 진료받습니다. 물·약효·결석 채집·기록 완성을 기다리거나 직접 운전하지 않습니다.",
+    sourceIds: ["SRC-NIDDK-STONE-DIAGNOSIS"],
+    links: [
+      { href: "/health/guides/reading-health-results", label: "소변·혈액 검사 결과지의 항목과 다음 확인 계획 읽기" },
+      { href: "/health/guides/medication-list", label: "결석 진료에 알릴 실제 약·보충제 목록" },
+      { href: "/health/guides/appointment-questions", label: "추적 확인과 그 전에 연락할 기준을 묻는 방법" },
+    ],
+  },
   "migraine-visit-card": {
     indexDecision: "INDEX_UTILITY",
     inheritParentWarning: true,
