@@ -69,6 +69,16 @@ test("author profile marks only the real non-clinician role and never invents cr
   assert.equal(page.indexDecision, "INDEX_SUPPORT");
 });
 
+test("editorial policy separates procedures from incomplete medical and real-reader validation", () => {
+  const page = trustPages.find(page => page.slug === "editorial-policy")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "INDEX_SUPPORT");
+  assert.match(text, /의료 검수와 실제 일반 독자 테스트는 미완료/);
+  assert.match(text, /현재 모든 글에 대한 검증 결과도 아닙니다/);
+  assert.match(text, /다시 배포했다는 이유만으로 모든 글을 최신으로 표시하지 않/);
+  assert.doesNotMatch(page.intro, /짧은 설명, 더 깊은 이해, 바로 쓸 행동 도구의 순서/);
+});
+
 test("trust pages distinguish public access from index decisions and use page-specific dates", () => {
   const entries = sitemap();
   for (const page of trustPages) {
