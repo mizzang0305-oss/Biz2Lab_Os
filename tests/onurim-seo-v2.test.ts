@@ -24,6 +24,18 @@ test("individually excluded utilities remain self-canonical noindex follow witho
   assert.match(toolEditorial[warning.slug].limitation, /심해질 때까지 기다리는 기준이 아니/);
 });
 
+test("diabetes terms stays a non-diagnostic reference without a fabricated fillable form", () => {
+  const tool = healthTools.find(t => t.slug === "diabetes-test-terms")!;
+  assert.equal(tool.kind, "guide");
+  assert.equal(tool.fields, undefined);
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(copy.limitation, /금식이나 약 중단을 새로 시작하지/);
+  assert.match(copy.limitation, /같은 날 다른 검사/);
+  assert.deepEqual(copy.sourceIds, ["SRC-NIDDK-TESTS", "SRC-NIDDK-A1C"]);
+  assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
+});
+
 test("tool sources resolve to documents and print safety remains visible", () => {
   for (const tool of healthTools) {
     const sources = getToolSources(tool);

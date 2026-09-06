@@ -8,12 +8,13 @@ import { absoluteUrl } from "@/lib/site";
 
 export function HealthToolPage({ tool }: { tool: HealthTool }) {
   const editorial = toolEditorial[tool.slug];
+  const referenceOnly = tool.kind === "guide" && Boolean(editorial);
   const sources = getToolSources(tool);
   const parent = healthArticles[tool.articleSlug];
   const emergency = getToolSafetyNotice(tool);
   const itemGroups = tool.itemGroups ?? (tool.items ? [{ title: "", items: tool.items }] : []);
   return (
-    <article className={`onurim-tool-page${tool.kind === "warning" ? " onurim-warning-card" : ""}`} data-claim-ids={tool.claimIds.join(",")}>
+    <article className={`onurim-tool-page${tool.kind === "warning" ? " onurim-warning-card" : ""}${referenceOnly ? " onurim-reference-card" : ""}`} data-claim-ids={tool.claimIds.join(",")}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbJsonLd([
         { name: "오누림", url: absoluteUrl("/") },
         { name: parent.title, url: absoluteUrl(`/health/${tool.articleSlug}`) },
@@ -23,7 +24,7 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
         <p className="onurim-eyebrow">오누림 인쇄·기록 도구</p>
         <h1>{tool.title}</h1>
         <p>{editorial?.description ?? tool.description}</p>
-        <p className="onurim-tool-format">{tool.kind === "warning" ? "이 카드는 입력·체크·저장 기능이 없는 인쇄용 안내입니다. 위급한 상황에서는 인쇄보다 119 도움 요청이 먼저입니다." : "빈칸은 인쇄한 뒤 손으로 작성합니다. 화면의 체크는 임시 표시이며 저장·제출 기능이 없습니다. 개인정보를 공개 문의 채널에 올리지 마세요."}</p>
+        <p className="onurim-tool-format">{tool.kind === "warning" ? "이 카드는 입력·체크·저장 기능이 없는 인쇄용 안내입니다. 위급한 상황에서는 인쇄보다 119 도움 요청이 먼저입니다." : referenceOnly ? "입력·체크·저장 기능이 없는 인쇄용 참고 자료입니다." : "빈칸은 인쇄한 뒤 손으로 작성합니다. 화면의 체크는 임시 표시이며 저장·제출 기능이 없습니다. 개인정보를 공개 문의 채널에 올리지 마세요."}</p>
         {editorial ? <p className="onurim-tool-date">양식·안내 수정 <time dateTime={editorial.updatedAt}>{editorial.updatedAt}</time> · 비의료인 편집 · 면허 의료인 검수 미완료</p> : null}
         <div className="onurim-tool-actions">
           <PrintButton />
@@ -44,21 +45,21 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
 
       {editorial ? (
         <section className="onurim-tool-instructions" aria-labelledby="tool-instructions">
-          <h2 id="tool-instructions">이 양식을 쓰는 때와 순서</h2>
+          <h2 id="tool-instructions">{referenceOnly ? "이 자료를 읽는 순서" : "이 양식을 쓰는 때와 순서"}</h2>
           <p>{editorial.purpose}</p>
           <ol>{editorial.steps.map(step => <li key={step}>{step}</li>)}</ol>
-          <div className="onurim-tool-example"><h3>{tool.kind === "warning" ? "기억용 카드이지 검사표가 아닙니다" : "어디에 무엇을 적나요?"}</h3><p>{editorial.example}</p></div>
+          <div className="onurim-tool-example"><h3>{tool.kind === "warning" ? "기억용 카드이지 검사표가 아닙니다" : referenceOnly ? "검사 이름과 개인 판단은 다릅니다" : "어디에 무엇을 적나요?"}</h3><p>{editorial.example}</p></div>
           {tool.kind !== "warning" ? <p>{editorial.limitation}</p> : null}
         </section>
       ) : null}
 
       {tool.kind !== "warning" ? <section className="onurim-print-sheet" aria-labelledby="print-sheet-title">
-        <h2 id="print-sheet-title">인쇄해서 작성할 양식</h2>
+        <h2 id="print-sheet-title">{referenceOnly ? "검사 용어와 해석의 경계" : "인쇄해서 작성할 양식"}</h2>
         {editorial?.sheetNotice ? <p className="onurim-tool-sheet-notice">{editorial.sheetNotice}</p> : null}
-        <div className="onurim-print-intro">
+        {!referenceOnly ? <div className="onurim-print-intro">
           <p><strong>구분 표시(실명 불필요):</strong> ____________________</p>
           <p><strong>작성 날짜·기간:</strong> ____________________</p>
-        </div>
+        </div> : null}
 
         {tool.kind === "log" && tool.columns ? (
           <div>
@@ -86,14 +87,14 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
         {itemGroups.map((group, groupIndex) => (
           <div className="onurim-tool-item-group" key={group.title || groupIndex}>
           {group.title ? <h3>{group.title}</h3> : null}
-          <div className={tool.kind === "warning" ? "onurim-warning-list" : "onurim-check-list"}>
+          {referenceOnly ? <ul className="onurim-reference-list">{group.items.map(item => <li key={item}>{item}</li>)}</ul> : <div className={tool.kind === "warning" ? "onurim-warning-list" : "onurim-check-list"}>
             {group.items.map((item) => (
               <label key={item}>
                 {tool.kind !== "guide" && tool.kind !== "warning" ? <input type="checkbox" /> : <span aria-hidden>•</span>}
                 <span>{item}</span>
               </label>
             ))}
-          </div>
+          </div>}
           </div>
         ))}
 

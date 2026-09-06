@@ -16,6 +16,25 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "diabetes-test-terms": {
+    indexDecision: "NOINDEX_FOLLOW",
+    title: "혈당 검사 용어 한 장: 공복혈당·HbA1c의 시간 범위",
+    description: "공복혈당과 HbA1c가 보는 시간 범위를 나누어 읽는 인쇄용 요약입니다. 검사 준비 지시나 정상 수치표가 아니며, 자세한 단위·해석 질문은 HbA1c 가이드로 연결합니다.",
+    updatedAt: "2026-09-06",
+    purpose: "검사 결과지의 이름을 찾을 때 옆에 둘 짧은 참고 자료입니다. HbA1c 해설의 내용을 요약한 것이며 검사 결과를 입력하거나 점수를 계산하지 않습니다.",
+    steps: [
+      "결과지에서 검사명·날짜·단위를 먼저 확인한 뒤 아래 시간 범위와 대조합니다.",
+      "결과가 서로 다르거나 단위가 낯설면 원본을 가져가 의료진에게 묻습니다. 숫자를 임의로 환산하거나 한 결과를 지우지 않습니다.",
+    ],
+    example: "검사 이름을 확인했어도 그 결과가 본인의 진단이나 개인 목표를 뜻하는지는 별도로 설명받아야 합니다.",
+    limitation: "이 요약으로 금식이나 약 중단을 새로 시작하지 않습니다. HbA1c 검사 자체에는 금식이 필요 없지만 같은 날 다른 검사가 있을 수 있으므로 실제 준비·복약은 검사기관의 안내를 확인합니다.",
+    sourceIds: ["SRC-NIDDK-TESTS", "SRC-NIDDK-A1C"],
+    links: [
+      { href: "/health/guides/understanding-hba1c", label: "HbA1c·NGSP·IFCC와 공복혈당의 자세한 차이" },
+      { href: "/health/guides/reading-health-results", label: "결과지의 단위·참고범위·날짜 읽는 순서" },
+      { href: "/health/tools/diabetes-questions", label: "검사 의미와 개인 목표를 확인할 질문지" },
+    ],
+  },
   "family-support-checklist": {
     indexDecision: "NOINDEX_FOLLOW",
     title: "당뇨병 가족 지원 체크리스트: 동의한 도움과 개인 계획 확인",

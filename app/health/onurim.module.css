@@ -643,6 +643,8 @@
   :global(.onurim-print-intro) { flex-direction: column; }
 }
 
+:global(.onurim-reference-list) { display: grid; gap: 0.8rem; padding-left: 1.3rem; }
+
 @media print {
   :global(body > header),
   :global(body > footer),
@@ -686,4 +688,11 @@
   :global(.onurim-warning-card h2) { margin-top: 0.5rem; }
   :global(.onurim-warning-card .onurim-tool-example) { padding: 0.5rem; }
   :global(.onurim-warning-card .onurim-tool-footer) { margin-top: 0.6rem; }
+  :global(.onurim-reference-card .onurim-print-sheet) { break-before: auto; margin-top: 0.6rem; }
+  :global(.onurim-reference-card .onurim-tool-header > p:not(.onurim-eyebrow)) { font-size: 9pt; line-height: 1.35; margin: 0.3rem 0; }
+  :global(.onurim-reference-card h2) { margin-top: 0.6rem; }
+  :global(.onurim-reference-card .onurim-tool-example) { padding: 0.5rem; }
+  :global(.onurim-reference-card .onurim-reference-list) { gap: 0.35rem; margin: 0.4rem 0; }
+  :global(.onurim-reference-card .onurim-reference-list li) { break-inside: avoid; }
+  :global(.onurim-reference-card .onurim-tool-footer) { margin-top: 0.6rem; }
 }
