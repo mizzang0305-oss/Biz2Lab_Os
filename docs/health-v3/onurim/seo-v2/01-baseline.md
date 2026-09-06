@@ -59,7 +59,7 @@ HbA1c URL을 실제 페이지 필터로 선택해 `hba1c 뜻` / `hba1c` / `hba1c
 
 [77개 server HTML 관측](raw/production-crawl.json): 전 URL HTTP 200, H1 1개, 제목 중복 0, 설명 중복 13(14개 확장 카드가 같은 설명). JS·네트워크 자원 로딩을 끈 별도 파서에서 HTML을 읽었다. 이는 렌더링·실사용·CWV 통과와 별개다. 첫 감사의 root canonical trailing slash 판정은 문자열 비교의 오탐이었으며 URL 정규화 후 재실행해 failure 0을 확인했다. 본문 header의 제목·서론을 보존한 파서로 최종 baseline을 재생성했다.
 
-초기 `npm ci`는 성공했고 기존 dependency audit가 moderate 1/high 4를 보고했다. 임의 `npm audit fix`나 Production 의존성 변경은 수행하지 않았다. 별도 read-only 분류가 필요하다.
+초기 `npm ci`는 성공했고 기존 dependency audit가 moderate 1/high 4를 보고했다. 9/6 read-only `npm audit --json`/`npm ls` 재확인: brace-expansion 1.1.16/5.0.8, browserslist 4.28.2, js-yaml 4.3.0은 ESLint/TypeScript lint 경로이고 postcss 8.5.15는 @tailwindcss/postcss 4.3.1 build 경로다. Next의 postcss8.5.26 및 gray-matter의 js-yaml3.15.1은 이 보고서의 해당 취약 버전과 구분된다. 임의 `npm audit fix`/lockfile/Production 의존성 변경 없음. 도구 경로라는 사실만으로 안전을 보장하지 않으며, 비신뢰 lint/CSS 입력 도달 가능성과 안전한 dependency patch는 별도 후속 검토로 남긴다.
 
 ## 진실성 보존
 

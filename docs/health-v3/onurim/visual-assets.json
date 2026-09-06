@@ -175,7 +175,7 @@
       "AR-B2-005"
     ],
     "altText": "실외와 실내에서 생긴 코와 눈의 변화를 관찰표에 적는 성인의 교육용 삽화",
-    "caption": "증상과 장소의 흐름을 적어도 알레르기 원인을 이 그림으로 확정할 수는 없습니다.",
+    "caption": "코·눈의 불편을 기억해 기록하는 장면입니다. 눈을 비비라는 사용법이나 원인 판정표가 아닙니다.",
     "prompt": "Korean adult observes symptom timing across ordinary indoor and outdoor settings with a paper log; original teal, mint and sand editorial art; no text, values, medicine, diagnostic imagery or authority symbols",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -195,7 +195,7 @@
       "AR-B2-004"
     ],
     "altText": "실외 꽃가루와 실내 먼지처럼 보이는 입자가 단순화한 코 주변으로 향하는 교육용 삽화",
-    "caption": "실외·실내 자극과 코 증상의 관계를 단순화한 그림이며 진단 도구가 아닙니다.",
+    "caption": "입자가 코로 들어오는 관계만 단순화했습니다. 모든 먼지가 알레르겐이거나, 오른쪽 그림이 치료 뒤 좋아진 상태라는 뜻은 아닙니다.",
     "prompt": "three-stage abstract outside and indoor particles moving toward a stylized nose; original non-diagnostic educational illustration without labels or anatomy realism",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -216,7 +216,7 @@
       "AR-B2-012"
     ],
     "altText": "성인 두 명이 창문과 옷, 표면 정리와 관찰표를 함께 살피는 교육용 삽화",
-    "caption": "환경 변화는 개인마다 다릅니다. 기록은 원인을 확정하는 검사표가 아닙니다.",
+    "caption": "창문·옷·표면과 증상 기록을 함께 살피는 장면입니다. 꽃가루가 높은 날 창문을 열라는 지시나 원인을 확정하는 검사표가 아닙니다.",
     "prompt": "supportive adults discuss a blank environment observation checklist at home; no medication, checklist text, diagnosis or prevention promise",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",

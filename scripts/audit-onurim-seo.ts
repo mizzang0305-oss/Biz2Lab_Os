@@ -12,6 +12,7 @@ const option = (name: string, fallback: string) => {
 };
 const base = new URL(option("--base", "http://localhost:3212"));
 const out = path.resolve(option("--out", "output/onurim-seo-audit.json"));
+if (!out.endsWith(".json")) throw new Error("--out must end in .json so JSON and CSV evidence use distinct files");
 const singleRoute = option("--route", "");
 const canonicalOrigin = "https://www.biz2lab.com";
 const routes = ["/", "/health", ...Object.keys(healthArticles).map(s => `/health/${s}`),

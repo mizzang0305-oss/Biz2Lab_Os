@@ -1,8 +1,15 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import { spawnSync } from "node:child_process";
 import test from "node:test";
 import { healthArticles, healthTools, trustPages } from "../lib/health-v3/content";
 import { healthSupportGuides } from "../lib/health-v3/support-guides";
+
+test("SEO audit refuses colliding output paths before HTTP or file writes", () => {
+  const run = spawnSync(process.execPath, ["--import", "tsx", "scripts/audit-onurim-seo.ts", "--out", "invalid-output"], { encoding: "utf8" });
+  assert.notEqual(run.status, 0);
+  assert.match(run.stderr, /--out must end in \.json/);
+});
 
 test("SEO baseline joins exactly the 77 current routes without losing unknown URL verdicts", () => {
   const raw = JSON.parse(readFileSync("docs/health-v3/onurim/seo-v2/raw/gsc-url-inspections-2026-09-06.json", "utf8"));
@@ -82,4 +89,19 @@ test("type 2 diabetes separates laboratory roles, low glucose and emergency help
   assert.ok(urgent.sourceIds!.includes("SRC-NHS-LOW-GLUCOSE"));
   assert.match(JSON.stringify(article), /미리 정해 준 조절 계획/);
   assert.ok(article.sections.every(s=>s.imageId!==undefined));
+});
+
+test("rhinitis separates allergy causes, test interpretation and spray roles", () => {
+  const article = healthArticles["allergic-rhinitis"];
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.doesNotMatch(article.eyebrow, /Preview|비공개/);
+  assert.match(JSON.stringify(article), /양성인 물질이 모두/);
+  assert.match(JSON.stringify(article), /끓인 뒤 식힌 물/);
+  assert.match(article.seoTitle!, /감기 차이/);
 });
