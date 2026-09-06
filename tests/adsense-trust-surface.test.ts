@@ -23,7 +23,7 @@ test("public ONURIM privacy policy discloses active Google measurement and adver
   assert.match(trustPage, /policies\.google\.com\/technologies\/partner-sites/);
 });
 
-test("public trust surfaces avoid unfinished wording and expose a working contact path", () => {
+test("archived Biz2Lab source retains editorial attribution and a contact link, not live intake proof", () => {
   const footer = readSource("lib", "site-settings.ts");
   const contact = readSource("app", "ko", "contact", "page.tsx");
   const about = readSource("app", "ko", "about", "page.tsx");

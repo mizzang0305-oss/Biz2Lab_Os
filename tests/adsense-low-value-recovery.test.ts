@@ -17,7 +17,7 @@ import {
   getEditorialEvidenceEntries,
 } from "@/lib/editorial-evidence";
 import { getEvidenceForPost } from "@/lib/evidence";
-import { healthArticles, healthTools } from "@/lib/health-v3/content";
+import { healthArticles, healthTools, trustPages } from "@/lib/health-v3/content";
 import { healthSupportGuides } from "@/lib/health-v3/support-guides";
 import { getAllPosts, getPostsByCategory, getPublicPosts } from "@/lib/posts";
 import { staticPublicRoutes } from "@/lib/seo";
@@ -236,7 +236,11 @@ test("reader-facing ONURIM trust surfaces disclose authorship, corrections, and 
   assert.equal(staticPublicRoutes.includes("/health/trust/author"), true);
   assert.equal(staticPublicRoutes.includes("/health/trust/corrections-policy"), true);
   assert.match(trustPage, /박영훈\(비의료인 건강정보 편집자\)/);
-  assert.match(trustPage, /github\.com\/mizzang0305-oss\/Biz2Lab_Os\/issues\/new/);
+  const corrections = trustPages.find(page => page.slug === "corrections-policy")!;
+  assert.ok(corrections.sections.flatMap(section => section.links ?? [])
+    .some(link => link.href === "https://github.com/mizzang0305-oss/Biz2Lab_Os/issues"));
+  assert.match(corrections.sections.map(section => section.body).join(" "), /실제 접수 가능 여부는 확인되지 않았습니다/);
+  assert.doesNotMatch(trustPage, /issues\/new/);
   assert.match(home, /현재 의료인 검수는 미완료/);
   assert.match(home, /AI 활용 공개/);
   assert.match(layout, /\/health\/trust\/author/);

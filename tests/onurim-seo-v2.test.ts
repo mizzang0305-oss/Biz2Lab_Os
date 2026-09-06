@@ -142,6 +142,17 @@ test("disclaimer preserves urgent help without treating every new symptom as an 
   assert.doesNotMatch(text, /새롭거나 심한 증상/);
 });
 
+test("terms retains the existing personal-use boundary and links to specific reader policies", () => {
+  const page = trustPages.find(page => page.slug === "terms")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(text, /개인용 기록표를 출력할 수 있습니다/);
+  assert.match(text, /출처를 지우거나 오누림의 의료 권고처럼 재판매할 수 없습니다/);
+  assert.deepEqual(page.sections.flatMap(section => section.links ?? []).map(link => link.href),
+    ["/health/trust/privacy", "/health/trust/disclaimer", "/health/trust/corrections-policy"]);
+  assert.doesNotMatch(text, /모든 책임을 면제|자동으로 동의|관할 법원/);
+});
+
 test("trust pages distinguish public access from index decisions and use page-specific dates", () => {
   const entries = sitemap();
   const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(slug => `/health/${slug}`),
