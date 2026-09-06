@@ -50,6 +50,7 @@ test("tool sources resolve to documents and print safety remains visible", () =>
   const print = readFileSync("app/health/onurim.module.css", "utf8").split("@media print")[1];
   assert.match(print, /onurim-tool-footer\) \{ display: block !important/);
   assert.match(print, /attr\(href\)/);
+  assert.match(print, /onurim-tool-footer p\) \{ margin: 0.25rem 0; font-size: 9pt/);
   const qa = readFileSync("scripts/qa-onurim-tool.ts", "utf8");
   assert.match(qa, /Checkbox keyboard reset failed/);
   assert.match(qa, /state.checkedItems !== 0/);
@@ -68,6 +69,19 @@ test("glucose log records real time and original units without prescribing a mon
   assert.match(copy.sheetNotice!, /억지로 먹이지/);
   assert.ok(copy.sourceIds.includes("SRC-NIDDK-MANAGING"));
   assert.doesNotMatch(JSON.stringify(tool), /mg\/dL|식후 2시간/);
+});
+
+test("reflux timing log inherits urgent help before instructions and does not prescribe a food experiment", () => {
+  const tool = healthTools.find(t => t.slug === "gerd-symptom-timing-log")!;
+  assert.equal(tool.rows, 12);
+  assert.equal(tool.columns?.length, 7);
+  assert.match(tool.columns![0], /증상 시작 시각/);
+  const copy = toolEditorial[tool.slug];
+  assert.equal(getToolSafetyNotice(tool), healthArticles[tool.articleSlug].sections[0]);
+  assert.match(copy.steps.join(" "), /일부러 증상을 유발하지/);
+  assert.match(copy.purpose, /12일을 채운 뒤.*뜻이 아닙니다/);
+  assert.match(copy.sheetNotice!, /커피 찌꺼기.*바로 의료 도움/);
+  assert.ok(getToolSources(tool).some(source => source.id === "SRC-NHLBI-HEART-ATTACK-SYMPTOMS"));
 });
 
 test("rhinitis questions connect existing products to individual instructions without blanket medicine withdrawal", () => {

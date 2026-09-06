@@ -2,6 +2,7 @@ import { getSources, healthArticles, healthClaims, type HealthTool } from "./con
 
 export type ToolEditorial = {
   indexDecision?: "INDEX_UTILITY" | "NOINDEX_FOLLOW";
+  inheritParentWarning?: boolean;
   sheetNotice?: string;
   title: string;
   description: string;
@@ -16,6 +17,27 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "gerd-symptom-timing-log": {
+    inheritParentWarning: true,
+    title: "역류 증상 기록표: 식사·자세·불편이 시작된 시각을 나란히",
+    description: "먹고 마신 시각, 눕거나 몸을 굽힌 활동, 불편이 시작된 시각과 이미 사용한 약을 나란히 적는 성인용 인쇄 기록표입니다. 음식 원인을 판정하거나 식도 산도검사를 대신하지 않습니다.",
+    updatedAt: "2026-09-06",
+    purpose: "식사·자세·불편이 어떤 순서로 있었는지 진료에서 설명할 때 씁니다. 12줄은 종이의 공간이며 12일을 채운 뒤 상담하라는 뜻이 아닙니다.",
+    steps: [
+      "한 줄에 한 번의 관찰을 적습니다. 증상이 시작된 실제 시각과 느낌·지속 시간을 남기고, 기억나지 않는 때는 미확인으로 표시합니다.",
+      "먹고 마신 것·대략적인 양·시각을 눕기·수면·몸을 굽힌 활동과 구분합니다. 이미 사용한 약의 이름·시각도 함께 적되 기록을 위해 약이나 식사를 임의로 바꾸지 않습니다.",
+      "진료 때 원본 기록을 보여 줍니다. 한 음식 뒤 불편했다는 사실을 원인으로 확정하거나 확인하려고 일부러 증상을 유발하지 않습니다. 새 삼킴 변화·지속 구토·이유 없는 체중 감소는 기록을 더 모으지 말고 의료진에게 알립니다.",
+    ],
+    example: "작성 위치 예시: 식사한 때 → 먹고 마신 것 칸 / 불편이 생긴 때 → 증상 시작 칸. ‘식후’라고만 적기보다 아는 실제 시각을 나누어 쓰고, 이 표로 안전한 식사 간격을 계산하지 않습니다.",
+    limitation: "시간표로 역류나 심장질환을 진단하지 않습니다. 생활 조정이나 기존 치료로 나아지지 않거나 증상이 자주 반복되면 의료진에게 상담합니다. 아래 출혈 신호는 다음 예약까지 기다리지 않습니다.",
+    sheetNotice: "가슴 압박·통증, 숨참·식은땀 등으로 심근경색이 의심되거나 심한 호흡곤란·의식 저하가 있으면 즉시 119에 연락합니다. 위장약 반응이나 기록 완성을 기다리지 않습니다. 피·커피 찌꺼기 같은 구토 또는 검고 타르 같은 변은 바로 의료 도움을 구하고, 실신 등 위급한 상태라면 119가 먼저입니다.",
+    sourceIds: ["SRC-NIDDK-GERD-DIAGNOSIS", "SRC-NIDDK-GERD-SYMPTOMS", "SRC-NHS-GERD", "SRC-NIDDK-GI-BLEEDING"],
+    links: [
+      { href: "/health/tools/gerd-appointment-prep", label: "기록과 현재 약을 가져가 검사 목적을 묻는 카드" },
+      { href: "/health/guides/medication-list", label: "일반약까지 실제 사용법을 적는 약 목록" },
+      { href: "/health/guides/danger-signals", label: "기록보다 도움 요청이 먼저인 위험 신호" },
+    ],
+  },
   "allergy-appointment-questions": {
     title: "알레르기 비염 진료 질문지: 검사 준비·코 스프레이 사용법 확인",
     description: "증상 사례와 현재 약·코·눈 제품을 질문에 연결하고, 검사 준비·제품별 사용법·다음 상담 시점을 적는 성인 진료용 인쇄 카드입니다. 필요한 검사나 약의 중단 기간을 대신 결정하지 않습니다.",
@@ -265,7 +287,7 @@ export const toolEditorial: Record<string, ToolEditorial> = {
 };
 
 export function getToolSafetyNotice(tool: HealthTool) {
-  if (tool.kind !== "warning" && !["stroke", "acute-myocardial-infarction", "migraine", "depression"].includes(tool.articleSlug)) return undefined;
+  if (!toolEditorial[tool.slug]?.inheritParentWarning && tool.kind !== "warning" && !["stroke", "acute-myocardial-infarction", "migraine", "depression"].includes(tool.articleSlug)) return undefined;
   const notice = healthArticles[tool.articleSlug].sections.find(section => section.tone === "warning");
   if (!notice) throw new Error(`Missing existing safety notice: ${tool.slug}`);
   return notice;

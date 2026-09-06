@@ -86,10 +86,12 @@ async function run() {
       footerText: document.querySelector(".onurim-tool-footer")!.textContent,
       fields: document.querySelectorAll(".onurim-tool-fields dt").length,
       checkedItems: document.querySelectorAll('.onurim-print-sheet input[type="checkbox"]:checked').length,
+      footerParagraphFontPx: [...document.querySelectorAll(".onurim-tool-footer p")].map(e => parseFloat(getComputedStyle(e).fontSize)),
     }));
-    const state = printState as { footerVisible: boolean; siteHeaderHidden: boolean; siteFooterHidden: boolean; overflow: number; checkedItems: number };
+    const state = printState as { footerVisible: boolean; siteHeaderHidden: boolean; siteFooterHidden: boolean; overflow: number; checkedItems: number; footerParagraphFontPx: number[] };
     if (!state.footerVisible || !state.siteHeaderHidden || !state.siteFooterHidden || state.overflow > 0) failures.push("Print visibility/overflow");
     if (state.checkedItems !== 0) failures.push("Printed worksheet contains test checkmarks");
+    if (!state.footerParagraphFontPx.length || state.footerParagraphFontPx.some(size => Math.abs(size - 12) > 0.01)) failures.push("Print footer 9pt rule was overridden");
     await page.pdf({ path: path.join(out, "worksheet.pdf"), format: "A4", printBackground: true, margin: { top: "12mm", right: "12mm", bottom: "12mm", left: "12mm" } });
     await page.screenshot({ path: path.join(out, "print-layout.png"), fullPage: true });
     const hrefs = await page.locator('main a[href^="/"]').evaluateAll(nodes => [...new Set(nodes.map(n => n.getAttribute("href")!))]);

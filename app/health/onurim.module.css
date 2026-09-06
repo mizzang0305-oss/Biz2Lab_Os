@@ -664,7 +664,7 @@
   :global(.onurim-tool-fields > div),
   :global(.onurim-check-list label),
   :global(.onurim-emergency-action) { break-inside: avoid; }
-  :global(.onurim-tool-footer) { display: block !important; color: black; font-size: 9pt; }
+  :global(.onurim-tool-footer) { display: block !important; color: black; font-size: 9pt; margin-top: 0.6rem; }
   :global(.onurim-tool-footer .onurim-source-list a)::after { content: " (" attr(href) ")"; font-size: 8pt; }
   :global(.onurim-tool-footer li) { font-size: 9pt; }
   :global(.onurim-table-help) { display: none; }
@@ -672,6 +672,7 @@
   :global(.onurim-tool-page) { font-size: 10pt; }
   :global(.onurim-tool-page p),
   :global(.onurim-tool-header > p:not(.onurim-eyebrow)) { margin: 0.45rem 0; font-size: 10pt; line-height: 1.5; }
+  :global(.onurim-tool-page .onurim-tool-footer p) { margin: 0.25rem 0; font-size: 9pt; line-height: 1.4; }
   :global(.onurim-tool-page h2) { margin: 1rem 0 0.5rem; font-size: 14pt; break-after: avoid; }
   :global(.onurim-tool-instructions li) { margin: 0.45rem 0; }
   :global(.onurim-tool-page .onurim-print-sheet) { break-before: page; }
