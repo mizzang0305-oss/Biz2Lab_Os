@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/oa-visit-questions",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T13:53:55.145Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "e5e9403d3fa067c931e061eaf7c0f51cb026c365ad1a0d181e001421935b358a",
+      "full": "e54a574e2687837042cfeea97c3fd86840a3d1b3892c9e212264a14aae86abf0"
+    },
+    {
+      "width": 390,
+      "top": "909ee92722399c21d981f5b208cf4a231f35673b3f9af9d5c919a011c67f2293",
+      "full": "59d587d800681600a864064f9521cffe87d2619f7bffbe65ce53b91d8e194ae5"
+    },
+    {
+      "width": 430,
+      "top": "1608e824168607a3c2a476794e90032640ce5feb802c82f7016fe605efa4ee68",
+      "full": "4f41d13082ba1241b70794ddb3ca4e52069ab58d4e0d1511caaac0749c3ca5c5"
+    },
+    {
+      "width": 768,
+      "top": "8a5a4cb4f1b908d7b4c1b1e8807713aef4e28320bd5a53ad0ca0bbe23a3aecda",
+      "full": "1e300b267ead751a55e0ebf039c0ff083a34f1aaa72ba2b6d362fc879d789cea"
+    },
+    {
+      "width": 1440,
+      "top": "8aaabcaefc1abe833bce824132ce4ca5efe8df81759776edf3f1f81fd155c9d7",
+      "full": "461797f714cace7f352be9af363bdcdca6242012a5bd264b76c388764946f702"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "골관절염 진료 질문지: 원하는 활동과 치료 선택을 함께 묻기 | 오누림",
+      "h1": [
+        "골관절염 진료 질문 카드"
+      ],
+      "h2": [
+        "갑작스러운 심한 관절통이나 새 부종은 먼저 진료",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/oa-visit-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "골관절염 진료 질문지: 원하는 활동과 치료 선택을 함께 묻기 | 오누림",
+      "h1": [
+        "골관절염 진료 질문 카드"
+      ],
+      "h2": [
+        "갑작스러운 심한 관절통이나 새 부종은 먼저 진료",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/oa-visit-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "골관절염 진료 질문지: 원하는 활동과 치료 선택을 함께 묻기 | 오누림",
+      "h1": [
+        "골관절염 진료 질문 카드"
+      ],
+      "h2": [
+        "갑작스러운 심한 관절통이나 새 부종은 먼저 진료",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/oa-visit-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "골관절염 진료 질문지: 원하는 활동과 치료 선택을 함께 묻기 | 오누림",
+      "h1": [
+        "골관절염 진료 질문 카드"
+      ],
+      "h2": [
+        "갑작스러운 심한 관절통이나 새 부종은 먼저 진료",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/oa-visit-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "골관절염 진료 질문지: 원하는 활동과 치료 선택을 함께 묻기 | 오누림",
+      "h1": [
+        "골관절염 진료 질문 카드"
+      ],
+      "h2": [
+        "갑작스러운 심한 관절통이나 새 부종은 먼저 진료",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/oa-visit-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

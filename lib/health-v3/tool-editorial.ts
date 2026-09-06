@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "oa-visit-questions": {
+    indexDecision: "INDEX_UTILITY",
+    inheritParentWarning: true,
+    title: "골관절염 진료 질문지: 원하는 활동과 치료 선택을 함께 묻기",
+    description: "불편한 활동과 되찾고 싶은 일상을 적고 검사 목적·개인 활동 계획·약과 보조기구 선택을 묻는 인쇄 카드입니다. 의료진의 답과 다음 확인 시점을 남기며 스스로 운동이나 치료를 처방하지 않습니다.",
+    updatedAt: "2026-09-06",
+    purpose: "관절 진료에서 통증뿐 아니라 계단·손 사용 등 생활의 어려움과 본인의 우선순위를 함께 전달할 때 씁니다. 통증을 참거나 낮춰 말할 필요는 없습니다.",
+    steps: [
+      "불편한 관절·좌우와 어려워진 활동을 적고, 다시 편하게 하고 싶은 일을 남깁니다. 먼저 이야기할 것을 골라도 다른 중요한 증상을 생략하지 않습니다. 기존 관찰 기록이 있으면 가져갑니다.",
+      "이미 쓰는 약·바르는 제품·보조기구와 불편했던 점을 적습니다. 검사 결과가 있다면 원본을 준비하되, 없는 자료를 만들거나 모르는 약 이름을 추측하지 않습니다.",
+      "질문에 표시하고 진료 중 답을 아래에 적습니다. 개인 활동의 범위·조정 기준, 제안받은 치료의 기대와 부담, 다시 평가할 때와 문의처를 구분합니다. 이해되지 않는 설명은 다시 묻습니다.",
+    ],
+    example: "질문을 연결하는 예시: ‘계단을 이용하기 어렵다’는 관찰 → 제게 맞는 활동·재활·보조도구 선택 질문. 특정 도구를 사거나 운동 횟수를 정하는 답을 미리 채워 넣지 않습니다.",
+    limitation: "모든 사람에게 MRI·주사·수술이 필요하다는 목록이 아닙니다. 기록이나 검사 하나로 골관절염을 확정하지 않고, 현재 상태와 다른 질환·약을 함께 고려해 의료진과 선택합니다. 약을 혼자 시작·중단·증량하지 않습니다.",
+    sheetNotice: "갑작스러운 심한 관절통이나 새 부종, 관절 주변 피부색 변화는 예약·질문지 완성보다 당일 신속한 진료가 먼저입니다. 열이 나거나 모든 증상이 모일 때까지 기다리지 않습니다. 심한 외상 뒤 움직일 수 없거나 의식·호흡의 위급한 변화가 있으면 119에 도움을 요청합니다.",
+    sourceIds: ["SRC-NIAMS-OA-TREATMENT", "SRC-NHS-SEPTIC-ARTHRITIS"],
+    links: [
+      { href: "/health/tools/oa-daily-activity-log", label: "관절·좌우와 실제 활동 전후 느낌을 적는 관찰표" },
+      { href: "/health/guides/medication-list", label: "처방약·진통제·바르는 제품의 실제 사용 목록" },
+      { href: "/health/tools/oa-family-support", label: "본인이 원하는 진료 동행·기록 도움을 묻는 체크" },
+    ],
+  },
   "oa-daily-activity-log": {
     indexDecision: "INDEX_UTILITY",
     inheritParentWarning: true,

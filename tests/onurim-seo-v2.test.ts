@@ -535,6 +535,20 @@ test("GERD separates terms and timing without waiting for severe cardiac pain", 
   assert.match(readFileSync("app/health/onurim.module.css", "utf8"), /onurim-article-hero > \*\) \{ min-width: 0; \}/);
 });
 
+test("OA visit questions connect personal activity priorities to choices without requiring procedures", () => {
+  const tool = healthTools.find(t=>t.slug==="oa-visit-questions")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(tool.fields?.length, 2);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(getToolSources(tool).length, 3);
+  assert.ok(getToolSafetyNotice(tool));
+  assert.match(copy.steps.join(" "), /다른 중요한 증상을 생략하지/);
+  assert.match(copy.limitation, /모든 사람에게 MRI·주사·수술이 필요하다는 목록이 아닙니다/);
+  assert.match(copy.sheetNotice!, /모든 증상이 모일 때까지 기다리지/);
+  assert.match(tool.items!.join(" "), /기대 효과와 부담/);
+});
+
 test("joint activity log records actual pain and function without a provocation test or mandatory activity quota", () => {
   const tool = healthTools.find(t=>t.slug==="oa-daily-activity-log")!;
   const copy = toolEditorial[tool.slug];
