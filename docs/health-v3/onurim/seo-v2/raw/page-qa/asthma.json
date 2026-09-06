@@ -1,0 +1,446 @@
+{
+  "route": "/health/asthma",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T06:56:03.953Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "01547ae8cea97b29541543c124fc79fa5a404aca3a2f4d0de3f3e0cee09620fd",
+      "full": "ce6fc4802b9301190727c6af473c2f76d1a95292886f57a6a6f46f9c3e174bc4"
+    },
+    {
+      "width": 390,
+      "top": "67f224d6c6e9f7ddd0192c5001ac0406de87942d2f451172d776a9fb30d0c670",
+      "full": "fe85e063d14ffe4a76c2f86e8397aafe484fd6f9ce270365dd989a89dd0a596d"
+    },
+    {
+      "width": 430,
+      "top": "bebf4cb584a7f5a971b7f6e68696256f90daefd2b6b6c9153c95c8028c126ebb",
+      "full": "0c25b3609e8ec1712bc29a60b181a514b16e66781f13f1b9c26c667240825599"
+    },
+    {
+      "width": 768,
+      "top": "de2ffaa9d07f7e927e49ee2d6aabbfee77408424942d491620e44a0660451d85",
+      "full": "92fc531c7ed62d02afb5d29e28d3b1432caa30f81d6f30a25f842460ffed2d0a"
+    },
+    {
+      "width": 1440,
+      "top": "04328edfc9ba5a886c238afbd9800aa10bef0606337667f81e8b8cd19f00c8e5",
+      "full": "59b83fcd199cf689a931b342419d52038cecf50d8039e22f985c64ea2422eaaa"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "천식: 기도가 좁아지는 이유와 내 행동계획 읽는 법 | 오누림",
+      "h1": [
+        "천식, 기도의 변화와 내 행동계획을 함께 이해하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "공기가 오가는 통로가 좁아진다고 생각해 보세요",
+        "기침·쌕쌕거림은 ‘언제 달라지는지’도 중요합니다",
+        "증상이 없는 날도 내 처방을 기준으로 삼으세요",
+        "흡입기는 색이 아니라 약 이름과 역할로 확인합니다",
+        "내 행동계획에서 다섯 항목을 찾아보세요",
+        "계획에 연결할 기록은 짧고 구체적으로",
+        "말을 내기 힘든 호흡곤란에는 계획서보다 119가 먼저입니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/asthma",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 메모 용지와 상담 준비를 상징하는 파란색 장식 표지 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "넓게 열린 기도 단면과 안쪽 벽의 부종·바깥 근육의 수축·안쪽 점액으로 통로가 좁아진 기도 단면을 나란히 비교한 개념도",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Faction-v2.webp&w=3840&q=75",
+          "alt": "진료를 상징하는 가상 장면에서 두 성인이 계획서의 한 부분을 함께 확인하고 질문을 별도 노트에 적는 생성 이미지",
+          "loaded": true,
+          "width": 290,
+          "height": 193
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "천식: 기도가 좁아지는 이유와 내 행동계획 읽는 법 | 오누림",
+      "h1": [
+        "천식, 기도의 변화와 내 행동계획을 함께 이해하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "공기가 오가는 통로가 좁아진다고 생각해 보세요",
+        "기침·쌕쌕거림은 ‘언제 달라지는지’도 중요합니다",
+        "증상이 없는 날도 내 처방을 기준으로 삼으세요",
+        "흡입기는 색이 아니라 약 이름과 역할로 확인합니다",
+        "내 행동계획에서 다섯 항목을 찾아보세요",
+        "계획에 연결할 기록은 짧고 구체적으로",
+        "말을 내기 힘든 호흡곤란에는 계획서보다 119가 먼저입니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/asthma",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 메모 용지와 상담 준비를 상징하는 파란색 장식 표지 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "넓게 열린 기도 단면과 안쪽 벽의 부종·바깥 근육의 수축·안쪽 점액으로 통로가 좁아진 기도 단면을 나란히 비교한 개념도",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Faction-v2.webp&w=3840&q=75",
+          "alt": "진료를 상징하는 가상 장면에서 두 성인이 계획서의 한 부분을 함께 확인하고 질문을 별도 노트에 적는 생성 이미지",
+          "loaded": true,
+          "width": 320,
+          "height": 213
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "천식: 기도가 좁아지는 이유와 내 행동계획 읽는 법 | 오누림",
+      "h1": [
+        "천식, 기도의 변화와 내 행동계획을 함께 이해하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "공기가 오가는 통로가 좁아진다고 생각해 보세요",
+        "기침·쌕쌕거림은 ‘언제 달라지는지’도 중요합니다",
+        "증상이 없는 날도 내 처방을 기준으로 삼으세요",
+        "흡입기는 색이 아니라 약 이름과 역할로 확인합니다",
+        "내 행동계획에서 다섯 항목을 찾아보세요",
+        "계획에 연결할 기록은 짧고 구체적으로",
+        "말을 내기 힘든 호흡곤란에는 계획서보다 119가 먼저입니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/asthma",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 메모 용지와 상담 준비를 상징하는 파란색 장식 표지 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "넓게 열린 기도 단면과 안쪽 벽의 부종·바깥 근육의 수축·안쪽 점액으로 통로가 좁아진 기도 단면을 나란히 비교한 개념도",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Faction-v2.webp&w=3840&q=75",
+          "alt": "진료를 상징하는 가상 장면에서 두 성인이 계획서의 한 부분을 함께 확인하고 질문을 별도 노트에 적는 생성 이미지",
+          "loaded": true,
+          "width": 360,
+          "height": 240
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "천식: 기도가 좁아지는 이유와 내 행동계획 읽는 법 | 오누림",
+      "h1": [
+        "천식, 기도의 변화와 내 행동계획을 함께 이해하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "공기가 오가는 통로가 좁아진다고 생각해 보세요",
+        "기침·쌕쌕거림은 ‘언제 달라지는지’도 중요합니다",
+        "증상이 없는 날도 내 처방을 기준으로 삼으세요",
+        "흡입기는 색이 아니라 약 이름과 역할로 확인합니다",
+        "내 행동계획에서 다섯 항목을 찾아보세요",
+        "계획에 연결할 기록은 짧고 구체적으로",
+        "말을 내기 힘든 호흡곤란에는 계획서보다 119가 먼저입니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/asthma",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 메모 용지와 상담 준비를 상징하는 파란색 장식 표지 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "넓게 열린 기도 단면과 안쪽 벽의 부종·바깥 근육의 수축·안쪽 점액으로 통로가 좁아진 기도 단면을 나란히 비교한 개념도",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Faction-v2.webp&w=3840&q=75",
+          "alt": "진료를 상징하는 가상 장면에서 두 성인이 계획서의 한 부분을 함께 확인하고 질문을 별도 노트에 적는 생성 이미지",
+          "loaded": true,
+          "width": 664,
+          "height": 443
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "천식: 기도가 좁아지는 이유와 내 행동계획 읽는 법 | 오누림",
+      "h1": [
+        "천식, 기도의 변화와 내 행동계획을 함께 이해하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "공기가 오가는 통로가 좁아진다고 생각해 보세요",
+        "기침·쌕쌕거림은 ‘언제 달라지는지’도 중요합니다",
+        "증상이 없는 날도 내 처방을 기준으로 삼으세요",
+        "흡입기는 색이 아니라 약 이름과 역할로 확인합니다",
+        "내 행동계획에서 다섯 항목을 찾아보세요",
+        "계획에 연결할 기록은 짧고 구체적으로",
+        "말을 내기 힘든 호흡곤란에는 계획서보다 119가 먼저입니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/asthma",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 메모 용지와 상담 준비를 상징하는 파란색 장식 표지 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "넓게 열린 기도 단면과 안쪽 벽의 부종·바깥 근육의 수축·안쪽 점액으로 통로가 좁아진 기도 단면을 나란히 비교한 개념도",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fasthma%2Faction-v2.webp&w=3840&q=75",
+          "alt": "진료를 상징하는 가상 장면에서 두 성인이 계획서의 한 부분을 함께 확인하고 질문을 별도 노트에 적는 생성 이미지",
+          "loaded": true,
+          "width": 724,
+          "height": 483
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

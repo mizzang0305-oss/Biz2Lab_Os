@@ -731,8 +731,8 @@
       "AST-P3-002",
       "AST-P3-003"
     ],
-    "altText": "천식의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 천식을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "네 줄의 메모 용지와 상담 준비를 상징하는 파란색 장식 표지 삽화",
+    "caption": "표지의 줄과 십자 모양은 폐기능 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 천식; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -740,49 +740,64 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-AST-P3-CONCEPT",
-    "file": "public/images/onurim/asthma/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/asthma/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "83b89c2de7b29154817eec01e37c83f686271e5bdca061413c9fc9c27ad6eaa3",
+    "sha256": "b2fa5a5f823a598ca63c70cf725d7d0cd259ae6805e2d3772bbacdd20d976386",
     "claimIds": [
       "AST-P3-001",
       "AST-P3-003"
     ],
-    "altText": "천식과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 천식; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "넓게 열린 기도 단면과 안쪽 벽의 부종·바깥 근육의 수축·안쪽 점액으로 통로가 좁아진 기도 단면을 나란히 비교한 개념도",
+    "caption": "왼쪽은 열린 기도, 오른쪽은 벽의 부종과 주변 근육 수축, 안쪽의 옅은 노란 점액을 단순화한 모습입니다. 실제 조직검사나 막힌 비율·치료 전후·필연적 진행 단계가 아닙니다.",
+    "prompt": "Use case: scientific-educational.\nAsset type: original ONURIM asthma inline raster, landscape 1536x1024.\nPrimary request: anatomically plausible side-by-side cross sections of a small bronchial airway to explain an open air passage versus airway narrowing from swollen inner wall, tightened surrounding smooth muscle and some mucus.\nTwo cross sections, equal outer scale and same orientation, viewed directly into the lumen. Left: broad unobstructed cream lumen, thin pink mucosal lining, relaxed thin surrounding smooth-muscle band outside the mucosal wall. Right: smaller BUT CLEARLY OPEN irregular lumen, visibly thicker swollen inner lining, thicker contracted smooth-muscle band around outside of that wall, modest pale golden mucus adhering to part of the INNER lumen surface. Keep muscle outside the lining, mucus only inside airway, not blood vessel plaque, no giant plug, no filled/closed lumen.\nDetailed softly shaded medical editorial illustration with plausible tissue texture rather than generic flat circles, clean ivory background, pink tissue, muted terracotta muscle and pale gold mucus, ample gap. No red/green good/bad coloring. Equal circle size supports comparison, not precise percentages.\nNo text, arrows between sections, numbers, scale, logos, watermark, labels, blood, wounds, gore, lungs as shrinking balloons, straw breathing exercise, pills, inhalers, before-after cure, sequence or diagnostic severity chart.\nHTML will explain each visual feature and that this is a simplified airway concept, not actual patient imaging or fixed progression.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "supersedesFile": "public/images/onurim/asthma/concept.webp",
+    "bytes": 129074,
+    "sourceIds": [
+      "SRC-KDCA-ASTHMA",
+      "SRC-NHLBI-ASTHMA-ATTACK"
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-AST-P3-ACTION",
-    "file": "public/images/onurim/asthma/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/asthma/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "7769a28255a0886ee97cfbcb79c348a33672cad22a4e79665096ee77684ba98e",
+    "sha256": "33204a6fc620f33ea963c322c2ca4bf8dc6e870fd07b1333c2da7cc601963f4e",
     "claimIds": [
       "AST-P3-004",
       "AST-P3-005"
     ],
-    "altText": "천식의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 천식; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "진료를 상징하는 가상 장면에서 두 성인이 계획서의 한 부분을 함께 확인하고 질문을 별도 노트에 적는 생성 이미지",
+    "caption": "실제 환자·검수자 사진이 아닌 AI 생성 상담 장면입니다. 문서의 줄·도형은 처방 내용이 아니고, 회색 기기는 종류·역할·사용량을 권하는 제품이 아닙니다. 심한 호흡곤란에는 계획서를 찾기보다 119가 먼저입니다.",
+    "prompt": "Use case: photorealistic-natural.\nAsset type: original ONURIM asthma guide illustration about reading an existing personal asthma action plan with a healthcare professional, landscape 1536x1024.\nPrimary request: a natural quiet consultation scene at a light wood desk, photographed from an oblique over-the-shoulder viewpoint. One adult in everyday clothes and one clinician in plain navy scrubs sit on opposite sides, both focused on a single paper action plan on the desk. Show partial profiles or shoulders, natural hands; no doctor portrait, identity badge, name, logo, white coat, credentials, certificates or advertising. One index finger points at a section of the paper; the adult holds a pen ready to note a question in a separate small notebook.\nThe action plan is a generic illustrative prop with four separated areas represented only by pale grey lines, NO real text, patient data, medicine names, values, dosages, signatures, dates or red/yellow/green prescription bands. A SINGLE generic light grey closed inhaler lies off to the side, not in use or in anyone's mouth. No second inhaler, no color-coded device roles. Device is an unbranded example only, not a product recommendation.\nSoft window light, real paper and fabric texture, respectful balanced collaboration. Person is breathing comfortably, no attack, no distress, no emergency treatment.\nThis is an AI-generated hypothetical scene, not an actual patient, licensed reviewer, approved clinical plan or completed medical review.\nAvoid readable text, numbers, product labels, logos, watermark, glossy stock-ad poses, exaggerated smiles, outcome guarantees, multiple medications, inhalation demonstration, oxygen masks, before-after, step arrows.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "supersedesFile": "public/images/onurim/asthma/action.webp",
+    "bytes": 77258,
+    "sourceIds": [
+      "SRC-NHLBI-ASTHMA-PLAN",
+      "SRC-NHS-ASTHMA"
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-OSA-P3-HERO",

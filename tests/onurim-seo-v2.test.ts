@@ -173,6 +173,33 @@ test("SEO citation counts include declared professional-society sources without 
   assert.match(audit, /DECLARED_SOURCE_BLOCK_NOT_QUALITY_VERDICT/);
 });
 
+test("asthma explains airway narrowing and reads an existing plan without creating inhaler dosing rules", () => {
+  const article = healthArticles.asthma;
+  assert.equal(article.archetype, "SIMPLE_ANALOGY");
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const text = JSON.stringify(article);
+  assert.match(text, /한 흡입기가/);
+  assert.match(text, /새 계획을 만드는 표가 아닙니다/);
+  assert.match(text, /처방된 약으로 증상이 완화되지 않거나/);
+  assert.match(text, /색 변화까지 나타나야 하는 조건이 아닙니다/);
+  const urgent = article.sections.find(s=>s.tone==="warning")!;
+  assert.match(urgent.paragraphs[0], /매우 어렵거나, 헐떡이거나, 말을 내기 힘들면/);
+  assert.match(urgent.paragraphs[1], /창백해지거나 파랗게 또는 회색빛/);
+  assert.equal(urgent.bullets, undefined);
+  assert.match(text, /안정된 때/);
+  assert.doesNotMatch(text, /\d+\s*(puff|회씩|번씩|분마다|mg)|SABA|MART|AIR/);
+  assert.ok(article.visuals?.["ast-action"].caption.includes("검수자 사진이 아닌"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
 test("IBS records either direction of pain change and does not normalize new bleeding or lifelong food restrictions", () => {
   const article = healthArticles["irritable-bowel-syndrome"];
   assert.equal(article.archetype, "BODY_SIGNAL");
