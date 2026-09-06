@@ -1,0 +1,446 @@
+{
+  "route": "/health/anxiety-disorder",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T09:26:17.454Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "13b10f249843d7a1a02dbaec0c892bd90a9490819f15a5453236fe428d4f5de1",
+      "full": "1163b2b038f88331a3d9f7e61de192e208bef82ff132bb78db98d166c584a1fe"
+    },
+    {
+      "width": 390,
+      "top": "fa27fdbe1b08a13c4eca4a0ef206fc3a575f93c848fae5868af63d335ec10a70",
+      "full": "a4eece80e5c3afa4e6451ac683b2cb6fba73a871a7d8b715fec2d9e2a1123d5f"
+    },
+    {
+      "width": 430,
+      "top": "937ad53cf8d838b1b6191e43202c7c5443df9493d875ac8d0c3f4ae3a5937fba",
+      "full": "a2683f17f319f24e737b53c704f221263bb22c48fbd2a212770648bee90c7d39"
+    },
+    {
+      "width": 768,
+      "top": "3981c8fe50659a99d9b6269a32816845df6b0d036b129e3c227cf26f964ef845",
+      "full": "5922a75289b6c6a0a0c114f76052192547ec8c662ec35b89e2da74cf026de612"
+    },
+    {
+      "width": 1440,
+      "top": "e1db37113b16413e4f45d0eb3fb06e2302879f670ef54d528d22517114fa45e5",
+      "full": "e0bd8e2f24a059c8f4fe19854f08c2467577809ef44378d4be9b754179e5a99c"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "불안장애: 걱정·공황의 차이와 진료에 전할 기록 | 오누림",
+      "h1": [
+        "불안장애, 같은 불안으로 묶지 않고 살펴보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘전에 공황이었으니 이번에도 괜찮다’고 넘기지 마세요",
+        "불안을 느낀다는 말 안에도 서로 다른 경험이 있습니다",
+        "공황발작은 경험을, 공황장애는 평가가 필요한 질환을 가리킵니다",
+        "6개월을 기다리거나 자가검사 점수를 채울 필요는 없습니다",
+        "진료에서는 ‘언제·몸·피한 일·생활’을 자신의 말로 전하세요",
+        "불안에 쓰는 약이 모두 필요할 때만 먹는 약은 아닙니다",
+        "도움은 불안을 시험하는 일이 아닙니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/anxiety-disorder",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Fhero.webp&w=3840&q=75",
+          "alt": "메모와 도움 연결을 상징하는 파랑·갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "이어지는 걱정·갑작스러운 두려움·특정 상황의 불안을 서로 다른 일상 장면으로 표현한 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Faction-v2.webp&w=3840&q=75",
+          "alt": "언제·몸·피한 일·생활이라는 제목 아래 비어 있는 기록 칸 네 개와 연필 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "불안장애: 걱정·공황의 차이와 진료에 전할 기록 | 오누림",
+      "h1": [
+        "불안장애, 같은 불안으로 묶지 않고 살펴보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘전에 공황이었으니 이번에도 괜찮다’고 넘기지 마세요",
+        "불안을 느낀다는 말 안에도 서로 다른 경험이 있습니다",
+        "공황발작은 경험을, 공황장애는 평가가 필요한 질환을 가리킵니다",
+        "6개월을 기다리거나 자가검사 점수를 채울 필요는 없습니다",
+        "진료에서는 ‘언제·몸·피한 일·생활’을 자신의 말로 전하세요",
+        "불안에 쓰는 약이 모두 필요할 때만 먹는 약은 아닙니다",
+        "도움은 불안을 시험하는 일이 아닙니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/anxiety-disorder",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Fhero.webp&w=3840&q=75",
+          "alt": "메모와 도움 연결을 상징하는 파랑·갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "이어지는 걱정·갑작스러운 두려움·특정 상황의 불안을 서로 다른 일상 장면으로 표현한 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Faction-v2.webp&w=3840&q=75",
+          "alt": "언제·몸·피한 일·생활이라는 제목 아래 비어 있는 기록 칸 네 개와 연필 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "불안장애: 걱정·공황의 차이와 진료에 전할 기록 | 오누림",
+      "h1": [
+        "불안장애, 같은 불안으로 묶지 않고 살펴보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘전에 공황이었으니 이번에도 괜찮다’고 넘기지 마세요",
+        "불안을 느낀다는 말 안에도 서로 다른 경험이 있습니다",
+        "공황발작은 경험을, 공황장애는 평가가 필요한 질환을 가리킵니다",
+        "6개월을 기다리거나 자가검사 점수를 채울 필요는 없습니다",
+        "진료에서는 ‘언제·몸·피한 일·생활’을 자신의 말로 전하세요",
+        "불안에 쓰는 약이 모두 필요할 때만 먹는 약은 아닙니다",
+        "도움은 불안을 시험하는 일이 아닙니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/anxiety-disorder",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Fhero.webp&w=3840&q=75",
+          "alt": "메모와 도움 연결을 상징하는 파랑·갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "이어지는 걱정·갑작스러운 두려움·특정 상황의 불안을 서로 다른 일상 장면으로 표현한 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Faction-v2.webp&w=3840&q=75",
+          "alt": "언제·몸·피한 일·생활이라는 제목 아래 비어 있는 기록 칸 네 개와 연필 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "불안장애: 걱정·공황의 차이와 진료에 전할 기록 | 오누림",
+      "h1": [
+        "불안장애, 같은 불안으로 묶지 않고 살펴보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘전에 공황이었으니 이번에도 괜찮다’고 넘기지 마세요",
+        "불안을 느낀다는 말 안에도 서로 다른 경험이 있습니다",
+        "공황발작은 경험을, 공황장애는 평가가 필요한 질환을 가리킵니다",
+        "6개월을 기다리거나 자가검사 점수를 채울 필요는 없습니다",
+        "진료에서는 ‘언제·몸·피한 일·생활’을 자신의 말로 전하세요",
+        "불안에 쓰는 약이 모두 필요할 때만 먹는 약은 아닙니다",
+        "도움은 불안을 시험하는 일이 아닙니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/anxiety-disorder",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Fhero.webp&w=3840&q=75",
+          "alt": "메모와 도움 연결을 상징하는 파랑·갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "이어지는 걱정·갑작스러운 두려움·특정 상황의 불안을 서로 다른 일상 장면으로 표현한 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Faction-v2.webp&w=3840&q=75",
+          "alt": "언제·몸·피한 일·생활이라는 제목 아래 비어 있는 기록 칸 네 개와 연필 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "불안장애: 걱정·공황의 차이와 진료에 전할 기록 | 오누림",
+      "h1": [
+        "불안장애, 같은 불안으로 묶지 않고 살펴보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘전에 공황이었으니 이번에도 괜찮다’고 넘기지 마세요",
+        "불안을 느낀다는 말 안에도 서로 다른 경험이 있습니다",
+        "공황발작은 경험을, 공황장애는 평가가 필요한 질환을 가리킵니다",
+        "6개월을 기다리거나 자가검사 점수를 채울 필요는 없습니다",
+        "진료에서는 ‘언제·몸·피한 일·생활’을 자신의 말로 전하세요",
+        "불안에 쓰는 약이 모두 필요할 때만 먹는 약은 아닙니다",
+        "도움은 불안을 시험하는 일이 아닙니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/anxiety-disorder",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Fhero.webp&w=3840&q=75",
+          "alt": "메모와 도움 연결을 상징하는 파랑·갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "이어지는 걱정·갑작스러운 두려움·특정 상황의 불안을 서로 다른 일상 장면으로 표현한 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fanxiety-disorder%2Faction-v2.webp&w=3840&q=75",
+          "alt": "언제·몸·피한 일·생활이라는 제목 아래 비어 있는 기록 칸 네 개와 연필 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

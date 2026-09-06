@@ -384,6 +384,35 @@ test("obesity uses consent-first family support and separates body measures from
   for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
 });
 
+test("anxiety distinguishes experiences and medication roles without diagnostic waiting or reassurance about new chest pain", () => {
+  const article = healthArticles["anxiety-disorder"];
+  assert.equal(article.archetype, "MYTH_FIRST");
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sourceIds.length, 11);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections[0];
+  assert.equal(urgent.tone, "warning");
+  assert.match(urgent.paragraphs![0], /즉시 119/);
+  assert.match(urgent.paragraphs![0], /모두 나타나야 하는 것은 아닙니다/);
+  assert.match(urgent.paragraphs![1], /지금의 심장·호흡 문제를 배제하지/);
+  assert.match(urgent.paragraphs![2], /의료진에게 신속히 연락해 평가/);
+  assert.match(JSON.stringify(article), /한 번 또는 가끔 발작/);
+  assert.match(JSON.stringify(article), /6개월이라는 말은 모든 불안장애의 공통 기준도/);
+  assert.match(JSON.stringify(article), /모두 필요할 때만 먹는다고 일반화하지/);
+  assert.match(JSON.stringify(article), /신체 증상을 유발하는 훈련을 시키는 것은 아닙니다/);
+  assert.doesNotMatch(JSON.stringify(article), /\d+점 이상|\d+\s*mg|988|911|\d+회 호흡|모든 항불안제는 즉시/);
+  assert.ok(article.visuals?.["anxiety-disorder-concept"].caption.includes("서로 겹칠"));
+  assert.ok(article.visuals?.["anxiety-disorder-action"].caption.includes("회피 권유가 아닙니다"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
 test("depression supports family listening without diagnostic thresholds or delayed emergency help", () => {
   const article = healthArticles.depression;
   assert.equal(article.archetype, "FAMILY_SITUATION");

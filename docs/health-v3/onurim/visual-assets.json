@@ -1290,8 +1290,8 @@
       "ANX-P3-002",
       "ANX-P3-003"
     ],
-    "altText": "불안장애의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 불안장애을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "메모와 도움 연결을 상징하는 파랑·갈색 장식 표지 삽화",
+    "caption": "표지 도형은 불안의 검사 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 불안장애; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -1299,49 +1299,70 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-NIMH-ANXIETY"
     ]
   },
   {
     "id": "VIS-ANX-P3-CONCEPT",
-    "file": "public/images/onurim/anxiety-disorder/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/anxiety-disorder/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "f530147a7f2054c063596908e0dbf03fd396c8e8c5d75a9e0ec9a95ee3be02b6",
+    "sha256": "a2a9e76b665bdcae346e9faaad648c5bbaba014242aba7067cb06d2158dab253",
     "claimIds": [
       "ANX-P3-001",
       "ANX-P3-003"
     ],
-    "altText": "불안장애과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 불안장애; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "이어지는 걱정·갑작스러운 두려움·특정 상황의 불안을 서로 다른 일상 장면으로 표현한 삽화",
+    "caption": "서로 겹칠 수도 있는 불안 경험 일부를 표현한 AI 생성 가상 장면입니다. 세 장면이 모든 종류·서로 배타적인 진단·악화 단계는 아닙니다. 표정이나 몸의 느낌만으로 공황과 신체 질환을 구별하는 그림도 아닙니다.",
+    "prompt": "Use case: editorial-illustration.\nAsset type: original Korean adult anxiety education visual, landscape 1536x1024.\nShow three distinct gently separated everyday vignettes across a warm cream paper canvas, NOT a progression or diagnostic scale. Left: an ordinary Korean adult at a desk with a calendar, a plain household folder and a work notebook, with a thoughtful worried expression; Korean label exactly \"이어지는 걱정\". Middle: a different adult seated upright on a simple bench, visibly surprised and unsettled, hands relaxed on lap, two small abstract curved marks near shoulders symbolizing a sudden wave of fear; label exactly \"갑작스러운 두려움\". Right: a different adult standing at a respectful distance near two people casually talking, looking hesitant about joining; label exactly \"특정 상황의 불안\". These labels are the only text, large and crisp enough for mobile.\nUse equal visual weight and similar warmth for all three scenes. This is a set of experiences that may overlap, not three exclusive diagnoses, not all anxiety disorders and not stages. No arrows, numbers, checkmarks, severity colors, score, clock time, medical tests or diagnostic labels.\nStyle: refined colored-pencil and soft gouache editorial art, sage and warm clay accents, clear realistic adult anatomy and hands, normal everyday clothing, respectful non-stigmatizing expressions. No tears, cages, chains, shattered brain, dark storm, heartbeat graph, chest-clutching pose, pills, alcohol, weapons, self-harm imagery, fainting, medical clothing, logos or watermark. No claim of cure or brain mechanism. Spacious balanced horizontal layout.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-NIMH-ANXIETY",
+      "SRC-NIMH-GAD",
+      "SRC-NIMH-PANIC",
+      "SRC-SNUH-ANXIETY"
+    ],
+    "supersedesFile": "public/images/onurim/anxiety-disorder/concept.webp",
+    "generator": "built-in image_gen"
   },
   {
     "id": "VIS-ANX-P3-ACTION",
-    "file": "public/images/onurim/anxiety-disorder/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/anxiety-disorder/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "3d0467fc410226cd44a676fbf7de51c69136aac76fe2a0b4916b7e8fd8a67d54",
+    "sha256": "1011bec16bac746116f7ceb59b59e6ef374c3dfbebd498e1b633b3a74858119f",
     "claimIds": [
       "ANX-P3-004",
       "ANX-P3-005"
     ],
-    "altText": "불안장애의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 불안장애; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "언제·몸·피한 일·생활이라는 제목 아래 비어 있는 기록 칸 네 개와 연필 삽화",
+    "caption": "진료에 전할 경험을 정리하는 AI 생성 기록 예시입니다. ‘피한 일’은 이미 피하게 된 상황의 기록이지 회피 권유가 아닙니다. 네 칸이 필수 진단 조건·점수표는 아니며 모르는 내용은 비워도 됩니다. 급한 위험에는 기록 완성보다 도움을 먼저 요청합니다.",
+    "prompt": "Use case: editorial-illustration.\nAsset type: original Korean anxiety appointment-preparation illustration, landscape 1536x1024.\nA top-down view of four LARGE separate paper note cards on a warm light wooden tabletop, arranged in a clean spacious two-by-two composition. Each card has one large Korean heading and blank ruled writing space, not filled answers. Card headings exactly: top left \"언제\", top right \"몸\", bottom left \"피한 일\", bottom right \"생활\". Small quiet pencil icons alongside the headings: an unnumbered simple calendar; a neutral outline of an adult torso without highlighted organs; an open doorway without a lock; a bed and a plain work notebook. One plain pencil lies outside the cards. No human hands, people or private patient information. These are optional topics to talk about with a clinician, not four diagnostic conditions or sequential steps.\nStyle: refined hand-drawn colored pencil with subtle gouache, warm cream paper, sage and clay accents, strong readable Korean text, gentle natural shadows, clean mobile composition. No arrows, numbered stages, stopwatch, deadlines, filled checkboxes, scores, symptom totals, vital sign numbers, heartbeat graphs, pills, prescriptions, diagnosis, logos or watermarks. No suggestion to finish cards before seeking urgent help. Exactly the four headings, no other words.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-NIMH-GAD",
+      "SRC-NIMH-PANIC",
+      "SRC-SNUH-ANXIETY"
+    ],
+    "supersedesFile": "public/images/onurim/anxiety-disorder/action.webp",
+    "generator": "built-in image_gen"
   },
   {
     "id": "VIS-STR-P3-HERO",
