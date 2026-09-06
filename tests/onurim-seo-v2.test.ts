@@ -66,3 +66,20 @@ test("legacy health Preview styling no longer hides public global navigation", (
   const css = readFileSync("app/globals.css", "utf8");
   assert.doesNotMatch(css, /body:has\(\.onurim-app\)\s*>\s*(header|footer)/);
 });
+
+test("type 2 diabetes separates laboratory roles, low glucose and emergency help without overriding a prescribed plan", () => {
+  const article = healthArticles["type-2-diabetes"];
+  assert.equal(article.faq.length, 6);
+  assert.ok(article.sections[0].table);
+  assert.equal(article.updatedAt, "2026-09-06");
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections.find(s=>s.tone==="warning")!;
+  assert.match(JSON.stringify(urgent), /어느 하나라도/);
+  assert.match(JSON.stringify(urgent), /안전하게 삼킬 수 없는/);
+  assert.ok(urgent.sourceIds!.includes("SRC-NHS-LOW-GLUCOSE"));
+  assert.match(JSON.stringify(article), /미리 정해 준 조절 계획/);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+});

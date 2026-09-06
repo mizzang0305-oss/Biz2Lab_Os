@@ -20,12 +20,12 @@ const expectedSlugs = [
   "acute-myocardial-infarction",
 ].sort();
 
-test("public ONURIM portfolio contains the exact twenty approved disease guides", () => {
+test("ONURIM portfolio keeps twenty disease guides and source-audited SEO additions", () => {
   assert.deepEqual(Object.keys(healthArticles).sort(), expectedSlugs);
   assert.equal(healthSupportGuides.length, 9);
   assert.equal(healthTools.length, 34);
   assert.equal(healthClaims.length, 144);
-  assert.equal(healthSources.length, 69);
+  assert.equal(healthSources.length, 71);
   assert.equal(trustPages.length, 12);
   for (const article of Object.values(healthArticles)) {
     assert.ok(article.sections.length >= 6, article.slug);
@@ -35,7 +35,7 @@ test("public ONURIM portfolio contains the exact twenty approved disease guides"
   }
 });
 
-test("public P0/P1 wording is adjudicated without fabricating licensed review", () => {
+test("legacy public P0/P1 Claim registry is adjudicated without fabricating licensed review", () => {
   assert.equal(publicMedicalSafetyState.unresolvedPublicHighRiskClaims, 0);
   assert.equal(publicMedicalSafetyState.licensedReviewerAssigned, false);
   assert.equal(publicMedicalSafetyState.licensedMedicalReviewCompleted, false);

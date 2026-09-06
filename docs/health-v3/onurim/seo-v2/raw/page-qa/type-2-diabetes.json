@@ -1,0 +1,481 @@
+{
+  "route": "/health/type-2-diabetes",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T03:58:20.597Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "a0dcbc61a91480054dda78401ca4dd55069a8968d4358c2a9dbcdb0e0dc63068",
+      "full": "e490d7910436d987ba2f5f015879851e8d1a3bc8f36bd75b40ccbbd4b473377e"
+    },
+    {
+      "width": 390,
+      "top": "6f8ff15da7c368fe99fd7807f3f5d4a9bd3363ffcf82bb7b998bcc1aaf80e001",
+      "full": "dfd6d11ef842a9ef3f799c5bf0e20263b0ff41dbad646e2ec18b67897a0494e2"
+    },
+    {
+      "width": 430,
+      "top": "c729f0dd3423a42446eb80777506c45d7e6c30de9c8f8a648525f7d2d91dab86",
+      "full": "801a19cf8cc8cdf5e823b22e835c0502c6c8e47cc4f959ea3bd7cd7362c302c0"
+    },
+    {
+      "width": 768,
+      "top": "7eb29423d7ce58189b844c809666624aaf1f92542070a65861b50c77844709b1",
+      "full": "0a1ae629758d0afb31be33ba4169a18333c10bc536ed2845731f3d2b2676b10e"
+    },
+    {
+      "width": 1440,
+      "top": "d374284400ab53476d47713b58ae173d30f562b64819d782ffd640598e71e640",
+      "full": "aa8e45a93ad7d2f72e18c77a1532036b02e9c36542f0678b790eb83178af4ffb"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "제2형 당뇨병 증상·검사: 공복혈당과 당화혈색소 | 오누림",
+      "h1": [
+        "제2형 당뇨병, 증상부터 혈당 검사와 기록까지"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "같은 혈당 이야기라도 검사와 기록은 다릅니다",
+        "제2형은 인슐린 작용과 관련된 질환입니다",
+        "갈증·소변 변화가 있거나 검진에서 표시를 받았다면",
+        "치료는 숫자 하나만 낮추는 일이 아닙니다",
+        "저혈당과 아픈 날의 계획은 미리 따로 확인합니다",
+        "의식 변화·경련·호흡곤란은 기록보다 응급 도움",
+        "가족과 남길 것은 평가 점수가 아니라 맥락입니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/type-2-diabetes",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fhero.webp&w=3840&q=75",
+          "alt": "식사와 활동, 수면과 혈당 측정값을 관찰 기록지에 적는 다양한 연령의 가족 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fprocess.webp&w=3840&q=75",
+          "alt": "포도당과 인슐린 신호가 세포의 에너지 사용과 연결되는 기본 흐름을 단순화한 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fwarning.webp&w=3840&q=75",
+          "alt": "반복되는 구토와 호흡곤란, 의식 변화가 있을 때 기록보다 응급 도움을 우선하는 경고 삽화",
+          "loaded": true,
+          "width": 286,
+          "height": 190
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fchecklist.webp&w=3840&q=75",
+          "alt": "당사자의 선택을 존중하며 검사 결과와 진료 질문을 함께 정리하는 가족 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 492
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "제2형 당뇨병 증상·검사: 공복혈당과 당화혈색소 | 오누림",
+      "h1": [
+        "제2형 당뇨병, 증상부터 혈당 검사와 기록까지"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "같은 혈당 이야기라도 검사와 기록은 다릅니다",
+        "제2형은 인슐린 작용과 관련된 질환입니다",
+        "갈증·소변 변화가 있거나 검진에서 표시를 받았다면",
+        "치료는 숫자 하나만 낮추는 일이 아닙니다",
+        "저혈당과 아픈 날의 계획은 미리 따로 확인합니다",
+        "의식 변화·경련·호흡곤란은 기록보다 응급 도움",
+        "가족과 남길 것은 평가 점수가 아니라 맥락입니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/type-2-diabetes",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fhero.webp&w=3840&q=75",
+          "alt": "식사와 활동, 수면과 혈당 측정값을 관찰 기록지에 적는 다양한 연령의 가족 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fprocess.webp&w=3840&q=75",
+          "alt": "포도당과 인슐린 신호가 세포의 에너지 사용과 연결되는 기본 흐름을 단순화한 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fwarning.webp&w=3840&q=75",
+          "alt": "반복되는 구토와 호흡곤란, 의식 변화가 있을 때 기록보다 응급 도움을 우선하는 경고 삽화",
+          "loaded": true,
+          "width": 316,
+          "height": 211
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fchecklist.webp&w=3840&q=75",
+          "alt": "당사자의 선택을 존중하며 검사 결과와 진료 질문을 함께 정리하는 가족 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "제2형 당뇨병 증상·검사: 공복혈당과 당화혈색소 | 오누림",
+      "h1": [
+        "제2형 당뇨병, 증상부터 혈당 검사와 기록까지"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "같은 혈당 이야기라도 검사와 기록은 다릅니다",
+        "제2형은 인슐린 작용과 관련된 질환입니다",
+        "갈증·소변 변화가 있거나 검진에서 표시를 받았다면",
+        "치료는 숫자 하나만 낮추는 일이 아닙니다",
+        "저혈당과 아픈 날의 계획은 미리 따로 확인합니다",
+        "의식 변화·경련·호흡곤란은 기록보다 응급 도움",
+        "가족과 남길 것은 평가 점수가 아니라 맥락입니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/type-2-diabetes",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fhero.webp&w=3840&q=75",
+          "alt": "식사와 활동, 수면과 혈당 측정값을 관찰 기록지에 적는 다양한 연령의 가족 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fprocess.webp&w=3840&q=75",
+          "alt": "포도당과 인슐린 신호가 세포의 에너지 사용과 연결되는 기본 흐름을 단순화한 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fwarning.webp&w=3840&q=75",
+          "alt": "반복되는 구토와 호흡곤란, 의식 변화가 있을 때 기록보다 응급 도움을 우선하는 경고 삽화",
+          "loaded": true,
+          "width": 356,
+          "height": 237
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fchecklist.webp&w=3840&q=75",
+          "alt": "당사자의 선택을 존중하며 검사 결과와 진료 질문을 함께 정리하는 가족 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "제2형 당뇨병 증상·검사: 공복혈당과 당화혈색소 | 오누림",
+      "h1": [
+        "제2형 당뇨병, 증상부터 혈당 검사와 기록까지"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "같은 혈당 이야기라도 검사와 기록은 다릅니다",
+        "제2형은 인슐린 작용과 관련된 질환입니다",
+        "갈증·소변 변화가 있거나 검진에서 표시를 받았다면",
+        "치료는 숫자 하나만 낮추는 일이 아닙니다",
+        "저혈당과 아픈 날의 계획은 미리 따로 확인합니다",
+        "의식 변화·경련·호흡곤란은 기록보다 응급 도움",
+        "가족과 남길 것은 평가 점수가 아니라 맥락입니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/type-2-diabetes",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fhero.webp&w=3840&q=75",
+          "alt": "식사와 활동, 수면과 혈당 측정값을 관찰 기록지에 적는 다양한 연령의 가족 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fprocess.webp&w=3840&q=75",
+          "alt": "포도당과 인슐린 신호가 세포의 에너지 사용과 연결되는 기본 흐름을 단순화한 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fwarning.webp&w=3840&q=75",
+          "alt": "반복되는 구토와 호흡곤란, 의식 변화가 있을 때 기록보다 응급 도움을 우선하는 경고 삽화",
+          "loaded": true,
+          "width": 660,
+          "height": 440
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fchecklist.webp&w=3840&q=75",
+          "alt": "당사자의 선택을 존중하며 검사 결과와 진료 질문을 함께 정리하는 가족 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "제2형 당뇨병 증상·검사: 공복혈당과 당화혈색소 | 오누림",
+      "h1": [
+        "제2형 당뇨병, 증상부터 혈당 검사와 기록까지"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "같은 혈당 이야기라도 검사와 기록은 다릅니다",
+        "제2형은 인슐린 작용과 관련된 질환입니다",
+        "갈증·소변 변화가 있거나 검진에서 표시를 받았다면",
+        "치료는 숫자 하나만 낮추는 일이 아닙니다",
+        "저혈당과 아픈 날의 계획은 미리 따로 확인합니다",
+        "의식 변화·경련·호흡곤란은 기록보다 응급 도움",
+        "가족과 남길 것은 평가 점수가 아니라 맥락입니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/type-2-diabetes",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fhero.webp&w=3840&q=75",
+          "alt": "식사와 활동, 수면과 혈당 측정값을 관찰 기록지에 적는 다양한 연령의 가족 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fprocess.webp&w=3840&q=75",
+          "alt": "포도당과 인슐린 신호가 세포의 에너지 사용과 연결되는 기본 흐름을 단순화한 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fwarning.webp&w=3840&q=75",
+          "alt": "반복되는 구토와 호흡곤란, 의식 변화가 있을 때 기록보다 응급 도움을 우선하는 경고 삽화",
+          "loaded": true,
+          "width": 720,
+          "height": 480
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Ftype-2-diabetes%2Fchecklist.webp&w=3840&q=75",
+          "alt": "당사자의 선택을 존중하며 검사 결과와 진료 질문을 함께 정리하는 가족 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

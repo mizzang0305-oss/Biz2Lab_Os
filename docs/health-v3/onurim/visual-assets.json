@@ -115,7 +115,7 @@
       "DIA-B1-002"
     ],
     "altText": "포도당과 인슐린 신호가 세포의 에너지 사용과 연결되는 기본 흐름을 단순화한 삽화",
-    "caption": "인슐린은 포도당이 세포에서 쓰이도록 돕습니다. 실제 몸의 작용은 그림보다 복잡합니다.",
+    "caption": "점은 포도당, 빛 모양은 인슐린 신호를 상징합니다. 혈관이 세포에 직접 꽂히는 실제 구조가 아니라, 세포의 포도당 이용을 설명하는 비유입니다.",
     "prompt": "food energy to glucose dots in blood flow, abstract insulin signal helping dots enter a stylized cell; maximum four stages; no literal key, labels, values or diagnostic imagery",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -134,7 +134,7 @@
       "DIA-B1-012"
     ],
     "altText": "반복되는 구토와 호흡곤란 의식 변화가 있을 때 기록보다 응급 도움을 우선하는 경고 삽화",
-    "caption": "상태가 빠르게 나빠지면 기록을 계속하지 말고 응급 의료 도움을 받습니다.",
+    "caption": "세 장면이 모두 나타날 때까지 기다리는 순서도가 아닙니다. 물도 유지하기 어려운 구토·호흡곤란·의식 변화에는 즉시 응급 도움을 받습니다.",
     "prompt": "four respectful panels for repeated vomiting unable to drink, difficult breathing, reduced responsiveness and calling emergency help; no diagnosis label, text, blood or hospital symbols",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",

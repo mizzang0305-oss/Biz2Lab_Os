@@ -214,6 +214,14 @@ export const healthSources: HealthSource[] = [
     sourceDate: "2023",
     retrievedAt: "2026-08-24",
   },
+  {
+    id: "SRC-CDC-LOW-GLUCOSE", organization: "CDC", title: "Low Blood Sugar (Hypoglycemia)",
+    url: "https://www.cdc.gov/diabetes/about/low-blood-sugar-hypoglycemia.html", sourceDate: "2024-05-16", retrievedAt: "2026-09-06",
+  },
+  {
+    id: "SRC-NHS-LOW-GLUCOSE", organization: "NHS", title: "Low blood sugar (hypoglycaemia)",
+    url: "https://www.nhs.uk/conditions/low-blood-sugar-hypoglycaemia/", sourceDate: "2023-08-03 (검토 예정일과 구분)", retrievedAt: "2026-09-06",
+  },
   ...batch2HealthSources,
   ...expansionHealthSources,
 ];
@@ -669,10 +677,12 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
   },
   "type-2-diabetes": {
     slug: "type-2-diabetes",
-    title: "제2형 당뇨병, 한 번의 숫자보다 흐름 보기",
-    eyebrow: "대사·혈당 · 비공개 파일럿",
-    description: "혈당과 인슐린의 기본 관계, 검사 용어, 안전한 관찰 기록과 가족의 도움을 쉬운 말로 정리합니다.",
-    outcome: "혈당 검사의 뜻을 구분하고, 혼자 진단하지 않으며, 진료에서 물어볼 내용을 준비합니다.",
+    title: "제2형 당뇨병, 증상부터 혈당 검사와 기록까지",
+    seoTitle: "제2형 당뇨병 증상·검사: 공복혈당과 당화혈색소",
+    publishedAt: "2026-08-26", updatedAt: "2026-09-06", sourceCheckedAt: "2026-09-06",
+    eyebrow: "대사·혈당 · 검사 이해와 개인 대처 계획",
+    description: "공복혈당·HbA1c·가정 혈당 기록의 역할을 구분하고, 증상이 없을 때의 검사 상담과 저혈당·응급 신호를 살핍니다. 약을 혼자 조절하지 않고 진료 질문을 준비합니다.",
+    outcome: "검사표와 가정 기록을 구분하고, 저혈당·아픈 날의 개인 대처 계획을 의료진에게 확인할 수 있습니다.",
     summary: [
       "제2형 당뇨병은 음식 하나나 의지 부족만으로 설명할 수 없습니다.",
       "공복혈당과 당화혈색소(HbA1c)는 서로 다른 시간 범위를 보여 주는 혈액검사입니다.",
@@ -680,80 +690,65 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
     ],
     sections: [
       {
-        title: "한 문장으로 이해하기",
-        paragraphs: [
-          "몸이 인슐린을 충분히 만들지 못하거나 잘 사용하지 못해 혈액 속 포도당이 높은 상태가 이어지는 질환입니다.",
-        ],
-        claimIds: ["DIA-B1-001"],
-      },
-      {
-        title: "연료와 문 신호로 비유해 보기",
-        paragraphs: [
-          "포도당은 세포가 쓰는 연료, 인슐린은 그 연료가 세포에서 쓰이도록 돕는 신호와 비슷합니다. 신호가 충분히 작동하지 않으면 포도당이 혈액에 더 많이 남을 수 있습니다. 실제 몸은 이 비유보다 복잡하므로 치료 판단에는 사용할 수 없습니다.",
-        ],
-        claimIds: ["DIA-B1-001", "DIA-B1-002"],
-        tone: "note",
-      },
-      {
-        title: "있을 수도, 없을 수도 있는 신호",
-        paragraphs: [
-          "갈증, 잦은 소변, 피로, 흐린 시야, 손발 저림이나 상처가 잘 낫지 않는 변화가 나타날 수 있습니다. 하지만 변화가 천천히 오거나 아무 증상이 없는 사람도 있어 증상 목록만으로 확인하거나 배제할 수 없습니다.",
-        ],
-        claimIds: ["DIA-B1-003", "DIA-B1-004", "DIA-B1-006"],
-      },
-      {
-        title: "누구의 잘못으로 설명하지 않기",
-        paragraphs: [
-          "가족력, 나이, 활동량, 체중과 다른 건강 상태 등 여러 요인이 함께 관련됩니다. 체형이나 특정 음식 하나만 보고 당뇨병 여부를 판단하거나 사람을 탓해서는 안 됩니다.",
-        ],
-        claimIds: ["DIA-B1-005"],
-      },
-      {
-        title: "검사 이름부터 구분합니다",
-        bullets: [
-          "공복혈당: 보통 최소 8시간 금식한 뒤 한 시점의 혈당을 확인합니다.",
-          "당화혈색소(HbA1c): 대략 지난 3개월 평균 혈당 수준에 관한 정보를 줍니다.",
-          "검사 하나의 의미와 재검 필요 여부는 의료진이 다른 건강 상태와 함께 판단합니다.",
-        ],
+        title: "같은 혈당 이야기라도 검사와 기록은 다릅니다",
+        paragraphs: ["검사 이름과 측정 시점을 먼저 찾으세요. 아래 표는 검사 역할을 비교하며, 당뇨병 진단값이나 개인 치료 목표를 정하는 표가 아닙니다."],
         claimIds: ["DIA-B1-007", "DIA-B1-008", "DIA-B1-009"],
+        sourceIds: ["SRC-NIDDK-TESTS", "SRC-NIDDK-A1C"], imageId: null,
+        table: { caption: "공복혈당·당화혈색소·가정 기록의 역할 비교", columns: ["항목", "무엇을 보나요", "진료에서 확인할 점"], rows: [
+          ["공복혈당", "보통 최소 8시간 금식한 뒤 채혈한 한 시점의 혈당", "검사기관의 금식·복약 안내와 재검 필요 여부"],
+          ["당화혈색소(HbA1c)", "대략 지난 3개월의 평균적인 혈당 상태", "빈혈 등 결과에 영향을 줄 조건, 같은 날 혈당과 차이"],
+          ["가정용 혈당계 기록", "측정 당시의 값과 식사·활동·증상 맥락", "진단 검사를 대신하지 않음; 처방받은 측정·대처 계획 확인"],
+        ] },
+        links: [{ href: "/health/guides/understanding-hba1c", label: "HbA1c 결과지의 NGSP·IFCC 단위 읽기" }, { href: "/health/guides/reading-health-check-results", label: "검사표에서 이름·단위·후속 안내 찾기" }],
       },
       {
-        title: "한 번 잰 값으로 진단하지 않는 이유",
-        paragraphs: [
-          "가정용 혈당계는 이미 측정 중인 사람이 패턴을 기록하는 데 도움을 줄 수 있습니다. 하지만 한 번의 값은 측정 시점과 상황의 영향을 받으므로 자가 진단이나 약 변경 근거로 삼지 않습니다.",
-        ],
-        claimIds: ["DIA-B1-006", "DIA-B1-011"],
+        title: "제2형은 인슐린 작용과 관련된 질환입니다",
+        paragraphs: ["인슐린은 혈액 속 포도당이 세포에서 쓰이도록 돕는 호르몬입니다. 몸이 인슐린을 잘 쓰지 못하고 필요한 만큼 만들지 못하면 혈당이 높은 상태가 이어질 수 있습니다.", "유전, 나이, 활동, 체중과 여러 건강 상태가 함께 관련됩니다. 특정 음식이나 체형 하나로 원인과 책임을 단정하지 않습니다."],
+        claimIds: ["DIA-B1-001", "DIA-B1-002", "DIA-B1-005"],
+        sourceIds: ["SRC-NIDDK-T2D", "SRC-KDCA-DIA"], imageId: "dia-process",
+      },
+      {
+        title: "갈증·소변 변화가 있거나 검진에서 표시를 받았다면",
+        paragraphs: ["갈증, 잦은 소변, 피로, 흐린 시야, 손발 저림이나 잘 낫지 않는 상처가 나타날 수 있습니다. 변화가 느리거나 증상이 없는 경우도 있어 증상 목록으로 확인하거나 배제할 수 없습니다.", "이런 변화가 지속되거나 검진에서 재검·진료 안내를 받았다면 원본 결과지를 가지고 상담하세요. 가정용 혈당계만으로 혼자 진단하지 않습니다. 아래 응급 변화가 있으면 예약일을 기다리지 않습니다."],
+        claimIds: ["DIA-B1-003", "DIA-B1-004", "DIA-B1-006"],
+        sourceIds: ["SRC-NIDDK-T2D", "SRC-NIDDK-TESTS"], imageId: null,
       },
       {
         title: "치료는 숫자 하나만 낮추는 일이 아닙니다",
         paragraphs: [
-          "식사, 신체 활동, 수면, 금연과 처방약을 함께 고려하며 혈당뿐 아니라 혈압과 콜레스테롤, 눈·콩팥·신경·심혈관 건강도 살핍니다. 구체적인 목표와 약은 진료를 맡은 의료진과 정합니다.",
+          "식사, 활동, 수면, 금연과 처방약을 함께 고려하며 혈압·콜레스테롤과 눈·콩팥·신경 건강도 살핍니다. 개인 목표와 검사 주기는 의료진과 정합니다.",
+          "처방받은 측정·복약·저혈당 대처 계획을 따르세요. 의료진이 미리 정해 준 조절 계획이 있다면 그 지시를 따르는 것과 인터넷 글을 보고 임의로 약을 바꾸는 것은 다릅니다. 이 글은 개인 계획을 대체하지 않습니다.",
         ],
         claimIds: ["DIA-B1-010", "DIA-B1-011"],
+        sourceIds: ["SRC-KDCA-DIA", "SRC-NIDDK-LIVING", "SRC-NHS-LOW-GLUCOSE"], imageId: null,
+        links: [{ href: "/health/hypertension", label: "함께 살피는 혈압과 가정 측정" }],
       },
       {
-        title: "관찰 기록에는 맥락을 남깁니다",
-        paragraphs: [
-          "이미 혈당을 재는 사람이라면 날짜, 식사 시점, 활동, 측정값, 증상, 수면과 메모를 함께 적습니다. 기록은 약을 바꾸는 계산표가 아니라 진료 질문을 준비하는 재료입니다.",
-        ],
-        claimIds: ["DIA-B1-006", "DIA-B1-011"],
+        title: "저혈당과 아픈 날의 계획은 미리 따로 확인합니다",
+        paragraphs: ["인슐린이나 일부 당뇨병 약을 쓰는 사람은 저혈당이 생길 수 있습니다. 떨림·식은땀·두근거림·허기·어지러움 등이 나타날 수 있지만 증상이 뚜렷하지 않은 사람도 있습니다.", "깨어 있고 스스로 대처할 수 있다면 가능한 경우 바로 혈당을 확인하고, 의료진과 정한 저혈당 대처 계획을 따릅니다. 대처 방법을 모르거나 회복되지 않으면 즉시 의료 도움을 받으세요. 의식이나 반응이 달라지면 아래의 119 안내를 우선합니다."],
+        bullets: ["내 약이 저혈당을 일으킬 수 있나요? 어떤 변화와 수치에서 무엇을 하나요?", "몸이 아파 못 먹거나 토할 때 측정·약·연락은 어떻게 하나요?", "야간이나 휴일에 연락할 곳과 가족이 알아둘 대처는 무엇인가요?"],
+        claimIds: ["DIA-B1-010", "DIA-B1-011", "DIA-B1-012"],
+        sourceIds: ["SRC-CDC-LOW-GLUCOSE", "SRC-NHS-LOW-GLUCOSE", "SRC-CDC-DKA"], imageId: null, tone: "note",
+        links: [{ href: "/health/tools/diabetes-questions", label: "저혈당·아픈 날의 계획을 물을 진료 질문 카드" }],
       },
       {
-        title: "빠르게 의료 도움을 받아야 할 변화",
+        title: "의식 변화·경련·호흡곤란은 기록보다 응급 도움",
         paragraphs: [
-          "당뇨병이 있는 사람이 반복해서 토해 물도 마시기 어렵거나 숨쉬기 힘들고 의식이 흐려지는 등 상태가 빠르게 나빠지면 기록을 계속하지 말고 즉시 가까운 응급의료기관이나 119에 도움을 요청합니다. 반응이 없거나 생명이 위급하면 즉시 119에 신고합니다.",
+          "의식이 흐려짐, 반응 없음, 경련 중 어느 하나라도 나타나면 즉시 119에 연락합니다. 저혈당이 의심되더라도 의식이 없거나 안전하게 삼킬 수 없는 사람에게 음식·물·약을 억지로 먹이지 않습니다.",
+          "반복되는 구토로 음식·물을 유지하기 어렵거나 숨쉬기 힘들 때도 즉시 응급의료기관 또는 119 도움을 받습니다. 제2형 당뇨병에서도 당뇨병성 케톤산증 같은 응급 문제가 생길 수 있습니다. 이것이 원인인지 스스로 가리느라 지체하지 않습니다.",
         ],
         claimIds: ["DIA-B1-012"],
-        tone: "warning",
+        sourceIds: ["SRC-CDC-LOW-GLUCOSE", "SRC-NHS-LOW-GLUCOSE", "SRC-CDC-DKA", "SRC-KDCA-CPR"],
+        tone: "warning", imageId: "dia-warning",
+        links: [{ href: "/health/guides/danger-signals", label: "그 밖의 즉시 도움을 요청해야 하는 위험 신호" }],
       },
       {
-        title: "가족이 도울 수 있는 방식",
-        bullets: [
-          "음식이나 숫자를 감시하기보다 당사자가 원하는 도움을 먼저 묻습니다.",
-          "검사 결과지와 약 목록, 진료 질문을 함께 정리합니다.",
-          "응급 상황의 개인 행동 계획은 의료진에게 함께 묻습니다.",
-        ],
+        title: "가족과 남길 것은 평가 점수가 아니라 맥락입니다",
+        paragraphs: ["이미 측정 중이라면 날짜·식사와의 시간 간격·활동·혈당값·증상을 나란히 적습니다. ‘잘했다/못했다’ 대신 관찰한 사실을 남기세요. 음식과 숫자를 감시하기보다 어떤 도움이 필요한지 당사자에게 묻습니다."],
+        bullets: ["기록에서 질문할 한 가지를 고릅니다: 식사 전후 변화, 밤의 증상, 평소와 다른 활동 등.", "검사 결과지와 약 목록, 미리 정한 응급 계획을 당사자의 동의를 받아 함께 정리합니다."],
         claimIds: ["DIA-B1-013", "DIA-B1-011", "DIA-B1-012"],
+        sourceIds: ["SRC-NIDDK-LIVING", "SRC-CDC-LOW-GLUCOSE"], imageId: "dia-checklist",
+        links: [{ href: "/health/tools/glucose-observation-log", label: "혈당과 생활 맥락을 함께 적는 관찰 기록표" }, { href: "/health/guides/medication-list", label: "처방약·일반약·보충제를 빠뜨리지 않는 복용약 목록" }],
       },
     ],
     faq: [
@@ -761,17 +756,23 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
         question: "단것을 먹어서 생기는 병인가요?",
         answer: "제2형 당뇨병은 인슐린 작용, 유전, 활동, 체중과 여러 건강 요인이 함께 관련됩니다. 음식 하나로 원인이나 책임을 단정할 수 없습니다.",
         claimIds: ["DIA-B1-001", "DIA-B1-005"],
+        sourceIds: ["SRC-NIDDK-T2D"],
       },
       {
         question: "증상이 없으면 검사가 필요 없나요?",
         answer: "증상이 매우 약하거나 없는 사람도 있습니다. 개인 위험과 검사 필요 여부는 의료진에게 확인하세요.",
         claimIds: ["DIA-B1-004", "DIA-B1-006"],
+        sourceIds: ["SRC-NIDDK-TESTS", "SRC-NIDDK-T2D"],
       },
       {
         question: "가정용 혈당계 숫자로 약을 조절해도 되나요?",
-        answer: "아닙니다. 처방약이나 인슐린 변경은 개인 치료 계획을 아는 의료진과 상의해야 합니다.",
+        answer: "이 글의 설명으로 임의 조절하지 않습니다. 의료진에게 미리 받은 개인 조절·대처 계획이 있다면 그 계획을 따르고, 방법이 불분명하면 의료진에게 확인하세요.",
         claimIds: ["DIA-B1-011"],
+        sourceIds: ["SRC-NHS-LOW-GLUCOSE", "SRC-CDC-DKA"],
       },
+      { question: "공복혈당과 HbA1c가 다르게 보이면 어느 쪽이 틀렸나요?", answer: "보는 시간 범위가 다르고 HbA1c에 영향을 주는 건강 상태도 있습니다. 원본 검사표와 측정 상황을 가져가 의료진에게 차이와 재검 필요성을 물어보세요.", claimIds: ["DIA-B1-007", "DIA-B1-008", "DIA-B1-009"], sourceIds: ["SRC-NIDDK-A1C", "SRC-NIDDK-TESTS"] },
+      { question: "HbA1c 검사도 금식해야 하나요?", answer: "HbA1c 검사 자체에는 금식이 필요하지 않습니다. 같은 날 다른 검사가 함께 있다면 기관의 금식·복약 안내를 따릅니다.", claimIds: ["DIA-B1-007", "DIA-B1-008"], sourceIds: ["SRC-NIDDK-A1C", "SRC-NIDDK-TESTS"] },
+      { question: "혈당이 높은 병인데 저혈당도 생기나요?", answer: "인슐린이나 일부 약, 식사·활동 상황에 따라 저혈당이 생길 수 있습니다. 증상과 대처를 미리 배우고, 의식 저하·경련처럼 스스로 대처할 수 없는 변화에는 119 도움을 요청합니다.", claimIds: ["DIA-B1-010", "DIA-B1-012"], sourceIds: ["SRC-CDC-LOW-GLUCOSE", "SRC-NHS-LOW-GLUCOSE", "SRC-KDCA-CPR"] },
     ],
     sourceIds: [
       "SRC-KDCA-DIA",
@@ -781,6 +782,8 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
       "SRC-NIDDK-LIVING",
       "SRC-CDC-DKA",
       "SRC-KDCA-CPR",
+      "SRC-CDC-LOW-GLUCOSE",
+      "SRC-NHS-LOW-GLUCOSE",
     ],
     imageIds: ["dia-hero", "dia-process", "dia-warning", "dia-checklist"],
     toolSlugs: ["glucose-observation-log", "diabetes-questions", "family-support-checklist", "diabetes-test-terms"],
