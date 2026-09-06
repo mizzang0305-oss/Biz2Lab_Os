@@ -430,17 +430,61 @@ export const healthSupportGuides: HealthSupportGuide[] = [
   },
   {
     slug: "medication-list",
-    title: "약 이름과 복용 정보를 정리하는 법",
-    description: "처방약·일반약·보충제를 한 목록에 적어 진료와 약국에서 정확히 보여 줍니다.",
+    title: "약 목록, 이름과 사용 안내를 나누어 적으세요",
+    seoTitle: "복용약 목록 작성법: 약 이름·함량·사용법과 변경일",
+    description: "처방약·일반약·안약·바르는 약·보충제를 한 목록에 정리합니다. 제품 함량과 안내받은 사용량을 나누고, 모르는 정보와 변경사항을 표시해 진료·약국에 전달하는 방법입니다.",
+    publishedAt: "2026-08-26", updatedAt: "2026-09-06", sourceCheckedAt: "2026-09-06",
+    faqTitle: "목록을 적다가 헷갈리는 질문",
     sections: [
-      { title: "용기에서 그대로 옮깁니다", bullets: ["제품명과 성분명", "용량 표기와 복용 안내", "처방한 곳과 시작 시점", "복용 이유를 설명받은 내용"] },
-      { title: "함께 적을 것", bullets: ["일반의약품", "비타민·건강기능식품", "약 알레르기와 이상 반응"] },
-      { title: "추측하지 않습니다", paragraphs: ["이름을 모르면 색·모양만으로 맞히지 말고 실제 용기나 처방전을 의료진·약사에게 보여 줍니다."] },
-      { title: "공개하지 않습니다", paragraphs: ["약 목록은 개인 건강정보입니다. 공개 Issue나 공용 기기에 저장하지 말고 출력물 보관에 주의합니다."] },
+      { title: "목록을 만드는 목적은 약을 다시 처방하는 것이 아닙니다", paragraphs: [
+        "여러 진료기관이나 약국을 이용하면 현재 무엇을 쓰고 있는지 한 번에 설명하기 어려울 수 있습니다. 복용약 목록은 의료진·약사가 확인할 정보를 모으는 자료입니다. 어떤 약을 빼거나 더할지, 함께 써도 안전한지 스스로 판정하는 표가 아닙니다.",
+        "FDA는 이름·함량·사용 이유·언제 어떻게 얼마나 쓰는지를 정리하고 변경 때 갱신하도록 안내합니다. 종이든 휴대전화 메모든 본인이 계속 확인할 수 있는 방식이면 됩니다. 특별한 앱을 설치하거나 모든 칸을 외울 필요는 없습니다.",
+      ], sourceIds: ["SUP-FDA-CURRENT-MED-LIST", "SUP-LIST-FDA-AGE"] },
+      { title: "제품 표기와 안내받은 사용법을 따로 봅니다", paragraphs: [
+        "실제 용기·약봉투·처방전·안내문을 펼쳐 놓고 옮기세요. 제품에 적힌 함량·농도 등의 숫자와, 한 번에 얼마를 언제 쓰라고 안내받았는지는 다른 정보입니다. 함량만 보고 한 번의 사용량을 계산하거나 정하지 않습니다.",
+        "FDA의 미국 일반약 라벨 설명도 성분의 양과 사용 지시를 구분합니다. 국내 모든 제품이 같은 순서·모양으로 표시된다는 뜻은 아니므로 실제 제품과 받은 안내를 확인합니다.",
+        "이름이 비슷하거나 표기가 서로 달라 보이면 지우고 하나로 합치지 말고 의료진·약사에게 확인합니다. 색·모양만으로 이름을 추측하지 않고 실제 용기나 안내문을 보여 주세요. 아래는 기록할 항목의 예시이지 특정 약의 사용 지시가 아닙니다.",
+      ], table: { caption: "약 하나마다 확인할 항목 — 실제 숫자는 안내에서 확인", columns: ["항목", "옮길 내용과 확인할 점"], rows: [
+        ["정확한 제품 정보", "제품 이름, 확인 가능한 성분명과 형태; 모르는 이름은 ‘확인 필요’ 표시"],
+        ["제품의 함량·농도 표기", "단위를 빼지 않고 포장 표기를 그대로 옮기기; 임의 단위 환산하지 않기"],
+        ["안내받은 사용법", "언제·어떻게·얼마나 쓰는지 별도 기록; 제품 함량으로 대체하지 않기"],
+        ["사용 이유와 안내한 곳", "설명받은 사용 이유, 처방·상담 기관을 아는 범위에서; 병명을 추측하지 않기"],
+        ["현재 상황과 확인 날짜", "지금 사용 중인지, 안내와 다른 점·미확인 내용이 있는지, 목록을 확인한 날짜"],
+      ] }, sourceIds: ["SUP-FDA-CURRENT-MED-LIST", "SUP-LIST-FDA-AGE", "SUP-LIST-FDA-SAFETY", "SUP-LIST-FDA-LABEL"] },
+      { title: "매일 먹는 처방약 말고도 포함합니다", paragraphs: [
+        "약국에서 산 일반약, 필요할 때만 쓰는 약, 안약·바르는 약, 비타민·건강기능식품·허브 제품도 알립니다. 보충제를 모두 법적으로 의약품이라고 부르는 것이 아니라, 함께 사용하는 것을 빠뜨리지 않고 전달하려는 목록입니다.",
+        "필요할 때 쓰는 약은 그렇게 안내받았다는 점과 실제 사용 정보를 아는 범위에서 적습니다. ‘필요할 때’의 뜻이나 사용 간격이 불분명하면 약사·처방기관에 확인합니다. 이 페이지가 모든 약에 공통된 사용 간격·횟수를 정하지는 않습니다.",
+        "알레르기와 이전에 약을 쓰며 겪은 문제도 별도로 알립니다. 어떤 약 뒤에 무엇을 겪었는지 아는 만큼 적고, 확인받지 않은 원인을 알레르기 확정처럼 바꾸지 않습니다. 목록이 길다는 이유로 본인이 중요하지 않다고 생각한 제품을 숨기지 마세요.",
+      ], sourceIds: ["SUP-LIST-FDA-AGE", "SUP-LIST-FDA-SAFETY", "SUP-FDA-CURRENT-MED-LIST"], links: [{ href: "/health/guides/family-medication-support", label: "가족이 돕는 범위와 약 관련 어려움을 함께 확인" }] },
+      { title: "바뀔 때 고치고, 다음 진료에서 다시 확인합니다", paragraphs: [
+        "새 처방이나 사용법 변경을 안내받았으면 목록을 갱신합니다. 현재 사용하는 것과 의료진 안내로 중단한 과거 기록을 구분하고, 언제 어떤 안내로 바뀌었는지 아는 범위에서 남기세요. 목록을 고친다는 이유로 약을 임의로 중단·재시작하지 않습니다.",
+        "안내받은 사용법과 실제 사용이 달랐다면 두 내용을 구분해 알립니다. 부끄러워서 처방대로만 적기보다 어떤 점이 달랐고 무엇이 어려웠는지 말해야 다음 계획을 상담할 수 있습니다. 복용했는지 기억나지 않는 부분은 완료로 채우지 않습니다.",
+        "진료·검사·약국 방문 때 최신 목록과 궁금한 점을 보여 주세요. ‘이전 목록과 바뀐 것은 무엇인가요? 같이 고려할 제품이 빠졌나요?’라고 확인하고, 받은 새 안내를 반영합니다. 여러 기관의 정보가 자동으로 모두 합쳐진다고 가정하지 않습니다.",
+      ], sourceIds: ["SUP-FDA-CURRENT-MED-LIST", "SUP-LIST-FDA-AGE", "SUP-LIST-FDA-SAFETY"], links: [
+        { href: "/health/guides/appointment-questions", label: "약 사용법·주의점·다음 확인을 물을 질문" },
+        { href: "/health/guides/reading-health-results", label: "검사 준비와 결과 설명 때 약 정보를 알릴 이유" },
+      ] },
+      { title: "필요할 때 찾되, 공개하지 않는 방법을 정합니다", paragraphs: [
+        "목록에는 개인 건강정보가 담깁니다. 본인이 찾을 수 있는 곳에 두고, 동의한 가족·돌봄자와 필요한 범위에서 공유할 방법을 정합니다. 종이 사본이나 휴대전화의 목록도 최신인지 확인하고, 공개 링크나 공개 문의 게시판에 처방전·이름·연락처를 올리지 않습니다.",
+        "FDA는 목록에 응급 연락처와 알레르기 정보를 함께 두는 방법도 안내합니다. 다만 이 페이지는 파일 업로드·약 식별·상호작용 자동판정 서비스가 아닙니다. 목록이 있으면 전달할 수 있지만, 목록을 갖고 있어야만 도움받을 수 있다는 뜻은 아닙니다.",
+      ], sourceIds: ["SUP-FDA-CURRENT-MED-LIST"], links: [{ href: "/health/guides/older-parent-health-organizer", label: "부모님과 합의한 정보의 위치·공유·갱신 방법" }] },
+      { id: "urgent-action", title: "위급하다면 약 이름 찾기보다 119", paragraphs: [
+        "심한 호흡곤란이나 반응이 떨어지는 변화 등 위급한 상태이면 즉시 119에 연락합니다. 약 이름·용량을 모두 알아내거나 목록을 완성한 뒤 신고하지 않습니다. 아는 정보만 전하고 도움 요청을 먼저 합니다.",
+      ], tone: "warning", sourceIds: ["SUP-LIST-EMERGENCY"], links: [{ href: "/health/guides/danger-signals", label: "목록 정리보다 즉시 도움이 필요한 다른 위험 신호" }] },
+    ],
+    faq: [
+      { question: "함량 숫자만 적으면 한 번 먹는 양도 알 수 있나요?", answer: "제품에 표시된 함량·농도와 안내받은 사용량은 따로 확인합니다. 단위를 포함한 제품 표기와 언제·어떻게·얼마나 쓰라는 안내를 각각 옮기세요. 함량만으로 사용량을 계산하거나 약을 나누지 않습니다.", sourceIds: ["SUP-FDA-CURRENT-MED-LIST", "SUP-LIST-FDA-AGE", "SUP-LIST-FDA-LABEL"] },
+      { question: "약 이름을 모르는데 색이나 모양으로 적어도 되나요?", answer: "정확한 이름을 추측해서 확정하지 않습니다. ‘이름 확인 필요’로 표시하고 실제 용기·약봉투·안내문을 의료진·약사에게 보여 확인받습니다. 이 페이지는 알약 사진으로 약을 식별하지 않습니다.", sourceIds: ["SUP-LIST-FDA-AGE", "SUP-LIST-FDA-SAFETY"] },
+      { question: "가끔 쓰는 약과 안약도 적어야 하나요?", answer: "매일 먹는 약만 적는 목록이 아닙니다. 일반약·필요할 때 쓰는 약·안약·바르는 약·비타민·보충제를 함께 알립니다. 실제 사용 정보와 불분명한 안내는 확인 필요로 남겨 의료진·약사에게 묻습니다.", sourceIds: ["SUP-LIST-FDA-AGE", "SUP-FDA-CURRENT-MED-LIST"] },
+      { question: "목록에서 약이 많아 보이면 몇 개 빼도 되나요?", answer: "정보를 정확히 전달하는 것과 약을 줄이는 결정은 별개입니다. 임의로 중단하거나 목록에서 숨기지 말고, 현재 쓰는 것과 걱정되는 점을 보여 주세요. 계속 필요한지·함께 쓸 때 고려할 점은 의료진·약사와 상담합니다.", sourceIds: ["SUP-LIST-FDA-AGE", "SUP-LIST-FDA-SAFETY"] },
+      { question: "작년에 만든 목록을 그대로 가져가도 되나요?", answer: "새 처방·사용법 변경·중단 안내가 있었다면 현재 상황을 반영합니다. 지난 목록밖에 없으면 바뀐 점과 모르는 부분을 알리고 함께 확인하세요. 완벽한 최신 목록을 만들 때까지 진료나 긴급 도움을 미루지는 않습니다.", sourceIds: ["SUP-FDA-CURRENT-MED-LIST", "SUP-LIST-EMERGENCY"] },
     ],
     sources: [
-      { id: "SUP-FDA-MED-RECORD", organization: "U.S. FDA", title: "My Medicine Record", url: "https://www.fda.gov/media/73856/download", sourceDate: "2011", retrievedAt },
-      { id: "SUP-MEDLINEPLUS-DRUGS", organization: "NIH/MedlinePlus", title: "Drugs, Herbs and Supplements", url: "https://medlineplus.gov/druginformation.html", sourceDate: "2025", retrievedAt },
+      { id: "SUP-FDA-CURRENT-MED-LIST", organization: "U.S. FDA", title: "Create and Keep a Medication List for Your Health", url: "https://www.fda.gov/consumers/consumer-updates/create-and-keep-medication-list-your-health", sourceDate: "HTML 본문 자체 날짜 미표시", retrievedAt: "2026-09-06" },
+      { id: "SUP-LIST-FDA-AGE", organization: "U.S. FDA", title: "As You Age: You and Your Medicines", url: "https://www.fda.gov/drugs/information-consumers-and-patients-drugs/you-age-you-and-your-medicines", sourceDate: "HTML 본문 자체 날짜 미표시", retrievedAt: "2026-09-06" },
+      { id: "SUP-LIST-FDA-SAFETY", organization: "U.S. FDA", title: "5 Medication Safety Tips for Older Adults", url: "https://www.fda.gov/consumers/consumer-updates/5-medication-safety-tips-older-adults", sourceDate: "HTML 본문 자체 날짜 미표시", retrievedAt: "2026-09-06" },
+      { id: "SUP-LIST-FDA-LABEL", organization: "U.S. FDA", title: "The Over-the-Counter Drug Facts Label — 미국 일반약 표시 설명", url: "https://www.fda.gov/drugs/understanding-over-counter-medicines/over-counter-drug-facts-label", sourceDate: "HTML 본문 자체 날짜 미표시", retrievedAt: "2026-09-06" },
+      { id: "SUP-LIST-EMERGENCY", organization: "MedlinePlus Medical Encyclopedia / A.D.A.M.", title: "Recognizing medical emergencies", url: "https://medlineplus.gov/ency/article/001927.htm", sourceDate: "2025-01-08 (Review Date)", retrievedAt: "2026-09-06" },
     ],
   },
   {
