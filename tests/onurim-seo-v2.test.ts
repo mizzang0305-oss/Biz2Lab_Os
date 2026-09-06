@@ -535,6 +535,21 @@ test("GERD separates terms and timing without waiting for severe cardiac pain", 
   assert.match(readFileSync("app/health/onurim.module.css", "utf8"), /onurim-article-hero > \*\) \{ min-width: 0; \}/);
 });
 
+test("joint activity log records actual pain and function without a provocation test or mandatory activity quota", () => {
+  const tool = healthTools.find(t=>t.slug==="oa-daily-activity-log")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(tool.rows, 12);
+  assert.equal(tool.columns?.length, 7);
+  assert.match(tool.columns![1], /관절·좌우/);
+  assert.match(tool.columns![4], /피부 변화/);
+  assert.equal(getToolSources(tool).length, 4);
+  assert.equal(getToolSafetyNotice(tool), healthArticles.osteoarthritis.sections.find(s=>s.tone==="warning"));
+  assert.match(copy.steps.join(" "), /아픈 동작을 일부러 반복하거나/);
+  assert.match(copy.purpose, /12일 관찰이나 운동 횟수의 기준이 아닙니다/);
+  assert.match(copy.sheetNotice!, /모든 증상이 모일 때까지 기다리지/);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+걸음|\d+점 이상|\d+분 운동/);
+});
+
 test("osteoarthritis starts with function and separates acute joint changes from usual activity planning", () => {
   const article = healthArticles.osteoarthritis;
   assert.equal(article.faq.length, 6);

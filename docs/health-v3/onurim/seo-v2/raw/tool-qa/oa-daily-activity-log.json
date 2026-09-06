@@ -1,0 +1,71 @@
+{
+  "route": "/health/tools/oa-daily-activity-log",
+  "observedAt": "2026-09-06T13:50:23.820Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [],
+  "sourceHrefs": [
+    "https://www.niams.nih.gov/health-topics/osteoarthritis/diagnosis-treatment-and-steps-to-take",
+    "https://www.cdc.gov/arthritis/prevention/index.html",
+    "https://www.nhs.uk/conditions/septic-arthritis/",
+    "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6226"
+  ],
+  "horizontalNavigation": {
+    "client": 318,
+    "total": 720,
+    "reachedRight": true,
+    "keyboardMovedRight": true,
+    "placement": {
+      "top": 179.71875,
+      "bottom": 808.109375,
+      "headerBottom": 139,
+      "viewportHeight": 1500
+    }
+  },
+  "checkboxToggled": null,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 4,
+    "overflow": 0,
+    "footerText": "관절 일상 변화 기록표 · 양식·안내 수정 2026-09-06교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료NIH/NIAMS — Osteoarthritis: Diagnosis, Treatment, and Steps to TakeCDC — About Physical Activity and ArthritisNHS — Septic arthritis질병관리청 국가건강정보포털 — 심폐소생술의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 0,
+    "checkedItems": 0,
+    "footerParagraphFontPx": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "links": [
+    {
+      "href": "/health/osteoarthritis",
+      "status": 200
+    },
+    {
+      "href": "/health/tools/oa-visit-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/medication-list",
+      "status": 200
+    },
+    {
+      "href": "/health/tools/oa-family-support",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "b77416ba7198a0462c348fa0a482544b5add2b1712820932b558e11a3a949dfa",
+  "pdfBytes": 128234,
+  "failures": []
+}

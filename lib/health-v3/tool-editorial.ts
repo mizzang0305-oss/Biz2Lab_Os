@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "oa-daily-activity-log": {
+    indexDecision: "INDEX_UTILITY",
+    inheritParentWarning: true,
+    title: "관절 일상 기록표: 어느 관절이 어떤 활동에서 달라졌는지",
+    description: "불편한 관절·좌우, 실제 활동과 전후 느낌, 부종·수면·일상 영향을 함께 적는 인쇄 기록표입니다. 골관절염 진료에 관찰을 전달하는 양식이며 운동량이나 병의 단계를 판정하지 않습니다.",
+    updatedAt: "2026-09-06",
+    purpose: "‘관절이 아프다’에 더해 어떤 일을 하기 어려웠는지 함께 설명할 때 씁니다. 12줄은 작성 공간이지 12일 관찰이나 운동 횟수의 기준이 아닙니다.",
+    steps: [
+      "한 줄에 한 번의 관찰을 적습니다. 어느 관절·어느 쪽인지, 실제 활동과 그 시각·시간을 아는 만큼 남기고 기억나지 않으면 미확인으로 표시합니다.",
+      "활동 전후의 통증·뻣뻣함을 자신의 말로 구분합니다. 붓기·열감·피부 변화, 수면이나 일상에서 어려워진 일과 이미 사용한 약도 적습니다. 움직이지 못한 때도 사실대로 남깁니다.",
+      "원본을 진료에 가져가 개인 활동 계획을 상의합니다. 비교 기록을 만들려고 아픈 동작을 일부러 반복하거나 통증을 참고 정해진 양을 채우지 않습니다. 약이나 보조기구를 혼자 바꾸며 효과를 시험하지 않습니다.",
+    ],
+    example: "작성 위치 예시: 왼쪽 무릎 → 관절·좌우 / 계단 내려가기 → 실제 활동 / 멈춰 쉬었음 → 일상 영향. 가상의 환자 결과나 정상 점수를 채워 넣지 않고 본인이 겪은 일을 적습니다.",
+    limitation: "통증과 기능 변화는 함께 전달할 정보이며 어느 하나를 덜 중요하게 평가하지 않습니다. 이 기록으로 골관절염·통풍·감염을 구분하거나 연골 상태·치료 효과를 확정하지 않습니다. 심하거나 가라앉지 않는 통증은 의료진에게 알립니다.",
+    sheetNotice: "갑작스러운 심한 관절통이나 새 부종, 관절 주변 피부색 변화는 기록보다 당일 신속한 진료가 먼저입니다. 열이 나거나 모든 증상이 모일 때까지 기다리지 않습니다. 심한 외상 뒤 움직일 수 없거나 의식·호흡의 위급한 변화가 있으면 119에 도움을 요청합니다.",
+    sourceIds: ["SRC-NIAMS-OA-TREATMENT", "SRC-CDC-ARTHRITIS-ACTIVITY", "SRC-NHS-SEPTIC-ARTHRITIS"],
+    links: [
+      { href: "/health/tools/oa-visit-questions", label: "기록과 원하는 활동을 가져갈 골관절염 진료 질문" },
+      { href: "/health/guides/medication-list", label: "바르는 약·진통제까지 사용법을 남기는 약 목록" },
+      { href: "/health/tools/oa-family-support", label: "당사자가 원하는 기록·진료 도움을 묻는 가족 체크" },
+    ],
+  },
   "gerd-appointment-prep": {
     indexDecision: "INDEX_UTILITY",
     inheritParentWarning: true,
