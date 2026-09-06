@@ -384,6 +384,42 @@ test("obesity uses consent-first family support and separates body measures from
   for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
 });
 
+test("stroke treats each sudden sign as urgent and separates last-known-well from discovery after calling", () => {
+  const article = healthArticles.stroke;
+  assert.equal(article.archetype, "BODY_SIGNAL");
+  assert.match(article.title, /즉시 119/);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sourceIds.length, 8);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections[0];
+  assert.equal(urgent.tone, "warning");
+  assert.match(urgent.paragraphs![0], /하나라도 갑자기 나타나면 즉시 119/);
+  assert.equal(urgent.paragraphs?.length, 1);
+  assert.equal(urgent.bullets?.length, 5);
+  assert.match(urgent.bullets![3], /걷기 어렵거나, 어지럽거나, 균형 또는/);
+  assert.match(article.summary[0], /어지럼/);
+  assert.match(article.faq[0].answer, /어지럼/);
+  assert.match(article.sections[1].title, /FAST/);
+  assert.match(JSON.stringify(article), /호전되었어도 즉시 119/);
+  assert.match(JSON.stringify(article), /깬 시각이 실제 발병 시각이라고 단정하지/);
+  assert.match(JSON.stringify(article), /평소와 같았던 때와 처음 증상을 발견한 때/);
+  assert.match(JSON.stringify(article), /서로 달라야 한다고 억지로 채우지/);
+  assert.match(JSON.stringify(article), /음식이나 마실 것을 주지/);
+  assert.match(JSON.stringify(article), /평소 처방약을 장기적으로 끊으라는 뜻이 아닙니다/);
+  assert.doesNotMatch(JSON.stringify(article), /\d+(\.\d+)?\s*시간 이내|\d+\s*mg|911|\d+점 이상/);
+  assert.ok(article.visuals?.["stroke-concept"].caption.includes("하나라도 갑자기"));
+  assert.ok(article.visuals?.["stroke-concept"].caption.includes("컵은 배경 소품"));
+  assert.ok(article.visuals?.["stroke-action"].caption.includes("같을 수도 다를 수도"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
 test("anxiety distinguishes experiences and medication roles without diagnostic waiting or reassurance about new chest pain", () => {
   const article = healthArticles["anxiety-disorder"];
   assert.equal(article.archetype, "MYTH_FIRST");
