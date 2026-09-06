@@ -160,6 +160,7 @@ const guides: GuideConfig[] = [
   {
     slug: "sleep-apnea",
     prefix: "OSA",
+    toolSummary: { title: "밤·낮 수면 질문지", description: "본인의 낮 졸림과 동의한 상대의 밤 관찰을 나눠 적고 수면검사·다음 계획을 질문하는 인쇄 양식입니다." },
     title: "수면무호흡증",
     cluster: "호흡기·알레르기",
     archetype: "FAMILY_SITUATION",
@@ -170,8 +171,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 증상과 위험 요인을 확인하고 수면검사로 유형과 심한 정도를 평가할 수 있습니다.",
     careBoundary: "코골이 녹음이나 스마트기기 수치만으로 진단하지 않습니다. 졸리면 운전과 위험 작업을 피하고 의료진과 상의합니다.",
     urgent: "깨우기 어렵거나 호흡이 돌아오지 않는 것처럼 보이거나 입술이 푸르게 보이면 즉시 119에 도움을 요청합니다.",
-    observationItems: ["코골이·숨 멎음 관찰", "헐떡이며 깬 횟수", "낮 졸림과 운전 영향", "수면 시간과 복용 약"],
-    questions: ["수면검사가 필요한가요?", "낮 졸림 동안 피해야 할 활동은 무엇인가요?", "치료 선택지는 어떤 검사 뒤 정하나요?"],
+    observationItems: ["본인이 느낀 낮 졸림·피로 / 집중·일상·운전·작업 영향", "동의한 상대가 본 밤의 호흡 변화 / 관찰 시점·미확인", "잠든 시간·깬 기억·일정 변화 / 실제 약·보충제", "기존 검사·치료 계획 원본 / 기기 사용 중 불편·문의할 점"],
+    questions: ["제 밤·낮 기록에서 어떤 평가가 필요하며, 검사 목적과 준비는 무엇인가요?", "졸림이 일상과 운전·위험 작업에 영향을 주는데 어떤 안전 계획과 평가가 필요한가요?", "검사 결과나 치료 중 불편은 언제 누구와 확인하고, 그 전에 연락할 변화는 무엇인가요?"],
     sources: [
       { id: "SRC-NHLBI-APNEA-OVERVIEW", organization: "NIH/NHLBI", title: "What Is Sleep Apnea?", url: "https://www.nhlbi.nih.gov/health/sleep-apnea", sourceDate: "2025" },
       { id: "SRC-NHLBI-APNEA-SYMPTOMS", organization: "NIH/NHLBI", title: "Sleep Apnea Symptoms", url: "https://www.nhlbi.nih.gov/health/sleep-apnea/symptoms", sourceDate: "2025" },

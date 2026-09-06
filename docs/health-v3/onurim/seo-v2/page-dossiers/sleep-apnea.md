@@ -63,3 +63,7 @@ INTENT_PASS · TITLE_PASS · DESCRIPTION_PASS · H1_PASS · CONTENT_UNIQUENESS_P
 전체262tests, 명시적typecheck, lint오류0(기존경고1), healthaudit PASS. 최종4건 반영 후19SEO회귀/typecheck/5폭360·390·430·768·1440/SEO/healthaudit/build116 PASS. Main360top/390첫표/430두번째표·최종urgent/768FAQ/1440sources 실제 확인. 최종12sourceanchors/SSR200/selfcanonical/schemaerrors0/actual lastmod 확인. 처음 잘못 입력한 `audit:health:v3`는 script미존재로 실행되지 않았고 실제 `audit:health-v3`로 재실행 PASS. `../raw/page-qa/sleep-apnea.json`과 ignored local 폴더에 machine evidence.
 
 이 페이지 작업 중 이전 천식 테스트의 선택필드 타입 누락도 assertion으로 보완했다. 천식 dossier에 시점 오류를 정정했으며 공개 천식 본문 변경 없음. 자동 안전 PASS는 임상·실제독자·fieldCWV·Google색인 보장이 아니다. Preview·Production·색인 요청 없음.
+
+## Tool26 연결 확인 — 2026-09-07
+
+부모 카드만 실제 ‘밤·낮 수면 질문지’의 제목·역할로 연결했다. 부모 의료 본문·날짜·원래 Claim은 변경하지 않았다. 부모5폭/SEO 재실행 PASS. 도구4필드·3질문·6출처·상속/독립 인쇄 경고·A4 2쪽을 개별 인증했고 관련68tests/typecheck PASS. 상세 tool-sleep-apnea-visit-card.md. Production·Google 변경0, 임상 검수 미완료 유지.

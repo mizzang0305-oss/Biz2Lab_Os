@@ -1,33 +1,33 @@
 {
   "route": "/health/sleep-apnea",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T07:24:46.824Z",
+  "observedAt": "2026-09-06T15:22:30.116Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "5df141071ec8a269cccaddf633ca5ce30d435be3d8e283d7f44e6db2edfbfa2c",
-      "full": "7ee5e472905427d6c0da841a29568e27a853a66918672de41928260dfa4bb6f2"
+      "full": "45504d66e2bdf9040414b0150f430af1770f193ac514a2e8174007a7cae09d8f"
     },
     {
       "width": 390,
       "top": "33eda4765416c51bbdc71d0f1e066cd59f30a52e195263bce907c15f98381bd8",
-      "full": "10a20c99ccbc0a718a7fd692bfb81ff728bb56555e55890fdc9043ecc0045e6b"
+      "full": "f8e8bc18eace8237bfb4eaa5fc983ed2d5658f8d667f63b2df98a2b7e3112029"
     },
     {
       "width": 430,
       "top": "994ac5964dbfe20bb056c35c8b2ee30af0b7f3e2d6c59c78ae20397d7328a991",
-      "full": "1a1c82f65ce30f00d0a367226276e7e0713763b197af9a2151e3e68e448c7866"
+      "full": "48d90516ad63191ec1053cbebd24c2b2b9513254b51788c019c86621377553e4"
     },
     {
       "width": 768,
       "top": "e4dbc02c02eb4949a024de3d4d46167d84aee99963f942c84547e1b4f48b05af",
-      "full": "ac9237b02720b3118f1f6275db0e2cb8ea63db0852f7c0bc704c382ee84e1eb5"
+      "full": "67cf672b9c9a30c68063544012e68630e1004f829e10120e7c20b4f8ca1d8c80"
     },
     {
       "width": 1440,
       "top": "a3e9132c0462d3cf799b9027ee3e127882ddddceeae8370e156fb6abb492a434",
-      "full": "faf45fcacc977f87c7f71544b024d00e6104295e42df38f5d0a09e25b1356e42"
+      "full": "fcb93c1850f48e14c0725a1f9082b0a482748a0db1a35c105f295ecdd883b602"
     }
   ],
   "failures": [],

@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "sleep-apnea-visit-card": {
+    indexDecision: "INDEX_UTILITY",
+    inheritParentWarning: true,
+    title: "수면무호흡증 진료 질문지: 밤의 관찰과 낮 졸림을 따로 기록",
+    description: "본인의 낮 졸림과 동의한 상대의 밤 관찰을 나눠 적고, 수면검사·생활 안전·다음 계획을 질문합니다. 가족 관찰이나 녹음이 없어도 사용할 수 있는 성인 진료 준비 양식입니다.",
+    updatedAt: "2026-09-07",
+    purpose: "성인의 반복되는 수면·졸림 변화를 상담할 때 씁니다. 관찰자나 기록 기간을 갖추는 것은 진료의 조건이 아닙니다.",
+    steps: [
+      "본인의 낮 졸림과 상대가 실제 본 밤의 변화를 별도 칸에 적습니다. 공유 범위를 먼저 상의하고, 혼자 살거나 모르는 내용은 미확인으로 남깁니다.",
+      "기억나는 수면 일정·약·보충제와 이미 받은 검사·치료 자료를 준비합니다. 증명을 위해 녹음·촬영하거나 밤새 감시하고 일부러 잠을 줄이지 않습니다.",
+      "검사의 목적·준비와 졸림에 대한 안전 계획을 질문합니다. 받은 답·결과 확인 일정·연락처를 남기고, 기기 사용 중 불편도 별도로 알립니다.",
+    ],
+    example: "본인: 회의 중 졸렸음 / 상대: 밤에 헐떡이는 듯한 소리를 들음. 서로의 경험을 나누는 작성 예시이지 무호흡을 확정하는 조합이 아닙니다.",
+    limitation: "기록으로 유형·심한 정도·치료 기기를 정하지 않습니다. 약을 임의 중단하거나 양압기 압력을 혼자 바꾸지 않습니다. 졸리면 운전하지 말고, 운전·숨 참기로 상태를 시험하지 않습니다. 이미 받은 개인 기록·검사 지침은 진료팀과 확인합니다.",
+    sheetNotice: "깨워도 반응이 없거나 정상 호흡이 아니면 즉시 119에 연락합니다. 반응이 없고 정상 호흡이 없으면 119 안내에 따라 심폐소생술을 시작합니다. 심한 호흡곤란·갑작스러운 의식 변화도 즉시 도움을 받습니다. 기기·기록을 기다리지 않으며, 졸리거나 피곤하면 운전하지 않습니다.",
+    sourceIds: ["SRC-NHLBI-APNEA-SYMPTOMS", "SRC-NHLBI-APNEA-DIAGNOSIS"],
+    links: [
+      { href: "/health/guides/symptom-journal", label: "본인의 경험·상대 관찰·추측을 구분하는 기록법" },
+      { href: "/health/guides/medication-list", label: "수면 진료에 알릴 실제 약·보충제 목록" },
+      { href: "/health/guides/reading-health-results", label: "검사 원본과 결과 확인 계획을 함께 가져가기" },
+    ],
+  },
   "asthma-visit-card": {
     indexDecision: "INDEX_UTILITY",
     inheritParentWarning: true,

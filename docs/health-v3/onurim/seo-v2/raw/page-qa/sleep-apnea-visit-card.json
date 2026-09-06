@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/sleep-apnea-visit-card",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T15:22:41.290Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "941766972042161f9e4fb4f8e41b3449f966efd522ee48da9e9e1dc4b872795d",
+      "full": "ce0a03171007c87890a460cfe65203ab89b3759987db7e5a6155a3224bcae4ea"
+    },
+    {
+      "width": 390,
+      "top": "c789936fc9658ee358d33f58c9b33c4d3d8903fd8cf6299faf561a15a517a291",
+      "full": "5e59e4d9ab2e71a10779ecf5e5a36edf8e220ad025d1eb71fe4847661a8c9347"
+    },
+    {
+      "width": 430,
+      "top": "20358deac32bba30d2a8c97d49ff17c3c64fa6378fb356ca962b6d7ce966aaed",
+      "full": "fc3b84b6a346b2437283dece8d4b720c5c53bd3e454b24bbb18527c4245ab2bc"
+    },
+    {
+      "width": 768,
+      "top": "a9946ddd1c60bac0700893903c1e31d9874f5ea3fd12dc3d221652f171cf9297",
+      "full": "7d7e084b9bff7d6fa689797768fbbc2396cc7897fc5da886f5460985f190df1d"
+    },
+    {
+      "width": 1440,
+      "top": "71bf1febbc9b334e203b42f7d4219b90a9699d927318101f8b246ae095c44fa5",
+      "full": "ab369a278eb1d608e87a149b8451ce5608c11081263231e148d44a12d4bf3d59"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "수면무호흡증 진료 질문지: 밤의 관찰과 낮 졸림을 따로 기록 | 오누림",
+      "h1": [
+        "밤·낮 수면 질문지"
+      ],
+      "h2": [
+        "즉시 119가 필요한 상황과 졸음운전 예방을 구분하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/sleep-apnea-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "수면무호흡증 진료 질문지: 밤의 관찰과 낮 졸림을 따로 기록 | 오누림",
+      "h1": [
+        "밤·낮 수면 질문지"
+      ],
+      "h2": [
+        "즉시 119가 필요한 상황과 졸음운전 예방을 구분하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/sleep-apnea-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "수면무호흡증 진료 질문지: 밤의 관찰과 낮 졸림을 따로 기록 | 오누림",
+      "h1": [
+        "밤·낮 수면 질문지"
+      ],
+      "h2": [
+        "즉시 119가 필요한 상황과 졸음운전 예방을 구분하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/sleep-apnea-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "수면무호흡증 진료 질문지: 밤의 관찰과 낮 졸림을 따로 기록 | 오누림",
+      "h1": [
+        "밤·낮 수면 질문지"
+      ],
+      "h2": [
+        "즉시 119가 필요한 상황과 졸음운전 예방을 구분하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/sleep-apnea-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "수면무호흡증 진료 질문지: 밤의 관찰과 낮 졸림을 따로 기록 | 오누림",
+      "h1": [
+        "밤·낮 수면 질문지"
+      ],
+      "h2": [
+        "즉시 119가 필요한 상황과 졸음운전 예방을 구분하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/sleep-apnea-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

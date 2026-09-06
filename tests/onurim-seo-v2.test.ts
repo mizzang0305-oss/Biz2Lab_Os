@@ -36,6 +36,23 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("sleep apnea worksheet separates observers and keeps emergency OR distinct from CPR AND", () => {
+  const tool = healthTools.find(t => t.slug === "sleep-apnea-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 4);
+  assert.equal(tool.items?.length, 3);
+  assert.match(tool.fields![0], /본인이 느낀/);
+  assert.match(tool.fields![1], /동의한 상대/);
+  assert.match(copy.description, /관찰이나 녹음이 없어도/);
+  assert.match(copy.steps.join(" "), /미확인/);
+  assert.match(copy.sheetNotice!, /반응이 없거나 정상 호흡이 아니면 즉시 119/);
+  assert.match(copy.sheetNotice!, /반응이 없고 정상 호흡이 없으면 119 안내에 따라 심폐소생술/);
+  assert.match(copy.limitation, /운전·숨 참기로 상태를 시험하지 않습니다/);
+  assert.equal(getToolSources(tool).length, 6);
+  assert.doesNotMatch(JSON.stringify(copy), /AHI|CPAP\s*\d|\d+\s*(점 이상|초 이상|%)/);
+});
+
 test("asthma worksheet checks a personal plan without generating inhaler doses or peak-flow zones", () => {
   const tool = healthTools.find(t => t.slug === "asthma-visit-card")!;
   const copy = toolEditorial[tool.slug];
