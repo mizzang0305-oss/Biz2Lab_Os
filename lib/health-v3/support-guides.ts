@@ -315,17 +315,57 @@ export const healthSupportGuides: HealthSupportGuide[] = [
   },
   {
     slug: "symptom-journal",
-    title: "아픈 증상을 기록하는 방법",
-    description: "통증 점수 하나보다 시작 시각, 변화, 함께 나타난 신호와 일상 영향을 짧게 남깁니다.",
+    title: "아픈 증상을 짧고 정확하게 기록하는 방법",
+    seoTitle: "증상일지 쓰는 법: 시작·변화·일상 영향을 진료에 전하기",
+    description: "시작 시점, 느낀 불편, 달라지는 상황과 일상 영향을 가능한 만큼 기록합니다. 관찰과 원인 추정을 나누는 예시, 두통·수면 기록의 차이와 기록보다 도움 요청이 먼저인 때를 확인하세요.",
+    publishedAt: "2026-08-26", updatedAt: "2026-09-06", sourceCheckedAt: "2026-09-06",
+    faqTitle: "기록을 시작할 때 막히는 부분",
     sections: [
-      { title: "사실과 해석을 나눕니다", bullets: ["사실: 오후 3시에 시작, 계단에서 심해짐", "해석: 심장 때문인 것 같음 — 진단처럼 적지 않고 질문으로 둡니다."] },
-      { title: "네 칸이면 충분합니다", bullets: ["언제 시작했는지", "어디가 어떻게 불편한지", "무엇을 할 때 달라지는지", "함께 나타난 변화와 일상 영향"] },
-      { title: "사진과 개인정보", paragraphs: ["공개 문의 채널에 신체 사진, 처방전, 검사 결과와 개인정보를 올리지 않습니다."] },
-      { title: "기록을 멈출 때", paragraphs: ["의식 저하, 심한 호흡곤란, 갑작스러운 마비·말 이상처럼 위급한 변화가 있으면 기록을 완성하지 말고 119에 연락합니다."], tone: "warning" },
+      { id: "urgent-action", title: "위험 신호라면 기록을 완성하지 말고 119", paragraphs: [
+        "심한 호흡곤란이나 갑자기 반응이 떨어지는 변화, 갑작스러운 한쪽 얼굴·팔·다리의 힘·감각 변화 또는 갑작스러운 말·시야 이상, 어지럼, 걷기·균형의 어려움 등이 있으면 즉시 119에 연락합니다. 일지를 채우거나 사진을 찍느라 기다리지 않습니다. 이런 신호가 잠깐 사라져도 도움을 미루지 않습니다.",
+      ], tone: "warning", sourceIds: ["SUP-JOURNAL-EMERGENCY", "SUP-JOURNAL-STROKE"], links: [{ href: "/health/guides/danger-signals", label: "기록보다 도움 요청이 먼저인 다른 위험 신호" }] },
+      { title: "처음부터 긴 일지 대신, 네 가지를 적습니다", paragraphs: [
+        "진료실에서 기억이 잘 나지 않을 수 있어 시작 시점과 불편한 모습을 미리 적어 두면 설명에 쓸 수 있습니다. 아래 네 칸은 오누림의 정리 예시이며 검증된 진단 척도나 필수 제출 양식이 아닙니다. 아는 항목만 적고, 정확히 기억나지 않으면 그 사실을 표시합니다.",
+      ], table: { caption: "진료에 가져갈 증상 메모 — 가능한 항목만 작성", columns: ["기록할 것", "적는 방법"], rows: [
+        ["언제 시작·반복됐는지", "처음 느낀 날짜·시각, 이어졌는지 반복됐는지; 시각이 추정이면 추정이라고 적기"],
+        ["어디가 어떻게 불편했는지", "본인이 느낀 위치와 불편을 자신의 말로; 같이 느낀 변화도 적기"],
+        ["어떤 상황에서 달라졌는지", "당시 활동이나 쉬고 있을 때의 차이, 더 심해지거나 덜한 때; 원인을 확정하지 않기"],
+        ["일상에서 무엇이 어려웠는지", "잠·식사·걷기·일·공부 등에 실제로 달라진 점; 점수로만 줄이지 않기"],
+      ] }, sourceIds: ["SUP-JOURNAL-TALK", "SUP-JOURNAL-HEADACHE", "SUP-NHLBI-SLEEP-DIARY"] },
+      { title: "‘느낀 것’과 ‘원인이라고 생각한 것’을 나눕니다", paragraphs: [
+        "‘식사 뒤 배가 불편했다’는 느낀 경험이고, ‘그 음식 때문에 병이 생겼다’는 원인 추정입니다. 경험을 적은 뒤 원인이 궁금하면 별도 질문으로 남기세요. 함께 일어났다는 기록만으로 원인을 확정하는 자료는 아닙니다.",
+        "본인이 느낀 통증·메스꺼움·불안처럼 다른 사람이 바로 볼 수 없는 불편도 중요한 설명입니다. 보호자가 적을 때는 ‘본인이 이렇게 말함’과 ‘내가 이렇게 관찰함’을 구분하고, 보이지 않는다는 이유로 불편을 지우지 않습니다.",
+        "예를 들어 ‘어제 저녁 식사 뒤 배가 불편했고 오늘 아침에는 덜했다. 정확한 시작 시각은 기억나지 않는다. 식사와 관련 있는지 궁금하다’처럼 쓸 수 있습니다. 가상의 표현 예시이며 병명이나 안전 여부를 판단하는 사례가 아닙니다. 낮은 통증 점수나 일할 수 있다는 사실만으로 응급상황을 배제하는 표도 아닙니다.",
+      ], sourceIds: ["SUP-JOURNAL-TALK", "SUP-JOURNAL-EMERGENCY"] },
+      { title: "증상에 따라 추가할 정보가 달라집니다", paragraphs: [
+        "두통 진료에서는 두통이 얼마나 자주 나타났는지와 이전 치료·약 사용 이력이 설명에 도움이 됩니다. St George’s 병원은 본인이 쓰던 일지도 가져올 수 있다고 안내합니다. 전용 양식을 구하지 못했다는 이유로 기록이나 진료를 미룰 필요는 없습니다.",
+        "수면에 관한 기록은 잠의 양과 질, 낮의 졸림, 복용약·술·카페인 같은 정보를 함께 살펴볼 수 있습니다. NHLBI 수면일지는 이런 내용을 적어 의료진과 검토하는 자료입니다. 수면 기록에 쓰는 항목을 모든 증상에 똑같이 요구하지 않습니다.",
+        "이미 사용한 약과 당시 변화를 기록하는 것과 약의 효과를 스스로 시험하는 것은 다릅니다. 기록을 만들려고 약을 더 먹거나 끊지 말고 실제 사용 정보를 알립니다. 어떤 항목을 얼마나 기록할지는 진료에서 본인 상황에 맞게 확인합니다.",
+      ], sourceIds: ["SUP-JOURNAL-HEADACHE", "SUP-NHLBI-SLEEP-DIARY", "SUP-JOURNAL-FDA-MEDICINES"], links: [
+        { href: "/health/migraine", label: "편두통 진료에서 증상의 흐름을 보는 이유" },
+        { href: "/health/sleep-apnea", label: "잠과 낮의 변화, 수면검사가 하는 역할" },
+        { href: "/health/guides/medication-list", label: "실제 사용한 약·보충제 정보를 함께 준비" },
+      ] },
+      { title: "진료에서는 가장 걱정되는 변화부터 전달합니다", paragraphs: [
+        "기록을 시간순으로 모두 읽기보다 ‘가장 불편한 점 / 언제부터 어떻게 달라졌는지 / 가장 알고 싶은 질문’을 먼저 말하고 필요한 부분을 보여 주세요. 이는 말문을 여는 정리법이지 모든 진료에 정해진 보고 순서는 아닙니다.",
+        "빈칸이 있거나 하루만 적었어도 현재 아는 내용을 전달합니다. 일정 기간을 채워야 진료받을 수 있다는 뜻이 아닙니다. 의료진이 별도 기록을 요청했다면 그 목적·항목·기간을 확인하고, 그 전에 새로운 변화가 생기면 언제 어디로 연락할지도 물어보세요.",
+        "메모를 누구에게 보여 줄지는 당사자와 상의합니다. 공개 문의·가족 단체방에 신체 사진이나 결과지·이름이 담긴 기록을 무심코 올리지 말고 필요한 사람에게 필요한 범위만 전달하세요. 이 페이지는 기록을 업로드하거나 진단받는 창구가 아닙니다.",
+      ], sourceIds: ["SUP-JOURNAL-TALK", "SUP-JOURNAL-HEADACHE"], links: [{ href: "/health/guides/appointment-questions", label: "진료 뒤 기록할 항목과 다음 연락 방법을 묻기" }] },
+    ],
+    faq: [
+      { question: "시작 시각을 정확히 기억하지 못하면 어떻게 적나요?", answer: "‘정확한 시각 모름’이나 ‘저녁쯤으로 기억’처럼 확실한 것과 추정을 나눕니다. 빈칸을 채우려고 시각을 만들어 내지 않습니다. 지금 아는 증상과 변화부터 의료진에게 전달하세요.", sourceIds: ["SUP-JOURNAL-TALK"] },
+      { question: "통증을 숫자로만 적으면 충분한가요?", answer: "점수를 쓰더라도 위치·느낌·시작 시점·변화·일상 영향을 함께 설명합니다. 이 안내는 특정 점수를 진단하거나 응급 여부를 결정하는 기준으로 쓰지 않습니다. 위험 신호가 있으면 기록보다 도움 요청이 먼저입니다.", sourceIds: ["SUP-JOURNAL-TALK", "SUP-JOURNAL-EMERGENCY"] },
+      { question: "식사나 약 뒤에 생겼다면 그것이 원인인가요?", answer: "전후에 생긴 경험은 적되 원인을 확정하지 않습니다. 관련 있는지 질문으로 남기고 실제 사용한 약과 변화를 알립니다. 원인을 시험하려고 임의로 약을 추가하거나 중단하지 않습니다.", sourceIds: ["SUP-JOURNAL-TALK", "SUP-JOURNAL-FDA-MEDICINES"] },
+      { question: "며칠 이상 채워야 병원에 갈 수 있나요?", answer: "이 페이지는 진료 전에 채워야 할 최소 일수를 정하지 않습니다. 기록이 적어도 현재 불편을 알리고, 별도 일지가 필요한지는 의료진과 정하세요. 응급 신호는 기록 기간과 관계없이 즉시 도움을 요청합니다.", sourceIds: ["SUP-JOURNAL-TALK", "SUP-JOURNAL-EMERGENCY", "SUP-JOURNAL-STROKE"] },
+      { question: "가족이 대신 기록해도 되나요?", answer: "당사자가 원하는 도움인지 먼저 묻고, 본인이 말한 불편과 가족이 관찰한 것을 구분합니다. 진료에 함께 가거나 메모를 돕는 방법도 상의할 수 있습니다. 가족이 쓴 해석을 본인의 경험이나 확정 진단처럼 바꾸지 않습니다.", sourceIds: ["SUP-JOURNAL-TALK"] },
     ],
     sources: [
-      { id: "SUP-NINDS-MIGRAINE-DIARY", organization: "NIH/NINDS", title: "Migraine", url: "https://www.ninds.nih.gov/health-information/disorders/migraine", sourceDate: "2025", retrievedAt },
-      { id: "SUP-NHLBI-SLEEP-DIARY", organization: "NIH/NHLBI", title: "Sleep Diary", url: "https://www.nhlbi.nih.gov/resources/sleep-diary", sourceDate: "2025", retrievedAt },
+      { id: "SUP-JOURNAL-TALK", organization: "NIH/NLM MedlinePlus", title: "Talking With Your Doctor", url: "https://medlineplus.gov/talkingwithyourdoctor.html", sourceDate: "2024-10-05 (Last updated)", retrievedAt: "2026-09-06" },
+      { id: "SUP-NHLBI-SLEEP-DIARY", organization: "NIH/NHLBI", title: "Sleep Diary — 자료 소개", url: "https://www.nhlbi.nih.gov/resources/sleep-diary", sourceDate: "2019-01 (Publication Date; HTML 소개 확인)", retrievedAt: "2026-09-06" },
+      { id: "SUP-JOURNAL-HEADACHE", organization: "St George’s University Hospitals NHS Foundation Trust", title: "Community Headache Hub — 진료 준비와 두통일지", url: "https://www.stgeorges.nhs.uk/service/neuro/neurology/headache-service/headache-hub/", sourceDate: "페이지 자체 날짜 미표시", retrievedAt: "2026-09-06" },
+      { id: "SUP-JOURNAL-EMERGENCY", organization: "MedlinePlus Medical Encyclopedia / A.D.A.M.", title: "Recognizing medical emergencies", url: "https://medlineplus.gov/ency/article/001927.htm", sourceDate: "2025-01-08 (Review Date)", retrievedAt: "2026-09-06" },
+      { id: "SUP-JOURNAL-STROKE", organization: "CDC", title: "Signs and Symptoms of Stroke", url: "https://www.cdc.gov/stroke/signs-symptoms/index.html", sourceDate: "2026-05-19 (페이지 표시일)", retrievedAt: "2026-09-06" },
+      { id: "SUP-JOURNAL-FDA-MEDICINES", organization: "U.S. FDA", title: "As You Age: You and Your Medicines", url: "https://www.fda.gov/drugs/information-consumers-and-patients-drugs/you-age-you-and-your-medicines", sourceDate: "HTML 본문 자체 날짜 미표시", retrievedAt: "2026-09-06" },
     ],
   },
   {

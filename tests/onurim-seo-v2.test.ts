@@ -143,6 +143,41 @@ test("family medication support keeps consent and individual medicine instructio
   assert.doesNotMatch(JSON.stringify(guide), /무료.*배달|우편.*약|1일 2회|500mg|의료 검수 완료/);
 });
 
+test("symptom journal is a communication example rather than a diagnostic or waiting rule", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="symptom-journal")!;
+  assert.equal(guide.sections[0].id, "urgent-action");
+  assert.match(JSON.stringify(guide.sections[0]), /즉시 119.*사진을 찍느라 기다리지/);
+  assert.match(JSON.stringify(guide), /검증된 진단 척도나 필수 제출 양식이 아닙니다/);
+  assert.match(JSON.stringify(guide), /정확한 시각 모름/);
+  assert.match(JSON.stringify(guide), /보이지 않는다는 이유로 불편을 지우지/);
+  assert.match(JSON.stringify(guide), /가상의 표현 예시/);
+  assert.match(JSON.stringify(guide), /진료 전에 채워야 할 최소 일수를 정하지/);
+  assert.match(JSON.stringify(guide), /약을 추가하거나 중단하지/);
+  assert.equal(guide.faq?.length, 5);
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 4);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  assert.match(guide.sources.find(s=>s.id==="SUP-NHLBI-SLEEP-DIARY")!.sourceDate, /2019-01/);
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const unit of [...guide.sections, ...guide.faq!]) {
+    assert.ok(unit.sourceIds?.length);
+    for (const id of unit.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+});
+
+test("support contextual links resolve to existing public ONURIM routes", () => {
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`),
+    ...healthSupportGuides.map(g=>`/health/guides/${g.slug}`),
+    ...healthTools.map(t=>`/health/tools/${t.slug}`), ...trustPages.map(t=>`/health/trust/${t.slug}`)]);
+  for (const guide of healthSupportGuides) {
+    for (const section of guide.sections) {
+      for (const link of section.links ?? []) assert.ok(routes.has(link.href), `${guide.slug}: ${link.href}`);
+    }
+  }
+});
+
 test("new support schema does not fabricate a physician or FAQ rich result", () => {
   const source = readFileSync("app/health/guides/[slug]/page.tsx", "utf8");
   assert.doesNotMatch(source, /"Physician"|"MedicalOrganization"|reviewedBy|FAQPage/);
