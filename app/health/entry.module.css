@@ -1,0 +1,44 @@
+/* Scoped to the entry page wrapper; existing article/tool/trust styles stay unchanged. */
+.entryRoot :global(.onurim-start) { padding-top: 3.5rem; padding-bottom: 2rem; }
+.entryRoot :global(.onurim-start p) { max-width: 44rem; font-size: 1rem; }
+.entryRoot :global(.onurim-start a) { color: var(--onu-green-dark); text-decoration: underline; text-underline-offset: 0.2em; }
+.entryRoot :global(.onurim-start a:hover) { text-decoration-thickness: 2px; }
+.entryRoot :global(.onurim-start a:focus-visible) { outline: 3px solid var(--onu-green); outline-offset: 4px; border-radius: 2px; }
+.entryRoot :global(.onurim-start h1) { margin: 0; max-width: 42rem; font-size: clamp(2.3rem, 4.6vw, 4.2rem); line-height: 1.2; letter-spacing: -0.05em; word-break: keep-all; overflow-wrap: anywhere; }
+.entryRoot :global(.onurim-start h2) { margin: 0 0 1rem; font-size: clamp(1.65rem, 3vw, 2.35rem); line-height: 1.35; letter-spacing: -0.035em; word-break: keep-all; overflow-wrap: anywhere; }
+.entryRoot :global(.onurim-start h3) { margin: 0 0 0.8rem; font-size: 1.15rem; }
+.entryRoot :global(.onurim-start-hero) { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center; padding-bottom: 2.75rem; }
+.entryRoot :global(.onurim-start-hero > div > p) { margin: 1.4rem 0; font-size: 1.15rem; color: var(--onu-muted); }
+.entryRoot :global(.onurim-start-chooser) { padding: 1.65rem; border-radius: 1rem; background: var(--onu-mint); }
+.entryRoot :global(.onurim-start-chooser h2) { font-size: 1.25rem; }
+.entryRoot :global(.onurim-start-chooser ul) { margin: 0; padding: 0; list-style: none; }
+.entryRoot :global(.onurim-start-chooser li + li) { border-top: 1px solid #b5d2c7; }
+.entryRoot :global(.onurim-start-chooser a) { display: block; padding: 0.85rem 0; font-weight: 750; text-decoration: none; }
+.entryRoot :global(.onurim-start-chooser a:hover) { text-decoration: underline; }
+.entryRoot :global(.onurim-start-chooser span) { display: block; padding-top: 0.15rem; color: var(--onu-muted); font-size: 0.9rem; font-weight: 400; }
+.entryRoot :global(.onurim-start-urgent) { border-left: 5px solid var(--onu-warning); padding: 1.25rem 1.5rem; background: var(--onu-warning-bg); }
+.entryRoot :global(.onurim-start-urgent h2) { color: var(--onu-warning); font-size: 1.35rem; margin-bottom: 0.6rem; }
+.entryRoot :global(.onurim-start-urgent p) { margin: 0.5rem 0 0.8rem; max-width: 58rem; }
+.entryRoot :global(.onurim-start-urgent .onurim-start-source) { font-size: 0.875rem; margin-bottom: 0; }
+.entryRoot :global(.onurim-start-section) { padding: 3rem 0; }
+.entryRoot :global(.onurim-start-section + .onurim-start-section) { border-top: 1px solid var(--onu-line); }
+.entryRoot :global(.onurim-start-categories) { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin: 1.8rem 0 1rem; }
+.entryRoot :global(.onurim-start-section ul) { margin: 0.5rem 0; padding-left: 1.2rem; }
+.entryRoot :global(.onurim-start-section li) { padding: 0.4rem 0; font-size: 1rem; }
+.entryRoot :global(.onurim-start-main-link) { display: inline-block; margin-top: 1rem; padding: 0.45rem 0; font-weight: 750; }
+.entryRoot :global(.onurim-start-reading) { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.entryRoot :global(.onurim-start-reading > div) { min-width: 0; }
+.entryRoot :global(.onurim-start-trust) { max-width: 52rem; }
+.entryRoot :global(.onurim-start-trust .onurim-start-date) { margin-top: 1.5rem; font-size: 0.9rem; color: var(--onu-muted); }
+@media (max-width: 900px) {
+  .entryRoot :global(.onurim-start-hero) { grid-template-columns: 1fr; gap: 2rem; }
+  .entryRoot :global(.onurim-start-categories) { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .entryRoot :global(.onurim-start) { padding-top: 2.25rem; }
+  .entryRoot :global(.onurim-start-reading),
+  .entryRoot :global(.onurim-start-categories) { grid-template-columns: 1fr; gap: 1.75rem; }
+  .entryRoot :global(.onurim-start-chooser) { padding: 1.2rem; }
+  .entryRoot :global(.onurim-start-urgent) { padding: 1rem; }
+  .entryRoot :global(.onurim-start-section) { padding: 2.25rem 0; }
+}
