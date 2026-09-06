@@ -1,4 +1,5 @@
 import type { HealthArticle, HealthClaim, HealthSource, HealthTool } from "./content";
+import { dyslipidemiaArticle, dyslipidemiaSources } from "./seo-v2/dyslipidemia";
 
 type ExpansionSlug = Exclude<HealthArticle["slug"],
   | "hypertension"
@@ -328,9 +329,11 @@ const guides: GuideConfig[] = [
   },
 ];
 
-export const expansionHealthSources: HealthSource[] = guides.flatMap((guide) =>
-  guide.sources.map((source) => ({ ...source, retrievedAt })),
-);
+// Source metadata can be refreshed without rewriting the original claim ledger.
+export const expansionHealthSources: HealthSource[] = Array.from(new Map([
+  ...guides.flatMap(guide => guide.sources.map(source => ({ ...source, retrievedAt }))),
+  ...dyslipidemiaSources,
+].map(source => [source.id, source])).values());
 
 function makeClaims(guide: GuideConfig): HealthClaim[] {
   const [primary, secondary, urgent] = guide.sources.map((source) => source.id);
@@ -385,7 +388,7 @@ function articleFor(guide: GuideConfig): HealthArticle {
 }
 
 export const expansionHealthArticles = Object.fromEntries(
-  guides.map((guide) => [guide.slug, articleFor(guide)]),
+  guides.map((guide) => [guide.slug, guide.slug === "dyslipidemia" ? dyslipidemiaArticle : articleFor(guide)]),
 ) as Record<ExpansionSlug, HealthArticle>;
 
 export const expansionHealthTools: HealthTool[] = guides.map((guide) => ({

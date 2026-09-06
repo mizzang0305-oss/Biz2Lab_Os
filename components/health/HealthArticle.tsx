@@ -190,6 +190,7 @@ function ClaimStatus({ ids, sourceIds }: { ids: string[]; sourceIds?: string[] }
 }
 
 export function HealthArticlePage({ article }: { article: HealthArticle }) {
+  const visuals = { ...imageMeta, ...article.visuals };
   const sources = getSources(article.sourceIds);
   const tools = article.toolSlugs
     .map((slug) => healthTools.find((tool) => tool.slug === slug))
@@ -209,7 +210,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
     mainEntityOfPage: absoluteUrl(`/health/${article.slug}`),
     dateModified: article.updatedAt ?? "2026-08-26",
     ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
-    ...(article.seoTitle ? { image: article.imageIds.map(id => absoluteUrl(imageMeta[id].src)) } : {}),
+    ...(article.seoTitle ? { image: article.imageIds.map(id => absoluteUrl(visuals[id].src)) } : {}),
     author: {
       "@type": "Person",
       name: "박영훈",
@@ -248,14 +249,14 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
         </div>
         <figure className="onurim-hero-figure">
           <Image
-            src={imageMeta[article.imageIds[0]].src}
-            alt={imageMeta[article.imageIds[0]].alt}
-            width={imageMeta[article.imageIds[0]].width}
-            height={imageMeta[article.imageIds[0]].height}
+            src={visuals[article.imageIds[0]].src}
+            alt={visuals[article.imageIds[0]].alt}
+            width={visuals[article.imageIds[0]].width}
+            height={visuals[article.imageIds[0]].height}
             sizes="(max-width: 900px) 100vw, 42vw"
             preload
           />
-          <figcaption>{imageMeta[article.imageIds[0]].caption}</figcaption>
+          <figcaption>{visuals[article.imageIds[0]].caption}</figcaption>
         </figure>
       </header>
 
@@ -275,7 +276,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
           {article.sections.map((section, index) => {
             const imageIndex = index === 1 ? 1 : index === 4 ? 3 : section.tone === "warning" ? 2 : -1;
             const imageId = section.imageId === null ? undefined : section.imageId ?? (imageIndex >= 0 ? article.imageIds[imageIndex] : undefined);
-            const image = imageId ? imageMeta[imageId] : undefined;
+            const image = imageId ? visuals[imageId] : undefined;
             return (
               <section
                 key={section.title}

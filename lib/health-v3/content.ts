@@ -97,6 +97,7 @@ export type HealthArticle = {
   faq: Array<{ question: string; answer: string; claimIds: string[]; sourceIds?: string[] }>;
   sourceIds: string[];
   imageIds: string[];
+  visuals?: Record<string, { src: string; alt: string; caption: string; width: number; height: number }>;
   toolSlugs: string[];
   archetype?: "BODY_SIGNAL" | "FAMILY_SITUATION" | "MYTH_FIRST" | "QUESTION_FIRST" | "SIMPLE_ANALOGY";
 };

@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ missing: 
   if (missing.length !== 1) return {};
   const article = healthArticles[missing[0] as keyof typeof healthArticles];
   return article
-    ? createMetadata({ title: article.title, description: article.description, path: `/health/${article.slug}`, type: "article" })
+    ? createMetadata({ title: article.seoTitle ?? article.title, description: article.description, path: `/health/${article.slug}`, type: "article" })
     : {};
 }
 

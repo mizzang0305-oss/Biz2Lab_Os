@@ -172,3 +172,22 @@ test("SEO citation counts include declared professional-society sources without 
   assert.match(audit, /dom\.sourceUrls\.length \? dom\.sourceUrls/);
   assert.match(audit, /DECLARED_SOURCE_BLOCK_NOT_QUALITY_VERDICT/);
 });
+
+test("dyslipidemia distinguishes lipid roles and preparation without a universal fasting or treatment target", () => {
+  const article = healthArticles.dyslipidemia;
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.match(JSON.stringify(article), /모든 비금식 검사를 무효/);
+  assert.match(JSON.stringify(article), /아주 심해질 때까지 기다리지/);
+  assert.doesNotMatch(JSON.stringify(article), /\d+\s*(mg\/dL|시간 금식)/);
+  assert.ok(article.visuals?.["dlp-concept"].src.endsWith("concept-v2.webp"));
+  assert.ok(article.visuals?.["dlp-action"].src.endsWith("action-v2.webp"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});

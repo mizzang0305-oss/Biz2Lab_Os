@@ -1,0 +1,446 @@
+{
+  "route": "/health/dyslipidemia",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T05:24:34.354Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "2bafdaa43d208007d897e672d16939087cfd5c7c587fb96175b0b91e4419a7a0",
+      "full": "71a471cb4a1f2f7311a556b63f560f54b64d7d7820697ff907208a5ae37de29a"
+    },
+    {
+      "width": 390,
+      "top": "c06f49faa96c1b6c0c37451e7a1e883abcf95c14243b369511d7731065b2de71",
+      "full": "107db2982c13d290c5a3e303c0a4697be15abdff9928302ed4ba04bcb4758f8c"
+    },
+    {
+      "width": 430,
+      "top": "395dc6099630cf67ae5dc652e7a45aa516b63c7f1b1640292035c12bad3649e0",
+      "full": "3d8efd9b38ff13cffedd17429755d3c269c35f34504c0c7db3821aac8a32dc81"
+    },
+    {
+      "width": 768,
+      "top": "139b33790a06165d2e77c0641cf686ae31e71545945c9215af4ab1d53d2f101e",
+      "full": "5ae340b1d541d718ea6c1c2cdc242889369658326caa4c7f8e0d1f023d5d001a"
+    },
+    {
+      "width": 1440,
+      "top": "16fa6553a9dbfbaeede5f016ff1fb4e2a2e8c1ab084cd01a3c92c3922c57d9c0",
+      "full": "05513a66f8026c27cfb5717de056e0011d3b022b0eec51d5250c9aeeffcda436"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "이상지질혈증 검사표 읽기: LDL·HDL·중성지방의 차이 | 오누림",
+      "h1": [
+        "이상지질혈증, 검사표의 네 항목부터 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘좋은 콜레스테롤’이 높으면 모두 괜찮을까요?",
+        "검사표의 LDL·HDL·중성지방·총콜레스테롤",
+        "증상이 없어도 혈관 위험을 살피는 이유",
+        "금식 여부와 이전 결과를 함께 가져가세요",
+        "생활 조정과 약은 서로 대신하는 선택지가 아닙니다",
+        "가슴·마비·말의 갑작스러운 변화는 검사표보다 119",
+        "오늘 결과표에 표시할 질문 세 가지",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/dyslipidemia",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 결과표와 건강 상담을 상징하는 표지가 있는 장식 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "왼쪽 열린 동맥 단면과 오른쪽 혈관 벽 안쪽의 노란 플라크로 통로가 좁아진 단면을 비교한 개념도",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Faction-v2.webp&w=3840&q=75",
+          "alt": "두 성인이 이전과 이번의 네 항목 결과표를 나란히 놓고 별도 노트에 진료 질문을 적는 삽화",
+          "loaded": true,
+          "width": 290,
+          "height": 193
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "이상지질혈증 검사표 읽기: LDL·HDL·중성지방의 차이 | 오누림",
+      "h1": [
+        "이상지질혈증, 검사표의 네 항목부터 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘좋은 콜레스테롤’이 높으면 모두 괜찮을까요?",
+        "검사표의 LDL·HDL·중성지방·총콜레스테롤",
+        "증상이 없어도 혈관 위험을 살피는 이유",
+        "금식 여부와 이전 결과를 함께 가져가세요",
+        "생활 조정과 약은 서로 대신하는 선택지가 아닙니다",
+        "가슴·마비·말의 갑작스러운 변화는 검사표보다 119",
+        "오늘 결과표에 표시할 질문 세 가지",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/dyslipidemia",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 결과표와 건강 상담을 상징하는 표지가 있는 장식 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "왼쪽 열린 동맥 단면과 오른쪽 혈관 벽 안쪽의 노란 플라크로 통로가 좁아진 단면을 비교한 개념도",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Faction-v2.webp&w=3840&q=75",
+          "alt": "두 성인이 이전과 이번의 네 항목 결과표를 나란히 놓고 별도 노트에 진료 질문을 적는 삽화",
+          "loaded": true,
+          "width": 320,
+          "height": 213
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "이상지질혈증 검사표 읽기: LDL·HDL·중성지방의 차이 | 오누림",
+      "h1": [
+        "이상지질혈증, 검사표의 네 항목부터 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘좋은 콜레스테롤’이 높으면 모두 괜찮을까요?",
+        "검사표의 LDL·HDL·중성지방·총콜레스테롤",
+        "증상이 없어도 혈관 위험을 살피는 이유",
+        "금식 여부와 이전 결과를 함께 가져가세요",
+        "생활 조정과 약은 서로 대신하는 선택지가 아닙니다",
+        "가슴·마비·말의 갑작스러운 변화는 검사표보다 119",
+        "오늘 결과표에 표시할 질문 세 가지",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/dyslipidemia",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 결과표와 건강 상담을 상징하는 표지가 있는 장식 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "왼쪽 열린 동맥 단면과 오른쪽 혈관 벽 안쪽의 노란 플라크로 통로가 좁아진 단면을 비교한 개념도",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Faction-v2.webp&w=3840&q=75",
+          "alt": "두 성인이 이전과 이번의 네 항목 결과표를 나란히 놓고 별도 노트에 진료 질문을 적는 삽화",
+          "loaded": true,
+          "width": 360,
+          "height": 240
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "이상지질혈증 검사표 읽기: LDL·HDL·중성지방의 차이 | 오누림",
+      "h1": [
+        "이상지질혈증, 검사표의 네 항목부터 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘좋은 콜레스테롤’이 높으면 모두 괜찮을까요?",
+        "검사표의 LDL·HDL·중성지방·총콜레스테롤",
+        "증상이 없어도 혈관 위험을 살피는 이유",
+        "금식 여부와 이전 결과를 함께 가져가세요",
+        "생활 조정과 약은 서로 대신하는 선택지가 아닙니다",
+        "가슴·마비·말의 갑작스러운 변화는 검사표보다 119",
+        "오늘 결과표에 표시할 질문 세 가지",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/dyslipidemia",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 결과표와 건강 상담을 상징하는 표지가 있는 장식 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "왼쪽 열린 동맥 단면과 오른쪽 혈관 벽 안쪽의 노란 플라크로 통로가 좁아진 단면을 비교한 개념도",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Faction-v2.webp&w=3840&q=75",
+          "alt": "두 성인이 이전과 이번의 네 항목 결과표를 나란히 놓고 별도 노트에 진료 질문을 적는 삽화",
+          "loaded": true,
+          "width": 664,
+          "height": 443
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "이상지질혈증 검사표 읽기: LDL·HDL·중성지방의 차이 | 오누림",
+      "h1": [
+        "이상지질혈증, 검사표의 네 항목부터 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘좋은 콜레스테롤’이 높으면 모두 괜찮을까요?",
+        "검사표의 LDL·HDL·중성지방·총콜레스테롤",
+        "증상이 없어도 혈관 위험을 살피는 이유",
+        "금식 여부와 이전 결과를 함께 가져가세요",
+        "생활 조정과 약은 서로 대신하는 선택지가 아닙니다",
+        "가슴·마비·말의 갑작스러운 변화는 검사표보다 119",
+        "오늘 결과표에 표시할 질문 세 가지",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/dyslipidemia",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Fhero.webp&w=3840&q=75",
+          "alt": "네 줄의 결과표와 건강 상담을 상징하는 표지가 있는 장식 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "왼쪽 열린 동맥 단면과 오른쪽 혈관 벽 안쪽의 노란 플라크로 통로가 좁아진 단면을 비교한 개념도",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdyslipidemia%2Faction-v2.webp&w=3840&q=75",
+          "alt": "두 성인이 이전과 이번의 네 항목 결과표를 나란히 놓고 별도 노트에 진료 질문을 적는 삽화",
+          "loaded": true,
+          "width": 724,
+          "height": 483
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 11,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}
