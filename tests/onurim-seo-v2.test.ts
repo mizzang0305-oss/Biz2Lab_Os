@@ -384,6 +384,33 @@ test("obesity uses consent-first family support and separates body measures from
   for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
 });
 
+test("depression supports family listening without diagnostic thresholds or delayed emergency help", () => {
+  const article = healthArticles.depression;
+  assert.equal(article.archetype, "FAMILY_SITUATION");
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sourceIds.length, 8);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections[0];
+  assert.equal(urgent.tone, "warning");
+  assert.match(urgent.paragraphs![0], /즉시 119/);
+  assert.match(urgent.paragraphs![0], /109 상담 연결이나 예약 진료를 기다리느라/);
+  assert.match(JSON.stringify(article), /2주가 될 때까지 버텨야/);
+  assert.match(JSON.stringify(article), /비밀 보장을 약속하지/);
+  assert.match(JSON.stringify(article), /혼자 제압하려 하지 말고/);
+  assert.match(JSON.stringify(article), /자살 생각이 생기거나 심해지면 즉시/);
+  assert.doesNotMatch(JSON.stringify(article), /\d+점 이상|\d+\s*mg|988|911|무조건 완치|가장 안전한 약/);
+  assert.ok(article.visuals?.["depression-concept"].caption.includes("늘거나 줄 수"));
+  assert.ok(article.visuals?.["depression-action"].caption.includes("실제 환자나 의료인이 아니며"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
 test("UTI separates infection locations, test roles and urgent changes without self-prescribed antibiotics", () => {
   const article = healthArticles["urinary-tract-infection"];
   assert.equal(article.archetype, "QUESTION_FIRST");

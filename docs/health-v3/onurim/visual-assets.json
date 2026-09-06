@@ -1205,8 +1205,8 @@
       "DEP-P3-002",
       "DEP-P3-003"
     ],
-    "altText": "우울증의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 우울증을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "메모와 도움 연결을 상징하는 초록·갈색 장식 표지 삽화",
+    "caption": "표지의 도형은 심리검사 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 우울증; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -1214,49 +1214,71 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [],
+    "reviewedAt": "2026-09-06"
   },
   {
     "id": "VIS-DEP-P3-CONCEPT",
-    "file": "public/images/onurim/depression/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/depression/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "061682dfaecbcb93a532ea3b367ebe5ee42e9ccc041386052cc464ce4880625c",
+    "sha256": "08a88e1577aef60b168e92fc91148e9477a6124cee8e65d5baec46ada0cd8d63",
     "claimIds": [
       "DEP-P3-001",
-      "DEP-P3-003"
+      "DEP-P3-002"
     ],
-    "altText": "우울증과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 우울증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "잠·식사·흥미·집중을 각각 침구·그릇·스케치북·펼친 책으로 표현한 삽화",
+    "caption": "진료에서 이야기할 생활 영역 일부의 AI 생성 상징 삽화입니다. 잠과 식욕은 늘거나 줄 수 있고, 네 영역 모두가 필요한 진단 기준·점수표가 아닙니다. 음식·독서·휴식의 치료 효과나 회복을 보장하지 않습니다.",
+    "prompt": "Use case: editorial-illustration.\nAsset type: original Korean adult depression education illustration, landscape 1536x1024.\nA calm, non-stigmatizing still-life composition showing FOUR different areas of everyday life, not a diagnosis or a sequence: a softly drawn pillow and folded blanket labeled exactly \"잠\"; a modest bowl with spoon labeled exactly \"식사\"; a closed sketchbook with a pencil and small leaf labeled exactly \"흥미\"; an open plain book with a bookmark labeled exactly \"집중\". These four Korean labels are the only text. Arrange them loosely around generous central negative space on warm cream paper, each object cluster distinct, no connecting arrows, no numbered cards, no totals or scales. Objects describe topics someone might talk about, not a list that must all be present and not a cure prescription. Books contain no readable text, diagnosis, scoring, dates or patient data.\nStyle: sophisticated warm colored pencil and soft gouache editorial illustration, muted sage, warm clay and sand accents, tactile paper texture, large clear readable labels for mobile. No human or face, no brain, broken object, chemical imbalance graphic, dark rain cloud, cage, chain, hole, lonely silhouette, tears, pills, medical equipment, suicide imagery, methods, weapons, before/after transformation, forced happiness, logos or watermark. Inclusive and respectful with ordinary neutral objects, no guarantee of recovery.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
-      "NOT_DIAGNOSTIC"
-    ]
+      "NOT_DIAGNOSTIC",
+      "AI_GENERATED",
+      "INDEPENDENT_VISUAL_CHECKED"
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-NIMH-DEPRESSION",
+      "SRC-KDCA-DEPRESSIVE-MOOD"
+    ],
+    "reviewedAt": "2026-09-06",
+    "supersedesFile": "public/images/onurim/depression/concept.webp",
+    "generator": "built-in image_gen"
   },
   {
     "id": "VIS-DEP-P3-ACTION",
-    "file": "public/images/onurim/depression/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/depression/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "d4608c0f094eeccd4e3b3db07984658b58d3fb221a0f85216bd95cf6c5ee5153",
+    "sha256": "a6c43f06bbb4cce6edfb43b578042cdb71ceff67a9de3326b54ef3b7dc5f2797",
     "claimIds": [
-      "DEP-P3-004",
-      "DEP-P3-005"
+      "DEP-P3-004"
     ],
-    "altText": "우울증의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 우울증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "서로 같은 눈높이의 의자에 앉아 한 사람이 말하고 다른 사람이 듣는 두 성인의 대화 삽화",
+    "caption": "경청과 도움 연결을 설명하는 AI 생성 장면입니다. 실제 환자나 의료인이 아니며, 가족 대화만으로 치료되거나 위기를 해결한다는 뜻이 아닙니다. 급한 위험에는 대화보다 긴급 도움 연결을 우선합니다.",
+    "prompt": "Use case: editorial-illustration.\nAsset type: original non-stigmatizing Korean adult family-support illustration for depression education, landscape 1536x1024.\nShow two ordinary Korean adults in casual clothing seated on two separate comfortable chairs at equal eye level in a simple private living room. One adult speaks with a thoughtful neutral expression; the other is listening attentively with relaxed open hands resting on their own lap. Respectful personal space, no touching, no restraint, no pointing, no lecture. A small low table between them holds a closed plain notebook, a pencil and a face-up smartphone with its screen OFF, symbolizing later help with appointments or contacting support if wanted. Neither character wears medical clothing, a badge or stethoscope. No claim of diagnosis, treatment or recovery.\nStyle: warm sophisticated hand-drawn colored pencil and gouache editorial illustration, muted sage green, clay brown and warm cream, soft daylight, clear believable hands and anatomy, calm but not euphoric or sentimental. Spacious horizontal composition with the two adults at similar visual weight, no isolated tragic figure. No words, letters, numbers, logos, watermark, clinical records, phone interface, pills, alcohol, weapons, injuries, suicidal methods, broken brain, cage, dark storm, halo, heart-shaped cure symbol, tears or before-after. Family listening is support, not a replacement for professional care or emergency help.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
-      "NOT_DIAGNOSTIC"
-    ]
+      "NOT_DIAGNOSTIC",
+      "AI_GENERATED",
+      "INDEPENDENT_VISUAL_CHECKED"
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-NIMH-DEPRESSION",
+      "SRC-NIMH-SUICIDE-HELP-STEPS"
+    ],
+    "reviewedAt": "2026-09-06",
+    "supersedesFile": "public/images/onurim/depression/action.webp",
+    "generator": "built-in image_gen"
   },
   {
     "id": "VIS-ANX-P3-HERO",

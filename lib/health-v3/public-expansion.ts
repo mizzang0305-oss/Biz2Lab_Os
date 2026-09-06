@@ -9,6 +9,7 @@ import { goutArticle, goutSources } from "./seo-v2/gout";
 import { migraineArticle, migraineSources } from "./seo-v2/migraine";
 import { kidneyStonesArticle, kidneyStonesSources } from "./seo-v2/kidney-stones";
 import { urinaryTractInfectionArticle, urinaryTractInfectionSources } from "./seo-v2/urinary-tract-infection";
+import { depressionArticle, depressionSources } from "./seo-v2/depression";
 
 type ExpansionSlug = Exclude<HealthArticle["slug"],
   | "hypertension"
@@ -351,6 +352,7 @@ export const expansionHealthSources: HealthSource[] = Array.from(new Map([
   ...migraineSources,
   ...kidneyStonesSources,
   ...urinaryTractInfectionSources,
+  ...depressionSources,
 ].map(source => [source.id, source])).values());
 
 function makeClaims(guide: GuideConfig): HealthClaim[] {
@@ -416,6 +418,7 @@ const seoArticles: Partial<Record<ExpansionSlug, HealthArticle>> = {
   migraine: migraineArticle,
   "kidney-stones": kidneyStonesArticle,
   "urinary-tract-infection": urinaryTractInfectionArticle,
+  depression: depressionArticle,
 };
 
 export const expansionHealthArticles = Object.fromEntries(
