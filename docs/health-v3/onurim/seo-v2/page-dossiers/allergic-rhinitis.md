@@ -62,3 +62,9 @@ INDEXABILITY_PASS:200/SSR/index 허용/sitemap 포함·실제 lastmod.
 증거 `../raw/page-qa/allergic-rhinitis.json`, ignored `reports/local/onurim-seo-v2/allergic-rhinitis/seo-audit.json` 및 5폭 screenshots. **251 tests**, typecheck, lint(기존 warning1), build116, health audit, page SEO, 5폭 QA, diff whitespace 결과를 확인하고 인증했다. 의료 문구 검사에 부정문의 `완치…보장`이 걸려 더 직접적인 한계 설명으로 수정 후 통과했다. 감사기 `--out`에서 `.json`을 빠뜨렸을 때 JSON/CSV 경로가 겹친 로컬 오류도 발견해 fail-closed 입력 검사와 회귀 테스트를 추가하고 올바른 경로로 증거를 재생성했다.
 
 47개 패킷 SHA256 `4bc7630fce8a29d8e55eae2f314ebf0f5983530624bcd50b7a2459dfbd8c4a64`. Preview/Production/색인 요청 없음. 다음은 위식도역류질환.
+
+## Tool 10 후 재확인 — 상담 조건의 OR 명확화
+
+2026-09-06, 372ffa3 이후 도구와 부모 문구를 대조하면서 Main이 ‘증상이 악화되고’가 수면·일상 영향과 함께 있어야 한다고 읽힐 위험을 발견했다. NHS의 별도 상담 사유를 직접 다시 읽고 ‘원인이 불확실하거나, 증상이 악화되거나, 수면·일상에 영향을 주거나, 기존 치료로 나아지지 않으면’으로 한 문장만 수정했다. 독립 AI 대조에서 해당 위험 해결, 미해결 P0/P1/P2 없음. 원래 144 Claim·47개 패킷 본문 변경 없음.
+
+46 SEO tests·5폭 page QA·단일 SEO audit PASS. Main 변경 구간 360/1440 캡처 직접 확인, 문구·줄바꿈·출처2·문맥 링크 유지. page-qa/allergic-rhinitis.json은 이번 재확인으로 갱신됐고 최초 증거는 Git 이력에 보존된다. 기존 전체 suite/build 결과를 이번 상태의 신규 전체 검증으로 표현하지 않는다. LOCAL 수정이며 Production·Google 미변경.

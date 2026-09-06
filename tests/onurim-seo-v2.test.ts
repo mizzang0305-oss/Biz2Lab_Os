@@ -457,6 +457,7 @@ test("rhinitis separates allergy causes, test interpretation and spray roles", (
   assert.match(JSON.stringify(article), /양성인 물질이 모두/);
   assert.match(JSON.stringify(article), /끓인 뒤 식힌 물/);
   assert.match(article.seoTitle!, /감기 차이/);
+  assert.match(JSON.stringify(article), /원인이 불확실하거나, 증상이 악화되거나, 수면·일상에 영향을 주거나, 기존 치료/);
 });
 
 test("GERD separates terms and timing without waiting for severe cardiac pain", () => {
