@@ -66,3 +66,9 @@
 **252/252 tests**, typecheck PASS, lint 오류0/기존경고1, build116 PASS, health audit PASS, page SEO fail0, 5폭 Playwright fail0, diff whitespace PASS. 증거 `../raw/page-qa/gastroesophageal-reflux-disease.json` 및 ignored `reports/local/onurim-seo-v2/gastroesophageal-reflux-disease/`. 기존3페이지 raw QA는 공통 CSS 회귀 관측으로 갱신했다.
 
 47패킷 SHA256 `4bc7630fce8a29d8e55eae2f314ebf0f5983530624bcd50b7a2459dfbd8c4a64` 유지. Preview/Production/색인요청 없음. 다음 골관절염.
+
+## 2026-09-06 Tool12 대조에서 발견한 문구 재검증
+
+후반 진료 안내의 ‘삼키기 어렵거나 아프고, 구토가 계속되거나 이유 없이 체중이 줄면’은 여러 변화가 함께 있어야 한다고 읽힐 수 있어 P2로 기록했다. NIDDK GERD 증상과 NHS를 다시 대조하여 ‘삼키기 어렵거나 아프거나, 구토가 계속되거나, 이유 없이 체중이 줄면’으로 각 조건의 OR를 명시했다. 앞선 심장 의심·호흡·의식 위급 상태의 119와 출혈 안내는 유지했다. 별도 AI 재대조에서 이 문구의 P2 해결을 확인했으며 의료인 검수나 사이트 전체 P2=0을 뜻하지 않는다.
+
+48 SEO + 6 public-cutover = 54 tests PASS, 5폭 page QA PASS, 단일 페이지 SEO audit PASS. Main은 360/1440 변경 구간 스크린샷을 직접 확인했다. 기존 원문 Claim/47패킷 텍스트·해시는 변경하지 않았다. 같은 실제 수정일이므로 날짜를 인위적으로 새로 만들지 않았다. 로컬 한 문장과 회귀 assertion만 변경, Production·Google 변경 없음.

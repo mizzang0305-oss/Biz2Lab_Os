@@ -14,7 +14,7 @@ INDEX_UTILITY 유지. Fresh GSC INDEXED. 식사·자세·불편 발생의 순서
 
 Main [NIDDK GERD 증상](https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/symptoms-causes), [진단](https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/diagnosis), [NHS GERD](https://www.nhs.uk/conditions/heartburn-and-acid-reflux/), [NHLBI 심근경색 증상](https://www.nhlbi.nih.gov/health/heart-attack/symptoms), [NIDDK GI 출혈](https://www.niddk.nih.gov/health-information/digestive-diseases/gastrointestinal-bleeding/symptoms-causes)을 직접 읽었다. GI 출혈 source를 새로 연결(Last Reviewed 2024-07, registry 총 166). 부모 KDCA CPR 포함 실제 출처 6개. 일반 가정 기록에 산도검사의 진단 성능을 부여하지 않는다. 출혈의 도움 요청과 심근경색 의심·위급 상태의 119를 구분한다.
 
-독립 AI 대조에서 이 도구의 미해결 P0/P1/P2 없음. 다만 부모 후반 ‘삼키기 어렵거나 아프고…’의 잠재 AND P2를 별도로 발견했으며, 다음 도구 전 부모 한 문장을 재확인할 예정이다. 사이트 전체의 P2=0을 주장하지 않는다. 면허 의료인 검수가 아니다.
+독립 AI 대조에서 이 도구의 미해결 P0/P1/P2 없음. 부모 후반 ‘삼키기 어렵거나 아프고…’의 잠재 AND P2도 별도로 발견했다. 다음 도구 전 각 조건을 OR로 명시하고 54 tests·5폭 QA·SEO 및 변경 구간 시각 확인을 통과했다. 독립 AI 재대조에서 해당 P2 해결 확인. 부모 dossier에 별도 기록했으며 사이트 전체의 P2=0이나 면허 의료인 검수를 주장하지 않는다.
 
 ## 전후·QA
 

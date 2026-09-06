@@ -493,6 +493,7 @@ test("GERD separates terms and timing without waiting for severe cardiac pain", 
   assert.equal(article.sections.filter(s=>s.table).length, 2);
   assert.equal(article.sections[0].tone, "warning");
   assert.match(JSON.stringify(article.sections[0]), /가볍거나 오르내릴/);
+  assert.match(JSON.stringify(article), /삼키기 어렵거나 아프거나, 구토가 계속되거나, 이유 없이 체중/);
   assert.ok(article.sections.every(s=>s.imageId!==undefined));
   for (const item of [...article.sections, ...article.faq]) {
     assert.ok(item.sourceIds?.length);
