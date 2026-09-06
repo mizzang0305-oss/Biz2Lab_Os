@@ -142,13 +142,13 @@ const imageMeta: Record<string, { src: string; alt: string; caption: string; wid
   "op-explainer": {
     src: "/images/onurim/osteoporosis/explainer.webp",
     alt: "뼈 내부 구조가 달라질 수 있다는 개념을 단순화해 보여 주는 교육용 삽화",
-    caption: "뼈 구조 변화를 단순화한 그림이며 개인의 골밀도 검사 결과가 아닙니다.",
+    caption: "두 뼈 단면은 내부 구조 차이의 개념입니다. 개인의 골밀도 결과나 걷기 전후의 치료 효과를 나타내지 않습니다.",
     width: 1536,
     height: 1024,
   },
   "op-action": {
-    src: "/images/onurim/osteoporosis/checklist.webp",
-    alt: "두 성인이 집 안 통로와 느슨한 매트를 살피고 질문 카드를 준비하는 교육용 삽화",
+    src: "/images/onurim/osteoporosis/checklist-v2.webp",
+    alt: "뒤꿈치를 감싸는 신발, 비워 둔 통로, 벽 쪽 전선과 야간 조명을 살피고 질문을 준비하는 두 성인의 삽화",
     caption: "집안 점검은 낙상 위험을 줄이기 위한 한 부분이며 골절 예방을 보장하지 않습니다.",
     width: 1024,
     height: 1536,

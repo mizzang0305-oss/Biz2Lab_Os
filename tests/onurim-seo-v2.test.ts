@@ -146,3 +146,29 @@ test("article source count badges count distinct sources instead of claim IDs", 
   assert.match(component, /sourceIds=\{item\.sourceIds\}/);
   assert.doesNotMatch(component, /출처 연결 \{ids\.length\}/);
 });
+
+test("osteoporosis distinguishes test roles and escalates a fall even without impaired consciousness", () => {
+  const article = healthArticles.osteoporosis;
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections.find(s=>s.tone==="warning")!;
+  assert.ok(urgent.sourceIds!.includes("SRC-NHS-HIP-FRACTURE"));
+  assert.match(JSON.stringify(urgent), /의식이 흐려질 때까지 기다리지/);
+  assert.match(JSON.stringify(urgent), /직접 운전하지/);
+  assert.match(JSON.stringify(article), /혈중 칼슘/);
+  assert.match(JSON.stringify(article), /50세 미만 남성/);
+  assert.doesNotMatch(JSON.stringify(article), /-2\.5|-2\.0|FRAX/);
+});
+
+test("SEO citation counts include declared professional-society sources without a quality inference", () => {
+  const audit = readFileSync("scripts/audit-onurim-seo.ts", "utf8");
+  assert.match(audit, /\.onurim-source-list a\[href\]/);
+  assert.match(audit, /dom\.sourceUrls\.length \? dom\.sourceUrls/);
+  assert.match(audit, /DECLARED_SOURCE_BLOCK_NOT_QUALITY_VERDICT/);
+});

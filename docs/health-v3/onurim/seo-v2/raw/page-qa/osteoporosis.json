@@ -1,0 +1,446 @@
+{
+  "route": "/health/osteoporosis",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T04:57:17.547Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "16adaedcf71394af655d6fa6528e7a39de3b66d2552952fc7b1b5ac9b0ffc734",
+      "full": "32828bbcabde20b37c57b3bf3bde5233c2cbb8a52db8b0e08e352037c87dd6b6"
+    },
+    {
+      "width": 390,
+      "top": "829dc2b2af1af9b37779b62c4ff25cb0d85fa9156b6b71376bc066e8deee6917",
+      "full": "f3db484e17c6de0c5ff30bcc53ceba172a1325c96abf7ce10acf1f650c4090eb"
+    },
+    {
+      "width": 430,
+      "top": "df8c82304e9c473f0291c851bb1a1dde7f440d85573af5b95929b553427cc44d",
+      "full": "4e60bc625ea3f6c532a802816eecbcb714848b386d18f41a49d880502f53d5c5"
+    },
+    {
+      "width": 768,
+      "top": "d45574a7333b2704a564e51dd5292af3a39874af4988ae1ccc816a1b202e95f4",
+      "full": "b28834ed8ea8fcb0eecd9989454dc23fac160386919193963ac20dc21a1f3745"
+    },
+    {
+      "width": 1440,
+      "top": "c8e00a808445ad76ddfcc606cbd404391b2f9ee41ea3b2960a70e6860fe9f90d",
+      "full": "f82846248a40b0d016921036bc46e1473ba9a963e33c558b701efab3a806255c"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "골다공증과 골밀도 검사: T점수·Z점수 뜻과 낙상 예방 | 오누림",
+      "h1": [
+        "골다공증, 검사표와 낙상 예방을 함께 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "아프지 않은데 검사에서 발견될 수 있나요?",
+        "검사표에서 DXA·T점수·Z점수를 구분하기",
+        "같은 숫자라도 누구의 결과인지가 중요합니다",
+        "낙상 뒤 의식이 또렷해도 119가 필요할 수 있습니다",
+        "진료에는 검사 숫자와 이력을 함께 가져갑니다",
+        "뼈 건강 관리와 넘어짐 예방을 나누어 준비하기",
+        "약·보충제와 가족의 도움은 이렇게 상의하세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/osteoporosis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fhero.webp&w=3840&q=75",
+          "alt": "성인이 골밀도와 낙상, 복용 약에 관한 진료 질문을 정리하는 교육용 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "뼈 내부 구조가 달라질 수 있다는 개념을 단순화해 보여 주는 교육용 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fchecklist-v2.webp&w=3840&q=75",
+          "alt": "뒤꿈치를 감싸는 신발, 비워 둔 통로, 벽 쪽 전선과 야간 조명을 살피고 질문을 준비하는 두 성인의 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 492
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "골다공증과 골밀도 검사: T점수·Z점수 뜻과 낙상 예방 | 오누림",
+      "h1": [
+        "골다공증, 검사표와 낙상 예방을 함께 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "아프지 않은데 검사에서 발견될 수 있나요?",
+        "검사표에서 DXA·T점수·Z점수를 구분하기",
+        "같은 숫자라도 누구의 결과인지가 중요합니다",
+        "낙상 뒤 의식이 또렷해도 119가 필요할 수 있습니다",
+        "진료에는 검사 숫자와 이력을 함께 가져갑니다",
+        "뼈 건강 관리와 넘어짐 예방을 나누어 준비하기",
+        "약·보충제와 가족의 도움은 이렇게 상의하세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/osteoporosis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fhero.webp&w=3840&q=75",
+          "alt": "성인이 골밀도와 낙상, 복용 약에 관한 진료 질문을 정리하는 교육용 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "뼈 내부 구조가 달라질 수 있다는 개념을 단순화해 보여 주는 교육용 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fchecklist-v2.webp&w=3840&q=75",
+          "alt": "뒤꿈치를 감싸는 신발, 비워 둔 통로, 벽 쪽 전선과 야간 조명을 살피고 질문을 준비하는 두 성인의 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "골다공증과 골밀도 검사: T점수·Z점수 뜻과 낙상 예방 | 오누림",
+      "h1": [
+        "골다공증, 검사표와 낙상 예방을 함께 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "아프지 않은데 검사에서 발견될 수 있나요?",
+        "검사표에서 DXA·T점수·Z점수를 구분하기",
+        "같은 숫자라도 누구의 결과인지가 중요합니다",
+        "낙상 뒤 의식이 또렷해도 119가 필요할 수 있습니다",
+        "진료에는 검사 숫자와 이력을 함께 가져갑니다",
+        "뼈 건강 관리와 넘어짐 예방을 나누어 준비하기",
+        "약·보충제와 가족의 도움은 이렇게 상의하세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/osteoporosis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fhero.webp&w=3840&q=75",
+          "alt": "성인이 골밀도와 낙상, 복용 약에 관한 진료 질문을 정리하는 교육용 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "뼈 내부 구조가 달라질 수 있다는 개념을 단순화해 보여 주는 교육용 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fchecklist-v2.webp&w=3840&q=75",
+          "alt": "뒤꿈치를 감싸는 신발, 비워 둔 통로, 벽 쪽 전선과 야간 조명을 살피고 질문을 준비하는 두 성인의 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "골다공증과 골밀도 검사: T점수·Z점수 뜻과 낙상 예방 | 오누림",
+      "h1": [
+        "골다공증, 검사표와 낙상 예방을 함께 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "아프지 않은데 검사에서 발견될 수 있나요?",
+        "검사표에서 DXA·T점수·Z점수를 구분하기",
+        "같은 숫자라도 누구의 결과인지가 중요합니다",
+        "낙상 뒤 의식이 또렷해도 119가 필요할 수 있습니다",
+        "진료에는 검사 숫자와 이력을 함께 가져갑니다",
+        "뼈 건강 관리와 넘어짐 예방을 나누어 준비하기",
+        "약·보충제와 가족의 도움은 이렇게 상의하세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/osteoporosis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fhero.webp&w=3840&q=75",
+          "alt": "성인이 골밀도와 낙상, 복용 약에 관한 진료 질문을 정리하는 교육용 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "뼈 내부 구조가 달라질 수 있다는 개념을 단순화해 보여 주는 교육용 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fchecklist-v2.webp&w=3840&q=75",
+          "alt": "뒤꿈치를 감싸는 신발, 비워 둔 통로, 벽 쪽 전선과 야간 조명을 살피고 질문을 준비하는 두 성인의 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "골다공증과 골밀도 검사: T점수·Z점수 뜻과 낙상 예방 | 오누림",
+      "h1": [
+        "골다공증, 검사표와 낙상 예방을 함께 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "아프지 않은데 검사에서 발견될 수 있나요?",
+        "검사표에서 DXA·T점수·Z점수를 구분하기",
+        "같은 숫자라도 누구의 결과인지가 중요합니다",
+        "낙상 뒤 의식이 또렷해도 119가 필요할 수 있습니다",
+        "진료에는 검사 숫자와 이력을 함께 가져갑니다",
+        "뼈 건강 관리와 넘어짐 예방을 나누어 준비하기",
+        "약·보충제와 가족의 도움은 이렇게 상의하세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/osteoporosis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fhero.webp&w=3840&q=75",
+          "alt": "성인이 골밀도와 낙상, 복용 약에 관한 진료 질문을 정리하는 교육용 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "뼈 내부 구조가 달라질 수 있다는 개념을 단순화해 보여 주는 교육용 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fosteoporosis%2Fchecklist-v2.webp&w=3840&q=75",
+          "alt": "뒤꿈치를 감싸는 신발, 비워 둔 통로, 벽 쪽 전선과 야간 조명을 살피고 질문을 준비하는 두 성인의 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

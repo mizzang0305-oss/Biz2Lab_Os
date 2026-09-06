@@ -360,9 +360,11 @@
     "altText": "성인이 골밀도와 낙상, 복용 약에 관한 진료 질문을 정리하는 교육용 삽화",
     "caption": "질문 준비는 검사 결과를 혼자 해석하거나 치료를 정하는 일이 아닙니다.",
     "prompt": "capable adult prepares bone-health appointment questions on a blank page, without scans, diagnosis, pills or values",
+    "conceptCheckedAt": "2026-09-06",
+    "licensedMedicalReviewCompleted": false,
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
-      "MEDICAL_CLAIM_VERIFIED",
+      "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE"
     ]
@@ -378,32 +380,38 @@
       "OP-B2-004"
     ],
     "altText": "뼈 내부 구조가 달라질 수 있다는 개념을 단순화해 보여 주는 교육용 삽화",
-    "caption": "뼈 구조 변화를 단순화한 그림이며 개인의 골밀도 검사 결과가 아닙니다.",
+    "caption": "두 뼈 단면은 내부 구조 차이의 개념입니다. 개인의 골밀도 결과나 걷기 전후의 치료 효과를 나타내지 않습니다.",
     "prompt": "abstract porous bone structure concept beside a walking adult, no fracture, x-ray, labels or risk score",
+    "conceptCheckedAt": "2026-09-06",
+    "licensedMedicalReviewCompleted": false,
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
-      "MEDICAL_CLAIM_VERIFIED",
+      "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE"
     ]
   },
   {
     "id": "VIS-OP-B2-03",
-    "file": "public/images/onurim/osteoporosis/checklist.webp",
-    "generationDate": "2026-08-25",
+    "file": "public/images/onurim/osteoporosis/checklist-v2.webp",
+    "supersedesFile": "public/images/onurim/osteoporosis/checklist.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1024x1536",
-    "sha256": "11c3ab5da620d298dbec2e50b6e5aacf03280d843f0be44e5be3d06cb1b7537a",
+    "sha256": "88aa049bb3639158933189fa3f8875016f4062d49c6f51afb88b4a852c780399",
     "claimIds": [
       "OP-B2-006",
       "OP-B2-010",
       "OP-B2-012"
     ],
-    "altText": "두 성인이 집 안 통로와 느슨한 매트를 살피고 질문 카드를 준비하는 교육용 삽화",
+    "altText": "뒤꿈치를 감싸는 신발, 비워 둔 통로, 벽 쪽 전선과 야간 조명을 살피고 질문을 준비하는 두 성인의 삽화",
     "caption": "집안 점검은 낙상 위험을 줄이기 위한 한 부분이며 골절 예방을 보장하지 않습니다.",
-    "prompt": "supportive adults check a clear home walkway and loose rug, then prepare a blank question card; no fall, medicine or guarantee",
+    "prompt": "precise-object-edit; preserve cream/teal editorial portrait style and two adult characters; correct indoor fall-prevention cues with secure closed heel non-slip shoes, no loose rugs or raised mat edges in walking paths, upright adults checking cord safely fixed along wall, clear well-lit hallway and night-light, off-walkway storage basket, seated question preparation; no checkmarks on hazards, text, diagnoses or fracture-prevention guarantee",
+    "generationMethod": "BUILT_IN_IMAGE_GEN_EDIT_THEN_SHARP_WEBP_QUALITY_82",
+    "conceptCheckedAt": "2026-09-06",
+    "licensedMedicalReviewCompleted": false,
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
-      "MEDICAL_CLAIM_VERIFIED",
+      "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE"
     ]

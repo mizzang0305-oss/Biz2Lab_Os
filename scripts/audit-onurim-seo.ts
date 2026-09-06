@@ -60,6 +60,7 @@ async function inspect(page: Page, route: string, sitemap: Map<string, string>) 
       canonical: document.querySelector('link[rel="canonical"]')?.getAttribute("href") ?? "",
       text: bodyText, wordCount: bodyText.split(/\s+/).filter(Boolean).length,
       faq: [...main.querySelectorAll("summary")].map(text), schemas, schemaErrors,
+      sourceUrls: [...main.querySelectorAll<HTMLAnchorElement>(".onurim-source-list a[href]")].map(a=>a.getAttribute("href") ?? "").filter(href=>/^https?:/.test(href)),
       images: [...main.querySelectorAll("img")].map(img=>({src:img.getAttribute("src"), alt:img.getAttribute("alt"),
         width:img.getAttribute("width"),height:img.getAttribute("height"),loading:img.getAttribute("loading"),sizes:img.getAttribute("sizes")})),
       links: [...document.querySelectorAll("a[href]")].map(a=>({href:a.getAttribute("href") ?? "",anchor:text(a),
@@ -76,7 +77,10 @@ async function inspect(page: Page, route: string, sitemap: Map<string, string>) 
   return {url,route,pageType,httpStatus:response.status,durationMs:response.durationMs,location:response.location,
     ...dom,robots,indexable:response.status===200&&!/\bnoindex\b/i.test(robots),
     sitemapPresent:sitemap.has(url),lastmod:sitemap.get(url) ?? "",links,
-    sourceCount:new Set(links.filter(l=>!l.internal&&/\.(gov|nih\.gov|nhs\.uk)|health\.kdca\.go\.kr|heart\.org|who\.int|ngsp\.org|amc\.seoul\.kr|snuh\.org/.test(l.url)).map(l=>l.url)).size,
+    // Count the page's declared citations, not a closed list of institutions.
+    // Older surfaces without a source block keep a labelled host heuristic.
+    sourceCount:new Set(dom.sourceUrls.length ? dom.sourceUrls : links.filter(l=>!l.internal&&/(^|\.)(gov|nhs\.uk|kdca\.go\.kr|heart\.org|who\.int|ngsp\.org|amc\.seoul\.kr|snuh\.org|iscd\.org)$/.test(new URL(l.url).hostname)).map(l=>l.url)).size,
+    sourceCountMethod:dom.sourceUrls.length ? "DECLARED_SOURCE_BLOCK_NOT_QUALITY_VERDICT" : "RECOGNIZED_EXTERNAL_HOST_HEURISTIC",
     toolCount:new Set(links.filter(l=>l.internal&&l.route.startsWith("/health/tools/")).map(l=>l.route)).size};
 }
 
