@@ -100,6 +100,17 @@ test("medical review policy exposes unstarted review without upgrading the prepa
   assert.doesNotMatch(text, /reviewedBy|의료 검수 완료입니다/);
 });
 
+test("AI disclosure identifies actual assistance without fabricating human validation", () => {
+  const page = trustPages.find(page => page.slug === "ai-disclosure")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "INDEX_SUPPORT");
+  assert.match(page.intro, /AI 보조가 사용됩니다/);
+  assert.match(text, /실제 사람 5명이 읽은 결과가 아니/);
+  assert.match(text, /모든 페이지의 검증 결과도 아닙니다/);
+  assert.match(text, /실제 일반 독자 테스트는 아직 실시하지 않았습니다/);
+  assert.match(text, /검토자는 미배정이고 의료 검수는 미완료/);
+});
+
 test("trust pages distinguish public access from index decisions and use page-specific dates", () => {
   const entries = sitemap();
   const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(slug => `/health/${slug}`),
