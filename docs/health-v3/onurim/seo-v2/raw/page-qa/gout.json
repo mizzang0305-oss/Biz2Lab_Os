@@ -1,33 +1,33 @@
 {
   "route": "/health/gout",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T07:42:05.034Z",
+  "observedAt": "2026-09-06T15:27:05.643Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "9f6a1748c31a789b2603b72745c8ed883f64e90e8bb32432d5358a2a8a21e9da",
-      "full": "ded1616bfc34836a3d9411f4eac6062256bad962addf1c6fb0f8fe7be5dd1775"
+      "full": "8f601542e4d3f65bdcca8991341af185fe14341d102d132f57209c105406d2a2"
     },
     {
       "width": 390,
       "top": "b7ba4bb5a39065d144902ef76b0ce3bc106ae346b22d2f952216a38189baaa97",
-      "full": "4b1788c4bd5b07b31d61ee61d3edd78d0361e4476f142754ce722d749e810cd5"
+      "full": "de5d98d18385daef2c3604cc6ecddf8c69ef515b766206f0e46c21da422e237a"
     },
     {
       "width": 430,
       "top": "99c67126aef130e029fe2bb61afb2256e0ed2570eb10afb2da3db08c144a1f6c",
-      "full": "8a6dcfd10705c0f643ab230e0d416db7be57ef0dbbc5501877c08237e90e2df6"
+      "full": "397dea68fcaa678da924d7f7a8489338bfd43048a91941a87847e7e6e914ee08"
     },
     {
       "width": 768,
       "top": "5903841d6ad4a4447612c618cffb5ce9da62936f10e0a0fe3e64268044b2e69c",
-      "full": "0237065081e06a64cd2f337a8feb4091b6bdb75879cc61bee08c4e60adac797a"
+      "full": "7e34872773e1c609ed0d1af9b7e43adae316fc7d7fdb4325c6f3260010a0274d"
     },
     {
       "width": 1440,
       "top": "8f971840e577704d163b259bf831304afa6840f86c7868e78cce200066def633",
-      "full": "beeb3542d26328704b620e0793ec8cb7acdef03f5f8c1045faf665b868608bbb"
+      "full": "3c6b5a14be5a1535c981598628d731c6e1504f0839d1b1af13e98af6f1f27810"
     }
   ],
   "failures": [],

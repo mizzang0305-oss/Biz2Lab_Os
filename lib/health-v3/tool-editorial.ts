@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "gout-visit-card": {
+    indexDecision: "INDEX_UTILITY",
+    inheritParentWarning: true,
+    title: "통풍 진료 질문지: 관절 변화·요산 검사·실제 약을 함께 준비",
+    description: "관절 변화와 기존 요산 검사·약 정보를 모아 현재 통증과 이후 관리의 질문을 나눕니다. 약을 시작·중단하는 순서표나 음식 원인 검사표가 아닙니다.",
+    updatedAt: "2026-09-07",
+    purpose: "관절 평가나 통풍 추적 진료에서 빠뜨릴 정보를 정리합니다. 급한 관절 변화에는 이 양식보다 신속한 진료가 먼저입니다.",
+    steps: [
+      "어느 관절이 언제 달라졌는지, 붓기·열감·피부색·몸 상태를 적습니다. 관절을 눌러 통증을 시험하지 말고 이미 관찰한 사실만 남깁니다.",
+      "기존 검사 원본과 이전 발작·진료, 실제 약·보충제·다른 질환 정보를 준비합니다. 모르면 미확인으로 두고, 먹은 음식 하나를 원인으로 확정하지 않습니다.",
+      "이번 통증과 이후 관리에서 궁금한 점을 따로 표시합니다. 받은 답·개인 목표·다음 검사/진료·연락처를 적습니다. 두 질문은 정해진 치료 순서가 아닙니다.",
+    ],
+    example: "‘요산이 높다’만 쓰기보다 검사 원본의 날짜·단위를 가져가고, ‘발목이 어제부터 부었다’처럼 관절 변화를 별도로 설명합니다. 기록 방식 예시이지 진단 사례가 아닙니다.",
+    limitation: "한 번의 요산 수치로 진단하거나 감염을 배제하지 않습니다. 발작·무증상 시기만으로 약의 시작·중단을 혼자 정하거나 남의 약을 시험하지 않습니다. 개인 처방과 검사 준비 지침을 확인하고, 수분량·음식 제한·요산 목표는 이 카드에서 정하지 않습니다.",
+    sheetNotice: "심한 호흡곤란이나 갑작스러운 의식 변화는 즉시 119입니다. 한 관절이 갑자기 심하게 아프거나 붓거나 피부색이 달라지면 당일 신속히 진료받습니다. 열·여러 신호가 모두 생기거나 약효·기록 완성을 기다리지 않습니다. 기존 통풍·요산 수치로 새 증상의 원인을 단정하지 않습니다.",
+    sourceIds: ["SRC-NIAMS-GOUT-DIAGNOSIS", "SRC-MEDLINEPLUS-URIC-ACID"],
+    links: [
+      { href: "/health/guides/reading-health-results", label: "요산 검사 원본의 이름·단위·조건을 함께 읽기" },
+      { href: "/health/guides/medication-list", label: "통풍약 외 실제 복용 제품도 준비하는 약 목록" },
+      { href: "/health/guides/appointment-questions", label: "이번 증상과 이후 계획의 답을 남기는 방법" },
+    ],
+  },
   "sleep-apnea-visit-card": {
     indexDecision: "INDEX_UTILITY",
     inheritParentWarning: true,

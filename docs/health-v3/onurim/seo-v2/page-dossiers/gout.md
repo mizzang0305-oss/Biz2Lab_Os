@@ -61,3 +61,7 @@ Main HEADd875756 expansion70 exact 동일, content/medical-review diff0, 전체1
 전체263tests/명시적typecheck/lint오류0(기존경고1)/healthaudit/build116 PASS. 최종순서 변경후20SEO회귀/명시적typecheck/5폭360·390·430·768·1440/SEO/build116 PASS. Main360top/390질문표/430최종urgent/768FAQ/1440sources 직접 확인. SSR200/selfcanonical/actual lastmod/schemaerrors0. `../raw/page-qa/gout.json`과 ignored local 폴더에 machine evidence. 독립 최종 검토 P0/P1/P2 잔여0,144claim/47packet 전체레코드동일,13개본문·FAQ연결누락0,7본문링크HTTP200,9출처앵커각1회 및 최종WebP·manifest 일치 확인. 임상검수·실제독자·fieldCWV·Google색인 보장 아님. Preview·Production·색인 요청 없음.
 
 INTENT_PASS · TITLE_PASS · DESCRIPTION_PASS · H1_PASS · CONTENT_UNIQUENESS_PASS · MEDICAL_SOURCE_PASS · INTERNAL_LINK_PASS · IMAGE_PASS · MOBILE_PASS · SCHEMA_PASS · CANONICAL_PASS · INDEXABILITY_PASS.
+
+## Tool 27 연결 후 확인 — 2026-09-07 LOCAL
+
+통풍 진료 질문지의 관절 변화·기존 요산 검사·실제 약 역할에 맞춰 카드 설명/필드/질문만 수정. 부모 의료 본문·날짜·Claim·출처 객체 미변경. 부모5폭/SEO PASS. 상세 개별 인증은 tool-gout-visit-card.md. Production 미적용.

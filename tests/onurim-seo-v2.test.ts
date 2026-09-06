@@ -36,6 +36,21 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("gout worksheet separates current joint changes and future management without a treatment sequence", () => {
+  const tool = healthTools.find(t => t.slug === "gout-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.match(copy.steps.join(" "), /정해진 치료 순서가 아닙니다/);
+  assert.match(copy.limitation, /발작·무증상 시기만으로 약의 시작·중단을 혼자 정하거나/);
+  assert.match(copy.sheetNotice!, /심하게 아프거나 붓거나 피부색이 달라지면 당일/);
+  assert.match(copy.sheetNotice!, /열·여러 신호가 모두 생기거나 약효·기록 완성을 기다리지/);
+  assert.equal(getToolSources(tool).length, 5);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(mg|리터|일간|주간)/);
+});
+
 test("sleep apnea worksheet separates observers and keeps emergency OR distinct from CPR AND", () => {
   const tool = healthTools.find(t => t.slug === "sleep-apnea-visit-card")!;
   const copy = toolEditorial[tool.slug];

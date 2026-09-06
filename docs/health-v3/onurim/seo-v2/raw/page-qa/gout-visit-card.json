@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/gout-visit-card",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T15:32:12.834Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "84ffc3d309f8c1c30bb0be23b7d9aa451a62198b2b6701c0829fb6c44a1d36fa",
+      "full": "510a3ccfafb1d11289bf297f964fc56bb31d18c4b5055e14ff4763bbc80ab049"
+    },
+    {
+      "width": 390,
+      "top": "a52b8d7caaf75cb02a104310a1aad86c0ee06631acdf93ad326acec1a57a4dd9",
+      "full": "e60188272a1871b696ac6a945db401d62b342a67f0e9d93b5eddd0f98a2bf6e6"
+    },
+    {
+      "width": 430,
+      "top": "93fbe28eaf15321e4603a3af4c020e6c8f041738a90d856d3556a43e77707148",
+      "full": "7a323f9245090ce7c76858ed9cd2c188ab160bf0a9451e07d08a547461fe8ad4"
+    },
+    {
+      "width": 768,
+      "top": "6811af02d8cc1f22938d5d77d5bd4fb33e7ea4769b31c9bc9bf6cde19d0a3017",
+      "full": "519215990d7fdc258fc185a55a5048d4b9a22ac4a8d881040b91b15e513f1fd5"
+    },
+    {
+      "width": 1440,
+      "top": "9d2e9c2bfe1afbfd8d66c64cd5c408dca5b7a62a39446ab5837d1258afea73af",
+      "full": "da83dc6389014e26da6567e32074a18d586ed52d6347733a67423fba3ab911cd"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "통풍 진료 질문지: 관절 변화·요산 검사·실제 약을 함께 준비 | 오누림",
+      "h1": [
+        "통풍 진료 질문지"
+      ],
+      "h2": [
+        "즉시 119가 필요한 변화와 급한 관절 진료를 구분하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gout-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "통풍 진료 질문지: 관절 변화·요산 검사·실제 약을 함께 준비 | 오누림",
+      "h1": [
+        "통풍 진료 질문지"
+      ],
+      "h2": [
+        "즉시 119가 필요한 변화와 급한 관절 진료를 구분하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gout-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "통풍 진료 질문지: 관절 변화·요산 검사·실제 약을 함께 준비 | 오누림",
+      "h1": [
+        "통풍 진료 질문지"
+      ],
+      "h2": [
+        "즉시 119가 필요한 변화와 급한 관절 진료를 구분하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gout-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "통풍 진료 질문지: 관절 변화·요산 검사·실제 약을 함께 준비 | 오누림",
+      "h1": [
+        "통풍 진료 질문지"
+      ],
+      "h2": [
+        "즉시 119가 필요한 변화와 급한 관절 진료를 구분하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gout-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "통풍 진료 질문지: 관절 변화·요산 검사·실제 약을 함께 준비 | 오누림",
+      "h1": [
+        "통풍 진료 질문지"
+      ],
+      "h2": [
+        "즉시 119가 필요한 변화와 급한 관절 진료를 구분하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gout-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

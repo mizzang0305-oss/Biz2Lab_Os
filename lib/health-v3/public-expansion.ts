@@ -182,6 +182,7 @@ const guides: GuideConfig[] = [
   {
     slug: "gout",
     prefix: "GOUT",
+    toolSummary: { title: "통풍 진료 질문지", description: "관절 변화·요산 검사 원본·실제 약을 준비해 이번 통증과 이후 관리의 질문을 나누는 인쇄 양식입니다." },
     title: "통풍",
     cluster: "뼈·관절",
     archetype: "MYTH_FIRST",
@@ -192,8 +193,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 병력과 관절 상태를 확인하고 혈액검사, 관절액 검사나 영상검사를 선택할 수 있습니다.",
     careBoundary: "요산 수치 하나로 진단하거나 약을 임의로 끊지 않습니다. 음식만 탓하기보다 질환, 복용 약과 신장 상태를 함께 알립니다.",
     urgent: "열이 나면서 관절이 매우 붓고 아프거나 몸 상태가 빠르게 나빠지면 감염 등 다른 원인도 가능하므로 신속히 의료 도움을 받습니다.",
-    observationItems: ["아픈 관절과 시작 시각", "붓기·열감·발열 여부", "최근 질환·음주·식사", "현재 복용 약"],
-    questions: ["다른 관절 질환과 어떻게 구분하나요?", "요산 수치는 제 경우 어떻게 해석하나요?", "약과 생활 계획은 어떻게 함께 정하나요?"],
+    observationItems: ["관절 위치·시작 시각 / 붓기·열감·피부색·발열 등 실제 변화", "기존 요산 검사명·날짜·단위·원본 / 이전 발작과 진료 이력", "실제 약·보충제·사용 뒤 변화 / 다른 질환·식사·음주 상황"],
+    questions: ["이번 관절 변화에서 다른 원인을 확인할 검사와 그 목적은 무엇인가요?", "현재 통증과 이후 요산 관리에서 제 약은 각각 어떤 역할이며 사용 지침은 무엇인가요?", "개인 관리 목표·생활 조정과 다음 검사·진료는 어떻게 정하고, 그 전에 연락할 변화는 무엇인가요?"],
     sources: [
       { id: "SRC-NIAMS-GOUT", organization: "NIH/NIAMS", title: "Gout", url: "https://www.niams.nih.gov/health-topics/gout", sourceDate: "2023" },
       { id: "SRC-NIAMS-GOUT-DIAGNOSIS", organization: "NIH/NIAMS", title: "Gout: Diagnosis, Treatment, and Steps to Take", url: "https://www.niams.nih.gov/health-topics/gout/diagnosis-treatment-and-steps-to-take", sourceDate: "2023" },
