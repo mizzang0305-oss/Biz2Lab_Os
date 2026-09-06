@@ -68,3 +68,9 @@
 | INDEXABILITY_PASS | 200/SSR/index 허용/sitemap 포함/실제lastmod |
 
 **254/254 tests**, typecheck PASS, lint 오류0/기존경고1, build116 PASS, health audit PASS, page SEO fail0, 5폭 Playwright fail0, diff whitespace PASS. 이미지 대기 함수의 첫 TypeScript 인자 타입 오류는 instanceof 검사로 수정한 뒤 typecheck/build 통과했다. 원본3개 및 360top/390table/430urgent/768sources/1440FAQ 직접 시각 검토. 증거 `../raw/page-qa/osteoarthritis.json`과 ignored `reports/local/onurim-seo-v2/osteoarthritis/`. Preview/Production/색인요청 없음. 다음 골다공증.
+
+## 2026-09-06 Tool15 전 경고 조건 재대조
+
+NHS septic arthritis 원문을 다시 직접 읽으며 제목 ‘붓고 심하게 아프면’과 본문 ‘붓고 뜨거워지는’의 AND 혼란 P2를 발견했다. 갑작스러운 심한 관절통·새 부종·주변 피부색 변화를 각각 OR로 명시했다. 같은 표현을 사용한 description·summary도 함께 정합화했고, 발열 또는 모든 증상의 동시 발생을 기다리지 않음을 명확히 했다. 119 위급 경계·원문 Claim·47패킷 본문/해시는 유지했다. 다음 검토 예정일을 출처 수정일로 쓰지 않았다.
+
+56 관련 tests, 5폭 page QA, 단일route SEO audit, diff whitespace PASS. Main 360/1440 경고와 360 상단을 직접 확인. 독립 AI 재대조에서 해당 P2 해결 확인. 임상검수·실제독자 검증·사이트 전체 P2=0의 증거가 아니다. 로컬 수정만 수행, Production/Google 변경 없음.

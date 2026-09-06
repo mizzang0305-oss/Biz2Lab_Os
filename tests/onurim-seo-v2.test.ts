@@ -548,7 +548,10 @@ test("osteoarthritis starts with function and separates acute joint changes from
   const urgent = article.sections.find(s=>s.tone==="warning")!;
   assert.ok(urgent.sourceIds!.includes("SRC-NHS-SEPTIC-ARTHRITIS"));
   assert.match(JSON.stringify(urgent), /당일 신속히/);
-  assert.match(JSON.stringify(urgent), /열이 날 때까지 기다리는 기준이 아닙니다/);
+  assert.match(JSON.stringify(urgent), /열이 날 때까지 기다리는 기준이 아니며/);
+  assert.match(urgent.paragraphs![0], /갑자기 심하게 아프거나, 새로 붓거나, 관절 주변 피부색/);
+  assert.match(urgent.title, /관절통이나 새 부종/);
+  assert.match(article.summary[2], /아프거나 새로 붓는/);
   assert.doesNotMatch(article.eyebrow, /Preview|비공개/);
 });
 
