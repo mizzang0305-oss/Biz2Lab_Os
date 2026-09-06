@@ -384,6 +384,34 @@ test("obesity uses consent-first family support and separates body measures from
   for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
 });
 
+test("UTI separates infection locations, test roles and urgent changes without self-prescribed antibiotics", () => {
+  const article = healthArticles["urinary-tract-infection"];
+  assert.equal(article.archetype, "QUESTION_FIRST");
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sourceIds.length, 10);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections[0];
+  assert.equal(urgent.tone, "warning");
+  assert.match(urgent.paragraphs![0], /즉시 119/);
+  assert.match(urgent.paragraphs![1], /모두 나타나야 하는 조건이 아니며/);
+  assert.match(JSON.stringify(article), /배뇨 불편은 없을 수도/);
+  assert.match(JSON.stringify(article), /세균이 보인다는 사실만으로 모두 항생제/);
+  assert.match(JSON.stringify(article), /남은 항생제나 다른 사람/);
+  assert.ok(article.sections.some(s=>s.sourceIds?.includes("SRC-CDC-ANTIBIOTIC-USE")));
+  assert.ok(article.sections.find(s=>s.table)?.sourceIds?.includes("SRC-MEDLINEPLUS-URINE-CULTURE"));
+  assert.doesNotMatch(JSON.stringify(article), /72시간|48시간|\d+일간|\d+\s*(mg|리터|L\/일)/);
+  assert.ok(article.visuals?.["urinary-tract-infection-concept"].caption.includes("서로 배타적인"));
+  assert.ok(article.visuals?.["urinary-tract-infection-action"].caption.includes("음성 판정이 아니며"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
 test("dyslipidemia distinguishes lipid roles and preparation without a universal fasting or treatment target", () => {
   const article = healthArticles.dyslipidemia;
   assert.equal(article.faq.length, 6);

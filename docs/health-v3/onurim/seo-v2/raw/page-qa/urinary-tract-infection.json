@@ -1,0 +1,441 @@
+{
+  "route": "/health/urinary-tract-infection",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T08:46:18.060Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "d236ee761174cff4474a7bf747984dacac1004e36058b0e4ea8d3b10796ab4d9",
+      "full": "1656285d8d7d1ef114a113e6a739e50439e257f6c95dd3b09bde0d5765c27029"
+    },
+    {
+      "width": 390,
+      "top": "9f4c050e5811f8c58c53d19228ca5b69b50c141749101afb7a5926c7f532a700",
+      "full": "ba44be25bccb1bcb8724730ea5f905973d55363901c9e106fcf613738a722638"
+    },
+    {
+      "width": 430,
+      "top": "ed4456b789823ab47cc20ed1baabb43bc6e419dcc9509c96745f02d46d486bdc",
+      "full": "4a3933b8da8af8a455a0ce885b637e90a71d260bd20513e826293a4a2e503f6d"
+    },
+    {
+      "width": 768,
+      "top": "be443ae6396d218e0d2582439522bd9d226d4c410c39a9a9ccffb436448ea66a",
+      "full": "9b89c9ed35faa07dcdddde26006f73784967ac771a2c998d06c5f2f3fee95e5d"
+    },
+    {
+      "width": 1440,
+      "top": "f1390abeda6b9c21a67dd9559dfa42a6112a70b9f32ec6d498ffb3eb62475062",
+      "full": "a432b179ff1c92da58da6f7aaff458c5edafb33dc59df58e06305dbc588530fa"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "요로감염: 방광염·신우신염 차이와 소변검사 질문 | 오누림",
+      "h1": [
+        "소변 볼 때 불편한데, 방광염일까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "먼저, 소변 불편 외에 급한 변화가 있나요?",
+        "요로감염, 방광염, 신우신염은 어떻게 다른가요?",
+        "소변이 탁하거나 냄새가 나면 감염인가요?",
+        "소변검사와 배양검사는 무엇을 다르게 보나요?",
+        "예전에 남은 항생제를 먼저 먹어도 되나요?",
+        "임신 가능성이나 반복 감염은 왜 먼저 말하나요?",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/urinary-tract-infection",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Fhero.webp&w=3840&q=75",
+          "alt": "상담 메모와 준비를 상징하는 보라·모래색 장식 표지 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "서로 분리된 두 소변길 그림에서 방광과 한쪽 콩팥을 각각 강조한 위치 예시",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Faction-v2.webp&w=3840&q=75",
+          "alt": "소변검사라는 제목 아래 현미경, 배양검사라는 제목 아래 배양접시를 나란히 놓은 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 10,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "요로감염: 방광염·신우신염 차이와 소변검사 질문 | 오누림",
+      "h1": [
+        "소변 볼 때 불편한데, 방광염일까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "먼저, 소변 불편 외에 급한 변화가 있나요?",
+        "요로감염, 방광염, 신우신염은 어떻게 다른가요?",
+        "소변이 탁하거나 냄새가 나면 감염인가요?",
+        "소변검사와 배양검사는 무엇을 다르게 보나요?",
+        "예전에 남은 항생제를 먼저 먹어도 되나요?",
+        "임신 가능성이나 반복 감염은 왜 먼저 말하나요?",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/urinary-tract-infection",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Fhero.webp&w=3840&q=75",
+          "alt": "상담 메모와 준비를 상징하는 보라·모래색 장식 표지 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "서로 분리된 두 소변길 그림에서 방광과 한쪽 콩팥을 각각 강조한 위치 예시",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Faction-v2.webp&w=3840&q=75",
+          "alt": "소변검사라는 제목 아래 현미경, 배양검사라는 제목 아래 배양접시를 나란히 놓은 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 10,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "요로감염: 방광염·신우신염 차이와 소변검사 질문 | 오누림",
+      "h1": [
+        "소변 볼 때 불편한데, 방광염일까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "먼저, 소변 불편 외에 급한 변화가 있나요?",
+        "요로감염, 방광염, 신우신염은 어떻게 다른가요?",
+        "소변이 탁하거나 냄새가 나면 감염인가요?",
+        "소변검사와 배양검사는 무엇을 다르게 보나요?",
+        "예전에 남은 항생제를 먼저 먹어도 되나요?",
+        "임신 가능성이나 반복 감염은 왜 먼저 말하나요?",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/urinary-tract-infection",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Fhero.webp&w=3840&q=75",
+          "alt": "상담 메모와 준비를 상징하는 보라·모래색 장식 표지 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "서로 분리된 두 소변길 그림에서 방광과 한쪽 콩팥을 각각 강조한 위치 예시",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Faction-v2.webp&w=3840&q=75",
+          "alt": "소변검사라는 제목 아래 현미경, 배양검사라는 제목 아래 배양접시를 나란히 놓은 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 10,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "요로감염: 방광염·신우신염 차이와 소변검사 질문 | 오누림",
+      "h1": [
+        "소변 볼 때 불편한데, 방광염일까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "먼저, 소변 불편 외에 급한 변화가 있나요?",
+        "요로감염, 방광염, 신우신염은 어떻게 다른가요?",
+        "소변이 탁하거나 냄새가 나면 감염인가요?",
+        "소변검사와 배양검사는 무엇을 다르게 보나요?",
+        "예전에 남은 항생제를 먼저 먹어도 되나요?",
+        "임신 가능성이나 반복 감염은 왜 먼저 말하나요?",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/urinary-tract-infection",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Fhero.webp&w=3840&q=75",
+          "alt": "상담 메모와 준비를 상징하는 보라·모래색 장식 표지 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "서로 분리된 두 소변길 그림에서 방광과 한쪽 콩팥을 각각 강조한 위치 예시",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Faction-v2.webp&w=3840&q=75",
+          "alt": "소변검사라는 제목 아래 현미경, 배양검사라는 제목 아래 배양접시를 나란히 놓은 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 10,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "요로감염: 방광염·신우신염 차이와 소변검사 질문 | 오누림",
+      "h1": [
+        "소변 볼 때 불편한데, 방광염일까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "먼저, 소변 불편 외에 급한 변화가 있나요?",
+        "요로감염, 방광염, 신우신염은 어떻게 다른가요?",
+        "소변이 탁하거나 냄새가 나면 감염인가요?",
+        "소변검사와 배양검사는 무엇을 다르게 보나요?",
+        "예전에 남은 항생제를 먼저 먹어도 되나요?",
+        "임신 가능성이나 반복 감염은 왜 먼저 말하나요?",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/urinary-tract-infection",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Fhero.webp&w=3840&q=75",
+          "alt": "상담 메모와 준비를 상징하는 보라·모래색 장식 표지 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "서로 분리된 두 소변길 그림에서 방광과 한쪽 콩팥을 각각 강조한 위치 예시",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Furinary-tract-infection%2Faction-v2.webp&w=3840&q=75",
+          "alt": "소변검사라는 제목 아래 현미경, 배양검사라는 제목 아래 배양접시를 나란히 놓은 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 10,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}
