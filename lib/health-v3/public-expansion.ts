@@ -248,6 +248,7 @@ const guides: GuideConfig[] = [
   {
     slug: "urinary-tract-infection",
     prefix: "UTI",
+    toolSummary: { title: "요로감염 진료 메모", description: "배뇨·몸 상태 변화와 개인 상황·최근 검사·항생제를 정리해 결과 전달과 재연락 계획을 묻는 인쇄 보조표입니다." },
     title: "요로감염",
     cluster: "신장·비뇨기",
     archetype: "QUESTION_FIRST",
@@ -258,8 +259,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 증상과 병력을 확인하고 소변검사와 소변배양검사 등으로 감염과 치료 선택을 살필 수 있습니다.",
     careBoundary: "남은 항생제나 다른 사람의 약을 쓰지 않습니다. 임신 가능성, 반복 감염, 다른 질환과 복용 약을 진료에서 알립니다.",
     urgent: "발열·오한과 함께 옆구리나 등 통증, 메스꺼움·구토가 나타나면 콩팥 감염 가능성이 있어 빠르게 의료 도움을 받습니다.",
-    observationItems: ["배뇨 불편 시작 시각", "소변 횟수·색·냄새 변화", "열·오한·옆구리 통증", "임신 가능성과 반복 감염"],
-    questions: ["소변검사나 배양검사가 필요한가요?", "콩팥 감염 신호가 있나요?", "약을 복용하며 어떤 변화를 알려야 하나요?"],
+    observationItems: ["배뇨 변화·시작 / 열·오한·옆구리·등 통증·구토 등 실제 변화", "임신 가능성·도뇨관·다른 질환 / 이전 감염·치료 상황", "최근 검사 원본·날짜 / 실제 항생제·사용·반응 / 약 알레르기"],
+    questions: ["이번 검사는 무엇을 확인하며 결과를 언제·어떻게 전달받나요?", "처방이 있다면 제 사용 지침과 부작용·복용 곤란 시 연락 방법은 무엇인가요?", "결과나 다음 진료 전 어떤 변화가 생기면 어디로 바로 연락하나요?"],
     sources: [
       { id: "SRC-NIDDK-UTI-DEFINITION", organization: "NIH/NIDDK", title: "Definition & Facts of Bladder Infection in Adults", url: "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/definition-facts", sourceDate: "2024" },
       { id: "SRC-NIDDK-UTI-SYMPTOMS", organization: "NIH/NIDDK", title: "Symptoms & Causes of Bladder Infection in Adults", url: "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/symptoms-causes", sourceDate: "2024" },

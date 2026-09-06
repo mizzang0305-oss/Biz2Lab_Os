@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "urinary-tract-infection-visit-card": {
+    indexDecision: "NOINDEX_FOLLOW",
+    inheritParentWarning: true,
+    title: "요로감염 진료 메모: 소변 변화·검사 결과·처방 질문",
+    description: "배뇨·몸 상태 변화, 임신 가능성·도뇨관, 최근 검사·항생제를 정리하는 인쇄 메모입니다. 요로감염 가이드의 보조 양식이며 검사 결과를 기다릴 기간이나 약을 정하지 않습니다.",
+    updatedAt: "2026-09-07",
+    purpose: "요로감염 가이드를 읽고 진료에 가져갈 메모입니다. 빈칸 완성이나 검사 자료는 진료의 조건이 아닙니다.",
+    steps: [
+      "배뇨 불편의 시작과 실제 소변·몸 상태 변화를 적습니다. 모르는 횟수·시각은 추측하지 않고 미확인으로 남깁니다.",
+      "임신 가능성·도뇨관·다른 질환, 이전 감염·최근 검사·실제 항생제·약 알레르기를 알립니다. 모름과 없음을 구분합니다.",
+      "먼저 물을 질문을 고르고, 검사 목적·결과 전달 방법·처방 지침·다시 연락할 기준을 답변 칸에 적습니다.",
+    ],
+    example: "‘소변 볼 때 불편해진 시점’은 관찰 칸에, ‘결과를 받는 방법’은 들은 답변 칸에 씁니다. 검사 결과를 스스로 진단명으로 바꾸지 않습니다.",
+    limitation: "색·냄새·과거 감염으로 이번 원인을 확정하지 않습니다. 모든 검사를 요구하거나 검사를 위해 약을 혼자 끊지 않습니다. 남은 항생제·타인의 약을 쓰지 않고 개인 처방을 따르며, 부작용·복용 곤란은 처방팀에 알립니다. 물·크랜베리로 감염을 치료하려 하거나 수분 제한을 혼자 바꾸지 않습니다.",
+    sheetNotice: "새 혼돈·비정상적 졸림·말하기 어려움이나 매우 빠르거나 어려운 호흡은 즉시 119입니다. 감염 의심과 발열 또는 오한, 옆구리·등 통증, 메스꺼움 또는 구토가 있으면 각각 즉시 평가받고 바로 진료가 어려우면 응급기관에 연락합니다. 배뇨통이 없어도 미루지 않습니다. 혈뇨·급격한 악화, 임신 가능성·도뇨관·남성·당뇨·면역저하가 있는 경우의 의심 증상도 신속히 진료받습니다. 배양 결과·약효·기록을 기다리거나 응급 상황에 직접 운전하지 않습니다.",
+    sourceIds: ["SRC-NIDDK-UTI-DIAGNOSIS", "SRC-CDC-ANTIBIOTIC-USE"],
+    links: [
+      { href: "/health/guides/medication-list", label: "최근 항생제·알레르기와 실제 약 정보를 함께 준비" },
+      { href: "/health/guides/reading-health-results", label: "소변검사 결과지와 의료진 설명을 구분해 읽기" },
+      { href: "/health/guides/appointment-questions", label: "결과 전달 방법과 재연락 기준을 묻는 방법" },
+    ],
+  },
   "kidney-stones-visit-card": {
     indexDecision: "INDEX_UTILITY",
     inheritParentWarning: true,

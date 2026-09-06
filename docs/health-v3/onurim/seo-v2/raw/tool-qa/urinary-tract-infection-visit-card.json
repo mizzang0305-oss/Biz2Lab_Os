@@ -1,0 +1,67 @@
+{
+  "route": "/health/tools/urinary-tract-infection-visit-card",
+  "observedAt": "2026-09-06T15:58:37.227Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "배뇨 변화·시작 / 열·오한·옆구리·등 통증·구토 등 실제 변화",
+    "임신 가능성·도뇨관·다른 질환 / 이전 감염·치료 상황",
+    "최근 검사 원본·날짜 / 실제 항생제·사용·반응 / 약 알레르기"
+  ],
+  "sourceHrefs": [
+    "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/diagnosis",
+    "https://www.cdc.gov/antibiotic-use/about/",
+    "https://www.nhs.uk/conditions/urinary-tract-infections-utis/",
+    "https://www.nhs.uk/conditions/sepsis/",
+    "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-infection-pyelonephritis/symptoms-causes",
+    "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6674"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 6,
+    "overflow": 0,
+    "footerText": "요로감염 진료 메모 · 양식·안내 수정 2026-09-07교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료NIH/NIDDK — Diagnosis of Bladder Infection in AdultsCDC — Healthy Habits: Antibiotic Do’s and Don’tsNHS — Urinary tract infections (UTIs)NHS — SepsisNIH/NIDDK — Symptoms & Causes of Kidney Infection (Pyelonephritis)질병관리청 국가건강정보포털 — 요로감염의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 3,
+    "checkedItems": 0,
+    "focusedCheckbox": false,
+    "footerParagraphFontPx": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "links": [
+    {
+      "href": "/health/urinary-tract-infection",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/medication-list",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/reading-health-results",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/appointment-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "6795f48bd6d62f3d2fcf99623f3c1d7abc6f3b4f924c7b185113cd28f39d06ab",
+  "pdfBytes": 134687,
+  "failures": []
+}

@@ -67,3 +67,7 @@ MEDICAL_REVIEW_COMPLETED=NO · REAL_HUMAN_READER_TEST=NOT_PERFORMED. 증상으�
 INTENT_PASS · TITLE_PASS · DESCRIPTION_PASS · H1_PASS · CONTENT_UNIQUENESS_PASS · MEDICAL_SOURCE_PASS · INTERNAL_LINK_PASS · IMAGE_PASS · MOBILE_PASS · SCHEMA_PASS · CANONICAL_PASS · INDEXABILITY_PASS.
 
 임상·실제독자·fieldCWV·Google색인보장 아님. Preview/Production/색인요청 없음.
+
+## Tool30 연계 재확인 — 2026-09-07
+
+요로감염 보조 메모의 카드 설명·3필드·3질문을 개별 개선하고 NOINDEX_FOLLOW로 역할 판정. 부모 의료 본문·날짜·Claim·출처 객체는 변경하지 않았다. 부모 5폭 QA/SEO 재실행 PASS, raw/page-qa 갱신. 도구 상세·출처·인쇄 검증은 `tool-urinary-tract-infection-visit-card.md`. 이전 본문 인증의 전체 test/build는 당시 증거이며 현재 전체 재실행을 뜻하지 않는다.

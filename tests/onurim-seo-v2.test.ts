@@ -36,6 +36,23 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("UTI memo stays a parent companion without culture waiting or leftover antibiotic instructions", () => {
+  const tool = healthTools.find(t => t.slug === "urinary-tract-infection-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.match(tool.fields![1], /임신 가능성·도뇨관/);
+  assert.match(copy.purpose, /진료의 조건이 아닙니다/);
+  assert.match(copy.limitation, /남은 항생제·타인의 약을 쓰지 않고/);
+  assert.match(copy.sheetNotice!, /발열 또는 오한/);
+  assert.match(copy.sheetNotice!, /배뇨통이 없어도 미루지/);
+  assert.match(copy.sheetNotice!, /배양 결과·약효·기록을 기다리거나/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 6);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(시간|mg|리터|일간|주간)/);
+});
+
 test("kidney stone worksheet connects actual changes to passage follow-up without forced hydration", () => {
   const tool = healthTools.find(t => t.slug === "kidney-stones-visit-card")!;
   const copy = toolEditorial[tool.slug];

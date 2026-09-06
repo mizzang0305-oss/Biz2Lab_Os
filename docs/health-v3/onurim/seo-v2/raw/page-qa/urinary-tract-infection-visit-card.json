@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/urinary-tract-infection-visit-card",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T15:58:32.230Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "66ed6308833c254542efcd669ed22f97bf120eba735cecb1e3918e53f95c8272",
+      "full": "8c8899d2dc27c428d26d95add1d61627b6b53733b4e1c77fe0c1569e6c73af93"
+    },
+    {
+      "width": 390,
+      "top": "72078b513a0f5a910cc0c91e0d3a537b09aefa78cb3f673d46bb3153c45ef2ff",
+      "full": "ae990ac9a0dac3b4cf854f683941367e1ba6b880dc5f4537abef50e341250385"
+    },
+    {
+      "width": 430,
+      "top": "cc5a7c3b3b463dc823fb6e450e58c7289065701c82206bdc1e3e5ce015d5bdbe",
+      "full": "56d2fda10f6db309ce115075bedf858b9750834262075821667143e0deac0ca7"
+    },
+    {
+      "width": 768,
+      "top": "1903d04b8f7d7e4a56f1a35ab8d31d2407d408d961e9feb34cafd8d321cb7d7e",
+      "full": "d77734159c21f4de596eddf52cc46c1bf61a2dedecd7b1fd8a8582c148824929"
+    },
+    {
+      "width": 1440,
+      "top": "7240b5491c0cab3f132e21493645bca2d03e7cbb5414e345d0d69783525c8a4a",
+      "full": "19c22b2c37f203eb530d3f691eb73c4afed8af992f52558cf77783176e4a187b"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "요로감염 진료 메모: 소변 변화·검사 결과·처방 질문 | 오누림",
+      "h1": [
+        "요로감염 진료 메모"
+      ],
+      "h2": [
+        "먼저, 소변 불편 외에 급한 변화가 있나요?",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/urinary-tract-infection-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "요로감염 진료 메모: 소변 변화·검사 결과·처방 질문 | 오누림",
+      "h1": [
+        "요로감염 진료 메모"
+      ],
+      "h2": [
+        "먼저, 소변 불편 외에 급한 변화가 있나요?",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/urinary-tract-infection-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "요로감염 진료 메모: 소변 변화·검사 결과·처방 질문 | 오누림",
+      "h1": [
+        "요로감염 진료 메모"
+      ],
+      "h2": [
+        "먼저, 소변 불편 외에 급한 변화가 있나요?",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/urinary-tract-infection-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "요로감염 진료 메모: 소변 변화·검사 결과·처방 질문 | 오누림",
+      "h1": [
+        "요로감염 진료 메모"
+      ],
+      "h2": [
+        "먼저, 소변 불편 외에 급한 변화가 있나요?",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/urinary-tract-infection-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "요로감염 진료 메모: 소변 변화·검사 결과·처방 질문 | 오누림",
+      "h1": [
+        "요로감염 진료 메모"
+      ],
+      "h2": [
+        "먼저, 소변 불편 외에 급한 변화가 있나요?",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/urinary-tract-infection-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

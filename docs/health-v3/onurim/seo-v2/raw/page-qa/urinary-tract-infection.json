@@ -1,33 +1,33 @@
 {
   "route": "/health/urinary-tract-infection",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T08:46:18.060Z",
+  "observedAt": "2026-09-06T15:59:27.256Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "d236ee761174cff4474a7bf747984dacac1004e36058b0e4ea8d3b10796ab4d9",
-      "full": "1656285d8d7d1ef114a113e6a739e50439e257f6c95dd3b09bde0d5765c27029"
+      "full": "8146f6b884d4d534323c081ab8fef574e4500c11672cf03ca70d6e98f61c7e7e"
     },
     {
       "width": 390,
       "top": "9f4c050e5811f8c58c53d19228ca5b69b50c141749101afb7a5926c7f532a700",
-      "full": "ba44be25bccb1bcb8724730ea5f905973d55363901c9e106fcf613738a722638"
+      "full": "1d6d7afedc2bf5b345e1ca1edc107af300f7e1d67c004ed26bfb366d5a9a1145"
     },
     {
       "width": 430,
       "top": "ed4456b789823ab47cc20ed1baabb43bc6e419dcc9509c96745f02d46d486bdc",
-      "full": "4a3933b8da8af8a455a0ce885b637e90a71d260bd20513e826293a4a2e503f6d"
+      "full": "df636aabeda6344cfad0b072870940bbe28aae77650da828fab7bb6f8be2cca6"
     },
     {
       "width": 768,
       "top": "be443ae6396d218e0d2582439522bd9d226d4c410c39a9a9ccffb436448ea66a",
-      "full": "9b89c9ed35faa07dcdddde26006f73784967ac771a2c998d06c5f2f3fee95e5d"
+      "full": "5d9cd79e8cb38ea93d64a8c7abf93c11afa7fffc6d3ebd662c8c8aca6b852657"
     },
     {
       "width": 1440,
       "top": "f1390abeda6b9c21a67dd9559dfa42a6112a70b9f32ec6d498ffb3eb62475062",
-      "full": "a432b179ff1c92da58da6f7aaff458c5edafb33dc59df58e06305dbc588530fa"
+      "full": "910012293fed6e8420cc31d1109a750798b06e09256d69cfd46355dc50b8be36"
     }
   ],
   "failures": [],
