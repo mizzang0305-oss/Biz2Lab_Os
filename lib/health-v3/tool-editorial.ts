@@ -16,6 +16,27 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "allergy-appointment-questions": {
+    title: "알레르기 비염 진료 질문지: 검사 준비·코 스프레이 사용법 확인",
+    description: "증상 사례와 현재 약·코·눈 제품을 질문에 연결하고, 검사 준비·제품별 사용법·다음 상담 시점을 적는 성인 진료용 인쇄 카드입니다. 필요한 검사나 약의 중단 기간을 대신 결정하지 않습니다.",
+    updatedAt: "2026-09-06",
+    purpose: "성인이 비염 증상으로 상담할 때 관찰 기록을 질문과 답변으로 옮기는 양식입니다. 빈칸은 진료 준비를 돕는 공간이며 모든 답을 미리 알아야 진료받을 수 있다는 뜻은 아닙니다.",
+    steps: [
+      "가장 설명하고 싶은 관찰 사례부터 적습니다. 시작 시각·장소와 코·눈·호흡·수면의 변화를 아는 만큼 남기며, 사례 하나를 고른다고 다른 중요한 증상을 생략하지 않습니다.",
+      "사용 중인 약과 코·눈 제품의 포장 또는 목록을 가져갑니다. 제품명·실제 사용법·불편했던 점을 구분하고 모르면 추측하지 않습니다. 검사기관에서 이미 받은 안내도 함께 준비합니다.",
+      "먼저 물을 질문에 표시하고 진료 중 답을 아래에 적습니다. 스프레이는 모두 같은 종류가 아니므로 해당 제품의 사용법·기간·문의 기준을 확인합니다.",
+      "검사가 예정되면 기관에 현재 제품명을 알려 준비 사항을 확인합니다. 피부검사에 영향을 줄 수 있는 약이 있지만 모든 검사·약에 같은 중단 규칙을 적용하지 않습니다. 임의로 약을 끊지 말고 안내가 어렵거나 불분명하면 다시 문의합니다.",
+    ],
+    example: "질문을 연결하는 예시: ‘제가 가져온 이 제품을 어떻게 사용해야 하나요?’ → 제품명과 받은 설명을 같이 적기. 답변 칸에는 확인한 준비 사항·다음 연락 시점·문의처를 구분하고 미확인 사항은 남겨 다시 묻습니다.",
+    limitation: "질문 선택은 진단이나 검사 처방이 아닙니다. 이 카드는 스프레이를 며칠 쓰거나 약을 며칠 쉬라는 지시를 제공하지 않습니다. 천식이 평소보다 악화되면 의료진에게 신속히 알리고 기존 개인 대처 계획을 따릅니다.",
+    sheetNotice: "숨쉬기 매우 어렵거나 의식이 흐려지는 등 위급한 변화가 있으면 비염이라고 단정하지 말고 즉시 119에 도움을 요청합니다. 예약일·검사·질문지 완성을 기다리지 않습니다.",
+    sourceIds: ["SRC-MEDLINEPLUS-AR-QUESTIONS", "SRC-MEDLINEPLUS-ALLERGY-SKIN-TEST", "SRC-NHS-AR", "SRC-KDCA-CPR"],
+    links: [
+      { href: "/health/tools/allergy-trigger-observation", label: "진료에 가져갈 증상 시각·장소·수면 관찰표" },
+      { href: "/health/guides/medication-list", label: "약·스프레이 제품명과 실제 사용법을 정리하는 목록" },
+      { href: "/health/guides/appointment-questions", label: "설명받은 다음 행동·문의처를 확인하는 진료 준비 순서" },
+    ],
+  },
   "allergy-environment-check": {
     indexDecision: "NOINDEX_FOLLOW",
     title: "비염 환경 변화 체크: 날짜와 관찰 사실을 확인하는 보조표",

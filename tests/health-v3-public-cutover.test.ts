@@ -25,13 +25,17 @@ test("ONURIM portfolio keeps twenty disease guides and source-audited SEO additi
   assert.equal(healthSupportGuides.length, 9);
   assert.equal(healthTools.length, 34);
   assert.equal(healthClaims.length, 144);
-  assert.equal(healthSources.length, 163);
+  assert.equal(healthSources.length, 165);
   assert.equal(new Set(healthSources.map(source => source.id)).size, healthSources.length);
   assert.equal(healthSources.find(source => source.id === "SRC-NIDDK-MANAGING")?.url,
     "https://www.niddk.nih.gov/health-information/diabetes/overview/managing-diabetes");
   assert.equal(healthSources.find(source => source.id === "SRC-CDC-DIABETES-FAMILY")?.url,
     "https://www.cdc.gov/diabetes/caring/index.html");
   assert.equal(trustPages.length, 12);
+  assert.equal(healthSources.find(source => source.id === "SRC-MEDLINEPLUS-AR-QUESTIONS")?.url,
+    "https://medlineplus.gov/ency/patientinstructions/000247.htm");
+  assert.equal(healthSources.find(source => source.id === "SRC-MEDLINEPLUS-ALLERGY-SKIN-TEST")?.url,
+    "https://medlineplus.gov/ency/article/003519.htm");
   for (const article of Object.values(healthArticles)) {
     assert.ok(article.sections.length >= 6, article.slug);
     assert.ok(article.sourceIds.length >= 3, article.slug);

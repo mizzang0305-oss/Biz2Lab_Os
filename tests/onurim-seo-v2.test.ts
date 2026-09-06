@@ -70,6 +70,19 @@ test("glucose log records real time and original units without prescribing a mon
   assert.doesNotMatch(JSON.stringify(tool), /mg\/dL|식후 2시간/);
 });
 
+test("rhinitis questions connect existing products to individual instructions without blanket medicine withdrawal", () => {
+  const tool = healthTools.find(t => t.slug === "allergy-appointment-questions")!;
+  assert.equal(tool.fields?.length, 2);
+  assert.equal(tool.items?.length, 4);
+  const copy = toolEditorial[tool.slug];
+  assert.match(copy.purpose, /성인이/);
+  assert.match(copy.steps.join(" "), /모든 검사·약에 같은 중단 규칙을 적용하지/);
+  assert.match(copy.steps.join(" "), /임의로 약을 끊지/);
+  assert.match(copy.sheetNotice!, /즉시 119/);
+  assert.ok(copy.sourceIds.includes("SRC-MEDLINEPLUS-ALLERGY-SKIN-TEST"));
+  assert.doesNotMatch(JSON.stringify(copy), /[35]일|\d+\s*mg|검수 완료/);
+});
+
 test("rhinitis environment checklist is a noindex observation aid, not an exposure experiment or score", () => {
   const tool = healthTools.find(t => t.slug === "allergy-environment-check")!;
   assert.equal(tool.items?.length, 4);

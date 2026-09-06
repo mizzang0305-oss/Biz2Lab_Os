@@ -1,0 +1,291 @@
+{
+  "route": "/health/tools/allergy-appointment-questions",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T13:15:33.103Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "c5e5f9f6b832d439153c2f555bc6f532e0055d02bb423e161fae58c421b2612f",
+      "full": "91af40b4c0463461a204e7537158e259d143386c5b0a74019f20504082a0d76b"
+    },
+    {
+      "width": 390,
+      "top": "18bc33400d3d2281b7027f5481a82cb60dd9b0c5135c6bf6db0499ab9b45f6b7",
+      "full": "6769d4cf7c9349d3dc74a6305338b413fb0fbe0230a32fa77409ba0a13afe503"
+    },
+    {
+      "width": 430,
+      "top": "732b9dcead623fe7ec59a5c59f16e33b5e68b7020648a3a0acb27ba9db262238",
+      "full": "475d8774df23a62d0720be99d8f8aaa639f9e62ab7da18e53f557ee68d94dd68"
+    },
+    {
+      "width": 768,
+      "top": "056090e6bccfb17a74063e8ff5d78c16d03099338d3c6fb88548a2a807c81689",
+      "full": "9098165ff4f2a7057b991b771d99dc360d9dcf85bb8e660ca0cca36a943a3af6"
+    },
+    {
+      "width": 1440,
+      "top": "3d1bb87147ee856f2de7d9a53d0568335441fd31cc1d07cadf965ac5d2fcf15f",
+      "full": "37302eb9cc6b850972f7b44ecbf3cee32203536798ab25190dadff0240423004"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "알레르기 비염 진료 질문지: 검사 준비·코 스프레이 사용법 확인 | 오누림",
+      "h1": [
+        "알레르기 비염 진료 질문 카드"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/allergy-appointment-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "알레르기 비염 진료 질문지: 검사 준비·코 스프레이 사용법 확인 | 오누림",
+      "h1": [
+        "알레르기 비염 진료 질문 카드"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/allergy-appointment-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "알레르기 비염 진료 질문지: 검사 준비·코 스프레이 사용법 확인 | 오누림",
+      "h1": [
+        "알레르기 비염 진료 질문 카드"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/allergy-appointment-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "알레르기 비염 진료 질문지: 검사 준비·코 스프레이 사용법 확인 | 오누림",
+      "h1": [
+        "알레르기 비염 진료 질문 카드"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/allergy-appointment-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "알레르기 비염 진료 질문지: 검사 준비·코 스프레이 사용법 확인 | 오누림",
+      "h1": [
+        "알레르기 비염 진료 질문 카드"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/allergy-appointment-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}
