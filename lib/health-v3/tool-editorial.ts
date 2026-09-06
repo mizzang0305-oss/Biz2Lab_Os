@@ -2,6 +2,7 @@ import { getSources, healthArticles, healthClaims, type HealthTool } from "./con
 
 export type ToolEditorial = {
   indexDecision?: "INDEX_UTILITY" | "NOINDEX_FOLLOW";
+  sheetNotice?: string;
   title: string;
   description: string;
   updatedAt: string;
@@ -15,6 +16,27 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "glucose-observation-log": {
+    title: "혈당 기록표: 실제 측정시각·기기 단위·식사와 활동",
+    description: "이미 혈당을 측정하는 사람이 실제 잰 시각, 기기의 원래 값과 단위, 식사·활동·증상을 함께 남기는 인쇄 양식입니다. 개인 측정 계획에 따라 기록하며 목표 혈당이나 인슐린량을 계산하지 않습니다.",
+    updatedAt: "2026-09-06",
+    purpose: "이미 의료진에게 안내받은 측정 계획으로 모은 결과를 진료에 가져갈 때 씁니다. 12줄은 인쇄 공간일 뿐 12번 측정이나 특정 기간의 권고가 아닙니다. 이 기록표로 측정을 새로 시작하거나 횟수를 늘리지 않습니다.",
+    steps: [
+      "한 줄에 한 번의 관찰을 적습니다. 날짜·시각은 표를 작성하는 시간이 아니라 실제 측정한 때입니다.",
+      "기기에 보인 원래 값과 단위를 함께 옮깁니다. 서로 다른 단위를 임의로 섞거나 환산하지 않습니다. 기기·측정 방법은 아는 범위에서 메모하고 모르는 것은 추측하지 않습니다.",
+      "식사한 실제 시각과 측정 전후 관계, 활동·증상·수면 등 평소와 다른 상황을 나란히 적습니다. 식사 후 정해진 시간에 새로 측정하라는 지시가 아닙니다.",
+      "원본 기록을 진료에 가져가 목표 범위 밖의 결과나 반복되는 변화를 어떻게 대처할지 확인합니다. 이상 표시·증상이 생기면 메모만 하고 예약일까지 기다리지 말고 기존 기기 안내·개인 대처 계획에 따라 도움을 구합니다.",
+    ],
+    example: "작성 위치 예시: 실제 측정 시각 → 날짜·시각 칸 / 화면에 보인 결과 → 값·단위 칸 / 식사를 언제 했는지 → 식사 칸. 기억나지 않는 시각은 ‘미확인’으로 남깁니다. 가상의 정상값이나 좋은 기록 예시는 제시하지 않습니다.",
+    limitation: "기록만으로 HbA1c·평균·정상 여부를 판정하거나 약·인슐린량을 결정하지 않습니다. 미리 받은 개인 조절·저혈당 대처 계획은 따르고 불분명한 부분은 의료진에게 확인합니다. 위급한 변화에는 기록보다 도움 요청이 먼저입니다.",
+    sheetNotice: "의식이 흐려지거나 반응이 없거나 경련·심한 호흡곤란이 있으면 기록 대신 즉시 119에 연락합니다. 의식이 없거나 안전하게 삼킬 수 없는 사람에게 음식·물·약을 억지로 먹이지 않습니다.",
+    sourceIds: ["SRC-NIDDK-MANAGING", "SRC-NIDDK-LIVING", "SRC-NHS-LOW-GLUCOSE", "SRC-CDC-DKA", "SRC-KDCA-CPR"],
+    links: [
+      { href: "/health/guides/understanding-hba1c", label: "한 번의 혈당 기록과 HbA1c가 다른 이유" },
+      { href: "/health/tools/diabetes-questions", label: "측정 계획과 결과를 확인할 당뇨병 진료 질문" },
+      { href: "/health/guides/medication-list", label: "기록과 함께 가져갈 현재 약 목록" },
+    ],
+  },
   "blood-pressure-warning": {
     indexDecision: "NOINDEX_FOLLOW",
     title: "119 경고 카드: 혈압 기록보다 도움 요청이 먼저인 때",

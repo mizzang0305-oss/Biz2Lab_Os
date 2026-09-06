@@ -453,6 +453,7 @@
 :global(.onurim-tool-example) { padding: 1rem; border-left: 4px solid var(--onu-green); background: var(--onu-mint-soft); }
 :global(.onurim-tool-fields) { display: grid; gap: 1rem; }
 :global(.onurim-tool-item-group + .onurim-tool-item-group) { margin-top: 1.5rem; }
+:global(.onurim-tool-sheet-notice) { padding: 0.6rem; border: 1px solid #efb3a5; background: var(--onu-warning-bg); color: var(--onu-warning); break-inside: avoid; }
 :global(.onurim-tool-fields > div) { break-inside: avoid; }
 :global(.onurim-tool-fields dt) { font-weight: 700; }
 :global(.onurim-tool-fields dd) { min-height: 4rem; margin: 0; border-bottom: 1px solid #879d97; }

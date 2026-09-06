@@ -40,6 +40,21 @@ test("tool sources resolve to documents and print safety remains visible", () =>
   assert.match(print, /attr\(href\)/);
 });
 
+test("glucose log records real time and original units without prescribing a monitoring schedule", () => {
+  const tool = healthTools.find(t => t.slug === "glucose-observation-log")!;
+  assert.equal(tool.rows, 12);
+  assert.equal(tool.columns?.length, 7);
+  assert.match(tool.columns![0], /실제 측정시각/);
+  assert.match(tool.columns![1], /표시값·단위/);
+  const copy = toolEditorial[tool.slug];
+  assert.match(copy.purpose, /12번.*권고가 아닙니다/);
+  assert.match(copy.steps.join(" "), /기존 기기 안내·개인 대처 계획/);
+  assert.match(copy.sheetNotice!, /119/);
+  assert.match(copy.sheetNotice!, /억지로 먹이지/);
+  assert.ok(copy.sourceIds.includes("SRC-NIDDK-MANAGING"));
+  assert.doesNotMatch(JSON.stringify(tool), /mg\/dL|식후 2시간/);
+});
+
 test("each edited utility has distinct grounded metadata and existing contextual destinations", () => {
   const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s => `/health/${s}`),
     ...healthSupportGuides.map(g => `/health/guides/${g.slug}`), ...healthTools.map(t => `/health/tools/${t.slug}`), ...trustPages.map(t => `/health/trust/${t.slug}`)]);

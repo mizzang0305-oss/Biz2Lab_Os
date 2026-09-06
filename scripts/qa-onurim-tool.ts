@@ -33,15 +33,35 @@ async function run() {
     const table = page.locator(".onurim-table-scroll");
     let horizontalNavigation = null;
     if (await table.count()) {
-      await table.focus(); await page.keyboard.press("End");
+      await table.focus(); await page.keyboard.press("ArrowRight");
+      await page.waitForFunction(e => e instanceof HTMLElement && e.scrollLeft > 0, await table.elementHandle());
+      // Wait for the real keyboard scroll to settle, rather than racing its animation.
+      await table.evaluate(async e => {
+        let previous = `${window.scrollY}:${e.scrollLeft}`;
+        let stable = 0;
+        for (let frames = 0; frames < 180; frames++) {
+          await new Promise<void>(resolve => requestAnimationFrame(() => resolve()));
+          const current = `${window.scrollY}:${e.scrollLeft}`;
+          stable = current === previous ? stable + 1 : 0;
+          previous = current;
+          if (stable >= 12) return;
+        }
+        throw new Error("Keyboard scroll did not settle");
+      });
+      const keyboardMovedRight = await table.evaluate(e => e.scrollLeft > 0);
       horizontalNavigation = await table.evaluate(e => {
         e.scrollLeft = e.scrollWidth;
-        return { client: e.clientWidth, total: e.scrollWidth, reachedRight: e.scrollLeft > 0 || e.scrollWidth <= e.clientWidth };
+        return { client: e.clientWidth, total: e.scrollWidth, reachedRight: e.scrollLeft >= e.scrollWidth - e.clientWidth - 1 };
       });
+      horizontalNavigation = { ...horizontalNavigation, keyboardMovedRight };
       if (!horizontalNavigation.reachedRight) failures.push("Table scroll unreachable");
       await page.setViewportSize({ width: 390, height: 1500 });
-      await table.evaluate(e => e.scrollIntoView({ block: "center" }));
-      await table.screenshot({ path: path.join(out, "390-table-right.png") });
+      await table.evaluate(e => window.scrollTo({ top: Math.max(0, window.scrollY + e.getBoundingClientRect().top - 180), behavior: "instant" }));
+      await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+      const placement = await table.evaluate(e => ({ top: e.getBoundingClientRect().top, bottom: e.getBoundingClientRect().bottom, headerBottom: document.querySelector("body > header")!.getBoundingClientRect().bottom, viewportHeight: innerHeight }));
+      if (placement.top < placement.headerBottom || placement.bottom > placement.viewportHeight) failures.push("Table obscured in mobile screenshot");
+      horizontalNavigation = { ...horizontalNavigation, placement };
+      await page.screenshot({ path: path.join(out, "390-table-right.png"), fullPage: false });
       await page.setViewportSize({ width: 390, height: 844 });
     }
     const checkbox = page.locator('.onurim-print-sheet input[type="checkbox"]').first();

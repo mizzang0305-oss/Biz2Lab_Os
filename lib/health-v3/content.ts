@@ -209,6 +209,14 @@ export const healthSources: HealthSource[] = [
     retrievedAt: "2026-08-24",
   },
   {
+    id: "SRC-NIDDK-MANAGING",
+    organization: "NIH/NIDDK",
+    title: "Managing Diabetes",
+    url: "https://www.niddk.nih.gov/health-information/diabetes/overview/managing-diabetes",
+    sourceDate: "2023-10 (Last Reviewed)",
+    retrievedAt: "2026-09-06",
+  },
+  {
     id: "SRC-KDCA-CPR",
     organization: "질병관리청 국가건강정보포털",
     title: "심폐소생술",
@@ -854,7 +862,7 @@ export const healthTools: HealthTool[] = [
     description: "이미 측정 중인 사람이 숫자와 생활 맥락을 함께 적는 기록지입니다.",
     claimIds: ["DIA-B1-006", "DIA-B1-011"],
     kind: "log",
-    columns: ["날짜", "식사 시점", "활동", "측정값(측정 중인 경우)", "증상", "수면", "메모"],
+    columns: ["날짜·실제 측정시각", "기기 표시값·단위", "식사 시각·전후 관계", "활동", "증상", "수면·평소와 다른 상황", "기기·기타 메모"],
     rows: 12,
   },
   {

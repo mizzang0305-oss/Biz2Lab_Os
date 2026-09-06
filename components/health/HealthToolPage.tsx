@@ -54,6 +54,7 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
 
       {tool.kind !== "warning" ? <section className="onurim-print-sheet" aria-labelledby="print-sheet-title">
         <h2 id="print-sheet-title">인쇄해서 작성할 양식</h2>
+        {editorial?.sheetNotice ? <p className="onurim-tool-sheet-notice">{editorial.sheetNotice}</p> : null}
         <div className="onurim-print-intro">
           <p><strong>구분 표시(실명 불필요):</strong> ____________________</p>
           <p><strong>작성 날짜·기간:</strong> ____________________</p>
