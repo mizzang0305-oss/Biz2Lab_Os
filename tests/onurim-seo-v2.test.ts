@@ -173,6 +173,32 @@ test("SEO citation counts include declared professional-society sources without 
   assert.match(audit, /DECLARED_SOURCE_BLOCK_NOT_QUALITY_VERDICT/);
 });
 
+test("gout separates serum urate, acute joint assessment and individual long-term goals", () => {
+  const article = healthArticles.gout;
+  assert.equal(article.archetype, "MYTH_FIRST");
+  assert.equal(article.sections.length, 7);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  const text = JSON.stringify(article);
+  assert.match(text, /열이 날 때까지 기다리라는 뜻이 아닙니다/);
+  assert.match(text, /다른 사람의 약을 사용하지 마세요/);
+  assert.match(text, /검사를 위해 약을 스스로 끊지 않습니다/);
+  assert.match(text, /식품의 공통 목록이나 약 용량을 정하지 않습니다/);
+  assert.doesNotMatch(text, /\d+\s*(mg\/dL|리터|mg|주 뒤)|콜히친.*복용하면.*진단/);
+  const urgent = article.sections.find(s=>s.tone==="warning")!;
+  assert.ok(urgent.sourceIds?.includes("SRC-NHS-SEPTIC-ARTHRITIS"));
+  assert.ok(urgent.paragraphs);
+  assert.match(urgent.paragraphs[0], /즉시 119에 연락합니다/);
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
 test("sleep apnea separates family observations and medical testing without device prescriptions", () => {
   const article = healthArticles["sleep-apnea"];
   assert.equal(article.archetype, "FAMILY_SITUATION");
