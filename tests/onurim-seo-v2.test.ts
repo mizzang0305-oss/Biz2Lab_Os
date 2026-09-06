@@ -36,6 +36,23 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("obesity memo preserves consent and actual changes without prescribing weight targets", () => {
+  const tool = healthTools.find(t => t.slug === "obesity-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.equal(tool.title, "비만 상담 메모");
+  assert.match(copy.purpose, /먼저 동의와 공유할 범위/);
+  assert.match(copy.steps.join(" "), /이미 안내받은 개인 기록 계획은 따릅니다/);
+  assert.match(copy.steps.join(" "), /시기가 겹쳐도 원인을 확정하거나 약을 끊지/);
+  assert.match(copy.sheetNotice!, /숨참 또는 가슴 압박/);
+  assert.match(copy.sheetNotice!, /즉시 119/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 5);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(kg|kcal|mg|점 이상)/);
+});
+
 test("tool sources resolve to documents and print safety remains visible", () => {
   for (const tool of healthTools) {
     const sources = getToolSources(tool);
@@ -54,6 +71,7 @@ test("tool sources resolve to documents and print safety remains visible", () =>
   const qa = readFileSync("scripts/qa-onurim-tool.ts", "utf8");
   assert.match(qa, /Checkbox keyboard reset failed/);
   assert.match(qa, /state.checkedItems !== 0/);
+  assert.match(qa, /if \(state.focusedCheckbox\)/);
 });
 
 test("glucose log records real time and original units without prescribing a monitoring schedule", () => {

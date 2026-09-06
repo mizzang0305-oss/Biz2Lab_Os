@@ -74,6 +74,8 @@ async function run() {
       if (!checkboxToggled) failures.push("Checkbox keyboard failed");
       await page.keyboard.press("Space");
       if (await checkbox.isChecked()) failures.push("Checkbox keyboard reset failed");
+      // Leave a genuinely neutral blank worksheet after the keyboard test.
+      await checkbox.evaluate(input => (input as HTMLInputElement).blur());
     }
     await page.setViewportSize({ width: 794, height: 1123 });
     await page.emulateMedia({ media: "print" });
@@ -86,11 +88,13 @@ async function run() {
       footerText: document.querySelector(".onurim-tool-footer")!.textContent,
       fields: document.querySelectorAll(".onurim-tool-fields dt").length,
       checkedItems: document.querySelectorAll('.onurim-print-sheet input[type="checkbox"]:checked').length,
+      focusedCheckbox: document.activeElement?.matches('.onurim-print-sheet input[type="checkbox"]') ?? false,
       footerParagraphFontPx: [...document.querySelectorAll(".onurim-tool-footer p")].map(e => parseFloat(getComputedStyle(e).fontSize)),
     }));
-    const state = printState as { footerVisible: boolean; siteHeaderHidden: boolean; siteFooterHidden: boolean; overflow: number; checkedItems: number; footerParagraphFontPx: number[] };
+    const state = printState as { footerVisible: boolean; siteHeaderHidden: boolean; siteFooterHidden: boolean; overflow: number; checkedItems: number; focusedCheckbox: boolean; footerParagraphFontPx: number[] };
     if (!state.footerVisible || !state.siteHeaderHidden || !state.siteFooterHidden || state.overflow > 0) failures.push("Print visibility/overflow");
     if (state.checkedItems !== 0) failures.push("Printed worksheet contains test checkmarks");
+    if (state.focusedCheckbox) failures.push("Printed worksheet retains test checkbox focus");
     if (!state.footerParagraphFontPx.length || state.footerParagraphFontPx.some(size => Math.abs(size - 12) > 0.01)) failures.push("Print footer 9pt rule was overridden");
     await page.pdf({ path: path.join(out, "worksheet.pdf"), format: "A4", printBackground: true, margin: { top: "12mm", right: "12mm", bottom: "12mm", left: "12mm" } });
     await page.screenshot({ path: path.join(out, "print-layout.png"), fullPage: true });

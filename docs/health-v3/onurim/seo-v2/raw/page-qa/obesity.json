@@ -1,33 +1,33 @@
 {
   "route": "/health/obesity",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T05:49:38.108Z",
+  "observedAt": "2026-09-06T14:43:58.441Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "b6afe5a33a0e10e447f241d292f8630ca53d1bf0a976627871b72f55f0aaef94",
-      "full": "d23f1b8c117b8e078e43088e0fcf50bd98c63d6ead311c8deb0e64971a5fc007"
+      "full": "42e44157afe4fd4882d907a87de63e72e53635e282f205a0d6dafa38abab1e59"
     },
     {
       "width": 390,
       "top": "93dc44e75aa07a09ebb326081066cecb92d548726a2e9d59d5c2a50d9163116c",
-      "full": "dfdf38a38419c76114710baa29a4d7532c4f6b9223c2aca678d461bab8150aad"
+      "full": "2511472e3cfbca76d0185ac5ea5bfb10b864d858cfb8617c3ee36f3963e17f40"
     },
     {
       "width": 430,
       "top": "15cf76134aa56309cb9032a6258d39101888a4e0d861bbbc00cf297ccb895bfe",
-      "full": "670856bccd918ec87d3caed40af012b1b5931f4d3649689f9eba42be369bbc57"
+      "full": "11cb1c93c0b81b810279a172f4a3a0768bd19ab339dc472ccf1a26f32b705291"
     },
     {
       "width": 768,
       "top": "662032e9f8b2170d18ce6984b4b2e8b2b31c07253bd408bc6d21f32196b1de25",
-      "full": "47cf6be294ac0a8331488f7c488a66ae1dc5c2247e447827e9bc01fe58d22b11"
+      "full": "91861b2f570c86d376b483066ab01ebf89c41af90933066c55ef79b4dfeba35a"
     },
     {
       "width": 1440,
       "top": "b05b90bb9247cfaf07b1afaf7da7da3d92e73a907a9cb203ab115446b1100117",
-      "full": "382f2a0fe56623b7366c7ad8b024dc226e0ea62cbae740bb30ef7b1f2f4c8b5a"
+      "full": "82b51a25662f904be3946b6c3b659303b8c13f3004d3d2d51aba988ca33da72b"
     }
   ],
   "failures": [],

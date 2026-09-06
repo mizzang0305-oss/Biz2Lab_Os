@@ -72,6 +72,7 @@ const guides: GuideConfig[] = [
   {
     slug: "obesity",
     prefix: "OBS",
+    toolSummary: { title: "비만 상담 메모", description: "체중과 함께 달라진 생활·약, 본인이 원하는 도움과 상담 질문을 정리하는 인쇄 보조표입니다." },
     title: "비만",
     cluster: "대사·내분비",
     archetype: "FAMILY_SITUATION",
@@ -82,8 +83,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 체중 변화의 흐름, 관련 질환, 복용 약, 수면과 생활 여건을 함께 확인할 수 있습니다.",
     careBoundary: "빠른 감량을 약속하는 식단·보충제·약을 스스로 시작하지 않습니다. 목표와 속도는 현재 건강 상태를 아는 의료진과 정합니다.",
     urgent: "실신, 의식 저하, 새롭고 심한 가슴 통증이나 호흡곤란이 있으면 체중 문제로 단정하지 말고 119에 도움을 요청합니다.",
-    observationItems: ["최근 체중 변화의 시기", "수면과 활동 변화", "현재 질환과 복용 약", "일상에서 실제로 어려운 점"],
-    questions: ["체중 외에 함께 볼 건강 지표는 무엇인가요?", "현재 약이나 수면이 영향을 줄 수 있나요?", "제게 안전하고 현실적인 목표는 무엇인가요?"],
+    observationItems: ["체중·옷의 맞음새 변화 시기 / 함께 생긴 불편", "수면·일상 여건 / 현재 질환·약·보충제와 변경 시기", "먼저 상담할 어려움 / 원하는 도움·혼자 하고 싶은 일"],
+    questions: ["제 변화와 불편은 체중 외에 무엇을 함께 확인해야 하나요?", "현재 몸 상태와 생활 여건에서 가능한 계획·지원은 무엇인가요?", "제안받은 방법의 기대 효과·부담과 경과를 확인할 때·문의처는 무엇인가요?"],
     sources: [
       { id: "SRC-NIDDK-OBESITY-DEFINITION", organization: "NIH/NIDDK", title: "Definition & Facts for Adult Overweight & Obesity", url: "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/definition-facts", sourceDate: "2024" },
       { id: "SRC-NIDDK-OBESITY-FACTORS", organization: "NIH/NIDDK", title: "Factors Affecting Weight & Health", url: "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/factors-affecting-weight-health", sourceDate: "2024" },

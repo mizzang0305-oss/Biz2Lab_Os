@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/obesity-visit-card",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T14:47:24.755Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "33155e47487856c210fa5a8a5f30c07f418a3c321b72c3cdc584fb0ea70efdfe",
+      "full": "48c78892afd1bb66ba2eaef28346d724fbaaaf1ec6bddc25573d501f43ce89cc"
+    },
+    {
+      "width": 390,
+      "top": "46f9785ba258b18ecbc9d5d98469744aa0a5abe6f1d9774d36ced9f90f50cc25",
+      "full": "a40d96b552eccf28c3afe59e3dd5359346a0327c9fb9653e63c81f350b5cd41f"
+    },
+    {
+      "width": 430,
+      "top": "621fbd611c264e7bd4c7890c8f029ef958515fd90f267369721d54c315b3a51a",
+      "full": "7ca5e4e0c5b153bacbfd94e4f3295fd18444d6f2ee61808246c0bbdbe515aa18"
+    },
+    {
+      "width": 768,
+      "top": "c5c2106776294fd5d8850dea027d7e612bc41b5f17ffdd74d27a89854a4f5039",
+      "full": "8c4e4a25d23ea4a7bb89ce27f7fc8b4958b664556f8ae82b265918bd26df284f"
+    },
+    {
+      "width": 1440,
+      "top": "376139f70c478dff0cf016309847e465f5cc643f452dd56d5430b9f02eb9bada",
+      "full": "758e872c1bdea11a85c015bbd8cf6a0af3faa95695cd59aa13ae9a2ddd910ce8"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "비만 상담 메모: 체중 변화·생활의 어려움·원하는 도움 | 오누림",
+      "h1": [
+        "비만 상담 메모"
+      ],
+      "h2": [
+        "갑작스러운 증가와 붓기는 ‘살이 쪘다’로 넘기지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/obesity-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "비만 상담 메모: 체중 변화·생활의 어려움·원하는 도움 | 오누림",
+      "h1": [
+        "비만 상담 메모"
+      ],
+      "h2": [
+        "갑작스러운 증가와 붓기는 ‘살이 쪘다’로 넘기지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/obesity-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "비만 상담 메모: 체중 변화·생활의 어려움·원하는 도움 | 오누림",
+      "h1": [
+        "비만 상담 메모"
+      ],
+      "h2": [
+        "갑작스러운 증가와 붓기는 ‘살이 쪘다’로 넘기지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/obesity-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "비만 상담 메모: 체중 변화·생활의 어려움·원하는 도움 | 오누림",
+      "h1": [
+        "비만 상담 메모"
+      ],
+      "h2": [
+        "갑작스러운 증가와 붓기는 ‘살이 쪘다’로 넘기지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/obesity-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "비만 상담 메모: 체중 변화·생활의 어려움·원하는 도움 | 오누림",
+      "h1": [
+        "비만 상담 메모"
+      ],
+      "h2": [
+        "갑작스러운 증가와 붓기는 ‘살이 쪘다’로 넘기지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/obesity-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

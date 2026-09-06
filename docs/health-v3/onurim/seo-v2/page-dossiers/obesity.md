@@ -33,6 +33,10 @@ FAMILY_SITUATION을 실제 순서에 구현: 동의와 원하는 도움 → 지�
 
 이 페이지 변경에서 기존 expansion70 Claim records를 HEAD의 TS를 읽기 전용으로 평가한 객체와 비교해 완전 일치 확인. 나머지 content/medical-review 모듈 diff0, 전체144 유지. 기존47에는 비만 article/source와의 교집합0으로 패킷도 직전 HEAD와 불변. packetHash `4bc7630fce8a29d8e55eae2f314ebf0f5983530624bcd50b7a2459dfbd8c4a64`. SEO 신규 설명이 원래47에 포함되거나 임상 검수됐다는 뜻은 아니다. MEDICAL_REVIEW_COMPLETED=NO, REAL_HUMAN_READER_TEST=NOT_PERFORMED.
 
+## Tool22 연결 재확인 — 2026-09-06
+
+도구의 부모 카드 제목·소개를 ‘비만 상담 메모’와 실제 작업 설명으로 바꾸고 ‘한 장’ 약속을 제거했다. 본문·claim 수정 없음. 부모5폭 UI/SEO 재실행 fail0, raw/page-qa/obesity.json는 이 재검사 관찰이다. 도구의 NOINDEX_FOLLOW는 부모 가이드의 index허용을 바꾸지 않는다. 아래 전체suite/build는 초기 가이드 작업 당시 결과다.
+
 ## 이미지
 
 기존3개 직접 확인 후 장식 hero는 의미의 한계를 정확히 적었다. 기존 추상 concept/action은 보존하고 imagegen 원본2개로 교체. 피하/복벽 안 장 사이 지방은 위치만, 생활 지원은 본인의 동의를 받은 선택지만 설명한다. Main·독립 Astra가 실제 새 그림을 보고 재생성이 필요한 P0/P1/P2 미발견. SOURCE_CONCEPT_CHECKED, clinicalReviewCompleted=false. 정확한 prompts/raw/SHA는 `../raw/obesity-image-generation.md`.

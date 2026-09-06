@@ -17,6 +17,27 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "obesity-visit-card": {
+    indexDecision: "NOINDEX_FOLLOW",
+    inheritParentWarning: true,
+    title: "비만 상담 메모: 체중 변화·생활의 어려움·원하는 도움",
+    description: "비만 가이드를 읽은 성인이 체중과 함께 달라진 수면·약·일상, 먼저 물을 질문과 원하는 도움을 적는 인쇄 보조표입니다. 감량 목표·열량·BMI 판정을 계산하지 않습니다.",
+    updatedAt: "2026-09-06",
+    purpose: "상담에서 본인이 중요하게 여기는 불편부터 이야기할 때 씁니다. 가족이 대신 작성한다면 먼저 동의와 공유할 범위를 묻습니다. 이는 대화를 돕는 편집 제안이지 가족이 치료를 관리하는 절차가 아닙니다.",
+    steps: [
+      "체중·옷의 맞음새 변화와 함께 생긴 불편을 적고 모르는 날짜·수치는 미확인으로 남깁니다. 이 메모를 위해 매일 측정하거나 모든 식사를 새로 기록해야 하는 것은 아닙니다. 이미 안내받은 개인 기록 계획은 따릅니다.",
+      "수면·근무·돌봄 등 달라진 생활 여건과 현재 약·보충제의 변경 시기를 구분합니다. 시기가 겹쳐도 원인을 확정하거나 약을 끊지 않습니다. 기존 결과표·약 목록이 있으면 함께 가져갑니다.",
+      "먼저 물을 질문에 표시하고 들은 계획·지원·다시 확인할 때를 답변 칸에 남깁니다. 가족 동행을 원하지 않아도 괜찮으며, 빈칸을 채우느라 진료를 미루지 않습니다.",
+    ],
+    example: "메모 위치 예시: 옷이 달라진 때 → 변화 시기 / 교대근무로 잠들기 어려움 → 생활 여건 / 혼자 상담하고 싶음 → 원하는 도움·선택. 실제로 겪은 일을 적고 숫자나 식사 내용을 꾸며 넣지 않습니다.",
+    limitation: "체중 변화만으로 지방량이나 질환을 판단하지 않습니다. 성인 상담용이며 아동·청소년·임신 중의 감량 계획으로 적용하지 않습니다. 빠른 감량 식단·약·보충제를 스스로 시작하거나 다른 사람의 목표를 가져오지 않습니다.",
+    sheetNotice: "이유 없이 갑자기 체중이 늘거나 새로 붓는다면 의료기관에 연락해 진료 시점을 확인합니다. 붓기와 숨참 또는 가슴 압박·조임이 함께 있으면 즉시 119에 도움을 요청합니다. 심한 호흡곤란·의식 저하도 119가 먼저이며 메모 완성을 기다리지 않습니다.",
+    sourceIds: ["SRC-NIDDK-OBESITY-FACTORS", "SRC-NIDDK-WEIGHT-CONVERSATION"],
+    links: [
+      { href: "/health/guides/medication-list", label: "약·보충제와 실제 변경 시기를 남기는 목록" },
+      { href: "/health/guides/appointment-questions", label: "먼저 물을 질문과 다음 계획을 확인하는 대화" },
+    ],
+  },
   "dyslipidemia-visit-card": {
     indexDecision: "INDEX_UTILITY",
     inheritParentWarning: true,
