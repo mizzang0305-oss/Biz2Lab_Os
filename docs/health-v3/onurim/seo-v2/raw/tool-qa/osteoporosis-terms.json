@@ -1,0 +1,54 @@
+{
+  "route": "/health/tools/osteoporosis-terms",
+  "observedAt": "2026-09-06T14:25:25.550Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [],
+  "sourceHrefs": [
+    "https://www.niams.nih.gov/health-topics/bone-mineral-density-tests-what-numbers-mean",
+    "https://www.niams.nih.gov/health-topics/osteoporosis/diagnosis-treatment-and-steps-to-take"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": null,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 2,
+    "overflow": 0,
+    "footerText": "골밀도 검사 용어 카드 · 양식·안내 수정 2026-09-06교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료NIH/NIAMS — Bone Mineral Density Tests: What the Numbers MeanNIH/NIAMS — Osteoporosis: Diagnosis, Treatment, and Steps to Take의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 0,
+    "checkedItems": 0,
+    "footerParagraphFontPx": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "links": [
+    {
+      "href": "/health/osteoporosis",
+      "status": 200
+    },
+    {
+      "href": "/health/tools/osteoporosis-appointment-prep",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/reading-health-results",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "74089714580b529941655cee88075b3b50705693759a66b588b3c4baed149029",
+  "pdfBytes": 86208,
+  "failures": []
+}

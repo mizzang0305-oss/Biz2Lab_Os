@@ -17,6 +17,24 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "osteoporosis-terms": {
+    indexDecision: "NOINDEX_FOLLOW",
+    title: "골밀도 검사 용어 카드: BMD·DXA·T점수·Z점수 구분",
+    description: "골밀도 결과지 옆에 두고 BMD라는 측정 정보, DXA 검사 방법, 비교 기준이 다른 T점수·Z점수를 구분하는 인쇄용 참고지입니다. 진단 수치표나 골절 위험 계산기가 아닙니다.",
+    updatedAt: "2026-09-06",
+    purpose: "골다공증 가이드의 검사 해설을 읽은 뒤 용어만 다시 확인할 때 씁니다. 결과 원본을 대신하지 않으며 숫자를 입력하거나 판정하는 기능은 없습니다.",
+    steps: [
+      "원본에서 검사 날짜·측정부위와 표시 이름을 함께 봅니다. 아래 설명으로 검사 방법과 비교 점수를 구분하되, 다른 날짜·부위의 숫자를 그대로 같은 기준으로 비교하지 않습니다.",
+      "본인에게 적용하는 비교 기준과 결과 의미를 의료진에게 확인합니다. 골절·낙상 이력이나 현재 약 등 함께 알릴 정보는 진료 준비표로 정리합니다.",
+    ],
+    example: "DXA라는 검사 이름과 T-score라는 결과 표시는 같은 종류의 정보가 아닙니다. ‘제 결과는 어떤 기준으로 해석하나요?’라는 질문으로 연결합니다.",
+    limitation: "T점수와 Z점수를 바꿔 적용하거나 한 숫자로 골다공증·골절 위험을 확정하지 않습니다. 진단·치료는 나이와 골절 위험요인 등 개인 상황을 함께 평가합니다. 약·보충제의 시작·중단·변경은 이 카드로 결정하지 않습니다.",
+    sourceIds: ["SRC-NIAMS-BMD", "SRC-NIAMS-OP-TREATMENT"],
+    links: [
+      { href: "/health/tools/osteoporosis-appointment-prep", label: "결과 원본·골절 이력을 모아 질문할 진료 준비표" },
+      { href: "/health/guides/reading-health-results", label: "검사표 이름·단위·설명과 개인 판단을 구분하기" },
+    ],
+  },
   "osteoporosis-home-check": {
     indexDecision: "INDEX_UTILITY",
     inheritParentWarning: true,

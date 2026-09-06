@@ -607,6 +607,20 @@ test("article source count badges count distinct sources instead of claim IDs", 
   assert.doesNotMatch(component, /출처 연결 \{ids\.length\}/);
 });
 
+test("bone density reference separates method and comparator without a self-diagnosis form", () => {
+  const tool = healthTools.find(t=>t.slug==="osteoporosis-terms")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.kind, "guide");
+  assert.equal(tool.fields, undefined);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(getToolSources(tool).length, 2);
+  assert.match(tool.items![2], /젊은 성인/);
+  assert.match(tool.items![3], /연령·성별·인종/);
+  assert.match(copy.limitation, /바꿔 적용/);
+  assert.doesNotMatch(JSON.stringify([copy, tool.items]), /-2\.5|위험.*\d+\s*%|\d+\s*mg/);
+});
+
 test("fall environment worksheet separates observation from resolution without unsafe home trials", () => {
   const tool = healthTools.find(t=>t.slug==="osteoporosis-home-check")!;
   const copy = toolEditorial[tool.slug];
