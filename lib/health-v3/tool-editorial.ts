@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "osteoporosis-home-check": {
+    indexDecision: "INDEX_UTILITY",
+    inheritParentWarning: true,
+    title: "낙상 위험 집안 점검표: 통로·조명과 아직 해결하지 못한 곳",
+    description: "통로·전선·매트·야간 조명·욕실과 계단을 살피고 발견한 문제, 필요한 도움과 다시 확인할 때를 남기는 인쇄 양식입니다. 점검 표시와 문제 해결을 구분하며 골절 위험 점수를 내지 않습니다.",
+    updatedAt: "2026-09-06",
+    purpose: "집안 이동 환경에서 손볼 곳을 정리하는 표입니다. 집 전체의 안전을 인증하거나 골다공증 검사·치료를 대신하지 않습니다.",
+    steps: [
+      "통로의 물건·전선, 매트 들뜸·미끄러짐, 야간 조명, 욕실·계단의 손잡이와 미끄러운 바닥을 안전한 위치에서 살핍니다. 위험하거나 혼자 살피기 어렵다면 멈추고 도움 필요로 남깁니다.",
+      "살핀 항목만 체크하고 장소·문제를 첫 칸에 적습니다. 체크는 살펴봤다는 표시이지 문제 해결의 뜻이 아닙니다. 해당 없음·미확인도 구분합니다.",
+      "두 번째 칸에는 필요한 도움·의논할 사람·다시 확인할 때를 적습니다. 손잡이 설치나 무거운 가구 이동을 혼자 하거나, 조명을 끄고 걷기·미끄러짐을 재현하며 시험하지 않습니다. 해결되지 않은 곳은 그대로 남겨 안전한 개선 방법을 상의합니다.",
+    ],
+    example: "메모 위치 예시: 침실~화장실 통로 → 장소 / 전선이 지나감 → 발견한 점 / 안전한 배치 변경을 도와줄 사람과 상의 → 다음 행동. 본인이 살핀 사실만 적습니다.",
+    limitation: "체크 수로 골절 가능성이나 보행·균형 능력을 계산하지 않습니다. 넘어졌던 일이나 균형·보행의 변화는 집을 정리하는 것으로만 끝내지 말고 의료진에게 알립니다. 현재 약과 질환도 함께 검토할 수 있으며 약을 스스로 끊거나 새 운동을 시험하지 않습니다.",
+    sheetNotice: "다친 뒤 고관절·사타구니의 심한 통증이나 걷기·체중 부하 불가, 다친 고관절·다리의 저림·감각 저하가 있으면 의식이 또렷해도 즉시 119에 도움을 요청합니다. 직접 운전하거나 점검을 끝내려고 기다리지 않습니다. 의식·호흡의 위급한 변화도 119가 먼저입니다.",
+    sourceIds: ["SRC-NIAMS-OP-TREATMENT", "SRC-NHS-HIP-FRACTURE"],
+    links: [
+      { href: "/health/tools/osteoporosis-appointment-prep", label: "낙상 이력·검사 원본·약을 함께 가져갈 진료 준비" },
+      { href: "/health/guides/older-parent-health-organizer", label: "당사자와 상의해 일상 변화와 동행 도움을 정리하기" },
+      { href: "/health/guides/medication-list", label: "균형 변화와 함께 상담할 실제 약·보충제 목록" },
+    ],
+  },
   "osteoporosis-appointment-prep": {
     indexDecision: "INDEX_UTILITY",
     inheritParentWarning: true,

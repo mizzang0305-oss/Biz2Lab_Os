@@ -607,6 +607,20 @@ test("article source count badges count distinct sources instead of claim IDs", 
   assert.doesNotMatch(component, /출처 연결 \{ids\.length\}/);
 });
 
+test("fall environment worksheet separates observation from resolution without unsafe home trials", () => {
+  const tool = healthTools.find(t=>t.slug==="osteoporosis-home-check")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 2);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(getToolSources(tool).length, 3);
+  assert.ok(getToolSafetyNotice(tool));
+  assert.match(copy.steps.join(" "), /체크는 살펴봤다는 표시/);
+  assert.match(copy.steps.join(" "), /미끄러짐을 재현하며 시험하지/);
+  assert.match(copy.limitation, /약을 스스로 끊/);
+  assert.match(copy.sheetNotice!, /의식이 또렷해도 즉시 119/);
+});
+
 test("osteoporosis preparation joins original test context and fracture history without autonomous score interpretation", () => {
   const tool = healthTools.find(t=>t.slug==="osteoporosis-appointment-prep")!;
   const copy = toolEditorial[tool.slug];

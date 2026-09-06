@@ -1,0 +1,62 @@
+{
+  "route": "/health/tools/osteoporosis-home-check",
+  "observedAt": "2026-09-06T14:22:25.891Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "장소 / 발견한 점 / 해당 없음·미확인 구분",
+    "필요한 도움·의논할 사람 / 다시 확인할 때 / 아직 해결하지 못한 점"
+  ],
+  "sourceHrefs": [
+    "https://www.niams.nih.gov/health-topics/osteoporosis/diagnosis-treatment-and-steps-to-take",
+    "https://www.nhs.uk/conditions/broken-hip/",
+    "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6226"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 3,
+    "overflow": 0,
+    "footerText": "낙상 위험 집안 점검표 · 양식·안내 수정 2026-09-06교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료NIH/NIAMS — Osteoporosis: Diagnosis, Treatment, and Steps to TakeNHS — Broken hip질병관리청 국가건강정보포털 — 심폐소생술의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 2,
+    "checkedItems": 0,
+    "footerParagraphFontPx": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "links": [
+    {
+      "href": "/health/osteoporosis",
+      "status": 200
+    },
+    {
+      "href": "/health/tools/osteoporosis-appointment-prep",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/older-parent-health-organizer",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/medication-list",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "970c53eb27807a3bde17feebb763145f85cde30b00255f6db7a10345337a5b61",
+  "pdfBytes": 130219,
+  "failures": []
+}
