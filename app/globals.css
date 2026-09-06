@@ -167,8 +167,3 @@ svg {
   color: #20162c;
   font-weight: 700;
 }
-
-body:has(.onurim-app) > header,
-body:has(.onurim-app) > footer {
-  display: none;
-}

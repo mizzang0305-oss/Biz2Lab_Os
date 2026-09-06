@@ -1,0 +1,51 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import test from "node:test";
+import { healthArticles, healthTools, trustPages } from "../lib/health-v3/content";
+import { healthSupportGuides } from "../lib/health-v3/support-guides";
+
+test("SEO baseline joins exactly the 77 current routes without losing unknown URL verdicts", () => {
+  const raw = JSON.parse(readFileSync("docs/health-v3/onurim/seo-v2/raw/gsc-url-inspections-2026-09-06.json", "utf8"));
+  const expected = ["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`), ...trustPages.map(s=>`/health/trust/${s.slug}`)].sort();
+  const rows = raw.rows as string[][];
+  assert.deepEqual(rows.map(r=>r[0]).sort(), expected);
+  assert.equal(rows.filter(r=>r[1]==="I").length, 38);
+  assert.equal(rows.filter(r=>r[1]==="D").length, 34);
+  assert.equal(rows.filter(r=>r[1]==="U").length, 5);
+  assert.match(raw.sharedObservedFields.U.verdict, /아직 알려지지 않은/);
+});
+
+test("HbA1c has its own intent, accessible comparison data and resolvable source references", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="understanding-hba1c")!;
+  assert.match(guide.seoTitle!, /NGSP·IFCC/);
+  assert.notEqual(guide.seoTitle, guide.title);
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 3);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  assert.ok(table.rows.some(row=>row.includes("mmol/mol")));
+  assert.ok(table.rows.some(row=>row.includes("mg/dL 또는 mmol/L")));
+  assert.equal(guide.faq?.length, 5);
+  const sourceIds = new Set(guide.sources.map(s=>s.id));
+  for (const item of [...guide.sections, ...guide.faq!]) {
+    for (const id of item.sourceIds ?? []) assert.ok(sourceIds.has(id), id);
+  }
+  assert.equal(guide.publishedAt, "2026-08-26");
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.equal(guide.sourceCheckedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+  assert.doesNotMatch(JSON.stringify(guide), /6\.5|5\.7|reviewedBy|의료 검수 완료/);
+});
+
+test("new support schema does not fabricate a physician or FAQ rich result", () => {
+  const source = readFileSync("app/health/guides/[slug]/page.tsx", "utf8");
+  assert.doesNotMatch(source, /"Physician"|"MedicalOrganization"|reviewedBy|FAQPage/);
+  assert.match(source, /datePublished: guide\.publishedAt/);
+  assert.match(source, /dateModified: guide\.updatedAt/);
+  assert.match(source, /면허 의료인 검수 미완료/);
+  assert.match(source, /role="table"/);
+});
+
+test("legacy health Preview styling no longer hides public global navigation", () => {
+  const css = readFileSync("app/globals.css", "utf8");
+  assert.doesNotMatch(css, /body:has\(\.onurim-app\)\s*>\s*(header|footer)/);
+});

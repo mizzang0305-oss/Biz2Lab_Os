@@ -444,6 +444,37 @@
 :global(.onurim-trust-sections h2) { margin: 0 0 0.6rem; font-size: 1.35rem; }
 :global(.onurim-trust-sections p) { margin: 0; color: var(--onu-muted); overflow-wrap: anywhere; }
 :global(.onurim-trust-page > footer) { margin-top: 2rem; padding: 1rem; border-radius: 0.8rem; background: var(--onu-mint); }
+
+:global(.onurim-support-page) { max-width: 880px; }
+:global(.onurim-support-page .onurim-trust-sections) { gap: 1.6rem; }
+:global(.onurim-support-page .onurim-trust-sections p + p) { margin-top: 1rem; }
+:global(.onurim-support-page li) { margin: 0.65rem 0; }
+:global(.onurim-support-page a) { text-underline-offset: 0.2em; }
+:global(.onurim-support-page .onurim-section-sources) { margin-top: 1rem; font-size: 0.85rem; }
+:global(.onurim-support-page .onurim-state-note) { font-size: 0.875rem; line-height: 1.7; }
+:global(.onurim-app [id]) { scroll-margin-top: 10rem; }
+:global(.onurim-explainer-table) { max-width: 100%; margin-top: 1.2rem; overflow-x: auto; }
+:global(.onurim-explainer-table table) { width: 100%; border-collapse: collapse; font-size: 0.95rem; overflow-wrap: anywhere; }
+:global(.onurim-explainer-table caption) { padding: 0.6rem 0; text-align: left; font-weight: 700; }
+:global(.onurim-explainer-table th),
+:global(.onurim-explainer-table td) { padding: 0.75rem 0.6rem; border: 1px solid var(--onu-line); text-align: left; vertical-align: top; }
+:global(.onurim-explainer-table thead) { background: var(--onu-mint); }
+:global(.onurim-explainer-table th:first-child) { width: 25%; }
+:global(.onurim-explainer-table:focus-visible) { outline: 3px solid var(--onu-green); outline-offset: 3px; }
+:global(.onurim-mobile-column) { display: none; }
+@media (max-width: 600px) {
+  :global(.onurim-explainer-table table),
+  :global(.onurim-explainer-table tbody),
+  :global(.onurim-explainer-table caption),
+  :global(.onurim-explainer-table tr),
+  :global(.onurim-explainer-table td),
+  :global(.onurim-explainer-table th) { display: block; width: 100%; }
+  :global(.onurim-explainer-table thead) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  :global(.onurim-explainer-table tbody tr) { margin-bottom: 1rem; }
+  :global(.onurim-explainer-table th:first-child) { width: 100%; background: var(--onu-mint); }
+  :global(.onurim-explainer-table td) { border-top: 0; }
+  :global(.onurim-mobile-column) { display: block; margin-bottom: 0.2rem; color: var(--onu-green-dark); font-size: 0.78rem; font-weight: 700; }
+}
 :global(.onurim-not-found) { min-height: 60vh; }
 
 :global(.onurim-review-workspace) { padding-top: 3rem; }

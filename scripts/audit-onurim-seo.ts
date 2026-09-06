@@ -114,10 +114,10 @@ async function run() {
   const flat=records.map(r=>({url:r.url,route:r.route,page_type:r.pageType,title:r.title,description:r.description,h1:r.h1.join(" | "),h1_count:r.h1.length,
     canonical:r.canonical,http_status:r.httpStatus,indexable:r.indexable,robots:r.robots,sitemap_present:r.sitemapPresent,lastmod:r.lastmod,
     word_count:r.wordCount,source_count:r.sourceCount,image_count:r.images.length,tool_count:r.toolCount,
-    internal_inlinks:new Set(graph.filter(e=>e.to===r.route&&e.from!==r.route).map(e=>e.from)).size,
-    content_inlinks:new Set(graph.filter(e=>e.to===r.route&&e.from!==r.route&&e.context==="content").map(e=>e.from)).size,
+    internal_inlinks:singleRoute?"NOT_AUDITED_SINGLE_ROUTE":new Set(graph.filter(e=>e.to===r.route&&e.from!==r.route).map(e=>e.from)).size,
+    content_inlinks:singleRoute?"NOT_AUDITED_SINGLE_ROUTE":new Set(graph.filter(e=>e.to===r.route&&e.from!==r.route&&e.context==="content").map(e=>e.from)).size,
     internal_outlinks:new Set(graph.filter(e=>e.from===r.route&&e.to!==r.route).map(e=>e.to)).size,
-    depth_from_home:depth.get(r.route)??"UNREACHABLE",structured_data:JSON.stringify(r.schemas.map(s=>(s as Record<string,unknown>)["@type"])),
+    depth_from_home:singleRoute?"NOT_AUDITED_SINGLE_ROUTE":depth.get(r.route)??"UNREACHABLE",structured_data:JSON.stringify(r.schemas.map(s=>(s as Record<string,unknown>)["@type"])),
     schema_errors:r.schemaErrors,missing_alt:r.images.filter(i=>i.alt===null).length,duration_ms:r.durationMs}));
   const duplicates=(field:"title"|"description")=>records.filter((r,i)=>records.findIndex(x=>x[field]===r[field])!==i).map(r=>r.route);
   const disease=records.filter(r=>r.pageType==="disease");

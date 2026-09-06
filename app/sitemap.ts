@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const supportEntries = healthSupportGuides.map((guide) => ({
     url: absoluteUrl(`/health/guides/${guide.slug}`),
-    lastModified: new Date("2026-08-26"),
+    lastModified: new Date(guide.updatedAt ?? "2026-08-26"),
     changeFrequency: "monthly",
     priority: 0.75,
   })) satisfies MetadataRoute.Sitemap;

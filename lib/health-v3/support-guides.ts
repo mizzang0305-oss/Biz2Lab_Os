@@ -3,8 +3,18 @@ import type { HealthSource } from "./content";
 export type HealthSupportGuide = {
   slug: string;
   title: string;
+  seoTitle?: string;
   description: string;
-  sections: Array<{ title: string; paragraphs?: string[]; bullets?: string[]; tone?: "default" | "warning" | "note" }>;
+  publishedAt?: string;
+  updatedAt?: string;
+  sourceCheckedAt?: string;
+  sections: Array<{
+    title: string; paragraphs?: string[]; bullets?: string[]; tone?: "default" | "warning" | "note";
+    sourceIds?: string[];
+    table?: { caption: string; columns: string[]; rows: string[][] };
+    links?: Array<{ href: string; label: string }>;
+  }>;
+  faq?: Array<{ question: string; answer: string; sourceIds: string[] }>;
   sources: HealthSource[];
 };
 
@@ -44,17 +54,71 @@ export const healthSupportGuides: HealthSupportGuide[] = [
   },
   {
     slug: "understanding-hba1c",
-    title: "당화혈색소 HbA1c 쉽게 이해하기",
-    description: "HbA1c가 무엇을 보여 주고 무엇은 말해 주지 못하는지, 진료 질문으로 연결합니다.",
+    title: "당화혈색소(HbA1c), 검사표의 NGSP·IFCC부터 읽기",
+    seoTitle: "당화혈색소 HbA1c 뜻: NGSP·IFCC와 공복혈당 차이",
+    description: "HbA1c가 보여 주는 기간, NGSP·IFCC 단위와 공복혈당의 차이를 비교합니다. 결과표에서 확인할 항목과 수치가 엇갈릴 때 의료진에게 물을 질문을 정리했습니다.",
+    publishedAt: "2026-08-26",
+    updatedAt: "2026-09-06",
+    sourceCheckedAt: "2026-09-06",
     sections: [
-      { title: "어떤 검사인가요", paragraphs: ["HbA1c는 최근 몇 달 동안의 평균 혈당 수준에 관한 정보를 주는 혈액검사입니다. 오늘 한 번의 혈당과 같은 뜻은 아닙니다."] },
-      { title: "숫자 하나의 한계", paragraphs: ["빈혈, 임신, 일부 혈액 질환과 다른 상황이 결과 해석에 영향을 줄 수 있습니다. 검사표만으로 스스로 진단하지 않습니다."], tone: "note" },
-      { title: "진료에서 물을 것", bullets: ["이 결과를 제 건강 상태에서 어떻게 해석하나요?", "확인 검사가 필요한가요?", "다음 검사 시점과 목표는 어떻게 정하나요?"] },
-      { title: "하지 않을 일", bullets: ["결과만 보고 약이나 인슐린 용량을 바꾸지 않습니다.", "다른 사람의 목표치와 단순 비교하지 않습니다."] },
+      {
+        title: "HbA1c는 오늘 혈당의 다른 이름이 아닙니다",
+        paragraphs: ["당화혈색소는 적혈구 속 혈색소에 포도당이 붙은 형태를 말합니다. HbA1c 검사는 대략 지난 3개월의 평균적인 혈당 상태를 이해하는 데 쓰입니다. 한 시점에 잰 혈당과는 보는 기간이 다릅니다.", "검사표에 낯선 약자가 보이면 숫자의 크기부터 비교하지 말고 검사명과 단위를 먼저 찾으세요."],
+        sourceIds: ["SUP-AMC-A1C", "SUP-NIDDK-A1C"],
+      },
+      {
+        title: "NGSP·IFCC: 같은 HbA1c라도 보고 단위가 다릅니다",
+        paragraphs: ["NGSP와 IFCC는 HbA1c 측정·보고를 표준화하는 체계와 관련된 이름입니다. NGSP는 병명이나 위험 등급이 아닙니다. 검사표에 NGSP와 IFCC가 함께 있어도 두 숫자를 같은 척도로 비교하면 안 됩니다."],
+        table: {
+          caption: "검사표의 이름·단위·시간 범위 비교 — 진단 기준표가 아닙니다",
+          columns: ["검사표 표기", "단위", "무엇을 구분하나요"],
+          rows: [
+            ["HbA1c (NGSP)", "%", "최근 수개월의 평균적인 혈당 상태를 반영하는 당화혈색소 보고값"],
+            ["HbA1c (IFCC)", "mmol/mol", "HbA1c의 다른 보고 체계. NGSP %와 숫자를 그대로 비교하지 않음"],
+            ["공복혈당", "mg/dL 또는 mmol/L", "금식 후 채혈한 한 시점의 혈당. mmol/mol인 IFCC와도 단위가 다름"],
+          ],
+        },
+        sourceIds: ["SUP-NGSP-IFCC", "SUP-NIDDK-A1C"],
+      },
+      {
+        title: "결과표에서는 이 순서로 표시해 두세요",
+        paragraphs: ["예시: ‘검사명 HbA1c(NGSP) → 단위 % → 검사 날짜 → 이전 같은 표기의 결과 → 의료진 설명’. 실제 환자의 검사표가 아닌 읽는 순서 예시이며, 정상·위험을 가르는 수치는 넣지 않았습니다."],
+        bullets: ["HbA1c인지 공복혈당인지 검사 이름에 표시합니다.", "숫자 옆 단위를 그대로 적습니다. 모르는 약자는 추측해서 바꾸지 않습니다.", "검사 날짜가 다른 결과는 날짜까지 함께 가져갑니다.", "검사실의 참고범위와 의료진이 정한 개인 목표를 같은 말로 취급하지 않습니다."],
+        links: [{ href: "/health/guides/reading-health-results", label: "검사명·참고범위·추적 계획을 결과지에서 찾는 법" }],
+        sourceIds: ["SUP-NGSP-IFCC", "SUP-NIDDK-A1C"],
+      },
+      {
+        title: "공복혈당과 맞지 않아 보일 때",
+        paragraphs: ["두 검사는 서로 다른 정보를 줍니다. 결과가 엇갈린다고 어느 한쪽을 곧바로 틀렸다고 판단하지 마세요. 의료진이 검사 시점과 건강 상태를 함께 확인하고 필요한 재검을 정합니다.", "적혈구 상태나 검사 방법 때문에 HbA1c 해석이 달라질 수도 있습니다. 빈혈의 종류, 최근 출혈·수혈, 임신, 콩팥 질환 등을 진료 때 알려 주세요. 모든 빈혈이 결과를 같은 방향으로 바꾸는 것은 아닙니다."],
+        tone: "note", sourceIds: ["SUP-NIDDK-A1C", "SUP-NGSP-FACTORS"],
+      },
+      {
+        title: "검사 원본과 함께 가져갈 세 가지 질문",
+        bullets: ["‘이 표기와 단위가 이전 검사와 같은가요?’ — 두 결과표를 함께 보여 주세요.", "‘제 혈당과 HbA1c의 차이를 설명할 상황이 있나요?’ — 검사 날짜와 최근 건강 변화를 적어 갑니다.", "‘확인 검사가 필요하다면 무엇을 언제 하나요?’ — 다음 일정과 문의할 곳을 메모합니다."],
+        links: [
+          { href: "/health/tools/diabetes-questions", label: "제2형 당뇨병 진료 질문지 인쇄하기" },
+          { href: "/health/type-2-diabetes", label: "제2형 당뇨병의 증상·검사·기록을 함께 이해하기" },
+        ],
+      },
+      {
+        title: "이 페이지가 정하지 않는 것",
+        paragraphs: ["검사표 하나로 스스로 당뇨병을 확정하거나 약·인슐린을 시작, 중단, 증량하지 않습니다. 개인 목표와 재검 시점은 담당 의료진에게 확인합니다. 다른 사람의 결과나 목표를 그대로 적용하지 마세요."],
+        links: [{ href: "/health/guides/danger-signals", label: "온라인 설명보다 도움 요청이 먼저인 위험 신호" }],
+        sourceIds: ["SUP-NIDDK-A1C"],
+      },
+    ],
+    faq: [
+      { question: "HbA1c NGSP라고 쓰여 있으면 별도의 질환인가요?", answer: "아닙니다. NGSP는 HbA1c 결과를 비교할 수 있도록 표준화하는 체계와 관련된 표기입니다. 병명이나 중증도 등급을 뜻하지 않습니다.", sourceIds: ["SUP-NGSP-IFCC"] },
+      { question: "%와 mmol/mol 중 어느 숫자가 더 정확한가요?", answer: "숫자가 작거나 크다는 이유로 정확도를 고를 수 없습니다. 서로 다른 보고 체계이므로 원래 단위와 검사 방법을 확인해야 합니다. 단위를 지우고 결과만 비교하지 마세요.", sourceIds: ["SUP-NGSP-IFCC"] },
+      { question: "HbA1c 검사 전에 꼭 굶어야 하나요?", answer: "HbA1c 검사 자체는 일반적으로 금식이 필요하지 않습니다. 다만 같은 날 공복혈당 등 다른 검사를 함께 할 수 있으므로 검사기관의 준비 안내를 확인하세요.", sourceIds: ["SUP-NIDDK-A1C"] },
+      { question: "공복혈당과 HbA1c가 다르면 어느 결과를 믿어야 하나요?", answer: "한 시점의 혈당과 최근 수개월을 반영하는 HbA1c를 먼저 구분합니다. 결과가 맞지 않아 보이면 검사 날짜·원본과 건강 변화를 가져가 재검 필요성을 물어보세요.", sourceIds: ["SUP-NIDDK-A1C", "SUP-NGSP-FACTORS"] },
+      { question: "HbA1c 하나만으로 제가 당뇨병인지 알 수 있나요?", answer: "HbA1c는 의료진이 진단에 사용하는 검사 중 하나지만 이 페이지가 개인 진단을 내리지는 않습니다. 증상과 검사 조건에 따라 확인 검사가 필요할 수 있습니다.", sourceIds: ["SUP-NIDDK-A1C"] },
     ],
     sources: [
-      { id: "SUP-NIDDK-A1C", organization: "NIH/NIDDK", title: "The A1C Test & Diabetes", url: "https://www.niddk.nih.gov/health-information/diagnostic-tests/a1c-test", sourceDate: "2018", retrievedAt },
-      { id: "SUP-NIDDK-DIABETES-TESTS", organization: "NIH/NIDDK", title: "Diabetes Tests & Diagnosis", url: "https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis", sourceDate: "2022", retrievedAt },
+      { id: "SUP-NIDDK-A1C", organization: "NIH/NIDDK", title: "The A1C Test & Diabetes", url: "https://www.niddk.nih.gov/health-information/diagnostic-tests/a1c-test", sourceDate: "2018-04", retrievedAt: "2026-09-06" },
+      { id: "SUP-NGSP-IFCC", organization: "NGSP", title: "IFCC Standardization: The IFCC and NGSP", url: "https://ngsp.org/ifccngsp.asp", sourceDate: "날짜 미표시", retrievedAt: "2026-09-06" },
+      { id: "SUP-NGSP-FACTORS", organization: "NGSP", title: "Factors that Interfere with HbA1c Test Results", url: "https://ngsp.org/factors.asp", sourceDate: "2026-06-23", retrievedAt: "2026-09-06" },
+      { id: "SUP-AMC-A1C", organization: "서울아산병원 당뇨병센터", title: "혈당 검사 중 당화 혈색소(HbA1c)는 무엇인가요?", url: "https://www.amc.seoul.kr/asan/depts/dm/K/bbsDetail.do?contentId=271421&menuId=5110", sourceDate: "날짜 미표시", retrievedAt: "2026-09-06" },
     ],
   },
   {
