@@ -72,6 +72,8 @@ async function run() {
       await checkbox.focus(); await page.keyboard.press("Space");
       checkboxToggled = await checkbox.isChecked();
       if (!checkboxToggled) failures.push("Checkbox keyboard failed");
+      await page.keyboard.press("Space");
+      if (await checkbox.isChecked()) failures.push("Checkbox keyboard reset failed");
     }
     await page.setViewportSize({ width: 794, height: 1123 });
     await page.emulateMedia({ media: "print" });
@@ -83,9 +85,11 @@ async function run() {
       overflow: document.documentElement.scrollWidth - innerWidth,
       footerText: document.querySelector(".onurim-tool-footer")!.textContent,
       fields: document.querySelectorAll(".onurim-tool-fields dt").length,
+      checkedItems: document.querySelectorAll('.onurim-print-sheet input[type="checkbox"]:checked').length,
     }));
-    const state = printState as { footerVisible: boolean; siteHeaderHidden: boolean; siteFooterHidden: boolean; overflow: number };
+    const state = printState as { footerVisible: boolean; siteHeaderHidden: boolean; siteFooterHidden: boolean; overflow: number; checkedItems: number };
     if (!state.footerVisible || !state.siteHeaderHidden || !state.siteFooterHidden || state.overflow > 0) failures.push("Print visibility/overflow");
+    if (state.checkedItems !== 0) failures.push("Printed worksheet contains test checkmarks");
     await page.pdf({ path: path.join(out, "worksheet.pdf"), format: "A4", printBackground: true, margin: { top: "12mm", right: "12mm", bottom: "12mm", left: "12mm" } });
     await page.screenshot({ path: path.join(out, "print-layout.png"), fullPage: true });
     const hrefs = await page.locator('main a[href^="/"]').evaluateAll(nodes => [...new Set(nodes.map(n => n.getAttribute("href")!))]);

@@ -1,0 +1,291 @@
+{
+  "route": "/health/tools/allergy-environment-check",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T13:07:39.686Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "ac832975e45d53a1607b1b91ffad2babbb521b4cea8b02247e073cda2aa96409",
+      "full": "8ec56ff8787564fb1ab3f71514520d15b8f5e69e31e9e1fd703961bdb56c556f"
+    },
+    {
+      "width": 390,
+      "top": "1678853fb176c9ba5c3675377df9425dc06e95a54692105ac9b7da54054f6ba4",
+      "full": "dae2f6049afb064eb1aaca8353069dec983c40b3b42d6dab2067b04ee49796df"
+    },
+    {
+      "width": 430,
+      "top": "82414733beb024649c28b5855da29222ea590c9169d1527b880e1c72fa40c364",
+      "full": "808c98f4feaac9822c028289389caecad7e99d7d0d934e7b8cc4f294e7209c5b"
+    },
+    {
+      "width": 768,
+      "top": "39c3fb73fed2a78a628fa7b409928e7a91f917946081868f1323cd356d4f798b",
+      "full": "9f913e7e0cffc11a8259d27dd10756fa7b9b3bd27796361ffb2149706e0afdcc"
+    },
+    {
+      "width": 1440,
+      "top": "a9f15110d991d7b207ff6941b72a6a8e5ff03fc2a423d4447527d65cac8e3f49",
+      "full": "556c33a593cd8bd7ffe8839c2de3119d6cccf6d9f0ef466731e8be7cba7fc4de"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "비염 환경 변화 체크: 날짜와 관찰 사실을 확인하는 보조표 | 오누림",
+      "h1": [
+        "환경 변화 관찰 체크"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/allergy-environment-check",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "비염 환경 변화 체크: 날짜와 관찰 사실을 확인하는 보조표 | 오누림",
+      "h1": [
+        "환경 변화 관찰 체크"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/allergy-environment-check",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "비염 환경 변화 체크: 날짜와 관찰 사실을 확인하는 보조표 | 오누림",
+      "h1": [
+        "환경 변화 관찰 체크"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/allergy-environment-check",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "비염 환경 변화 체크: 날짜와 관찰 사실을 확인하는 보조표 | 오누림",
+      "h1": [
+        "환경 변화 관찰 체크"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/allergy-environment-check",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "비염 환경 변화 체크: 날짜와 관찰 사실을 확인하는 보조표 | 오누림",
+      "h1": [
+        "환경 변화 관찰 체크"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/allergy-environment-check",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

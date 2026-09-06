@@ -50,6 +50,9 @@ test("tool sources resolve to documents and print safety remains visible", () =>
   const print = readFileSync("app/health/onurim.module.css", "utf8").split("@media print")[1];
   assert.match(print, /onurim-tool-footer\) \{ display: block !important/);
   assert.match(print, /attr\(href\)/);
+  const qa = readFileSync("scripts/qa-onurim-tool.ts", "utf8");
+  assert.match(qa, /Checkbox keyboard reset failed/);
+  assert.match(qa, /state.checkedItems !== 0/);
 });
 
 test("glucose log records real time and original units without prescribing a monitoring schedule", () => {
@@ -65,6 +68,19 @@ test("glucose log records real time and original units without prescribing a mon
   assert.match(copy.sheetNotice!, /억지로 먹이지/);
   assert.ok(copy.sourceIds.includes("SRC-NIDDK-MANAGING"));
   assert.doesNotMatch(JSON.stringify(tool), /mg\/dL|식후 2시간/);
+});
+
+test("rhinitis environment checklist is a noindex observation aid, not an exposure experiment or score", () => {
+  const tool = healthTools.find(t => t.slug === "allergy-environment-check")!;
+  assert.equal(tool.items?.length, 4);
+  assert.equal(tool.fields?.length, 1);
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(copy.steps.join(" "), /일부러 다시 노출되지/);
+  assert.match(copy.limitation, /환경이나 가족을 평가하지/);
+  assert.match(copy.limitation, /영향을 주거나 기존 치료/);
+  assert.match(copy.sheetNotice!, /즉시 119/);
+  assert.ok(copy.links.some(link => link.href.endsWith("/allergy-trigger-observation")));
 });
 
 test("rhinitis observation logs separate facts from suspected causes without intentional re-exposure", () => {

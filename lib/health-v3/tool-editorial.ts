@@ -16,6 +16,25 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "allergy-environment-check": {
+    indexDecision: "NOINDEX_FOLLOW",
+    title: "비염 환경 변화 체크: 날짜와 관찰 사실을 확인하는 보조표",
+    description: "환경을 바꾼 날짜와 실제 증상을 함께 적었는지 확인하는 인쇄용 체크리스트입니다. 알레르기 관찰표의 보조 도구이며 청소 점수나 알레르기 원인 검사표가 아닙니다.",
+    updatedAt: "2026-09-06",
+    purpose: "관찰표를 작성한 뒤 빠뜨린 정보가 있는지 확인할 때 씁니다. 새 환경 개선법을 처방하거나 특정 제품을 사도록 권하는 목록은 아닙니다.",
+    steps: [
+      "이미 바꾼 환경이 있으면 무엇을 언제 바꿨는지 적고, 같은 때의 증상·장소를 관찰표에 남깁니다. 바꾼 것이 없거나 기억나지 않으면 그대로 적습니다.",
+      "실제로 확인한 항목만 표시합니다. 빈칸을 채우려고 환경을 새로 바꾸거나 의심 물질에 일부러 다시 노출되지 않습니다. 여러 변화가 겹쳤다면 각각 적되 효과를 분리해 입증했다고 보지 않습니다.",
+    ],
+    example: "작성 위치 예시: 바꾼 일과 날짜 → 아래 메모 / 증상이 생긴 시각·장소·지속 시간 → 연결된 비염 관찰표. ‘청소했으므로 원인을 없앴다’는 결론 대신 관찰한 사실을 남깁니다.",
+    limitation: "체크 개수로 환경이나 가족을 평가하지 않습니다. 원인과 개인 효과는 이 표로 확정하지 않으며, 증상이 악화되거나 수면·일상에 영향을 주거나 기존 치료로 나아지지 않으면 의료진에게 상담합니다. 기록을 위해 약을 임의로 바꾸지 않습니다.",
+    sheetNotice: "숨쉬기 매우 어렵거나 의식이 흐려지는 등 위급한 변화가 있으면 비염이라고 단정하지 말고 즉시 119에 도움을 요청합니다. 체크를 끝내거나 환경 변화의 효과를 기다리지 않습니다.",
+    sourceIds: ["SRC-NHS-AR", "SRC-MEDLINEPLUS-AR", "SRC-KDCA-CPR"],
+    links: [
+      { href: "/health/tools/allergy-trigger-observation", label: "증상 시각·장소·기존 약 사용을 적는 비염 관찰표" },
+      { href: "/health/tools/allergy-appointment-questions", label: "관찰만으로 알 수 없는 원인과 치료를 묻는 질문 카드" },
+    ],
+  },
   "allergy-trigger-observation": {
     title: "알레르기 비염 관찰표: 증상 시각·장소·수면과 약 사용 기록",
     description: "코·눈 증상이 언제 어디서 생겼는지, 호흡·수면·일상에 어떤 변화가 있었는지 함께 남기는 인쇄 기록표입니다. 이미 사용한 약과 환경 변화를 구분해 적으며 알레르기 원인을 확정하지 않습니다.",
