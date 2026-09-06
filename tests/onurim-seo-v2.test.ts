@@ -36,6 +36,25 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("stroke memo separates post-call timestamps from post-acute questions without a diagnostic or treatment timer", () => {
+  const tool = healthTools.find(t => t.slug === "stroke-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 2);
+  assert.ok(tool.fields!.every(field => field.startsWith("신고 후:")));
+  assert.ok(tool.items!.every(question => question.startsWith("응급 평가·치료 뒤:")));
+  assert.match(copy.example, /깬 때를 실제 발병 시각으로 단정하지 않습니다/);
+  assert.match(copy.example, /두 시각이 같을 수도/);
+  assert.match(copy.limitation, /늦었다고 생각해 도움을 포기하지/);
+  assert.match(copy.sheetNotice!, /중 하나라도 있으면 즉시 119/);
+  assert.match(copy.sheetNotice!, /사라졌어도 신고/);
+  assert.match(copy.sheetNotice!, /평소 처방을 장기 중단하라는 뜻은 아닙니다/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 6);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(시간|분간|mg)|삼키게 하세요|걸어 보세요/);
+});
+
 test("anxiety memo records actual avoidance without prescribing exposure or dismissing new physical symptoms", () => {
   const tool = healthTools.find(t => t.slug === "anxiety-disorder-visit-card")!;
   const copy = toolEditorial[tool.slug];

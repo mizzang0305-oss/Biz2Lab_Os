@@ -70,3 +70,7 @@ MEDICAL_REVIEW_COMPLETED=NO · REAL_HUMAN_READER_TEST=NOT_PERFORMED. 기계 감�
 INTENT_PASS · TITLE_PASS · DESCRIPTION_PASS · H1_PASS · CONTENT_UNIQUENESS_PASS · MEDICAL_SOURCE_PASS · INTERNAL_LINK_PASS · IMAGE_PASS · MOBILE_PASS · SCHEMA_PASS · CANONICAL_PASS · INDEXABILITY_PASS.
 
 임상·실제독자·fieldCWV·Google색인 보장 아님. Preview/Production/색인요청 없음.
+
+## Tool33 후속 — 2026-09-07 LOCAL
+
+뇌졸중 전달 메모를 개별 NOINDEX_FOLLOW로 판정. 부모 카드 설명·신고 후3필드·응급 평가/치료 뒤2질문만 변경, 부모 의료 본문/날짜/Claim 보존. 부모5폭QA/SEO 재PASS. 별도 `tool-stroke-visit-card.md`에 출처6개·75관련test·최종typecheck·화면/PDF2쪽 및 시각 단정 P2수정·독립 재검토 증거. 부모 INDEX_PRIMARY 유지, 도구 sitemap 제외는 local만 적용. 전역 graph·Preview·의료인 검수 후속.

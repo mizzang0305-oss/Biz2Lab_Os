@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "stroke-visit-card": {
+    indexDecision: "NOINDEX_FOLLOW",
+    inheritParentWarning: true,
+    title: "뇌졸중 전달 메모: 119 신고 후 두 시각·치료 뒤 질문",
+    description: "119 신고 후 아는 범위에서 마지막 평소 상태와 처음 발견한 때를 구분해 전하는 보조 메모입니다. 응급 평가·치료 뒤 질문은 따로 표시하며, 자가검사나 치료 가능 시간 계산을 하지 않습니다.",
+    updatedAt: "2026-09-07",
+    purpose: "신고와 구급 대응이 먼저입니다. 빈칸은 제출 조건이 아니며, 아래 치료 뒤 질문을 응급 중에 끝내려 하지 않습니다.",
+    steps: [
+      "119 신고 후 질문에 따라 아는 사실을 전합니다. 메모·인쇄·목격자 연락을 기다리지 않습니다.",
+      "마지막 평소 상태와 처음 발견한 날짜·시각을 나눕니다. 모르면 미확인, 정확하지 않으면 대략이라고 말합니다.",
+      "응급 평가·치료 뒤에는 의료진이 설명한 종류·개인 치료·재활과 다음 연락 계획을 확인합니다.",
+    ],
+    example: "잠에서 깨며 발견했다면 깬 때를 실제 발병 시각으로 단정하지 않습니다. 시작을 목격했다면 두 시각이 같을 수도 있습니다. 평소 상태는 이전부터 있던 장애가 없다는 뜻이 아닙니다.",
+    limitation: "시각·빈칸으로 뇌졸중 종류나 치료 가능 여부를 정하지 않습니다. 늦었다고 생각해 도움을 포기하지 마세요. 말하기·걷기·삼키기 시험이나 반복 혈압 측정으로 안전을 확인하려 하지 않습니다. 약 정보를 찾느라 신고·구급 대응을 늦추지 않습니다.",
+    sheetNotice: "갑작스러운 한쪽 힘·감각 저하, 말·이해·시야 변화, 걷기 어려움·어지럼·균형 상실, 원인 모를 심한 두통 중 하나라도 있으면 즉시 119입니다. 모두 나타날 때까지 기다리지 말고, 사라졌어도 신고합니다. 직접 운전·가족을 기다리는 대신 구급 도움을 요청합니다. 의심 상황에서 음식·물·아스피린 등 약을 임의로 주거나 혈압약을 더 먹이지 말고 119·의료진 지시를 따릅니다. 평소 처방을 장기 중단하라는 뜻은 아닙니다. 의식·호흡이 달라지면 즉시 119에 알리고 안내를 따릅니다.",
+    sourceIds: ["SRC-WISCONSIN-STROKE-TIMES", "SRC-STROKE-FOUNDATION-WAITING", "SRC-NHLBI-STROKE-TREATMENT"],
+    links: [
+      { href: "/health/guides/danger-signals", label: "기록·자가 확인보다 119가 먼저인 다른 신호" },
+      { href: "/health/guides/medication-list", label: "평소 준비할 약 목록: 찾느라 구급 대응을 늦추지 않기" },
+      { href: "/health/guides/appointment-questions", label: "응급 평가·치료 뒤 답과 다음 계획을 확인하는 질문" },
+    ],
+  },
   "anxiety-disorder-visit-card": {
     indexDecision: "NOINDEX_FOLLOW",
     inheritParentWarning: true,

@@ -1,33 +1,33 @@
 {
   "route": "/health/stroke",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T09:50:17.938Z",
+  "observedAt": "2026-09-06T16:27:17.241Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "09a985cf094f57efc71aa7a74be09dc9ec3536f43811badc7b46e2b4aebf5dbf",
-      "full": "bcc413474c1ab4ef557145304b2bd20042ee9de01dd7cfd7ec122eeb7cfb5dbc"
+      "full": "d878ac0e9e1d93cf58305bb449f910a44828f5c3f19d8c58f584f12ab97fc8e7"
     },
     {
       "width": 390,
       "top": "57a64edd2d3c8bb58c0bdbf725454cea723dbf90056fefccafb64fa6c6cecc67",
-      "full": "34a27d5dabd936a796834d02e1e784a338d88cde1b058040b05a62a262d39d27"
+      "full": "df31b39133e8c6bc4c1be01b50743d4eaffbde1bf7bd247eefed4a359ab620c4"
     },
     {
       "width": 430,
       "top": "00d9e530b736fc72d9cada553b36cb66e90fd040529243a9cad09415b33b3233",
-      "full": "dd318ff426deae5b9b77af6fb8841d99f1495e83c5aeccece34786b77eea90b6"
+      "full": "5620cfe85454c61e838fc6b3c4580c60469e442edf24337a14daf81a7a128ce4"
     },
     {
       "width": 768,
       "top": "4971aff759dc8d94842e6afb2ee5002cacad469a1bab406780b73a100ef2b8e4",
-      "full": "63fa217650f226f89d7ea23ed02ca872f6f41069246563e000bbd6c83b86c328"
+      "full": "d438cf96ace790b1cbe2e3dcdca297175b4b17e357aee013baf1070063cf4d4c"
     },
     {
       "width": 1440,
       "top": "53594ca000692601a0b8b9d6ebeab94c25b5ee1d2610dd310f1c9f87f4fb7584",
-      "full": "44cbc5ec563127de79ea80ee192e45db973905b8cc22743599f6f2027df8c173"
+      "full": "4bad4c50f57ed0bbff1ff8ff01df34b3fa56deec1ae4a8cafa592d41307d6da7"
     }
   ],
   "failures": [],

@@ -1,0 +1,67 @@
+{
+  "route": "/health/tools/stroke-visit-card",
+  "observedAt": "2026-09-06T16:30:13.675Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "신고 후: 마지막으로 이번 변화 없이 평소와 같았던 날짜·시각",
+    "신고 후: 처음 증상을 발견한 날짜·시각 (실제 시작과 다를 수 있음)",
+    "신고 후: 실제 변화·호전 / 알고 있는 약·병력 (미확인 가능)"
+  ],
+  "sourceHrefs": [
+    "https://www.dhs.wisconsin.gov/publications/p02469.pdf",
+    "https://strokefoundation.org.au/About-Stroke/Learn/signs-of-stroke/What-to-do-while-you-wait-for-an-ambulance",
+    "https://www.nhlbi.nih.gov/health/stroke/treatment",
+    "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5495",
+    "https://www.kdca.go.kr/kdca/2855/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa2RjYSUyRjQ3JTJGMjE4NzQ4JTJGYXJ0Y2xWaWV3LmRvJTNG",
+    "https://www.cdc.gov/stroke/signs-symptoms/index.html"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 6,
+    "overflow": 0,
+    "footerText": "뇌졸중 전달 메모 · 양식·안내 수정 2026-09-07교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료Wisconsin Department of Health Services — The Importance of an Accurate Last Known Well and Symptom Onset TimeStroke Foundation Australia — What to do while you wait for an ambulanceNIH/NHLBI — Stroke Treatment질병관리청 국가건강정보포털 — 뇌졸중질병관리청 — 뇌졸중 조기증상 의심되면 즉시 119CDC — Signs and Symptoms of Stroke의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 3,
+    "checkedItems": 0,
+    "focusedCheckbox": false,
+    "footerParagraphFontPx": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "links": [
+    {
+      "href": "/health/stroke",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/danger-signals",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/medication-list",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/appointment-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "fc141800ae32873b20bbdcaff7570f342395f038e969b113d61a4461ddb82fd4",
+  "pdfBytes": 136548,
+  "failures": []
+}

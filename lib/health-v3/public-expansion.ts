@@ -314,6 +314,7 @@ const guides: GuideConfig[] = [
   {
     slug: "stroke",
     prefix: "STR",
+    toolSummary: { title: "뇌졸중 전달 메모", description: "119 신고 후 두 시각·관찰한 변화를 전하고, 응급 평가·치료 뒤 질문을 따로 확인하는 보조표입니다." },
     title: "뇌졸중",
     cluster: "뇌·마음",
     archetype: "BODY_SIGNAL",
@@ -324,8 +325,8 @@ const guides: GuideConfig[] = [
     evaluation: "응급실에서는 증상 시작 시각과 신경학적 상태를 확인하고 뇌 영상검사 등으로 원인과 치료 가능성을 판단합니다.",
     careBoundary: "증상이 잠깐 좋아져도 집에서 쉬며 기다리거나 음식·약을 억지로 먹이지 않습니다. 발생 시각을 기억하고 119 지시를 따릅니다.",
     urgent: "한쪽 마비, 말 이상, 시야 이상, 갑작스러운 심한 두통이나 균형 상실 중 하나라도 갑자기 나타나면 즉시 119에 연락합니다.",
-    observationItems: ["마지막으로 정상으로 보인 시각", "갑자기 달라진 얼굴·팔·말", "시야·균형·두통 변화", "119에 전달할 복용 약"],
-    questions: ["증상 시작 시각을 어떻게 전달하나요?", "가족이 하지 말아야 할 행동은 무엇인가요?", "퇴원 뒤 재발 신호와 추적 계획은 무엇인가요?"],
+    observationItems: ["신고 후: 마지막으로 이번 변화 없이 평소와 같았던 날짜·시각", "신고 후: 처음 증상을 발견한 날짜·시각 (실제 시작과 다를 수 있음)", "신고 후: 실제 변화·호전 / 알고 있는 약·병력 (미확인 가능)"],
+    questions: ["응급 평가·치료 뒤: 확인된 종류와 제 치료·재활 계획은 무엇인가요?", "응급 평가·치료 뒤: 다시 신고할 신호, 개인 약 지침·다음 진료·연락처는 무엇인가요?"],
     sources: [
       { id: "SRC-KDCA-STROKE-PUBLIC", organization: "질병관리청 국가건강정보포털", title: "뇌졸중", url: "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5495", sourceDate: "2026-04-29" },
       { id: "SRC-KDCA-STROKE-119", organization: "질병관리청", title: "뇌졸중 조기증상 의심되면 즉시 119", url: "https://www.kdca.go.kr/kdca/2855/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa2RjYSUyRjQ3JTJGMjE4NzQ4JTJGYXJ0Y2xWaWV3LmRvJTNG", sourceDate: "2025-12-16" },
