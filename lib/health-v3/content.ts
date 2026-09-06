@@ -217,6 +217,14 @@ export const healthSources: HealthSource[] = [
     retrievedAt: "2026-09-06",
   },
   {
+    id: "SRC-CDC-DIABETES-FAMILY",
+    organization: "CDC",
+    title: "Helping Friends and Family With Diabetes",
+    url: "https://www.cdc.gov/diabetes/caring/index.html",
+    sourceDate: "2024-05-15",
+    retrievedAt: "2026-09-06",
+  },
+  {
     id: "SRC-KDCA-CPR",
     organization: "질병관리청 국가건강정보포털",
     title: "심폐소생술",
@@ -888,6 +896,7 @@ export const healthTools: HealthTool[] = [
     description: "감시와 비난을 줄이고 당사자가 원하는 도움을 확인합니다.",
     claimIds: ["DIA-B1-010", "DIA-B1-011", "DIA-B1-012", "DIA-B1-013"],
     kind: "checklist",
+    fields: ["당사자와 동의한 도움 한 가지 (실명·검사값 불필요)"],
     items: [
       "당사자가 원하는 도움을 먼저 물었습니다.",
       "음식과 숫자를 평가하거나 비난하지 않았습니다.",

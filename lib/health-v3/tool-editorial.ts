@@ -16,6 +16,27 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "family-support-checklist": {
+    indexDecision: "NOINDEX_FOLLOW",
+    title: "당뇨병 가족 지원 체크리스트: 동의한 도움과 개인 계획 확인",
+    description: "당뇨병이 있는 가족에게 원하는 도움을 먼저 묻고, 동의한 진료 준비와 개인 대처 계획을 확인하는 인쇄용 체크리스트입니다. 가족의 관리 성적을 매기거나 음식·혈당을 감시하는 표가 아닙니다.",
+    updatedAt: "2026-09-06",
+    purpose: "평소 대화를 마친 뒤 서로 동의한 도움을 기억하기 위한 보조 양식입니다. 당뇨병 해설과 가족 복약 안내를 대신하지 않습니다. 체크하는 사람은 도움을 주는 가족이며, 당사자가 얼마나 잘 관리했는지 평가하는 표가 아닙니다.",
+    steps: [
+      "원하는 도움과 원하지 않는 도움을 먼저 묻습니다. 진료 동행이나 결과지 공유도 당사자의 동의를 확인하며, 이전에 동의했더라도 마음이 달라질 수 있습니다.",
+      "합의한 도움 한 가지를 빈칸에 적고 실제로 확인한 항목만 표시합니다. 아직 이야기하지 않은 항목은 비워 두며 체크 개수를 점수로 합산하지 않습니다.",
+      "약 사용이나 저혈당 대처가 불분명하면 의료진에게 질문할 내용으로 남깁니다. 이미 받은 개인 대처 계획은 따르고, 가족이 임의로 약이나 측정 계획을 정하지 않습니다.",
+    ],
+    example: "대화를 여는 예시: ‘다음 진료 때 질문지를 정리하는 도움이 필요해요?’ 동의한 도움만 적고 원하지 않는 도움을 설득하기 위한 증거로 이 종이를 사용하지 않습니다.",
+    limitation: "체크 완료가 안전한 혈당이나 충분한 돌봄을 보장하지 않습니다. 이름·검사값·약 목록을 공개 게시판에 올리지 마세요. 위급한 변화가 생기면 대화나 체크를 마칠 때까지 기다리지 않습니다.",
+    sheetNotice: "의식이 흐려지거나 반응이 없거나 경련·심한 호흡곤란이 있으면 즉시 119에 연락합니다. 의식이 없거나 안전하게 삼킬 수 없는 사람에게 음식·물·약을 억지로 먹이지 않습니다.",
+    sourceIds: ["SRC-CDC-DIABETES-FAMILY", "SRC-NIDDK-MANAGING", "SRC-NHS-LOW-GLUCOSE", "SRC-CDC-DKA", "SRC-KDCA-CPR"],
+    links: [
+      { href: "/health/guides/family-medication-support", label: "약을 대신 결정하지 않고 복약을 돕는 범위" },
+      { href: "/health/tools/diabetes-questions", label: "가족의 역할·저혈당 대처를 확인할 진료 질문" },
+      { href: "/health/guides/appointment-questions", label: "동행 진료에서 질문과 답변을 정리하는 방법" },
+    ],
+  },
   "diabetes-questions": {
     title: "제2형 당뇨병 진료 질문지: 검사 결과·기록 계획·저혈당 대처",
     description: "검사명·날짜·단위가 있는 결과지와 이미 남긴 혈당 기록, 현재 약 목록을 준비합니다. 개인 목표와 측정 계획, 저혈당 대처에서 모르는 점을 묻고 받은 답을 손으로 적는 진료 질문지입니다.",
