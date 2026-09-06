@@ -36,6 +36,16 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("corrections policy separates public access from unverified issue submission", () => {
+  const page = trustPages.find(page => page.slug === "corrections-policy")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "INDEX_SUPPORT");
+  assert.match(text, /실제 접수 가능 여부는 확인되지 않았습니다/);
+  assert.match(text, /의료기록·검사 이미지를 게시하거나 첨부하지 마세요/);
+  assert.doesNotMatch(text, /health@|현재 실동작/);
+  assert.ok(page.sections.flatMap(section => section.links ?? []).some(link => link.href === "https://github.com/mizzang0305-oss/Biz2Lab_Os/issues"));
+});
+
 test("trust pages distinguish public access from index decisions and use page-specific dates", () => {
   const entries = sitemap();
   for (const page of trustPages) {
