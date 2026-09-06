@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 import { healthArticles, healthTools, trustPages } from "@/lib/health-v3/content";
 import { healthSupportGuides } from "@/lib/health-v3/support-guides";
 import { toolEditorial } from "@/lib/health-v3/tool-editorial";
-import { homeUpdatedAt } from "@/lib/health-v3/entry-pages";
+import { homeUpdatedAt, healthHubUpdatedAt } from "@/lib/health-v3/entry-pages";
 import { staticPublicRoutes } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 
@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Public route inventory is not the set of approved search index candidates.
   const staticEntries = staticPublicRoutes.filter(route => !route.startsWith("/health/trust/")).map((route) => ({
     url: absoluteUrl(route),
-    lastModified: new Date(route === "/" ? homeUpdatedAt : "2026-07-26"),
+    lastModified: new Date(route === "/" ? homeUpdatedAt : route === "/health" ? healthHubUpdatedAt : "2026-07-26"),
     changeFrequency: route === "/" ? "daily" : "weekly",
     priority: route === "/" ? 1 : 0.8,
   })) satisfies MetadataRoute.Sitemap;
