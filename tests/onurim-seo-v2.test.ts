@@ -224,6 +224,30 @@ test("medication list distinguishes package strength from instructions and curre
   assert.doesNotMatch(JSON.stringify(guide), /500mg|1일 2회|서버에 보내지|약 식별 완료/);
 });
 
+test("parent health organizer separates consent, source documents, current lists and verification dates", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="older-parent-health-organizer")!;
+  assert.equal(guide.sections.length, 6);
+  assert.equal(guide.faq?.length, 6);
+  assert.match(JSON.stringify(guide), /치료를 대신 결정할 권한을 뜻하지/);
+  assert.match(JSON.stringify(guide), /현재 사용하는 전체 약 목록을 유지/);
+  assert.match(JSON.stringify(guide), /모름.*확인 필요/);
+  assert.match(JSON.stringify(guide), /기관이 인증한 표준 서식이 아닙니다/);
+  assert.match(JSON.stringify(guide), /의료진이 상태를 다시 평가한 날짜가 아닙니다/);
+  assert.match(JSON.stringify(guide), /원본 문서를 대신하지/);
+  assert.match(JSON.stringify(guide), /즉시 119.*모두 찾거나/);
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 4);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const unit of [...guide.sections, ...guide.faq!]) {
+    assert.ok(unit.sourceIds?.length);
+    for (const id of unit.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  assert.match(guide.sources.find(s=>s.id==="SUP-PARENT-RECORDS")!.sourceDate, /^2019-10-17/);
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+});
+
 test("new support schema does not fabricate a physician or FAQ rich result", () => {
   const source = readFileSync("app/health/guides/[slug]/page.tsx", "utf8");
   assert.doesNotMatch(source, /"Physician"|"MedicalOrganization"|reviewedBy|FAQPage/);
