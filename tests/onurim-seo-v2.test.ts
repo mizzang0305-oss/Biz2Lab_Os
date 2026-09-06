@@ -36,6 +36,22 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("IBS worksheet records either direction of pain change without a food challenge or diagnostic waiting period", () => {
+  const tool = healthTools.find(t => t.slug === "irritable-bowel-syndrome-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 4);
+  assert.equal(tool.items?.length, 3);
+  assert.match(tool.fields![0], /덜·더 아픔·비슷함·모르겠음/);
+  assert.match(copy.purpose, /진료의 조건은 아닙니다/);
+  assert.match(copy.limitation, /음식을 일부러 먹거나 약을 바꾸지/);
+  assert.match(copy.sheetNotice!, /갑자기 시작되거나 심한 복통/);
+  assert.match(copy.sheetNotice!, /타르 같은 변은 복통이 없어도 즉시 의료 도움/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 7);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(개월|주간|mg|점 이상)/);
+});
+
 test("MASLD worksheet joins original tests to individual history without scoring or unsupervised withdrawal", () => {
   const tool = healthTools.find(t => t.slug === "metabolic-dysfunction-associated-steatotic-liver-disease-visit-card")!;
   const copy = toolEditorial[tool.slug];
@@ -870,7 +886,7 @@ test("IBS records either direction of pain change and does not normalize new ble
   assert.equal(article.sections.length, 6);
   assert.equal(article.faq.length, 6);
   assert.equal(article.sections.filter(s=>s.table).length, 1);
-  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.updatedAt, "2026-09-07");
   assert.ok(article.sections.every(s=>s.imageId!==undefined));
   for (const item of [...article.sections, ...article.faq]) {
     assert.ok(item.sourceIds?.length);
@@ -881,6 +897,8 @@ test("IBS records either direction of pain change and does not normalize new ble
   assert.match(text, /음식을 다시 넣는 과정/);
   assert.match(text, /모두에게 대장내시경이 필수라는 뜻도/);
   assert.match(text, /갑자기 시작된 복통 또는 심한 복통/);
+  assert.match(article.sections.find(s=>s.tone === "warning")!.paragraphs![1], /타르 같은 변은 복통이 없어도 즉시 의료 도움/);
+  assert.ok(article.sections.find(s=>s.tone === "warning")!.sourceIds!.includes("SRC-NIDDK-GI-BLEEDING"));
   assert.match(text, /체중 감소 중 하나라도/);
   assert.match(text, /마음먹기에 달렸다/);
   assert.doesNotMatch(text, /몇 개 이상이면|일주일에 \d|\d+개월|\d+\s*(g|mg|그램)/);

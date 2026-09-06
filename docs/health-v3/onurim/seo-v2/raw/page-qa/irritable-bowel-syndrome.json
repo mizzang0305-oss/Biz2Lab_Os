@@ -1,33 +1,33 @@
 {
   "route": "/health/irritable-bowel-syndrome",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T06:35:42.714Z",
+  "observedAt": "2026-09-06T15:04:28.775Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
-      "top": "0e821d65cafdadda58b791b83e32904ae5e6c9de5b4055231e23bd168ee27738",
-      "full": "b1e3ff722c2f0c73cfb59a92c55e810d10ac10b0a21bcea2c472dcf565fd72f8"
+      "top": "1453d22d5c1be707f3fe58999cf9a3ac5ef84fb980e2da009c50d828cf15d227",
+      "full": "0abd76a94eb21430b0384d40c6766d1289f73d2ff7466194c54b248aa1c7c71d"
     },
     {
       "width": 390,
-      "top": "72ad082bdc0c89d0fa8f367639d9bb1f8c2fdd49cc57ac0b0483478fd45aa367",
-      "full": "bfdd31b1e66166737bfdedea92e09f7fc61e7b939bf8afd467fc007528e1f177"
+      "top": "4fdfc39981f3ee3f6e6293a629d958204f6bfa8bb4d39fdb52ddada35dd8f4ac",
+      "full": "861cfee421a2df78696abffa535299eb398bb7d2b6d4443a4c260a7bb993093a"
     },
     {
       "width": 430,
-      "top": "dd60df22816e8620e6aa3f8f02a8155f92802d7c941f2caff1eeba77b0efff9b",
-      "full": "77908a6f0f3a32a64d35db7ab0a80f14c2e016231f5d3e976225a7cbb98d578e"
+      "top": "3616f8d05cb804b18a8890aeb9fefb6b3da127b03165724959885a685e1a46cb",
+      "full": "6d10dfb327d3da9890074844e92ce59d8d7474e67d1da5483e02ca4e39c995a5"
     },
     {
       "width": 768,
-      "top": "ad35f3d041e0da47db607a98e467240d6de319fa0a2f02c8c7348c1d6737624d",
-      "full": "27a6eadec4733132707ab2e521f6600e863f1c76245f45f3497d2e91177cd2f9"
+      "top": "f4eeb4e690b0407ecf44258585d81116481b264d55d29cbfcfee8a43bd965c71",
+      "full": "fa141233e59dd0d7129332e713ff568989078796f4e91b24ac8c71fded7ee7bc"
     },
     {
       "width": 1440,
-      "top": "7407c7aadf38a11931539975b5fa285391a4238d62f3f5ba267511a4b5f3fba5",
-      "full": "cd15e84d80fd922ba5163a944e41fe1b45022bfaf062c4b2635d65df3f6b3887"
+      "top": "f0facbc2a61fa82bd5ab2f4fb73732e391df89a0fa672649905295ad36f8d964",
+      "full": "5c668170c595afdbe6e5971bac704f7a030423391d0af51219dcc42aebfa118a"
     }
   ],
   "failures": [],
@@ -100,7 +100,7 @@
       "tableCount": 1,
       "captionCount": 1,
       "faqCount": 6,
-      "sourceCount": 11,
+      "sourceCount": 12,
       "duplicateIds": [],
       "brokenLocalAnchors": [],
       "faqKeyboard": true,
@@ -181,7 +181,7 @@
       "tableCount": 1,
       "captionCount": 1,
       "faqCount": 6,
-      "sourceCount": 11,
+      "sourceCount": 12,
       "duplicateIds": [],
       "brokenLocalAnchors": [],
       "faqKeyboard": true,
@@ -262,7 +262,7 @@
       "tableCount": 1,
       "captionCount": 1,
       "faqCount": 6,
-      "sourceCount": 11,
+      "sourceCount": 12,
       "duplicateIds": [],
       "brokenLocalAnchors": [],
       "faqKeyboard": true,
@@ -343,7 +343,7 @@
       "tableCount": 1,
       "captionCount": 1,
       "faqCount": 6,
-      "sourceCount": 11,
+      "sourceCount": 12,
       "duplicateIds": [],
       "brokenLocalAnchors": [],
       "faqKeyboard": true,
@@ -424,7 +424,7 @@
       "tableCount": 1,
       "captionCount": 1,
       "faqCount": 6,
-      "sourceCount": 11,
+      "sourceCount": 12,
       "duplicateIds": [],
       "brokenLocalAnchors": [],
       "faqKeyboard": true,

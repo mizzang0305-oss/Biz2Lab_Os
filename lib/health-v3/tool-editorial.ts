@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "irritable-bowel-syndrome-visit-card": {
+    indexDecision: "INDEX_UTILITY",
+    inheritParentWarning: true,
+    title: "복통·배변 진료 질문지: 전후 변화와 식사 제한을 함께 상담",
+    description: "배변 전후 통증과 변의 횟수·형태, 식사·약을 정리하는 인쇄 질문지입니다. IBS 자가진단이나 원인 음식·금지 식품을 고르는 검사표가 아닙니다.",
+    updatedAt: "2026-09-07",
+    purpose: "복통·배변 변화나 기존 IBS의 새 불편을 상담할 때 씁니다. 특정 기간의 기록이나 빈칸 완성이 진료의 조건은 아닙니다.",
+    steps: [
+      "통증 시기·위치와 배변 전후 덜 아픔·더 아픔·비슷함·모르겠음을 적습니다. 변의 횟수·단단함·묽음이 평소와 달라진 점도 남깁니다.",
+      "식사·수면·생활, 실제 약·최근 장염·아는 가족력을 적고 모르면 미확인으로 남깁니다. 시간상 겹친 음식을 원인으로 확정하지 않습니다.",
+      "새 출혈·체중 감소·밤에 통증으로 깬 일도 알립니다. 기존 기록·결과를 가져가 질문하고 검사 목적·개인 계획·다음 확인 시점·연락처를 답변 칸에 남깁니다.",
+    ],
+    example: "기록 위치 예시: 아랫배 → 위치 / 배변 뒤에도 비슷함 → 전후 변화 / 평소보다 묽었음 → 변의 형태. 실제 관찰만 쓰며 진단·점수를 채워 넣지 않습니다.",
+    limitation: "기록으로 IBS·염증성 장질환을 구분하거나 검사 필요성을 혼자 결정하지 않습니다. 반응을 확인하려 음식을 일부러 먹거나 약을 바꾸지 않습니다. 제한 음식이 늘면 의료진·영양 전문가에게 알리고, 식단을 시도할 필요와 효과 확인·음식을 다시 넣는 계획을 함께 상의합니다.",
+    sheetNotice: "갑자기 시작되거나 심한 복통, 쓰러짐, 멈추지 않거나 많은 출혈은 즉시 119에 도움을 요청합니다. 복통에 혈변이 동반돼도 응급 평가가 먼저입니다. 검고 끈적한 타르 같은 변은 복통이 없어도 즉시 의료 도움을 받습니다. 새 출혈·이유 없는 체중 감소는 당일 의료기관에 연락하며 여러 신호·기록 완성을 기다리거나 직접 운전하지 않습니다.",
+    sourceIds: ["SRC-NIDDK-IBS-DIAGNOSIS", "SRC-NIDDK-IBS-DIET"],
+    links: [
+      { href: "/health/guides/symptom-journal", label: "관찰과 추측을 나눠 적는 증상 기록법" },
+      { href: "/health/guides/medication-list", label: "장염 때 쓴 약·현재 제품을 사실대로 남기는 목록" },
+      { href: "/health/guides/appointment-questions", label: "검사와 식사 계획에서 먼저 물을 질문 고르기" },
+    ],
+  },
   "metabolic-dysfunction-associated-steatotic-liver-disease-visit-card": {
     indexDecision: "INDEX_UTILITY",
     inheritParentWarning: true,

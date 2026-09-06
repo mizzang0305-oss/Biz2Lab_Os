@@ -116,6 +116,7 @@ const guides: GuideConfig[] = [
   {
     slug: "irritable-bowel-syndrome",
     prefix: "IBS",
+    toolSummary: { title: "복통·배변 질문지", description: "배변 전후 통증과 변의 변화, 식사·약·새 불편을 정리해 상담하는 인쇄 양식입니다." },
     title: "과민성장증후군",
     cluster: "위장·간",
     archetype: "BODY_SIGNAL",
@@ -126,8 +127,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 증상 흐름과 병력을 확인하고, 필요하면 빈혈·감염·염증성 장질환 같은 다른 문제를 살피는 검사를 합니다.",
     careBoundary: "특정 음식 하나를 원인으로 확정하거나 장기간 과도하게 제한하지 않습니다. 기록을 바탕으로 의료진과 개인별 계획을 상의합니다.",
     urgent: "혈변이나 검은 변, 원인 없는 체중 감소, 심한 탈수·실신, 새롭고 심한 복통이 있으면 과민성장증후군으로 넘기지 말고 의료 도움을 받습니다.",
-    observationItems: ["복통이 시작된 시간", "배변 횟수와 모양 변화", "먹은 것과 수면", "혈변·체중 변화 여부"],
-    questions: ["다른 원인을 확인할 검사가 필요한가요?", "기록에서 어떤 패턴을 볼까요?", "무리한 음식 제한을 피하려면 어떻게 하나요?"],
+    observationItems: ["복통 시기·위치 / 배변 전후 덜·더 아픔·비슷함·모르겠음", "평소와 다른 배변 횟수·변의 단단함·묽음 / 일상 영향", "식사·수면·생활 / 실제 약 사용·최근 장염·아는 가족력", "새 출혈·이유 없는 체중 감소 / 밤에 통증으로 깬 일·시기"],
+    questions: ["제 통증·배변 변화와 이력에서 다른 원인을 확인할 검사가 필요한가요?", "식사 제한을 늘리지 않으려면 어떤 도움과 효과 확인·재도입 계획이 필요한가요?", "현재 증상에 맞는 관리와 그 부담, 다시 평가할 때·그 전에 연락할 변화는 무엇인가요?"],
     sources: [
       { id: "SRC-NIDDK-IBS-DEFINITION", organization: "NIH/NIDDK", title: "Definition & Facts for Irritable Bowel Syndrome", url: "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/definition-facts", sourceDate: "2017" },
       { id: "SRC-NIDDK-IBS-SYMPTOMS", organization: "NIH/NIDDK", title: "Symptoms & Causes of Irritable Bowel Syndrome", url: "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/symptoms-causes", sourceDate: "2017" },

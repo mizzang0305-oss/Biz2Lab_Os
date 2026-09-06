@@ -23,7 +23,7 @@ export const ibsArticle: HealthArticle = {
   seoTitle: "과민성장증후군(IBS): 복통·배변 변화 기록과 진료 신호",
   title: "배가 아플 때, 배변 전후 무엇이 달라졌나요?",
   eyebrow: "위장·간 · 몸의 변화를 진료 언어로",
-  publishedAt: "2026-08-26", updatedAt: checkedAt, sourceCheckedAt: checkedAt,
+  publishedAt: "2026-08-26", updatedAt: "2026-09-07", sourceCheckedAt: checkedAt,
   description: "복통이 배변 전후 어떻게 달라지는지, 변의 형태와 횟수는 어떻게 변했는지 정리합니다. IBS·IBD의 차이, 음식 제한의 경계와 진료를 미루지 말아야 할 신호를 설명합니다.",
   outcome: "배변과 통증의 관계를 혼자 진단하지 않고 설명하며, 새 경고 신호는 기존 IBS 때문이라고 넘기지 않을 수 있습니다.",
   archetype: "BODY_SIGNAL",
@@ -71,9 +71,9 @@ export const ibsArticle: HealthArticle = {
     ], claimIds: ["IBS-P3-004"], sourceIds: ["SRC-NHS-IBS-LIFESTYLE", "SRC-NIDDK-IBS-DIET", "SRC-NIDDK-IBS-TREATMENT", "SRC-KDCA-IBS"], imageId: null, links: [{ href: "/health/guides/appointment-questions", label: "치료 목표·부작용·다음 상담을 묻는 질문" }] },
     { title: "익숙한 IBS가 있어도 새 위험 신호는 따로 봅니다", paragraphs: [
       "새 항문 출혈, 혈성 설사, 이유 없는 체중 감소 중 하나라도 생기면 기존 IBS 때문이라고 넘기지 마세요. 당일 의료기관에 연락해 신속한 평가를 받습니다. 통증 때문에 밤에 깨거나 양상이 달라진 경우도 진료에서 반드시 알립니다.",
-      "갑자기 시작된 복통 또는 심한 복통, 쓰러짐, 멈추지 않거나 많은 항문 출혈은 즉시 119에 도움을 요청할 신호입니다. 복통과 함께 피가 섞인 변이나 검고 끈적한 타르 같은 변이 나오는 경우도 응급 평가를 우선합니다. 여러 신호가 모두 나타날 때까지 기다리지 않습니다.",
+      "갑자기 시작된 복통 또는 심한 복통, 쓰러짐, 멈추지 않거나 많은 항문 출혈은 즉시 119에 도움을 요청할 신호입니다. 복통과 함께 피가 섞인 변이 나오는 경우도 응급 평가가 먼저입니다. 검고 끈적한 타르 같은 변은 복통이 없어도 즉시 의료 도움을 받습니다. 여러 신호가 모두 나타날 때까지 기다리지 않습니다.",
       "응급 신호가 있으면 직접 운전하거나 음식 반응을 더 관찰하며 버티지 않습니다. 진료 메모를 끝내는 것보다 도움 요청이 먼저입니다. 이런 변화만으로 암이나 염증성 장질환이 확정되는 것은 아니지만, 온라인에서 원인을 정해 진료를 미뤄서는 안 됩니다.",
-    ], claimIds: ["IBS-P3-005"], sourceIds: ["SRC-NHS-IBS-SYMPTOMS", "SRC-NHS-STOMACH-ACHE", "SRC-NHS-IBD", "SRC-KDCA-IBS"], tone: "warning", imageId: null, links: [{ href: "/health/guides/danger-signals", label: "기록보다 의료 도움이 먼저인 위험 신호" }] },
+    ], claimIds: ["IBS-P3-005"], sourceIds: ["SRC-NHS-IBS-SYMPTOMS", "SRC-NHS-STOMACH-ACHE", "SRC-NHS-IBD", "SRC-KDCA-IBS", "SRC-NIDDK-GI-BLEEDING"], tone: "warning", imageId: null, links: [{ href: "/health/guides/danger-signals", label: "기록보다 의료 도움이 먼저인 위험 신호" }] },
   ],
   faq: [
     { question: "변을 보고 배가 덜 아프면 IBS가 확실한가요?", answer: "아닙니다. 배변과 통증의 관계는 중요한 정보지만 그것만으로 진단하지 않습니다. 배변 후 더 아픈 경우도 있어 변화를 그대로 설명하고 병력·신체검사와 필요한 평가를 함께 받습니다.", claimIds: ["IBS-P3-002", "IBS-P3-003"], sourceIds: ["SRC-NIDDK-IBS-DIAGNOSIS", "SRC-NHS-IBS-DIAGNOSIS"] },
@@ -81,9 +81,9 @@ export const ibsArticle: HealthArticle = {
     { question: "IBS가 의심되면 모두 대장내시경을 받아야 하나요?", answer: "모두에게 일률적으로 필요한 것은 아닙니다. 의료진이 증상 변화·가족력·다른 검사 결과와 경고 신호를 보고 필요성을 판단합니다. 검사 하나가 정상이었다는 이유로 새 변화를 무시하지 않습니다.", claimIds: ["IBS-P3-003"], sourceIds: ["SRC-NHS-IBS-DIAGNOSIS", "SRC-NIDDK-IBS-DIAGNOSIS", "SRC-KDCA-IBS"] },
     { question: "얼마나 오래 기록해야 진료받을 수 있나요?", answer: "일정 기간을 채우는 것이 진료의 조건은 아닙니다. 기억나는 통증·배변·생활 변화를 간단히 가져가도 됩니다. 출혈, 갑작스러운 복통 또는 심한 복통이 있으면 기록을 기다리지 말고 의료 도움을 받습니다.", claimIds: ["IBS-P3-003", "IBS-P3-005"], sourceIds: ["SRC-NHS-IBS-DIAGNOSIS", "SRC-NHS-IBS-SYMPTOMS", "SRC-NHS-STOMACH-ACHE"] },
     { question: "저FODMAP 식단은 계속 엄격하게 지켜야 하나요?", answer: "모두에게 필요한 영구 제한 식단이 아닙니다. 시도의 필요성과 효과 확인, 음식을 다시 넣는 과정을 전문가와 상의합니다. 먹을 수 있는 음식이 계속 줄거나 증상이 잘 조절되지 않으면 혼자 제한을 늘리지 않습니다.", claimIds: ["IBS-P3-004"], sourceIds: ["SRC-NIDDK-IBS-DIET", "SRC-NHS-IBS-LIFESTYLE"] },
-    { question: "이미 IBS 진단을 받았다면 혈변도 지켜봐도 되나요?", answer: "기존 IBS로 단정하지 않습니다. 새 출혈이나 이유 없는 체중 감소는 신속히 평가받고, 많은·계속되는 출혈, 갑작스럽거나 심한 복통, 쓰러짐은 119 도움을 우선합니다. 응급 상황에는 기록보다 대응이 먼저입니다.", claimIds: ["IBS-P3-005"], sourceIds: ["SRC-NHS-IBS-SYMPTOMS", "SRC-NHS-IBD", "SRC-NHS-STOMACH-ACHE"] },
+    { question: "이미 IBS 진단을 받았다면 혈변도 지켜봐도 되나요?", answer: "기존 IBS로 단정하지 않습니다. 새 출혈이나 이유 없는 체중 감소는 신속히 평가받고, 많은·계속되는 출혈, 갑작스럽거나 심한 복통, 쓰러짐은 119 도움을 우선합니다. 검고 끈적한 타르 같은 변은 복통이 없어도 즉시 의료 도움을 받습니다. 응급 상황에는 기록보다 대응이 먼저입니다.", claimIds: ["IBS-P3-005"], sourceIds: ["SRC-NHS-IBS-SYMPTOMS", "SRC-NHS-IBD", "SRC-NHS-STOMACH-ACHE", "SRC-NIDDK-GI-BLEEDING"] },
   ],
-  sourceIds: ibsSources.map(s=>s.id),
+  sourceIds: [...ibsSources.map(s=>s.id), "SRC-NIDDK-GI-BLEEDING"],
   imageIds: ["ibs-hero", "ibs-concept", "ibs-action"],
   visuals: {
     "ibs-hero": { src: "/images/onurim/irritable-bowel-syndrome/hero.webp", alt: "네 줄의 메모 용지와 상담 준비를 상징하는 갈색 장식 표지 삽화", caption: "표지의 줄과 십자 모양은 진단 결과나 의료인 검수 완료 표시가 아닙니다.", width: 1536, height: 1024 },

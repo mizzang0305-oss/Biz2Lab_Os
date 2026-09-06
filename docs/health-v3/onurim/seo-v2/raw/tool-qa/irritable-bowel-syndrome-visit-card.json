@@ -1,0 +1,69 @@
+{
+  "route": "/health/tools/irritable-bowel-syndrome-visit-card",
+  "observedAt": "2026-09-06T15:04:43.920Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "복통 시기·위치 / 배변 전후 덜·더 아픔·비슷함·모르겠음",
+    "평소와 다른 배변 횟수·변의 단단함·묽음 / 일상 영향",
+    "식사·수면·생활 / 실제 약 사용·최근 장염·아는 가족력",
+    "새 출혈·이유 없는 체중 감소 / 밤에 통증으로 깬 일·시기"
+  ],
+  "sourceHrefs": [
+    "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/diagnosis",
+    "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/eating-diet-nutrition",
+    "https://www.nhs.uk/conditions/irritable-bowel-syndrome-ibs/symptoms/",
+    "https://www.nhs.uk/symptoms/stomach-ache/",
+    "https://www.nhs.uk/conditions/inflammatory-bowel-disease/",
+    "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5250",
+    "https://www.niddk.nih.gov/health-information/digestive-diseases/gastrointestinal-bleeding/symptoms-causes"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 7,
+    "overflow": 0,
+    "footerText": "복통·배변 질문지 · 양식·안내 수정 2026-09-07교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료NIH/NIDDK — Diagnosis of Irritable Bowel SyndromeNIH/NIDDK — Eating, Diet, & Nutrition for Irritable Bowel SyndromeNHS — Symptoms of IBSNHS — Stomach acheNHS — Inflammatory bowel disease질병관리청 국가건강정보포털 — 과민성장증후군NIH/NIDDK — Symptoms & Causes of GI Bleeding의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 4,
+    "checkedItems": 0,
+    "focusedCheckbox": false,
+    "footerParagraphFontPx": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "links": [
+    {
+      "href": "/health/irritable-bowel-syndrome",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/symptom-journal",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/medication-list",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/appointment-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "faf9e44eb817740b110cd7153a1d0f79d73114d916b6b1bbfb5f9b79a9998d21",
+  "pdfBytes": 141761,
+  "failures": []
+}

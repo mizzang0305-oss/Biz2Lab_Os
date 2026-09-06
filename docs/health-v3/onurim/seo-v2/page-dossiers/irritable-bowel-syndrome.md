@@ -69,3 +69,9 @@ Main은 HEAD25bbebf의 expansion70 records를 read-only TS 평가로 비교해 e
 INTENT_PASS · TITLE_PASS · DESCRIPTION_PASS · H1_PASS · CONTENT_UNIQUENESS_PASS · MEDICAL_SOURCE_PASS · INTERNAL_LINK_PASS · IMAGE_PASS · MOBILE_PASS · SCHEMA_PASS · CANONICAL_PASS · INDEXABILITY_PASS.
 
 260fulltests/typecheck/healthaudit/build116 PASS. lint 오류0/기존경고1. 마지막P2 수정 후5폭QA/SEO fail0·SEO회귀17건·build116·diffcheck 재통과. 독립 검토는144전체records와47전체packet의HEAD25bbebf 대비 동일도 확인했다. `../raw/page-qa/irritable-bowel-syndrome.json` 및 ignored local 동명폴더에 machine evidence. fieldCWV/의료인검수/실제독자/Google색인보장 아님. Preview·Production·색인 요청 없음.
+
+## Tool24 재대조 — 2026-09-07 KST
+
+위 인증·수치·문구는 당시 증거다. 새 독립 diff 검토에서 타르변의 긴급 도움에 복통을 필수 조건처럼 붙인 P1이 발견됐다. Main은 기존 NIDDK GI출혈 원문(2024-07)을 직접 재대조해 경고·FAQ를 ‘검고 끈적한 타르 같은 변은 복통이 없어도 즉시 의료 도움’으로 분리하고 기존 SRC-NIDDK-GI-BLEEDING을 연결했다. 위험 신호 출처4→5, 전체11→12. 실질수정일9/7, sourceCheckedAt9/6 유지. 도구 카드 제목·설명도 실제 복통·배변 질문지와 일치시켰다.
+
+최종 local1285words/12sources/3images/outlinks20. 부모5폭/SEO와 도구5폭/SEO/인쇄,관련66tests PASS. Main430px 새 경고 직접 확인. 출처 registry 객체·원래 Claim text·47 패킷은 수정하지 않았고 면허 검수 완료를 주장하지 않는다. 과거 전체 suite/build가 이 delta까지 검증했다고 쓰지 않는다. 상세 안전 경계·출처·최종3쪽 인쇄 증거는 tool-irritable-bowel-syndrome-visit-card.md. Production·Google 변경0.

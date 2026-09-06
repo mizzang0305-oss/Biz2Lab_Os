@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/irritable-bowel-syndrome-visit-card",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T15:04:39.085Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "2324835f0a9b61c69ea10a959de18e8632d3a49758c75a2835f46802b60efd97",
+      "full": "24933f6906d9938558532b5f930c1e9fb5e70ab3ea376fa1bac190bca268be0a"
+    },
+    {
+      "width": 390,
+      "top": "7cfe53866c80bef4fa9ffa30ae747782935f68e6d360fe47e8512af2557508bf",
+      "full": "c9103882e70e916f87d75a232b087f846582dd4dd3ad2913d43da5303f6b51b6"
+    },
+    {
+      "width": 430,
+      "top": "2db2195ff6fb06b05a1171d5249c13812cd820efc360552633f38328f7395acf",
+      "full": "1a8603c30e956520d227e707f01c261e6d29974a1b924c6ae2cf180938680afa"
+    },
+    {
+      "width": 768,
+      "top": "295a774b911d6dfde3590bf90f733c658f28f4684db7be000b898409c388511a",
+      "full": "2ef7bbbae51548b06f3f28e8e75fe67f95be2e5a7dd6adb10732d6480e19f825"
+    },
+    {
+      "width": 1440,
+      "top": "8f3696bbad021fe42deab5ddc3e0d5a7e1527a4ce6c2382858305ad56df2f1a4",
+      "full": "e40ea6770f270c623b28b05f5226435b95331f6da2f2b55756cae03e419e781f"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "복통·배변 진료 질문지: 전후 변화와 식사 제한을 함께 상담 | 오누림",
+      "h1": [
+        "복통·배변 질문지"
+      ],
+      "h2": [
+        "익숙한 IBS가 있어도 새 위험 신호는 따로 봅니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/irritable-bowel-syndrome-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "복통·배변 진료 질문지: 전후 변화와 식사 제한을 함께 상담 | 오누림",
+      "h1": [
+        "복통·배변 질문지"
+      ],
+      "h2": [
+        "익숙한 IBS가 있어도 새 위험 신호는 따로 봅니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/irritable-bowel-syndrome-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "복통·배변 진료 질문지: 전후 변화와 식사 제한을 함께 상담 | 오누림",
+      "h1": [
+        "복통·배변 질문지"
+      ],
+      "h2": [
+        "익숙한 IBS가 있어도 새 위험 신호는 따로 봅니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/irritable-bowel-syndrome-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "복통·배변 진료 질문지: 전후 변화와 식사 제한을 함께 상담 | 오누림",
+      "h1": [
+        "복통·배변 질문지"
+      ],
+      "h2": [
+        "익숙한 IBS가 있어도 새 위험 신호는 따로 봅니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/irritable-bowel-syndrome-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "복통·배변 진료 질문지: 전후 변화와 식사 제한을 함께 상담 | 오누림",
+      "h1": [
+        "복통·배변 질문지"
+      ],
+      "h2": [
+        "익숙한 IBS가 있어도 새 위험 신호는 따로 봅니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/irritable-bowel-syndrome-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}
