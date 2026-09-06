@@ -969,8 +969,8 @@
       "MIG-P3-002",
       "MIG-P3-003"
     ],
-    "altText": "편두통의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 편두통을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "진료 메모와 상담 준비를 상징하는 초록·노랑 장식 표지 삽화",
+    "caption": "표지의 선과 십자 모양은 뇌 검사 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 편두통; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -978,49 +978,58 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-MIG-P3-CONCEPT",
-    "file": "public/images/onurim/migraine/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/migraine/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "df6778b7852a53175d8d4ae009966ed63b0db80ef271a63afe02966ae0d25a71",
+    "sha256": "5b1547c70c1d5a1ce0090aba0b8ca1ee2ddd1ac357221de90f678a3be075a1fd",
     "claimIds": [
       "MIG-P3-001",
       "MIG-P3-003"
     ],
-    "altText": "편두통과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 편두통; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "가상 성인 곁에 빛·소리, 메스꺼움, 피로와 휴식을 상징하는 작은 장면을 배치한 편두통 동반 변화 삽화",
+    "caption": "빛·소리 민감성, 메스꺼움, 피로를 상징한 AI 생성 삽화입니다. 전구는 전조의 섬광, 위 모양은 장기 손상, 누운 모습은 치료 효과를 뜻하지 않습니다. 모두에게 필요한 단계나 진단 기준이 아니며, 새 신경 증상을 잠으로 넘기라는 안내가 아닙니다.",
+    "prompt": "Use case: scientific-educational.\nAsset type: original conceptual illustration for an adult Korean migraine education page, landscape 1536x1024.\nPrimary request: one coherent gentle editorial illustration showing that migraine can involve more than the location of head pain. At the center show a fictional adult in three-quarter view, upper torso, seated and calmly resting a hand near the temple with a mildly uncomfortable but alert expression. Around them place three clearly separate small symbolic vignettes without boxes: a softly shaded light bulb beside a simple ear to suggest sensitivity to light and sound; a small neutral stomach outline to suggest nausea; and a resting head on a pillow to suggest tiredness. These are optional associated experiences, NOT mandatory steps or a sequence. No connecting arrows, no timeline, no diagnosis score. Head pain is not a brain wound or a literal electrical bolt.\nStyle: original contemporary editorial colored-pencil and soft gouache raster art, muted sage, ochre and warm cream, clean soft edges, generous whitespace, approachable adult publication, not childish clip art, no copied medical images.\nConstraints: no words, numbers, logos, watermarks, medication, flashing zigzags, harsh stripes, brain scans, exposed brain, blood vessels, facial droop, asymmetric paralysis, speech-loss imagery or other neurological emergency signs normalized as routine migraine. No recovery-before/after promise, no three-card workflow.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "supersedesFile": "public/images/onurim/migraine/concept.webp",
+    "generator": "built-in image_gen",
+    "sourceIds": ["SRC-NHS-MIGRAINE", "SRC-MEDLINEPLUS-MIGRAINE"],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-MIG-P3-ACTION",
-    "file": "public/images/onurim/migraine/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/migraine/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "8d8d38fec523cfe505587176d9063a7bfc917dc8bb34ea51b25b30d5464f69e7",
+    "sha256": "c73d4207e8e8f8a90674bcba965914378427511791097b6be30daaeb8767351e",
     "claimIds": [
       "MIG-P3-004",
       "MIG-P3-005"
     ],
-    "altText": "편두통의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 편두통; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "가상 성인이 두통 기록과 약 사용 기록이라는 빈 양식 앞에서 연필을 든 AI 생성 장면",
+    "caption": "실제 환자·진료 기록이 아닌 AI 생성 장면입니다. 두통과 이미 사용한 약을 설명하는 빈 기록 예시이지 약을 먹을 날짜·횟수·용량을 정하는 일정표가 아닙니다. 응급 신호가 있으면 작성보다 도움 요청이 먼저입니다.",
+    "prompt": "Use case: photorealistic-natural.\nAsset type: original supporting image for a Korean adult headache diary article, landscape 1536x1024.\nPrimary request: candid close-up editorial photo of a fictional Korean adult preparing a short headache diary at a home desk in quiet neutral daylight. Frame from shoulder to hands and desktop, no full face needed. One hand holds a plain graphite pencil above a single unfilled paper recording sheet. The sheet has exactly two large Korean column headings, \"두통 기록\" and \"약 사용 기록\", each with sparse empty writing lines underneath. Both headings must be spelled exactly. No entered dates, numbers, symptoms, patient names, checked boxes or completed clinical data. No printed diagnoses. A closed plain folder sits partly behind the sheet. Show natural skin and fabric texture and anatomically plausible hands.\nThe scene illustrates recording what happened and what medicine was actually used for discussion with a clinician, NOT when or how much to take medication. Do not show pills, medicine containers, dosing instructions, smartphone screens, calendar schedules, clinical equipment, food, coffee, clinician endorsement or a person ignoring emergency symptoms.\nComposition: slightly oblique over-the-shoulder close crop with legible headings, soft uncluttered cream desk, muted green sleeve, calm practical atmosphere. No text overlay, logos, watermark, fake testimonial, diagram panels, arrows or three-box workflow.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "supersedesFile": "public/images/onurim/migraine/action.webp",
+    "generator": "built-in image_gen",
+    "sourceIds": ["SRC-KDCA-MIGRAINE", "SRC-MEDLINEPLUS-MIGRAINE-HOME"],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-KST-P3-HERO",

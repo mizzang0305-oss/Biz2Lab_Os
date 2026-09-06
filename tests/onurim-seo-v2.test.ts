@@ -173,6 +173,35 @@ test("SEO citation counts include declared professional-society sources without 
   assert.match(audit, /DECLARED_SOURCE_BLOCK_NOT_QUALITY_VERDICT/);
 });
 
+test("migraine separates a variable symptom history from new emergencies and medication schedules", () => {
+  const article = healthArticles.migraine;
+  assert.equal(article.archetype, "BODY_SIGNAL");
+  assert.equal(article.sections.length, 7);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sections[0].tone, "warning");
+  assert.ok(article.sections[0].paragraphs);
+  assert.match(article.sections[0].paragraphs[0], /즉시 119에 연락합니다/);
+  assert.match(article.sections[0].paragraphs[2], /발열 또는 목의 뻣뻣함/);
+  assert.match(article.sections[0].paragraphs[2], /두 증상이 모두 생길 때까지 기다리지 않습니다/);
+  assert.match(article.sections[0].paragraphs[2], /바로 평가받을 수 없으면 응급의료기관으로 가거나 119에 연락/);
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  assert.ok(!article.sourceIds.includes("SRC-NINDS-MIGRAINE"));
+  const text = JSON.stringify(article);
+  assert.match(text, /모두 있어야 하는 조건이 아닙니다/);
+  assert.match(text, /예방약의 계획된 사용과 급성 증상 때문에 추가로 사용한 약을 구분/);
+  assert.match(text, /일반적인 지속 시간을/);
+  assert.match(text, /직접 운전하지 말고/);
+  assert.doesNotMatch(text, /\d+\s*(시간|분|일|mg)|혈관 확장으로만|예방약은 모두 매일/);
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
 test("gout separates serum urate, acute joint assessment and individual long-term goals", () => {
   const article = healthArticles.gout;
   assert.equal(article.archetype, "MYTH_FIRST");
