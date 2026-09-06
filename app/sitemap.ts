@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const guideEntries = Object.values(healthArticles).map((article) => ({
     url: absoluteUrl(`/health/${article.slug}`),
-    lastModified: new Date("2026-08-26"),
+    lastModified: new Date(article.updatedAt ?? "2026-08-26"),
     changeFrequency: "weekly",
     priority: 0.9,
   })) satisfies MetadataRoute.Sitemap;

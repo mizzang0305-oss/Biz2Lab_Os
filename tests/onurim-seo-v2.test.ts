@@ -42,7 +42,24 @@ test("new support schema does not fabricate a physician or FAQ rich result", () 
   assert.match(source, /datePublished: guide\.publishedAt/);
   assert.match(source, /dateModified: guide\.updatedAt/);
   assert.match(source, /면허 의료인 검수 미완료/);
-  assert.match(source, /role="table"/);
+  assert.match(readFileSync("components/health/HealthComparisonTable.tsx", "utf8"), /role="table"/);
+});
+
+test("hypertension preserves review provenance and maps new comparison content to actual sources", () => {
+  const article = healthArticles.hypertension;
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.publishedAt, "2026-08-26");
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.ok(article.sections.every(s=>s.imageId !== undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.match(JSON.stringify(article), /백의 고혈압/);
+  assert.match(JSON.stringify(article), /가면 고혈압/);
+  assert.doesNotMatch(article.eyebrow, /비공개|파일럿|Preview/);
+  assert.match(JSON.stringify(article), /재측정하며 기다리지 말고 119/);
 });
 
 test("legacy health Preview styling no longer hides public global navigation", () => {

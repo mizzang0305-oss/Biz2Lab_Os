@@ -77,17 +77,24 @@ export type HealthSection = {
   claimIds: string[];
   tone?: "default" | "note" | "warning";
   imageId?: string | null;
+  sourceIds?: string[];
+  table?: { caption: string; columns: string[]; rows: string[][] };
+  links?: Array<{ href: string; label: string }>;
 };
 
 export type HealthArticle = {
   slug: HealthArticleSlug;
   title: string;
+  seoTitle?: string;
+  publishedAt?: string;
+  updatedAt?: string;
+  sourceCheckedAt?: string;
   eyebrow: string;
   description: string;
   outcome: string;
   summary: string[];
   sections: HealthSection[];
-  faq: Array<{ question: string; answer: string; claimIds: string[] }>;
+  faq: Array<{ question: string; answer: string; claimIds: string[]; sourceIds?: string[] }>;
   sourceIds: string[];
   imageIds: string[];
   toolSlugs: string[];
@@ -479,10 +486,14 @@ export const healthClaims: HealthClaim[] = [
 export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
   hypertension: {
     slug: "hypertension",
-    title: "고혈압, 숫자에 놀라기 전에 기록부터",
-    eyebrow: "심장·혈관 · 비공개 파일럿",
-    description: "혈압 숫자의 뜻, 집에서 더 안정적으로 재는 방법, 기록과 진료 질문을 차근차근 정리합니다.",
-    outcome: "혈압을 이해하고, 같은 조건에서 기록하고, 진료에서 확인할 질문을 준비합니다.",
+    title: "고혈압을 이해하고 집에서 혈압을 정확히 기록하는 법",
+    seoTitle: "고혈압 증상과 혈압 재는 법, 가정혈압 기록표",
+    publishedAt: "2026-08-26",
+    updatedAt: "2026-09-06",
+    sourceCheckedAt: "2026-09-06",
+    eyebrow: "심장·혈관 · 가정혈압과 진료 준비",
+    description: "증상이 없어도 혈압을 확인해야 하는 이유, 측정 자세와 커프 점검, 진료실·가정혈압이 다를 때 남길 기록을 설명합니다. 응급 도움과 진료 상담의 경계도 구분합니다.",
+    outcome: "측정 조건을 점검하고, 집과 진료실에서 잰 원래 값을 나란히 남겨 의료진에게 질문할 수 있습니다.",
     summary: [
       "고혈압은 증상만으로 알아차리기 어려워 측정이 필요합니다.",
       "한 번의 숫자로 혼자 진단하거나 약을 바꾸지 않습니다.",
@@ -490,45 +501,75 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
     ],
     sections: [
       {
-        title: "한 문장으로 이해하기",
+        title: "느낌보다 측정이 필요한 이유",
         paragraphs: [
-          "혈압은 피가 혈관 벽을 미는 힘입니다. 그 힘이 계속 높은 상태가 고혈압입니다.",
+          "고혈압은 혈관 안의 압력이 지속해서 높은 상태입니다. 초기에는 별다른 증상이 없는 경우가 많습니다. 두통이 없다고 배제할 수도, 두통이 있다고 고혈압으로 단정할 수도 없습니다.",
         ],
-        claimIds: ["HTN-B1-001"],
+        claimIds: ["HTN-B1-001", "HTN-B1-003"],
+        sourceIds: ["SRC-KDCA-HTN", "SRC-CDC-HTN"],
+        imageId: null,
       },
       {
-        title: "아이에게 설명한다면",
+        title: "위·아래 혈압은 서로 다른 순간을 봅니다",
         paragraphs: [
-          "심장은 물을 보내는 펌프, 혈관은 부드러운 길이라고 생각해 보세요. 압력이 너무 높은 채 오래 이어지면 길과 연결된 곳들이 부담을 받습니다. 몸은 호스보다 훨씬 복잡하지만 ‘압력이 오래 높으면 부담이 된다’는 부분을 이해하는 데 도움이 되는 비유입니다.",
+          "위 숫자(수축기)는 심장이 피를 내보낼 때, 아래 숫자(이완기)는 박동 사이에 쉴 때의 압력입니다. 두 값과 단위 mmHg를 함께 남깁니다. 혈압계의 맥박 표시는 혈압과 다른 항목입니다.",
+          "국가와 지침, 측정 장소에 따라 설명하는 기준이 다를 수 있습니다. 검사표를 다른 나라의 표에 혼자 대입하기보다 의료진에게 적용 기준과 개인 목표를 확인하세요.",
         ],
-        claimIds: ["HTN-B1-001", "HTN-B1-005"],
+        claimIds: ["HTN-B1-001", "HTN-B1-002", "HTN-B1-004"],
+        sourceIds: ["SRC-CDC-HTN", "SRC-KDCA-HTN"],
+        imageId: "htn-process",
         tone: "note",
       },
       {
-        title: "위 숫자와 아래 숫자",
+        title: "집과 진료실에서 다른 값이 나온다면",
         paragraphs: [
-          "혈압계에는 숫자가 두 개 보입니다. 위 숫자는 심장이 피를 내보낼 때, 아래 숫자는 심장이 다음 박동을 준비하며 쉬는 사이의 압력을 나타냅니다.",
-          "어떤 범위를 목표로 할지는 나이, 질환, 임신 여부와 치료 상황에 따라 달라질 수 있어 이 페이지는 개인 목표를 정하지 않습니다.",
+          "차이가 난다는 사실만으로 어느 한쪽이 틀렸다고 지우지 마세요. 측정 조건을 확인한 뒤, 의료진이 가정 기록이나 24시간 활동혈압 검사가 필요한지 판단합니다.",
         ],
         claimIds: ["HTN-B1-002", "HTN-B1-004"],
+        sourceIds: ["SRC-KDCA-HTN", "SRC-AHA-HOME-BP"],
+        imageId: null,
+        table: {
+          caption: "진료실과 일상 혈압의 차이 — 이 표만으로 진단하지 않습니다",
+          columns: ["설명에 쓰이는 용어", "어떤 차이인가요", "가져갈 기록"],
+          rows: [
+            ["백의 고혈압", "평소에는 정상이지만 진료실에서는 높은 양상", "집에서 잰 날짜·시각·원래 값과 진료실 기록"],
+            ["가면 고혈압", "진료실에서는 정상이지만 일상에서는 높은 양상", "측정한 장소, 활동·증상과 함께 남긴 가정 기록"],
+            ["측정 조건 차이", "커프 크기·자세·직전 활동 등이 결과에 영향을 줄 수 있음", "혈압계와 커프 정보, 측정 당시 자세와 준비 상황"],
+          ],
+        },
+        links: [{ href: "/health/tools/blood-pressure-log", label: "지우거나 골라 쓰지 않고 원래 값을 남기는 혈압 기록표" }],
       },
       {
-        title: "아무 느낌이 없어도 재는 이유",
+        title: "반복해서 재기 전에 조건부터 점검하세요",
         paragraphs: [
-          "고혈압은 아프거나 어지러운 느낌이 없는 경우가 많습니다. 반대로 두통이 있다고 원인이 반드시 혈압인 것도 아닙니다. 느낌 대신 올바른 방법으로 잰 기록과 의료진의 판단이 필요합니다.",
+          "검증된 위팔 혈압계와 팔 둘레에 맞는 커프를 사용합니다. 기기 선택이나 사용법이 불확실하면 의료진·약사에게 확인하고, 진료에 기기를 가져가 자세와 측정값을 비교할 수 있습니다.",
         ],
-        claimIds: ["HTN-B1-003", "HTN-B1-004"],
+        claimIds: ["HTN-B1-006", "HTN-B1-007"],
+        sourceIds: ["SRC-AHA-HOME-BP"],
+        imageId: null,
+        table: {
+          caption: "측정 조건 점검표 — 높은 값을 단순 오차로 치부하지 않습니다",
+          columns: ["확인할 부분", "다음 측정에서 준비할 것"],
+          rows: [
+            ["옷 위에 감은 커프", "위팔을 드러내고 기기 설명서대로 착용"],
+            ["공중에 든 팔·꼰 다리", "등과 팔을 받치고 두 발을 바닥에 둠"],
+            ["직전 운동·흡연·카페인", "평소 측정은 30분 전부터 피하고 조용히 5분 이상 휴식"],
+          ],
+        },
       },
       {
         title: "측정 전 5분이 기록의 질을 바꿉니다",
         bullets: [
           "측정 30분 전에는 흡연, 카페인 음료와 운동을 피합니다.",
-          "화장실을 다녀온 뒤 조용한 곳에서 5분 정도 쉽니다.",
+          "화장실을 다녀온 뒤 조용한 곳에서 5분 이상 쉽니다.",
           "등을 기대고 발을 바닥에 둡니다. 다리는 꼬지 않습니다.",
           "혈압계 팔띠(커프)는 옷 위가 아닌 맨팔에 두고 팔을 심장 높이에서 받칩니다.",
           "측정 중에는 말하거나 휴대전화를 보지 않습니다.",
         ],
         claimIds: ["HTN-B1-006", "HTN-B1-007"],
+        sourceIds: ["SRC-AHA-HOME-BP", "SRC-KDCA-HTN"],
+        imageId: "htn-checklist",
+        links: [{ href: "/health/guides/measuring-blood-pressure", label: "혈압 측정 준비·자세·기록을 순서대로 확인하기" }],
       },
       {
         title: "무엇을 기록할까요?",
@@ -536,6 +577,8 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
           "날짜와 시간, 위·아래 혈압 숫자(수축기·이완기), 맥박, 쉬기 전후, 증상과 이미 처방받아 복용한 약 여부를 적습니다. 한 번에 1분 간격으로 두 번 측정한 원래 값을 남기고 평균을 임의로 치료 판단에 사용하지 않습니다.",
         ],
         claimIds: ["HTN-B1-008", "HTN-B1-010"],
+        sourceIds: ["SRC-AHA-HOME-BP"],
+        imageId: null,
       },
       {
         title: "진료에서 확인할 질문",
@@ -546,6 +589,9 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
           "복용 중인 약과 관련해 확인할 점은 무엇인가요?",
         ],
         claimIds: ["HTN-B1-004", "HTN-B1-008", "HTN-B1-010"],
+        sourceIds: ["SRC-KDCA-HTN", "SRC-AHA-HOME-BP"],
+        imageId: null,
+        links: [{ href: "/health/tools/blood-pressure-questions", label: "진료에서 받은 답도 함께 적는 혈압 질문 카드" }],
       },
       {
         title: "생활 관리와 약은 역할이 다릅니다",
@@ -553,6 +599,8 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
           "식사, 활동, 흡연, 체중과 스트레스 같은 생활 요소를 살피는 일은 관리의 한 부분입니다. 처방약이 필요한 사람도 있으며, 수치가 좋아졌다고 스스로 용량을 줄이거나 중단해서는 안 됩니다.",
         ],
         claimIds: ["HTN-B1-009", "HTN-B1-010"],
+        sourceIds: ["SRC-KDCA-HTN", "SRC-AHA-HOME-BP"],
+        imageId: null,
       },
       {
         title: "기록보다 119가 먼저인 때",
@@ -561,7 +609,19 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
           "얼굴이나 한쪽 팔다리의 갑작스러운 힘 빠짐, 말이 어눌해지거나 이해하기 어려운 변화",
         ],
         claimIds: ["HTN-B1-011", "HTN-B1-012"],
+        sourceIds: ["SRC-KDCA-STROKE", "SRC-KDCA-MI", "SRC-AHA-HOME-BP"],
         tone: "warning",
+        imageId: "htn-warning",
+        paragraphs: ["이런 변화가 있으면 혈압이 내려가는지 기다리거나 기록을 마무리하지 말고 119에 연락합니다. 숫자가 확인되지 않았어도 도움을 늦추지 않습니다."],
+        links: [{ href: "/health/guides/danger-signals", label: "병원에 빨리 가야 하는 위험 신호" }, { href: "/health/stroke", label: "뇌졸중 의심 신호와 119 행동 안내" }],
+      },
+      {
+        title: "응급 증상은 없지만 값이 계속 걱정될 때",
+        paragraphs: ["진료에서 정한 연락 기준을 넘거나 매우 높은 값이 계속되면 다음 정기 진료까지 미루지 말고 의료진에게 바로 연락해 평가 시점을 확인하세요. 연락을 준비하며 약을 더 먹거나 줄이지 않습니다. 새 증상이 생기면 위의 응급 행동을 우선합니다."],
+        claimIds: ["HTN-B1-004", "HTN-B1-010"],
+        sourceIds: ["SRC-AHA-HOME-BP"],
+        imageId: null,
+        tone: "note",
       },
       {
         title: "가족은 ‘감시’보다 준비를 돕습니다",
@@ -569,6 +629,9 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
           "측정 시간을 함께 정하고 기록지를 찾기 쉬운 곳에 둡니다. 진료 전에는 혈압계 정보와 복용 약 목록, 궁금한 점을 함께 정리합니다. 응급 신호가 보이면 기록을 완성하려 하지 말고 도움 요청을 우선합니다.",
         ],
         claimIds: ["HTN-B1-013"],
+        sourceIds: ["SRC-AHA-HOME-BP"],
+        imageId: null,
+        links: [{ href: "/health/guides/medication-list", label: "처방약·일반약을 함께 정리하는 복용약 목록" }],
       },
     ],
     faq: [
@@ -576,17 +639,23 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
         question: "한 번 높게 나오면 고혈압인가요?",
         answer: "아닙니다. 측정 조건과 반복 결과를 의료진이 함께 판단합니다. 값이 걱정되면 원래 기록을 가지고 상담하세요.",
         claimIds: ["HTN-B1-004", "HTN-B1-008"],
+        sourceIds: ["SRC-KDCA-HTN", "SRC-AHA-HOME-BP"],
       },
       {
         question: "머리가 아프지 않으면 괜찮은가요?",
         answer: "고혈압은 뚜렷한 증상이 없는 경우가 많아 두통 유무만으로 판단할 수 없습니다.",
         claimIds: ["HTN-B1-003"],
+        sourceIds: ["SRC-KDCA-HTN"],
       },
       {
         question: "약을 먹고 수치가 좋아졌는데 쉬어도 되나요?",
         answer: "처방약의 중단이나 용량 변경은 처방 의료진과 상의해야 합니다.",
         claimIds: ["HTN-B1-010"],
+        sourceIds: ["SRC-AHA-HOME-BP"],
       },
+      { question: "병원에서는 높은데 집에서는 괜찮으면 기록을 버려도 되나요?", answer: "두 장소의 원래 기록을 함께 가져가세요. 백의 고혈압 같은 양상이나 측정 조건 차이가 있을 수 있어, 의료진이 추가 측정 필요성을 확인합니다.", claimIds: ["HTN-B1-004"], sourceIds: ["SRC-KDCA-HTN"] },
+      { question: "손목 혈압계와 위팔 혈압계 중 무엇을 확인해야 하나요?", answer: "가정 측정에는 검증된 위팔 혈압계와 맞는 커프가 권장됩니다. 이미 쓰는 기기나 신체 조건에 대한 질문은 의료진·약사에게 가져가 확인하세요.", claimIds: ["HTN-B1-007"], sourceIds: ["SRC-AHA-HOME-BP"] },
+      { question: "높게 나와서 계속 재도 되나요?", answer: "평소 기록은 정해진 조건과 횟수로 남깁니다. 매우 높은 값이 지속되면 의료진에게 바로 연락하고, 가슴 통증·심한 호흡곤란·갑작스러운 마비나 말 이상이 있으면 재측정하며 기다리지 말고 119 도움을 받습니다.", claimIds: ["HTN-B1-008", "HTN-B1-011", "HTN-B1-012"], sourceIds: ["SRC-AHA-HOME-BP", "SRC-KDCA-STROKE", "SRC-KDCA-MI"] },
     ],
     sourceIds: [
       "SRC-KDCA-HTN",

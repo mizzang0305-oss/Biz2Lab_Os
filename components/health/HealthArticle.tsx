@@ -9,19 +9,21 @@ import {
 } from "@/lib/health-v3/content";
 import { expansionGuideSummaries } from "@/lib/health-v3/public-expansion";
 import { absoluteUrl } from "@/lib/site";
+import { breadcrumbJsonLd, jsonLd } from "@/lib/seo";
+import { HealthComparisonTable } from "./HealthComparisonTable";
 
 const imageMeta: Record<string, { src: string; alt: string; caption: string; width: number; height: number }> = {
   "htn-hero": {
     src: "/images/onurim/hypertension/hero.webp",
     alt: "집에서 혈압을 잰 뒤 기록표에 숫자와 시간을 적는 성인의 차분한 교육용 삽화",
-    caption: "한 번의 숫자보다 같은 조건에서 남긴 기록이 진료 질문을 구체적으로 만듭니다.",
+    caption: "측정을 마친 뒤 원래 값을 적는 장면입니다. 측정하는 동안에는 쓰거나 움직이지 않습니다.",
     width: 1536,
     height: 1024,
   },
   "htn-process": {
-    src: "/images/onurim/hypertension/process.webp",
-    alt: "심장이 혈관으로 피를 보내며 혈관 벽에 압력이 생기는 과정을 단순화한 교육용 삽화",
-    caption: "혈압은 피가 혈관 벽을 미는 힘입니다. 그림은 이해를 돕는 단순화이며 진단 영상이 아닙니다.",
+    src: "/images/onurim/hypertension/process-v2.webp",
+    alt: "혈관 내부에서 벽 쪽으로 향하는 화살표로 혈액이 혈관 벽을 미는 압력을 표현한 단순화 삽화",
+    caption: "화살표는 혈관 안의 피가 벽을 미는 압력을 나타냅니다. 심장과 혈관의 연결·크기는 개념 설명용이며 실제 해부도나 진단 영상이 아닙니다.",
     width: 1536,
     height: 1024,
   },
@@ -192,6 +194,11 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
     .map((slug) => healthTools.find((tool) => tool.slug === slug))
     .filter(Boolean);
   const articleClaims = healthClaims.filter((claim) => claim.articleSlug === article.slug);
+  const sourceLinks = (ids?: string[]) => ids?.length ? <p className="onurim-section-sources">근거: {ids.map((id, index) => {
+    const source = sources.find(item => item.id === id);
+    if (!source) throw new Error(`Missing article source ${article.slug}/${id}`);
+    return <span key={id}>{index > 0 ? " · " : ""}<a href={`#source-${id}`}>{source.organization}</a></span>;
+  })}</p> : null;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -199,7 +206,9 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
     description: article.description,
     inLanguage: "ko-KR",
     mainEntityOfPage: absoluteUrl(`/health/${article.slug}`),
-    dateModified: "2026-08-26",
+    dateModified: article.updatedAt ?? "2026-08-26",
+    ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
+    ...(article.seoTitle ? { image: article.imageIds.map(id => absoluteUrl(imageMeta[id].src)) } : {}),
     author: {
       "@type": "Person",
       name: "박영훈",
@@ -215,8 +224,12 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
   };
 
   return (
-    <article className="onurim-article">
+    <article className={`onurim-article${article.seoTitle ? " onurim-seo-article" : ""}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
+      {article.seoTitle ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbJsonLd([
+        { name: "오누림", url: absoluteUrl("/") }, { name: "건강 가이드", url: absoluteUrl("/health") },
+        { name: article.title, url: absoluteUrl(`/health/${article.slug}`) },
+      ])) }} /> : null}
       <header className="onurim-article-hero">
         <div>
           <p className="onurim-eyebrow">{article.eyebrow}</p>
@@ -230,6 +243,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
           <p className="onurim-byline">
             작성: <Link href="/health/trust/author">박영훈 · 비의료인 건강정보 편집자</Link>
           </p>
+          {article.publishedAt ? <p className="onurim-byline">발행 <time dateTime={article.publishedAt}>{article.publishedAt}</time> · 수정 <time dateTime={article.updatedAt}>{article.updatedAt}</time></p> : null}
         </div>
         <figure className="onurim-hero-figure">
           <Image
@@ -238,7 +252,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
             width={imageMeta[article.imageIds[0]].width}
             height={imageMeta[article.imageIds[0]].height}
             sizes="(max-width: 900px) 100vw, 42vw"
-            priority
+            preload
           />
           <figcaption>{imageMeta[article.imageIds[0]].caption}</figcaption>
         </figure>
@@ -274,6 +288,9 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
                 </div>
                 {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 {section.bullets ? <ul>{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul> : null}
+                {section.table ? <HealthComparisonTable table={section.table} /> : null}
+                {section.links ? <ul className="onurim-context-links">{section.links.map(link => <li key={link.href}><Link href={link.href}>{link.label}</Link></li>)}</ul> : null}
+                {sourceLinks(section.sourceIds)}
                 {image ? (
                   <figure className="onurim-body-figure">
                     <Image
@@ -298,6 +315,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
                   <summary>{item.question}</summary>
                   <p>{item.answer}</p>
                   <ClaimStatus ids={item.claimIds} />
+                  {sourceLinks(item.sourceIds)}
                 </details>
               ))}
             </div>
@@ -307,16 +325,17 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
             <h2 id="sources-title">확인한 공식 출처</h2>
             <ol className="onurim-source-list">
               {sources.map((source) => (
-                <li key={source.id}>
+                <li key={source.id} id={`source-${source.id}`}>
                   <a href={source.url} target="_blank" rel="noreferrer">{source.organization}, {source.title}</a>
-                  <span>확인 {source.retrievedAt} · {source.id}</span>
+                  <span>확인 {article.sourceCheckedAt ?? source.retrievedAt} · {source.id}</span>
                 </li>
               ))}
             </ol>
             <p className="onurim-state-note">
-              마지막 출처 대조: 2026-08-26 · claim {articleClaims.length}개 · OFFICIAL_SOURCE_CHECKED ·
-              PUBLIC_SAFETY_ADJUDICATED · NOT_MEDICALLY_REVIEWED
+              마지막 출처 대조: {article.sourceCheckedAt ?? "2026-08-26"} · 기존 claim {articleClaims.length}개 · OFFICIAL_SOURCE_CHECKED ·
+              {article.seoTitle ? " 문장·출처 대조는 면허 의료인 검수와 다릅니다. · " : " PUBLIC_SAFETY_ADJUDICATED · "} NOT_MEDICALLY_REVIEWED
             </p>
+            {article.seoTitle ? <p><Link href="/health/trust/sources-policy">출처 선정 기준</Link> · <Link href="/health/trust/editorial-policy">편집 원칙</Link> · <Link href="/health/trust/medical-review-policy">의료 검수 현재 상태</Link> · <Link href="/health">건강 가이드 전체 보기</Link></p> : null}
           </section>
         </div>
 

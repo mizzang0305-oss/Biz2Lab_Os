@@ -451,6 +451,9 @@
 :global(.onurim-support-page li) { margin: 0.65rem 0; }
 :global(.onurim-support-page a) { text-underline-offset: 0.2em; }
 :global(.onurim-support-page .onurim-section-sources) { margin-top: 1rem; font-size: 0.85rem; }
+:global(.onurim-seo-article .onurim-section-sources) { margin-top: 1rem; font-size: 0.875rem; }
+:global(.onurim-seo-article .onurim-content-section p + p) { margin-top: 1rem; }
+:global(.onurim-seo-article .onurim-context-links) { margin-top: 1.2rem; }
 :global(.onurim-support-page .onurim-state-note) { font-size: 0.875rem; line-height: 1.7; }
 :global(.onurim-app [id]) { scroll-margin-top: 10rem; }
 :global(.onurim-explainer-table) { max-width: 100%; margin-top: 1.2rem; overflow-x: auto; }

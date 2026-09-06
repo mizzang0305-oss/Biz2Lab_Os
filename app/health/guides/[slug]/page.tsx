@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { getHealthSupportGuide, healthSupportGuides } from "@/lib/health-v3/support-guides";
 import { breadcrumbJsonLd, createMetadata, jsonLd } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
+import { HealthComparisonTable } from "@/components/health/HealthComparisonTable";
 
 export const dynamicParams = false;
 
@@ -60,13 +61,7 @@ export default async function HealthSupportGuidePage({ params }: { params: Promi
             <h2>{section.title}</h2>
             {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             {section.bullets ? <ul>{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul> : null}
-            {section.table ? <div className="onurim-explainer-table" role="region" aria-label={section.table.caption} tabIndex={0}>
-              <table role="table">
-                <caption>{section.table.caption}</caption>
-                <thead role="rowgroup"><tr role="row">{section.table.columns.map(column => <th role="columnheader" scope="col" key={column}>{column}</th>)}</tr></thead>
-                <tbody role="rowgroup">{section.table.rows.map(row => <tr role="row" key={row[0]}>{row.map((cell, index) => index === 0 ? <th role="rowheader" scope="row" key={index}>{cell}</th> : <td role="cell" key={index}><span className="onurim-mobile-column" aria-hidden="true">{section.table!.columns[index]}</span>{cell}</td>)}</tr>)}</tbody>
-              </table>
-            </div> : null}
+            {section.table ? <HealthComparisonTable table={section.table} /> : null}
             {section.links ? <ul className="onurim-context-links">{section.links.map(link => <li key={link.href}><Link href={link.href}>{link.label}</Link></li>)}</ul> : null}
             {sourceLinks(section.sourceIds)}
           </section>

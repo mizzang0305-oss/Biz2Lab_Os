@@ -59,15 +59,15 @@ async function run() {
         faqKeyboard = await faq.evaluate(e=>e.hasAttribute("open"));
       }
       for (const [name, selector] of [["comparison", ".onurim-explainer-table"], ["faq", ".onurim-faq-list"], ["sources", ".onurim-source-list"], ["urgent", "#urgent-action"]]) {
-        const section = page.locator(selector).first();
-        if (await section.count()) {
+        const sections = await page.locator(selector).all();
+        for (const [index, section] of sections.entries()) {
           // Component evidence uses the same width but a taller viewport when
           // needed so the real sticky header does not obscure the clipped image.
           const size = await section.boundingBox();
           const normalHeight = width >= 768 ? 1024 : 844;
           await page.setViewportSize({ width, height: Math.max(normalHeight, Math.ceil(size?.height ?? 0) + 400) });
           await section.evaluate(e=>e.scrollIntoView({ block: "center" }));
-          await section.screenshot({ path: path.join(out, `${width}-${name}.png`) });
+          await section.screenshot({ path: path.join(out, `${width}-${name}${index ? `-${index + 1}` : ""}.png`) });
           await page.setViewportSize({ width, height: normalHeight });
         }
       }
