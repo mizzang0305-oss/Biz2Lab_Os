@@ -700,7 +700,7 @@ export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
           ["당화혈색소(HbA1c)", "대략 지난 3개월의 평균적인 혈당 상태", "빈혈 등 결과에 영향을 줄 조건, 같은 날 혈당과 차이"],
           ["가정용 혈당계 기록", "측정 당시의 값과 식사·활동·증상 맥락", "진단 검사를 대신하지 않음; 처방받은 측정·대처 계획 확인"],
         ] },
-        links: [{ href: "/health/guides/understanding-hba1c", label: "HbA1c 결과지의 NGSP·IFCC 단위 읽기" }, { href: "/health/guides/reading-health-check-results", label: "검사표에서 이름·단위·후속 안내 찾기" }],
+        links: [{ href: "/health/guides/understanding-hba1c", label: "HbA1c 결과지의 NGSP·IFCC 단위 읽기" }, { href: "/health/guides/reading-health-results", label: "검사표에서 이름·단위·후속 안내 찾기" }],
       },
       {
         title: "제2형은 인슐린 작용과 관련된 질환입니다",

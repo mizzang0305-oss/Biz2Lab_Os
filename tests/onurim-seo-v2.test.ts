@@ -213,11 +213,11 @@ test("symptom journal is a communication example rather than a diagnostic or wai
   assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
 });
 
-test("support contextual links resolve to existing public ONURIM routes", () => {
+test("disease and support contextual links resolve to existing public ONURIM routes", () => {
   const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`),
     ...healthSupportGuides.map(g=>`/health/guides/${g.slug}`),
     ...healthTools.map(t=>`/health/tools/${t.slug}`), ...trustPages.map(t=>`/health/trust/${t.slug}`)]);
-  for (const guide of healthSupportGuides) {
+  for (const guide of [...healthSupportGuides, ...Object.values(healthArticles)]) {
     for (const section of guide.sections) {
       for (const link of section.links ?? []) assert.ok(routes.has(link.href), `${guide.slug}: ${link.href}`);
     }

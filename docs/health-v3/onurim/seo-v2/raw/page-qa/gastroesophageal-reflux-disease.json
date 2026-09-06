@@ -1,7 +1,7 @@
 {
   "route": "/health/gastroesophageal-reflux-disease",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T04:46:50.542Z",
+  "observedAt": "2026-09-06T11:52:49.970Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
