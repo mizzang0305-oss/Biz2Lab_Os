@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "anxiety-disorder-visit-card": {
+    indexDecision: "NOINDEX_FOLLOW",
+    inheritParentWarning: true,
+    title: "불안 진료 메모: 실제 경험·피하게 된 일·치료 질문",
+    description: "불안을 느낀 상황·몸 변화와 이미 피하게 된 활동을 나눠 전하는 진료 보조 메모입니다. 공황 진단, 증상 재현 훈련이나 약 사용 계획을 만들지 않습니다.",
+    updatedAt: "2026-09-07",
+    purpose: "기억나는 경험부터 전합니다. 기간·점수·기록 완성은 상담의 조건이 아닙니다.",
+    steps: [
+      "실제 상황과 몸의 변화를 적고, 모르는 시각·반복은 미확인으로 둡니다. 병명을 붙이지 않습니다.",
+      "이미 피한 일·생활 영향과 실제 약·최근 변화를 남깁니다. 가족과 공유할 범위는 먼저 상의합니다.",
+      "원하는 도움을 질문하고 받은 답·개인 처방 지침·다음 확인·연락 방법을 적습니다.",
+    ],
+    example: "회의를 피했음 → 이미 달라진 활동. 앞으로 회의를 피하라는 계획이 아닙니다.",
+    limitation: "과거 진단·정상 검사로 새 증상을 불안 탓으로 확정하지 않습니다. 기록하려 맥박을 반복 확인하거나 숨 참기·두려운 상황으로 증상을 재현하지 않습니다. 모든 약을 필요할 때만 쓰는 것으로 여기거나 혼자 늘리거나 끊지 말고 개인 처방을 확인합니다. 남의 약을 쓰지 않으며 불편은 처방팀에 알립니다.",
+    sheetNotice: "갑자기 시작해 가라앉지 않는 흉통·불편, 팔·턱·등으로 퍼지는 통증, 흉통과 식은땀·메스꺼움·어지럼·숨참은 즉시 119입니다. 모든 조건이 필요하지 않습니다. 말하기 어려운 심한 숨참·헐떡임, 창백·푸르스름한 피부, 새 혼란도 119입니다. 새롭거나 심해진 숨참은 신속히, 반복되거나 사라져도 걱정되는 흉통은 진료받습니다. 이미 다침·임박한 자해 위험·안전 유지 곤란은 119, 자살 생각은 24시간 109와 전문 도움을 연결합니다. 약효·기록·상담 응답을 기다려 긴급구조를 늦추거나 직접 운전하지 않습니다.",
+    sourceIds: ["SRC-NIMH-MENTAL-MEDICATIONS"],
+    links: [
+      { href: "/health/guides/symptom-journal", label: "상황·몸의 관찰과 원인 추측을 구분하는 기록법" },
+      { href: "/health/guides/medication-list", label: "약 역할·개인 지침과 실제 사용을 함께 준비" },
+      { href: "/health/guides/appointment-questions", label: "생활 어려움과 다음 연락 방법을 묻는 질문" },
+    ],
+  },
   "depression-visit-card": {
     indexDecision: "NOINDEX_FOLLOW",
     inheritParentWarning: true,

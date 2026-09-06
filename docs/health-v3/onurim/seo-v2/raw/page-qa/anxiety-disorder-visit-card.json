@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/anxiety-disorder-visit-card",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T16:17:47.601Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "720e30552e1df8af74111290aa93937886b1b18d5a4de24c2a911892eaed6e69",
+      "full": "e8ea7cd508c8a867d1e23a17f7d89f197db0707f959094e5f86a4e1f84f2a4a2"
+    },
+    {
+      "width": 390,
+      "top": "36cd0ee4f169210c054387a847e07fa3dc1e8f0d21108a40134af1c48a5833e9",
+      "full": "5dfe62232b5b40c4381eeb7db9fe9246c8dbbed6e02ccf875aa837145a6b2148"
+    },
+    {
+      "width": 430,
+      "top": "45df794a8b0c317a9afa018d08fad287b7d7f332a8d8229fa82d06aa6c4611ea",
+      "full": "30c8751e49c933f4c2cff08b3ef7b02f34d66618a493cad8091c304d7a0edf87"
+    },
+    {
+      "width": 768,
+      "top": "f0b4d69c92679a658fc17b5ecba02b7e91d6be944523c34891475d1fece82973",
+      "full": "4f9e9ec231a3564baec46777b262fd9d34ce2c75d8a6c0700705ca7f07627cc8"
+    },
+    {
+      "width": 1440,
+      "top": "c5d718803076439ab1dde8a1806161bfda4f61c878923e62e864324e7806ac09",
+      "full": "9efe290c71251abfa176d8b186e7d7d8f405cb2dab2890f6a2daecc668f0e101"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "불안 진료 메모: 실제 경험·피하게 된 일·치료 질문 | 오누림",
+      "h1": [
+        "불안 진료 메모"
+      ],
+      "h2": [
+        "‘전에 공황이었으니 이번에도 괜찮다’고 넘기지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/anxiety-disorder-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "불안 진료 메모: 실제 경험·피하게 된 일·치료 질문 | 오누림",
+      "h1": [
+        "불안 진료 메모"
+      ],
+      "h2": [
+        "‘전에 공황이었으니 이번에도 괜찮다’고 넘기지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/anxiety-disorder-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "불안 진료 메모: 실제 경험·피하게 된 일·치료 질문 | 오누림",
+      "h1": [
+        "불안 진료 메모"
+      ],
+      "h2": [
+        "‘전에 공황이었으니 이번에도 괜찮다’고 넘기지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/anxiety-disorder-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "불안 진료 메모: 실제 경험·피하게 된 일·치료 질문 | 오누림",
+      "h1": [
+        "불안 진료 메모"
+      ],
+      "h2": [
+        "‘전에 공황이었으니 이번에도 괜찮다’고 넘기지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/anxiety-disorder-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "불안 진료 메모: 실제 경험·피하게 된 일·치료 질문 | 오누림",
+      "h1": [
+        "불안 진료 메모"
+      ],
+      "h2": [
+        "‘전에 공황이었으니 이번에도 괜찮다’고 넘기지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/anxiety-disorder-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 7,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

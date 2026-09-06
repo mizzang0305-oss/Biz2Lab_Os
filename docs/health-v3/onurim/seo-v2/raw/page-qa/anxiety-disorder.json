@@ -1,33 +1,33 @@
 {
   "route": "/health/anxiety-disorder",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T09:26:17.454Z",
+  "observedAt": "2026-09-06T16:18:01.302Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "13b10f249843d7a1a02dbaec0c892bd90a9490819f15a5453236fe428d4f5de1",
-      "full": "1163b2b038f88331a3d9f7e61de192e208bef82ff132bb78db98d166c584a1fe"
+      "full": "fd0b3c5886779b1631d6bae01811ac92269bb1719adec66ed63245878cac2a4c"
     },
     {
       "width": 390,
       "top": "fa27fdbe1b08a13c4eca4a0ef206fc3a575f93c848fae5868af63d335ec10a70",
-      "full": "a4eece80e5c3afa4e6451ac683b2cb6fba73a871a7d8b715fec2d9e2a1123d5f"
+      "full": "a1bb4c11ecad5cef73dd41a4fc08dce95944182968ff9d11dc3f26b739e22049"
     },
     {
       "width": 430,
       "top": "937ad53cf8d838b1b6191e43202c7c5443df9493d875ac8d0c3f4ae3a5937fba",
-      "full": "a2683f17f319f24e737b53c704f221263bb22c48fbd2a212770648bee90c7d39"
+      "full": "31b72528afca5244402925462a6da9972a08966094da602cf9a9127d46417ed8"
     },
     {
       "width": 768,
       "top": "3981c8fe50659a99d9b6269a32816845df6b0d036b129e3c227cf26f964ef845",
-      "full": "5922a75289b6c6a0a0c114f76052192547ec8c662ec35b89e2da74cf026de612"
+      "full": "30c8f461e63fdb08300edf7630341be0fc920cc86c140a5ddfbf9d599b9d52ef"
     },
     {
       "width": 1440,
       "top": "e1db37113b16413e4f45d0eb3fb06e2302879f670ef54d528d22517114fa45e5",
-      "full": "e0bd8e2f24a059c8f4fe19854f08c2467577809ef44378d4be9b754179e5a99c"
+      "full": "5f5b15aa101939728e75ad3147cb5009a3d26d2f264d5a0fc207302dcbf41045"
     }
   ],
   "failures": [],

@@ -36,6 +36,23 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("anxiety memo records actual avoidance without prescribing exposure or dismissing new physical symptoms", () => {
+  const tool = healthTools.find(t => t.slug === "anxiety-disorder-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 2);
+  assert.match(tool.fields![1], /이미 피하게 된 활동/);
+  assert.match(copy.purpose, /기간·점수·기록 완성은 상담의 조건이 아닙니다/);
+  assert.match(copy.limitation, /숨 참기·두려운 상황으로 증상을 재현하지/);
+  assert.match(copy.limitation, /과거 진단·정상 검사로 새 증상을 불안 탓으로 확정하지/);
+  assert.match(copy.sheetNotice!, /모든 조건이 필요하지 않습니다/);
+  assert.match(copy.sheetNotice!, /긴급구조를 늦추거나 직접 운전하지/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 7);
+  assert.doesNotMatch(JSON.stringify(copy), /GAD-7|\d+\s*(분간|개월간|점 이상|mg)/);
+});
+
 test("depression memo distinguishes consent and personal voice without scoring safety or delaying crisis help", () => {
   const tool = healthTools.find(t => t.slug === "depression-visit-card")!;
   const copy = toolEditorial[tool.slug];

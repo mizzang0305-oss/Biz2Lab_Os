@@ -292,6 +292,7 @@ const guides: GuideConfig[] = [
   {
     slug: "anxiety-disorder",
     prefix: "ANX",
+    toolSummary: { title: "불안 진료 메모", description: "실제 상황·몸 변화, 이미 피한 일·생활 영향과 약 정보를 정리해 원하는 도움을 묻는 인쇄 보조표입니다." },
     title: "불안장애",
     cluster: "뇌·마음",
     archetype: "MYTH_FIRST",
@@ -302,8 +303,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 증상의 기간과 상황, 일상 영향, 다른 신체 질환이나 물질·약물 영향을 함께 확인합니다.",
     careBoundary: "숨이 가쁘거나 가슴이 답답하다는 이유를 모두 불안으로 단정하지 않습니다. 치료법이나 약은 전문 평가 뒤 개인 상황에 맞게 정합니다.",
     urgent: "자신이나 다른 사람을 해칠 위험이 있거나 안전을 지키기 어렵다면 즉시 119에 연락합니다. 자살 관련 위기에는 24시간 상담전화 109도 이용할 수 있습니다.",
-    observationItems: ["불안이 시작된 상황", "몸에서 느낀 변화", "피하게 된 활동", "수면과 일상 영향"],
-    questions: ["신체 원인을 함께 확인해야 하나요?", "불안의 종류는 어떻게 평가하나요?", "치료와 위기 계획을 어떻게 세우나요?"],
+    observationItems: ["실제 상황·시작·반복 / 몸에서 느낀 변화 (미확인 가능)", "이미 피하게 된 활동 / 잠·일·공부·관계에 생긴 불편", "현재 약·보충제·카페인·술 / 최근 변화·실제 사용·반응"],
+    questions: ["몸의 원인·약 영향과 제가 원하는 도움을 고려하면 어떤 평가·치료가 필요한가요?", "제 처방 지침과 새 불편·악화 때 연락처, 다음 확인 계획은 무엇인가요?"],
     sources: [
       { id: "SRC-NIMH-ANXIETY", organization: "NIH/NIMH", title: "Anxiety Disorders", url: "https://www.nimh.nih.gov/health/topics/anxiety-disorders", sourceDate: "2025" },
       { id: "SRC-NIMH-GAD", organization: "NIH/NIMH", title: "Generalized Anxiety Disorder: What You Need to Know", url: "https://www.nimh.nih.gov/health/publications/generalized-anxiety-disorder-gad", sourceDate: "2024" },
