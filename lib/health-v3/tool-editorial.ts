@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "gerd-appointment-prep": {
+    indexDecision: "INDEX_UTILITY",
+    inheritParentWarning: true,
+    title: "위식도역류 진료 질문 카드: 검사 목적·현재 약·다음 확인 시점",
+    description: "성인 역류 증상 진료에 기록과 현재 약을 가져가 검사 필요성·목적, 개별 준비 지침과 다음 연락 시점을 묻는 인쇄 카드입니다. 질문을 고르고 의료진의 답을 함께 남길 수 있습니다.",
+    updatedAt: "2026-09-06",
+    purpose: "진료에서 가장 설명하고 싶은 불편과 실제로 사용 중인 약을 질문에 연결합니다. 모든 질문에 미리 답하거나 긴 관찰 기록을 완성해야 진료받을 수 있다는 뜻은 아닙니다.",
+    steps: [
+      "증상 시각·지속 시간과 식사·자세의 흐름을 아는 만큼 적습니다. 기존 기록이 있다면 원본을 가져오며 기억나지 않는 내용은 미확인으로 남깁니다.",
+      "처방약·일반약의 이름과 실제 사용법, 이전 검사 결과나 기관 안내가 있다면 함께 준비합니다. 위장약을 먹은 뒤 변화만으로 원인을 확정하거나 약을 혼자 중단하지 않습니다.",
+      "먼저 물을 질문에 표시하고 진료 중 답을 적습니다. 검사가 필요하다면 무엇을 확인하려는지와 해당 기관의 식사·약 준비 지침을 묻습니다. 치료나 관찰을 먼저 한다면 다시 평가할 때와 문의처를 확인합니다.",
+    ],
+    example: "질문을 연결하는 예시: ‘제게 지금 검사가 필요한가요?’ → 필요 여부·검사 목적·준비 안내를 답변 칸에 구분해 적기. 이해하지 못한 지침은 확인 필요로 남겨 다시 묻습니다.",
+    limitation: "내시경·식도 산도검사를 모두 받아야 한다는 카드가 아닙니다. 검사 선택과 치료는 의료진이 병력·증상을 함께 보고 정합니다. 삼키기 어렵거나 아프거나, 구토가 계속되거나, 이유 없이 체중이 줄면 다음 예약까지 질문으로만 남기지 말고 의료진에게 알립니다.",
+    sheetNotice: "가슴 압박·통증, 숨참·식은땀 등으로 심근경색이 의심되거나 심한 호흡곤란·의식 저하가 있으면 즉시 119에 연락합니다. 위장약 반응이나 예약·질문지 완성을 기다리지 않습니다. 피·커피 찌꺼기 같은 구토 또는 검고 타르 같은 변은 바로 의료 도움을 구하고, 실신 등 위급한 상태라면 119가 먼저입니다.",
+    sourceIds: ["SRC-NIDDK-GERD-DIAGNOSIS", "SRC-NIDDK-GERD-SYMPTOMS", "SRC-NHS-GERD", "SRC-NIDDK-GI-BLEEDING"],
+    links: [
+      { href: "/health/tools/gerd-symptom-timing-log", label: "식사·자세와 증상 시작 시각을 적는 기록표" },
+      { href: "/health/guides/medication-list", label: "약 포장·실제 사용법을 구분해 준비하는 목록" },
+      { href: "/health/guides/appointment-questions", label: "설명받은 다음 행동과 문의처를 확인하는 순서" },
+    ],
+  },
   "gerd-everyday-patterns": {
     indexDecision: "NOINDEX_FOLLOW",
     inheritParentWarning: true,

@@ -487,6 +487,22 @@ test("rhinitis separates allergy causes, test interpretation and spray roles", (
   assert.match(JSON.stringify(article), /원인이 불확실하거나, 증상이 악화되거나, 수면·일상에 영향을 주거나, 기존 치료/);
 });
 
+test("GERD questions connect actual records to individual testing and follow-up without compulsory procedures", () => {
+  const tool = healthTools.find(t=>t.slug==="gerd-appointment-prep")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 2);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(getToolSources(tool).length, 6);
+  assert.equal(getToolSafetyNotice(tool), healthArticles[tool.articleSlug].sections[0]);
+  assert.match(copy.description, /성인/);
+  assert.match(copy.limitation, /모두 받아야 한다는 카드가 아닙니다/);
+  assert.match(copy.steps.join(" "), /해당 기관의 식사·약 준비 지침/);
+  assert.match(copy.sheetNotice!, /즉시 119/);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+시간 금식|\d+일 중단/);
+  assert.match(tool.title, /^위식도역류/);
+});
+
 test("GERD daily check remains noindex supporting observation and never defers urgent symptoms to appointment questions", () => {
   const tool = healthTools.find(t=>t.slug==="gerd-everyday-patterns")!;
   const editorial = toolEditorial[tool.slug];
