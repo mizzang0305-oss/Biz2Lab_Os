@@ -43,6 +43,34 @@ test("HbA1c has its own intent, accessible comparison data and resolvable source
   assert.doesNotMatch(JSON.stringify(guide), /6\.5|5\.7|reviewedBy|의료 검수 완료/);
 });
 
+test("danger signals puts independent emergency signs before paperwork and separates 109", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="danger-signals")!;
+  assert.equal(guide.sections[0].id, "urgent-action");
+  assert.equal(guide.sections[0].paragraphs?.length, 1);
+  assert.match(guide.sections[0].paragraphs![0], /하나라도.*즉시 119/);
+  assert.match(JSON.stringify(guide.sections[0].bullets), /감각.*어지럼/);
+  assert.match(JSON.stringify(guide.sections[0].bullets), /깨우기 어려움.*쓰러졌는지와 무관/);
+  assert.match(readFileSync("app/health/onurim.module.css", "utf8"), /onurim-support-page \.onurim-trust-sections \.onurim-tone-warning/);
+  assert.match(JSON.stringify(guide), /심한 통증만 기다리지/);
+  assert.match(JSON.stringify(guide), /109 상담은 당장 필요한 응급 구조를 대신하지/);
+  assert.match(JSON.stringify(guide), /돕는 사람도 자신의 안전/);
+  assert.match(JSON.stringify(guide), /신속히 의료기관에 연락해 평가/);
+  assert.equal(guide.faq?.length, 5);
+  assert.ok(guide.faqTitle && !guide.faqTitle.includes("검사표"));
+  assert.equal(guide.sources.length, 7);
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const item of [...guide.sections, ...guide.faq!]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.match(table.caption, /사전 작성표가 아닙니다/);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+  assert.doesNotMatch(JSON.stringify(guide), /2분|300mg|988|999|7119|의료 검수 완료/);
+});
+
 test("new support schema does not fabricate a physician or FAQ rich result", () => {
   const source = readFileSync("app/health/guides/[slug]/page.tsx", "utf8");
   assert.doesNotMatch(source, /"Physician"|"MedicalOrganization"|reviewedBy|FAQPage/);

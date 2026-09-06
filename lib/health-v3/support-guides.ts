@@ -9,11 +9,13 @@ export type HealthSupportGuide = {
   updatedAt?: string;
   sourceCheckedAt?: string;
   sections: Array<{
+    id?: string;
     title: string; paragraphs?: string[]; bullets?: string[]; tone?: "default" | "warning" | "note";
     sourceIds?: string[];
     table?: { caption: string; columns: string[]; rows: string[][] };
     links?: Array<{ href: string; label: string }>;
   }>;
+  faqTitle?: string;
   faq?: Array<{ question: string; answer: string; sourceIds: string[] }>;
   sources: HealthSource[];
 };
@@ -23,18 +25,65 @@ const retrievedAt = "2026-08-26";
 export const healthSupportGuides: HealthSupportGuide[] = [
   {
     slug: "danger-signals",
-    title: "병원에 빨리 가야 하는 위험 신호",
-    description: "온라인 글을 더 읽기보다 119 또는 신속한 의료 평가를 먼저 생각해야 하는 변화를 짧게 정리합니다.",
+    title: "이런 위험 신호라면 글보다 119가 먼저입니다",
+    seoTitle: "응급 위험 신호: 바로 119를 부를 때와 신고 후 전할 내용",
+    description: "갑작스러운 마비·말 이상, 심근경색 의심 증상, 심한 호흡곤란·의식 변화에는 즉시 119에 연락합니다. 잠깐 호전돼도 미루지 않을 이유와 119 신고·109 상담의 차이를 확인하세요.",
+    publishedAt: "2026-08-26", updatedAt: "2026-09-06", sourceCheckedAt: "2026-09-06",
+    faqTitle: "도움을 요청하기 전 망설이게 되는 질문",
     sections: [
-      { title: "갑작스러운 뇌 신호", bullets: ["한쪽 얼굴·팔·다리에 힘이 빠짐", "말이 어눌하거나 이해하기 어려움", "갑작스러운 시야·균형 변화나 전에 없던 심한 두통"], tone: "warning" },
-      { title: "심장과 호흡 신호", bullets: ["새롭고 심한 가슴 통증·압박감", "숨쉬기 매우 어렵거나 입술이 푸르게 보임", "실신·의식 저하 또는 깨우기 어려움"], tone: "warning" },
-      { title: "마음의 위기", paragraphs: ["자신이나 다른 사람을 해칠 위험이 있거나 즉시 안전을 지키기 어렵다면 혼자 두지 말고 119에 연락합니다. 자살 관련 위기에는 24시간 자살예방 상담전화 109도 이용할 수 있습니다."], tone: "warning" },
-      { title: "기억할 행동", bullets: ["증상이 시작된 시각을 기억합니다.", "직접 운전하기보다 119의 안내를 따릅니다.", "음식이나 약을 억지로 먹이지 않습니다.", "확신이 없다는 이유로 연락을 미루지 않습니다."] },
+      { id: "urgent-action", title: "지금 나타났다면 즉시 119", paragraphs: ["아래 신호 중 하나라도 나타나면 글을 끝까지 읽거나 병명을 확정하려 하지 말고 즉시 119에 연락합니다. 모든 신호를 갖출 필요는 없습니다. 목록에 없다고 안전을 보장하는 안내도 아닙니다."],
+        bullets: [
+          "갑자기 한쪽 얼굴·팔·다리의 힘이나 감각이 달라짐, 말하거나 이해하기 어려움, 시야 이상, 어지럼, 걷기·균형의 어려움, 또는 원인을 알 수 없는 갑작스러운 심한 두통",
+          "가슴이 조이거나 짓눌리는 통증·압박감, 팔·목·턱 등으로 퍼지는 가슴 통증, 또는 심근경색이 의심되는 불편 — 심한 통증만 기다리지 않음",
+          "헐떡이거나 말을 내기 힘들 정도의 호흡곤란, 입술·피부가 창백하거나 푸르스름해짐, 또는 갑자기 반응이 떨어지거나 깨우기 어려움 — 쓰러졌는지와 무관하게 도움 요청",
+        ], tone: "warning", sourceIds: ["SUP-KDCA-STROKE", "SUP-CDC-STROKE", "SUP-NHLBI-MI", "SUP-NHS-MI", "SUP-MEDLINEPLUS-EMERGENCY"] },
+      { title: "잠깐 나아지거나 약하게 느껴져도 미루지 않습니다", paragraphs: [
+        "갑작스러운 마비·말 이상 같은 뇌졸중 신호가 사라졌어도 집에서 안전하다고 판단하지 않습니다. 심근경색도 약하게 시작하거나 증상이 줄었다 다시 나타날 수 있습니다. 확신이 없다는 이유로, 또는 ‘몇 분 더 지켜보자’며 도움을 늦추지 마세요.",
+        "직접 운전하거나 가족이 올 때까지 기다리지 않습니다. 혈압·맥박을 재거나 인터넷 증상표와 맞춰 보느라 신고를 미루지 않습니다. 이 글은 증상으로 병을 확정하는 검사가 아니라 도움 요청의 출발점입니다.",
+      ], sourceIds: ["SUP-CDC-STROKE", "SUP-NHLBI-MI"], links: [
+        { href: "/health/stroke", label: "평소에 알아둘 뇌졸중의 갑작스러운 신호" },
+        { href: "/health/acute-myocardial-infarction", label: "심한 흉통만 기다리면 안 되는 이유" },
+      ] },
+      { title: "마음의 위기: 지금 구조가 필요한지 먼저", paragraphs: [
+        "이미 자신을 해치는 행동이 있었거나 자신·다른 사람의 안전을 당장 지키기 어렵다면 즉시 119에 연락합니다. 본인이 위험하면 곁의 믿을 만한 사람에게 도움을 요청하세요. 돕는 사람도 자신의 안전을 확보하고, 안전하게 함께 있을 수 있다면 혼자 두지 말고 구조 안내를 따릅니다.",
+        "자살 생각이나 관련 위기로 상담이 필요할 때는 24시간 자살예방 상담전화 109를 이용할 수 있습니다. 109 상담은 당장 필요한 응급 구조를 대신하지 않습니다. 상담 연결을 기다리느라 긴급 신고를 늦추지 않습니다.",
+      ], tone: "warning", sourceIds: ["SUP-MEDLINEPLUS-EMERGENCY", "SUP-MOHW-109"], links: [{ href: "/health/depression", label: "평소 우울 신호와 주변의 도움을 이해하기" }] },
+      { title: "119에 먼저 전화한 뒤, 아는 사실을 전하세요", paragraphs: [
+        "정리된 기록이 없어도 신고합니다. 통화 중 질문을 듣고 아는 범위에서 답하세요. 위치를 정확히 모르면 주변 건물 이름이나 표지처럼 찾을 수 있는 단서를 전합니다. 아래 표를 채우거나 주소·약 이름을 완벽히 알아낸 뒤 전화하라는 뜻이 아닙니다.",
+      ], table: { caption: "신고 후 전달할 정보 — 사전 작성표가 아닙니다", columns: ["알려줄 내용", "전달하는 방법"], rows: [
+        ["환자가 있는 곳", "주소·건물·주변 표지 등 현재 위치를 알 수 있는 정보"],
+        ["지금 보이는 변화", "어디가 어떻게 불편한지, 반응·호흡이 평소와 다른지"],
+        ["알고 있는 배경", "나이·주요 질환·복용약을 아는 범위에서; 모르면 모른다고 답하기"],
+        ["연락과 변화", "요청받은 연락처, 통화 중 새로 생기거나 달라지는 상태"],
+      ] }, sourceIds: ["SUP-NFA-119"] },
+      { title: "기다리는 동안도 전화 안내를 따릅니다", paragraphs: [
+        "소방청은 구급차가 오는 동안 통화를 유지하며 의료지도를 받도록 안내합니다. 반응이나 호흡이 달라지면 바로 알리세요. 이 페이지의 짧은 설명으로 응급처치 방법·자세·약을 스스로 정하지 않습니다.",
+        "심근경색이 의심된다고 아스피린이나 다른 약을 찾고 효과를 보느라 신고를 늦추지 않습니다. 약을 쓸지와 어떻게 할지는 119·의료진의 상황별 안내를 받습니다. 평소 처방약이 모두 금지라는 뜻도 아닙니다.",
+      ], sourceIds: ["SUP-NFA-119", "SUP-NHLBI-MI", "SUP-NHS-MI"] },
+      { title: "이 목록 밖의 불편은 어떻게 하나요?", paragraphs: [
+        "이 페이지는 성인의 대표적인 응급 신호를 다루며 모든 질환·상황을 나열하지 않습니다. 멈추지 않는 출혈이나 갑작스러운 심한 통증 등 다른 응급상황도 있습니다. 당장 위급하다고 느끼거나 안전이 걱정되면 119에 현재 상황을 설명합니다.",
+        "새로 숨이 차거나 평소보다 갑자기 더 숨이 찬 경우에는 위의 심각한 모습이 아니어도 신속히 의료기관에 연락해 평가받습니다. 심한 호흡곤란이나 다른 응급 신호가 있으면 119가 먼저입니다.",
+        "급한 상황이 아니더라도 새로 생긴 불편이 계속되거나 일상에 영향을 주면 의료기관에 문의해 진료 시점과 악화 시 행동을 확인하세요. 예약일이 있다고 새 위험 신호를 그때까지 기다리는 것은 아닙니다. 어린이·임신 중·큰 사고 상황의 세부 판단은 이 성인 요약으로 대신하지 않습니다.",
+      ], sourceIds: ["SUP-MEDLINEPLUS-EMERGENCY", "SUP-NFA-119", "SUP-NHS-MI"], links: [
+        { href: "/health/guides/symptom-journal", label: "급하지 않은 때 진료에 가져갈 증상 기록" },
+        { href: "/health/guides/appointment-questions", label: "진료 시점·악화 시 행동을 확인할 질문" },
+      ] },
+    ],
+    faq: [
+      { question: "한 가지 증상만 있어도 119에 연락하나요?", answer: "위의 응급 신호를 모두 갖출 필요는 없습니다. 특히 갑작스러운 마비·말 이상·시야·어지럼·균형 변화 등은 각각 도움을 요청할 신호입니다. 증상 수를 세며 기다리지 않습니다.", sourceIds: ["SUP-CDC-STROKE", "SUP-KDCA-STROKE"] },
+      { question: "지금은 괜찮아졌는데 지켜봐도 되나요?", answer: "갑작스러운 뇌졸중 신호나 심근경색 의심 증상이 잠깐 줄었다는 이유로 안전을 정하지 않습니다. 증상이 있었다는 사실을 119에 알리고 안내를 받습니다.", sourceIds: ["SUP-CDC-STROKE", "SUP-NHLBI-MI"] },
+      { question: "109에 먼저 상담하면 119를 안 불러도 되나요?", answer: "당장 자신이나 다른 사람의 안전을 지키기 어렵거나 이미 자신을 해치는 행동이 있었다면 즉시 119가 우선입니다. 109는 24시간 자살예방 상담이며 긴급 구조를 기다리게 하는 선행 절차가 아닙니다.", sourceIds: ["SUP-MEDLINEPLUS-EMERGENCY", "SUP-MOHW-109"] },
+      { question: "정확한 주소나 약 이름을 몰라도 신고할 수 있나요?", answer: "먼저 신고하고 주변 건물·표지, 현재 보이는 변화와 아는 정보를 전합니다. 모르는 내용은 모른다고 답하고 전화 안내를 따릅니다. 기록을 완성하느라 신고를 늦추지 않습니다.", sourceIds: ["SUP-NFA-119"] },
+      { question: "목록에 없으면 응급상황이 아닌가요?", answer: "아닙니다. 대표 신호만 다룬 요약이며 목록에 없다고 안전을 보장하지 않습니다. 위급함이나 현재 안전이 걱정되면 119에 상황을 설명하고, 다른 지속적인 불편도 진료 시점을 문의하세요.", sourceIds: ["SUP-MEDLINEPLUS-EMERGENCY"] },
     ],
     sources: [
-      { id: "SUP-KDCA-STROKE", organization: "질병관리청 국가건강정보포털", title: "뇌졸중", url: "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5495", sourceDate: "2026-04-29", retrievedAt },
-      { id: "SUP-NHLBI-MI", organization: "NIH/NHLBI", title: "Heart Attack Symptoms", url: "https://www.nhlbi.nih.gov/health/heart-attack/symptoms", sourceDate: "2022-03-24", retrievedAt },
-      { id: "SUP-MOHW-109", organization: "보건복지부", title: "24시간 자살예방 상담전화 109", url: "https://www.mohw.go.kr/menu.es?mid=a10716040000", sourceDate: "2026", retrievedAt },
+      { id: "SUP-KDCA-STROKE", organization: "질병관리청 국가건강정보포털", title: "뇌졸중", url: "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5495", sourceDate: "2026-04-29 (업데이트)", retrievedAt: "2026-09-06" },
+      { id: "SUP-NHLBI-MI", organization: "NIH/NHLBI", title: "Heart Attack Symptoms", url: "https://www.nhlbi.nih.gov/health/heart-attack/symptoms", sourceDate: "2022-03-24 (Last updated)", retrievedAt: "2026-09-06" },
+      { id: "SUP-MOHW-109", organization: "보건복지부", title: "자살예방 정책 추진 — 24시간 상담전화109", url: "https://www.mohw.go.kr/menu.es?mid=a10716040000", sourceDate: "페이지 자체 날짜 미표시", retrievedAt: "2026-09-06" },
+      { id: "SUP-CDC-STROKE", organization: "CDC", title: "Signs and Symptoms of Stroke", url: "https://www.cdc.gov/stroke/signs-symptoms/index.html", sourceDate: "2026-05-19 (페이지 표시일)", retrievedAt: "2026-09-06" },
+      { id: "SUP-NHS-MI", organization: "NHS", title: "Heart attack", url: "https://www.nhs.uk/conditions/heart-attack/", sourceDate: "2026-03-31 (Page last reviewed)", retrievedAt: "2026-09-06" },
+      { id: "SUP-NFA-119", organization: "소방청", title: "119 구급신고 요령", url: "https://www.nfa.go.kr/nfa/safetyinfo/emergencyservice/119emergencydeclaration/", sourceDate: "페이지 자체 날짜 미표시", retrievedAt: "2026-09-06" },
+      { id: "SUP-MEDLINEPLUS-EMERGENCY", organization: "MedlinePlus Medical Encyclopedia / A.D.A.M.", title: "Recognizing medical emergencies", url: "https://medlineplus.gov/ency/article/001927.htm", sourceDate: "2025-01-08 (Review Date; 참고문헌접근일과 구분)", retrievedAt: "2026-09-06" },
     ],
   },
   {

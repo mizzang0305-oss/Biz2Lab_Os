@@ -57,7 +57,7 @@ export default async function HealthSupportGuidePage({ params }: { params: Promi
       </header>
       <div className="onurim-trust-sections">
         {guide.sections.map((section) => (
-          <section key={section.title} className={section.tone === "warning" ? "onurim-tone-warning" : undefined}>
+          <section key={section.title} id={section.id} className={section.tone === "warning" ? "onurim-tone-warning" : undefined}>
             <h2>{section.title}</h2>
             {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             {section.bullets ? <ul>{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul> : null}
@@ -68,7 +68,7 @@ export default async function HealthSupportGuidePage({ params }: { params: Promi
         ))}
       </div>
       {guide.faq?.length ? <section className="onurim-content-section">
-        <h2>검사표를 보며 자주 묻는 질문</h2>
+        <h2>{guide.faqTitle ?? "검사표를 보며 자주 묻는 질문"}</h2>
         <div className="onurim-faq-list">{guide.faq.map(item => <details key={item.question}>
           <summary>{item.question}</summary><p>{item.answer}</p>{sourceLinks(item.sourceIds)}
         </details>)}</div>

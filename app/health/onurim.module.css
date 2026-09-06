@@ -448,6 +448,8 @@
 
 :global(.onurim-support-page) { max-width: 880px; }
 :global(.onurim-support-page .onurim-trust-sections) { gap: 1.6rem; }
+:global(.onurim-support-page .onurim-trust-sections .onurim-tone-warning) { border: 2px solid #efb3a5; background: var(--onu-warning-bg); }
+:global(.onurim-support-page .onurim-tone-warning ul) { padding-left: 1.25rem; list-style: disc; }
 :global(.onurim-support-page .onurim-trust-sections p + p) { margin-top: 1rem; }
 :global(.onurim-support-page li) { margin: 0.65rem 0; }
 :global(.onurim-support-page a) { text-underline-offset: 0.2em; }
