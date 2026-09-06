@@ -811,6 +811,7 @@ export const healthTools: HealthTool[] = [
     description: "기록을 진료 대화로 연결하는 질문을 골라 적습니다.",
     claimIds: ["HTN-B1-004", "HTN-B1-008", "HTN-B1-010"],
     kind: "questions",
+    fields: ["가져갈 혈압 기록·기기·약 정보", "오늘 먼저 확인할 질문", "설명대로 하기 어려운 점"],
     items: [
       "이 혈압 기록에서 제가 꼭 확인해야 할 점은 무엇인가요?",
       "집에서 측정할 때 제가 잘못하고 있는 부분이 있나요?",

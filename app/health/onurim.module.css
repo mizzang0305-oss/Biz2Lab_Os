@@ -673,4 +673,10 @@
   :global(.onurim-tool-page .onurim-print-sheet) { break-before: page; }
   :global(.onurim-tool-footer .onurim-source-list) { gap: 0.15rem; margin: 0.4rem 0; }
   :global(.onurim-tool-footer .onurim-source-list li) { margin: 0.15rem 0; break-inside: avoid; line-height: 1.4; }
+  :global(.onurim-tool-fields) { gap: 0.5rem; }
+  :global(.onurim-tool-fields dd) { min-height: 2.5rem; }
+  :global(.onurim-check-list) { gap: 0.45rem; }
+  :global(.onurim-check-list label) { min-height: 0; padding: 0.45rem; }
+  :global(.onurim-notes-area) { margin-top: 1rem; }
+  :global(.onurim-notes-area > div) { height: 2rem; }
 }

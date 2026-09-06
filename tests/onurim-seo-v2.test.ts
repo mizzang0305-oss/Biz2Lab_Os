@@ -22,6 +22,21 @@ test("tool sources resolve to documents and print safety remains visible", () =>
   assert.match(print, /attr\(href\)/);
 });
 
+test("each edited utility has distinct grounded metadata and existing contextual destinations", () => {
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s => `/health/${s}`),
+    ...healthSupportGuides.map(g => `/health/guides/${g.slug}`), ...healthTools.map(t => `/health/tools/${t.slug}`), ...trustPages.map(t => `/health/trust/${t.slug}`)]);
+  const copies = Object.entries(toolEditorial);
+  assert.equal(new Set(copies.map(([, c]) => c.title)).size, copies.length);
+  assert.equal(new Set(copies.map(([, c]) => c.description)).size, copies.length);
+  for (const [slug, copy] of copies) {
+    assert.ok(healthTools.some(t => t.slug === slug));
+    assert.ok(copy.purpose && copy.steps.length && copy.example && copy.limitation && copy.sourceIds.length);
+    assert.equal(new Set(copy.sourceIds).size, copy.sourceIds.length);
+    assert.ok(copy.links.every(link => routes.has(link.href)), slug);
+    assert.match(copy.updatedAt, /^\d{4}-\d{2}-\d{2}$/);
+  }
+});
+
 test("blood pressure print rows preserve individual measurement values without prescribing seven days", () => {
   const tool = healthTools.find(t => t.slug === "blood-pressure-log")!;
   assert.equal(tool.rows, 14);

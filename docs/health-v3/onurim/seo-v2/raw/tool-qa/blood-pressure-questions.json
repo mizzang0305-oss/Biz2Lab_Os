@@ -1,0 +1,57 @@
+{
+  "route": "/health/tools/blood-pressure-questions",
+  "observedAt": "2026-09-06T11:56:11.584Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "가져갈 혈압 기록·기기·약 정보",
+    "오늘 먼저 확인할 질문",
+    "설명대로 하기 어려운 점"
+  ],
+  "sourceHrefs": [
+    "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home",
+    "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6765",
+    "https://health.kdca.go.kr/healthinfo/biz/health/ccvdInfo/ccvcdInfo/cbvcacdInfoMain.do",
+    "https://health.kdca.go.kr/healthinfo/biz/health/ccvdInfo/cvcdInfo/miInfoMain.do"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 4,
+    "overflow": 0,
+    "footerText": "고혈압 진료 질문 카드 · 양식·안내 수정 2026-09-06교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료American Heart Association — Home Blood Pressure Monitoring질병관리청 국가건강정보포털 — 고혈압질병관리청 국가건강정보포털 — 뇌졸중에 대해서질병관리청 국가건강정보포털 — 심근경색에 대해서의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 3
+  },
+  "links": [
+    {
+      "href": "/health/hypertension",
+      "status": 200
+    },
+    {
+      "href": "/health/tools/blood-pressure-log",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/appointment-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/medication-list",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "6cd2685f4ca0fb128ff704bcbddea772d78cff3dafac6a8ff4cd6aa73b51f774",
+  "pdfBytes": 120189,
+  "failures": []
+}
