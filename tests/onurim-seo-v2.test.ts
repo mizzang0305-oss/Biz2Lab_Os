@@ -5,7 +5,7 @@ import test from "node:test";
 import { healthArticles, healthTools, trustPages } from "../lib/health-v3/content";
 import { healthSupportGuides } from "../lib/health-v3/support-guides";
 import { getToolSafetyNotice, getToolSources, toolEditorial } from "../lib/health-v3/tool-editorial";
-import { createMetadata } from "../lib/seo";
+import { authorProfileJsonLd, createMetadata } from "../lib/seo";
 import sitemap from "../app/sitemap";
 import robots from "../app/robots";
 
@@ -54,6 +54,19 @@ test("contact stays accessible but noindex follow without promising intake", () 
   assert.ok(page.sections.flatMap(section => section.links ?? []).some(link => link.href === "/health/trust/corrections-policy"));
   assert.doesNotMatch(readFileSync("app/health/trust/[slug]/page.tsx", "utf8"), /issues\/new|정정·문의 작성하기/);
   assert.doesNotMatch(JSON.stringify(robots().rules), /\/health\/trust/);
+});
+
+test("author profile marks only the real non-clinician role and never invents credentials", () => {
+  const page = trustPages.find(page => page.slug === "author")!;
+  const profile = authorProfileJsonLd();
+  assert.equal(profile["@type"], "ProfilePage");
+  assert.equal(profile.mainEntity["@type"], "Person");
+  assert.equal(profile.mainEntity.name, "박영훈");
+  assert.equal(profile.mainEntity.jobTitle, "비의료인 건강정보 편집자");
+  assert.equal(profile.mainEntity.url, "https://www.biz2lab.com/health/trust/author");
+  assert.doesNotMatch(JSON.stringify(profile), /Physician|MedicalOrganization|reviewedBy|image|hasCredential|award|dateCreated|dateModified/);
+  assert.match(page.sections.map(section => section.body).join(" "), /검토자는 배정되지 않았고 의료 검수도 미완료/);
+  assert.equal(page.indexDecision, "INDEX_SUPPORT");
 });
 
 test("trust pages distinguish public access from index decisions and use page-specific dates", () => {

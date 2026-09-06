@@ -108,3 +108,19 @@ export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
     })),
   };
 }
+
+export function authorProfileJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    url: absoluteUrl("/health/trust/author"),
+    mainEntity: {
+      "@type": "Person",
+      "@id": absoluteUrl("/health/trust/author#person"),
+      name: "박영훈",
+      jobTitle: "비의료인 건강정보 편집자",
+      description: "오누림의 비의료인 건강정보 편집자. 개인 진단·처방·의료상담을 제공하지 않습니다.",
+      url: absoluteUrl("/health/trust/author"),
+    },
+  };
+}

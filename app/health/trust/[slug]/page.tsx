@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { getTrustPage, trustPages } from "@/lib/health-v3/content";
-import { breadcrumbJsonLd, createMetadata, jsonLd } from "@/lib/seo";
+import { authorProfileJsonLd, breadcrumbJsonLd, createMetadata, jsonLd } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -26,6 +26,7 @@ export default async function TrustPage({ params }: { params: Promise<{ slug: st
 
   return (
     <article className="onurim-trust-page">
+      {slug === "author" ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(authorProfileJsonLd()) }} /> : null}
       {page.updatedAt ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbJsonLd([
         { name: "오누림", url: absoluteUrl("/") },
         { name: page.title, url: absoluteUrl(`/health/trust/${slug}`) },
