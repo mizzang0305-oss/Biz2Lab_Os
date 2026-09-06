@@ -13,7 +13,7 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
   const emergency = getToolSafetyNotice(tool);
   const itemGroups = tool.itemGroups ?? (tool.items ? [{ title: "", items: tool.items }] : []);
   return (
-    <article className="onurim-tool-page" data-claim-ids={tool.claimIds.join(",")}>
+    <article className={`onurim-tool-page${tool.kind === "warning" ? " onurim-warning-card" : ""}`} data-claim-ids={tool.claimIds.join(",")}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbJsonLd([
         { name: "오누림", url: absoluteUrl("/") },
         { name: parent.title, url: absoluteUrl(`/health/${tool.articleSlug}`) },
@@ -23,7 +23,7 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
         <p className="onurim-eyebrow">오누림 인쇄·기록 도구</p>
         <h1>{tool.title}</h1>
         <p>{editorial?.description ?? tool.description}</p>
-        <p className="onurim-tool-format">빈칸은 인쇄한 뒤 손으로 작성합니다. 화면의 체크는 임시 표시이며 저장·제출 기능이 없습니다. 개인정보를 공개 문의 채널에 올리지 마세요.</p>
+        <p className="onurim-tool-format">{tool.kind === "warning" ? "이 카드는 입력·체크·저장 기능이 없는 인쇄용 안내입니다. 위급한 상황에서는 인쇄보다 119 도움 요청이 먼저입니다." : "빈칸은 인쇄한 뒤 손으로 작성합니다. 화면의 체크는 임시 표시이며 저장·제출 기능이 없습니다. 개인정보를 공개 문의 채널에 올리지 마세요."}</p>
         {editorial ? <p className="onurim-tool-date">양식·안내 수정 <time dateTime={editorial.updatedAt}>{editorial.updatedAt}</time> · 비의료인 편집 · 면허 의료인 검수 미완료</p> : null}
         <div className="onurim-tool-actions">
           <PrintButton />
@@ -34,9 +34,10 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
       {emergency ? (
         <section id="urgent-action" className="onurim-emergency-action">
           <h2>{emergency.title}</h2>
+          {tool.kind === "warning" && editorial ? <p>{editorial.limitation}</p> : null}
           {emergency.paragraphs?.map(text => <p key={text}>{text}</p>)}
           {emergency.bullets?.length ? <ul>{emergency.bullets.map(text => <li key={text}>{text}</li>)}</ul> : null}
-          <p>이 양식을 다 쓰는 것은 도움 요청의 조건이 아닙니다.</p>
+          <p>{tool.kind === "warning" ? "카드를 읽거나 출력하는 것은 도움 요청의 조건이 아닙니다." : "이 양식을 다 쓰는 것은 도움 요청의 조건이 아닙니다."}</p>
           <Link href={`/health/${tool.articleSlug}`}>이 질환 안내의 위험 신호와 도움 요청 행동</Link>
         </section>
       ) : null}
@@ -46,12 +47,12 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
           <h2 id="tool-instructions">이 양식을 쓰는 때와 순서</h2>
           <p>{editorial.purpose}</p>
           <ol>{editorial.steps.map(step => <li key={step}>{step}</li>)}</ol>
-          <div className="onurim-tool-example"><h3>어디에 무엇을 적나요?</h3><p>{editorial.example}</p></div>
-          <p>{editorial.limitation}</p>
+          <div className="onurim-tool-example"><h3>{tool.kind === "warning" ? "기억용 카드이지 검사표가 아닙니다" : "어디에 무엇을 적나요?"}</h3><p>{editorial.example}</p></div>
+          {tool.kind !== "warning" ? <p>{editorial.limitation}</p> : null}
         </section>
       ) : null}
 
-      <section className="onurim-print-sheet" aria-labelledby="print-sheet-title">
+      {tool.kind !== "warning" ? <section className="onurim-print-sheet" aria-labelledby="print-sheet-title">
         <h2 id="print-sheet-title">인쇄해서 작성할 양식</h2>
         <div className="onurim-print-intro">
           <p><strong>구분 표시(실명 불필요):</strong> ____________________</p>
@@ -102,7 +103,7 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
           </div>
         ) : null}
 
-      </section>
+      </section> : null}
 
       {editorial?.links.length ? <section className="onurim-tool-related" aria-label="양식과 함께 읽을 안내">
         <h2>기록을 이해하고 질문으로 옮기기</h2>

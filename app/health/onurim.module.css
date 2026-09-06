@@ -646,7 +646,7 @@
   :global(body > header),
   :global(body > footer),
   :global(.onurim-tool-actions) { display: none !important; }
-  .shell { background: white; color: black; }
+  .shell { min-height: 0; background: white; color: black; }
   :global(.onurim-tool-page) { max-width: none; padding: 0; }
   :global(.onurim-tool-header h1) { font-size: 2rem; }
   :global(.onurim-print-sheet) { margin-top: 1rem; padding: 0; border: 0; }
@@ -680,4 +680,9 @@
   :global(.onurim-check-list label) { min-height: 0; padding: 0.45rem; }
   :global(.onurim-notes-area) { margin-top: 1rem; }
   :global(.onurim-notes-area > div) { height: 2rem; }
+  :global(.onurim-warning-card .onurim-tool-header > p:not(.onurim-eyebrow)) { font-size: 9pt; line-height: 1.35; margin: 0.3rem 0; }
+  :global(.onurim-warning-card .onurim-emergency-action) { margin-top: 0.7rem; padding: 0.6rem; }
+  :global(.onurim-warning-card h2) { margin-top: 0.5rem; }
+  :global(.onurim-warning-card .onurim-tool-example) { padding: 0.5rem; }
+  :global(.onurim-warning-card .onurim-tool-footer) { margin-top: 0.6rem; }
 }

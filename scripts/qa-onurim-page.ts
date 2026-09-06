@@ -4,6 +4,7 @@ import path from "node:path";
 import { chromium } from "playwright";
 import { healthArticles, healthTools, trustPages } from "../lib/health-v3/content";
 import { healthSupportGuides } from "../lib/health-v3/support-guides";
+import { toolEditorial } from "../lib/health-v3/tool-editorial";
 
 const args = process.argv.slice(2);
 const option = (key: string, fallback: string) => args.includes(key) ? args[args.indexOf(key)+1] ?? fallback : fallback;
@@ -12,6 +13,7 @@ const base = option("--base", "http://127.0.0.1:3212");
 const inventory = ["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`),
   ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(t=>`/health/tools/${t.slug}`), ...trustPages.map(t=>`/health/trust/${t.slug}`)];
 const slug = route.split("/").filter(Boolean).at(-1) ?? "home";
+const expectedNoindex = route.startsWith("/health/tools/") && toolEditorial[slug]?.indexDecision === "NOINDEX_FOLLOW";
 const out = path.resolve(option("--out", `reports/local/onurim-seo-v2/${slug}`));
 
 async function run() {
@@ -84,6 +86,8 @@ async function run() {
   const failures = records.flatMap(r=>[
     ...(r.status!==200?[`${r.width}: HTTP ${r.status}`]:[]),
     ...(r.h1.length!==1?[`${r.width}: H1 count`]:[]),
+    ...(/\bnoindex\b/i.test(r.robots) !== expectedNoindex ? [`${r.width}: index decision mismatch`] : []),
+    ...(expectedNoindex && /\bnofollow\b/i.test(r.robots) ? [`${r.width}: expected noindex follow`] : []),
     ...(r.overflow>0?[`${r.width}: document overflow ${r.overflow}`]:[]),
     ...(!r.navigationVisible?[`${r.width}: hidden site navigation/footer`]:[]),
     ...(r.canonical ? new URL(r.canonical).href!==new URL(route,"https://www.biz2lab.com").href ? [`${r.width}: canonical`] : [] : [`${r.width}: missing canonical`]),

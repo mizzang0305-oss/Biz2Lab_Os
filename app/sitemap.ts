@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   })) satisfies MetadataRoute.Sitemap;
 
-  const toolEntries = healthTools.map((tool) => ({
+  const toolEntries = healthTools.filter(tool => toolEditorial[tool.slug]?.indexDecision !== "NOINDEX_FOLLOW").map((tool) => ({
     url: absoluteUrl(`/health/tools/${tool.slug}`),
     lastModified: new Date(toolEditorial[tool.slug]?.updatedAt ?? "2026-08-26"),
     changeFrequency: "monthly",

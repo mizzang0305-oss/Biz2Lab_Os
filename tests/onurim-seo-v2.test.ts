@@ -5,6 +5,24 @@ import test from "node:test";
 import { healthArticles, healthTools, trustPages } from "../lib/health-v3/content";
 import { healthSupportGuides } from "../lib/health-v3/support-guides";
 import { getToolSafetyNotice, getToolSources, toolEditorial } from "../lib/health-v3/tool-editorial";
+import { createMetadata } from "../lib/seo";
+import sitemap from "../app/sitemap";
+
+test("individually excluded utilities remain self-canonical noindex follow without altering legacy defaults", () => {
+  const input = { title: "경고 카드", description: "인쇄용 안내", path: "/health/tools/blood-pressure-warning", noindex: true };
+  assert.deepEqual(createMetadata(input).robots, { index: false, follow: false });
+  const metadata = createMetadata({ ...input, follow: true });
+  assert.deepEqual(metadata.robots, { index: false, follow: true });
+  assert.equal(metadata.alternates?.canonical, "https://www.biz2lab.com/health/tools/blood-pressure-warning");
+  const included = new Set(sitemap().map(entry => entry.url));
+  for (const tool of healthTools) {
+    assert.equal(included.has(`https://www.biz2lab.com/health/tools/${tool.slug}`), toolEditorial[tool.slug]?.indexDecision !== "NOINDEX_FOLLOW", tool.slug);
+  }
+  const warning = healthTools.find(t => t.slug === "blood-pressure-warning")!;
+  assert.equal(warning.items, undefined);
+  assert.equal(toolEditorial[warning.slug].indexDecision, "NOINDEX_FOLLOW");
+  assert.match(toolEditorial[warning.slug].limitation, /심해질 때까지 기다리는 기준이 아니/);
+});
 
 test("tool sources resolve to documents and print safety remains visible", () => {
   for (const tool of healthTools) {

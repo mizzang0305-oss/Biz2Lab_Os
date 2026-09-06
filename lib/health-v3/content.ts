@@ -846,12 +846,6 @@ export const healthTools: HealthTool[] = [
     description: "혈압 숫자를 다시 재며 기다리지 않아야 할 동반 신호를 기억합니다.",
     claimIds: ["HTN-B1-011", "HTN-B1-012"],
     kind: "warning",
-    items: [
-      "새로 생긴 심한 가슴 통증 또는 압박감",
-      "심한 호흡곤란, 식은땀 또는 의식 저하",
-      "얼굴이나 한쪽 팔다리의 갑작스러운 힘 빠짐",
-      "말이 어눌해지거나 이해하기 어려운 갑작스러운 변화",
-    ],
   },
   {
     slug: "glucose-observation-log",

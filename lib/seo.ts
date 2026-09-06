@@ -24,6 +24,7 @@ type MetadataInput = {
   description: string;
   path: string;
   noindex?: boolean;
+  follow?: boolean;
   type?: "website" | "article";
   image?: string;
 };
@@ -33,6 +34,7 @@ export function createMetadata({
   description,
   path,
   noindex = false,
+  follow = false,
   type = "website",
   image = "/opengraph-image",
 }: MetadataInput): Metadata {
@@ -48,7 +50,7 @@ export function createMetadata({
     alternates: {
       canonical: url,
     },
-    robots: noindex ? { index: false, follow: false } : undefined,
+    robots: noindex ? { index: false, follow } : undefined,
     openGraph: {
       title: socialTitle,
       description,

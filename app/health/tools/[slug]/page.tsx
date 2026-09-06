@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const tool = getHealthTool(slug);
   const editorial = toolEditorial[slug];
-  return tool ? createMetadata({ title: editorial?.title ?? tool.title, description: editorial?.description ?? tool.description, path: `/health/tools/${slug}` }) : {};
+  return tool ? createMetadata({ title: editorial?.title ?? tool.title, description: editorial?.description ?? tool.description, path: `/health/tools/${slug}`, noindex: editorial?.indexDecision === "NOINDEX_FOLLOW", follow: true }) : {};
 }
 
 export default async function ToolPage({ params }: { params: Promise<{ slug: string }> }) {

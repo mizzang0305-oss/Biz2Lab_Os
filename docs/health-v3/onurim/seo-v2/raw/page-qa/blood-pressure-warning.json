@@ -1,0 +1,291 @@
+{
+  "route": "/health/tools/blood-pressure-warning",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T12:13:11.683Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "fe4197c59a9b6dffef2cabce07c8a93c7b0fe09bc5ad36d8c44447e85bd5dd53",
+      "full": "915aa2eab54e86cf52bf4b768855c31b09a2e4988c287cfd15dbc26d9d6d33ca"
+    },
+    {
+      "width": 390,
+      "top": "d18e55d1eeda503858d0bb3402bb9b0c6707ea9d12f38f444e1ed56ebf9c25d7",
+      "full": "e336e3642b3e6d37843bd6719febe29fa164315bfa562060756df8cc4d802fb3"
+    },
+    {
+      "width": 430,
+      "top": "1aec2bd7a96e0bd7e6779019a3588e550f7235c5b4a93f6426acf520fe449ff0",
+      "full": "b614472258d8dbabededca4cb58d6b3dde01b9bb0da52c25fadcffc98099b9cb"
+    },
+    {
+      "width": 768,
+      "top": "5119d6abb4d96210cc4c79c5eb5ae2e99ce6b5573ed4e3c6afcdc44349ecb791",
+      "full": "13bc53ecd7addba85cb04eb3a81fe49602d3d88fe1e67a62e25b1874f90f5c71"
+    },
+    {
+      "width": 1440,
+      "top": "64fbc8f62a2f0f64416336116e579768f63616730a437e29047b28fa9db8fc8d",
+      "full": "54ac39b67387fb82c12e2be7e6c5d4548444700ea58c0f64fa1b0be13f2cb591"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "119 경고 카드: 혈압 기록보다 도움 요청이 먼저인 때 | 오누림",
+      "h1": [
+        "기록보다 119가 먼저인 경고 카드"
+      ],
+      "h2": [
+        "기록보다 119가 먼저인 때",
+        "이 양식을 쓰는 때와 순서",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/blood-pressure-warning",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "119 경고 카드: 혈압 기록보다 도움 요청이 먼저인 때 | 오누림",
+      "h1": [
+        "기록보다 119가 먼저인 경고 카드"
+      ],
+      "h2": [
+        "기록보다 119가 먼저인 때",
+        "이 양식을 쓰는 때와 순서",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/blood-pressure-warning",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "119 경고 카드: 혈압 기록보다 도움 요청이 먼저인 때 | 오누림",
+      "h1": [
+        "기록보다 119가 먼저인 경고 카드"
+      ],
+      "h2": [
+        "기록보다 119가 먼저인 때",
+        "이 양식을 쓰는 때와 순서",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/blood-pressure-warning",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "119 경고 카드: 혈압 기록보다 도움 요청이 먼저인 때 | 오누림",
+      "h1": [
+        "기록보다 119가 먼저인 경고 카드"
+      ],
+      "h2": [
+        "기록보다 119가 먼저인 때",
+        "이 양식을 쓰는 때와 순서",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/blood-pressure-warning",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "119 경고 카드: 혈압 기록보다 도움 요청이 먼저인 때 | 오누림",
+      "h1": [
+        "기록보다 119가 먼저인 경고 카드"
+      ],
+      "h2": [
+        "기록보다 119가 먼저인 때",
+        "이 양식을 쓰는 때와 순서",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/blood-pressure-warning",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

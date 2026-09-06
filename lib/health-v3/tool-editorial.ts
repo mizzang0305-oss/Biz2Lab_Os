@@ -1,6 +1,7 @@
 import { getSources, healthArticles, healthClaims, type HealthTool } from "./content";
 
 export type ToolEditorial = {
+  indexDecision?: "INDEX_UTILITY" | "NOINDEX_FOLLOW";
   title: string;
   description: string;
   updatedAt: string;
@@ -14,6 +15,22 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "blood-pressure-warning": {
+    indexDecision: "NOINDEX_FOLLOW",
+    title: "119 경고 카드: 혈압 기록보다 도움 요청이 먼저인 때",
+    description: "혈압을 다시 재거나 기록을 마치며 기다리지 않아야 할 위험 신호를 확인합니다. 고혈압 해설의 경고를 출처와 함께 인쇄하는 보조 카드이며 응급 여부를 판정하는 검사표가 아닙니다.",
+    updatedAt: "2026-09-06",
+    purpose: "평소에 읽고 눈에 띄는 곳에 둘 인쇄용 보조 안내입니다. 지금 위급한 변화가 있다면 출력이나 글 읽기를 마치려고 기다리지 않습니다.",
+    steps: ["위 경고와 도움 요청 행동을 함께 읽습니다. 여러 항목에 동시에 해당해야 119에 연락하는 것은 아닙니다.", "인쇄할 때 위험 신호뿐 아니라 119 행동, 아래 한계와 출처까지 함께 남깁니다."],
+    example: "이 카드는 체크 수나 점수를 계산하지 않습니다. 빈칸을 완성하거나 혈압 숫자를 알아야 사용할 수 있는 서류도 아닙니다.",
+    limitation: "목록이 모든 위험 신호를 담지는 않습니다. 통증이 심해질 때까지 기다리는 기준이 아니며 질환을 스스로 확정하거나 약을 추가로 먹는 지시가 아닙니다.",
+    sourceIds: ["SRC-KDCA-STROKE", "SRC-KDCA-MI", "SRC-AHA-HOME-BP"],
+    links: [
+      { href: "/health/guides/danger-signals", label: "위험 신호별 행동과 119에 전할 정보" },
+      { href: "/health/stroke", label: "갑작스러운 얼굴·팔·말 변화와 도움 요청" },
+      { href: "/health/acute-myocardial-infarction", label: "가슴 불편감을 기다리지 않아야 하는 이유" },
+    ],
+  },
   "blood-pressure-prep": {
     "title": "혈압 측정 준비 체크리스트: 측정 전 자세와 측정 후 기록",
     "description": "AHA의 가정 혈압 측정 안내를 바탕으로 측정 전 준비 5가지와 측정 후 기록 2가지를 나눕니다. 개인 측정 계획과 기기 안내를 확인하며 사용하는 인쇄용 체크리스트입니다.",
