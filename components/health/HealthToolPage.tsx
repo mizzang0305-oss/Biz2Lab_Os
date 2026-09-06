@@ -24,7 +24,7 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
         <p className="onurim-eyebrow">오누림 인쇄·기록 도구</p>
         <h1>{tool.title}</h1>
         <p>{editorial?.description ?? tool.description}</p>
-        <p className="onurim-tool-format">{tool.kind === "warning" ? "이 카드는 입력·체크·저장 기능이 없는 인쇄용 안내입니다. 위급한 상황에서는 인쇄보다 119 도움 요청이 먼저입니다." : referenceOnly ? "입력·체크·저장 기능이 없는 인쇄용 참고 자료입니다." : "빈칸은 인쇄한 뒤 손으로 작성합니다. 화면의 체크는 임시 표시이며 저장·제출 기능이 없습니다. 개인정보를 공개 문의 채널에 올리지 마세요."}</p>
+        <p className="onurim-tool-format">{tool.kind === "warning" ? "이 카드는 입력·체크·저장 기능이 없는 인쇄용 안내입니다. 위급한 상황에서는 인쇄보다 119 도움 요청이 먼저입니다." : referenceOnly ? "입력·체크·저장 기능이 없는 인쇄용 참고 자료입니다." : tool.kind === "log" ? "빈칸은 인쇄한 뒤 손으로 작성합니다. 화면 입력·체크·저장·제출 기능은 없습니다. 개인정보를 공개 문의 채널에 올리지 마세요." : "빈칸은 인쇄한 뒤 손으로 작성합니다. 화면의 체크는 임시 표시이며 저장·제출 기능이 없습니다. 개인정보를 공개 문의 채널에 올리지 마세요."}</p>
         {editorial ? <p className="onurim-tool-date">양식·안내 수정 <time dateTime={editorial.updatedAt}>{editorial.updatedAt}</time> · 비의료인 편집 · 면허 의료인 검수 미완료</p> : null}
         <div className="onurim-tool-actions">
           <PrintButton />

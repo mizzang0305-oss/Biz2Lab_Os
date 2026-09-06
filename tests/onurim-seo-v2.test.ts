@@ -67,6 +67,21 @@ test("glucose log records real time and original units without prescribing a mon
   assert.doesNotMatch(JSON.stringify(tool), /mg\/dL|식후 2시간/);
 });
 
+test("rhinitis observation logs separate facts from suspected causes without intentional re-exposure", () => {
+  const tool = healthTools.find(t => t.slug === "allergy-trigger-observation")!;
+  assert.equal(tool.rows, 12);
+  assert.equal(tool.columns?.length, 7);
+  assert.match(tool.columns![0], /시작 시각/);
+  assert.ok(tool.columns!.includes("이미 사용한 약·스프레이"));
+  const copy = toolEditorial[tool.slug];
+  assert.match(copy.purpose, /12일 관찰.*뜻이 아닙니다/);
+  assert.match(copy.steps.join(" "), /일부러 다시 노출되지/);
+  assert.match(copy.limitation, /천식.*신속히 연락/);
+  assert.match(copy.limitation, /수면·일상에 영향을 주거나, 기존 치료/);
+  assert.match(copy.sheetNotice!, /즉시 119/);
+  assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /화면 입력·체크·저장·제출 기능은 없습니다/);
+});
+
 test("each edited utility has distinct grounded metadata and existing contextual destinations", () => {
   const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s => `/health/${s}`),
     ...healthSupportGuides.map(g => `/health/guides/${g.slug}`), ...healthTools.map(t => `/health/tools/${t.slug}`), ...trustPages.map(t => `/health/trust/${t.slug}`)]);

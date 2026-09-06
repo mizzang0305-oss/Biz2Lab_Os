@@ -223,7 +223,7 @@ export const batch2HealthArticles: Record<Batch2Slug, HealthArticle> = {
 };
 
 export const batch2HealthTools: HealthTool[] = [
-  { slug: "allergy-trigger-observation", articleSlug: "allergic-rhinitis", title: "알레르기 비염 관찰표", description: "증상·장소·시간을 적되 원인을 판정하지 않는 기록지입니다.", claimIds: ["AR-B2-003", "AR-B2-005", "AR-B2-012"], kind: "log", columns: ["날짜", "시간", "장소", "증상", "눈·호흡 변화", "수면", "메모"], rows: 12 },
+  { slug: "allergy-trigger-observation", articleSlug: "allergic-rhinitis", title: "알레르기 비염 관찰표", description: "증상·장소·시간을 적되 원인을 판정하지 않는 기록지입니다.", claimIds: ["AR-B2-003", "AR-B2-005", "AR-B2-012"], kind: "log", columns: ["날짜·시작 시각", "장소·활동", "코 증상·지속 시간", "눈·호흡 변화", "수면·일상 영향", "이미 사용한 약·스프레이", "환경 변화·기타 메모"], rows: 12 },
   { slug: "allergy-environment-check", articleSlug: "allergic-rhinitis", title: "환경 변화 관찰 체크", description: "환경을 바꾼 뒤의 흐름을 살피고 개인 효과를 단정하지 않습니다.", claimIds: ["AR-B2-006", "AR-B2-012"], kind: "checklist", items: ["오늘의 증상과 장소를 적었습니다.", "바꾼 환경이 있다면 날짜를 함께 적었습니다.", "좋아짐·나빠짐을 한 번의 경험으로 확정하지 않았습니다.", "약 시작·변경은 의료진 또는 약사에게 확인합니다."] },
   { slug: "allergy-appointment-questions", articleSlug: "allergic-rhinitis", title: "알레르기 비염 진료 질문 카드", description: "증상 흐름과 검사 필요 여부를 묻기 위한 질문 카드입니다.", claimIds: ["AR-B2-008", "AR-B2-011"], kind: "questions", items: ["제 증상 흐름에서 확인할 점은 무엇인가요?", "알레르기 검사나 다른 원인 확인이 필요한가요?", "사용 중인 약과 스프레이에서 주의할 점은 무엇인가요?", "가족은 어떤 방식으로 기록을 도우면 좋나요?"] },
   { slug: "gerd-symptom-timing-log", articleSlug: "gastroesophageal-reflux-disease", title: "역류 증상·시간 기록표", description: "식사·자세·수면과 불편의 흐름을 적는 관찰표입니다.", claimIds: ["GERD-B2-004", "GERD-B2-011"], kind: "log", columns: ["날짜", "식사 시점", "눕거나 잠든 시점", "불편", "지속 시간", "삼킴 변화", "메모"], rows: 12 },

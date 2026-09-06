@@ -16,6 +16,27 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "allergy-trigger-observation": {
+    title: "알레르기 비염 관찰표: 증상 시각·장소·수면과 약 사용 기록",
+    description: "코·눈 증상이 언제 어디서 생겼는지, 호흡·수면·일상에 어떤 변화가 있었는지 함께 남기는 인쇄 기록표입니다. 이미 사용한 약과 환경 변화를 구분해 적으며 알레르기 원인을 확정하지 않습니다.",
+    updatedAt: "2026-09-06",
+    purpose: "진료에서 증상 흐름을 설명할 때 가져가는 기록입니다. 12줄은 인쇄 공간이며 12일 관찰이나 정해진 횟수를 채워야 한다는 뜻이 아닙니다. 불편한 증상의 상담을 미루며 표를 완성할 필요가 없습니다.",
+    steps: [
+      "한 줄에 한 번의 관찰을 적습니다. 적는 시간이 아니라 증상이 시작된 시각과 실제 머문 장소·활동을 남기고, 기억나지 않는 정보는 미확인으로 표시합니다.",
+      "코막힘·콧물·가려움 등 실제 증상과 지속 시간을 아는 만큼 적습니다. 눈·호흡 변화, 잠이나 일상에서 불편했던 일을 별도 칸에 남깁니다.",
+      "이미 사용한 약·스프레이의 이름과 사용 시각, 바꾼 환경이 있다면 그 날짜를 구분합니다. 기록을 위해 약을 새로 쓰거나 중단하지 않습니다.",
+      "진료 때 원본 기록을 보여 줍니다. 특정 장소에서 증상이 생겼다는 사실과 그곳의 물질이 원인이라는 결론을 구분하며, 확인하려고 의심 물질에 일부러 다시 노출되지 않습니다.",
+    ],
+    example: "작성 위치 예시: 증상이 생긴 때 → 시작 시각 / 당시 있던 곳과 하던 일 → 장소·활동 / 사용 중인 제품 → 약·스프레이 칸. 장소 이름만으로 꽃가루나 집먼지진드기를 원인으로 채워 넣지 않습니다.",
+    limitation: "관찰만으로 알레르기·감기·천식을 구분하거나 치료 효과를 확정하지 않습니다. 증상이 악화되거나, 수면·일상에 영향을 주거나, 기존 치료로 나아지지 않으면 의료진에게 상담합니다. 천식이 평소보다 악화되면 신속히 연락하고, 이미 받은 개인 대처 계획을 따릅니다.",
+    sheetNotice: "숨쉬기 매우 어렵거나 의식이 흐려지는 등 위급한 변화가 있으면 비염이라고 단정하지 말고 즉시 119에 도움을 요청합니다. 기록을 채우거나 검사 결과를 기다리지 않습니다.",
+    sourceIds: ["SRC-NHS-AR", "SRC-MEDLINEPLUS-AR", "SRC-KDCA-CPR"],
+    links: [
+      { href: "/health/tools/allergy-appointment-questions", label: "증상 기록을 가져가 검사·스프레이를 물을 질문 카드" },
+      { href: "/health/guides/symptom-journal", label: "관찰한 사실과 추측을 나누어 적는 방법" },
+      { href: "/health/guides/medication-list", label: "스프레이·복용약 이름과 사용법을 정리하는 목록" },
+    ],
+  },
   "diabetes-test-terms": {
     indexDecision: "NOINDEX_FOLLOW",
     title: "혈당 검사 용어 한 장: 공복혈당·HbA1c의 시간 범위",
