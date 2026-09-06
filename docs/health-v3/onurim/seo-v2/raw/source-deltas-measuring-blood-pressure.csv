@@ -1,0 +1,8 @@
+"delta_id","route","current_concept","risk","source_ids","checked_at","verification","licensed_review","original_47_packet"
+"SEO2-BPM-01","/health/guides/measuring-blood-pressure","응급신호의각OR·편측은얼굴팔다리힘감각만·준비와재측정으로119지연금지","P0_EMERGENCY","SUP-BP-NHLBI-MI|SUP-BP-CDC-STROKE|SUP-BP-NHS-MI","2026-09-06","PRIMARY_SOURCE_CROSSCHECK_NO_BP_THRESHOLD_FOR_HELP","NOT_COMPLETED","UNCHANGED"
+"SEO2-BPM-02","/health/guides/measuring-blood-pressure","검증위팔커프·개인팔둘레·대상적합성·기기지참사용법확인","P1_MEASUREMENT","SUP-AHA-BP|SUP-NHS-BP","2026-09-06","PRIMARY_SOURCE_CROSSCHECK_NO_PRODUCT_CERTIFICATION","NOT_COMPLETED","UNCHANGED"
+"SEO2-BPM-03","/health/guides/measuring-blood-pressure","AHA·CDC기반30분준비최소5분안정·맨팔등팔발지지·응급대기시간아님","P1_MEASUREMENT","SUP-AHA-BP|SUP-CDC-BP","2026-09-06","NAMED_SOURCE_GUIDANCE_NOT_UNIVERSAL_INSTITUTIONAL_CONSENSUS","NOT_COMPLETED","UNCHANGED"
+"SEO2-BPM-04","/health/guides/measuring-blood-pressure","AHA1분간격2회·CDC1~2분·개별시각일수측정팔계획우선","P1_MEASUREMENT","SUP-AHA-BP|SUP-CDC-BP|SUP-NHS-BP","2026-09-06","SOURCE_VARIATION_EXPLICIT_NO_FIXED_MEDICATION_SCHEDULE","NOT_COMPLETED","UNCHANGED"
+"SEO2-BPM-05","/health/guides/measuring-blood-pressure","양측정값날짜시각조건원본보존·수축기이완기맥박구분·낮은값선별금지","P1_INTERPRETATION","SUP-AHA-BP|SUP-CDC-BP|SUP-NHS-BP","2026-09-06","COMMUNICATION_EXAMPLE_WITHOUT_PATIENT_VALUES","NOT_COMPLETED","UNCHANGED"
+"SEO2-BPM-06","/health/guides/measuring-blood-pressure","단일값으로진단배제금지·가정기록진료대체아님·약자가조절금지","P1_MEDICATION","SUP-AHA-BP|SUP-CDC-BP","2026-09-06","PRIMARY_SOURCE_CROSSCHECK_NO_NUMERIC_DIAGNOSTIC_THRESHOLD","NOT_COMPLETED","UNCHANGED"
+

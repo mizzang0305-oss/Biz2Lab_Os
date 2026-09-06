@@ -71,6 +71,31 @@ test("danger signals puts independent emergency signs before paperwork and separ
   assert.doesNotMatch(JSON.stringify(guide), /2분|300mg|988|999|7119|의료 검수 완료/);
 });
 
+test("home blood pressure guide separates measurement conditions from diagnosis and emergency waiting", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="measuring-blood-pressure")!;
+  assert.equal(guide.sections.length, 6);
+  assert.equal(guide.faq?.length, 5);
+  assert.equal(guide.sections[0].id, "urgent-action");
+  assert.match(JSON.stringify(guide.sections[0]), /다시 재며 기다리지 말고 즉시 119/);
+  assert.match(JSON.stringify(guide.sections[0]), /한쪽 얼굴·팔·다리의 힘이나 감각이 달라지거나, 갑작스러운 말·시야 이상/);
+  assert.match(JSON.stringify(guide), /30분.*최소 5분/);
+  assert.match(JSON.stringify(guide), /1분 간격으로 두 번/);
+  assert.match(JSON.stringify(guide), /두 결과를 모두 기록/);
+  assert.match(JSON.stringify(guide), /모두에게 같은 일수나 복약 전후 순서를 일괄 적용하지/);
+  assert.doesNotMatch(JSON.stringify(guide), /180\/120|140\/90|135\/85|130\/80/);
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const unit of [...guide.sections, ...guide.faq!]) {
+    assert.ok(unit.sourceIds?.length);
+    for (const id of unit.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 4);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  assert.match(guide.sources.find(s=>s.id==="SUP-CDC-BP")!.sourceDate, /2026-09-04.*Reviewed2024-12-13/);
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+});
+
 test("new support schema does not fabricate a physician or FAQ rich result", () => {
   const source = readFileSync("app/health/guides/[slug]/page.tsx", "utf8");
   assert.doesNotMatch(source, /"Physician"|"MedicalOrganization"|reviewedBy|FAQPage/);

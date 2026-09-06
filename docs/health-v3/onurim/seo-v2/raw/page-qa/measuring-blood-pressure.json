@@ -1,0 +1,366 @@
+{
+  "route": "/health/guides/measuring-blood-pressure",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T10:29:50.133Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "387ebade04214379dd17948c186e9dff71528f8542087a767baaeb5fe9b9676b",
+      "full": "d26ab794031123b673534cfaa7ab9a6c36848ef12bab7c04359a34b04c55e68d"
+    },
+    {
+      "width": 390,
+      "top": "89dec99fe6571e4372cf7e16ee5f4509fd5301ef8a82791513792d986f865d7c",
+      "full": "1a41103749e1f7831a8addf5c5f1827a8dd863dc5a58eb1fd77961c2a7a05404"
+    },
+    {
+      "width": 430,
+      "top": "cbe7b2a2bfd6d99646d384b4e36052149bdda5702727f95963ea7aa80401d203",
+      "full": "f85a1b1f891b7de3e50c7d61d2ae336816464be4ad1305d91672018b26340f15"
+    },
+    {
+      "width": 768,
+      "top": "ceaa690a74a8ca2728c63d3b6e575ac45dc6186e0a7f6a7682f54dd3b3f04d74",
+      "full": "894de139a9e876928b55288ca3669920f536ff8b1ae3ae352322140526f86913"
+    },
+    {
+      "width": 1440,
+      "top": "f3cb6c6ab9f9fb23f6eaf4ff46de7f6fba2363787b14c1bd9cb6d19d3548951f",
+      "full": "32181a9052ade1a935cf8f3268c876fc0ba2e9599206bc1e4627206d673b0c8f"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "가정혈압 측정 방법: 커프·자세·반복 측정과 기록 | 오누림",
+      "h1": [
+        "집에서 혈압 재는 방법, 준비부터 기록까지"
+      ],
+      "h2": [
+        "응급 신호가 있다면 재측정보다 119",
+        "기기보다 먼저, 내 팔에 맞는 커프인지",
+        "앉아서 준비할 때와 측정 중 자세",
+        "한 번 잰 뒤에는 결과를 남기고 간격을 둡니다",
+        "숫자 옆에 조건을 남겨야 비교할 수 있습니다",
+        "집과 병원 수치가 다를 때는 기록으로 질문하세요",
+        "집에서 잴 때 자주 막히는 부분",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/measuring-blood-pressure",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "가정혈압 측정 방법: 커프·자세·반복 측정과 기록 | 오누림",
+      "h1": [
+        "집에서 혈압 재는 방법, 준비부터 기록까지"
+      ],
+      "h2": [
+        "응급 신호가 있다면 재측정보다 119",
+        "기기보다 먼저, 내 팔에 맞는 커프인지",
+        "앉아서 준비할 때와 측정 중 자세",
+        "한 번 잰 뒤에는 결과를 남기고 간격을 둡니다",
+        "숫자 옆에 조건을 남겨야 비교할 수 있습니다",
+        "집과 병원 수치가 다를 때는 기록으로 질문하세요",
+        "집에서 잴 때 자주 막히는 부분",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/measuring-blood-pressure",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "가정혈압 측정 방법: 커프·자세·반복 측정과 기록 | 오누림",
+      "h1": [
+        "집에서 혈압 재는 방법, 준비부터 기록까지"
+      ],
+      "h2": [
+        "응급 신호가 있다면 재측정보다 119",
+        "기기보다 먼저, 내 팔에 맞는 커프인지",
+        "앉아서 준비할 때와 측정 중 자세",
+        "한 번 잰 뒤에는 결과를 남기고 간격을 둡니다",
+        "숫자 옆에 조건을 남겨야 비교할 수 있습니다",
+        "집과 병원 수치가 다를 때는 기록으로 질문하세요",
+        "집에서 잴 때 자주 막히는 부분",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/measuring-blood-pressure",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "가정혈압 측정 방법: 커프·자세·반복 측정과 기록 | 오누림",
+      "h1": [
+        "집에서 혈압 재는 방법, 준비부터 기록까지"
+      ],
+      "h2": [
+        "응급 신호가 있다면 재측정보다 119",
+        "기기보다 먼저, 내 팔에 맞는 커프인지",
+        "앉아서 준비할 때와 측정 중 자세",
+        "한 번 잰 뒤에는 결과를 남기고 간격을 둡니다",
+        "숫자 옆에 조건을 남겨야 비교할 수 있습니다",
+        "집과 병원 수치가 다를 때는 기록으로 질문하세요",
+        "집에서 잴 때 자주 막히는 부분",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/measuring-blood-pressure",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "가정혈압 측정 방법: 커프·자세·반복 측정과 기록 | 오누림",
+      "h1": [
+        "집에서 혈압 재는 방법, 준비부터 기록까지"
+      ],
+      "h2": [
+        "응급 신호가 있다면 재측정보다 119",
+        "기기보다 먼저, 내 팔에 맞는 커프인지",
+        "앉아서 준비할 때와 측정 중 자세",
+        "한 번 잰 뒤에는 결과를 남기고 간격을 둡니다",
+        "숫자 옆에 조건을 남겨야 비교할 수 있습니다",
+        "집과 병원 수치가 다를 때는 기록으로 질문하세요",
+        "집에서 잴 때 자주 막히는 부분",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/measuring-blood-pressure",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}
