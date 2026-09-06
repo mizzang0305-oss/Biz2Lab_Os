@@ -138,6 +138,7 @@ const guides: GuideConfig[] = [
   {
     slug: "asthma",
     prefix: "AST",
+    toolSummary: { title: "천식 진료 질문지", description: "증상·흡입기 사용 기록을 가져가 기기 사용법과 개인 행동계획을 확인하는 인쇄 질문지입니다." },
     title: "천식",
     cluster: "호흡기·알레르기",
     archetype: "SIMPLE_ANALOGY",
@@ -148,8 +149,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 증상 패턴을 듣고 폐기능검사 등으로 숨을 내쉬는 흐름을 확인할 수 있습니다.",
     careBoundary: "흡입기 종류와 사용 시점은 개인별 천식 행동계획을 따릅니다. 다른 사람의 흡입기를 쓰거나 온라인 글로 약을 바꾸지 않습니다.",
     urgent: "숨쉬기가 매우 어렵거나 말하기 힘들고, 입술이 푸르게 보이거나 처지고 혼란스러우면 즉시 119에 도움을 요청합니다.",
-    observationItems: ["기침·쌕쌕거림 시간", "운동·감기·환경과의 관계", "수면 방해 여부", "처방된 행동계획과 실제 반응"],
-    questions: ["폐기능검사가 필요한가요?", "제 천식 행동계획을 어떻게 읽나요?", "응급실로 가야 할 신호는 무엇인가요?"],
+    observationItems: ["기침·숨참의 시기·상황 / 밤에 깸·평소 활동의 지장", "실제 흡입기·약 이름 / 사용한 때·그 뒤 변화·사용이 어려운 점", "현재 개인 행동계획·지난 발작/진료 기록 / 찾지 못한 지침"],
+    questions: ["제 기기로 사용하는 모습을 확인해 주실 수 있나요?", "현재 처방과 행동계획이 맞나요? 평소와 증상 변화 때의 지침을 어디서 확인하나요?", "다음 점검은 언제이며, 그 전에 진료팀에 연락할 때와 즉시 119를 부를 때는 언제인가요?"],
     sources: [
       { id: "SRC-NHLBI-ASTHMA-SYMPTOMS", organization: "NIH/NHLBI", title: "Asthma Symptoms", url: "https://www.nhlbi.nih.gov/health/asthma/symptoms", sourceDate: "2024" },
       { id: "SRC-NHLBI-ASTHMA-DIAGNOSIS", organization: "NIH/NHLBI", title: "Asthma Diagnosis", url: "https://www.nhlbi.nih.gov/health/asthma/diagnosis", sourceDate: "2024" },

@@ -1,33 +1,33 @@
 {
   "route": "/health/asthma",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T06:56:03.953Z",
+  "observedAt": "2026-09-06T15:13:15.099Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "01547ae8cea97b29541543c124fc79fa5a404aca3a2f4d0de3f3e0cee09620fd",
-      "full": "ce6fc4802b9301190727c6af473c2f76d1a95292886f57a6a6f46f9c3e174bc4"
+      "full": "8145a82af53efa583ecc53c9c56e3bee80ce290d8e0e3e954ca42d97f9738c75"
     },
     {
       "width": 390,
       "top": "67f224d6c6e9f7ddd0192c5001ac0406de87942d2f451172d776a9fb30d0c670",
-      "full": "fe85e063d14ffe4a76c2f86e8397aafe484fd6f9ce270365dd989a89dd0a596d"
+      "full": "7217c6c963e95210c0145ce905b2ee8561ff42dd84ca0bffb6e4021c0ce9da97"
     },
     {
       "width": 430,
       "top": "bebf4cb584a7f5a971b7f6e68696256f90daefd2b6b6c9153c95c8028c126ebb",
-      "full": "0c25b3609e8ec1712bc29a60b181a514b16e66781f13f1b9c26c667240825599"
+      "full": "5757787e39b4225b95a0a517be0e02ada137d29b041b543c2e90fc39c8e008c6"
     },
     {
       "width": 768,
       "top": "de2ffaa9d07f7e927e49ee2d6aabbfee77408424942d491620e44a0660451d85",
-      "full": "92fc531c7ed62d02afb5d29e28d3b1432caa30f81d6f30a25f842460ffed2d0a"
+      "full": "e6a2b55c61882037100e87c710db8d9c8d740ad67eefd99a924e35070b28bb70"
     },
     {
       "width": 1440,
       "top": "04328edfc9ba5a886c238afbd9800aa10bef0606337667f81e8b8cd19f00c8e5",
-      "full": "59b83fcd199cf689a931b342419d52038cecf50d8039e22f985c64ea2422eaaa"
+      "full": "3cc925adc9a2ac0ee2806ef2f6d3c76f04fd33fcccc64192272acd627c0f2817"
     }
   ],
   "failures": [],

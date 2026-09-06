@@ -36,6 +36,22 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("asthma worksheet checks a personal plan without generating inhaler doses or peak-flow zones", () => {
+  const tool = healthTools.find(t => t.slug === "asthma-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.match(copy.steps.join(" "), /미확인/);
+  assert.match(copy.limitation, /개인 행동계획을 대체하지 않습니다/);
+  assert.match(copy.limitation, /추가 흡입하지 않습니다/);
+  assert.match(copy.sheetNotice!, /갑작스러운 혼란은 즉시 119/);
+  assert.match(copy.sheetNotice!, /발작 중 처방약으로 완화되지 않아도 119/);
+  assert.equal(getToolSources(tool).length, 5);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(회|퍼프|mg|%)/);
+});
+
 test("IBS worksheet records either direction of pain change without a food challenge or diagnostic waiting period", () => {
   const tool = healthTools.find(t => t.slug === "irritable-bowel-syndrome-visit-card")!;
   const copy = toolEditorial[tool.slug];

@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "asthma-visit-card": {
+    indexDecision: "INDEX_UTILITY",
+    inheritParentWarning: true,
+    title: "천식 진료 질문지: 흡입기 사용과 개인 행동계획 점검",
+    description: "야간·활동 중 증상과 실제 흡입기 사용을 정리해, 기기 사용법·개인 행동계획을 질문합니다. 새 처방이나 약 용량을 만드는 양식은 아닙니다.",
+    updatedAt: "2026-09-07",
+    purpose: "평상시 진료나 의료 도움을 받은 발작 뒤 점검을 준비합니다. 기록 완성은 진료의 조건이 아닙니다.",
+    steps: [
+      "기침·숨참의 시기·상황과 수면·활동 영향을 적습니다. 일부러 운동·자극 노출로 증상을 재현하지 않습니다.",
+      "흡입기·약·기존 계획을 준비하고 실제 사용과 뒤의 변화를 적습니다. 모르는 이름·없는 계획은 미확인으로 남깁니다.",
+      "사용법·처방을 질문하고 답·다음 점검·연락처를 적습니다. 계획에 반영할 부분은 진료팀과 확인합니다.",
+    ],
+    example: "밤에 기침으로 깸 → 수면 영향 / 사용 단계가 헷갈림 → 어려운 점. 실제 관찰만 적는 위치 예시입니다.",
+    limitation: "흡입기 색으로 역할을 정하거나 약·사용 횟수·최대호기유속 기준을 새로 만들지 않습니다. 시범 확인은 진료팀 안내에 따라 하며 연습을 이유로 추가 흡입하지 않습니다. 이 질문지는 개인 행동계획을 대체하지 않습니다.",
+    sheetNotice: "심한 호흡곤란·헐떡임·말하기 어려움, 입술·피부의 매우 창백함·파랑·회색 변화 또는 갑작스러운 혼란은 즉시 119입니다. 발작 중 처방약으로 완화되지 않아도 119 도움을 받습니다. 여러 신호·계획서·약효·기록 완성을 기다리거나 직접 운전하지 않습니다.",
+    sourceIds: ["SRC-NHLBI-ASTHMA-MANAGING", "SRC-NHLBI-ASTHMA-PLAN", "SRC-NHS-ASTHMA"],
+    links: [
+      { href: "/health/guides/medication-list", label: "흡입기를 포함한 실제 약 이름·지침 준비" },
+      { href: "/health/guides/symptom-journal", label: "관찰한 증상과 처방 뒤 반응을 나누어 적기" },
+      { href: "/health/guides/appointment-questions", label: "질문 뒤 들은 설명과 연락 계획을 남기는 법" },
+    ],
+  },
   "irritable-bowel-syndrome-visit-card": {
     indexDecision: "INDEX_UTILITY",
     inheritParentWarning: true,
