@@ -105,3 +105,19 @@ test("rhinitis separates allergy causes, test interpretation and spray roles", (
   assert.match(JSON.stringify(article), /끓인 뒤 식힌 물/);
   assert.match(article.seoTitle!, /감기 차이/);
 });
+
+test("GERD separates terms and timing without waiting for severe cardiac pain", () => {
+  const article = healthArticles["gastroesophageal-reflux-disease"];
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.sections[0].tone, "warning");
+  assert.match(JSON.stringify(article.sections[0]), /가볍거나 오르내릴/);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.doesNotMatch(article.eyebrow, /Preview|비공개/);
+  assert.match(JSON.stringify(article), /식도 점막/);
+  assert.match(readFileSync("app/health/onurim.module.css", "utf8"), /onurim-article-hero > \*\) \{ min-width: 0; \}/);
+});

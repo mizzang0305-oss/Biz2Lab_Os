@@ -93,14 +93,14 @@ const imageMeta: Record<string, { src: string; alt: string; caption: string; wid
   "gerd-hero": {
     src: "/images/onurim/gastroesophageal-reflux-disease/hero.webp",
     alt: "식사와 자세, 불편의 시간 흐름을 관찰 노트에 적는 성인의 교육용 삽화",
-    caption: "시간표는 음식 금지표가 아니라 진료에서 질문할 흐름을 남기는 도구입니다.",
+    caption: "식사·자세·증상 시각을 따로 기록하는 장면입니다. 식사 직후 눕기를 권하는 순서도가 아닙니다.",
     width: 1536,
     height: 1024,
   },
   "gerd-explainer": {
     src: "/images/onurim/gastroesophageal-reflux-disease/explainer.webp",
     alt: "위 내용물이 식도 쪽으로 올라오는 흐름을 세 단계로 단순화한 교육용 삽화",
-    caption: "역류의 기본 흐름을 단순화한 그림이며 흉부 불편의 원인을 진단하지 않습니다.",
+    caption: "위 내용물이 식도 쪽으로 이동하는 개념입니다. 세 장면은 필수 악화 단계가 아니며 흉부 불편의 원인을 판정하지 않습니다.",
     width: 1536,
     height: 1024,
   },

@@ -1,7 +1,7 @@
 {
   "route": "/health/allergic-rhinitis",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T04:14:46.429Z",
+  "observedAt": "2026-09-06T04:28:14.011Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {

@@ -348,6 +348,7 @@
 
 :global(.onurim-article) { padding-top: 3.5rem; }
 :global(.onurim-article-hero) { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(19rem, 0.9fr); gap: 2.5rem; align-items: center; }
+:global(.onurim-article-hero > *) { min-width: 0; }
 :global(.onurim-article-hero h1) { margin: 0; font-size: clamp(2.6rem, 6vw, 5rem); letter-spacing: -0.06em; }
 :global(.onurim-lead) { max-width: 42rem; color: var(--onu-muted); font-size: 1.2rem; }
 :global(.onurim-review-strip) { display: flex; margin-top: 1.4rem; flex-wrap: wrap; gap: 0.5rem; }
