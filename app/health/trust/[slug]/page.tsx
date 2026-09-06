@@ -37,13 +37,6 @@ export default async function TrustPage({ params }: { params: Promise<{ slug: st
           {section.links?.length ? <ul>{section.links.map(link => <li key={link.href}><Link href={link.href}>{link.label}</Link></li>)}</ul> : null}
         </section>)}
       </div>
-      {slug === "contact" ? (
-        <p>
-          <a href="https://github.com/mizzang0305-oss/Biz2Lab_Os/issues/new" target="_blank" rel="noopener noreferrer">
-            GitHub Issues에서 정정·문의 작성하기
-          </a>
-        </p>
-      ) : null}
       {slug === "privacy" ? (
         <ul>
           <li><a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Google 광고 설정</a></li>

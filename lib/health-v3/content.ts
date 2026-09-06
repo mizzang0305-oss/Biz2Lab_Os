@@ -1062,11 +1062,15 @@ export const trustPages: readonly HealthTrustPage[] = [
   {
     slug: "contact",
     title: "문의",
-    intro: "현재 공개 문의와 정정 제보는 실제 운영 중인 Biz2Lab GitHub Issues를 이용합니다.",
+    seoTitle: "오누림 문의: 공개 경로와 접수 확인 상태",
+    description: "오누림의 문의·정정 경로와 현재 확인 한계입니다. GitHub 공개 목록 열람과 새 글 접수는 다르며, 비공개 의료상담이나 이메일 접수는 제공이 검증되지 않았습니다.",
+    updatedAt: "2026-09-07",
+    indexDecision: "NOINDEX_FOLLOW",
+    intro: "문의·정정 경로를 찾는 분을 위한 보조 안내입니다. 현재 일반 독자의 새 글 접수 가능 여부는 확인되지 않았습니다.",
     sections: [
-      { title: "보낼 내용", body: "문제가 있는 페이지 URL, 정정할 문장, 오류라고 판단한 이유와 확인 가능한 공식 출처를 적어 주세요." },
-      { title: "보내지 않을 내용", body: "이름·전화번호·주민번호·진단명·검사값·처방전·의료기록·계정정보는 공개 Issue에 올리지 마세요." },
-      { title: "상담 한계", body: "이 채널은 의료상담이나 응급상담을 제공하지 않습니다. 위급한 상황에서는 답변을 기다리지 말고 119에 연락하세요." },
+      { title: "먼저 접수 경로의 상태를 확인하세요", body: "2026-09-07 확인 시 Biz2Lab GitHub Issues 공개 목록은 열리지만 새 글 작성 제한 안내가 있습니다. 로그인 후 일반 독자가 글을 제출할 수 있는지는 확인되지 않았고 이메일도 활성화·송수신 검증 전입니다. 접수 가능 여부와 정정에 필요한 내용은 정정 정책에서 구분해 안내합니다.", links: [{ href: "/health/trust/corrections-policy", label: "정정 정책: 접수 상태·필요한 내용 확인" }, { href: "https://github.com/mizzang0305-oss/Biz2Lab_Os/issues", label: "공개 GitHub Issues 목록 열기 (외부 사이트)" }] },
+      { title: "공개 게시에 개인 정보를 넣지 마세요", body: "문의 경로는 비공개 상담·의료기록 제출 창구가 아닙니다. 이름·전화번호·주민번호·진단명·검사값·처방전·의료기록·계정정보를 공개 게시물이나 첨부파일에 넣지 마세요. 문제 페이지 URL과 문장만으로 설명하고 다른 사람의 정보도 올리지 마세요.", links: [{ href: "/health/trust/privacy", label: "외부 게시물과 개인정보 안내" }] },
+      { title: "답변을 기다릴 곳이 아닌 경우", body: "개인의 진단·치료·약물 상담과 응급 도움을 제공하지 않습니다. 위급한 상황에서는 게시물이나 답변을 기다리지 말고 119에 연락하세요. 문의 접수나 정해진 기한 안의 답변을 보장하지 않습니다.", links: [{ href: "/health/guides/danger-signals", label: "응급 도움을 먼저 요청해야 하는 위험 신호" }] },
     ],
   },
 ] as const;

@@ -7,6 +7,7 @@ import { healthSupportGuides } from "../lib/health-v3/support-guides";
 import { getToolSafetyNotice, getToolSources, toolEditorial } from "../lib/health-v3/tool-editorial";
 import { createMetadata } from "../lib/seo";
 import sitemap from "../app/sitemap";
+import robots from "../app/robots";
 
 test("individually excluded utilities remain self-canonical noindex follow without altering legacy defaults", () => {
   const input = { title: "경고 카드", description: "인쇄용 안내", path: "/health/tools/blood-pressure-warning", noindex: true };
@@ -44,6 +45,15 @@ test("corrections policy separates public access from unverified issue submissio
   assert.match(text, /의료기록·검사 이미지를 게시하거나 첨부하지 마세요/);
   assert.doesNotMatch(text, /health@|현재 실동작/);
   assert.ok(page.sections.flatMap(section => section.links ?? []).some(link => link.href === "https://github.com/mizzang0305-oss/Biz2Lab_Os/issues"));
+});
+
+test("contact stays accessible but noindex follow without promising intake", () => {
+  const page = trustPages.find(page => page.slug === "contact")!;
+  assert.equal(page.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(page.intro, /접수 가능 여부는 확인되지 않았습니다/);
+  assert.ok(page.sections.flatMap(section => section.links ?? []).some(link => link.href === "/health/trust/corrections-policy"));
+  assert.doesNotMatch(readFileSync("app/health/trust/[slug]/page.tsx", "utf8"), /issues\/new|정정·문의 작성하기/);
+  assert.doesNotMatch(JSON.stringify(robots().rules), /\/health\/trust/);
 });
 
 test("trust pages distinguish public access from index decisions and use page-specific dates", () => {
