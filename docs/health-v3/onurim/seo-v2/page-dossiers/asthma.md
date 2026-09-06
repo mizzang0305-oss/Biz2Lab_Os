@@ -62,3 +62,5 @@ Main은 HEAD882d0ac의 expansion70 records를 read-only 평가해 exact 동일, 
 INTENT_PASS · TITLE_PASS · DESCRIPTION_PASS · H1_PASS · CONTENT_UNIQUENESS_PASS · MEDICAL_SOURCE_PASS · INTERNAL_LINK_PASS · IMAGE_PASS · MOBILE_PASS · SCHEMA_PASS · CANONICAL_PASS · INDEXABILITY_PASS.
 
 전체261tests/typecheck/lint오류0(기존경고1)/build116 PASS. 최종 표현·순서 수정 후 SEO회귀18건, healthaudit,5폭360/390/430/768/1440 fail0,SEO fail0,build116,diffcheck PASS. Main360top/390질문표/430urgent/768FAQ/1440sources 직접 확인. HTTPS www selfcanonical/SSR200/실제lastmod/출처anchor8개1회/schemaerrors0. `../raw/page-qa/asthma.json` 및 ignored local 동명 폴더에 machine evidence. 임상검수·실제독자·fieldCWV·Google색인 보장 아님. Preview·Production·색인 요청 없음.
+
+후속 정정: dcca280 이후 수면무호흡증의 전체 `typecheck`에서 마지막에 추가했던 천식 테스트의 `urgent.paragraphs`가 선택 필드라는 TS18048 오류를 발견했다. 위261tests/typecheck PASS는 마지막 assertion 추가 전 상태이며, 최종 build/실행형 테스트만으로 해당 테스트 파일의 엄격 타입 통과까지 증명할 수 없었다. `assert.ok(urgent.paragraphs)`로 범위를 좁힌 뒤 명시적 `npm run typecheck`와 전체262tests를 재실행해 PASS를 확인했다. 공개 천식 본문은 변경하지 않았다. 이후 페이지는 최종 테스트 수정 뒤에도 명시적 typecheck를 실행한다.
