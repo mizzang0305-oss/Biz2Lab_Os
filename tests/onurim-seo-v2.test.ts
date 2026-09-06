@@ -122,6 +122,16 @@ test("privacy distinguishes print-only health records from site analytics and pu
   assert.doesNotMatch(text, /브라우저에서 적은 내용|자동으로 완전히 삭제/);
 });
 
+test("advertising policy separates editorial principles from approval and medical endorsement", () => {
+  const page = trustPages.find(page => page.slug === "advertising")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(text, /광고 승인·게재 상태는 서로 다릅니다/);
+  assert.match(text, /광고 클릭이 필요하다고 안내하지 않습니다/);
+  assert.match(text, /모든 내용이 오누림에서 검증되었다고 보장하지 않습니다/);
+  assert.doesNotMatch(text, /광고 승인 완료|거래 이력이 없습니다/);
+});
+
 test("trust pages distinguish public access from index decisions and use page-specific dates", () => {
   const entries = sitemap();
   const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(slug => `/health/${slug}`),
