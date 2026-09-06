@@ -439,6 +439,26 @@
 :global(.onurim-emergency-action) { margin-top: 1.5rem; padding: 1rem; border: 2px solid #efb3a5; border-radius: 0.8rem; }
 :global(.onurim-emergency-action p) { margin-bottom: 0; }
 :global(.onurim-tool-footer) { margin-top: 1.5rem; color: var(--onu-muted); font-size: 0.8rem; }
+:global(.onurim-tool-header .onurim-tool-format),
+:global(.onurim-tool-header .onurim-tool-date) { font-size: 0.95rem; }
+:global(.onurim-tool-instructions),
+:global(.onurim-tool-related) { margin-top: 2rem; }
+:global(.onurim-tool-page h2) { margin: 1.4rem 0 0.8rem; font-size: 1.4rem; font-weight: 750; line-height: 1.45; }
+:global(.onurim-tool-page h3) { margin: 0 0 0.5rem; font-size: 1.1rem; font-weight: 700; }
+:global(.onurim-tool-page p) { line-height: 1.8; }
+:global(.onurim-table-help) { font-size: 0.9rem; }
+:global(.onurim-tool-instructions ol),
+:global(.onurim-tool-related ul) { padding-left: 1.4rem; list-style: revert; }
+:global(.onurim-tool-instructions li) { margin: 0.8rem 0; }
+:global(.onurim-tool-example) { padding: 1rem; border-left: 4px solid var(--onu-green); background: var(--onu-mint-soft); }
+:global(.onurim-tool-fields) { display: grid; gap: 1rem; }
+:global(.onurim-tool-fields > div) { break-inside: avoid; }
+:global(.onurim-tool-fields dt) { font-weight: 700; }
+:global(.onurim-tool-fields dd) { min-height: 4rem; margin: 0; border-bottom: 1px solid #879d97; }
+:global(.onurim-table-scroll:focus-visible) { outline: 3px solid var(--onu-green); outline-offset: 4px; }
+:global(.onurim-table-scroll caption) { padding: 0.6rem 0; text-align: left; font-size: 0.95rem; }
+:global(.onurim-tool-footer .onurim-source-list) { padding-left: 1.2rem; }
+:global(.onurim-tool-footer li) { margin: 0.55rem 0; font-size: 0.9rem; overflow-wrap: anywhere; }
 
 :global(.onurim-trust-sections) { display: grid; margin-top: 3rem; gap: 1rem; }
 :global(.onurim-trust-sections section) { padding: 1.5rem; border: 1px solid var(--onu-line); border-radius: 1rem; background: white; }
@@ -622,16 +642,35 @@
 }
 
 @media print {
-  .header,
-  .footer,
-  :global(.onurim-tool-actions),
-  :global(.onurim-tool-footer) { display: none !important; }
+  :global(body > header),
+  :global(body > footer),
+  :global(.onurim-tool-actions) { display: none !important; }
   .shell { background: white; color: black; }
   :global(.onurim-tool-page) { max-width: none; padding: 0; }
   :global(.onurim-tool-header h1) { font-size: 2rem; }
   :global(.onurim-print-sheet) { margin-top: 1rem; padding: 0; border: 0; }
   :global(.onurim-table-scroll) { overflow: visible; }
-  :global(.onurim-table-scroll table) { min-width: 0; font-size: 0.58rem; }
+  :global(.onurim-table-scroll table) { min-width: 0; table-layout: fixed; font-size: 9pt; }
   :global(.onurim-table-scroll th),
   :global(.onurim-table-scroll td) { min-width: 0; height: 2.2rem; padding: 0.2rem; }
+  :global(.onurim-table-scroll th),
+  :global(.onurim-table-scroll td) { overflow-wrap: anywhere; }
+  :global(.onurim-table-scroll thead) { display: table-header-group; }
+  :global(.onurim-table-scroll tr),
+  :global(.onurim-tool-fields > div),
+  :global(.onurim-check-list label),
+  :global(.onurim-emergency-action) { break-inside: avoid; }
+  :global(.onurim-tool-footer) { display: block !important; color: black; font-size: 9pt; }
+  :global(.onurim-tool-footer .onurim-source-list a)::after { content: " (" attr(href) ")"; font-size: 8pt; }
+  :global(.onurim-tool-footer li) { font-size: 9pt; }
+  :global(.onurim-table-help) { display: none; }
+  :global(.onurim-tool-related) { display: none; }
+  :global(.onurim-tool-page) { font-size: 10pt; }
+  :global(.onurim-tool-page p),
+  :global(.onurim-tool-header > p:not(.onurim-eyebrow)) { margin: 0.45rem 0; font-size: 10pt; line-height: 1.5; }
+  :global(.onurim-tool-page h2) { margin: 1rem 0 0.5rem; font-size: 14pt; break-after: avoid; }
+  :global(.onurim-tool-instructions li) { margin: 0.45rem 0; }
+  :global(.onurim-tool-page .onurim-print-sheet) { break-before: page; }
+  :global(.onurim-tool-footer .onurim-source-list) { gap: 0.15rem; margin: 0.4rem 0; }
+  :global(.onurim-tool-footer .onurim-source-list li) { margin: 0.15rem 0; break-inside: avoid; line-height: 1.4; }
 }

@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { healthArticles, healthTools, trustPages } from "@/lib/health-v3/content";
 import { healthSupportGuides } from "@/lib/health-v3/support-guides";
+import { toolEditorial } from "@/lib/health-v3/tool-editorial";
 import { staticPublicRoutes } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 
@@ -29,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const toolEntries = healthTools.map((tool) => ({
     url: absoluteUrl(`/health/tools/${tool.slug}`),
-    lastModified: new Date("2026-08-26"),
+    lastModified: new Date(toolEditorial[tool.slug]?.updatedAt ?? "2026-08-26"),
     changeFrequency: "monthly",
     priority: 0.65,
   })) satisfies MetadataRoute.Sitemap;

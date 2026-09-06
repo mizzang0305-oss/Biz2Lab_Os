@@ -1,0 +1,57 @@
+{
+  "route": "/health/tools/blood-pressure-log",
+  "observedAt": "2026-09-06T11:47:19.627Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [],
+  "sourceHrefs": [
+    "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home",
+    "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6765",
+    "https://health.kdca.go.kr/healthinfo/biz/health/ccvdInfo/ccvcdInfo/cbvcacdInfoMain.do",
+    "https://health.kdca.go.kr/healthinfo/biz/health/ccvdInfo/cvcdInfo/miInfoMain.do"
+  ],
+  "horizontalNavigation": {
+    "client": 318,
+    "total": 720,
+    "reachedRight": true
+  },
+  "checkboxToggled": null,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 4,
+    "overflow": 0,
+    "footerText": "가정 혈압 기록표 · 양식·안내 수정 2026-09-06교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료American Heart Association — Home Blood Pressure Monitoring질병관리청 국가건강정보포털 — 고혈압질병관리청 국가건강정보포털 — 뇌졸중에 대해서질병관리청 국가건강정보포털 — 심근경색에 대해서의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 0
+  },
+  "links": [
+    {
+      "href": "/health/hypertension",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/measuring-blood-pressure",
+      "status": 200
+    },
+    {
+      "href": "/health/tools/blood-pressure-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/danger-signals",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "75cffb06106a1c7d860396011cd2521b772b2884d638d91474d80a03837245f7",
+  "pdfBytes": 112266,
+  "failures": []
+}

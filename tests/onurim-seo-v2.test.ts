@@ -4,6 +4,52 @@ import { spawnSync } from "node:child_process";
 import test from "node:test";
 import { healthArticles, healthTools, trustPages } from "../lib/health-v3/content";
 import { healthSupportGuides } from "../lib/health-v3/support-guides";
+import { getToolSafetyNotice, getToolSources, toolEditorial } from "../lib/health-v3/tool-editorial";
+
+test("tool sources resolve to documents and print safety remains visible", () => {
+  for (const tool of healthTools) {
+    const sources = getToolSources(tool);
+    assert.ok(sources.length > 0, tool.slug);
+    assert.ok(sources.every(s => /^https:\/\//.test(s.url)), tool.slug);
+  }
+  const renderer = readFileSync("components/health/HealthToolPage.tsx", "utf8");
+  assert.match(renderer, /tool\.fields\.map/);
+  assert.match(renderer, /href=\{source.url\}/);
+  assert.match(renderer, /빈칸은 인쇄한 뒤 손으로/);
+  assert.doesNotMatch(renderer, /<form|<textarea|type="text"/);
+  const print = readFileSync("app/health/onurim.module.css", "utf8").split("@media print")[1];
+  assert.match(print, /onurim-tool-footer\) \{ display: block !important/);
+  assert.match(print, /attr\(href\)/);
+});
+
+test("blood pressure print rows preserve individual measurement values without prescribing seven days", () => {
+  const tool = healthTools.find(t => t.slug === "blood-pressure-log")!;
+  assert.equal(tool.rows, 14);
+  assert.ok(tool.columns?.includes("회차"));
+  assert.ok(tool.columns?.includes("수축기(mmHg)"));
+  assert.ok(tool.columns?.includes("이완기(mmHg)"));
+  assert.doesNotMatch(JSON.stringify(tool), /쉬기 전\/후/);
+  const copy = toolEditorial[tool.slug];
+  assert.match(copy.purpose, /7일 측정.*처방하는 기준이 아닙니다/);
+  assert.match(copy.steps.join(" "), /1차·2차.*서로 다른 줄/);
+  assert.match(copy.limitation, /기다리지 말고 119/);
+  assert.ok(copy.links.every(l => l.href.startsWith("/health/")));
+  assert.match(copy.limitation, /재측정 후에도.*며칠 동안 기록을 모으느라 기다리지/);
+});
+
+test("restored neurological and self-harm fields cannot appear without their existing sourced urgent notices", () => {
+  for (const slug of ["migraine-visit-card", "depression-visit-card", "stroke-visit-card", "acute-myocardial-infarction-visit-card", "blood-pressure-warning"]) {
+    const tool = healthTools.find(t => t.slug === slug)!;
+    const notice = getToolSafetyNotice(tool)!;
+    assert.ok(notice);
+    assert.equal(notice, healthArticles[tool.articleSlug].sections.find(s => s.tone === "warning"));
+    assert.match(JSON.stringify(notice), /119/);
+    if (slug === "depression-visit-card") assert.match(JSON.stringify(notice), /109/);
+    const sources = getToolSources(tool).map(s => s.id);
+    assert.ok(notice.sourceIds?.every(id => sources.includes(id)));
+  }
+  assert.match(readFileSync("app/sitemap.ts", "utf8"), /toolEditorial\[tool.slug\]\?\.updatedAt/);
+});
 
 test("SEO audit refuses colliding output paths before HTTP or file writes", () => {
   const run = spawnSync(process.execPath, ["--import", "tsx", "scripts/audit-onurim-seo.ts", "--out", "invalid-output"], { encoding: "utf8" });

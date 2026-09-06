@@ -797,11 +797,11 @@ export const healthTools: HealthTool[] = [
   {
     slug: "blood-pressure-log",
     articleSlug: "hypertension",
-    title: "7일 혈압 기록표",
+    title: "가정 혈압 기록표",
     description: "결론을 계산하지 않고 측정 환경과 원래 값을 함께 남기는 개인 기록지입니다.",
     claimIds: ["HTN-B1-006", "HTN-B1-007", "HTN-B1-008", "HTN-B1-010"],
     kind: "log",
-    columns: ["날짜", "시간", "수축기", "이완기", "맥박", "쉬기 전/후", "증상", "처방약 복용 기록", "메모"],
+    columns: ["날짜·시간", "회차", "수축기(mmHg)", "이완기(mmHg)", "맥박(회/분)", "측정 조건·증상", "안내받은 약·기타 메모"],
     rows: 14,
   },
   {
