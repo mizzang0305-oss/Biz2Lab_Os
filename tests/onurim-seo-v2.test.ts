@@ -36,6 +36,19 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("trust pages distinguish public access from index decisions and use page-specific dates", () => {
+  const entries = sitemap();
+  for (const page of trustPages) {
+    const matches = entries.filter(entry => entry.url === `https://www.biz2lab.com/health/trust/${page.slug}`);
+    assert.equal(matches.length, page.indexDecision === "NOINDEX_FOLLOW" ? 0 : 1, page.slug);
+    if (matches.length) assert.equal(matches[0].lastModified, page.updatedAt ?? "2026-08-26");
+  }
+  const about = trustPages.find(page => page.slug === "about")!;
+  assert.equal(about.indexDecision, "INDEX_SUPPORT");
+  assert.match(about.sections.map(section => section.body).join(" "), /현재 면허 의료인 검수는 미완료/);
+  assert.ok(about.sections.flatMap(section => section.links ?? []).some(link => link.href === "/health/trust/corrections-policy"));
+});
+
 test("heart attack memo keeps emergency reporting before observations and personal recovery questions", () => {
   const tool = healthTools.find(t => t.slug === "acute-myocardial-infarction-visit-card")!;
   const copy = toolEditorial[tool.slug];

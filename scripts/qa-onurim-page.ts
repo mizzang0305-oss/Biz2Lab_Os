@@ -13,7 +13,8 @@ const base = option("--base", "http://127.0.0.1:3212");
 const inventory = ["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`),
   ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(t=>`/health/tools/${t.slug}`), ...trustPages.map(t=>`/health/trust/${t.slug}`)];
 const slug = route.split("/").filter(Boolean).at(-1) ?? "home";
-const expectedNoindex = route.startsWith("/health/tools/") && toolEditorial[slug]?.indexDecision === "NOINDEX_FOLLOW";
+const expectedNoindex = (route.startsWith("/health/tools/") && toolEditorial[slug]?.indexDecision === "NOINDEX_FOLLOW")
+  || (route.startsWith("/health/trust/") && trustPages.find(page => page.slug === slug)?.indexDecision === "NOINDEX_FOLLOW");
 const out = path.resolve(option("--out", `reports/local/onurim-seo-v2/${slug}`));
 
 async function run() {

@@ -923,15 +923,32 @@ export const healthTools: HealthTool[] = [
   ...expansionHealthTools,
 ];
 
-export const trustPages = [
+export type HealthTrustPage = {
+  slug: string;
+  title: string;
+  intro: string;
+  seoTitle?: string;
+  description?: string;
+  updatedAt?: string;
+  indexDecision?: "INDEX_SUPPORT" | "NOINDEX_FOLLOW";
+  sections: ReadonlyArray<{ title: string; body: string; links?: ReadonlyArray<{ href: string; label: string }> }>;
+};
+
+export const trustPages: readonly HealthTrustPage[] = [
   {
     slug: "about",
     title: "오누림 소개",
+    seoTitle: "오누림 소개: 건강정보의 범위·운영·확인 방법",
+    description: "오누림에서 읽을 수 있는 질환·검사 안내와 기록 도구, Biz2Lab 운영 및 박영훈 비의료 편집자의 역할을 소개합니다. 의료 서비스와의 차이, 검수 상태와 정정 경로를 확인하세요.",
+    updatedAt: "2026-09-07",
+    indexDecision: "INDEX_SUPPORT",
     intro: "오누림은 질환을 쉬운 말과 그림으로 이해하고, 기록하고, 진료에서 질문할 준비를 돕는 일반 건강교육 안내서입니다.",
     sections: [
-      { title: "무엇을 하는가", body: "공식기관과 의료기관의 환자용 자료를 바탕으로 설명, 기록표와 질문 도구를 새로 구성합니다." },
-      { title: "무엇을 하지 않는가", body: "진단, 처방, 개인 치료 결정, 의료 상담, 병원 서비스 또는 정부기관 소속을 제공하거나 주장하지 않습니다." },
-      { title: "운영", body: "운영 주체는 Biz2Lab입니다. 박영훈 비의료인 건강정보 편집자가 공개 문장과 출처 연결을 관리합니다." },
+      { title: "어떤 도움을 얻을 수 있나요?", body: "질환 안내는 흔한 오해와 위험 신호, 검사·치료 설명에서 물어볼 점을 다룹니다. 검사·수치 안내는 결과지의 용어와 해석의 한계를 구분합니다. 기록 도구는 관찰한 사실과 질문을 진료에 가져가기 위한 보조 자료이며 진단 결과를 계산하지 않습니다.", links: [{ href: "/health", label: "질환·검사·도구 중 필요한 안내 찾기" }] },
+      { title: "의료 서비스와는 다릅니다", body: "병원이나 정부기관의 서비스가 아니며 개인 진단, 처방, 치료 결정이나 응급상담을 제공하지 않습니다. 공식 출처가 붙었다고 오누림 문장이 의료인의 검수를 끝냈다는 뜻은 아닙니다. 현재 면허 의료인 검수는 미완료입니다.", links: [{ href: "/health/trust/medical-review-policy", label: "의료 검토의 현재 상태와 완료 조건" }] },
+      { title: "누가 운영하고 작성하나요?", body: "운영 주체는 Biz2Lab, 공개 작성자는 박영훈 비의료인 건강정보 편집자입니다. 작성자 역할과 출처 확인, 의료인 검수는 구분해서 표시합니다. 임상 경력이나 의료 면허가 있는 작성자로 소개하지 않습니다.", links: [{ href: "/health/trust/author", label: "박영훈 편집자의 역할과 한계" }] },
+      { title: "설명과 그림은 어떻게 확인하나요?", body: "공식기관·의료기관의 환자용 자료를 바탕으로 문장과 질문 도구를 새로 구성합니다. 각 안내의 출처에서 원문과 날짜를 확인할 수 있습니다. AI 생성 삽화는 교육용 개념 표현이며 실제 검사 영상이나 환자 사례가 아닙니다.", links: [{ href: "/health/trust/sources-policy", label: "출처 선정·확인 원칙" }, { href: "/health/trust/ai-disclosure", label: "AI 보조와 시각자료의 한계" }] },
+      { title: "틀리거나 헷갈리는 표현을 발견했다면", body: "제보할 내용과 공개 게시 주의사항은 정정 정책에서 확인하세요. 현재 제보 접수 가능 여부는 별도 확인이 필요합니다. 공개 게시물에는 본인이나 가족의 의료기록·연락처를 올리지 마세요. 정정 문의는 개인 의료상담이나 응급 도움을 대신하지 않습니다.", links: [{ href: "/health/trust/corrections-policy", label: "정정 정책과 공개 게시 주의사항" }] },
     ],
   },
   {

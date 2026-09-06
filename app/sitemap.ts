@@ -7,7 +7,8 @@ import { staticPublicRoutes } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticEntries = staticPublicRoutes.map((route) => ({
+  // Public route inventory is not the set of approved search index candidates.
+  const staticEntries = staticPublicRoutes.filter(route => !route.startsWith("/health/trust/")).map((route) => ({
     url: absoluteUrl(route),
     lastModified: new Date("2026-07-26"),
     changeFrequency: route === "/" ? "daily" : "weekly",
@@ -37,9 +38,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticUrls = new Set(staticEntries.map((entry) => entry.url));
   const supplementalTrustEntries = trustPages
+    .filter(page => page.indexDecision !== "NOINDEX_FOLLOW")
     .map((page) => ({
       url: absoluteUrl(`/health/trust/${page.slug}`),
-      lastModified: new Date("2026-08-26"),
+      lastModified: page.updatedAt ?? "2026-08-26",
       changeFrequency: "monthly" as const,
       priority: 0.6,
     }))
