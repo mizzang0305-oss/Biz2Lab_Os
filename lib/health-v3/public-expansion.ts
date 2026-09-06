@@ -336,6 +336,7 @@ const guides: GuideConfig[] = [
   {
     slug: "acute-myocardial-infarction",
     prefix: "AMI",
+    toolSummary: { title: "심근경색 전달 메모", description: "119 신고 후 실제 증상·약 정보를 전하고, 급한 평가·치료 뒤 약·활동·재활 질문을 확인하는 보조표입니다." },
     title: "급성심근경색",
     cluster: "심장·혈관",
     archetype: "QUESTION_FIRST",
@@ -346,8 +347,8 @@ const guides: GuideConfig[] = [
     evaluation: "응급의료진은 증상과 심전도, 혈액검사 등을 이용해 심장 손상 여부를 빠르게 확인합니다.",
     careBoundary: "증상을 소화불량으로 단정하거나 직접 운전하지 않습니다. 아스피린을 포함한 약을 먼저 찾느라 119 연락을 늦추지 않습니다.",
     urgent: "새로운 심한 가슴 통증·압박감이나 숨참, 식은땀, 갑작스러운 어지럼이 심근경색처럼 느껴지면 확신이 없어도 즉시 119에 연락합니다.",
-    observationItems: ["증상이 시작된 시각", "통증·압박 위치와 퍼짐", "숨참·식은땀·메스꺼움", "119에 전달할 병력과 약"],
-    questions: ["재발 의심 신호는 무엇인가요?", "퇴원 뒤 활동은 어떻게 늘리나요?", "약을 잊거나 이상 반응이 있을 때 어디에 연락하나요?"],
+    observationItems: ["신고 후: 처음 느낀 날짜·시각 / 줄거나 다시 생긴 변화 (미확인 가능)", "신고 후: 실제 불편 위치·퍼짐 / 함께 생긴 호흡·몸 상태 변화", "신고 후: 알고 있는 병력·실제 사용 약·알레르기 (찾느라 지연 금지)"],
+    questions: ["급한 평가·치료 뒤: 제 약의 역할·사용법과 복용 곤란·불편 때 연락할 곳은 어디인가요?", "급한 평가·치료 뒤: 활동·심장재활·다음 방문 계획과 다시 의심 증상이 생겼을 때 행동은 무엇인가요?"],
     sources: [
       { id: "SRC-KDCA-CARDIO-2026", organization: "질병관리청", title: "갑작스러운 마비·언어장애·가슴통증 조기 대응", url: "https://kdca.go.kr/kdca/2848/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa2RjYSUyRjQyJTJGMzEwMDYxJTJGYXJ0Y2xWaWV3LmRvJTNG", sourceDate: "2026-02-11" },
       { id: "SRC-NHLBI-HEART-ATTACK", organization: "NIH/NHLBI", title: "What Is a Heart Attack?", url: "https://www.nhlbi.nih.gov/health/heart-attack", sourceDate: "2022-03-24" },

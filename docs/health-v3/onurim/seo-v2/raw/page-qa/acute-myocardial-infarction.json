@@ -1,33 +1,33 @@
 {
   "route": "/health/acute-myocardial-infarction",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T10:09:37.266Z",
+  "observedAt": "2026-09-06T16:34:15.474Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "7d6748ff558ba28418f5a5959dda3e298289008bb8217652257dcd822deb81a2",
-      "full": "e45c8e491bae8079434322fc2cbec784da2fdaa1a2365eb5a111149f4594d0fc"
+      "full": "f13c22bd343ed50d0c62f57eec3121fdbb7890190ab9d5d78e23e8fb86fbe536"
     },
     {
       "width": 390,
       "top": "4cd069f80fcfa33197e45af257a0ce1598d2324a5f771c7c6a3faa57c389c9fb",
-      "full": "7342bef2db3de30bd2757688e8a34ac4bd23e3a5e50b7cd20e43c32066e47597"
+      "full": "c10d4467b42fcd0ae4955937f1b3a808dd63b967f2357f08e51af9f416138a4f"
     },
     {
       "width": 430,
       "top": "6b14e4abc726f411201760b3eb4ab273bb657b58da7ccd4c40a3ab911c0e44fd",
-      "full": "704eac088f331547bf519f44ac2187a740afd02979beee546c96849f179fc263"
+      "full": "b97bb5871e5500e736ea28b8331f585a4b53c0a537f565a6cd53e6da99a77846"
     },
     {
       "width": 768,
       "top": "eaa24f5366f67d8b8e2f828148a93d8ea62f5eaef19e570750ac717d340656d0",
-      "full": "975a1b64d980bcd451d49c275a2cebf8c0dfd68f138c64f364b0efac4000d52e"
+      "full": "caf05d2989941f00089a3f7f59f592219edb80c47c7c2fba371781ce40a02ee8"
     },
     {
       "width": 1440,
       "top": "1be930391f600e92da7d7ec22edb8c0d030435a5db7098db44614f822e304806",
-      "full": "e5b7a527216feb48a271908634cd12cb8bfe79cad2479d18f5183cd00dc33752"
+      "full": "439218540031639ff1bcf79c29e22da9fed2c8dd83da93ec06130d33d538ff5a"
     }
   ],
   "failures": [],

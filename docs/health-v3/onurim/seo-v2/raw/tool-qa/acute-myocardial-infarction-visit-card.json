@@ -1,0 +1,65 @@
+{
+  "route": "/health/tools/acute-myocardial-infarction-visit-card",
+  "observedAt": "2026-09-06T16:34:07.096Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "신고 후: 처음 느낀 날짜·시각 / 줄거나 다시 생긴 변화 (미확인 가능)",
+    "신고 후: 실제 불편 위치·퍼짐 / 함께 생긴 호흡·몸 상태 변화",
+    "신고 후: 알고 있는 병력·실제 사용 약·알레르기 (찾느라 지연 금지)"
+  ],
+  "sourceHrefs": [
+    "https://www.cdc.gov/heart-disease/about/heart-attack.html",
+    "https://www.kdca.go.kr/kdca/2847/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa2RjYSUyRjQxJTJGMzEwMDYxJTJGYXJ0Y2xWaWV3LmRvJTNGcGFzc3dvcmQlM0QlMjZyZ3NCZ25kZVN0ciUzRCUyNmZpbmRPcG53cmQlM0QlMjZmaW5kV29yZCUzRCUyNnJnc0VuZGRlU3RyJTNEJTI2ZmluZFR5cGUlM0QlMjZmaW5kQ2xTZXElM0QlMjZwYWdlJTNEMSUyNg%3D%3D",
+    "https://www.nhlbi.nih.gov/health/heart-attack/symptoms",
+    "https://www.nhs.uk/conditions/heart-attack/"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 4,
+    "overflow": 0,
+    "footerText": "심근경색 전달 메모 · 양식·안내 수정 2026-09-07교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료CDC — About Heart Attack Symptoms, Risk, and Recovery질병관리청 — 갑작스러운 마비·언어장애·가슴통증… 뇌졸중·심근경색 조기 대응 중요NIH/NHLBI — Heart Attack SymptomsNHS — Heart attack의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 3,
+    "checkedItems": 0,
+    "focusedCheckbox": false,
+    "footerParagraphFontPx": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "links": [
+    {
+      "href": "/health/acute-myocardial-infarction",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/danger-signals",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/medication-list",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/appointment-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "7f69b09970ce51034d3b5c122c303b104eb03bb28919c0fb65f528dd9089ccd2",
+  "pdfBytes": 142064,
+  "failures": []
+}

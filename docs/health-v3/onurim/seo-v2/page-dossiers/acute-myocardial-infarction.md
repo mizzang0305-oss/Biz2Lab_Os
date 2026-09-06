@@ -68,3 +68,7 @@ Main360top(4줄H1이나119·첫답변화면내),390검사표카드,430긴급목�
 INTENT_PASS · TITLE_PASS · DESCRIPTION_PASS · H1_PASS · CONTENT_UNIQUENESS_PASS · MEDICAL_SOURCE_PASS · INTERNAL_LINK_PASS · IMAGE_PASS · MOBILE_PASS · SCHEMA_PASS · CANONICAL_PASS · INDEXABILITY_PASS.
 
 이는 LOCAL SEO_PAGE_CERTIFIED이며 임상·실제독자·fieldCWV·Google색인보장 아님. Preview/Production/색인요청 없음.
+
+## Tool34 후속 — 2026-09-07 LOCAL
+
+심근경색 전달 메모를 개별 NOINDEX_FOLLOW로 판정. 부모 카드 설명·신고 후3필드·급한 평가/치료 뒤2질문만 변경, 부모 의료 본문/날짜/Claim 보존. 부모5폭QA/SEO 재PASS. 별도 `tool-acute-myocardial-infarction-visit-card.md`에 출처4개·76관련test·전체test/lint/typecheck·화면/PDF2쪽·독립 diff 검토 증거. 부모 INDEX_PRIMARY 유지, 도구 sitemap 제외는 local만 적용. 전역 graph·Preview·의료인 검수 후속.

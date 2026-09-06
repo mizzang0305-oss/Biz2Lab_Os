@@ -36,6 +36,23 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("heart attack memo keeps emergency reporting before observations and personal recovery questions", () => {
+  const tool = healthTools.find(t => t.slug === "acute-myocardial-infarction-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 2);
+  assert.ok(tool.fields!.every(field => field.startsWith("신고 후:")));
+  assert.ok(tool.items!.every(question => question.startsWith("급한 평가·치료 뒤:")));
+  assert.match(copy.sheetNotice!, /약하거나 오락가락해도, 모두 나타나지 않아도 신고/);
+  assert.match(copy.sheetNotice!, /일정 시간 지나기를 기다리지 않습니다/);
+  assert.match(copy.sheetNotice!, /아스피린을 모두에게 금지하거나 같은 양을 처방하는 카드가 아닙니다/);
+  assert.match(copy.limitation, /처방약을 혼자 끊거나 조절하지/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 4);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(분간|시간|mg|점 이상)|정상 맥박이면/);
+});
+
 test("stroke memo separates post-call timestamps from post-acute questions without a diagnostic or treatment timer", () => {
   const tool = healthTools.find(t => t.slug === "stroke-visit-card")!;
   const copy = toolEditorial[tool.slug];

@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "acute-myocardial-infarction-visit-card": {
+    indexDecision: "NOINDEX_FOLLOW",
+    inheritParentWarning: true,
+    title: "심근경색 전달 메모: 119 신고 후 관찰·치료 뒤 질문",
+    description: "119 신고 후 아는 증상·시각·약 정보를 전하고, 급한 평가·치료 뒤 약·활동·심장재활 계획을 묻는 보조 메모입니다. 통증 점수, 대기 시간이나 아스피린 복용량을 정하지 않습니다.",
+    updatedAt: "2026-09-07",
+    purpose: "신고·구급 대응이 먼저이며 메모 완성은 조건이 아닙니다. 치료 뒤 질문은 응급 중에 답을 받아야 하는 절차가 아닙니다.",
+    steps: [
+      "119에 먼저 연락하고 질문에 따라 아는 사실을 말합니다. 시각·약 이름을 모르면 미확인으로 둡니다.",
+      "처음 느낀 때와 이후 변화, 실제 위치·퍼짐·함께 생긴 불편을 전합니다. 병명을 추측하거나 증상 개수를 세지 않습니다.",
+      "급한 평가·치료 뒤에는 개인 약 지침과 활동·심장재활·다음 방문 계획을 질문하고 받은 답을 남깁니다.",
+    ],
+    example: "‘처음보다 덜하지만 다시 불편함’은 관찰한 변화입니다. 좋아졌으니 안전하다는 판정이나 기다려 보라는 계획이 아닙니다.",
+    limitation: "메모는 진단·처방·회복 일정표가 아닙니다. 움직여 통증을 재현하거나 맥박·혈압·약 반응으로 안전을 시험하지 않습니다. 시술을 받았거나 불편이 줄었다고 처방약을 혼자 끊거나 조절하지 말고, 복용 곤란·새 불편은 치료팀에 알립니다.",
+    sheetNotice: "가슴 압박·통증, 팔·등·목·턱의 불편, 숨참·식은땀·메스꺼움·어지럼 등으로 심근경색이 의심되면 확신이 없어도 즉시 119입니다. 약하거나 오락가락해도, 모두 나타나지 않아도 신고합니다. 더 심해지거나 일정 시간 지나기를 기다리지 않습니다. 말하기 어려운 심한 숨참, 창백·푸르스름한 입술·피부, 쓰러져 평소처럼 반응하지 않는 경우도 즉시 119입니다. 직접 운전·가족 차 대기·약 찾기·약효 확인으로 지연하지 마세요. 약 사용은 알레르기·복용약을 알리고 119·의료진 안내를 받습니다. 아스피린을 모두에게 금지하거나 같은 양을 처방하는 카드가 아닙니다. 의식·호흡 변화는 즉시 119에 알립니다.",
+    sourceIds: ["SRC-CDC-HEART-ATTACK"],
+    links: [
+      { href: "/health/guides/danger-signals", label: "증상 기록보다 긴급 도움이 먼저인 다른 신호" },
+      { href: "/health/guides/medication-list", label: "평소 준비할 약·알레르기 목록과 실제 사용 정보" },
+      { href: "/health/guides/appointment-questions", label: "치료 뒤 개인 계획과 연락처를 확인하는 질문" },
+    ],
+  },
   "stroke-visit-card": {
     indexDecision: "NOINDEX_FOLLOW",
     inheritParentWarning: true,
