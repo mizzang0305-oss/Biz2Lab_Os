@@ -36,6 +36,22 @@ test("diabetes terms stays a non-diagnostic reference without a fabricated filla
   assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
 });
 
+test("headache worksheet records actual medicine days without an aura timer or a prescribing calendar", () => {
+  const tool = healthTools.find(t => t.slug === "migraine-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.match(tool.fields![0], /두통 발생일/);
+  assert.match(tool.fields![1], /실제 약 이름·사용일·반응/);
+  assert.match(copy.purpose, /진료의 조건이 아닙니다/);
+  assert.match(copy.limitation, /예방약에 급성기 약의 제한을 일괄 적용/);
+  assert.match(copy.sheetNotice!, /각각 즉시 119/);
+  assert.match(copy.sheetNotice!, /발열 또는 목 뻣뻣함/);
+  assert.equal(getToolSources(tool).length, 6);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(mg|시간|일간|주간|회 이상)/);
+});
+
 test("gout worksheet separates current joint changes and future management without a treatment sequence", () => {
   const tool = healthTools.find(t => t.slug === "gout-visit-card")!;
   const copy = toolEditorial[tool.slug];

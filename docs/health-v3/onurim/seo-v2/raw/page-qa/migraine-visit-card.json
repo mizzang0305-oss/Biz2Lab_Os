@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/migraine-visit-card",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T15:40:49.506Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "0c612c2dba839b62da8361264f7f75c225041ddc8fa7623b728bceec2740d18b",
+      "full": "1fe131869a1b806ffaa2e9e81cc8519c439dccbe4679d22f42850c8d57a744de"
+    },
+    {
+      "width": 390,
+      "top": "9d9b6862bb3982703b8977ed149ab8905febdcb569e3b3b3280da3a93f2e0e4f",
+      "full": "909ed478240ca7764bdc67bae7240bfdeb2ba8a8c67a4661a4d249098c1bc8df"
+    },
+    {
+      "width": 430,
+      "top": "7a6da419416a4edeea5637624f5c6c8aec6e8573c0b9d0988ad740a193b01c45",
+      "full": "18e9afa3ded5f3bfb851a149ce54141a943bdd9a3cf4413364f3def3f9a1afca"
+    },
+    {
+      "width": 768,
+      "top": "12c7550ccca47864caa5660a392834342039ff6cbaf729252385b6cbe4338dc9",
+      "full": "8d0e803b0d6231e82c682b7cb3e35b5651a048e750d8737a3bce4b6131479349"
+    },
+    {
+      "width": 1440,
+      "top": "3cbf0a8edc50f680b656ba415ecf17c20cf7632f5a1aeb29b8bd13196a90c4d0",
+      "full": "ca257530f01525a087b249c1d7eeda9462ac806e8de1163c39c7028d55307d8e"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "두통 진료 준비표: 두통 발생일과 실제 약 사용일 구분 | 오누림",
+      "h1": [
+        "두통 진료 준비표"
+      ],
+      "h2": [
+        "새로운 위험 신호라면 두통 일지보다 119가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/migraine-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "두통 진료 준비표: 두통 발생일과 실제 약 사용일 구분 | 오누림",
+      "h1": [
+        "두통 진료 준비표"
+      ],
+      "h2": [
+        "새로운 위험 신호라면 두통 일지보다 119가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/migraine-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "두통 진료 준비표: 두통 발생일과 실제 약 사용일 구분 | 오누림",
+      "h1": [
+        "두통 진료 준비표"
+      ],
+      "h2": [
+        "새로운 위험 신호라면 두통 일지보다 119가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/migraine-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "두통 진료 준비표: 두통 발생일과 실제 약 사용일 구분 | 오누림",
+      "h1": [
+        "두통 진료 준비표"
+      ],
+      "h2": [
+        "새로운 위험 신호라면 두통 일지보다 119가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/migraine-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "두통 진료 준비표: 두통 발생일과 실제 약 사용일 구분 | 오누림",
+      "h1": [
+        "두통 진료 준비표"
+      ],
+      "h2": [
+        "새로운 위험 신호라면 두통 일지보다 119가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/migraine-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

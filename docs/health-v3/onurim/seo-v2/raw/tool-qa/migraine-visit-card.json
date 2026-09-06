@@ -1,0 +1,67 @@
+{
+  "route": "/health/tools/migraine-visit-card",
+  "observedAt": "2026-09-06T15:40:32.702Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "두통 발생일·시작·지속 / 동반 변화·일상 영향·평소와 다른 점",
+    "실제 약 이름·사용일·반응 / 안내받은 사용 목적",
+    "당시 수면·식사·생활 상황 / 기존 일지·검사 자료"
+  ],
+  "sourceHrefs": [
+    "https://medlineplus.gov/ency/patientinstructions/000420.htm",
+    "https://medlineplus.gov/migraine.html",
+    "https://www.nhs.uk/conditions/migraine/",
+    "https://www.cdc.gov/stroke/signs-symptoms/index.html",
+    "https://medlineplus.gov/headache.html",
+    "https://medlineplus.gov/ency/patientinstructions/000424.htm"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 6,
+    "overflow": 0,
+    "footerText": "두통 진료 준비표 · 양식·안내 수정 2026-09-07교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료MedlinePlus Medical Encyclopedia / A.D.A.M. — Managing migraines at homeNIH/MedlinePlus — MigraineNHS — MigraineCDC — Signs and Symptoms of StrokeNIH/MedlinePlus — HeadacheMedlinePlus Medical Encyclopedia / A.D.A.M. — Headaches - danger signs의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 3,
+    "checkedItems": 0,
+    "focusedCheckbox": false,
+    "footerParagraphFontPx": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "links": [
+    {
+      "href": "/health/migraine",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/symptom-journal",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/medication-list",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/appointment-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "c834b7f00f0751bf5128a1e84dda265f3a5252ee71486f0447401602d98dc192",
+  "pdfBytes": 126624,
+  "failures": []
+}

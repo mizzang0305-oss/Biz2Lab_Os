@@ -1,33 +1,33 @@
 {
   "route": "/health/migraine",
   "base": "http://127.0.0.1:3212",
-  "observedAt": "2026-09-06T08:10:00.211Z",
+  "observedAt": "2026-09-06T15:39:49.647Z",
   "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
   "screenshotHashes": [
     {
       "width": 360,
       "top": "998da6bc8a3c8fef91040d7546f03b36838295b7a782c392380e332e9b7f5e1a",
-      "full": "e4adba14ddc9c172f6978eab23b10bd85284a61ffb75e1daa51d6d8141053e00"
+      "full": "91f2ef533a32f246a1cf459050b96b1ecbb3c27c198604b81a971e9b9e721b66"
     },
     {
       "width": 390,
       "top": "20e2be7dd874da0639198b45a5fdff594bba45d26e7212fb323a58f9cdf5c86d",
-      "full": "686358159f30b219e4e4df97c17e49a7db012dd804b00028360c3a11dab6b156"
+      "full": "4cdc9553956da55130276009f61f32ca2d99c3586e3c0b5926c9f51310ba2b35"
     },
     {
       "width": 430,
       "top": "4343735a66e0b5ea4523887bf845d688bce7e67954e2f4fa716aaffcbdc90ea2",
-      "full": "da89d78bd11288fdcdbc12f0065b140f9f491d36bb521bc561f7c38784ecb92d"
+      "full": "e736c5bbc92c44d47722b8a59a750a221d10e934e18ab5a6c19e003c0e632c8e"
     },
     {
       "width": 768,
       "top": "908aa95a3f501793e23699868dd9369626c70f5c4c0d91e42b23677c15ab1fbb",
-      "full": "b415544014ac2937f12d5d1697d487a86be5f4bdb7585be0f948d0fca71b1f9b"
+      "full": "80cbdd404ac6ce8a16e4d31c283611727f19b7028ada497cbc24ca882008525b"
     },
     {
       "width": 1440,
       "top": "90efc28ac805264b8d886c528c27d82b3222d138d9e372e14f32b222623ea2ba",
-      "full": "39e3f67c3909dcc8b6daa55a2cb03819f178e46985cd71a403b56dcfeaf42dc3"
+      "full": "c6338a0a2fe674d21ce2a9b39746908a866bf05e9bf3ef884058e75ce643d69a"
     }
   ],
   "failures": [],

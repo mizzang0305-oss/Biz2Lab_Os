@@ -204,6 +204,7 @@ const guides: GuideConfig[] = [
   {
     slug: "migraine",
     prefix: "MIG",
+    toolSummary: { title: "두통 진료 준비표", description: "두통 발생일·생활 영향과 실제 약 사용일·반응을 나누어 진료 질문과 답을 남기는 인쇄 양식입니다." },
     title: "편두통",
     cluster: "뇌·마음",
     archetype: "BODY_SIGNAL",
@@ -214,8 +215,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 두통의 시작과 양상, 신경학적 증상과 진찰을 바탕으로 다른 원인을 확인하고 검사 필요성을 판단합니다.",
     careBoundary: "진통제나 편두통 약을 자주 또는 임의로 바꾸지 않습니다. 두통 일지는 진단기가 아니라 진료에 패턴을 설명하는 자료입니다.",
     urgent: "갑자기 시작된 매우 심한 두통, 처음 겪는 말·시야·움직임 이상, 의식 저하나 균형 상실이 동반되면 즉시 119에 도움을 요청합니다.",
-    observationItems: ["시작 시각과 지속 시간", "통증 위치와 느낌", "빛·소리·메스꺼움", "처음 생긴 신경 증상"],
-    questions: ["다른 원인을 확인할 검사가 필요한가요?", "두통 일지에서 무엇을 볼까요?", "약을 얼마나 자주 쓰는지 왜 중요한가요?"],
+    observationItems: ["두통 발생일·시작·지속 / 동반 변화·일상 영향·평소와 다른 점", "실제 약 이름·사용일·반응 / 안내받은 사용 목적", "당시 수면·식사·생활 상황 / 기존 일지·검사 자료"],
+    questions: ["이번 변화에서 다른 원인 평가나 검사는 무엇을 확인하기 위한 것인가요?", "제 약의 증상 완화·예방 목적과 개인 사용 지침, 사용이 늘 때 연락할 기준은 무엇인가요?", "어떤 기록을 이어가고 언제 다시 확인하며, 그 전에 연락할 변화는 무엇인가요?"],
     sources: [
       { id: "SRC-NINDS-MIGRAINE", organization: "NIH/NINDS", title: "Migraine", url: "https://www.ninds.nih.gov/health-information/disorders/migraine", sourceDate: "2025" },
       { id: "SRC-MEDLINEPLUS-MIGRAINE", organization: "NIH/MedlinePlus", title: "Migraine", url: "https://medlineplus.gov/migraine.html", sourceDate: "2025" },

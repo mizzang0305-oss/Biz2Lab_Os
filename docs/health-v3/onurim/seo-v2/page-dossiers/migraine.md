@@ -65,3 +65,7 @@ MEDICAL_REVIEW_COMPLETED=NO · REAL_HUMAN_READER_TEST=NOT_PERFORMED. 새로운 �
 INTENT_PASS · TITLE_PASS · DESCRIPTION_PASS · H1_PASS · CONTENT_UNIQUENESS_PASS · MEDICAL_SOURCE_PASS · INTERNAL_LINK_PASS · IMAGE_PASS · MOBILE_PASS · SCHEMA_PASS · CANONICAL_PASS · INDEXABILITY_PASS.
 
 임상 검수·실제 독자·fieldCWV·Google색인 보장 아님. Preview·Production·색인요청 없음.
+
+## Tool 28 연결 후 확인 — 2026-09-07 LOCAL
+
+두통 발생일과 실제 약 사용일을 구분하는 준비표로 카드 설명/필드/질문만 변경. 부모 의료 본문·날짜·Claim·출처 객체 미변경. 부모5폭/SEO PASS. 상세 개별 인증은 tool-migraine-visit-card.md. Production 미적용.

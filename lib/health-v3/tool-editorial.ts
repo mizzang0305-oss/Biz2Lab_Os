@@ -17,6 +17,28 @@ export type ToolEditorial = {
 
 // Per-page reviewed copy; absence retains existing metadata, never certification.
 export const toolEditorial: Record<string, ToolEditorial> = {
+  "migraine-visit-card": {
+    indexDecision: "INDEX_UTILITY",
+    inheritParentWarning: true,
+    title: "두통 진료 준비표: 두통 발생일과 실제 약 사용일 구분",
+    description: "두통의 시작·일상 영향과 실제 약 사용·반응을 따로 적어 진료에 가져갑니다. 편두통 자가진단, 전조 관찰 시간표나 약을 먹을 날짜를 정하는 양식이 아닙니다.",
+    updatedAt: "2026-09-07",
+    purpose: "기존 일지를 가져가도 되며 기록 기간을 채우는 것은 진료의 조건이 아닙니다.",
+    steps: [
+      "두통이 있던 날·시작·지속과 동반 변화·일상 영향을 적습니다. 모르면 미확인으로 두고, 정해진 전조 단계에 맞추지 않습니다.",
+      "실제로 쓴 약의 이름·사용일·반응을 따로 남깁니다. 처방된 예방 목적과 증상 완화 목적을 구분하되 모르면 처방전·포장을 가져가 확인합니다.",
+      "수면·식사 등 당시 상황을 짧게 남기고 우선 질문을 고릅니다. 들은 답·개인 기록 계획·다음 확인 시점·연락처를 답변 칸에 적습니다.",
+    ],
+    example: "두통 발생일과 실제 약 사용일은 다른 정보입니다. 앞으로 복용할 날짜를 쓰는 칸이 아닙니다.",
+    limitation: "기록으로 편두통·약물 과용을 진단하거나 안전한 약 횟수를 계산하지 않습니다. 예방약에 급성기 약의 제한을 일괄 적용하거나 약을 혼자 늘리거나 중단하지 않습니다. 한 번 겹친 음식을 원인으로 정하거나 빛·음식·수면 부족으로 두통을 재현하지 않습니다.",
+    sheetNotice: "갑작스러운 극심한 두통, 갑작스러운 말·시야·균형 이상이나 한쪽 힘 빠짐, 새 의식 변화·경련은 각각 즉시 119입니다. 호전·전조 시간·약효를 기다리거나 직접 운전하지 않습니다. 머리 부상 뒤 두통, 두통과 발열 또는 목 뻣뻣함도 즉시 의료 도움을 받으며 바로 평가받기 어려우면 응급기관 또는 119로 연락합니다. 기록 완성이 먼저가 아닙니다.",
+    sourceIds: ["SRC-MEDLINEPLUS-MIGRAINE-HOME", "SRC-MEDLINEPLUS-MIGRAINE"],
+    links: [
+      { href: "/health/guides/symptom-journal", label: "두통 때의 관찰과 원인 추측을 구분하는 기록법" },
+      { href: "/health/guides/medication-list", label: "약 이름·사용 목적·실제 사용을 함께 알리는 목록" },
+      { href: "/health/guides/appointment-questions", label: "검사 목적과 재연락 기준의 답을 남기는 방법" },
+    ],
+  },
   "gout-visit-card": {
     indexDecision: "INDEX_UTILITY",
     inheritParentWarning: true,
