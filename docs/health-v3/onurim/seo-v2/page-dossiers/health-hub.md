@@ -1,6 +1,6 @@
 # 건강 자료 허브 — 77/77 개별 작업
 
-2026-09-07 KST · LOCAL · /health · CERTIFICATION_PENDING
+2026-09-07 KST · LOCAL · /health · CERTIFIED
 
 Fresh GSC INDEXED,7d/28d 노출 미관찰(exact query 미연결). 검색 수요0으로 단정하지 않는다. Baseline1117words/34tools/73out, 홈과 동일 H1·본문. a1e5eee에서 홈의 독립 목적 선택을 인증한 뒤 이 허브만 수정한다. INDEX_PRIMARY 유지. 새로운 URL·질환 생성 없음.
 
@@ -21,8 +21,21 @@ Frontend design: 기존 ink #18332f / green #1e6558 / mint #dff2eb / paper #fffd
 
 홈은 이미 인증되어 구조·본문 변경하지 않는다. 기존 허브의7일 측정 처방처럼 보이는 링크문구·서버저장 암시·접수 확인 단정을 제거한다. 응급 문장은 홈/disclaimer의 대조된 공통 범위만 사용하고 동시발생·심한 흉통 대기 조건을 만들지 않는다. 뇌졸중·심근경색 메모는 신고 전 완성 조건이 아니다. 원문은 [소방청119](https://www.nfa.go.kr/nfa/safetyinfo/emergencyservice/119emergencydeclaration/)·[MedlinePlus](https://medlineplus.gov/ency/article/001927.htm),2026-09-07 대조. 새로운 진단·약물 권고나 의료검수 주장 없음.
 
-개별 QA와 최종 수치·인증은 구현 후 기록한다. 전역 graph/유사도·Preview는 후속.
+## 12-Gate 인증
 
-## Owner 요청에 따른 현재 범위 마감
+- H1 1개, 검색 의도 일치: `질환·검사·진료 준비 자료 찾기`
+- 핵심 답변·개별 경험·행동 단계: 용도 선택 → 질환/공통 가이드 → 인쇄 도구 순서로 직접 탐색 가능
+- 의료 안전: 진단 목록이 아님을 명시하고 119 우선 경계를 별도 배치
+- 출처·작성자·수정일: 소방청·MedlinePlus 근거 링크와 하단 작성·검수·접수 상태 노출
+- 내부 링크: 질환 20, 공통 가이드 9, 도구 34와 trust 경로를 실제 href로 제공
+- Metadata/canonical/schema: title·description 고유, canonical `/health`, Breadcrumb/Organization/WebSite 오류 0
+- 기술: HTTP 200, indexable, sitemap 포함, robots 차단 없음
+- 접근성·반응형: 360/390/430/768/1440px 모두 overflow 0, 14px 미만 본문 0, 중복 ID·깨진 anchor·console error 0
+- 직접 화면 검토: 5개 full/top screenshot에서 잘림·겹침·가로 스크롤·읽기 불가능한 대비 없음
+- 범위: local machine/UI 인증이며 의료 검수·실제 독자 테스트·field CWV·Google 재색인을 뜻하지 않음
 
-Owner가 남은 토큰1%에서 현재까지 마감·배포를 요청했다. 2026-09-07 현재 328tests PASS, lint exit0(기존 unused import warning1), typecheck/build PASS. 허브5폭 machine QA failures0, 전체77URL HTML SEO audit failures0, duplicate title/description0, sitemap59. 전체 화면의 최종 직접 검토와 허브12gate 인증은 미완료이므로 CERTIFICATION_PENDING을 유지한다. 기존76개 개별 인증을77개 완료로 올리지 않는다. 홈페이지·기존 임상 Claim·47패킷 변경 없음. AdSense MODE B이므로 Preview만 배포하며 Production·GSC·AdSense 변경하지 않는다.
+증거: `../raw/page-qa/health.json`, ignored `reports/local/onurim-seo-v2/health/result.json` 및 5폭 full/top PNG. 전역 graph/유사도·Preview는 후속 단계에서 재검증한다.
+
+## 이전 범위 마감 기록
+
+Owner가 남은 토큰1%에서 당시 결과 마감·Preview 배포를 요청했다. 그 시점에는 직접 화면 검토가 남아 `CERTIFICATION_PENDING`이었다. 2026-09-07 후속 실행에서 동일 SHA의 360/390/430/768/1440px full/top 증거를 직접 확인해 위 12-Gate를 닫았다. 홈페이지·기존 임상 Claim·47패킷은 이 인증으로 변경하거나 임상 승인하지 않았다.

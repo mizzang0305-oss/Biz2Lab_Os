@@ -1,0 +1,126 @@
+{
+  "property": "sc-domain:biz2lab.com",
+  "reportUpdated": "2026-09-04",
+  "observedAt": "2026-09-07",
+  "propertyTotals": {
+    "indexed": 63,
+    "notIndexed": 61,
+    "discoveredNotIndexed": 43,
+    "crawledNotIndexed": 14,
+    "redirect": 3,
+    "notFound": 1
+  },
+  "onurimTotals": {
+    "indexed": 28,
+    "discoveredNotIndexed": 43,
+    "crawledNotIndexed": 6,
+    "total": 77
+  },
+  "indexed": [
+    "/",
+    "/health",
+    "/health/obesity",
+    "/health/trust/advertising",
+    "/health/migraine",
+    "/health/trust/privacy",
+    "/health/gastroesophageal-reflux-disease",
+    "/health/trust/editorial-policy",
+    "/health/tools/gerd-symptom-timing-log",
+    "/health/tools/depression-visit-card",
+    "/health/osteoporosis",
+    "/health/tools/diabetes-questions",
+    "/health/dyslipidemia",
+    "/health/tools/blood-pressure-questions",
+    "/health/hypertension",
+    "/health/trust/sources-policy",
+    "/health/tools/osteoporosis-home-check",
+    "/health/guides/danger-signals",
+    "/health/trust/about",
+    "/health/tools/blood-pressure-warning",
+    "/health/tools/kidney-stones-visit-card",
+    "/health/guides/reading-health-results",
+    "/health/trust/ai-disclosure",
+    "/health/tools/family-support-checklist",
+    "/health/depression",
+    "/health/anxiety-disorder",
+    "/health/guides/understanding-hba1c",
+    "/health/tools/urinary-tract-infection-visit-card"
+  ],
+  "discoveredNotIndexed": [
+    "/health/acute-myocardial-infarction",
+    "/health/asthma",
+    "/health/gout",
+    "/health/guides/appointment-questions",
+    "/health/guides/family-medication-support",
+    "/health/guides/measuring-blood-pressure",
+    "/health/guides/medication-list",
+    "/health/guides/older-parent-health-organizer",
+    "/health/guides/symptom-journal",
+    "/health/kidney-stones",
+    "/health/metabolic-dysfunction-associated-steatotic-liver-disease",
+    "/health/osteoarthritis",
+    "/health/sleep-apnea",
+    "/health/stroke",
+    "/health/tools/acute-myocardial-infarction-visit-card",
+    "/health/tools/allergy-appointment-questions",
+    "/health/tools/allergy-environment-check",
+    "/health/tools/anxiety-disorder-visit-card",
+    "/health/tools/asthma-visit-card",
+    "/health/tools/blood-pressure-log",
+    "/health/tools/blood-pressure-prep",
+    "/health/tools/diabetes-test-terms",
+    "/health/tools/gerd-appointment-prep",
+    "/health/tools/gerd-everyday-patterns",
+    "/health/tools/glucose-observation-log",
+    "/health/tools/gout-visit-card",
+    "/health/tools/irritable-bowel-syndrome-visit-card",
+    "/health/tools/migraine-visit-card",
+    "/health/tools/oa-daily-activity-log",
+    "/health/tools/oa-family-support",
+    "/health/tools/oa-visit-questions",
+    "/health/tools/obesity-visit-card",
+    "/health/tools/osteoporosis-appointment-prep",
+    "/health/tools/osteoporosis-terms",
+    "/health/tools/sleep-apnea-visit-card",
+    "/health/tools/stroke-visit-card",
+    "/health/trust/author",
+    "/health/trust/contact",
+    "/health/trust/corrections-policy",
+    "/health/trust/disclaimer",
+    "/health/trust/medical-review-policy",
+    "/health/trust/terms",
+    "/health/urinary-tract-infection"
+  ],
+  "crawledNotIndexed": [
+    {
+      "route": "/health/tools/allergy-trigger-observation",
+      "lastCrawl": "2026-09-06"
+    },
+    {
+      "route": "/health/tools/metabolic-dysfunction-associated-steatotic-liver-disease-visit-card",
+      "lastCrawl": "2026-09-06"
+    },
+    {
+      "route": "/health/tools/dyslipidemia-visit-card",
+      "lastCrawl": "2026-09-06"
+    },
+    {
+      "route": "/health/allergic-rhinitis",
+      "lastCrawl": "2026-09-05"
+    },
+    {
+      "route": "/health/irritable-bowel-syndrome",
+      "lastCrawl": "2026-09-05"
+    },
+    {
+      "route": "/health/type-2-diabetes",
+      "lastCrawl": "2026-09-05"
+    }
+  ],
+  "excludedFromOnurimCrawledNotIndexed": {
+    "count": 8,
+    "reason": "2 Next.js chunks, 1 font, 5 legacy Biz2Lab article URLs"
+  },
+  "mutations": [],
+  "evidence": "Authenticated Search Console UI; read-only"
+}

@@ -1,0 +1,327 @@
+{
+  "generatedAt": "2026-09-07",
+  "count": 20,
+  "disclosure": "교육용 단순화; 실제 해부·개인 검사 결과 아님",
+  "scenes": [
+    {
+      "slug": "hypertension",
+      "sceneKey": "pressure-against-vessel-wall",
+      "concept": "흐르는 혈액과 혈관 벽 사이의 압력",
+      "labels": [
+        "혈액의 흐름",
+        "혈관 벽",
+        "벽을 미는 힘"
+      ],
+      "sourceIds": [
+        "SRC-KDCA-HTN",
+        "SRC-CDC-HTN"
+      ],
+      "motion": "flow",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "type-2-diabetes",
+      "sceneKey": "glucose-cell-signal-gate",
+      "concept": "혈액 속 포도당, 인슐린 신호, 세포의 이용",
+      "labels": [
+        "혈액 속 포도당",
+        "인슐린 신호",
+        "세포의 이용"
+      ],
+      "sourceIds": [
+        "SRC-KDCA-DIA",
+        "SRC-NIDDK-T2D"
+      ],
+      "motion": "signal",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "allergic-rhinitis",
+      "sceneKey": "nasal-exposure-response",
+      "concept": "환경 입자와 코 점막 반응의 구분",
+      "labels": [
+        "환경의 입자",
+        "코 안쪽",
+        "반응 관찰"
+      ],
+      "sourceIds": [
+        "SRC-SNUH-AR",
+        "SRC-NHS-AR"
+      ],
+      "motion": "shift",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "gastroesophageal-reflux-disease",
+      "sceneKey": "stomach-upward-reflux",
+      "concept": "식도와 위 사이의 이동 방향",
+      "labels": [
+        "식도",
+        "연결 부위",
+        "위"
+      ],
+      "sourceIds": [
+        "SRC-KDCA-GERD",
+        "SRC-NIDDK-GERD-DEFINITION"
+      ],
+      "motion": "shift",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "osteoarthritis",
+      "sceneKey": "joint-load-and-motion",
+      "concept": "관절 면, 움직임, 일상 부담의 관계",
+      "labels": [
+        "관절의 두 면",
+        "사이 공간",
+        "움직임"
+      ],
+      "sourceIds": [
+        "SRC-KDCA-OA",
+        "SRC-NIAMS-OA"
+      ],
+      "motion": "shift",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "osteoporosis",
+      "sceneKey": "bone-network-density",
+      "concept": "뼈 내부 연결과 강도의 개념",
+      "labels": [
+        "뼈 바깥",
+        "내부 연결",
+        "검사로 확인"
+      ],
+      "sourceIds": [
+        "SRC-KDCA-OP",
+        "SRC-NIAMS-OP"
+      ],
+      "motion": "pulse",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "dyslipidemia",
+      "sceneKey": "lipid-panel-four-lanes",
+      "concept": "총콜레스테롤, LDL, HDL, 중성지방의 구분",
+      "labels": [
+        "검사 항목",
+        "서로 다른 역할",
+        "전체 맥락"
+      ],
+      "sourceIds": [
+        "SRC-MEDLINEPLUS-CHOLESTEROL",
+        "SRC-CDC-CHOLESTEROL"
+      ],
+      "motion": "flow",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "obesity",
+      "sceneKey": "weight-context-orbit",
+      "concept": "수면, 활동, 약, 환경과 건강 맥락",
+      "labels": [
+        "개인의 몸",
+        "생활·환경",
+        "건강 상태"
+      ],
+      "sourceIds": [
+        "SRC-NIDDK-OBESITY-DEFINITION",
+        "SRC-NIDDK-OBESITY-FACTORS"
+      ],
+      "motion": "pulse",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "metabolic-dysfunction-associated-steatotic-liver-disease",
+      "sceneKey": "liver-metabolic-context",
+      "concept": "간, 지방 축적, 검사와 위험 요인의 연결",
+      "labels": [
+        "간",
+        "지방 변화",
+        "검사·위험 맥락"
+      ],
+      "sourceIds": [
+        "SRC-NIDDK-MASLD-DEFINITION",
+        "SRC-NIDDK-MASLD-SYMPTOMS"
+      ],
+      "motion": "shift",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "irritable-bowel-syndrome",
+      "sceneKey": "gut-brain-pattern-loop",
+      "concept": "장 움직임, 불편, 배변 전후 변화",
+      "labels": [
+        "장 움직임",
+        "불편의 시점",
+        "배변 전후"
+      ],
+      "sourceIds": [
+        "SRC-NIDDK-IBS-DEFINITION",
+        "SRC-NIDDK-IBS-SYMPTOMS"
+      ],
+      "motion": "flow",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "asthma",
+      "sceneKey": "airway-open-narrow-cycle",
+      "concept": "기도 안쪽 공간과 공기의 이동",
+      "labels": [
+        "들어오는 공기",
+        "기도 안쪽",
+        "흐름 변화"
+      ],
+      "sourceIds": [
+        "SRC-NHLBI-ASTHMA-SYMPTOMS",
+        "SRC-NHLBI-ASTHMA-DIAGNOSIS"
+      ],
+      "motion": "breathe",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "sleep-apnea",
+      "sceneKey": "sleep-airflow-pauses",
+      "concept": "호흡 흐름, 멈춤, 다시 이어짐",
+      "labels": [
+        "호흡 흐름",
+        "관찰되는 멈춤",
+        "낮 증상과 연결"
+      ],
+      "sourceIds": [
+        "SRC-NHLBI-APNEA-OVERVIEW",
+        "SRC-NHLBI-APNEA-SYMPTOMS"
+      ],
+      "motion": "breathe",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "gout",
+      "sceneKey": "urate-crystal-joint-context",
+      "concept": "혈중 요산, 결정, 관절 염증의 구분",
+      "labels": [
+        "요산 수치",
+        "결정의 개념",
+        "관절 증상"
+      ],
+      "sourceIds": [
+        "SRC-NIAMS-GOUT",
+        "SRC-NIAMS-GOUT-DIAGNOSIS"
+      ],
+      "motion": "pulse",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "migraine",
+      "sceneKey": "headache-pattern-timeline",
+      "concept": "시간, 동반 증상, 평소와 다른 변화",
+      "labels": [
+        "시작 시점",
+        "동반 변화",
+        "평소와 비교"
+      ],
+      "sourceIds": [
+        "SRC-MEDLINEPLUS-MIGRAINE",
+        "SRC-MEDLINEPLUS-HEADACHE"
+      ],
+      "motion": "signal",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "kidney-stones",
+      "sceneKey": "stone-through-urinary-path",
+      "concept": "신장, 요관, 방광으로 이어지는 길",
+      "labels": [
+        "신장",
+        "요관",
+        "방광"
+      ],
+      "sourceIds": [
+        "SRC-NIDDK-STONE-SYMPTOMS",
+        "SRC-NIDDK-STONE-DIAGNOSIS"
+      ],
+      "motion": "flow",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "urinary-tract-infection",
+      "sceneKey": "uti-location-map",
+      "concept": "요도·방광·신장 쪽 위치의 구분",
+      "labels": [
+        "아래 소변길",
+        "방광",
+        "신장 쪽"
+      ],
+      "sourceIds": [
+        "SRC-NIDDK-UTI-DEFINITION",
+        "SRC-NIDDK-UTI-SYMPTOMS"
+      ],
+      "motion": "shift",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "depression",
+      "sceneKey": "depression-many-factors-day",
+      "concept": "기분·생각·몸·생활 기능에 걸친 변화",
+      "labels": [
+        "기분과 생각",
+        "몸의 변화",
+        "생활 기능"
+      ],
+      "sourceIds": [
+        "SRC-NIMH-DEPRESSION",
+        "SRC-WHO-DEPRESSION"
+      ],
+      "motion": "pulse",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "anxiety-disorder",
+      "sceneKey": "anxiety-alert-context",
+      "concept": "경계 반응, 반복되는 걱정, 생활 영향",
+      "labels": [
+        "경계 반응",
+        "생각의 반복",
+        "일상 영향"
+      ],
+      "sourceIds": [
+        "SRC-NIMH-ANXIETY",
+        "SRC-NIMH-GAD"
+      ],
+      "motion": "pulse",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "stroke",
+      "sceneKey": "stroke-fast-sudden-signal",
+      "concept": "얼굴·팔·말의 갑작스러운 변화와 즉시 119",
+      "labels": [
+        "얼굴 변화",
+        "팔 힘 빠짐",
+        "말 이상 → 119"
+      ],
+      "sourceIds": [
+        "SRC-KDCA-STROKE-PUBLIC",
+        "SRC-KDCA-STROKE-119"
+      ],
+      "motion": "signal",
+      "staticFallback": "inline SVG remains; animations disabled"
+    },
+    {
+      "slug": "acute-myocardial-infarction",
+      "sceneKey": "heart-blood-flow-interruption",
+      "concept": "심장으로 가는 혈류와 갑작스러운 차단",
+      "labels": [
+        "심장 혈류",
+        "갑작스러운 차단",
+        "증상 시 119"
+      ],
+      "sourceIds": [
+        "SRC-KDCA-CARDIO-2026",
+        "SRC-NHLBI-HEART-ATTACK"
+      ],
+      "motion": "signal",
+      "staticFallback": "inline SVG remains; animations disabled"
+    }
+  ]
+}

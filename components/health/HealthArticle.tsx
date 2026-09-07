@@ -11,6 +11,7 @@ import { expansionGuideSummaries } from "@/lib/health-v3/public-expansion";
 import { absoluteUrl } from "@/lib/site";
 import { breadcrumbJsonLd, jsonLd } from "@/lib/seo";
 import { HealthComparisonTable } from "./HealthComparisonTable";
+import { BodyTheater } from "./BodyTheater";
 
 const imageMeta: Record<string, { src: string; alt: string; caption: string; width: number; height: number }> = {
   "htn-hero": {
@@ -270,6 +271,8 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
         <ul>{article.summary.map((item) => <li key={item}>{item}</li>)}</ul>
         <a className="onurim-urgent-jump" href="#urgent-action">응급 신호와 119 안내 바로 보기</a>
       </section>
+
+      <BodyTheater slug={article.slug} />
 
       <div className="onurim-article-grid">
         <div className="onurim-article-body">
