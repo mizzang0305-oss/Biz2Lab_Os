@@ -1,0 +1,291 @@
+{
+  "route": "/health/tools/osteoporosis-terms",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T14:25:21.048Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "a8a018d4025ae1a6f65fd2f49affce6766c4c6dbf7420a3dfe25da8b9501081b",
+      "full": "94c702fd6b583859aa8bd6f37178e5e4cfe527465ef00a078972743c281329a7"
+    },
+    {
+      "width": 390,
+      "top": "f3adefe0b42f56823f3ee0d3d6945b86e85e89ba36e7a48c73155fbf6b3e3714",
+      "full": "5c27d46d6ac3b3380c7387a7c82016d63bed51235f21f32f16390e55f4b97d3a"
+    },
+    {
+      "width": 430,
+      "top": "145e3d20744be60bd8f2f776bc2c7d9fdc5b0ac439e9773f11415023e7b23913",
+      "full": "619db2286b485c0632cf8db6380d5ded5f5bb6a91a278c252af0b18cf536c9f1"
+    },
+    {
+      "width": 768,
+      "top": "4a94cc32e04048941e154c8a0c3020181acce9cbe438fe2e41e0338a4c5153dc",
+      "full": "36c43d71d774533843eac3385baeaef2fd3550e68632aa86be0d92003fa87603"
+    },
+    {
+      "width": 1440,
+      "top": "fe8b82ec2c62503a6dc1fe82152045253be5942c013dcd6517b5c7ddf27f93fc",
+      "full": "118cf66ef3cf322b1b786b40c759a752f9599f9f504151271d1a5a8d97ccecc4"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "골밀도 검사 용어 카드: BMD·DXA·T점수·Z점수 구분 | 오누림",
+      "h1": [
+        "골밀도 검사 용어 카드"
+      ],
+      "h2": [
+        "이 자료를 읽는 순서",
+        "검사 용어와 해석의 경계",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/osteoporosis-terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 2,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "골밀도 검사 용어 카드: BMD·DXA·T점수·Z점수 구분 | 오누림",
+      "h1": [
+        "골밀도 검사 용어 카드"
+      ],
+      "h2": [
+        "이 자료를 읽는 순서",
+        "검사 용어와 해석의 경계",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/osteoporosis-terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 2,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "골밀도 검사 용어 카드: BMD·DXA·T점수·Z점수 구분 | 오누림",
+      "h1": [
+        "골밀도 검사 용어 카드"
+      ],
+      "h2": [
+        "이 자료를 읽는 순서",
+        "검사 용어와 해석의 경계",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/osteoporosis-terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 2,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "골밀도 검사 용어 카드: BMD·DXA·T점수·Z점수 구분 | 오누림",
+      "h1": [
+        "골밀도 검사 용어 카드"
+      ],
+      "h2": [
+        "이 자료를 읽는 순서",
+        "검사 용어와 해석의 경계",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/osteoporosis-terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 2,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "골밀도 검사 용어 카드: BMD·DXA·T점수·Z점수 구분 | 오누림",
+      "h1": [
+        "골밀도 검사 용어 카드"
+      ],
+      "h2": [
+        "이 자료를 읽는 순서",
+        "검사 용어와 해석의 경계",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/osteoporosis-terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 2,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

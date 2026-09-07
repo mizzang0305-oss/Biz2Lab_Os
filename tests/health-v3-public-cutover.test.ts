@@ -20,13 +20,24 @@ const expectedSlugs = [
   "acute-myocardial-infarction",
 ].sort();
 
-test("public ONURIM portfolio contains the exact twenty approved disease guides", () => {
+test("ONURIM portfolio keeps twenty disease guides and source-audited SEO additions", () => {
   assert.deepEqual(Object.keys(healthArticles).sort(), expectedSlugs);
   assert.equal(healthSupportGuides.length, 9);
   assert.equal(healthTools.length, 34);
   assert.equal(healthClaims.length, 144);
-  assert.equal(healthSources.length, 69);
+  assert.equal(healthSources.length, 166);
+  assert.equal(new Set(healthSources.map(source => source.id)).size, healthSources.length);
+  assert.equal(healthSources.find(source => source.id === "SRC-NIDDK-MANAGING")?.url,
+    "https://www.niddk.nih.gov/health-information/diabetes/overview/managing-diabetes");
+  assert.equal(healthSources.find(source => source.id === "SRC-CDC-DIABETES-FAMILY")?.url,
+    "https://www.cdc.gov/diabetes/caring/index.html");
   assert.equal(trustPages.length, 12);
+  assert.equal(healthSources.find(source => source.id === "SRC-MEDLINEPLUS-AR-QUESTIONS")?.url,
+    "https://medlineplus.gov/ency/patientinstructions/000247.htm");
+  assert.equal(healthSources.find(source => source.id === "SRC-MEDLINEPLUS-ALLERGY-SKIN-TEST")?.url,
+    "https://medlineplus.gov/ency/article/003519.htm");
+  assert.equal(healthSources.find(source => source.id === "SRC-NIDDK-GI-BLEEDING")?.url,
+    "https://www.niddk.nih.gov/health-information/digestive-diseases/gastrointestinal-bleeding/symptoms-causes");
   for (const article of Object.values(healthArticles)) {
     assert.ok(article.sections.length >= 6, article.slug);
     assert.ok(article.sourceIds.length >= 3, article.slug);
@@ -35,7 +46,7 @@ test("public ONURIM portfolio contains the exact twenty approved disease guides"
   }
 });
 
-test("public P0/P1 wording is adjudicated without fabricating licensed review", () => {
+test("legacy public P0/P1 Claim registry is adjudicated without fabricating licensed review", () => {
   assert.equal(publicMedicalSafetyState.unresolvedPublicHighRiskClaims, 0);
   assert.equal(publicMedicalSafetyState.licensedReviewerAssigned, false);
   assert.equal(publicMedicalSafetyState.licensedMedicalReviewCompleted, false);

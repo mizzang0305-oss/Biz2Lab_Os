@@ -146,7 +146,13 @@ function auditSafety() {
     if (hasP0Claim) assert(articleText.includes("119"), `${article.slug} P0 guidance must include emergency action`);
     assert(articleText.includes("스스로") || articleText.includes("혼자"), `${article.slug} must state a self-care limit`);
   }
-  assert(content.includes("의료인 검수 미완료") || content.includes("의료인 검수는 완료되지") || content.includes("MEDICAL_REVIEW_COMPLETED = NO"), "medical review must not be implied");
+  assert(
+    content.includes("의료인 검수 미완료")
+      || content.includes("의료인 검수는 미완료")
+      || content.includes("의료인 검수는 완료되지")
+      || content.includes("MEDICAL_REVIEW_COMPLETED = NO"),
+    "medical review must not be implied",
+  );
   assert(publicMedicalSafetyState.unresolvedPublicHighRiskClaims === 0, "unresolved public high-risk Claim remains");
   assert(publicMedicalSafetyState.licensedMedicalReviewCompleted === false, "licensed medical review must not be fabricated");
   for (const item of publicReleaseAdjudications.filter((entry) => entry.claimId.includes("-P3-") && entry.riskClass === "P0_EMERGENCY")) {
@@ -283,12 +289,16 @@ function auditMedicalReview() {
   }
 
   const trustText = textValues(trustPages).join("\n");
-  for (const truthLabel of [
-    "ONURIM_MEDICAL_REVIEW_PACKAGE_READY",
-    "REVIEWER_ASSIGNED = NO",
-    "ONURIM_MEDICAL_REVIEW_IN_PROGRESS = NO",
-    "MEDICAL_REVIEW_COMPLETED = NO",
-  ]) assert(trustText.includes(truthLabel), `medical review trust truth label missing: ${truthLabel}`);
+  const publicTruthStatements = [
+    ["package ready", "기존 47개 고위험 문장의 현재 표현·공식 출처·위험등급·검토 질문을 묶은 패킷이 준비되어 있습니다."],
+    ["reviewer not assigned", "현재 면허 의료인 검토자는 미배정"],
+    ["review not in progress", "의료 검수는 시작되지 않았"],
+    ["medical review not completed", "의료 검수는 미완료"],
+    ["real reader test not performed", "실제 일반 독자 테스트도 아직 실시하지 않았습니다."],
+  ] as const;
+  for (const [state, statement] of publicTruthStatements) {
+    assert(trustText.includes(statement), `medical review trust truth statement missing: ${state}`);
+  }
 
   results.medicalReviewPackage = "ONURIM_MEDICAL_REVIEW_PACKAGE_READY";
   results.medicalReviewPacketClaims = medicalReviewClaims.length;

@@ -10,7 +10,7 @@
       "HTN-B1-008"
     ],
     "altText": "집에서 혈압을 잰 뒤 기록표에 숫자와 시간을 적는 성인의 차분한 교육용 삽화",
-    "caption": "한 번의 숫자보다 같은 조건에서 남긴 기록이 진료 질문을 구체적으로 만듭니다.",
+    "caption": "측정을 마친 뒤 원래 값을 적는 장면입니다. 측정하는 동안에는 쓰거나 움직이지 않습니다.",
     "prompt": "ordinary Korean adult at home using an upper-arm blood pressure cuff and writing a paper log; calm teal and sand editorial illustration; no values, text, medical authority symbols or personal data",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -21,20 +21,24 @@
   },
   {
     "id": "VIS-HTN-B1-02",
-    "file": "public/images/onurim/hypertension/process.webp",
-    "generationDate": "2026-08-24",
+    "file": "public/images/onurim/hypertension/process-v2.webp",
+    "supersedesFile": "public/images/onurim/hypertension/process.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "81b0fbeff22d1e72521110007b025dbe899e0549a806723a40be50f405aff6ce",
+    "sha256": "63f7e8904e56a3bd5814fcba344caa0b1ab71a75305b3dc3976db7225a253e2d",
     "claimIds": [
       "HTN-B1-001",
       "HTN-B1-005"
     ],
-    "altText": "심장이 혈관으로 피를 보내며 혈관 벽에 압력이 생기는 과정을 단순화한 교육용 삽화",
-    "caption": "혈압은 피가 혈관 벽을 미는 힘입니다. 그림은 이해를 돕는 단순화이며 진단 영상이 아닙니다.",
-    "prompt": "simplified heart pumping flowing dots through a flexible blood vessel path; maximum four stages; original teal and sand educational diagram; no labels, anatomy detail, gore or diagnosis",
+    "altText": "혈관 내부에서 벽 쪽으로 향하는 화살표로 혈액이 혈관 벽을 미는 압력을 표현한 단순화 삽화",
+    "caption": "화살표는 혈관 안의 피가 벽을 미는 압력을 나타냅니다. 심장과 혈관의 연결·크기는 개념 설명용이며 실제 해부도나 진단 영상이 아닙니다.",
+    "prompt": "precise-object-edit / scientific-educational; preserve cream/teal/mint painted landscape style; replace external inward arrows with arrows starting inside the blood-filled lumen and pointing outward to the upper and lower wall; small stylized heart plus one clear open enlarged arterial segment; no narrowing, disease progression, external squeezing, text, numbers, logos or watermark",
+    "generationMethod": "BUILT_IN_IMAGE_GEN_EDIT_THEN_SHARP_WEBP_QUALITY_82",
+    "conceptCheckedAt": "2026-09-06",
+    "licensedMedicalReviewCompleted": false,
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
-      "MEDICAL_CLAIM_VERIFIED",
+      "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE"
     ]
@@ -111,7 +115,7 @@
       "DIA-B1-002"
     ],
     "altText": "포도당과 인슐린 신호가 세포의 에너지 사용과 연결되는 기본 흐름을 단순화한 삽화",
-    "caption": "인슐린은 포도당이 세포에서 쓰이도록 돕습니다. 실제 몸의 작용은 그림보다 복잡합니다.",
+    "caption": "점은 포도당, 빛 모양은 인슐린 신호를 상징합니다. 혈관이 세포에 직접 꽂히는 실제 구조가 아니라, 세포의 포도당 이용을 설명하는 비유입니다.",
     "prompt": "food energy to glucose dots in blood flow, abstract insulin signal helping dots enter a stylized cell; maximum four stages; no literal key, labels, values or diagnostic imagery",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -130,7 +134,7 @@
       "DIA-B1-012"
     ],
     "altText": "반복되는 구토와 호흡곤란 의식 변화가 있을 때 기록보다 응급 도움을 우선하는 경고 삽화",
-    "caption": "상태가 빠르게 나빠지면 기록을 계속하지 말고 응급 의료 도움을 받습니다.",
+    "caption": "세 장면이 모두 나타날 때까지 기다리는 순서도가 아닙니다. 물도 유지하기 어려운 구토·호흡곤란·의식 변화에는 즉시 응급 도움을 받습니다.",
     "prompt": "four respectful panels for repeated vomiting unable to drink, difficult breathing, reduced responsiveness and calling emergency help; no diagnosis label, text, blood or hospital symbols",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -171,7 +175,7 @@
       "AR-B2-005"
     ],
     "altText": "실외와 실내에서 생긴 코와 눈의 변화를 관찰표에 적는 성인의 교육용 삽화",
-    "caption": "증상과 장소의 흐름을 적어도 알레르기 원인을 이 그림으로 확정할 수는 없습니다.",
+    "caption": "코·눈의 불편을 기억해 기록하는 장면입니다. 눈을 비비라는 사용법이나 원인 판정표가 아닙니다.",
     "prompt": "Korean adult observes symptom timing across ordinary indoor and outdoor settings with a paper log; original teal, mint and sand editorial art; no text, values, medicine, diagnostic imagery or authority symbols",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -191,7 +195,7 @@
       "AR-B2-004"
     ],
     "altText": "실외 꽃가루와 실내 먼지처럼 보이는 입자가 단순화한 코 주변으로 향하는 교육용 삽화",
-    "caption": "실외·실내 자극과 코 증상의 관계를 단순화한 그림이며 진단 도구가 아닙니다.",
+    "caption": "입자가 코로 들어오는 관계만 단순화했습니다. 모든 먼지가 알레르겐이거나, 오른쪽 그림이 치료 뒤 좋아진 상태라는 뜻은 아닙니다.",
     "prompt": "three-stage abstract outside and indoor particles moving toward a stylized nose; original non-diagnostic educational illustration without labels or anatomy realism",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -212,7 +216,7 @@
       "AR-B2-012"
     ],
     "altText": "성인 두 명이 창문과 옷, 표면 정리와 관찰표를 함께 살피는 교육용 삽화",
-    "caption": "환경 변화는 개인마다 다릅니다. 기록은 원인을 확정하는 검사표가 아닙니다.",
+    "caption": "창문·옷·표면과 증상 기록을 함께 살피는 장면입니다. 꽃가루가 높은 날 창문을 열라는 지시나 원인을 확정하는 검사표가 아닙니다.",
     "prompt": "supportive adults discuss a blank environment observation checklist at home; no medication, checklist text, diagnosis or prevention promise",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -232,7 +236,7 @@
       "GERD-B2-005"
     ],
     "altText": "식사와 자세, 불편의 시간 흐름을 관찰 노트에 적는 성인의 교육용 삽화",
-    "caption": "시간표는 음식 금지표가 아니라 진료에서 질문할 흐름을 남기는 도구입니다.",
+    "caption": "식사·자세·증상 시각을 따로 기록하는 장면입니다. 식사 직후 눕기를 권하는 순서도가 아닙니다.",
     "prompt": "Korean adult records meal timing, posture and discomfort in a blank paper log; no values, diet prescription, diagnosis or medicine",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -252,7 +256,7 @@
       "GERD-B2-003"
     ],
     "altText": "위 내용물이 식도 쪽으로 올라오는 흐름을 세 단계로 단순화한 교육용 삽화",
-    "caption": "역류의 기본 흐름을 단순화한 그림이며 흉부 불편의 원인을 진단하지 않습니다.",
+    "caption": "위 내용물이 식도 쪽으로 이동하는 개념입니다. 세 장면은 필수 악화 단계가 아니며 흉부 불편의 원인을 판정하지 않습니다.",
     "prompt": "simple stomach and esophagus concept with gentle upward dots, original non-diagnostic diagram without labels or medical imagery",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -356,9 +360,11 @@
     "altText": "성인이 골밀도와 낙상, 복용 약에 관한 진료 질문을 정리하는 교육용 삽화",
     "caption": "질문 준비는 검사 결과를 혼자 해석하거나 치료를 정하는 일이 아닙니다.",
     "prompt": "capable adult prepares bone-health appointment questions on a blank page, without scans, diagnosis, pills or values",
+    "conceptCheckedAt": "2026-09-06",
+    "licensedMedicalReviewCompleted": false,
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
-      "MEDICAL_CLAIM_VERIFIED",
+      "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE"
     ]
@@ -374,32 +380,38 @@
       "OP-B2-004"
     ],
     "altText": "뼈 내부 구조가 달라질 수 있다는 개념을 단순화해 보여 주는 교육용 삽화",
-    "caption": "뼈 구조 변화를 단순화한 그림이며 개인의 골밀도 검사 결과가 아닙니다.",
+    "caption": "두 뼈 단면은 내부 구조 차이의 개념입니다. 개인의 골밀도 결과나 걷기 전후의 치료 효과를 나타내지 않습니다.",
     "prompt": "abstract porous bone structure concept beside a walking adult, no fracture, x-ray, labels or risk score",
+    "conceptCheckedAt": "2026-09-06",
+    "licensedMedicalReviewCompleted": false,
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
-      "MEDICAL_CLAIM_VERIFIED",
+      "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE"
     ]
   },
   {
     "id": "VIS-OP-B2-03",
-    "file": "public/images/onurim/osteoporosis/checklist.webp",
-    "generationDate": "2026-08-25",
+    "file": "public/images/onurim/osteoporosis/checklist-v2.webp",
+    "supersedesFile": "public/images/onurim/osteoporosis/checklist.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1024x1536",
-    "sha256": "11c3ab5da620d298dbec2e50b6e5aacf03280d843f0be44e5be3d06cb1b7537a",
+    "sha256": "88aa049bb3639158933189fa3f8875016f4062d49c6f51afb88b4a852c780399",
     "claimIds": [
       "OP-B2-006",
       "OP-B2-010",
       "OP-B2-012"
     ],
-    "altText": "두 성인이 집 안 통로와 느슨한 매트를 살피고 질문 카드를 준비하는 교육용 삽화",
+    "altText": "뒤꿈치를 감싸는 신발, 비워 둔 통로, 벽 쪽 전선과 야간 조명을 살피고 질문을 준비하는 두 성인의 삽화",
     "caption": "집안 점검은 낙상 위험을 줄이기 위한 한 부분이며 골절 예방을 보장하지 않습니다.",
-    "prompt": "supportive adults check a clear home walkway and loose rug, then prepare a blank question card; no fall, medicine or guarantee",
+    "prompt": "precise-object-edit; preserve cream/teal editorial portrait style and two adult characters; correct indoor fall-prevention cues with secure closed heel non-slip shoes, no loose rugs or raised mat edges in walking paths, upright adults checking cord safely fixed along wall, clear well-lit hallway and night-light, off-walkway storage basket, seated question preparation; no checkmarks on hazards, text, diagnoses or fracture-prevention guarantee",
+    "generationMethod": "BUILT_IN_IMAGE_GEN_EDIT_THEN_SHARP_WEBP_QUALITY_82",
+    "conceptCheckedAt": "2026-09-06",
+    "licensedMedicalReviewCompleted": false,
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
-      "MEDICAL_CLAIM_VERIFIED",
+      "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE"
     ]
@@ -414,8 +426,8 @@
       "DLP-P3-002",
       "DLP-P3-003"
     ],
-    "altText": "이상지질혈증의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 이상지질혈증을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "네 줄의 결과표와 건강 상담을 상징하는 표지가 있는 장식 삽화",
+    "caption": "표지 삽화의 색과 줄은 실제 검사값이나 정상·이상 판정이 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 이상지질혈증; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -423,49 +435,66 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "licensedMedicalReviewCompleted": false,
+    "conceptCheckedAt": "2026-09-06"
   },
   {
     "id": "VIS-DLP-P3-CONCEPT",
-    "file": "public/images/onurim/dyslipidemia/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/dyslipidemia/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "6ea46436e9363282d75ec06cfc2cd67396aca4bc1be29994d8b740cbc175ca27",
+    "sha256": "4bb2038b2f649040c436bd27739b5d9ef1a195ba9617cdb526ac2123027a0059",
     "claimIds": [
       "DLP-P3-001",
       "DLP-P3-003"
     ],
-    "altText": "이상지질혈증과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 이상지질혈증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "왼쪽 열린 동맥 단면과 오른쪽 혈관 벽 안쪽의 노란 플라크로 통로가 좁아진 단면을 비교한 개념도",
+    "caption": "오른쪽 노란 부분은 혈관 벽의 플라크를 상징합니다. 두 단면은 구조 차이의 예이며 누구나 거치는 단계나 치료 전후가 아닙니다. 실제 검사 영상·크기·협착률을 나타내지 않습니다.",
+    "prompt": "Create an original, medically restrained educational illustration for a Korean public-health article about dyslipidemia. Landscape 1536x1024 composition on a warm ivory background, refined hand-drawn editorial illustration, calm dark teal outlines, muted coral vessel wall, soft golden plaque, accessible contrast. Show two LARGE side-by-side transverse artery cross sections viewed straight on. LEFT: concentric artery wall layers with a wide open circular pale lumen. RIGHT: the same outer diameter and same wall layers, with one eccentric crescent-shaped soft golden atherosclerotic plaque embedded in the inner wall under the luminal lining on the lower right, pushing the smooth lining inward and leaving a clearly open but narrower irregular lumen. The deposit must be part of the wall, NOT a loose ball floating in the lumen and NOT an external growth outside the vessel. A few small red blood cells in each open lumen clarify that these are blood vessels, but do not fill the space or imply exact blood cell scale. Do not add arrows between the two examples; they are conceptual structural comparison, not a guaranteed disease progression or before-after treatment result. No liver, heart, extra anatomy, treatment, pills, blood clot, ruptured plaque, gore or emergency alarm. Absolutely NO words, letters, numbers, labels, logo, watermark, pseudo-text, generic flowchart boxes or decorative medical crosses. Clean generous margins, focused precise geometry, subtle paper texture. All explanatory labels and medical limitations will be real HTML below the image.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "licensedMedicalReviewCompleted": false,
+    "conceptCheckedAt": "2026-09-06",
+    "bytes": 170280,
+    "sourceIds": [
+      "SRC-NHLBI-BLOOD-CHOLESTEROL",
+      "SRC-MEDLINEPLUS-CHOLESTEROL"
+    ],
+    "previousFile": "public/images/onurim/dyslipidemia/concept.webp"
   },
   {
     "id": "VIS-DLP-P3-ACTION",
-    "file": "public/images/onurim/dyslipidemia/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/dyslipidemia/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "20656bb45db7f4c4b7efab1176d07e52a02d49ebc41c8d00272fe185dc927b40",
+    "sha256": "7c23d40b5591acaf092f8b41c36fad26f037e0f1beaae1afaf168549d57af5fa",
     "claimIds": [
-      "DLP-P3-004",
-      "DLP-P3-005"
+      "DLP-P3-003",
+      "DLP-P3-004"
     ],
-    "altText": "이상지질혈증의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 이상지질혈증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "두 성인이 이전과 이번의 네 항목 결과표를 나란히 놓고 별도 노트에 진료 질문을 적는 삽화",
+    "caption": "동의를 받고 결과표와 질문을 함께 정리하는 예입니다. 빈 줄과 시계는 실제 검사값·금식 시간이나 치료 판단 기준이 아닙니다.",
+    "prompt": "Original patient-education editorial illustration for a Korean dyslipidemia guide, landscape 1536x1024. Warm ivory paper texture, calm muted teal and coral, refined hand painted style with natural anatomy. A middle-aged Korean adult and an older Korean adult seated side by side at an ordinary home desk, comparing TWO clearly separate blood lipid laboratory reports placed together: each report has exactly FOUR simple aligned result rows, blank ruled lines and small neutral teal row markers, absolutely NO actual values or readable text. One person points to a corresponding row across the two separate sheets, the other writes questions on a SMALL separate notepad. A simple analog clock and closed generic medicine box stand beside the papers to suggest remembering test timing and current medicines; no visible pills, dosage, treatment or clinician. Both faces thoughtful and relaxed, not frightened or celebratory. The reports should be central, unobstructed and clearly two different sheets side by side, not a single merged page. Realistic hands with five fingers, seated safe natural posture. No healthcare uniform, lab coat, stethoscope, badge, logo, brand, checkmarks, ticked approval, graphs, scales, medical crosses, arrows, floating flowchart panels, letters, numbers, pseudotext, watermark. Image conveys bringing previous and current results together for a medical conversation, not diagnosing from a report or promising improvement. All dates, result labels and instructional text will appear in accessible HTML outside the image.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "licensedMedicalReviewCompleted": false,
+    "conceptCheckedAt": "2026-09-06",
+    "bytes": 189530,
+    "sourceIds": [
+      "SRC-NHLBI-CHOLESTEROL-DIAGNOSIS"
+    ],
+    "previousFile": "public/images/onurim/dyslipidemia/action.webp"
   },
   {
     "id": "VIS-OBS-P3-HERO",
@@ -477,8 +506,8 @@
       "OBS-P3-002",
       "OBS-P3-003"
     ],
-    "altText": "비만의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 비만을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "기록 용지와 원형 표지로 건강 상담 준비를 상징하는 장식 삽화",
+    "caption": "표지의 색과 원은 개인 체형이나 체지방률·진단 결과를 뜻하지 않습니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 비만; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -486,49 +515,59 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceCheckedAt": "2026-09-06"
   },
   {
     "id": "VIS-OBS-P3-CONCEPT",
-    "file": "public/images/onurim/obesity/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/obesity/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "392a9c7d14a773d66b89d60c83405aa0d7c79fd9e07a439a23f20f5208a9b2dc",
+    "sha256": "fe6546b9e08ba0792718c325aeb5df1f125e94afd9a5b1d2773b6589ffc7a533",
     "claimIds": [
       "OBS-P3-001",
-      "OBS-P3-003"
+      "OBS-P3-002"
     ],
-    "altText": "비만과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 비만; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "복부 단면에서 근육 벽 바깥의 피하지방과 벽 안 장 사이의 내장·장간막 지방 위치를 구분한 개념도",
+    "caption": "바깥쪽 노란 층은 피부 아래·근육 벽 밖의 피하지방, 안쪽 장 사이 노란 부분은 내장·장간막 지방을 상징합니다. 위치를 단순화한 그림이며 실제 검사 영상·지방량·정상 기준이 아닙니다. BMI나 허리둘레만으로 이 모양을 알 수는 없습니다.",
+    "prompt": "Create an original simplified medical teaching illustration for a Korean adult obesity education page, 1536x1024 landscape. One large clean transverse cross-section of an adult abdomen at approximately the umbilical level, centred on warm ivory paper, refined editorial anatomical illustration with muted peach muscle, dark teal fine outlines and soft golden adipose tissue. The diagram explains ONLY fat location, not an obese-versus-thin comparison. It must clearly separate: (1) an outer continuous pale golden layer of subcutaneous adipose tissue immediately beneath the thin skin border and OUTSIDE a complete abdominal muscular wall; (2) smaller deeper warm amber lobules of visceral/mesenteric fat INSIDE that abdominal wall among simplified bowel loops. Draw credible bilateral abdominal side and posterior muscles, a small vertebral body at the posterior bottom centre with two adjacent psoas regions, and a few stylized bowel loops in the peritoneal space. A SINGLE cross-section, no external torso or head, no second before/after body, no liver/stomach/kidney cutaways at mismatched anatomical levels. Keep outlines simple enough to read on a phone, distinguish compartments by position and outline as well as colour. Do NOT make fat invade the inside of bowel tubes, replace organs, form tumours, depict liquid/edema, or imply a measured percentage. No arrows, measurement marks, CT scans, diagnostic values, red danger zones, pills, weight loss imagery, shaming, food, or people. Absolutely no words, letters, numbers, legend, labels, logos, watermark or pseudotext. All labels and clinical limits will be accessible HTML below the diagram. Educational schematic, not a photorealistic surgical view.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceCheckedAt": "2026-09-06",
+    "supersedesFile": "public/images/onurim/obesity/concept.webp",
+    "rawGenerationFile": "D:/CodexData/.codex/generated_images/01a02fae-2a15-7442-828f-3a8fdbb80e4d/exec-c8b689ba-ec0d-45b3-9a3f-7901839f404b.png"
   },
   {
     "id": "VIS-OBS-P3-ACTION",
-    "file": "public/images/onurim/obesity/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/obesity/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "b8b50518c3567e76393d148101091a5c828a088fd859d966358f415add538a9e",
+    "sha256": "b87e97b5e08dae2c7e530c3e030a734042bbc1c031f0fae2d93d1a7be2d0d105",
     "claimIds": [
-      "OBS-P3-004",
-      "OBS-P3-005"
+      "OBS-P3-003",
+      "OBS-P3-004"
     ],
-    "altText": "비만의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 비만; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "가족이 식사 준비를 나누는 장면, 조용한 침실을 지키는 장면, 성인 두 사람이 평평한 길에서 동행하는 장면",
+    "caption": "동의를 받고 식사 준비·휴식 여건·가능한 동행을 돕는 예입니다. 그림의 음식과 활동은 정해진 식단·운동량이나 감량 효과를 뜻하지 않으며 개인의 상태와 선택에 따라 달라집니다.",
+    "prompt": "Original warm Korean patient-education illustration, landscape 1536x1024, textured ivory paper with muted teal, peach and slate tones. Three distinct, clearly separated illustrated vignettes arranged side by side with ample whitespace, NOT connected by arrows. They show household conditions that can support adult weight-related health without shame or promises. LEFT: in an ordinary kitchen two Korean adult family members share meal preparation, one washing vegetables at a sink and one putting cooked rice and varied dishes on a dining table; ordinary portions, no diet products, food police, calorie counting or crossed-out foods. CENTRE: a peaceful bedroom with a made bed and curtains, a family member softly closing the door from outside to protect a resting household member's sleep; no exposed sleeping body, clocks, time targets or medical equipment. RIGHT: a Korean adult with a naturally larger body and a companion stand on a level neighbourhood path wearing comfortable everyday shoes, calmly considering a short stroll together; upright full-body view, not athletic exertion, not struggling, not a weight-loss before/after. Faces respectful and neutral, ordinary comfortable clothing and natural body proportions, no idealized thin-versus-fat comparisons. Focus on practical family support and the environment, not discipline or success. NO scales, measuring tape, pills, lab coats, medical crosses, graphs, clipboards, diagnostic symbols, checklist panels, arrows, badges, letters, numbers, readable or invented text, logos or watermarks. All scene labels and limits will be provided as HTML: shared food preparation, protected rest, possible companionship; they are optional examples, not a treatment prescription.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceCheckedAt": "2026-09-06",
+    "supersedesFile": "public/images/onurim/obesity/action.webp",
+    "rawGenerationFile": "D:/CodexData/.codex/generated_images/01a02fae-2a15-7442-828f-3a8fdbb80e4d/exec-1fc07893-2462-41ad-be71-cff41e4dd241.png"
   },
   {
     "id": "VIS-MASLD-P3-HERO",
@@ -540,8 +579,8 @@
       "MASLD-P3-002",
       "MASLD-P3-003"
     ],
-    "altText": "지방간(MASLD)의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 지방간(MASLD)을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "네 줄의 기록 용지와 상담 준비를 상징하는 보라색 장식 표지 삽화",
+    "caption": "표지의 색과 줄은 실제 간 검사 결과나 의료 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 지방간(MASLD); no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -549,49 +588,59 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceCheckedAt": "2026-09-06"
   },
   {
     "id": "VIS-MASLD-P3-CONCEPT",
-    "file": "public/images/onurim/metabolic-dysfunction-associated-steatotic-liver-disease/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/metabolic-dysfunction-associated-steatotic-liver-disease/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "60c2e145581de9e0cbe0ef2a8619ac23567aae02dd1776b110760baf66aade7a",
+    "sha256": "a88e229983a7ad57456fe587c9e7b3ddffe6bb40d690c183e373b2243776dd13",
     "claimIds": [
       "MASLD-P3-001",
       "MASLD-P3-003"
     ],
-    "altText": "지방간(MASLD)과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 지방간(MASLD); no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "왼쪽 간세포 안의 노란 지방 방울, 가운데 부푼 세포와 주변 염증세포, 오른쪽 세포 사이의 푸른 섬유조직을 구분한 개념도",
+    "caption": "왼쪽은 지방 축적, 가운데는 염증·세포 손상, 오른쪽은 섬유화를 단순화했습니다. 함께 나타날 수 있는 서로 다른 특징이며 누구나 순서대로 겪는 단계가 아닙니다. 실제 조직검사 영상·등급·치료 전후가 아닙니다.",
+    "prompt": "Original Korean adult patient-education medical concept illustration, 1536x1024 landscape, warm ivory paper, refined restrained hand-drawn editorial anatomy with muted plum/rose hepatocytes, muted gold fat droplets and soft blue collagen. THREE separate equal-size circular magnified tissue fields side by side with plenty of whitespace and absolutely NO arrows, numbers, labels or directional gradient. They explain DIFFERENT tissue features, not three successive stages. LEFT field: a small group of clearly outlined polygonal liver cells (hepatocytes), each with a visible small round nucleus and several rounded pale-gold fat droplets INSIDE the cell cytoplasm, not floating outside the organ or blocking a blood vessel. MIDDLE field: a similar small group of hepatocytes, one gently swollen cell with more pale cytoplasm, and several small dark immune cells with visible nuclei in the surrounding spaces; restrained inflammation and cell injury, no fire, blood, pus, pathogens, torn organ or alarming red glow. RIGHT field: hepatocytes with delicate wavy blue collagen bundles expanding BETWEEN groups of cells; fibrous extracellular tissue, not veins, wires, webs growing inside cells, or a sealed capsule. Make the three fields distinct by structure, not colour alone, and readable on mobile. No microscopic accuracy or diagnostic grading promised; simplified anatomical teaching schematic. No whole-body silhouettes, doctor, patient, before-after comparison, mandatory progression, treatment effect, hazard symbols, badges, values, words, letters, watermark, brand or pseudotext. The article will supply all three feature names and the caution that these features may coexist and cannot be diagnosed from this illustration as accessible HTML.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceCheckedAt": "2026-09-06",
+    "supersedesFile": "public/images/onurim/metabolic-dysfunction-associated-steatotic-liver-disease/concept.webp",
+    "rawGenerationFile": "D:/CodexData/.codex/generated_images/01a02fae-2a15-7442-828f-3a8fdbb80e4d/exec-c16f1fde-219d-4685-b889-90d331232ab7.png"
   },
   {
     "id": "VIS-MASLD-P3-ACTION",
-    "file": "public/images/onurim/metabolic-dysfunction-associated-steatotic-liver-disease/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/metabolic-dysfunction-associated-steatotic-liver-disease/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "99f916a70af2db751f31d137b4451d11d9fb0b559a8c10a0f31724eb72b1735b",
+    "sha256": "a54f1aba594c5c7e240c866bd85c3c10aba441766faac32014ba9683c3e13239",
     "claimIds": [
-      "MASLD-P3-004",
-      "MASLD-P3-005"
+      "MASLD-P3-003",
+      "MASLD-P3-004"
     ],
-    "altText": "지방간(MASLD)의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 지방간(MASLD); no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "성인 한 명이 혈액검사 결과지와 초음파 보고서 폴더를 옆에 놓고 별도 노트에 질문을 정리하는 생성 이미지",
+    "caption": "실제 환자 사진이 아닌 AI 생성 상황 예시입니다. 결과지의 빈칸·표지는 실제 값이나 판독이 아니며, 뒤쪽 약·보충제 포장은 목록을 준비한다는 뜻이지 복용 권장이 아닙니다.",
+    "prompt": "Original Korean adult health-education editorial illustration, 1536x1024 landscape, warm ivory background and calm muted plum, teal and sand palette. Three-quarter overhead view of one Korean adult seated at an ordinary home desk calmly preparing for a liver-related clinic visit, NOT interpreting a scan. Make the desk arrangement specific and clear: on the LEFT one separate laboratory results sheet with a small blood sample tube pictogram and several unlabelled horizontal rows, in the CENTRE one separate ultrasound report folder with a small outline pictogram of a handheld ultrasound transducer and cable (NO fabricated sonogram or organ image), on the RIGHT one separate follow-up questions notebook where the adult is holding a pencil. These are different document types being brought together, not three disease stages or steps. Show a few neutral tabs on the report folder to suggest keeping the original report wording, no checkmark or green/red verdicts. A closed plain medicine carton and plain supplement container at the back of the desk can symbolize noting product names; no pills being taken, dispensed or thrown away, no label text, no medical authority badge. The adult has ordinary clothing, relaxed neutral expression and respectful natural proportions. No clinician, stethoscope, scales, weight loss imagery, alcohol bottles, food prescriptions, before-after body, disease severity, numeric results, fake readable text, letters, diagnosis labels, arrows, timeline, logos or watermark. The three documents must be clearly distinct by their forms and the two simple non-text pictograms; all accessible labels and clinical limitations will be provided in HTML outside this illustration.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceCheckedAt": "2026-09-06",
+    "supersedesFile": "public/images/onurim/metabolic-dysfunction-associated-steatotic-liver-disease/action.webp",
+    "rawGenerationFile": "D:/CodexData/.codex/generated_images/01a02fae-2a15-7442-828f-3a8fdbb80e4d/exec-decb0cc7-faa3-40af-910e-08d8167a8bad.png"
   },
   {
     "id": "VIS-IBS-P3-HERO",
@@ -603,8 +652,8 @@
       "IBS-P3-002",
       "IBS-P3-003"
     ],
-    "altText": "과민성장증후군의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 과민성장증후군을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "네 줄의 메모 용지와 상담 준비를 상징하는 갈색 장식 표지 삽화",
+    "caption": "표지의 줄과 십자 모양은 진단 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 과민성장증후군; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -612,49 +661,65 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-IBS-P3-CONCEPT",
-    "file": "public/images/onurim/irritable-bowel-syndrome/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/irritable-bowel-syndrome/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "ee73819f85aa06af4a533af99220d6807c308f97efdee8d0293f011a64f015e1",
+    "sha256": "2551d8dab1cae90117ced7596e25b53cdb5e0b02ca7e5361dedf4743f1e0ff39",
     "claimIds": [
       "IBS-P3-001",
       "IBS-P3-003"
     ],
-    "altText": "과민성장증후군과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 과민성장증후군; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "머리의 뇌와 복부의 장 사이에 위쪽과 아래쪽을 향한 두 화살표가 놓인 장-뇌 상호작용 개념도",
+    "caption": "화살표는 장과 뇌의 양방향 소통을 단순화한 상징이며 실제 신경의 위치나 음식 이동 경로가 아닙니다. IBS와 관련된 여러 요인 중 일부로, 마음가짐 탓이거나 개인의 원인을 확정한다는 뜻이 아닙니다.",
+    "prompt": "Use case: scientific-educational.\nAsset type: original inline educational raster for Korean ONURIM IBS guide, landscape 1536x1024.\nPrimary request: explain two-way communication between the brain and bowel, NOT that symptoms are imagined and NOT an inflamed damaged bowel.\nScene: calm cream background, one clean anatomically plausible adult upper-body silhouette from head to hips, with a softly rendered brain in the head and large intestine framing small intestinal loops in the abdomen. No sex characteristics, modest medical silhouette.\nShow exactly two simple conceptual curved arrows OUTSIDE the torso along opposite sides: one directed from the brain level down toward the bowel, one directed from bowel level up toward brain. Arrowheads unambiguously point in opposite directions. These are abstract communication arrows, NOT nerve anatomy, blood vessels or food flow. Brain and bowel remain visibly separate organs in plausible positions.\nStyle: restrained editorial medical illustration with softly modeled organ folds and subtle watercolor texture, muted terracotta bowel, warm grey brain, teal conceptual arrows, high contrast readable on mobile. No facial expression implying blame, no red injury, no ulcers, no blood, no angry bowel, no cure icons or checkmarks.\nNo text, letters, numbers, logos, watermark, diagram legends, pills, food bans, scans, timelines, repeated cards, before-after or diagnostic scoring. Leave clear outer margins. Image accompanies HTML explaining gut-brain interaction as only part of IBS, not a patient-specific cause or anatomical nerve map.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "supersedesFile": "public/images/onurim/irritable-bowel-syndrome/concept.webp",
+    "bytes": 37554,
+    "sourceIds": [
+      "SRC-NIDDK-IBS-DEFINITION",
+      "SRC-NIDDK-IBS-SYMPTOMS",
+      "SRC-KDCA-IBS"
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-IBS-P3-ACTION",
-    "file": "public/images/onurim/irritable-bowel-syndrome/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/irritable-bowel-syndrome/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "2dd84e6272e8e07a3457049b8e6452b4f26a3597290695eca07e2f2ec85c562d",
+    "sha256": "dd8f8d4d2a084f34cd68399f0bebcea01772a782e9686a36725c84378d83a04c",
     "claimIds": [
       "IBS-P3-004",
       "IBS-P3-005"
     ],
-    "altText": "과민성장증후군의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 과민성장증후군; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "화장실 문 앞에서 복부의 느낌을 살피는 성인과 책상에서 그 변화를 노트에 적는 같은 인물의 두 장면 삽화",
+    "caption": "관찰과 기록을 연결한 가상 장면으로 실제 환자나 치료 전후가 아닙니다. 배변 뒤 통증이 덜하거나 더하거나 비슷한 경우 모두 그대로 적습니다. 컵·시계는 특정 음료나 기록 시간을 권하는 뜻이 아닙니다.",
+    "prompt": "Use case: illustration-story.\nAsset type: original helpful inline raster for a Korean health education guide on observing abdominal pain around bowel movements. Landscape 1536x1024.\nPrimary request: a warm, restrained two-scene editorial illustration of the SAME fully clothed East Asian adult with short dark hair and a muted teal cardigan. Left scene: standing in a home hallway OUTSIDE a closed bathroom door, one hand gently resting over the lower abdomen, mild thoughtful discomfort, no collapse or severe pain. Door has only a simple handle, no text. Right scene: seated comfortably at a nearby table, looking at an open notebook and making a brief observation with a pen. Notebook has a few pale nonverbal blank guide lines, no diagnoses, numbers, calendar dates, medical values, checkmarks or pain scores. Both scenes are equally weighted, divided only by broad blank cream space, NOT boxes. Same neutral thoughtful expression in both scenes, no obvious relief or worsening, no red-green before/after contrast. A subtle wall clock WITHOUT numbers may be near the table to suggest noting the time.\nStyle: detailed hand-painted editorial watercolor and colored pencil, respectful ordinary home, no childish emoji. Hands and fingers anatomically plausible, no extra limbs.\nPurpose: supports HTML that says pain after a bowel movement may improve, worsen or stay similar and can be noted for a consultation. It must not imply that going to the toilet treats IBS or that these scenes diagnose it.\nAvoid arrows, sequence numbers, stool or toilet use, nudity, photographs of actual patients, doctors, medical coats, pills, food bans, logos, watermark, readable text, repeated three-card diagrams, graphs, before-after success, severe distress.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "supersedesFile": "public/images/onurim/irritable-bowel-syndrome/action.webp",
+    "bytes": 224820,
+    "sourceIds": [
+      "SRC-NIDDK-IBS-DIAGNOSIS",
+      "SRC-NHS-IBS-DIAGNOSIS"
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-AST-P3-HERO",
@@ -666,8 +731,8 @@
       "AST-P3-002",
       "AST-P3-003"
     ],
-    "altText": "천식의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 천식을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "네 줄의 메모 용지와 상담 준비를 상징하는 파란색 장식 표지 삽화",
+    "caption": "표지의 줄과 십자 모양은 폐기능 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 천식; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -675,49 +740,64 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-AST-P3-CONCEPT",
-    "file": "public/images/onurim/asthma/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/asthma/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "83b89c2de7b29154817eec01e37c83f686271e5bdca061413c9fc9c27ad6eaa3",
+    "sha256": "b2fa5a5f823a598ca63c70cf725d7d0cd259ae6805e2d3772bbacdd20d976386",
     "claimIds": [
       "AST-P3-001",
       "AST-P3-003"
     ],
-    "altText": "천식과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 천식; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "넓게 열린 기도 단면과 안쪽 벽의 부종·바깥 근육의 수축·안쪽 점액으로 통로가 좁아진 기도 단면을 나란히 비교한 개념도",
+    "caption": "왼쪽은 열린 기도, 오른쪽은 벽의 부종과 주변 근육 수축, 안쪽의 옅은 노란 점액을 단순화한 모습입니다. 실제 조직검사나 막힌 비율·치료 전후·필연적 진행 단계가 아닙니다.",
+    "prompt": "Use case: scientific-educational.\nAsset type: original ONURIM asthma inline raster, landscape 1536x1024.\nPrimary request: anatomically plausible side-by-side cross sections of a small bronchial airway to explain an open air passage versus airway narrowing from swollen inner wall, tightened surrounding smooth muscle and some mucus.\nTwo cross sections, equal outer scale and same orientation, viewed directly into the lumen. Left: broad unobstructed cream lumen, thin pink mucosal lining, relaxed thin surrounding smooth-muscle band outside the mucosal wall. Right: smaller BUT CLEARLY OPEN irregular lumen, visibly thicker swollen inner lining, thicker contracted smooth-muscle band around outside of that wall, modest pale golden mucus adhering to part of the INNER lumen surface. Keep muscle outside the lining, mucus only inside airway, not blood vessel plaque, no giant plug, no filled/closed lumen.\nDetailed softly shaded medical editorial illustration with plausible tissue texture rather than generic flat circles, clean ivory background, pink tissue, muted terracotta muscle and pale gold mucus, ample gap. No red/green good/bad coloring. Equal circle size supports comparison, not precise percentages.\nNo text, arrows between sections, numbers, scale, logos, watermark, labels, blood, wounds, gore, lungs as shrinking balloons, straw breathing exercise, pills, inhalers, before-after cure, sequence or diagnostic severity chart.\nHTML will explain each visual feature and that this is a simplified airway concept, not actual patient imaging or fixed progression.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "supersedesFile": "public/images/onurim/asthma/concept.webp",
+    "bytes": 129074,
+    "sourceIds": [
+      "SRC-KDCA-ASTHMA",
+      "SRC-NHLBI-ASTHMA-ATTACK"
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-AST-P3-ACTION",
-    "file": "public/images/onurim/asthma/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/asthma/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "7769a28255a0886ee97cfbcb79c348a33672cad22a4e79665096ee77684ba98e",
+    "sha256": "33204a6fc620f33ea963c322c2ca4bf8dc6e870fd07b1333c2da7cc601963f4e",
     "claimIds": [
       "AST-P3-004",
       "AST-P3-005"
     ],
-    "altText": "천식의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 천식; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "진료를 상징하는 가상 장면에서 두 성인이 계획서의 한 부분을 함께 확인하고 질문을 별도 노트에 적는 생성 이미지",
+    "caption": "실제 환자·검수자 사진이 아닌 AI 생성 상담 장면입니다. 문서의 줄·도형은 처방 내용이 아니고, 회색 기기는 종류·역할·사용량을 권하는 제품이 아닙니다. 심한 호흡곤란에는 계획서를 찾기보다 119가 먼저입니다.",
+    "prompt": "Use case: photorealistic-natural.\nAsset type: original ONURIM asthma guide illustration about reading an existing personal asthma action plan with a healthcare professional, landscape 1536x1024.\nPrimary request: a natural quiet consultation scene at a light wood desk, photographed from an oblique over-the-shoulder viewpoint. One adult in everyday clothes and one clinician in plain navy scrubs sit on opposite sides, both focused on a single paper action plan on the desk. Show partial profiles or shoulders, natural hands; no doctor portrait, identity badge, name, logo, white coat, credentials, certificates or advertising. One index finger points at a section of the paper; the adult holds a pen ready to note a question in a separate small notebook.\nThe action plan is a generic illustrative prop with four separated areas represented only by pale grey lines, NO real text, patient data, medicine names, values, dosages, signatures, dates or red/yellow/green prescription bands. A SINGLE generic light grey closed inhaler lies off to the side, not in use or in anyone's mouth. No second inhaler, no color-coded device roles. Device is an unbranded example only, not a product recommendation.\nSoft window light, real paper and fabric texture, respectful balanced collaboration. Person is breathing comfortably, no attack, no distress, no emergency treatment.\nThis is an AI-generated hypothetical scene, not an actual patient, licensed reviewer, approved clinical plan or completed medical review.\nAvoid readable text, numbers, product labels, logos, watermark, glossy stock-ad poses, exaggerated smiles, outcome guarantees, multiple medications, inhalation demonstration, oxygen masks, before-after, step arrows.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "supersedesFile": "public/images/onurim/asthma/action.webp",
+    "bytes": 77258,
+    "sourceIds": [
+      "SRC-NHLBI-ASTHMA-PLAN",
+      "SRC-NHS-ASTHMA"
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-OSA-P3-HERO",
@@ -729,8 +809,8 @@
       "OSA-P3-002",
       "OSA-P3-003"
     ],
-    "altText": "수면무호흡증의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 수면무호흡증을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "메모 용지와 상담 준비를 상징하는 초록색 장식 표지 삽화",
+    "caption": "표지의 선·십자 모양은 수면검사 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 수면무호흡증; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -738,48 +818,64 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "visualReviewDate": "2026-09-06",
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-OSA-P3-CONCEPT",
-    "file": "public/images/onurim/sleep-apnea/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/sleep-apnea/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "05bfba2e3e9f71d343e500d3cbbd50647d886857d787290a0174f12ba4177b8c",
+    "sha256": "4be12f5153599e7ea5140007d1d53d707f4250de8454058ca50482a192bb4e0d",
     "claimIds": [
       "OSA-P3-001",
       "OSA-P3-003"
     ],
-    "altText": "수면무호흡증과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 수면무호흡증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "코와 입 뒤쪽의 열린 인두 공간과 혀·연구개 뒤의 공간이 좁아진 모습을 나란히 보여 주는 상기도 개념도",
+    "caption": "폐쇄성 수면무호흡의 상기도 좁아짐만 단순화한 비교입니다. 청록색은 빈 공기 공간을 강조한 색이지 실제 조직 색이 아닙니다. 중추성 원인·개인 진단·협착률·진행 단계·치료 전후를 보여 주지 않으며 아래쪽 후두와 기관은 생략했습니다.",
+    "prompt": "Built-in imagegen; full prompt and rejected anatomy draft plus corrective edit in docs/health-v3/onurim/seo-v2/raw/osa-image-generation.md",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
+    ],
+    "visualReviewDate": "2026-09-06",
+    "clinicalReviewCompleted": false,
+    "supersedesFile": "public/images/onurim/sleep-apnea/concept.webp",
+    "sourceIds": [
+      "SRC-NHLBI-APNEA-OVERVIEW",
+      "SRC-KDCA-APNEA"
     ]
   },
   {
     "id": "VIS-OSA-P3-ACTION",
-    "file": "public/images/onurim/sleep-apnea/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/sleep-apnea/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "2b4f487faeffccbf991e22a6cab18b8ba9285be966b1b6a926345fc19c147051",
+    "sha256": "ab2f4bfd6fddf4cf579457aa43ded4058aa4ed9998c266619a654b7aea9ac62e",
     "claimIds": [
       "OSA-P3-004",
       "OSA-P3-005"
     ],
-    "altText": "수면무호흡증의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 수면무호흡증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "가정의 식탁에서 두 가상 성인이 각자의 노트를 두고 밤의 관찰과 낮의 경험을 서로 이야기하는 AI 생성 장면",
+    "caption": "실제 환자·검수자 사진이 아닌 AI 생성 장면입니다. 동의한 상대와 관찰·질문을 나누는 선택적 예시이며, 노트의 선은 진료 기록이나 검사 수치가 아닙니다. 가족의 감시·녹음·대리 진단을 권하지 않습니다.",
+    "prompt": "Built-in imagegen; full prompt and fictional consent-first scene in docs/health-v3/onurim/seo-v2/raw/osa-image-generation.md",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
+    ],
+    "visualReviewDate": "2026-09-06",
+    "clinicalReviewCompleted": false,
+    "supersedesFile": "public/images/onurim/sleep-apnea/action.webp",
+    "sourceIds": [
+      "SRC-NHLBI-APNEA-SYMPTOMS",
+      "SRC-NHLBI-APNEA-DIAGNOSIS"
     ]
   },
   {
@@ -792,8 +888,8 @@
       "GOUT-P3-002",
       "GOUT-P3-003"
     ],
-    "altText": "통풍의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 통풍을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "진료 메모와 상담 준비를 상징하는 자주색 장식 표지 삽화",
+    "caption": "표지의 선과 십자 모양은 요산 검사 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 통풍; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -801,48 +897,66 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-GOUT-P3-CONCEPT",
-    "file": "public/images/onurim/gout/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/gout/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "8cd34a9cf5afce782d5477162d842d3915e02132086394b302d1efd040de77fe",
+    "sha256": "06f77598485f18317e10c0efcabe40e6ad5331be9dec7d149e59eb4887611dc5",
     "claimIds": [
       "GOUT-P3-001",
       "GOUT-P3-003"
     ],
-    "altText": "통풍과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 통풍; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "관절 공간의 작은 요산염 결정 기호와 별도 원 안의 혈액 검체를 나란히 보여 주는 비교 개념도",
+    "caption": "왼쪽은 관절 안과 주변의 요산염 결정을 단순화한 개념도, 오른쪽은 혈액 요산검사의 상징입니다. 혈액검사로 관절 결정을 직접 관찰하는 것은 아닙니다. 실제 모양·크기·수치나 개인 진단·필수 진행 단계·치료 전후를 보여 주지 않습니다.",
+    "prompt": "Use case: scientific-educational.\nAsset type: original editorial explanatory image for a Korean adult gout guide, landscape 1536x1024.\nPrimary request: explain that urate crystals in a joint are a different kind of information from a blood uric-acid measurement. Show one large, anatomically plausible simplified synovial joint cutaway: two opposing smooth rounded bone ends with thin intact blue-grey articular cartilage, a narrow fluid space between them enclosed by a continuous soft synovial capsule. A small sparse cluster of short slender urate crystal symbols lies within the synovial fluid near the lining, with subtle localized warm pink inflammation. Crystals must be much smaller than the bone ends, not huge spears, not piercing or destroying bone/cartilage. Off to the side, a separate small circular inset contains one plain unlabelled blood sample tube, with no numerical reading. No arrow joins the tube and the joint: this is not an inevitable progression, a diagnostic test result, or treatment before/after.\nStyle: original polished medical-education raster illustration with restrained watercolor texture, off-white background, muted mauve and sage accents, clear anatomy silhouette, generous whitespace, calm and non-frightening. Do not depict a particular person's anatomy or a clinical microscopic photo.\nNo words, letters, numerals, labels, arrows, checkmarks, logos, watermarks, food/alcohol blame, medication, dosage, blood spilling, people or ornamental three-card workflow.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
-      "NOT_DIAGNOSTIC"
+      "NOT_DIAGNOSTIC",
+      "AI_GENERATED_ORIGINAL",
+      "VISUALLY_CHECKED"
+    ],
+    "clinicalReviewCompleted": false,
+    "supersedesFile": "public/images/onurim/gout/concept.webp",
+    "sourceIds": [
+      "SRC-NIAMS-GOUT",
+      "SRC-NIAMS-GOUT-DIAGNOSIS",
+      "SRC-MEDLINEPLUS-URIC-ACID"
     ]
   },
   {
     "id": "VIS-GOUT-P3-ACTION",
-    "file": "public/images/onurim/gout/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/gout/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "d1a35481d248ec15089a5c7c13f211be09d8691d1be37ba88cae55f74488624c",
+    "sha256": "7661b7639ae425caa52103ee7a761bf209cbfd4b1045e5ab67fa409b5849975d",
     "claimIds": [
       "GOUT-P3-004",
       "GOUT-P3-005"
     ],
-    "altText": "통풍의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 통풍; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "이번 통증과 다음 관리라는 두 제목 아래 관절과 빈 달력 기호를 놓은 진료 질문용 노트 삽화",
+    "caption": "현재 통증 대응과 장기 관리에 관해 물어볼 질문을 나누는 빈 메모입니다. 치료 순서·방문 간격·약의 시작 또는 중단 시점을 정하지 않습니다. 급한 변화가 있을 때는 메모보다 진료가 먼저입니다.",
+    "prompt": "Use case: scientific-educational.\nAsset type: original supporting illustration for a Korean gout consultation guide, landscape 1536x1024.\nPrimary request: show two different consultation purposes side by side on the two pages of one open notebook, seen from directly overhead on a clean warm neutral desk. Left page heading exactly \"이번 통증\" and a simple small outline of a joint with a restrained warm accent, followed by three empty writing lines. Right page heading exactly \"다음 관리\" and a simple small blank calendar symbol with no dates or check marks, followed by three empty writing lines. Only these two Korean headings may be readable. One ordinary pen resting below the notebook, two subtle differently colored page tabs. The pages are prompts to prepare questions, not completed health records, not a dosing schedule or an actual treatment plan. No arrows and no before-after recovery story.\nStyle: polished original editorial raster illustration, soft natural paper texture, warm cream paper, restrained mauve and sage color accents, dark high-contrast Korean sans-serif headings large enough for mobile, balanced whitespace. Anatomically abstract joint icon, not a diagnostic x-ray.\nConstraints: no other text, numerals, medication or pill bottles, food, lab values, private or fake patient records, badges, people, logos, watermarks or three-box workflow.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
-      "NOT_DIAGNOSTIC"
+      "NOT_DIAGNOSTIC",
+      "AI_GENERATED_ORIGINAL",
+      "VISUALLY_CHECKED"
+    ],
+    "clinicalReviewCompleted": false,
+    "supersedesFile": "public/images/onurim/gout/action.webp",
+    "sourceIds": [
+      "SRC-NIAMS-GOUT-DIAGNOSIS",
+      "SRC-ACR-GOUT"
     ]
   },
   {
@@ -855,8 +969,8 @@
       "MIG-P3-002",
       "MIG-P3-003"
     ],
-    "altText": "편두통의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 편두통을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "진료 메모와 상담 준비를 상징하는 초록·노랑 장식 표지 삽화",
+    "caption": "표지의 선과 십자 모양은 뇌 검사 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 편두통; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -864,49 +978,58 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-MIG-P3-CONCEPT",
-    "file": "public/images/onurim/migraine/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/migraine/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "df6778b7852a53175d8d4ae009966ed63b0db80ef271a63afe02966ae0d25a71",
+    "sha256": "5b1547c70c1d5a1ce0090aba0b8ca1ee2ddd1ac357221de90f678a3be075a1fd",
     "claimIds": [
       "MIG-P3-001",
       "MIG-P3-003"
     ],
-    "altText": "편두통과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 편두통; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "가상 성인 곁에 빛·소리, 메스꺼움, 피로와 휴식을 상징하는 작은 장면을 배치한 편두통 동반 변화 삽화",
+    "caption": "빛·소리 민감성, 메스꺼움, 피로를 상징한 AI 생성 삽화입니다. 전구는 전조의 섬광, 위 모양은 장기 손상, 누운 모습은 치료 효과를 뜻하지 않습니다. 모두에게 필요한 단계나 진단 기준이 아니며, 새 신경 증상을 잠으로 넘기라는 안내가 아닙니다.",
+    "prompt": "Use case: scientific-educational.\nAsset type: original conceptual illustration for an adult Korean migraine education page, landscape 1536x1024.\nPrimary request: one coherent gentle editorial illustration showing that migraine can involve more than the location of head pain. At the center show a fictional adult in three-quarter view, upper torso, seated and calmly resting a hand near the temple with a mildly uncomfortable but alert expression. Around them place three clearly separate small symbolic vignettes without boxes: a softly shaded light bulb beside a simple ear to suggest sensitivity to light and sound; a small neutral stomach outline to suggest nausea; and a resting head on a pillow to suggest tiredness. These are optional associated experiences, NOT mandatory steps or a sequence. No connecting arrows, no timeline, no diagnosis score. Head pain is not a brain wound or a literal electrical bolt.\nStyle: original contemporary editorial colored-pencil and soft gouache raster art, muted sage, ochre and warm cream, clean soft edges, generous whitespace, approachable adult publication, not childish clip art, no copied medical images.\nConstraints: no words, numbers, logos, watermarks, medication, flashing zigzags, harsh stripes, brain scans, exposed brain, blood vessels, facial droop, asymmetric paralysis, speech-loss imagery or other neurological emergency signs normalized as routine migraine. No recovery-before/after promise, no three-card workflow.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "supersedesFile": "public/images/onurim/migraine/concept.webp",
+    "generator": "built-in image_gen",
+    "sourceIds": ["SRC-NHS-MIGRAINE", "SRC-MEDLINEPLUS-MIGRAINE"],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-MIG-P3-ACTION",
-    "file": "public/images/onurim/migraine/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/migraine/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "8d8d38fec523cfe505587176d9063a7bfc917dc8bb34ea51b25b30d5464f69e7",
+    "sha256": "c73d4207e8e8f8a90674bcba965914378427511791097b6be30daaeb8767351e",
     "claimIds": [
       "MIG-P3-004",
       "MIG-P3-005"
     ],
-    "altText": "편두통의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 편두통; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "가상 성인이 두통 기록과 약 사용 기록이라는 빈 양식 앞에서 연필을 든 AI 생성 장면",
+    "caption": "실제 환자·진료 기록이 아닌 AI 생성 장면입니다. 두통과 이미 사용한 약을 설명하는 빈 기록 예시이지 약을 먹을 날짜·횟수·용량을 정하는 일정표가 아닙니다. 응급 신호가 있으면 작성보다 도움 요청이 먼저입니다.",
+    "prompt": "Use case: photorealistic-natural.\nAsset type: original supporting image for a Korean adult headache diary article, landscape 1536x1024.\nPrimary request: candid close-up editorial photo of a fictional Korean adult preparing a short headache diary at a home desk in quiet neutral daylight. Frame from shoulder to hands and desktop, no full face needed. One hand holds a plain graphite pencil above a single unfilled paper recording sheet. The sheet has exactly two large Korean column headings, \"두통 기록\" and \"약 사용 기록\", each with sparse empty writing lines underneath. Both headings must be spelled exactly. No entered dates, numbers, symptoms, patient names, checked boxes or completed clinical data. No printed diagnoses. A closed plain folder sits partly behind the sheet. Show natural skin and fabric texture and anatomically plausible hands.\nThe scene illustrates recording what happened and what medicine was actually used for discussion with a clinician, NOT when or how much to take medication. Do not show pills, medicine containers, dosing instructions, smartphone screens, calendar schedules, clinical equipment, food, coffee, clinician endorsement or a person ignoring emergency symptoms.\nComposition: slightly oblique over-the-shoulder close crop with legible headings, soft uncluttered cream desk, muted green sleeve, calm practical atmosphere. No text overlay, logos, watermark, fake testimonial, diagram panels, arrows or three-box workflow.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "supersedesFile": "public/images/onurim/migraine/action.webp",
+    "generator": "built-in image_gen",
+    "sourceIds": ["SRC-KDCA-MIGRAINE", "SRC-MEDLINEPLUS-MIGRAINE-HOME"],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-KST-P3-HERO",
@@ -918,8 +1041,8 @@
       "KST-P3-002",
       "KST-P3-003"
     ],
-    "altText": "신장결석의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 신장결석을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "진료 메모와 상담 준비를 상징하는 파랑·주황 장식 표지 삽화",
+    "caption": "표지의 선과 십자 모양은 콩팥 검사 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 신장결석; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -927,49 +1050,65 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-KST-P3-CONCEPT",
-    "file": "public/images/onurim/kidney-stones/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/kidney-stones/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "635eaff0563817f72ee79bb806e50f168b32aff0018c4cfab88a0f36a2548685",
+    "sha256": "1dbfad0647ef53fc236cbf4e0d53cdb2cf38c954c85281b828268dcb1894abb6",
     "claimIds": [
       "KST-P3-001",
       "KST-P3-003"
     ],
-    "altText": "신장결석과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 신장결석; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "두 콩팥에서 각각의 요관이 방광으로 이어지고 요도가 아래로 나오는 구조와 결석 위치 예시를 보여주는 삽화",
+    "caption": "소변길과 서로 다른 결석 위치 예시를 단순화한 AI 생성 삽화입니다. 원 안은 표시한 요관 결석의 부분 확대이며 추가 결석이 아닙니다. 실제 기관 비율·결석 크기나 개수·막힌 정도를 판정하거나 같은 돌의 이동 단계·자연 배출을 보장하는 그림이 아닙니다.",
+    "prompt": "Use case: scientific-educational.\nAsset type: original Korean adult kidney-stone educational raster illustration, landscape 1536x1024.\nPrimary request: a clear anatomically plausible simplified frontal view of the urinary tract on a warm cream background. Show two separate bean-shaped kidneys with their medial hila facing inward. Each kidney has a visible cutaway of a pale branching collecting system draining into a funnel-shaped renal pelvis. From each pelvis exactly one slender ureter descends independently and enters the upper back/side of one central urinary bladder. One single urethra exits downward from the bladder. All tubes remain separate and continuous; no blood vessels or gastrointestinal organs. Put one small ochre irregular stone inside one renal pelvis, and a separate small circular magnified inset showing a stone lying within a ureter lumen, to explain two possible locations, NOT a sequence. Use a thin neutral leader line from that ureter segment to the inset, no movement arrows. Stone size in the inset is explicitly visually magnified, not a size threshold. Do not show severe swelling, perforation or blood.\nStyle: elegant original medical-education colored-pencil/gouache illustration, restrained slate blue and warm tan, subtle paper texture, strong readable silhouette and ample whitespace. Accurate connections matter more than decoration. No anatomy copied from any source.\nConstraints: no text, letters, numbers, measurements, diagnostic labels, treatment plans, glasses of water, flushing jets, tablets, people, urine spurting, inevitable-passage arrows, three-card workflow, logos or watermark. Do not connect ureters together before the bladder, do not attach a ureter to the convex outer kidney edge, and do not confuse ureter with urethra.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "supersedesFile": "public/images/onurim/kidney-stones/concept.webp",
+    "generator": "built-in image_gen",
+    "sourceIds": [
+      "SRC-KDCA-KIDNEY-STONES",
+      "SRC-NHS-KIDNEY-STONES"
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-KST-P3-ACTION",
-    "file": "public/images/onurim/kidney-stones/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/kidney-stones/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "dd402b905f5492daa44a8d444ae728d219992e64825836200f3f55f8d26f49e8",
+    "sha256": "8e6e96e86e853fcefb534dd4d0cf99166f1af50fdda8ded4e0d5b50f79cda3ea",
     "claimIds": [
       "KST-P3-004",
       "KST-P3-005"
     ],
-    "altText": "신장결석의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 신장결석; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "위치와 크기, 막힘과 감염, 배출 확인, 성분과 예방을 묻는 빈 검사 후 질문 양식 삽화",
+    "caption": "진료 설명을 확인하기 위한 빈 양식의 AI 생성 삽화입니다. 실제 검사 결과나 치료 순서·일정표가 아니며, 급한 변화가 있으면 작성보다 의료 도움 요청이 먼저입니다.",
+    "prompt": "Use case: scientific-educational.\nAsset type: original consultation-preparation raster illustration for Korean kidney-stone education, landscape 1536x1024.\nPrimary request: one large open folder on a clean warm cream desk, viewed from above. Inside it lies one blank consultation sheet titled exactly \"검사 후 질문\". The sheet has four generously spaced rows, each with exactly one Korean heading and one empty writing line. Headings in order: \"위치와 크기\", \"막힘과 감염\", \"배출 확인\", \"성분과 예방\". These must be the only readable text. Show a simple pencil lying diagonally outside the sheet, and two modest blue index tabs at the folder edge. No checkboxes, dates, measured results or completed patient data. The empty lines are for questions to a clinician after evaluation, not a diagnostic score or a treatment selection menu.\nStyle: refined tactile editorial paper illustration, colored pencil with soft gouache, restrained slate blue, sand and cream, clear dark Korean typography readable on mobile, subtle paper shadows, generous white space. No clinical room or implied clinician endorsement.\nConstraints: no drug names, pills, drinking containers, fluid amounts, stone measurements, arrows, patients, anatomy diagrams, money, diagnostic scan, logos, watermarks, three-box workflow or before-after recovery promise. Do not imply this paper needs filling out before seeking urgent help.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "supersedesFile": "public/images/onurim/kidney-stones/action.webp",
+    "generator": "built-in image_gen",
+    "sourceIds": [
+      "SRC-NIDDK-STONE-DIAGNOSIS",
+      "SRC-NIDDK-STONE-TREATMENT",
+      "SRC-EAU-UROLITHIASIS"
+    ],
+    "clinicalReviewCompleted": false
   },
   {
     "id": "VIS-UTI-P3-HERO",
@@ -981,8 +1120,8 @@
       "UTI-P3-002",
       "UTI-P3-003"
     ],
-    "altText": "요로감염의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 요로감염을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "상담 메모와 준비를 상징하는 보라·모래색 장식 표지 삽화",
+    "caption": "표지의 선과 십자 모양은 소변검사 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 요로감염; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -990,49 +1129,71 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [],
+    "reviewedAt": "2026-09-06"
   },
   {
     "id": "VIS-UTI-P3-CONCEPT",
-    "file": "public/images/onurim/urinary-tract-infection/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/urinary-tract-infection/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "0d0e3fe3e9b79e7598f40d0b1d0ee713e4b9bc6975ab423a00054e80caa19429",
+    "sha256": "40ba897d90f7c994c2cc89c30824454da353e31ea3ec9d85c52e0a1d2a42bd2d",
     "claimIds": [
       "UTI-P3-001",
-      "UTI-P3-003"
+      "UTI-P3-002"
     ],
-    "altText": "요로감염과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 요로감염; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "서로 분리된 두 소변길 그림에서 방광과 한쪽 콩팥을 각각 강조한 위치 예시",
+    "caption": "방광과 콩팥의 위치를 비교한 AI 생성 삽화입니다. 필수 진행 단계나 서로 배타적인 상태가 아니며, 한쪽 콩팥만 감염된다는 뜻도 아닙니다. 색과 기관 비율은 실제 감염 범위·손상·중증도·검사 결과를 나타내지 않습니다.",
+    "prompt": "Use case: scientific-educational.\nAsset type: original Korean adult urinary tract infection educational raster illustration, landscape 1536x1024.\nCreate two large independent side-by-side panels on warm cream paper, each with the same simplified anatomically plausible frontal urinary tract: two bean-shaped kidneys, each medial renal pelvis draining to its own independent ureter, both ureters entering one bladder, and one urethra exiting below. In the LEFT panel only the bladder has a restrained warm coral highlight; all other anatomy is muted lavender. In the RIGHT panel only one kidney has a restrained warm coral highlight; the rest is muted lavender. Left panel heading exactly \"방광\", right panel heading exactly \"콩팥\". These are the only visible words. Leave generous gap between the two examples, no arrows or numbering, because these are different possible infection locations, not mandatory stages of one person's illness. Highlight means a location discussed, not severe damage, a diagnostic image, or confirmed infection. No blood, no stones, no bacterial faces, no magnifying inset, no other organs, no pelvis bones, no people.\nStyle: clear original gouache and colored-pencil educational illustration with warm ivory background, soft restrained purple, coral only for location, strong readable silhouettes and accurate connections. Mobile-readable large Korean labels. No source diagram imitation, logo, watermark, diagnostic criteria, measurements, temperature, severity color scale, recovery checkmarks, treatment, or before-after narrative. Ureters must exit medial renal hila, not kidney lower convex edges; ureters must stay separate until bladder, not join above it.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
-      "NOT_DIAGNOSTIC"
-    ]
+      "NOT_DIAGNOSTIC",
+      "AI_GENERATED",
+      "INDEPENDENT_VISUAL_CHECKED"
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-KDCA-UTI",
+      "SRC-NIDDK-PYELONEPHRITIS-SYMPTOMS"
+    ],
+    "reviewedAt": "2026-09-06",
+    "supersedesFile": "public/images/onurim/urinary-tract-infection/concept.webp",
+    "generator": "built-in image_gen"
   },
   {
     "id": "VIS-UTI-P3-ACTION",
-    "file": "public/images/onurim/urinary-tract-infection/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/urinary-tract-infection/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "2eb665ae982dbe7d09ca456e6e4759e210f63f5ba3f9839d5cdcd99c3b9e299e",
+    "sha256": "a115df6ff23fd2a551ca6f148b981410e7c2211219fbeea4704010f9733f3f0b",
     "claimIds": [
-      "UTI-P3-004",
-      "UTI-P3-005"
+      "UTI-P3-003"
     ],
-    "altText": "요로감염의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 요로감염; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "소변검사라는 제목 아래 현미경, 배양검사라는 제목 아래 배양접시를 나란히 놓은 삽화",
+    "caption": "검사의 역할을 질문하기 위한 AI 생성 상징 삽화입니다. 현미경은 소변검사의 일부 방법을, 접시는 배양검사를 상징합니다. 실제 검체·검사 결과나 음성 판정이 아니며, 필수 검사 조합·순서·대기시간·검사 수행법을 안내하지 않습니다.",
+    "prompt": "Use case: scientific-educational.\nAsset type: original Korean urinary-tract infection consultation question illustration, landscape 1536x1024.\nAn elegant cream-paper two-part educational composition explaining TWO DIFFERENT TEST ROLES, not sequential required tests. On the left, one clear simplified laboratory microscope on a broad lavender paper area with exactly the heading \"소변검사\". On the right, two closed transparent shallow round laboratory culture dishes containing plain pale amber medium on a separate soft sand paper area with exactly the heading \"배양검사\". No specimens, urine, bacteria colonies, positive or negative result. These two headings are the only text, large and easy to read. The microscope symbolizes looking for clues in urine, the closed culture dishes symbolize laboratory culture; do not show someone performing the test or giving a sample. Side by side, same importance, generous blank gap, no connecting arrows, no step numbers, no clock or waiting duration. No test report or patient information, no drugs, no checkmarks, no charts or antibiotic susceptibility result.\nStyle: distinctive editorial colored-pencil and gouache on warm ivory paper, gentle realistic object proportions, restrained lavender and golden sand palette with subtle tactile shadows. Clean accessible silhouettes, no tiny illegible detail, no generic three-card workflow or clipboard checklist. No people, anatomy, food, branded devices, logos, watermark, proof of diagnosis or clinical endorsement.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
-      "NOT_DIAGNOSTIC"
-    ]
+      "NOT_DIAGNOSTIC",
+      "AI_GENERATED",
+      "INDEPENDENT_VISUAL_CHECKED"
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-KDCA-UTI",
+      "SRC-NIDDK-UTI-DIAGNOSIS"
+    ],
+    "reviewedAt": "2026-09-06",
+    "supersedesFile": "public/images/onurim/urinary-tract-infection/action.webp",
+    "generator": "built-in image_gen"
   },
   {
     "id": "VIS-DEP-P3-HERO",
@@ -1044,8 +1205,8 @@
       "DEP-P3-002",
       "DEP-P3-003"
     ],
-    "altText": "우울증의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 우울증을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "메모와 도움 연결을 상징하는 초록·갈색 장식 표지 삽화",
+    "caption": "표지의 도형은 심리검사 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 우울증; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -1053,49 +1214,71 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [],
+    "reviewedAt": "2026-09-06"
   },
   {
     "id": "VIS-DEP-P3-CONCEPT",
-    "file": "public/images/onurim/depression/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/depression/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "061682dfaecbcb93a532ea3b367ebe5ee42e9ccc041386052cc464ce4880625c",
+    "sha256": "08a88e1577aef60b168e92fc91148e9477a6124cee8e65d5baec46ada0cd8d63",
     "claimIds": [
       "DEP-P3-001",
-      "DEP-P3-003"
+      "DEP-P3-002"
     ],
-    "altText": "우울증과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 우울증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "잠·식사·흥미·집중을 각각 침구·그릇·스케치북·펼친 책으로 표현한 삽화",
+    "caption": "진료에서 이야기할 생활 영역 일부의 AI 생성 상징 삽화입니다. 잠과 식욕은 늘거나 줄 수 있고, 네 영역 모두가 필요한 진단 기준·점수표가 아닙니다. 음식·독서·휴식의 치료 효과나 회복을 보장하지 않습니다.",
+    "prompt": "Use case: editorial-illustration.\nAsset type: original Korean adult depression education illustration, landscape 1536x1024.\nA calm, non-stigmatizing still-life composition showing FOUR different areas of everyday life, not a diagnosis or a sequence: a softly drawn pillow and folded blanket labeled exactly \"잠\"; a modest bowl with spoon labeled exactly \"식사\"; a closed sketchbook with a pencil and small leaf labeled exactly \"흥미\"; an open plain book with a bookmark labeled exactly \"집중\". These four Korean labels are the only text. Arrange them loosely around generous central negative space on warm cream paper, each object cluster distinct, no connecting arrows, no numbered cards, no totals or scales. Objects describe topics someone might talk about, not a list that must all be present and not a cure prescription. Books contain no readable text, diagnosis, scoring, dates or patient data.\nStyle: sophisticated warm colored pencil and soft gouache editorial illustration, muted sage, warm clay and sand accents, tactile paper texture, large clear readable labels for mobile. No human or face, no brain, broken object, chemical imbalance graphic, dark rain cloud, cage, chain, hole, lonely silhouette, tears, pills, medical equipment, suicide imagery, methods, weapons, before/after transformation, forced happiness, logos or watermark. Inclusive and respectful with ordinary neutral objects, no guarantee of recovery.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
-      "NOT_DIAGNOSTIC"
-    ]
+      "NOT_DIAGNOSTIC",
+      "AI_GENERATED",
+      "INDEPENDENT_VISUAL_CHECKED"
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-NIMH-DEPRESSION",
+      "SRC-KDCA-DEPRESSIVE-MOOD"
+    ],
+    "reviewedAt": "2026-09-06",
+    "supersedesFile": "public/images/onurim/depression/concept.webp",
+    "generator": "built-in image_gen"
   },
   {
     "id": "VIS-DEP-P3-ACTION",
-    "file": "public/images/onurim/depression/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/depression/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "d4608c0f094eeccd4e3b3db07984658b58d3fb221a0f85216bd95cf6c5ee5153",
+    "sha256": "a6c43f06bbb4cce6edfb43b578042cdb71ceff67a9de3326b54ef3b7dc5f2797",
     "claimIds": [
-      "DEP-P3-004",
-      "DEP-P3-005"
+      "DEP-P3-004"
     ],
-    "altText": "우울증의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 우울증; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "서로 같은 눈높이의 의자에 앉아 한 사람이 말하고 다른 사람이 듣는 두 성인의 대화 삽화",
+    "caption": "경청과 도움 연결을 설명하는 AI 생성 장면입니다. 실제 환자나 의료인이 아니며, 가족 대화만으로 치료되거나 위기를 해결한다는 뜻이 아닙니다. 급한 위험에는 대화보다 긴급 도움 연결을 우선합니다.",
+    "prompt": "Use case: editorial-illustration.\nAsset type: original non-stigmatizing Korean adult family-support illustration for depression education, landscape 1536x1024.\nShow two ordinary Korean adults in casual clothing seated on two separate comfortable chairs at equal eye level in a simple private living room. One adult speaks with a thoughtful neutral expression; the other is listening attentively with relaxed open hands resting on their own lap. Respectful personal space, no touching, no restraint, no pointing, no lecture. A small low table between them holds a closed plain notebook, a pencil and a face-up smartphone with its screen OFF, symbolizing later help with appointments or contacting support if wanted. Neither character wears medical clothing, a badge or stethoscope. No claim of diagnosis, treatment or recovery.\nStyle: warm sophisticated hand-drawn colored pencil and gouache editorial illustration, muted sage green, clay brown and warm cream, soft daylight, clear believable hands and anatomy, calm but not euphoric or sentimental. Spacious horizontal composition with the two adults at similar visual weight, no isolated tragic figure. No words, letters, numbers, logos, watermark, clinical records, phone interface, pills, alcohol, weapons, injuries, suicidal methods, broken brain, cage, dark storm, halo, heart-shaped cure symbol, tears or before-after. Family listening is support, not a replacement for professional care or emergency help.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
-      "NOT_DIAGNOSTIC"
-    ]
+      "NOT_DIAGNOSTIC",
+      "AI_GENERATED",
+      "INDEPENDENT_VISUAL_CHECKED"
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-NIMH-DEPRESSION",
+      "SRC-NIMH-SUICIDE-HELP-STEPS"
+    ],
+    "reviewedAt": "2026-09-06",
+    "supersedesFile": "public/images/onurim/depression/action.webp",
+    "generator": "built-in image_gen"
   },
   {
     "id": "VIS-ANX-P3-HERO",
@@ -1107,8 +1290,8 @@
       "ANX-P3-002",
       "ANX-P3-003"
     ],
-    "altText": "불안장애의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 불안장애을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "메모와 도움 연결을 상징하는 파랑·갈색 장식 표지 삽화",
+    "caption": "표지 도형은 불안의 검사 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 불안장애; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -1116,49 +1299,70 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-NIMH-ANXIETY"
     ]
   },
   {
     "id": "VIS-ANX-P3-CONCEPT",
-    "file": "public/images/onurim/anxiety-disorder/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/anxiety-disorder/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "f530147a7f2054c063596908e0dbf03fd396c8e8c5d75a9e0ec9a95ee3be02b6",
+    "sha256": "a2a9e76b665bdcae346e9faaad648c5bbaba014242aba7067cb06d2158dab253",
     "claimIds": [
       "ANX-P3-001",
       "ANX-P3-003"
     ],
-    "altText": "불안장애과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 불안장애; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "이어지는 걱정·갑작스러운 두려움·특정 상황의 불안을 서로 다른 일상 장면으로 표현한 삽화",
+    "caption": "서로 겹칠 수도 있는 불안 경험 일부를 표현한 AI 생성 가상 장면입니다. 세 장면이 모든 종류·서로 배타적인 진단·악화 단계는 아닙니다. 표정이나 몸의 느낌만으로 공황과 신체 질환을 구별하는 그림도 아닙니다.",
+    "prompt": "Use case: editorial-illustration.\nAsset type: original Korean adult anxiety education visual, landscape 1536x1024.\nShow three distinct gently separated everyday vignettes across a warm cream paper canvas, NOT a progression or diagnostic scale. Left: an ordinary Korean adult at a desk with a calendar, a plain household folder and a work notebook, with a thoughtful worried expression; Korean label exactly \"이어지는 걱정\". Middle: a different adult seated upright on a simple bench, visibly surprised and unsettled, hands relaxed on lap, two small abstract curved marks near shoulders symbolizing a sudden wave of fear; label exactly \"갑작스러운 두려움\". Right: a different adult standing at a respectful distance near two people casually talking, looking hesitant about joining; label exactly \"특정 상황의 불안\". These labels are the only text, large and crisp enough for mobile.\nUse equal visual weight and similar warmth for all three scenes. This is a set of experiences that may overlap, not three exclusive diagnoses, not all anxiety disorders and not stages. No arrows, numbers, checkmarks, severity colors, score, clock time, medical tests or diagnostic labels.\nStyle: refined colored-pencil and soft gouache editorial art, sage and warm clay accents, clear realistic adult anatomy and hands, normal everyday clothing, respectful non-stigmatizing expressions. No tears, cages, chains, shattered brain, dark storm, heartbeat graph, chest-clutching pose, pills, alcohol, weapons, self-harm imagery, fainting, medical clothing, logos or watermark. No claim of cure or brain mechanism. Spacious balanced horizontal layout.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-NIMH-ANXIETY",
+      "SRC-NIMH-GAD",
+      "SRC-NIMH-PANIC",
+      "SRC-SNUH-ANXIETY"
+    ],
+    "supersedesFile": "public/images/onurim/anxiety-disorder/concept.webp",
+    "generator": "built-in image_gen"
   },
   {
     "id": "VIS-ANX-P3-ACTION",
-    "file": "public/images/onurim/anxiety-disorder/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/anxiety-disorder/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "3d0467fc410226cd44a676fbf7de51c69136aac76fe2a0b4916b7e8fd8a67d54",
+    "sha256": "1011bec16bac746116f7ceb59b59e6ef374c3dfbebd498e1b633b3a74858119f",
     "claimIds": [
       "ANX-P3-004",
       "ANX-P3-005"
     ],
-    "altText": "불안장애의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 불안장애; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "언제·몸·피한 일·생활이라는 제목 아래 비어 있는 기록 칸 네 개와 연필 삽화",
+    "caption": "진료에 전할 경험을 정리하는 AI 생성 기록 예시입니다. ‘피한 일’은 이미 피하게 된 상황의 기록이지 회피 권유가 아닙니다. 네 칸이 필수 진단 조건·점수표는 아니며 모르는 내용은 비워도 됩니다. 급한 위험에는 기록 완성보다 도움을 먼저 요청합니다.",
+    "prompt": "Use case: editorial-illustration.\nAsset type: original Korean anxiety appointment-preparation illustration, landscape 1536x1024.\nA top-down view of four LARGE separate paper note cards on a warm light wooden tabletop, arranged in a clean spacious two-by-two composition. Each card has one large Korean heading and blank ruled writing space, not filled answers. Card headings exactly: top left \"언제\", top right \"몸\", bottom left \"피한 일\", bottom right \"생활\". Small quiet pencil icons alongside the headings: an unnumbered simple calendar; a neutral outline of an adult torso without highlighted organs; an open doorway without a lock; a bed and a plain work notebook. One plain pencil lies outside the cards. No human hands, people or private patient information. These are optional topics to talk about with a clinician, not four diagnostic conditions or sequential steps.\nStyle: refined hand-drawn colored pencil with subtle gouache, warm cream paper, sage and clay accents, strong readable Korean text, gentle natural shadows, clean mobile composition. No arrows, numbered stages, stopwatch, deadlines, filled checkboxes, scores, symptom totals, vital sign numbers, heartbeat graphs, pills, prescriptions, diagnosis, logos or watermarks. No suggestion to finish cards before seeking urgent help. Exactly the four headings, no other words.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-NIMH-GAD",
+      "SRC-NIMH-PANIC",
+      "SRC-SNUH-ANXIETY"
+    ],
+    "supersedesFile": "public/images/onurim/anxiety-disorder/action.webp",
+    "generator": "built-in image_gen"
   },
   {
     "id": "VIS-STR-P3-HERO",
@@ -1170,8 +1374,8 @@
       "STR-P3-002",
       "STR-P3-003"
     ],
-    "altText": "뇌졸중의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 뇌졸중을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "메모판과 도움 연결을 상징하는 초록·노랑 장식 표지 삽화",
+    "caption": "표지 도형은 뇌 검사 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 뇌졸중; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -1179,49 +1383,69 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-KDCA-STROKE-PUBLIC"
     ]
   },
   {
     "id": "VIS-STR-P3-CONCEPT",
-    "file": "public/images/onurim/stroke/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/stroke/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "5873875e0a2a25d809231534002f5ed109dd1ee105c4ef6b8c6d5a522172ee63",
+    "sha256": "ffa8882d9dcfdeccbe5d98f829975eb94a03b525cd6278e709ccfcbf740a7cc9",
     "claimIds": [
-      "STR-P3-001",
-      "STR-P3-003"
+      "STR-P3-002",
+      "STR-P3-005"
     ],
-    "altText": "뇌졸중과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 뇌졸중; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "한쪽 힘·감각, 말·이해, 시야, 균형, 심한 두통의 변화를 각각 다른 가상 인물로 표현한 다섯 장면",
+    "caption": "AI 생성 교육 삽화입니다. 이 변화 중 하나라도 갑자기 나타나면 즉시 119에 연락합니다. 다섯 가지가 모두 필요한 조건·발생 순서·자가 검사법은 아닙니다. 신체 부위·시야 모양은 예시이며 표정·자세로 진단하지 않습니다. 컵은 배경 소품으로, 물·음식을 주거나 쉬며 기다리라는 뜻이 아닙니다.",
+    "prompt": "Use case: editorial-illustration.\nAsset type: original Korean adult stroke warning-sign education visual, landscape 1536x1024.\nCreate five equally important independent visual panels on warm cream paper, arranged three across the top and two centered below. No arrows or numbers; NOT a sequence, score, self-test or requirement to have all five. Each panel has one large crisp Korean label, exactly these five: \"한쪽 힘·감각\", \"말·이해\", \"시야\", \"균형\", \"심한 두통\". No other text.\nPanel one: a seated adult with one arm resting limply and a gently highlighted same-side arm/leg outline to illustrate a possible one-sided change, without anatomical brain mapping. Panel two: an adult trying to speak with a simple uneven speech bubble containing abstract lines, not written words. Panel three: neutral adult eye profile and a separate small soft-edged patch obscuring part of a simple window view, not a clinical visual-field chart. Panel four: an adult seated safely beside a chair, with two small wavy marks near the body suggesting balance difficulty; do not show a walking or standing test. Panel five: a seated adult with one hand at the side of the head and restrained amber emphasis marks, not a violent pain scene.\nAll adults fictional ordinary Korean adults in everyday clothing, dignified and calm but concerned, different people in each panel. Accurate hands and limbs. Soft gouache and colored-pencil editorial style, sage, muted clay and amber accents, strong simple shapes readable on mobile. Spacious labels and margins. No blood, exposed brain, skull, ambulance deadlines, clocks, pills, diagnostic checkmarks, red severity scale, lightning gore, facial droop diagnostic test, logos or watermark. The surrounding HTML will explain that ANY ONE sudden sign warrants immediate 119, and that this is not a diagnostic or exhaustive chart.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-KDCA-STROKE-PUBLIC",
+      "SRC-KDCA-STROKE-119",
+      "SRC-CDC-STROKE-SIGNS"
+    ],
+    "supersedesFile": "public/images/onurim/stroke/concept.webp",
+    "generator": "built-in image_gen"
   },
   {
     "id": "VIS-STR-P3-ACTION",
-    "file": "public/images/onurim/stroke/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/stroke/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "290a5171e08104345f684cf691a0de5cce99cc1e507f052f1f12cd47a4dfad2a",
+    "sha256": "9d00915eb014fce1be2ee2989f2aa3c1008473e1aab5b06da45eed554fd529de",
     "claimIds": [
-      "STR-P3-004",
-      "STR-P3-005"
+      "STR-P3-003",
+      "STR-P3-004"
     ],
-    "altText": "뇌졸중의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 뇌졸중; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "119 전화와 마지막 평소 상태·증상을 발견한 때의 빈 날짜와 시각 칸 두 개",
+    "caption": "119 신고 후 아는 사실을 전하기 위한 AI 생성 예시입니다. 두 시각은 같을 수도 다를 수도 있고, 모르는 내용은 모른다고 말합니다. 빈 시계에는 지정 시각·치료 마감선이 없으며 기록을 완성해야 도움을 받는 양식이 아닙니다.",
+    "prompt": "Use case: editorial-illustration.\nAsset type: original Korean stroke emergency communication visual, landscape 1536x1024.\nA spacious warm cream editorial composition showing a small upright smartphone on the left with only \"119\" on its screen and a simple active-call handset icon. On the right, two equally large separate paper note cards, side by side. Left card's exact Korean heading is \"마지막 평소 상태\". Right card's exact Korean heading is \"증상을 발견한 때\". Under each heading are identical BLANK date and time writing lines, no filled dates, clock faces, numbers, example times or invented patient details. At top center, large Korean text exactly \"119 신고 후, 아는 범위에서\". These three headings and 119 are the only text.\nBoth cards have equal importance; no arrow connecting them, no time axis, no numbered steps, no stopwatch or countdown. They represent two facts to tell emergency responders after calling, not a mandatory form before help or a treatment window. Do not portray discovery as the true onset time. A plain pencil sits outside the cards, no hands or people.\nRefined soft gouache and colored-pencil on cream paper, sage green headings, warm clay outlines and subtle natural shadows. Very readable large Korean typography and wide spacing suitable for mobile. No pills, food, drinking water, medical records with personal information, diagnosis, medical badge, hospital logo, checkmarks, watermark or promise of eligibility.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-WISCONSIN-STROKE-TIMES",
+      "SRC-STROKE-FOUNDATION-WAITING",
+      "SRC-CDC-STROKE-SIGNS"
+    ],
+    "supersedesFile": "public/images/onurim/stroke/action.webp",
+    "generator": "built-in image_gen"
   },
   {
     "id": "VIS-AMI-P3-HERO",
@@ -1233,8 +1457,8 @@
       "AMI-P3-002",
       "AMI-P3-003"
     ],
-    "altText": "급성심근경색의 변화를 차분히 기록하고 진료 질문을 준비하는 과정을 상징한 원본 교육용 삽화",
-    "caption": "이 그림은 급성심근경색을 진단하는 영상이 아니라 관찰과 질문 준비의 흐름을 단순화한 삽화입니다.",
+    "altText": "메모판과 도움 연결을 상징하는 분홍·초록 장식 표지 삽화",
+    "caption": "표지 도형은 심장 검사 결과나 의료인 검수 완료 표시가 아닙니다.",
     "prompt": "local deterministic original ONURIM educational hero illustration for 급성심근경색; no people, text, diagnosis, medicine, values or copied anatomy",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
@@ -1242,48 +1466,69 @@
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-KDCA-MYOCARDIAL-INFARCTION"
     ]
   },
   {
     "id": "VIS-AMI-P3-CONCEPT",
-    "file": "public/images/onurim/acute-myocardial-infarction/concept.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/acute-myocardial-infarction/concept-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "06dc83b8f3a4977258c8fbb7050d4559ce171829c3c40c2609d93c7d8441cdd3",
+    "sha256": "ddca2ed5cf2a6ff9e645d01dcf80e199e6cbc90160baf64d54659fd92b15ba5f",
     "claimIds": [
-      "AMI-P3-001",
-      "AMI-P3-003"
+      "AMI-P3-001"
     ],
-    "altText": "급성심근경색과 관련된 몸의 구조나 작동 개념을 과장 없이 단순화한 원본 교육용 도식",
-    "caption": "질환의 큰 흐름만 단순화했으며 실제 해부 구조, 개인 검사 결과나 진단 영상을 나타내지 않습니다.",
-    "prompt": "local deterministic original ONURIM educational concept illustration for 급성심근경색; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "심장 표면의 관상동맥과 심장근육, 혈류를 방해하는 혈관 벽 변화·혈전의 확대 개념도",
+    "caption": "AI 생성 개념도입니다. 오른쪽 혈관 확대도 안의 노란 부분은 혈관벽의 플라크, 짙은 붉은 덩어리는 혈전을 단순화한 표현입니다. 관상동맥의 혈액 공급이 방해되는 대표 상황이며 실제 혈관 지도·손상 영역·폐색률·모든 원인을 나타내지 않습니다. 완전 폐색이 모든 심근경색의 필수 조건이라는 뜻이나 심장이 멈췄다는 그림도 아닙니다.",
+    "prompt": "Use case: educational-medical-illustration.\nCreate an ORIGINAL restrained editorial concept illustration for a Korean adult heart-attack guide, landscape 1536x1024, on warm ivory paper.\nCentral image is a simplified three-dimensional human heart seen from the front, not a Valentine's symbol. A small branching coronary artery is clearly on the OUTSIDE surface supplying the heart muscle. Keep main great vessels subdued and do not draw a full circulation map. A gentle leader line connects one short highlighted surface-artery segment to an enlarged cutaway inset on the right. The inset shows the lumen of a generic coronary artery with a modest beige wall plaque and a localized dark red clot narrowing/obstructing flow, a few small red blood cells approaching it, and fewer beyond. No quantified percent, arrows denoting exercise or before-after cure, measurements, timers, or exact named artery territory. A small subdued warm amber region of heart muscle near the supplied area suggests inadequate supply, NOT the whole heart black or dead.\nOnly TWO large crisp Korean labels, \"관상동맥\" beside a leader pointing exactly to the outer artery, and \"심장근육\" pointing exactly to the muscular heart wall. No other text.\nSoft gouache and colored-pencil texture, sage and terracotta accents, natural proportions, clinically restrained schematic rather than photoreal exposed organ. This depicts one representative blood-flow problem, not every mechanism, severity or diagnostic image. No lightning, ECG tracing, flatline, heart suddenly stopped, black necrosis, gore, cross-shaped badge, pills, stent procedure, clinician, logo or watermark. Distinct artery and heart-muscle labels; accessible clean layout with generous margins.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-KDCA-MYOCARDIAL-INFARCTION",
+      "SRC-NHLBI-HEART-ATTACK",
+      "SRC-CDC-HEART-ATTACK"
+    ],
+    "supersedesFile": "public/images/onurim/acute-myocardial-infarction/concept.webp",
+    "generator": "built-in image_gen"
   },
   {
     "id": "VIS-AMI-P3-ACTION",
-    "file": "public/images/onurim/acute-myocardial-infarction/action.webp",
-    "generationDate": "2026-08-26",
+    "file": "public/images/onurim/acute-myocardial-infarction/action-v2.webp",
+    "generationDate": "2026-09-06",
     "dimensions": "1536x1024",
-    "sha256": "8410fa497b6a6e7d49f3fb34188b6c39bbd299e17e62e16a56ff01cd88aaa019",
+    "sha256": "992818c86edab006d5aef3fc15a14af56f094ef992bfb69c1339e561738190dd",
     "claimIds": [
+      "AMI-P3-002",
+      "AMI-P3-003",
       "AMI-P3-004",
       "AMI-P3-005"
     ],
-    "altText": "급성심근경색의 변화 관찰, 기록, 의료 도움 요청 순서를 세 장면으로 단순화한 교육용 도식",
-    "caption": "기록은 진단기가 아닙니다. 새롭고 심한 변화에서는 기록보다 의료 도움을 우선합니다.",
-    "prompt": "local deterministic original ONURIM educational action illustration for 급성심근경색; no people, text, diagnosis, medicine, values or copied anatomy",
+    "altText": "먼저 119에 전화하는 가상 인물과 어디가 어떻게·처음 느낀 때·함께 생긴 변화·알고 있는 약의 빈 기록 칸",
+    "caption": "AI 생성 가상 장면입니다. 먼저 119에 연락한 뒤 아는 사실을 전합니다. 네 칸이 신고 조건이나 진단 점수는 아니며 모르면 모른다고 말합니다. 카드 완성·약 찾기·시각 확인 때문에 신고를 늦추지 않습니다.",
+    "prompt": "Use case: editorial-illustration.\nCreate an ORIGINAL Korean heart-attack emergency communication visual, landscape 1536x1024.\nAt top center the large crisp Korean headline exactly \"먼저 119에 연락하세요\".\nOn left, a dignified fictional Korean adult seated upright in an ordinary armchair, speaking on a mobile phone, mildly concerned expression, natural hands and face, not clutching the chest or collapsed. Make the smartphone screen visible enough to show only \"119\". On right four generously spaced simple cream note cards in a two-by-two layout, with EXACT large headings: \"어디가 어떻게\", \"처음 느낀 때\", \"함께 생긴 변화\", \"알고 있는 약\". Beneath each heading only blank short ruled lines. These are optional facts to tell a dispatcher AFTER making the call, not four diagnostic conditions, a mandatory completed checklist or instructions to find medicine before calling.\nWarm cream paper background, refined hand-drawn gouache and colored pencil, muted rose, sage and clay palette, subtle shadows, visually clear on mobile. No arrows, numbered stages, filled answers, clock faces, actual time, countdown, tablet bottles, aspirin, food, drinks, car, hospital driving scene, doctor uniform, medication dose, vital signs, ECG graph, score, checkmarks, private patient information, logo or watermark. No other text beyond the headline, four card headings and phone119.",
     "state": [
       "ORIGINAL_EDUCATIONAL_ART",
       "SOURCE_CONCEPT_CHECKED",
       "ALT_TEXT_PRESENT",
       "PRIVACY_SAFE",
       "NOT_DIAGNOSTIC"
-    ]
+    ],
+    "clinicalReviewCompleted": false,
+    "sourceIds": [
+      "SRC-KDCA-CARDIO-2026",
+      "SRC-NHLBI-HEART-ATTACK-SYMPTOMS",
+      "SRC-NHLBI-HEART-ATTACK-DIAGNOSIS"
+    ],
+    "supersedesFile": "public/images/onurim/acute-myocardial-infarction/action.webp",
+    "generator": "built-in image_gen"
   }
 ]

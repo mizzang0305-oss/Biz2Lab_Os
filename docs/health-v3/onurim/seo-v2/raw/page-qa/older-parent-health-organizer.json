@@ -1,0 +1,371 @@
+{
+  "route": "/health/guides/older-parent-health-organizer",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T11:22:08.439Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "617925c70e0bb7835be2972c9c3f42b279c9394cfb9be01c930e3442a50ca092",
+      "full": "24920e3a178f29095c58e7392a5c0c9535a53ea0c64d1e641da9f5f62548512f"
+    },
+    {
+      "width": 390,
+      "top": "d93e8442d19c89e30f5e51e3b4a80b7296993f9bae9e3324b413daf5a422bdca",
+      "full": "6079948256929e5c8fa6f3da89229fc289eb06369a0dca0d8c9f17df28f2ba26"
+    },
+    {
+      "width": 430,
+      "top": "3c83162152b9e284a7a550ab7e8b2fd5c8835e85a42247071383084dc2613227",
+      "full": "e5a3cf5bfde776d9ee37049c6bb92ca9cce826f21bf71c6e344d02c2920e604d"
+    },
+    {
+      "width": 768,
+      "top": "a18782589074364e63e1d3cea114371dd3364078652ff85060e871441fbdea54",
+      "full": "dd0a0e5830c5f70b5572fc0116b75db9f01dbfe15fbc1d580bbda0102a86b6b4"
+    },
+    {
+      "width": 1440,
+      "top": "8913acd1557a003676e6a8b1c750d537c49607bba90f07879f076bf8c9056227",
+      "full": "c50c4ecd6e138d1bbe012696afdafb27212c513fd40e3b5025c47bc67f320c7c"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "부모님 건강정보 정리: 약·검사·진료 기록과 확인 날짜 | 오누림",
+      "h1": [
+        "부모님 건강정보, 함께 정하고 찾기 쉽게 정리하세요"
+      ],
+      "h2": [
+        "무엇을 누가 볼지 부모님과 먼저 정합니다",
+        "한 장 요약에는 ‘어디에서 확인할지’도 남깁니다",
+        "현재 전체 정보와 바뀐 부분을 함께 유지합니다",
+        "진료 뒤에는 ‘다음 행동’을 짧게 확인합니다",
+        "공유할 사람과 보관 위치를 함께 정합니다",
+        "응급상황에서는 기록을 찾느라 기다리지 않습니다",
+        "가족끼리 기록을 정리하며 생기는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/older-parent-health-organizer",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "부모님 건강정보 정리: 약·검사·진료 기록과 확인 날짜 | 오누림",
+      "h1": [
+        "부모님 건강정보, 함께 정하고 찾기 쉽게 정리하세요"
+      ],
+      "h2": [
+        "무엇을 누가 볼지 부모님과 먼저 정합니다",
+        "한 장 요약에는 ‘어디에서 확인할지’도 남깁니다",
+        "현재 전체 정보와 바뀐 부분을 함께 유지합니다",
+        "진료 뒤에는 ‘다음 행동’을 짧게 확인합니다",
+        "공유할 사람과 보관 위치를 함께 정합니다",
+        "응급상황에서는 기록을 찾느라 기다리지 않습니다",
+        "가족끼리 기록을 정리하며 생기는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/older-parent-health-organizer",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "부모님 건강정보 정리: 약·검사·진료 기록과 확인 날짜 | 오누림",
+      "h1": [
+        "부모님 건강정보, 함께 정하고 찾기 쉽게 정리하세요"
+      ],
+      "h2": [
+        "무엇을 누가 볼지 부모님과 먼저 정합니다",
+        "한 장 요약에는 ‘어디에서 확인할지’도 남깁니다",
+        "현재 전체 정보와 바뀐 부분을 함께 유지합니다",
+        "진료 뒤에는 ‘다음 행동’을 짧게 확인합니다",
+        "공유할 사람과 보관 위치를 함께 정합니다",
+        "응급상황에서는 기록을 찾느라 기다리지 않습니다",
+        "가족끼리 기록을 정리하며 생기는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/older-parent-health-organizer",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "부모님 건강정보 정리: 약·검사·진료 기록과 확인 날짜 | 오누림",
+      "h1": [
+        "부모님 건강정보, 함께 정하고 찾기 쉽게 정리하세요"
+      ],
+      "h2": [
+        "무엇을 누가 볼지 부모님과 먼저 정합니다",
+        "한 장 요약에는 ‘어디에서 확인할지’도 남깁니다",
+        "현재 전체 정보와 바뀐 부분을 함께 유지합니다",
+        "진료 뒤에는 ‘다음 행동’을 짧게 확인합니다",
+        "공유할 사람과 보관 위치를 함께 정합니다",
+        "응급상황에서는 기록을 찾느라 기다리지 않습니다",
+        "가족끼리 기록을 정리하며 생기는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/older-parent-health-organizer",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "부모님 건강정보 정리: 약·검사·진료 기록과 확인 날짜 | 오누림",
+      "h1": [
+        "부모님 건강정보, 함께 정하고 찾기 쉽게 정리하세요"
+      ],
+      "h2": [
+        "무엇을 누가 볼지 부모님과 먼저 정합니다",
+        "한 장 요약에는 ‘어디에서 확인할지’도 남깁니다",
+        "현재 전체 정보와 바뀐 부분을 함께 유지합니다",
+        "진료 뒤에는 ‘다음 행동’을 짧게 확인합니다",
+        "공유할 사람과 보관 위치를 함께 정합니다",
+        "응급상황에서는 기록을 찾느라 기다리지 않습니다",
+        "가족끼리 기록을 정리하며 생기는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/older-parent-health-organizer",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

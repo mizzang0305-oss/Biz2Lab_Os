@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/asthma-visit-card",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T15:17:04.011Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "6c0db794f7d77ca97a5f7de813ef30e75b81878b8453dd5a29b81ed7841365ed",
+      "full": "c20dda84eadf9ec5d29088e04b89442952a3695c1127ebb3811b9698340c5333"
+    },
+    {
+      "width": 390,
+      "top": "b06e783ef6c121839b6123504093a8a218a81a60c8837e680b85a8b663408fe7",
+      "full": "58295899382d92f220b6141f5e6e3595e6c477ad59fbc4e891735d0446da8a54"
+    },
+    {
+      "width": 430,
+      "top": "43bbe93209a0c8a915fa19fadc076b41206cdd7b025dcf47fd8b144aa620ccbe",
+      "full": "e6b10741385fa850767d90e9af0bb576ba215de09cdeb0d330f46b7ee43255af"
+    },
+    {
+      "width": 768,
+      "top": "8b852ea95f1dad3012827ab398ebe8f6823f9c43d2609cf26057426196c1dbac",
+      "full": "52a6cb7e9f453c915f363cf5ac68a6c4bf5c4c268abe554f024939f9ab6f930d"
+    },
+    {
+      "width": 1440,
+      "top": "39efed9a6bef917852d3acb64c8ca17f3e8650be02ed77bd037f8d79b472a9de",
+      "full": "7e3d24f49513251b6a3df4b96aa3f365446c3fa7226dea712d28da77c9358ef2"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "천식 진료 질문지: 흡입기 사용과 개인 행동계획 점검 | 오누림",
+      "h1": [
+        "천식 진료 질문지"
+      ],
+      "h2": [
+        "말을 내기 힘든 호흡곤란에는 계획서보다 119가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/asthma-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "천식 진료 질문지: 흡입기 사용과 개인 행동계획 점검 | 오누림",
+      "h1": [
+        "천식 진료 질문지"
+      ],
+      "h2": [
+        "말을 내기 힘든 호흡곤란에는 계획서보다 119가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/asthma-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "천식 진료 질문지: 흡입기 사용과 개인 행동계획 점검 | 오누림",
+      "h1": [
+        "천식 진료 질문지"
+      ],
+      "h2": [
+        "말을 내기 힘든 호흡곤란에는 계획서보다 119가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/asthma-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "천식 진료 질문지: 흡입기 사용과 개인 행동계획 점검 | 오누림",
+      "h1": [
+        "천식 진료 질문지"
+      ],
+      "h2": [
+        "말을 내기 힘든 호흡곤란에는 계획서보다 119가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/asthma-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "천식 진료 질문지: 흡입기 사용과 개인 행동계획 점검 | 오누림",
+      "h1": [
+        "천식 진료 질문지"
+      ],
+      "h2": [
+        "말을 내기 힘든 호흡곤란에는 계획서보다 119가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/asthma-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

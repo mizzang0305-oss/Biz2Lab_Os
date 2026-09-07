@@ -16,6 +16,7 @@ import {
 import { editorialIdentity } from "@/lib/editorial-evidence";
 import { getEvidenceForPost } from "@/lib/evidence";
 import { googleSetup } from "@/lib/google-setup";
+import { trustPages } from "@/lib/health-v3/content";
 import { categorySlugs, postFrontmatterSchema } from "@/lib/schema";
 import {
   getAllPosts,
@@ -405,7 +406,11 @@ test("public authorship links the visible editorial identity to its about page a
 
   assert.equal(siteSettings.author, "박영훈");
   assert.match(trustPageSource, /박영훈\(비의료인 건강정보 편집자\)/);
-  assert.match(trustPageSource, /mizzang0305-oss\/Biz2Lab_Os\/issues\/new/);
+  const contact = trustPages.find(page => page.slug === "contact")!;
+  assert.ok(contact.sections.flatMap(section => section.links ?? [])
+    .some(link => link.href === "https://github.com/mizzang0305-oss/Biz2Lab_Os/issues"));
+  assert.match(contact.intro, /새 글 접수 가능 여부는 확인되지 않았습니다/);
+  assert.doesNotMatch(trustPageSource, /issues\/new/);
   assert.match(seoSource, /publishingPrinciples:\s*absoluteUrl\("\/health\/trust\/editorial-policy"\)/);
   assert.match(
     layoutSource,

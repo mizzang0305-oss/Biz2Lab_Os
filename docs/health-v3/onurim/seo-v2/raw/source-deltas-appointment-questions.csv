@@ -1,0 +1,7 @@
+"delta_id","route","current_concept","risk","source_ids","checked_at","verification","licensed_review","original_47_packet"
+"SEO2-APPT-01","/health/guides/appointment-questions","질문두세개우선순위는상한아님·새증상알레르기누락금지·질문과결과보장분리","P2_COMMUNICATION","SUP-AHRQ-ENGAGED|SUP-NHS-DOCTOR-QUESTIONS|SUP-MEDLINEPLUS-TALK","2026-09-06","NO_PATIENT_BLAME_OR_OUTCOME_GUARANTEE","NOT_COMPLETED","UNCHANGED"
+"SEO2-APPT-02","/health/guides/appointment-questions","검사목적치료선택약주의다음확인4행상담질문·검사치료지시아님","P1_INTERPRETATION","SUP-AHRQ-ENGAGED|SUP-NHS-DOCTOR-QUESTIONS","2026-09-06","NO_REQUIRED_TEST_OR_TREATMENT_SELECTION","NOT_COMPLETED","UNCHANGED"
+"SEO2-APPT-03","/health/guides/appointment-questions","이해안됨과실행곤란구분·자기말확인·통역동행지원가능여부문의","P2_COMMUNICATION","SUP-AHRQ-ENGAGED|SUP-NHS-DOCTOR-QUESTIONS|SUP-MEDLINEPLUS-TALK","2026-09-06","NO_LOCAL_SERVICE_OR_LEGAL_RECORDING_RIGHT_GUARANTEE","NOT_COMPLETED","UNCHANGED"
+"SEO2-APPT-04","/health/guides/appointment-questions","귀가전행동시점결과경로문의처·연락없음으로정상추정금지","P2_FOLLOWUP","SUP-NHS-DOCTOR-QUESTIONS|SUP-AHRQ-ENGAGED","2026-09-06","NO_UNIVERSAL_RESPONSE_WINDOW","NOT_COMPLETED","UNCHANGED"
+"SEO2-APPT-05","/health/guides/appointment-questions","약안내기억불명확시의료진약사문의·임의중단변경금지","P1_MEDICATION","SUP-AHRQ-ENGAGED","2026-09-06","NO_GUESSED_DOSING_PLAN","NOT_COMPLETED","UNCHANGED"
+"SEO2-APPT-06","/health/guides/appointment-questions","위급변화119·질문표예약답변대기금지","P0_EMERGENCY","SUP-APPOINTMENT-EMERGENCY|SUP-NHS-DOCTOR-QUESTIONS","2026-09-06","EMERGENCY_HELP_SEPARATE_FROM_ROUTINE_FOLLOWUP","NOT_COMPLETED","UNCHANGED"

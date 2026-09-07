@@ -1,0 +1,356 @@
+{
+  "route": "/health/guides/reading-health-results",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T10:45:23.745Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "eec5a251860648938332b0a8c898c3b275a13846405b0ae901a697bfc7d6a436",
+      "full": "88e3e6ed8be6d447123b428592302b42080468453e159619ce03ee17a13d79fc"
+    },
+    {
+      "width": 390,
+      "top": "515bd0001161253010ca53e0cdf205026c8b32481fab49ce4b699ebb05ad3a58",
+      "full": "69c56b4af7511c8b8858441927c949575fb19dd9ab5efcc0a090beaacf4ec898"
+    },
+    {
+      "width": 430,
+      "top": "6569f0b4c3e220a9e5f4ec986630f8c64c97e83a3ec41bae6e1c85446b9c631d",
+      "full": "5183c1f1490ce52ab54d7e4d6de0d1aa0a749c8c0066908063bf8390b26a6582"
+    },
+    {
+      "width": 768,
+      "top": "4d434608511982a6889b703777f2b675531e073fad8aeb12e1425960a12ee6a7",
+      "full": "3decbe7bbed9d37dc176c7bc40f45c09a5bf74353a97b8b19ef14f97a0178958"
+    },
+    {
+      "width": 1440,
+      "top": "3298fb5a9f760d57208a04be7618cc96d5ce8a4c754082a108dfb9f161d8658a",
+      "full": "5225c702ed586189be3c0ba2ba91d1b58a0de8697ceee2a64cd96dd513d5528d"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "건강검진 결과지 읽는 법: 참고범위·양성·재검 질문 | 오누림",
+      "h1": [
+        "건강검진 결과지, 숫자와 표시를 읽는 순서"
+      ],
+      "h2": [
+        "빨간 숫자를 읽기 전, 어떤 검사인지",
+        "표시를 다음 질문으로 바꾸는 표",
+        "양성·음성·판정 불확실은 무엇이 다른가요?",
+        "이전 결과와 비교할 때 빠뜨리기 쉬운 조건",
+        "결과지를 덮기 전, 다음 연락과 날짜를 확인하세요",
+        "결과 표시를 보고 생기는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/reading-health-results",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "건강검진 결과지 읽는 법: 참고범위·양성·재검 질문 | 오누림",
+      "h1": [
+        "건강검진 결과지, 숫자와 표시를 읽는 순서"
+      ],
+      "h2": [
+        "빨간 숫자를 읽기 전, 어떤 검사인지",
+        "표시를 다음 질문으로 바꾸는 표",
+        "양성·음성·판정 불확실은 무엇이 다른가요?",
+        "이전 결과와 비교할 때 빠뜨리기 쉬운 조건",
+        "결과지를 덮기 전, 다음 연락과 날짜를 확인하세요",
+        "결과 표시를 보고 생기는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/reading-health-results",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "건강검진 결과지 읽는 법: 참고범위·양성·재검 질문 | 오누림",
+      "h1": [
+        "건강검진 결과지, 숫자와 표시를 읽는 순서"
+      ],
+      "h2": [
+        "빨간 숫자를 읽기 전, 어떤 검사인지",
+        "표시를 다음 질문으로 바꾸는 표",
+        "양성·음성·판정 불확실은 무엇이 다른가요?",
+        "이전 결과와 비교할 때 빠뜨리기 쉬운 조건",
+        "결과지를 덮기 전, 다음 연락과 날짜를 확인하세요",
+        "결과 표시를 보고 생기는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/reading-health-results",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "건강검진 결과지 읽는 법: 참고범위·양성·재검 질문 | 오누림",
+      "h1": [
+        "건강검진 결과지, 숫자와 표시를 읽는 순서"
+      ],
+      "h2": [
+        "빨간 숫자를 읽기 전, 어떤 검사인지",
+        "표시를 다음 질문으로 바꾸는 표",
+        "양성·음성·판정 불확실은 무엇이 다른가요?",
+        "이전 결과와 비교할 때 빠뜨리기 쉬운 조건",
+        "결과지를 덮기 전, 다음 연락과 날짜를 확인하세요",
+        "결과 표시를 보고 생기는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/reading-health-results",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "건강검진 결과지 읽는 법: 참고범위·양성·재검 질문 | 오누림",
+      "h1": [
+        "건강검진 결과지, 숫자와 표시를 읽는 순서"
+      ],
+      "h2": [
+        "빨간 숫자를 읽기 전, 어떤 검사인지",
+        "표시를 다음 질문으로 바꾸는 표",
+        "양성·음성·판정 불확실은 무엇이 다른가요?",
+        "이전 결과와 비교할 때 빠뜨리기 쉬운 조건",
+        "결과지를 덮기 전, 다음 연락과 날짜를 확인하세요",
+        "결과 표시를 보고 생기는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/reading-health-results",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,446 @@
+{
+  "route": "/health/gastroesophageal-reflux-disease",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T13:30:06.117Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "5df218b0c0b140a22e5b9bbfea9a6a24e4c6cd59c69f028e6120232acf1b6238",
+      "full": "e8dd57f4417747f59bfbd0466726b4e71a770048f6576482730683999c1e7573"
+    },
+    {
+      "width": 390,
+      "top": "77761a589fab55bd74299d86e1d8556594dc1d44f900da03ccfcd8d932693f0e",
+      "full": "5955c7f0502a4779a6f0f7caefb9a6504a807dea0cb13d4f8521984448b48d04"
+    },
+    {
+      "width": 430,
+      "top": "c029b09081419378b7dc6a45e195773bb32c296ccc29a92d6b070373684ce501",
+      "full": "59c8fcd37f9d2ead12d12e02f078db0ee499cd13cdb4de196df8b69d389c10b5"
+    },
+    {
+      "width": 768,
+      "top": "6cd021f36367ef90cd605c19016bd5cf121fcec41dc09c260e886f37c28fa628",
+      "full": "fb48020792f9851299790ceee3efc9b6e4034713acb215b23b377d4240f1dd4b"
+    },
+    {
+      "width": 1440,
+      "top": "e88e913a82d2ba77c87cb9d460641f8c4e07b0c50c58e250fab210245314c28a",
+      "full": "c80bcc5eed6aa3decc9ee8d4459119600842c686a7ac6987ee60c3ac7b8f6fbe"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "위식도역류질환 증상과 역류성 식도염 차이 | 오누림",
+      "h1": [
+        "역류질환과 식도염, 무엇이 다를까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "현상·질환·염증을 나누면 결과지가 덜 헷갈립니다",
+        "위의 내용물이 식도 쪽으로 올라올 때",
+        "음식 이름 옆에 식사·눕기·불편 시각을 적습니다",
+        "모든 사람이 곧바로 내시경을 받는 것은 아닙니다",
+        "생활 조정과 약의 역할을 따로 확인합니다",
+        "시간표보다 진료 확인을 앞세울 변화",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/gastroesophageal-reflux-disease",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fhero.webp&w=3840&q=75",
+          "alt": "식사와 자세, 불편의 시간 흐름을 관찰 노트에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fexplainer.webp&w=3840&q=75",
+          "alt": "위 내용물이 식도 쪽으로 올라오는 흐름을 세 단계로 단순화한 교육용 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fchecklist.webp&w=3840&q=75",
+          "alt": "두 성인이 식사 뒤 증상 시간표와 질문 카드를 함께 살피는 교육용 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 492
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "위식도역류질환 증상과 역류성 식도염 차이 | 오누림",
+      "h1": [
+        "역류질환과 식도염, 무엇이 다를까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "현상·질환·염증을 나누면 결과지가 덜 헷갈립니다",
+        "위의 내용물이 식도 쪽으로 올라올 때",
+        "음식 이름 옆에 식사·눕기·불편 시각을 적습니다",
+        "모든 사람이 곧바로 내시경을 받는 것은 아닙니다",
+        "생활 조정과 약의 역할을 따로 확인합니다",
+        "시간표보다 진료 확인을 앞세울 변화",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/gastroesophageal-reflux-disease",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fhero.webp&w=3840&q=75",
+          "alt": "식사와 자세, 불편의 시간 흐름을 관찰 노트에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fexplainer.webp&w=3840&q=75",
+          "alt": "위 내용물이 식도 쪽으로 올라오는 흐름을 세 단계로 단순화한 교육용 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fchecklist.webp&w=3840&q=75",
+          "alt": "두 성인이 식사 뒤 증상 시간표와 질문 카드를 함께 살피는 교육용 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "위식도역류질환 증상과 역류성 식도염 차이 | 오누림",
+      "h1": [
+        "역류질환과 식도염, 무엇이 다를까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "현상·질환·염증을 나누면 결과지가 덜 헷갈립니다",
+        "위의 내용물이 식도 쪽으로 올라올 때",
+        "음식 이름 옆에 식사·눕기·불편 시각을 적습니다",
+        "모든 사람이 곧바로 내시경을 받는 것은 아닙니다",
+        "생활 조정과 약의 역할을 따로 확인합니다",
+        "시간표보다 진료 확인을 앞세울 변화",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/gastroesophageal-reflux-disease",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fhero.webp&w=3840&q=75",
+          "alt": "식사와 자세, 불편의 시간 흐름을 관찰 노트에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fexplainer.webp&w=3840&q=75",
+          "alt": "위 내용물이 식도 쪽으로 올라오는 흐름을 세 단계로 단순화한 교육용 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fchecklist.webp&w=3840&q=75",
+          "alt": "두 성인이 식사 뒤 증상 시간표와 질문 카드를 함께 살피는 교육용 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "위식도역류질환 증상과 역류성 식도염 차이 | 오누림",
+      "h1": [
+        "역류질환과 식도염, 무엇이 다를까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "현상·질환·염증을 나누면 결과지가 덜 헷갈립니다",
+        "위의 내용물이 식도 쪽으로 올라올 때",
+        "음식 이름 옆에 식사·눕기·불편 시각을 적습니다",
+        "모든 사람이 곧바로 내시경을 받는 것은 아닙니다",
+        "생활 조정과 약의 역할을 따로 확인합니다",
+        "시간표보다 진료 확인을 앞세울 변화",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/gastroesophageal-reflux-disease",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fhero.webp&w=3840&q=75",
+          "alt": "식사와 자세, 불편의 시간 흐름을 관찰 노트에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fexplainer.webp&w=3840&q=75",
+          "alt": "위 내용물이 식도 쪽으로 올라오는 흐름을 세 단계로 단순화한 교육용 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fchecklist.webp&w=3840&q=75",
+          "alt": "두 성인이 식사 뒤 증상 시간표와 질문 카드를 함께 살피는 교육용 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "위식도역류질환 증상과 역류성 식도염 차이 | 오누림",
+      "h1": [
+        "역류질환과 식도염, 무엇이 다를까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "현상·질환·염증을 나누면 결과지가 덜 헷갈립니다",
+        "위의 내용물이 식도 쪽으로 올라올 때",
+        "음식 이름 옆에 식사·눕기·불편 시각을 적습니다",
+        "모든 사람이 곧바로 내시경을 받는 것은 아닙니다",
+        "생활 조정과 약의 역할을 따로 확인합니다",
+        "시간표보다 진료 확인을 앞세울 변화",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/gastroesophageal-reflux-disease",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fhero.webp&w=3840&q=75",
+          "alt": "식사와 자세, 불편의 시간 흐름을 관찰 노트에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fexplainer.webp&w=3840&q=75",
+          "alt": "위 내용물이 식도 쪽으로 올라오는 흐름을 세 단계로 단순화한 교육용 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgastroesophageal-reflux-disease%2Fchecklist.webp&w=3840&q=75",
+          "alt": "두 성인이 식사 뒤 증상 시간표와 질문 카드를 함께 살피는 교육용 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

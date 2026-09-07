@@ -1,0 +1,57 @@
+{
+  "route": "/health/tools/diabetes-questions",
+  "observedAt": "2026-09-06T12:31:45.479Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "가져갈 검사 결과지: 검사명·검사일·단위",
+    "이미 남긴 혈당 기록·현재 약 목록에서 확인할 점"
+  ],
+  "sourceHrefs": [
+    "https://www.niddk.nih.gov/health-information/diabetes/overview/managing-diabetes",
+    "https://www.niddk.nih.gov/health-information/diagnostic-tests/a1c-test",
+    "https://www.nhs.uk/conditions/low-blood-sugar-hypoglycaemia/",
+    "https://www.cdc.gov/diabetes/about/diabetic-ketoacidosis.html",
+    "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6226"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 5,
+    "overflow": 0,
+    "footerText": "제2형 당뇨병 진료 질문지 · 양식·안내 수정 2026-09-06교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료NIH/NIDDK — Managing DiabetesNIH/NIDDK — The A1C Test & DiabetesNHS — Low blood sugar (hypoglycaemia)CDC — Diabetic Ketoacidosis질병관리청 국가건강정보포털 — 심폐소생술의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 2
+  },
+  "links": [
+    {
+      "href": "/health/type-2-diabetes",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/understanding-hba1c",
+      "status": 200
+    },
+    {
+      "href": "/health/tools/glucose-observation-log",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/appointment-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "7cc06e8ae4a6d1db9335ea8055c8927b34ea58ea7e1e7043dd02454a8786b805",
+  "pdfBytes": 120669,
+  "failures": []
+}

@@ -1,0 +1,291 @@
+{
+  "route": "/health/tools/diabetes-test-terms",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T12:48:41.824Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "3fce4004a3869a2ef3970efb75a681085d42c0cbf5655ff2a5c539f5e2f9fe21",
+      "full": "27020e6479df0a78cec2b9090bec470bf4e82a5f89f83bdbd47a4bf19549f9d4"
+    },
+    {
+      "width": 390,
+      "top": "d000c08c9196be994965c41b8988bf659a6f0163667cd1c8555b2bd898ba7380",
+      "full": "77da6eaa6d366c57211d5d152f8ad275371557e8e0ed8e5844795a6e55224323"
+    },
+    {
+      "width": 430,
+      "top": "b875b961cb02145b1788c2c1cad52000d23f0f045a86fb02e031e9abec08b509",
+      "full": "c56a81accaa7a21a577811052ddc285500197b303420f2b473e3f2d1a6ea31d7"
+    },
+    {
+      "width": 768,
+      "top": "806826b031acc34c5307d9b29b6ad999c9bea383f4293bd85f64abdbc4658d85",
+      "full": "1ca4139de75e62e1d9789de52b238e89add1b42f22ab01bce583da3bf3c23a6c"
+    },
+    {
+      "width": 1440,
+      "top": "c8ff165aad2a04182f9eed7062cc5fa265d7cebc266023d257012c4a2d444047",
+      "full": "0969a992b1d370365d70e8c339ceba2dff85c4bde799e9ee440462f66341710e"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "혈당 검사 용어 한 장: 공복혈당·HbA1c의 시간 범위 | 오누림",
+      "h1": [
+        "혈당 검사 용어 한 장"
+      ],
+      "h2": [
+        "이 자료를 읽는 순서",
+        "검사 용어와 해석의 경계",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/diabetes-test-terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 2,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "혈당 검사 용어 한 장: 공복혈당·HbA1c의 시간 범위 | 오누림",
+      "h1": [
+        "혈당 검사 용어 한 장"
+      ],
+      "h2": [
+        "이 자료를 읽는 순서",
+        "검사 용어와 해석의 경계",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/diabetes-test-terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 2,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "혈당 검사 용어 한 장: 공복혈당·HbA1c의 시간 범위 | 오누림",
+      "h1": [
+        "혈당 검사 용어 한 장"
+      ],
+      "h2": [
+        "이 자료를 읽는 순서",
+        "검사 용어와 해석의 경계",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/diabetes-test-terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 2,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "혈당 검사 용어 한 장: 공복혈당·HbA1c의 시간 범위 | 오누림",
+      "h1": [
+        "혈당 검사 용어 한 장"
+      ],
+      "h2": [
+        "이 자료를 읽는 순서",
+        "검사 용어와 해석의 경계",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/diabetes-test-terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 2,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "혈당 검사 용어 한 장: 공복혈당·HbA1c의 시간 범위 | 오누림",
+      "h1": [
+        "혈당 검사 용어 한 장"
+      ],
+      "h2": [
+        "이 자료를 읽는 순서",
+        "검사 용어와 해석의 경계",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/diabetes-test-terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 2,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

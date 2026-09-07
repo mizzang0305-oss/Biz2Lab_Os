@@ -1,0 +1,441 @@
+{
+  "route": "/health/sleep-apnea",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T15:22:30.116Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "5df141071ec8a269cccaddf633ca5ce30d435be3d8e283d7f44e6db2edfbfa2c",
+      "full": "45504d66e2bdf9040414b0150f430af1770f193ac514a2e8174007a7cae09d8f"
+    },
+    {
+      "width": 390,
+      "top": "33eda4765416c51bbdc71d0f1e066cd59f30a52e195263bce907c15f98381bd8",
+      "full": "f8e8bc18eace8237bfb4eaa5fc983ed2d5658f8d667f63b2df98a2b7e3112029"
+    },
+    {
+      "width": 430,
+      "top": "994ac5964dbfe20bb056c35c8b2ee30af0b7f3e2d6c59c78ae20397d7328a991",
+      "full": "48d90516ad63191ec1053cbebd24c2b2b9513254b51788c019c86621377553e4"
+    },
+    {
+      "width": 768,
+      "top": "e4dbc02c02eb4949a024de3d4d46167d84aee99963f942c84547e1b4f48b05af",
+      "full": "67cf672b9c9a30c68063544012e68630e1004f829e10120e7c20b4f8ca1d8c80"
+    },
+    {
+      "width": 1440,
+      "top": "a3e9132c0462d3cf799b9027ee3e127882ddddceeae8370e156fb6abb492a434",
+      "full": "fcb93c1850f48e14c0725a1f9082b0a482748a0db1a35c105f295ecdd883b602"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "수면무호흡증: 코골이·낮 졸림 기록과 수면검사 질문 | 오누림",
+      "h1": [
+        "수면무호흡증이 걱정될 때, 밤과 낮의 변화를 함께 정리하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘밤에 숨이 멎는 것 같았어’라는 말을 들었다면",
+        "밤에 본 것과 낮에 느낀 것을 두 칸으로",
+        "폐쇄성과 중추성, 같은 말은 아닙니다",
+        "일반 기기 기록과 의료 수면검사는 역할이 다릅니다",
+        "검사 뒤에는 결과와 다음 단계를 함께 물어보세요",
+        "즉시 119가 필요한 상황과 졸음운전 예방을 구분하세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/sleep-apnea",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Fhero.webp&w=3840&q=75",
+          "alt": "메모 용지와 상담 준비를 상징하는 초록색 장식 표지 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Faction-v2.webp&w=3840&q=75",
+          "alt": "가정의 식탁에서 두 가상 성인이 각자의 노트를 두고 밤의 관찰과 낮의 경험을 서로 이야기하는 AI 생성 장면",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "코와 입 뒤쪽의 열린 인두 공간과 혀·연구개 뒤의 공간이 좁아진 모습을 나란히 보여 주는 상기도 개념도",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 12,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "수면무호흡증: 코골이·낮 졸림 기록과 수면검사 질문 | 오누림",
+      "h1": [
+        "수면무호흡증이 걱정될 때, 밤과 낮의 변화를 함께 정리하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘밤에 숨이 멎는 것 같았어’라는 말을 들었다면",
+        "밤에 본 것과 낮에 느낀 것을 두 칸으로",
+        "폐쇄성과 중추성, 같은 말은 아닙니다",
+        "일반 기기 기록과 의료 수면검사는 역할이 다릅니다",
+        "검사 뒤에는 결과와 다음 단계를 함께 물어보세요",
+        "즉시 119가 필요한 상황과 졸음운전 예방을 구분하세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/sleep-apnea",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Fhero.webp&w=3840&q=75",
+          "alt": "메모 용지와 상담 준비를 상징하는 초록색 장식 표지 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Faction-v2.webp&w=3840&q=75",
+          "alt": "가정의 식탁에서 두 가상 성인이 각자의 노트를 두고 밤의 관찰과 낮의 경험을 서로 이야기하는 AI 생성 장면",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "코와 입 뒤쪽의 열린 인두 공간과 혀·연구개 뒤의 공간이 좁아진 모습을 나란히 보여 주는 상기도 개념도",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 12,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "수면무호흡증: 코골이·낮 졸림 기록과 수면검사 질문 | 오누림",
+      "h1": [
+        "수면무호흡증이 걱정될 때, 밤과 낮의 변화를 함께 정리하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘밤에 숨이 멎는 것 같았어’라는 말을 들었다면",
+        "밤에 본 것과 낮에 느낀 것을 두 칸으로",
+        "폐쇄성과 중추성, 같은 말은 아닙니다",
+        "일반 기기 기록과 의료 수면검사는 역할이 다릅니다",
+        "검사 뒤에는 결과와 다음 단계를 함께 물어보세요",
+        "즉시 119가 필요한 상황과 졸음운전 예방을 구분하세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/sleep-apnea",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Fhero.webp&w=3840&q=75",
+          "alt": "메모 용지와 상담 준비를 상징하는 초록색 장식 표지 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Faction-v2.webp&w=3840&q=75",
+          "alt": "가정의 식탁에서 두 가상 성인이 각자의 노트를 두고 밤의 관찰과 낮의 경험을 서로 이야기하는 AI 생성 장면",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "코와 입 뒤쪽의 열린 인두 공간과 혀·연구개 뒤의 공간이 좁아진 모습을 나란히 보여 주는 상기도 개념도",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 12,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "수면무호흡증: 코골이·낮 졸림 기록과 수면검사 질문 | 오누림",
+      "h1": [
+        "수면무호흡증이 걱정될 때, 밤과 낮의 변화를 함께 정리하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘밤에 숨이 멎는 것 같았어’라는 말을 들었다면",
+        "밤에 본 것과 낮에 느낀 것을 두 칸으로",
+        "폐쇄성과 중추성, 같은 말은 아닙니다",
+        "일반 기기 기록과 의료 수면검사는 역할이 다릅니다",
+        "검사 뒤에는 결과와 다음 단계를 함께 물어보세요",
+        "즉시 119가 필요한 상황과 졸음운전 예방을 구분하세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/sleep-apnea",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Fhero.webp&w=3840&q=75",
+          "alt": "메모 용지와 상담 준비를 상징하는 초록색 장식 표지 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Faction-v2.webp&w=3840&q=75",
+          "alt": "가정의 식탁에서 두 가상 성인이 각자의 노트를 두고 밤의 관찰과 낮의 경험을 서로 이야기하는 AI 생성 장면",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "코와 입 뒤쪽의 열린 인두 공간과 혀·연구개 뒤의 공간이 좁아진 모습을 나란히 보여 주는 상기도 개념도",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 12,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "수면무호흡증: 코골이·낮 졸림 기록과 수면검사 질문 | 오누림",
+      "h1": [
+        "수면무호흡증이 걱정될 때, 밤과 낮의 변화를 함께 정리하기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘밤에 숨이 멎는 것 같았어’라는 말을 들었다면",
+        "밤에 본 것과 낮에 느낀 것을 두 칸으로",
+        "폐쇄성과 중추성, 같은 말은 아닙니다",
+        "일반 기기 기록과 의료 수면검사는 역할이 다릅니다",
+        "검사 뒤에는 결과와 다음 단계를 함께 물어보세요",
+        "즉시 119가 필요한 상황과 졸음운전 예방을 구분하세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/sleep-apnea",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Fhero.webp&w=3840&q=75",
+          "alt": "메모 용지와 상담 준비를 상징하는 초록색 장식 표지 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Faction-v2.webp&w=3840&q=75",
+          "alt": "가정의 식탁에서 두 가상 성인이 각자의 노트를 두고 밤의 관찰과 낮의 경험을 서로 이야기하는 AI 생성 장면",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fsleep-apnea%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "코와 입 뒤쪽의 열린 인두 공간과 혀·연구개 뒤의 공간이 좁아진 모습을 나란히 보여 주는 상기도 개념도",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 12,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "route": "/health/trust/corrections-policy",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T16:52:18.763Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "69631b108ff597f97cf5f85708a222f0f2584c1806bfbc1ae3312c51abac8333",
+      "full": "74f833d1f6d07c9562434c1062c7fd593e14b767da4979d1588fce48c7de9356"
+    },
+    {
+      "width": 390,
+      "top": "ed1e1f9f80d3eda03fc9308f07a78ba7b03c4a889c3d7160b3cf2501b6450a93",
+      "full": "8df12227973dfbf1ed1cf7c7a13dde9f258d55d3fba7b1bbf46ee4203232476b"
+    },
+    {
+      "width": 430,
+      "top": "20ee78e1180cb4277c12a20130fe37bbb8abb9e23b0c5e572ea37f4c6153c5e0",
+      "full": "a5f33299950d23f9530c3ace45110bfbfc2bc12c8484d98787aad6d0f8d4a9f7"
+    },
+    {
+      "width": 768,
+      "top": "591f3963403114fd35a3f314cd9ea6f35b90c846f5dc52cc32f17140889913ce",
+      "full": "7f83e5d31e263edf7b5ddb4edae106b59ca172be6d1de87fc81b3399f531cc82"
+    },
+    {
+      "width": 1440,
+      "top": "5ca68a06d8965be8267bd2e6e29ead41202cdef6a636d753c41f90ddc87ce286",
+      "full": "fe51d5c41111c90fba75d6f8d22a733475bd930e7f6eec6f6932c8410fc4a677"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "오누림 정정 정책: 오류 제보와 접수 경로 확인 | 오누림",
+      "h1": [
+        "정정 정책"
+      ],
+      "h2": [
+        "제보 경로의 현재 확인 상태",
+        "제보 경로를 이용할 수 있을 때 필요한 내용",
+        "공개 게시물에 올리지 마세요",
+        "정정 내용을 확인하고 반영하는 원칙",
+        "정정 문의가 아닌 경우"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/corrections-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "오누림 정정 정책: 오류 제보와 접수 경로 확인 | 오누림",
+      "h1": [
+        "정정 정책"
+      ],
+      "h2": [
+        "제보 경로의 현재 확인 상태",
+        "제보 경로를 이용할 수 있을 때 필요한 내용",
+        "공개 게시물에 올리지 마세요",
+        "정정 내용을 확인하고 반영하는 원칙",
+        "정정 문의가 아닌 경우"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/corrections-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "오누림 정정 정책: 오류 제보와 접수 경로 확인 | 오누림",
+      "h1": [
+        "정정 정책"
+      ],
+      "h2": [
+        "제보 경로의 현재 확인 상태",
+        "제보 경로를 이용할 수 있을 때 필요한 내용",
+        "공개 게시물에 올리지 마세요",
+        "정정 내용을 확인하고 반영하는 원칙",
+        "정정 문의가 아닌 경우"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/corrections-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "오누림 정정 정책: 오류 제보와 접수 경로 확인 | 오누림",
+      "h1": [
+        "정정 정책"
+      ],
+      "h2": [
+        "제보 경로의 현재 확인 상태",
+        "제보 경로를 이용할 수 있을 때 필요한 내용",
+        "공개 게시물에 올리지 마세요",
+        "정정 내용을 확인하고 반영하는 원칙",
+        "정정 문의가 아닌 경우"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/corrections-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "오누림 정정 정책: 오류 제보와 접수 경로 확인 | 오누림",
+      "h1": [
+        "정정 정책"
+      ],
+      "h2": [
+        "제보 경로의 현재 확인 상태",
+        "제보 경로를 이용할 수 있을 때 필요한 내용",
+        "공개 게시물에 올리지 마세요",
+        "정정 내용을 확인하고 반영하는 원칙",
+        "정정 문의가 아닌 경우"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/corrections-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

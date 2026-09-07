@@ -1,0 +1,281 @@
+{
+  "route": "/health/trust/author",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T16:59:12.347Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "ec7ae4b16dd3ca03c9e55fc33db880c994eaf07faf96ef083e2d8ca3656fdec6",
+      "full": "6cc9538214ea105724b23f27bafd8ba839f5512ffcd011b34aab67f760fac6ff"
+    },
+    {
+      "width": 390,
+      "top": "6bacecc7f631266053c577010b95fc425d49c0df2428d872765165e2d0f40134",
+      "full": "94ff361b4dd6ae977e00db07dfc9f70bb0afaedf189866ebb7d8b4e47b0170cb"
+    },
+    {
+      "width": 430,
+      "top": "d185ce311e39c9646781afde12af5a6a2d74f7d9dd20a13d000092d99c0cd3a8",
+      "full": "f0e64deebcf82dec6a2edc3b48a4702056abc3f62cce4868867818b173e7b88d"
+    },
+    {
+      "width": 768,
+      "top": "cc0873c394cd7053d3a1a9857a9bfd0b4304a8ab18ed4e06e624107f9986b866",
+      "full": "16924e8652dbdc8d824a7a31b214df6ad30f8ae27791baee68933ca556c70a00"
+    },
+    {
+      "width": 1440,
+      "top": "53eec13be7b9ec99ac295a6dfdf55f4c25ecb0db262d041f6c68276e662774d1",
+      "full": "126ab2f4e276817b54a8abb18bbaf8bba2775227177cde781d1b58846b711e03"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "박영훈: 오누림 비의료인 건강정보 편집자의 역할 | 오누림",
+      "h1": [
+        "박영훈 · 비의료인 건강정보 편집자"
+      ],
+      "h2": [
+        "편집자로서 맡는 일",
+        "의료 전문가로 소개하지 않습니다",
+        "AI 보조와 작성자의 역할",
+        "의료 검토와 정정은 어떻게 확인하나요?"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/author",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "ProfilePage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "박영훈: 오누림 비의료인 건강정보 편집자의 역할 | 오누림",
+      "h1": [
+        "박영훈 · 비의료인 건강정보 편집자"
+      ],
+      "h2": [
+        "편집자로서 맡는 일",
+        "의료 전문가로 소개하지 않습니다",
+        "AI 보조와 작성자의 역할",
+        "의료 검토와 정정은 어떻게 확인하나요?"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/author",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "ProfilePage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "박영훈: 오누림 비의료인 건강정보 편집자의 역할 | 오누림",
+      "h1": [
+        "박영훈 · 비의료인 건강정보 편집자"
+      ],
+      "h2": [
+        "편집자로서 맡는 일",
+        "의료 전문가로 소개하지 않습니다",
+        "AI 보조와 작성자의 역할",
+        "의료 검토와 정정은 어떻게 확인하나요?"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/author",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "ProfilePage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "박영훈: 오누림 비의료인 건강정보 편집자의 역할 | 오누림",
+      "h1": [
+        "박영훈 · 비의료인 건강정보 편집자"
+      ],
+      "h2": [
+        "편집자로서 맡는 일",
+        "의료 전문가로 소개하지 않습니다",
+        "AI 보조와 작성자의 역할",
+        "의료 검토와 정정은 어떻게 확인하나요?"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/author",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "ProfilePage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "박영훈: 오누림 비의료인 건강정보 편집자의 역할 | 오누림",
+      "h1": [
+        "박영훈 · 비의료인 건강정보 편집자"
+      ],
+      "h2": [
+        "편집자로서 맡는 일",
+        "의료 전문가로 소개하지 않습니다",
+        "AI 보조와 작성자의 역할",
+        "의료 검토와 정정은 어떻게 확인하나요?"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/author",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "ProfilePage",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

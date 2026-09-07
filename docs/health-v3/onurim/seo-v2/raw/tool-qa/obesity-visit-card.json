@@ -1,0 +1,62 @@
+{
+  "route": "/health/tools/obesity-visit-card",
+  "observedAt": "2026-09-06T14:47:43.144Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "체중·옷의 맞음새 변화 시기 / 함께 생긴 불편",
+    "수면·일상 여건 / 현재 질환·약·보충제와 변경 시기",
+    "먼저 상담할 어려움 / 원하는 도움·혼자 하고 싶은 일"
+  ],
+  "sourceHrefs": [
+    "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/factors-affecting-weight-health",
+    "https://www.niddk.nih.gov/health-information/professionals/clinical-tools-patient-management/weight-management/talking-with-your-patients-about-weight",
+    "https://medlineplus.gov/ency/article/003084.htm",
+    "https://medlineplus.gov/ency/article/003104.htm",
+    "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6226"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 5,
+    "overflow": 0,
+    "footerText": "비만 상담 메모 · 양식·안내 수정 2026-09-06교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료NIH/NIDDK — Factors Affecting Weight & HealthNIH/NIDDK — Talking with Your Patients about WeightMedlinePlus / A.D.A.M. — Weight gain - unintentionalMedlinePlus / A.D.A.M. — Foot, leg, and ankle swelling질병관리청 국가건강정보포털 — 심폐소생술의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 3,
+    "checkedItems": 0,
+    "focusedCheckbox": false,
+    "footerParagraphFontPx": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "links": [
+    {
+      "href": "/health/obesity",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/medication-list",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/appointment-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "f5929de2c235a89624248fe4f75f5ef546228bd01de2666ce6a80ad6afb6d158",
+  "pdfBytes": 136462,
+  "failures": []
+}

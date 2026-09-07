@@ -1,0 +1,356 @@
+{
+  "route": "/health/guides/symptom-journal",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T11:02:48.378Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "c037d51db30e3a7becf2622c60dd4c18299addc03ec6fa3be96e7b8f0ba735d1",
+      "full": "5f3aefc2e890b097877bcc666832d44b6919b0e8943c86bcf7025c837c97a44d"
+    },
+    {
+      "width": 390,
+      "top": "cfdeea9bff74f4cbc9e4e1a7fc4fff06e2317be57aac852fa390bc4467e8c115",
+      "full": "909b39495e5acfa1c66b0ed0d48dc2ec3017a60169cc9fdc3413eac7c8263c19"
+    },
+    {
+      "width": 430,
+      "top": "e9edf35d86c9082036b2545aaffc194d42d4268befd03e2e4ab52a4c7dccc6d2",
+      "full": "5a6333c1bbd8ff4b75a84c12895be4d6c7ef340e26cb275a00bc5b5a90c8f66f"
+    },
+    {
+      "width": 768,
+      "top": "7433866aa41961386b55cea261d75c9c38e69beb6ace8263ef0af0094a1c8eb3",
+      "full": "8a15279b597e3850ee3fd178b46cf9ec629c4a1587209ee173c3fa6c955163f5"
+    },
+    {
+      "width": 1440,
+      "top": "d6c8f3ed4ff493b6c08b5d91befbe2171d0f476064afa4372e79ed0f1b804c6f",
+      "full": "a05c345a79d35921d57796718fd5589d5574786562d5fc52d4a496b5b4396277"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "증상일지 쓰는 법: 시작·변화·일상 영향을 진료에 전하기 | 오누림",
+      "h1": [
+        "아픈 증상을 짧고 정확하게 기록하는 방법"
+      ],
+      "h2": [
+        "위험 신호라면 기록을 완성하지 말고 119",
+        "처음부터 긴 일지 대신, 네 가지를 적습니다",
+        "‘느낀 것’과 ‘원인이라고 생각한 것’을 나눕니다",
+        "증상에 따라 추가할 정보가 달라집니다",
+        "진료에서는 가장 걱정되는 변화부터 전달합니다",
+        "기록을 시작할 때 막히는 부분",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/symptom-journal",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "증상일지 쓰는 법: 시작·변화·일상 영향을 진료에 전하기 | 오누림",
+      "h1": [
+        "아픈 증상을 짧고 정확하게 기록하는 방법"
+      ],
+      "h2": [
+        "위험 신호라면 기록을 완성하지 말고 119",
+        "처음부터 긴 일지 대신, 네 가지를 적습니다",
+        "‘느낀 것’과 ‘원인이라고 생각한 것’을 나눕니다",
+        "증상에 따라 추가할 정보가 달라집니다",
+        "진료에서는 가장 걱정되는 변화부터 전달합니다",
+        "기록을 시작할 때 막히는 부분",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/symptom-journal",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "증상일지 쓰는 법: 시작·변화·일상 영향을 진료에 전하기 | 오누림",
+      "h1": [
+        "아픈 증상을 짧고 정확하게 기록하는 방법"
+      ],
+      "h2": [
+        "위험 신호라면 기록을 완성하지 말고 119",
+        "처음부터 긴 일지 대신, 네 가지를 적습니다",
+        "‘느낀 것’과 ‘원인이라고 생각한 것’을 나눕니다",
+        "증상에 따라 추가할 정보가 달라집니다",
+        "진료에서는 가장 걱정되는 변화부터 전달합니다",
+        "기록을 시작할 때 막히는 부분",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/symptom-journal",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "증상일지 쓰는 법: 시작·변화·일상 영향을 진료에 전하기 | 오누림",
+      "h1": [
+        "아픈 증상을 짧고 정확하게 기록하는 방법"
+      ],
+      "h2": [
+        "위험 신호라면 기록을 완성하지 말고 119",
+        "처음부터 긴 일지 대신, 네 가지를 적습니다",
+        "‘느낀 것’과 ‘원인이라고 생각한 것’을 나눕니다",
+        "증상에 따라 추가할 정보가 달라집니다",
+        "진료에서는 가장 걱정되는 변화부터 전달합니다",
+        "기록을 시작할 때 막히는 부분",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/symptom-journal",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "증상일지 쓰는 법: 시작·변화·일상 영향을 진료에 전하기 | 오누림",
+      "h1": [
+        "아픈 증상을 짧고 정확하게 기록하는 방법"
+      ],
+      "h2": [
+        "위험 신호라면 기록을 완성하지 말고 119",
+        "처음부터 긴 일지 대신, 네 가지를 적습니다",
+        "‘느낀 것’과 ‘원인이라고 생각한 것’을 나눕니다",
+        "증상에 따라 추가할 정보가 달라집니다",
+        "진료에서는 가장 걱정되는 변화부터 전달합니다",
+        "기록을 시작할 때 막히는 부분",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/symptom-journal",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

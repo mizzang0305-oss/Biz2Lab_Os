@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { HealthToolPage } from "@/components/health/HealthToolPage";
 import { getHealthTool, healthTools } from "@/lib/health-v3/content";
+import { toolEditorial } from "@/lib/health-v3/tool-editorial";
 import { createMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
@@ -14,7 +15,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const tool = getHealthTool(slug);
-  return tool ? createMetadata({ title: tool.title, description: tool.description, path: `/health/tools/${slug}` }) : {};
+  const editorial = toolEditorial[slug];
+  return tool ? createMetadata({ title: editorial?.title ?? tool.title, description: editorial?.description ?? tool.description, path: `/health/tools/${slug}`, noindex: editorial?.indexDecision === "NOINDEX_FOLLOW", follow: true }) : {};
 }
 
 export default async function ToolPage({ params }: { params: Promise<{ slug: string }> }) {

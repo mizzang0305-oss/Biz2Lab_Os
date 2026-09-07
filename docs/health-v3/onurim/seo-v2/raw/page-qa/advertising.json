@@ -1,0 +1,271 @@
+{
+  "route": "/health/trust/advertising",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T17:26:07.081Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "8ea46eeb6fc023449913c9c697df5f1faec1c5752b3803e8af66bf8ef0d59cfd",
+      "full": "c21b0e7eb62895a16577e2f2190fa66d200c18c313b5510b2faf032f9a7dfea0"
+    },
+    {
+      "width": 390,
+      "top": "9723d1bc1fa174b147ad72413f1f4acdac7b4a69bf59d7df11bd3b5ed66d81e1",
+      "full": "5cae085530ea906a4f8f770b7cbd78cb18ab03500fa7054a555acd57a15d2f93"
+    },
+    {
+      "width": 430,
+      "top": "8de61e8cd6e95a03d343252069e159aee975b9262345afca59a1f16770cc18e1",
+      "full": "76e7ab09f461693833bd0c180b543097aa84de7b0111db7cc39d5d2a0bb3ce2a"
+    },
+    {
+      "width": 768,
+      "top": "775edceb1e867f44ccd3b47113c24c83643d2cb9ede0b77875f858c4cbd813a3",
+      "full": "c733fa3a095b9a9f0ad10c407a35e20676937c61505581831b61d5fe5fbdb8f4"
+    },
+    {
+      "width": 1440,
+      "top": "afb91709ca3207c2a142afb78eaf9d01713b2ace84fd3c0a7a2080511a45815b",
+      "full": "210ff9ef33d73ae6cef81138f2a2b60acfa53bc1489d1ea39888407bcc46c8bc"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "오누림 광고 정책: 편집 독립성과 의료 권고의 구분 | 오누림",
+      "h1": [
+        "광고 정책"
+      ],
+      "h2": [
+        "광고보다 질문과 출처가 편집 기준입니다",
+        "광고가 노출될 때의 구분",
+        "과장된 표현과 정보 처리"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/advertising",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "오누림 광고 정책: 편집 독립성과 의료 권고의 구분 | 오누림",
+      "h1": [
+        "광고 정책"
+      ],
+      "h2": [
+        "광고보다 질문과 출처가 편집 기준입니다",
+        "광고가 노출될 때의 구분",
+        "과장된 표현과 정보 처리"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/advertising",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "오누림 광고 정책: 편집 독립성과 의료 권고의 구분 | 오누림",
+      "h1": [
+        "광고 정책"
+      ],
+      "h2": [
+        "광고보다 질문과 출처가 편집 기준입니다",
+        "광고가 노출될 때의 구분",
+        "과장된 표현과 정보 처리"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/advertising",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "오누림 광고 정책: 편집 독립성과 의료 권고의 구분 | 오누림",
+      "h1": [
+        "광고 정책"
+      ],
+      "h2": [
+        "광고보다 질문과 출처가 편집 기준입니다",
+        "광고가 노출될 때의 구분",
+        "과장된 표현과 정보 처리"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/advertising",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "오누림 광고 정책: 편집 독립성과 의료 권고의 구분 | 오누림",
+      "h1": [
+        "광고 정책"
+      ],
+      "h2": [
+        "광고보다 질문과 출처가 편집 기준입니다",
+        "광고가 노출될 때의 구분",
+        "과장된 표현과 정보 처리"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/advertising",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

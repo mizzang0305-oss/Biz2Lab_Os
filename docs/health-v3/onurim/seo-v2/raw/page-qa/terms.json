@@ -1,0 +1,271 @@
+{
+  "route": "/health/trust/terms",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T17:31:55.272Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "71bd795f65676e7c14444a7d327a4f58ff32edb4ea4cf88a1927ff235bbb6a5e",
+      "full": "ae3b8cbf46faa521b8df4a0aedc2f9ff8496ae9fd7acf57963b2a518f8b5bb55"
+    },
+    {
+      "width": 390,
+      "top": "75e3f6b77994796eff48c0be70d97f8041ec89e8f9ae3afbe859d2b88f6de3eb",
+      "full": "7cee10d6f2617eb6aeb083a946dfc73d2567407db59ba7da79e08dea12930c14"
+    },
+    {
+      "width": 430,
+      "top": "4448c4a069b3ff2090905da3a954b2ed595eb4305e41e4ce2407ee7e0b1bc588",
+      "full": "29bed8e68139e81f15f9337abce8cbda5bfcc47a69d812195cb3e16ae93f14a3"
+    },
+    {
+      "width": 768,
+      "top": "1feee7d3d329b80a6b8a99e12eda5746fab54e9865aefd51fd0a67c3deba2e4e",
+      "full": "f7620e422a4f8c9ac243020cea26e1eb1653e05e219e04af61f59b3403441d4a"
+    },
+    {
+      "width": 1440,
+      "top": "244a17840dd1ced2adb9b2c17588cb9f226b3e5a4f02ce1c1acbf2f9277eaf05",
+      "full": "e45c5da25d7d66639b68cac48a72cb7d8b7d4f3b47d318893bc9faaedfb0e050"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "오누림 이용약관: 개인 이용 범위와 자료 변경 안내 | 오누림",
+      "h1": [
+        "이용약관"
+      ],
+      "h2": [
+        "개인 이용 범위",
+        "의료적 한계",
+        "자료의 변경과 정정"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "오누림 이용약관: 개인 이용 범위와 자료 변경 안내 | 오누림",
+      "h1": [
+        "이용약관"
+      ],
+      "h2": [
+        "개인 이용 범위",
+        "의료적 한계",
+        "자료의 변경과 정정"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "오누림 이용약관: 개인 이용 범위와 자료 변경 안내 | 오누림",
+      "h1": [
+        "이용약관"
+      ],
+      "h2": [
+        "개인 이용 범위",
+        "의료적 한계",
+        "자료의 변경과 정정"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "오누림 이용약관: 개인 이용 범위와 자료 변경 안내 | 오누림",
+      "h1": [
+        "이용약관"
+      ],
+      "h2": [
+        "개인 이용 범위",
+        "의료적 한계",
+        "자료의 변경과 정정"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "오누림 이용약관: 개인 이용 범위와 자료 변경 안내 | 오누림",
+      "h1": [
+        "이용약관"
+      ],
+      "h2": [
+        "개인 이용 범위",
+        "의료적 한계",
+        "자료의 변경과 정정"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/terms",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

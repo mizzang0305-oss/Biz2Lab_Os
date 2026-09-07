@@ -348,6 +348,7 @@
 
 :global(.onurim-article) { padding-top: 3.5rem; }
 :global(.onurim-article-hero) { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(19rem, 0.9fr); gap: 2.5rem; align-items: center; }
+:global(.onurim-article-hero > *) { min-width: 0; }
 :global(.onurim-article-hero h1) { margin: 0; font-size: clamp(2.6rem, 6vw, 5rem); letter-spacing: -0.06em; }
 :global(.onurim-lead) { max-width: 42rem; color: var(--onu-muted); font-size: 1.2rem; }
 :global(.onurim-review-strip) { display: flex; margin-top: 1.4rem; flex-wrap: wrap; gap: 0.5rem; }
@@ -375,6 +376,37 @@
 :global(.onurim-urgent-jump:hover) { background: var(--onu-warning-bg); }
 :global(.onurim-urgent-jump:focus-visible),
 :global(.onurim-byline a:focus-visible) { outline: 3px solid #0f766e; outline-offset: 3px; }
+
+:global(.onurim-body-theater) { display: grid; margin-top: 3rem; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--onu-line); border-radius: 1.4rem; background: linear-gradient(135deg, #f7fcfa, #f6efe3); grid-template-columns: minmax(0, 0.9fr) minmax(20rem, 1.1fr); align-items: center; gap: 2rem; overflow: hidden; }
+:global(.onurim-body-theater-copy h2) { margin: 0; font-size: clamp(1.55rem, 3vw, 2.25rem); line-height: 1.25; letter-spacing: -0.04em; }
+:global(.onurim-body-theater-copy > p:not(.onurim-mini-label)) { color: var(--onu-muted); }
+:global(.onurim-body-theater-copy ol) { display: grid; margin: 1.25rem 0 0; padding: 0; list-style: none; gap: 0.55rem; }
+:global(.onurim-body-theater-copy li) { display: flex; align-items: center; gap: 0.7rem; color: var(--onu-ink); font-weight: 750; }
+:global(.onurim-body-theater-copy li span) { display: grid; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--onu-green-dark); color: white; font-size: 0.74rem; place-items: center; }
+:global(.onurim-body-theater figure) { min-width: 0; margin: 0; }
+:global(.onurim-body-theater svg) { display: block; width: 100%; height: auto; }
+:global(.onurim-body-theater figcaption) { margin-top: 0.65rem; color: var(--onu-muted); font-size: 0.76rem; line-height: 1.55; }
+:global(.onurim-theater-bg) { fill: rgb(255 255 255 / 78%); stroke: #c8ddd6; }
+:global(.onurim-theater-primary),
+:global(.onurim-theater-secondary) { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+:global(.onurim-theater-primary) { stroke: var(--onu-green-dark); stroke-width: 9; }
+:global(.onurim-theater-secondary) { stroke: #c7975b; stroke-width: 5; stroke-dasharray: 7 10; animation: onurim-dash 7s linear infinite; }
+:global(.onurim-theater-focus) { fill: #f0b37f; stroke: white; stroke-width: 5; transform-box: fill-box; transform-origin: center; animation: onurim-focus 2.6s ease-in-out infinite; }
+:global(.onurim-theater-runner) { fill: #fff; stroke: var(--onu-green); stroke-width: 4; }
+:global(.onurim-body-theater[data-motion="breathe"] .onurim-theater-primary) { animation: onurim-breathe 4.8s ease-in-out infinite; transform-origin: center; }
+:global(.onurim-body-theater[data-motion="shift"] .onurim-theater-focus) { animation-duration: 4.1s; }
+:global(.onurim-body-theater[data-motion="signal"] .onurim-theater-secondary) { animation-duration: 2.8s; }
+:global(.onurim-body-theater[data-motion="pulse"] .onurim-theater-focus) { animation-duration: 1.9s; }
+:global(.onurim-body-theater-sources) { grid-column: 1 / -1; margin: 0; color: var(--onu-muted); font-size: 0.78rem; }
+:global(.onurim-body-theater-sources a) { color: var(--onu-green-dark); font-weight: 750; text-underline-offset: 0.2em; }
+@keyframes onurim-dash { to { stroke-dashoffset: -68; } }
+@keyframes onurim-focus { 0%, 100% { transform: scale(0.82); opacity: 0.72; } 50% { transform: scale(1.18); opacity: 1; } }
+@keyframes onurim-breathe { 0%, 100% { transform: scaleY(0.92); } 50% { transform: scaleY(1.08); } }
+
+@media (prefers-reduced-motion: reduce) {
+  :global(.onurim-body-theater *) { animation: none !important; }
+  :global(.onurim-theater-runner) { display: none; }
+}
 
 :global(.onurim-article-grid) { display: grid; margin-top: 4rem; grid-template-columns: minmax(0, 1fr) 19rem; gap: 3rem; align-items: start; }
 :global(.onurim-content-section) { padding: 2.8rem 0; border-top: 1px solid var(--onu-line); }
@@ -438,12 +470,70 @@
 :global(.onurim-emergency-action) { margin-top: 1.5rem; padding: 1rem; border: 2px solid #efb3a5; border-radius: 0.8rem; }
 :global(.onurim-emergency-action p) { margin-bottom: 0; }
 :global(.onurim-tool-footer) { margin-top: 1.5rem; color: var(--onu-muted); font-size: 0.8rem; }
+:global(.onurim-tool-header .onurim-tool-format),
+:global(.onurim-tool-header .onurim-tool-date) { font-size: 0.95rem; }
+:global(.onurim-tool-instructions),
+:global(.onurim-tool-related) { margin-top: 2rem; }
+:global(.onurim-tool-page h2) { margin: 1.4rem 0 0.8rem; font-size: 1.4rem; font-weight: 750; line-height: 1.45; }
+:global(.onurim-tool-page h3) { margin: 0 0 0.5rem; font-size: 1.1rem; font-weight: 700; }
+:global(.onurim-tool-page p) { line-height: 1.8; }
+:global(.onurim-table-help) { font-size: 0.9rem; }
+:global(.onurim-tool-instructions ol),
+:global(.onurim-tool-related ul) { padding-left: 1.4rem; list-style: revert; }
+:global(.onurim-tool-instructions li) { margin: 0.8rem 0; }
+:global(.onurim-tool-example) { padding: 1rem; border-left: 4px solid var(--onu-green); background: var(--onu-mint-soft); }
+:global(.onurim-tool-fields) { display: grid; gap: 1rem; }
+:global(.onurim-tool-item-group + .onurim-tool-item-group) { margin-top: 1.5rem; }
+:global(.onurim-tool-sheet-notice) { padding: 0.6rem; border: 1px solid #efb3a5; background: var(--onu-warning-bg); color: var(--onu-warning); break-inside: avoid; }
+:global(.onurim-tool-fields > div) { break-inside: avoid; }
+:global(.onurim-tool-fields dt) { font-weight: 700; }
+:global(.onurim-tool-fields dd) { min-height: 4rem; margin: 0; border-bottom: 1px solid #879d97; }
+:global(.onurim-table-scroll:focus-visible) { outline: 3px solid var(--onu-green); outline-offset: 4px; }
+:global(.onurim-table-scroll caption) { padding: 0.6rem 0; text-align: left; font-size: 0.95rem; }
+:global(.onurim-tool-footer .onurim-source-list) { padding-left: 1.2rem; }
+:global(.onurim-tool-footer li) { margin: 0.55rem 0; font-size: 0.9rem; overflow-wrap: anywhere; }
 
 :global(.onurim-trust-sections) { display: grid; margin-top: 3rem; gap: 1rem; }
 :global(.onurim-trust-sections section) { padding: 1.5rem; border: 1px solid var(--onu-line); border-radius: 1rem; background: white; }
 :global(.onurim-trust-sections h2) { margin: 0 0 0.6rem; font-size: 1.35rem; }
 :global(.onurim-trust-sections p) { margin: 0; color: var(--onu-muted); overflow-wrap: anywhere; }
 :global(.onurim-trust-page > footer) { margin-top: 2rem; padding: 1rem; border-radius: 0.8rem; background: var(--onu-mint); }
+
+:global(.onurim-support-page) { max-width: 880px; }
+:global(.onurim-support-page .onurim-trust-sections) { gap: 1.6rem; }
+:global(.onurim-support-page .onurim-trust-sections .onurim-tone-warning) { border: 2px solid #efb3a5; background: var(--onu-warning-bg); }
+:global(.onurim-support-page .onurim-tone-warning ul) { padding-left: 1.25rem; list-style: disc; }
+:global(.onurim-support-page .onurim-trust-sections p + p) { margin-top: 1rem; }
+:global(.onurim-support-page li) { margin: 0.65rem 0; }
+:global(.onurim-support-page a) { text-underline-offset: 0.2em; }
+:global(.onurim-support-page .onurim-section-sources) { margin-top: 1rem; font-size: 0.85rem; }
+:global(.onurim-seo-article .onurim-section-sources) { margin-top: 1rem; font-size: 0.875rem; }
+:global(.onurim-seo-article .onurim-content-section p + p) { margin-top: 1rem; }
+:global(.onurim-seo-article .onurim-context-links) { margin-top: 1.2rem; }
+:global(.onurim-support-page .onurim-state-note) { font-size: 0.875rem; line-height: 1.7; }
+:global(.onurim-app [id]) { scroll-margin-top: 10rem; }
+:global(.onurim-explainer-table) { max-width: 100%; margin-top: 1.2rem; overflow-x: auto; }
+:global(.onurim-explainer-table table) { width: 100%; border-collapse: collapse; font-size: 0.95rem; overflow-wrap: anywhere; }
+:global(.onurim-explainer-table caption) { padding: 0.6rem 0; text-align: left; font-weight: 700; }
+:global(.onurim-explainer-table th),
+:global(.onurim-explainer-table td) { padding: 0.75rem 0.6rem; border: 1px solid var(--onu-line); text-align: left; vertical-align: top; }
+:global(.onurim-explainer-table thead) { background: var(--onu-mint); }
+:global(.onurim-explainer-table th:first-child) { width: 25%; }
+:global(.onurim-explainer-table:focus-visible) { outline: 3px solid var(--onu-green); outline-offset: 3px; }
+:global(.onurim-mobile-column) { display: none; }
+@media (max-width: 600px) {
+  :global(.onurim-explainer-table table),
+  :global(.onurim-explainer-table tbody),
+  :global(.onurim-explainer-table caption),
+  :global(.onurim-explainer-table tr),
+  :global(.onurim-explainer-table td),
+  :global(.onurim-explainer-table th) { display: block; width: 100%; }
+  :global(.onurim-explainer-table thead) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  :global(.onurim-explainer-table tbody tr) { margin-bottom: 1rem; }
+  :global(.onurim-explainer-table th:first-child) { width: 100%; background: var(--onu-mint); }
+  :global(.onurim-explainer-table td) { border-top: 0; }
+  :global(.onurim-mobile-column) { display: block; margin-bottom: 0.2rem; color: var(--onu-green-dark); font-size: 0.78rem; font-weight: 700; }
+}
 :global(.onurim-not-found) { min-height: 60vh; }
 
 :global(.onurim-review-workspace) { padding-top: 3rem; }
@@ -526,7 +616,8 @@
   .nav { justify-content: flex-start; }
   :global(.onurim-home-hero),
   :global(.onurim-article-hero),
-  :global(.onurim-article-grid) { grid-template-columns: 1fr; }
+  :global(.onurim-article-grid),
+  :global(.onurim-body-theater) { grid-template-columns: 1fr; }
   :global(.onurim-orbit) { width: min(78vw, 21rem); }
   :global(.onurim-value-grid),
   :global(.onurim-process-grid),
@@ -584,17 +675,102 @@
   :global(.onurim-print-intro) { flex-direction: column; }
 }
 
+:global(.onurim-reference-list) { display: grid; gap: 0.8rem; padding-left: 1.3rem; }
+
+/* Hub-only directory: do not affect the independently certified home or articles. */
+:global(.onurim-hub) { padding-top: 2.75rem; padding-bottom: 2rem; }
+:global(.onurim-hub [id]) { scroll-margin-top: 10rem; }
+:global(.onurim-hub h1) { max-width: 48rem; margin: 1.2rem 0; font-size: clamp(2.3rem, 4.5vw, 3.8rem); line-height: 1.25; font-weight: 750; letter-spacing: -0.05em; word-break: keep-all; overflow-wrap: anywhere; }
+:global(.onurim-hub h2) { margin: 0 0 1rem; font-size: clamp(1.65rem, 3vw, 2.3rem); line-height: 1.4; font-weight: 750; letter-spacing: -0.035em; word-break: keep-all; overflow-wrap: anywhere; }
+:global(.onurim-hub h3) { margin: 0 0 0.75rem; color: var(--onu-green-dark); font-size: 1.2rem; font-weight: 750; }
+:global(.onurim-hub p) { max-width: 48rem; font-size: 1rem; }
+:global(.onurim-hub a) { color: var(--onu-green-dark); text-decoration: underline; text-underline-offset: 0.2em; }
+:global(.onurim-hub a:hover) { text-decoration-thickness: 2px; }
+:global(.onurim-hub a:focus-visible) { outline: 3px solid var(--onu-green); outline-offset: 4px; }
+:global(.onurim-hub-intro > p) { font-size: 1.15rem; color: var(--onu-muted); }
+:global(.onurim-hub-jumps),
+:global(.onurim-hub-group-jumps) { display: flex; flex-wrap: wrap; gap: 0.65rem 1.5rem; margin: 1.5rem 0; }
+:global(.onurim-hub-jumps a) { padding: 0.55rem 0.9rem; border-radius: 0.5rem; background: var(--onu-mint); font-weight: 750; }
+:global(.onurim-hub-group-jumps a) { padding-block: 0.4rem; }
+:global(.onurim-hub-urgent) { margin-top: 2rem; padding: 1.25rem 1.5rem; border-left: 5px solid var(--onu-warning); background: var(--onu-warning-bg); }
+:global(.onurim-hub-urgent h2) { color: var(--onu-warning); font-size: 1.35rem; }
+:global(.onurim-hub-urgent p) { max-width: 58rem; }
+:global(.onurim-hub .onurim-hub-source) { font-size: 0.875rem; margin-bottom: 0; }
+:global(.onurim-hub-section) { padding: 3rem 0; }
+:global(.onurim-hub-section + .onurim-hub-section) { border-top: 1px solid var(--onu-line); }
+:global(.onurim-hub-directory) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.25rem 3.5rem; margin-top: 2rem; }
+:global(.onurim-hub-directory > section) { min-width: 0; }
+:global(.onurim-hub-directory ul) { margin: 0; padding: 0; list-style: none; }
+:global(.onurim-hub-directory li) { padding: 0.75rem 0; }
+:global(.onurim-hub-directory li + li) { border-top: 1px solid var(--onu-line); }
+:global(.onurim-hub-directory a) { display: block; padding: 0.2rem 0; text-decoration: none; }
+:global(.onurim-hub-directory a strong) { display: block; font-size: 1.05rem; text-decoration: underline; text-underline-offset: 0.2em; }
+:global(.onurim-hub-directory a span) { display: block; margin-top: 0.3rem; color: var(--onu-muted); font-size: 1rem; }
+:global(.onurim-hub-directory li p) { margin: 0.5rem 0 0; color: var(--onu-muted); }
+:global(.onurim-hub-directory .onurim-hub-tool-kind) { font-size: 0.875rem; color: var(--onu-green); }
+:global(.onurim-hub-tool-directory > section) { border-top: 2px solid var(--onu-line); padding-top: 1rem; }
+:global(.onurim-hub-trust) { max-width: 52rem; }
+:global(.onurim-hub-trust ul) { padding-left: 1.2rem; }
+:global(.onurim-hub-trust li) { padding-block: 0.35rem; }
+:global(.onurim-hub .onurim-hub-date) { margin-top: 1.5rem; font-size: 0.9rem; color: var(--onu-muted); }
+@media (max-width: 620px) {
+  :global(.onurim-hub) { padding-top: 2rem; }
+  :global(.onurim-hub-directory) { grid-template-columns: 1fr; gap: 1.8rem; }
+  :global(.onurim-hub-jumps) { gap: 0.6rem; }
+  :global(.onurim-hub-jumps a) { font-size: 0.95rem; }
+  :global(.onurim-hub-urgent) { padding: 1rem; }
+  :global(.onurim-hub-section) { padding: 2.25rem 0; }
+}
+
 @media print {
-  .header,
-  .footer,
-  :global(.onurim-tool-actions),
-  :global(.onurim-tool-footer) { display: none !important; }
-  .shell { background: white; color: black; }
+  :global(body > header),
+  :global(body > footer),
+  :global(.onurim-tool-actions) { display: none !important; }
+  .shell { min-height: 0; background: white; color: black; }
   :global(.onurim-tool-page) { max-width: none; padding: 0; }
   :global(.onurim-tool-header h1) { font-size: 2rem; }
   :global(.onurim-print-sheet) { margin-top: 1rem; padding: 0; border: 0; }
   :global(.onurim-table-scroll) { overflow: visible; }
-  :global(.onurim-table-scroll table) { min-width: 0; font-size: 0.58rem; }
+  :global(.onurim-table-scroll table) { min-width: 0; table-layout: fixed; font-size: 9pt; }
   :global(.onurim-table-scroll th),
   :global(.onurim-table-scroll td) { min-width: 0; height: 2.2rem; padding: 0.2rem; }
+  :global(.onurim-table-scroll th),
+  :global(.onurim-table-scroll td) { overflow-wrap: anywhere; }
+  :global(.onurim-table-scroll thead) { display: table-header-group; }
+  :global(.onurim-table-scroll tr),
+  :global(.onurim-tool-fields > div),
+  :global(.onurim-check-list label),
+  :global(.onurim-emergency-action) { break-inside: avoid; }
+  :global(.onurim-tool-footer) { display: block !important; color: black; font-size: 9pt; margin-top: 0.6rem; }
+  :global(.onurim-tool-footer .onurim-source-list a)::after { content: " (" attr(href) ")"; font-size: 8pt; }
+  :global(.onurim-tool-footer li) { font-size: 9pt; }
+  :global(.onurim-table-help) { display: none; }
+  :global(.onurim-tool-related) { display: none; }
+  :global(.onurim-tool-page) { font-size: 10pt; }
+  :global(.onurim-tool-page p),
+  :global(.onurim-tool-header > p:not(.onurim-eyebrow)) { margin: 0.45rem 0; font-size: 10pt; line-height: 1.5; }
+  :global(.onurim-tool-page .onurim-tool-footer p) { margin: 0.25rem 0; font-size: 9pt; line-height: 1.4; }
+  :global(.onurim-tool-page h2) { margin: 1rem 0 0.5rem; font-size: 14pt; break-after: avoid; }
+  :global(.onurim-tool-instructions li) { margin: 0.45rem 0; }
+  :global(.onurim-tool-page .onurim-print-sheet) { break-before: page; }
+  :global(.onurim-tool-footer .onurim-source-list) { gap: 0.15rem; margin: 0.4rem 0; }
+  :global(.onurim-tool-footer .onurim-source-list li) { margin: 0.15rem 0; break-inside: avoid; line-height: 1.4; }
+  :global(.onurim-tool-fields) { gap: 0.5rem; }
+  :global(.onurim-tool-fields dd) { min-height: 2.5rem; }
+  :global(.onurim-check-list) { gap: 0.45rem; }
+  :global(.onurim-check-list label) { min-height: 0; padding: 0.45rem; }
+  :global(.onurim-notes-area) { margin-top: 1rem; }
+  :global(.onurim-notes-area > div) { height: 2rem; }
+  :global(.onurim-warning-card .onurim-tool-header > p:not(.onurim-eyebrow)) { font-size: 9pt; line-height: 1.35; margin: 0.3rem 0; }
+  :global(.onurim-warning-card .onurim-emergency-action) { margin-top: 0.7rem; padding: 0.6rem; }
+  :global(.onurim-warning-card h2) { margin-top: 0.5rem; }
+  :global(.onurim-warning-card .onurim-tool-example) { padding: 0.5rem; }
+  :global(.onurim-warning-card .onurim-tool-footer) { margin-top: 0.6rem; }
+  :global(.onurim-reference-card .onurim-print-sheet) { break-before: auto; margin-top: 0.6rem; }
+  :global(.onurim-reference-card .onurim-tool-header > p:not(.onurim-eyebrow)) { font-size: 9pt; line-height: 1.35; margin: 0.3rem 0; }
+  :global(.onurim-reference-card h2) { margin-top: 0.6rem; }
+  :global(.onurim-reference-card .onurim-tool-example) { padding: 0.5rem; }
+  :global(.onurim-reference-card .onurim-reference-list) { gap: 0.35rem; margin: 0.4rem 0; }
+  :global(.onurim-reference-card .onurim-reference-list li) { break-inside: avoid; }
+  :global(.onurim-reference-card .onurim-tool-footer) { margin-top: 0.6rem; }
 }

@@ -1,0 +1,271 @@
+{
+  "route": "/health/trust/contact",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T16:55:19.387Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "7a183cd98022d8bf0cbb0e01c64f624abcf2d2838abaf8fd0bd4c65c60496d6f",
+      "full": "510944ae93cf8b1057bdb54d2bcc6be50b70976462f7fbea28c8a39a8ad307dd"
+    },
+    {
+      "width": 390,
+      "top": "58de8a944823c3de6e8246be96a44e27c1637845078def2c1d792b7eb3a61e4a",
+      "full": "c01fe1b03de4fe247333e0926e617fca991f603f33494795d713d196728d6486"
+    },
+    {
+      "width": 430,
+      "top": "06f83981c5f39c832e00c046eae4f3077fb87145bdd40795b2222d4fba46ef2d",
+      "full": "be20530dbc602033eeaad9a105be921cd4b53f015617964c4a7ecf64bc427081"
+    },
+    {
+      "width": 768,
+      "top": "2a5985a8b8dca45793168acc21204404611e96520c99a412d2d28ebeefa5d75f",
+      "full": "0f81ce19eec5d993fa56c23e74ea1aae2368cb9659b7144189a29a192528d4f9"
+    },
+    {
+      "width": 1440,
+      "top": "1c220da9c3024020c63863e6c16daf8bef89891b53334f30c6e807406e03e9e9",
+      "full": "e4751433817eb426e4e595ed646ca163a33e3f4476d8abd041117b9df961a34f"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "오누림 문의: 공개 경로와 접수 확인 상태 | 오누림",
+      "h1": [
+        "문의"
+      ],
+      "h2": [
+        "먼저 접수 경로의 상태를 확인하세요",
+        "공개 게시에 개인 정보를 넣지 마세요",
+        "답변을 기다릴 곳이 아닌 경우"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/contact",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "오누림 문의: 공개 경로와 접수 확인 상태 | 오누림",
+      "h1": [
+        "문의"
+      ],
+      "h2": [
+        "먼저 접수 경로의 상태를 확인하세요",
+        "공개 게시에 개인 정보를 넣지 마세요",
+        "답변을 기다릴 곳이 아닌 경우"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/contact",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "오누림 문의: 공개 경로와 접수 확인 상태 | 오누림",
+      "h1": [
+        "문의"
+      ],
+      "h2": [
+        "먼저 접수 경로의 상태를 확인하세요",
+        "공개 게시에 개인 정보를 넣지 마세요",
+        "답변을 기다릴 곳이 아닌 경우"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/contact",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "오누림 문의: 공개 경로와 접수 확인 상태 | 오누림",
+      "h1": [
+        "문의"
+      ],
+      "h2": [
+        "먼저 접수 경로의 상태를 확인하세요",
+        "공개 게시에 개인 정보를 넣지 마세요",
+        "답변을 기다릴 곳이 아닌 경우"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/contact",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "오누림 문의: 공개 경로와 접수 확인 상태 | 오누림",
+      "h1": [
+        "문의"
+      ],
+      "h2": [
+        "먼저 접수 경로의 상태를 확인하세요",
+        "공개 게시에 개인 정보를 넣지 마세요",
+        "답변을 기다릴 곳이 아닌 경우"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/contact",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

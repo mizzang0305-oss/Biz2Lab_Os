@@ -1,0 +1,291 @@
+{
+  "route": "/health/tools/diabetes-questions",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T12:31:40.722Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "76dee3bee82f959e7e4219763ddf9bbc556c65d69680f2d438f64bca466d1ba4",
+      "full": "a141fdb444566630d91924472cce8c20ff51dc8c5731ee99abea1379dbbd50f5"
+    },
+    {
+      "width": 390,
+      "top": "5586419f095b5903a3dd6969f9671e57868b0f4c7bff92fe165ccb24c6c7e855",
+      "full": "e1aa68c7ded637ade6584b1ae82ec32a03989fd2de34aa5f2eb2458daca2e832"
+    },
+    {
+      "width": 430,
+      "top": "0ad04d2603156a8094bb39049863063f72a44327c7424031ab8d3b0cb2a5a059",
+      "full": "21249bbbcffccc8c2ef5b0763ef85860c6316bd9414cdd80ac4db5824a3d6520"
+    },
+    {
+      "width": 768,
+      "top": "b6e30c6705acaccb1cd0129eb37408be7d0b143df30b5caf69a52f3ef1c981f3",
+      "full": "260cc685e3007fe483daae987f7fe3aa32d79302074677d137f6cfdee96e81bb"
+    },
+    {
+      "width": 1440,
+      "top": "ca9aaf73dd27728838e5db7a39c349d36ea2ca4104e40572e728ba320d697600",
+      "full": "1daae59af216065971803761226d4371944dc8cc017dad72470941a309396c26"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "제2형 당뇨병 진료 질문지: 검사 결과·기록 계획·저혈당 대처 | 오누림",
+      "h1": [
+        "제2형 당뇨병 진료 질문지"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/diabetes-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "제2형 당뇨병 진료 질문지: 검사 결과·기록 계획·저혈당 대처 | 오누림",
+      "h1": [
+        "제2형 당뇨병 진료 질문지"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/diabetes-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "제2형 당뇨병 진료 질문지: 검사 결과·기록 계획·저혈당 대처 | 오누림",
+      "h1": [
+        "제2형 당뇨병 진료 질문지"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/diabetes-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "제2형 당뇨병 진료 질문지: 검사 결과·기록 계획·저혈당 대처 | 오누림",
+      "h1": [
+        "제2형 당뇨병 진료 질문지"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/diabetes-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "제2형 당뇨병 진료 질문지: 검사 결과·기록 계획·저혈당 대처 | 오누림",
+      "h1": [
+        "제2형 당뇨병 진료 질문지"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/diabetes-questions",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

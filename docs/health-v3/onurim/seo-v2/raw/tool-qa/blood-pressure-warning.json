@@ -1,0 +1,52 @@
+{
+  "route": "/health/tools/blood-pressure-warning",
+  "observedAt": "2026-09-06T12:14:47.450Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [],
+  "sourceHrefs": [
+    "https://health.kdca.go.kr/healthinfo/biz/health/ccvdInfo/ccvcdInfo/cbvcacdInfoMain.do",
+    "https://health.kdca.go.kr/healthinfo/biz/health/ccvdInfo/cvcdInfo/miInfoMain.do",
+    "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": null,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 3,
+    "overflow": 0,
+    "footerText": "기록보다 119가 먼저인 경고 카드 · 양식·안내 수정 2026-09-06교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료질병관리청 국가건강정보포털 — 뇌졸중에 대해서질병관리청 국가건강정보포털 — 심근경색에 대해서American Heart Association — Home Blood Pressure Monitoring의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 0
+  },
+  "links": [
+    {
+      "href": "/health/hypertension",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/danger-signals",
+      "status": 200
+    },
+    {
+      "href": "/health/stroke",
+      "status": 200
+    },
+    {
+      "href": "/health/acute-myocardial-infarction",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "69bc4a12c2613df0a2aec45e2aec4158246cc93d394a35b300f04e492d831ba6",
+  "pdfBytes": 92735,
+  "failures": []
+}

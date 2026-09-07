@@ -1,0 +1,446 @@
+{
+  "route": "/health/allergic-rhinitis",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T13:12:22.301Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "bd630a15a0ea70a082bdaf4d98c00842dda7f9ec816812645f804448e2026c89",
+      "full": "c2007553c4bee6c8f5db689aec33fac329105b45f6fc371c92a7e12746926f23"
+    },
+    {
+      "width": 390,
+      "top": "91161ef1f270bcd413805ae6fced7459b30cda4242c0ea0bddc7621425223153",
+      "full": "f56ec60191fccc7aa8f6fc011859863bca4a2b3bd980cb95c1e489feb611b208"
+    },
+    {
+      "width": 430,
+      "top": "c0fa2cf6d955b35114c4ac78259eb3234b35b86d9e06c731e16fe6f706959295",
+      "full": "aaaf92d2ce73cf2bd7ef6d9dbe8f17bbed138f99e1c1ed69ad8b8b7c51662fe6"
+    },
+    {
+      "width": 768,
+      "top": "e2182044fd11754b3c55b5d7f066c6de3e28e445cee5917a8d238e9ae3eaa877",
+      "full": "57f9c969d7a556042e4e02db269196ea05266b04e94bcfbd1ccbd90361fdb537"
+    },
+    {
+      "width": 1440,
+      "top": "c89391d91f3702f369832327a57a0f06af689bfeae1ec8b9a40cd35abd89d3e1",
+      "full": "ff69c306da7ab7c504a3163e0910612f48aed21d808ad6f0e6b42936353a5dc5"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "알레르기 비염 증상과 감기 차이, 검사·코 스프레이 | 오누림",
+      "h1": [
+        "알레르기 비염, 감기와의 차이부터 검사·코 스프레이까지"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "감기일까요, 알레르기일까요?",
+        "꽃가루를 마셨다고 모두 같은 반응을 하는 것은 아닙니다",
+        "검사에서 양성이면 그 물질이 원인인가요?",
+        "코 스프레이, 모양보다 종류와 사용법을 확인하세요",
+        "관찰표에는 청소 점수 대신 증상의 맥락을 남깁니다",
+        "코 증상으로 진료받을 때 호흡과 수면도 말하세요",
+        "숨쉬기 매우 어렵거나 의식이 흐려지면 119",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/allergic-rhinitis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fhero.webp&w=3840&q=75",
+          "alt": "실외와 실내에서 생긴 코와 눈의 변화를 관찰표에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "실외 꽃가루와 실내 먼지처럼 보이는 입자가 단순화한 코 주변으로 향하는 교육용 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fchecklist.webp&w=3840&q=75",
+          "alt": "성인 두 명이 창문과 옷, 표면 정리와 관찰표를 함께 살피는 교육용 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 492
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "알레르기 비염 증상과 감기 차이, 검사·코 스프레이 | 오누림",
+      "h1": [
+        "알레르기 비염, 감기와의 차이부터 검사·코 스프레이까지"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "감기일까요, 알레르기일까요?",
+        "꽃가루를 마셨다고 모두 같은 반응을 하는 것은 아닙니다",
+        "검사에서 양성이면 그 물질이 원인인가요?",
+        "코 스프레이, 모양보다 종류와 사용법을 확인하세요",
+        "관찰표에는 청소 점수 대신 증상의 맥락을 남깁니다",
+        "코 증상으로 진료받을 때 호흡과 수면도 말하세요",
+        "숨쉬기 매우 어렵거나 의식이 흐려지면 119",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/allergic-rhinitis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fhero.webp&w=3840&q=75",
+          "alt": "실외와 실내에서 생긴 코와 눈의 변화를 관찰표에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "실외 꽃가루와 실내 먼지처럼 보이는 입자가 단순화한 코 주변으로 향하는 교육용 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fchecklist.webp&w=3840&q=75",
+          "alt": "성인 두 명이 창문과 옷, 표면 정리와 관찰표를 함께 살피는 교육용 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "알레르기 비염 증상과 감기 차이, 검사·코 스프레이 | 오누림",
+      "h1": [
+        "알레르기 비염, 감기와의 차이부터 검사·코 스프레이까지"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "감기일까요, 알레르기일까요?",
+        "꽃가루를 마셨다고 모두 같은 반응을 하는 것은 아닙니다",
+        "검사에서 양성이면 그 물질이 원인인가요?",
+        "코 스프레이, 모양보다 종류와 사용법을 확인하세요",
+        "관찰표에는 청소 점수 대신 증상의 맥락을 남깁니다",
+        "코 증상으로 진료받을 때 호흡과 수면도 말하세요",
+        "숨쉬기 매우 어렵거나 의식이 흐려지면 119",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/allergic-rhinitis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fhero.webp&w=3840&q=75",
+          "alt": "실외와 실내에서 생긴 코와 눈의 변화를 관찰표에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "실외 꽃가루와 실내 먼지처럼 보이는 입자가 단순화한 코 주변으로 향하는 교육용 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fchecklist.webp&w=3840&q=75",
+          "alt": "성인 두 명이 창문과 옷, 표면 정리와 관찰표를 함께 살피는 교육용 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "알레르기 비염 증상과 감기 차이, 검사·코 스프레이 | 오누림",
+      "h1": [
+        "알레르기 비염, 감기와의 차이부터 검사·코 스프레이까지"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "감기일까요, 알레르기일까요?",
+        "꽃가루를 마셨다고 모두 같은 반응을 하는 것은 아닙니다",
+        "검사에서 양성이면 그 물질이 원인인가요?",
+        "코 스프레이, 모양보다 종류와 사용법을 확인하세요",
+        "관찰표에는 청소 점수 대신 증상의 맥락을 남깁니다",
+        "코 증상으로 진료받을 때 호흡과 수면도 말하세요",
+        "숨쉬기 매우 어렵거나 의식이 흐려지면 119",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/allergic-rhinitis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fhero.webp&w=3840&q=75",
+          "alt": "실외와 실내에서 생긴 코와 눈의 변화를 관찰표에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "실외 꽃가루와 실내 먼지처럼 보이는 입자가 단순화한 코 주변으로 향하는 교육용 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fchecklist.webp&w=3840&q=75",
+          "alt": "성인 두 명이 창문과 옷, 표면 정리와 관찰표를 함께 살피는 교육용 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "알레르기 비염 증상과 감기 차이, 검사·코 스프레이 | 오누림",
+      "h1": [
+        "알레르기 비염, 감기와의 차이부터 검사·코 스프레이까지"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "감기일까요, 알레르기일까요?",
+        "꽃가루를 마셨다고 모두 같은 반응을 하는 것은 아닙니다",
+        "검사에서 양성이면 그 물질이 원인인가요?",
+        "코 스프레이, 모양보다 종류와 사용법을 확인하세요",
+        "관찰표에는 청소 점수 대신 증상의 맥락을 남깁니다",
+        "코 증상으로 진료받을 때 호흡과 수면도 말하세요",
+        "숨쉬기 매우 어렵거나 의식이 흐려지면 119",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/allergic-rhinitis",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fhero.webp&w=3840&q=75",
+          "alt": "실외와 실내에서 생긴 코와 눈의 변화를 관찰표에 적는 성인의 교육용 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fexplainer.webp&w=3840&q=75",
+          "alt": "실외 꽃가루와 실내 먼지처럼 보이는 입자가 단순화한 코 주변으로 향하는 교육용 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fallergic-rhinitis%2Fchecklist.webp&w=3840&q=75",
+          "alt": "성인 두 명이 창문과 옷, 표면 정리와 관찰표를 함께 살피는 교육용 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

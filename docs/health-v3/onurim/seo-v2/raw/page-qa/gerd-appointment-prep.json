@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/gerd-appointment-prep",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T13:42:33.833Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "6b20057c6c33269e16d1e45631ba64bef492b0e8acd4532ffb61d33f5703dc46",
+      "full": "a5595c7e8eade60e2a2028e3ac95a4bba889a88a929417df25d4280d5cf83b73"
+    },
+    {
+      "width": 390,
+      "top": "3390ab0b47e129d4a0cb26170e0ed9c21074665a9401837842f7168bd8da74fc",
+      "full": "0e0dcd1a24b88bfbb45a567ae16680b1ca21283889d6270125780da78847b400"
+    },
+    {
+      "width": 430,
+      "top": "b65f0ab89995b4fdcd4606a7d4430c87955a2e21df39da163793f32386395a89",
+      "full": "9b60be876bfb6ba223fb72bd50be9f3b0a25e8f46e02a73840348c3fb0811ad9"
+    },
+    {
+      "width": 768,
+      "top": "03a23d39695c976591513fa7865ca9effb7da95f6085aa750582f9032f7ac8a2",
+      "full": "5efc9a271d3c0cdedeef6a856f1f300f9e04c58f84b7e73c791d8063fa928902"
+    },
+    {
+      "width": 1440,
+      "top": "128262295fe47404d920b65e4489b9cb0552025ae670dc918831922b4c3d75d6",
+      "full": "ec3f92dd2d031e6af2307104d10d9055c82d3864501bb2bbd36dfe942ddbe404"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "위식도역류 진료 질문 카드: 검사 목적·현재 약·다음 확인 시점 | 오누림",
+      "h1": [
+        "위식도역류 진료 준비 카드"
+      ],
+      "h2": [
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gerd-appointment-prep",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "위식도역류 진료 질문 카드: 검사 목적·현재 약·다음 확인 시점 | 오누림",
+      "h1": [
+        "위식도역류 진료 준비 카드"
+      ],
+      "h2": [
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gerd-appointment-prep",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "위식도역류 진료 질문 카드: 검사 목적·현재 약·다음 확인 시점 | 오누림",
+      "h1": [
+        "위식도역류 진료 준비 카드"
+      ],
+      "h2": [
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gerd-appointment-prep",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "위식도역류 진료 질문 카드: 검사 목적·현재 약·다음 확인 시점 | 오누림",
+      "h1": [
+        "위식도역류 진료 준비 카드"
+      ],
+      "h2": [
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gerd-appointment-prep",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "위식도역류 진료 질문 카드: 검사 목적·현재 약·다음 확인 시점 | 오누림",
+      "h1": [
+        "위식도역류 진료 준비 카드"
+      ],
+      "h2": [
+        "가슴 불편을 먼저 역류라고 결론 내리지 마세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/gerd-appointment-prep",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+"query","intent","target_url","impressions","clicks","position","existing_match","content_gap","action","evidence","period"
+"hba1c 뜻","최근 수개월 혈당과 단회 혈당 구별","https://www.biz2lab.com/health/guides/understanding-hba1c","1","0","8","SAME_EXISTING_URL","기간 비교·검사표 읽는 순서","HbA1c 먼저 순차 개선; 새 URL 없음","EXACT_PAGE_FILTER_UI","2026-08-26..2026-09-03"
+"hba1c","HbA1c 결과를 진료 질문으로 연결","https://www.biz2lab.com/health/guides/understanding-hba1c","1","0","32","SAME_EXISTING_URL","결과만으로 진단·약 변경하지 않는 한계와 질문 카드","HbA1c 먼저 순차 개선; 새 URL 없음","EXACT_PAGE_FILTER_UI","2026-08-26..2026-09-03"
+"hba1c ngsp","NGSP·IFCC 표기와 단위 이해","https://www.biz2lab.com/health/guides/understanding-hba1c","1","0","57","SAME_EXISTING_URL","%와 mmol/mol 구분; 단위 변환 계산기 없이 원본 확인","HbA1c 먼저 순차 개선; 새 URL 없음","EXACT_PAGE_FILTER_UI","2026-08-26..2026-09-03"

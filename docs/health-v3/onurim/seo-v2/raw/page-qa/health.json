@@ -1,0 +1,271 @@
+{
+  "route": "/health",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T17:58:51.979Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "b101e5934abb2a2010a99aba0cf39afbc68eca64fdb1f18d4d86ab531a184f24",
+      "full": "75eb67870968d2cfc533ee2bcf051e34c077db2533003194dfdced7437412832"
+    },
+    {
+      "width": 390,
+      "top": "f121abcfbadbd80441afa68a5aac1c3605363e6f482c55a1e1c6d95f57f2f804",
+      "full": "8ccfc41710e6dca6c0f8dfdde70a492f97701f1743abfed1840a1a6ef45f7ed0"
+    },
+    {
+      "width": 430,
+      "top": "330d2428af96f10a1381242cd9c264be28aa7a5f4f5cec42320c2ec06277946d",
+      "full": "60b063c57f047b6a2be4311d4f7279255744ce6b36fb848c9e7b71bcfbdce82e"
+    },
+    {
+      "width": 768,
+      "top": "8f01d46cbd5628bf9c898d55aa1a3b1f9c03b6caeb30ed995334b4810125de9f",
+      "full": "4c2b642d7885c5e8ace8c050e1d370068f313f9a3afbd60f3ae0a38906da5c24"
+    },
+    {
+      "width": 1440,
+      "top": "98b0ca346f04b5f09a556ea7abada90ac28902a971abad4fe121dfd6d003b854",
+      "full": "8b9ff701f675581383807298699eaadf855de3da9de23de78d8666b22c72548f"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "질환별 건강 안내서와 검사·진료 준비 도구 찾기 | 오누림",
+      "h1": [
+        "질환·검사·진료 준비 자료 찾기"
+      ],
+      "h2": [
+        "지금 위급하다면 자료를 찾기보다 119가 먼저입니다",
+        "20개 주요 질환 안내",
+        "여러 질환에서 함께 쓰는 9개 가이드",
+        "인쇄해서 쓰는 34개 건강 도구",
+        "자료의 출처와 확인 상태"
+      ],
+      "canonical": "https://www.biz2lab.com/health",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": false,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "질환별 건강 안내서와 검사·진료 준비 도구 찾기 | 오누림",
+      "h1": [
+        "질환·검사·진료 준비 자료 찾기"
+      ],
+      "h2": [
+        "지금 위급하다면 자료를 찾기보다 119가 먼저입니다",
+        "20개 주요 질환 안내",
+        "여러 질환에서 함께 쓰는 9개 가이드",
+        "인쇄해서 쓰는 34개 건강 도구",
+        "자료의 출처와 확인 상태"
+      ],
+      "canonical": "https://www.biz2lab.com/health",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": false,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "질환별 건강 안내서와 검사·진료 준비 도구 찾기 | 오누림",
+      "h1": [
+        "질환·검사·진료 준비 자료 찾기"
+      ],
+      "h2": [
+        "지금 위급하다면 자료를 찾기보다 119가 먼저입니다",
+        "20개 주요 질환 안내",
+        "여러 질환에서 함께 쓰는 9개 가이드",
+        "인쇄해서 쓰는 34개 건강 도구",
+        "자료의 출처와 확인 상태"
+      ],
+      "canonical": "https://www.biz2lab.com/health",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": false,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "질환별 건강 안내서와 검사·진료 준비 도구 찾기 | 오누림",
+      "h1": [
+        "질환·검사·진료 준비 자료 찾기"
+      ],
+      "h2": [
+        "지금 위급하다면 자료를 찾기보다 119가 먼저입니다",
+        "20개 주요 질환 안내",
+        "여러 질환에서 함께 쓰는 9개 가이드",
+        "인쇄해서 쓰는 34개 건강 도구",
+        "자료의 출처와 확인 상태"
+      ],
+      "canonical": "https://www.biz2lab.com/health",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": false,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "질환별 건강 안내서와 검사·진료 준비 도구 찾기 | 오누림",
+      "h1": [
+        "질환·검사·진료 준비 자료 찾기"
+      ],
+      "h2": [
+        "지금 위급하다면 자료를 찾기보다 119가 먼저입니다",
+        "20개 주요 질환 안내",
+        "여러 질환에서 함께 쓰는 9개 가이드",
+        "인쇄해서 쓰는 34개 건강 도구",
+        "자료의 출처와 확인 상태"
+      ],
+      "canonical": "https://www.biz2lab.com/health",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": false,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "route": "/health/guides/medication-list",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T11:14:24.900Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "e562bd6b94972a0d8d4e2903a04ecb771910b6be1537b0328d4bf4ae4a56484a",
+      "full": "dec1dc824615de90c04bb17536c292be8d0f6be33aa54e63428b6c64c6b74891"
+    },
+    {
+      "width": 390,
+      "top": "51a77efd355175b23808adc5343d623faaafd53acafa7da1f3d47e8bf6d44520",
+      "full": "15221c57a4b6716e53d9909adf37fc33bee5a3ea44e0699e165872d9980b8789"
+    },
+    {
+      "width": 430,
+      "top": "e3f513ecd0f162525f826214fc172c3b7e02a10c063600aae1d513bdbb4a7740",
+      "full": "4599818b328e9504e598303d3b449ba560ec8cb6ca4d47eee8a78c3a1435a741"
+    },
+    {
+      "width": 768,
+      "top": "cca8168c84b0b505a339572ea37c1568fd8c9d2e22f7b8d8834bc060f3285453",
+      "full": "13e7e24fe849154158effa3b0889c139793c4b5ecf9a315157729453e4311413"
+    },
+    {
+      "width": 1440,
+      "top": "a61b46e7feeadc1fa0ed999b989ec1a828e9bd887c7e133d4be7e4ece0359b90",
+      "full": "55e177f7508dac5d6bf46c72c7e358dd3de145eb304fa98dadea71b9a02cdbb0"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "복용약 목록 작성법: 약 이름·함량·사용법과 변경일 | 오누림",
+      "h1": [
+        "약 목록, 이름과 사용 안내를 나누어 적으세요"
+      ],
+      "h2": [
+        "목록을 만드는 목적은 약을 다시 처방하는 것이 아닙니다",
+        "제품 표기와 안내받은 사용법을 따로 봅니다",
+        "매일 먹는 처방약 말고도 포함합니다",
+        "바뀔 때 고치고, 다음 진료에서 다시 확인합니다",
+        "필요할 때 찾되, 공개하지 않는 방법을 정합니다",
+        "위급하다면 약 이름 찾기보다 119",
+        "목록을 적다가 헷갈리는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/medication-list",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "복용약 목록 작성법: 약 이름·함량·사용법과 변경일 | 오누림",
+      "h1": [
+        "약 목록, 이름과 사용 안내를 나누어 적으세요"
+      ],
+      "h2": [
+        "목록을 만드는 목적은 약을 다시 처방하는 것이 아닙니다",
+        "제품 표기와 안내받은 사용법을 따로 봅니다",
+        "매일 먹는 처방약 말고도 포함합니다",
+        "바뀔 때 고치고, 다음 진료에서 다시 확인합니다",
+        "필요할 때 찾되, 공개하지 않는 방법을 정합니다",
+        "위급하다면 약 이름 찾기보다 119",
+        "목록을 적다가 헷갈리는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/medication-list",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "복용약 목록 작성법: 약 이름·함량·사용법과 변경일 | 오누림",
+      "h1": [
+        "약 목록, 이름과 사용 안내를 나누어 적으세요"
+      ],
+      "h2": [
+        "목록을 만드는 목적은 약을 다시 처방하는 것이 아닙니다",
+        "제품 표기와 안내받은 사용법을 따로 봅니다",
+        "매일 먹는 처방약 말고도 포함합니다",
+        "바뀔 때 고치고, 다음 진료에서 다시 확인합니다",
+        "필요할 때 찾되, 공개하지 않는 방법을 정합니다",
+        "위급하다면 약 이름 찾기보다 119",
+        "목록을 적다가 헷갈리는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/medication-list",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "복용약 목록 작성법: 약 이름·함량·사용법과 변경일 | 오누림",
+      "h1": [
+        "약 목록, 이름과 사용 안내를 나누어 적으세요"
+      ],
+      "h2": [
+        "목록을 만드는 목적은 약을 다시 처방하는 것이 아닙니다",
+        "제품 표기와 안내받은 사용법을 따로 봅니다",
+        "매일 먹는 처방약 말고도 포함합니다",
+        "바뀔 때 고치고, 다음 진료에서 다시 확인합니다",
+        "필요할 때 찾되, 공개하지 않는 방법을 정합니다",
+        "위급하다면 약 이름 찾기보다 119",
+        "목록을 적다가 헷갈리는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/medication-list",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "복용약 목록 작성법: 약 이름·함량·사용법과 변경일 | 오누림",
+      "h1": [
+        "약 목록, 이름과 사용 안내를 나누어 적으세요"
+      ],
+      "h2": [
+        "목록을 만드는 목적은 약을 다시 처방하는 것이 아닙니다",
+        "제품 표기와 안내받은 사용법을 따로 봅니다",
+        "매일 먹는 처방약 말고도 포함합니다",
+        "바뀔 때 고치고, 다음 진료에서 다시 확인합니다",
+        "필요할 때 찾되, 공개하지 않는 방법을 정합니다",
+        "위급하다면 약 이름 찾기보다 119",
+        "목록을 적다가 헷갈리는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/medication-list",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

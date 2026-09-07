@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/osteoporosis-home-check",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T14:22:21.375Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "71e5918039a9bb50b0ac7cd3a188b72c2d654a1f92a1de44da679f7376c9c0b8",
+      "full": "7c502b7880e7765cd9e49bf2f16c8bf2c021c9484bf03d4e1eeb4b1eb58dfac2"
+    },
+    {
+      "width": 390,
+      "top": "dc48b2355ecdcaa4f1233ab507c1c98882e9c0d9d42d08e49072cfcd66ce6e50",
+      "full": "edb2f01a2fe6be2c754308e5905947efa7821f45ea18dcc4cffb11a56629ad8b"
+    },
+    {
+      "width": 430,
+      "top": "c8a983a939a77f0ac194932c4f2c94c236cab7e7e0072021f93fceae32fcdd7a",
+      "full": "192820cc2ef840234448e0a19356ff034431973b8b9effc1dc2e8d33ce10f7ea"
+    },
+    {
+      "width": 768,
+      "top": "3595cc0eb1b47faf0f8a2dc6bacedc06629dd83d06dbafa53ef20a844149eb9b",
+      "full": "e95c38eadf4162d3c5983be9d0530bae99a76a25d07c25412636fb2216785724"
+    },
+    {
+      "width": 1440,
+      "top": "fae287a3aaaab0591b7143059459cd220a685c74c8e0854a688bce90893881b1",
+      "full": "06234e6b2aabc044435b31935b015a514d8cd63eab314f1b2a2dc571d3d3237e"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "낙상 위험 집안 점검표: 통로·조명과 아직 해결하지 못한 곳 | 오누림",
+      "h1": [
+        "낙상 위험 집안 점검표"
+      ],
+      "h2": [
+        "낙상 뒤 의식이 또렷해도 119가 필요할 수 있습니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/osteoporosis-home-check",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "낙상 위험 집안 점검표: 통로·조명과 아직 해결하지 못한 곳 | 오누림",
+      "h1": [
+        "낙상 위험 집안 점검표"
+      ],
+      "h2": [
+        "낙상 뒤 의식이 또렷해도 119가 필요할 수 있습니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/osteoporosis-home-check",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "낙상 위험 집안 점검표: 통로·조명과 아직 해결하지 못한 곳 | 오누림",
+      "h1": [
+        "낙상 위험 집안 점검표"
+      ],
+      "h2": [
+        "낙상 뒤 의식이 또렷해도 119가 필요할 수 있습니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/osteoporosis-home-check",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "낙상 위험 집안 점검표: 통로·조명과 아직 해결하지 못한 곳 | 오누림",
+      "h1": [
+        "낙상 위험 집안 점검표"
+      ],
+      "h2": [
+        "낙상 뒤 의식이 또렷해도 119가 필요할 수 있습니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/osteoporosis-home-check",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "낙상 위험 집안 점검표: 통로·조명과 아직 해결하지 못한 곳 | 오누림",
+      "h1": [
+        "낙상 위험 집안 점검표"
+      ],
+      "h2": [
+        "낙상 뒤 의식이 또렷해도 119가 필요할 수 있습니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/osteoporosis-home-check",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 3,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

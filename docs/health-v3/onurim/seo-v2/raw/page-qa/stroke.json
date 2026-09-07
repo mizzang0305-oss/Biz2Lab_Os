@@ -1,0 +1,441 @@
+{
+  "route": "/health/stroke",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T16:27:17.241Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "09a985cf094f57efc71aa7a74be09dc9ec3536f43811badc7b46e2b4aebf5dbf",
+      "full": "d878ac0e9e1d93cf58305bb449f910a44828f5c3f19d8c58f584f12ab97fc8e7"
+    },
+    {
+      "width": 390,
+      "top": "57a64edd2d3c8bb58c0bdbf725454cea723dbf90056fefccafb64fa6c6cecc67",
+      "full": "df31b39133e8c6bc4c1be01b50743d4eaffbde1bf7bd247eefed4a359ab620c4"
+    },
+    {
+      "width": 430,
+      "top": "00d9e530b736fc72d9cada553b36cb66e90fd040529243a9cad09415b33b3233",
+      "full": "5620cfe85454c61e838fc6b3c4580c60469e442edf24337a14daf81a7a128ce4"
+    },
+    {
+      "width": 768,
+      "top": "4971aff759dc8d94842e6afb2ee5002cacad469a1bab406780b73a100ef2b8e4",
+      "full": "d438cf96ace790b1cbe2e3dcdca297175b4b17e357aee013baf1070063cf4d4c"
+    },
+    {
+      "width": 1440,
+      "top": "53594ca000692601a0b8b9d6ebeab94c25b5ee1d2610dd310f1c9f87f4fb7584",
+      "full": "4bad4c50f57ed0bbff1ff8ff01df34b3fa56deec1ae4a8cafa592d41307d6da7"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "뇌졸중 증상: 갑작스러운 신호 하나라도 119, 전달할 두 시각 | 오누림",
+      "h1": [
+        "뇌졸중 신호가 갑자기 나타나면 즉시 119"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "여러 증상이 함께 나타나야 하는 것은 아닙니다",
+        "FAST는 신호를 기억하는 법이지 진단법이 아닙니다",
+        "‘지금은 괜찮다’는 말만으로 끝내지 마세요",
+        "119 신고 후, 서로 다른 두 시각을 전하세요",
+        "기다리는 동안 음식·물·약을 주어 해결하려 하지 않습니다",
+        "응급실 검사는 종류·원인·치료 방법을 확인합니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/stroke",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Fhero.webp&w=3840&q=75",
+          "alt": "메모판과 도움 연결을 상징하는 초록·노랑 장식 표지 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "한쪽 힘·감각, 말·이해, 시야, 균형, 심한 두통의 변화를 각각 다른 가상 인물로 표현한 다섯 장면",
+          "loaded": true,
+          "width": 286,
+          "height": 190
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Faction-v2.webp&w=3840&q=75",
+          "alt": "119 전화와 마지막 평소 상태·증상을 발견한 때의 빈 날짜와 시각 칸 두 개",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "뇌졸중 증상: 갑작스러운 신호 하나라도 119, 전달할 두 시각 | 오누림",
+      "h1": [
+        "뇌졸중 신호가 갑자기 나타나면 즉시 119"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "여러 증상이 함께 나타나야 하는 것은 아닙니다",
+        "FAST는 신호를 기억하는 법이지 진단법이 아닙니다",
+        "‘지금은 괜찮다’는 말만으로 끝내지 마세요",
+        "119 신고 후, 서로 다른 두 시각을 전하세요",
+        "기다리는 동안 음식·물·약을 주어 해결하려 하지 않습니다",
+        "응급실 검사는 종류·원인·치료 방법을 확인합니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/stroke",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Fhero.webp&w=3840&q=75",
+          "alt": "메모판과 도움 연결을 상징하는 초록·노랑 장식 표지 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "한쪽 힘·감각, 말·이해, 시야, 균형, 심한 두통의 변화를 각각 다른 가상 인물로 표현한 다섯 장면",
+          "loaded": true,
+          "width": 316,
+          "height": 211
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Faction-v2.webp&w=3840&q=75",
+          "alt": "119 전화와 마지막 평소 상태·증상을 발견한 때의 빈 날짜와 시각 칸 두 개",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "뇌졸중 증상: 갑작스러운 신호 하나라도 119, 전달할 두 시각 | 오누림",
+      "h1": [
+        "뇌졸중 신호가 갑자기 나타나면 즉시 119"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "여러 증상이 함께 나타나야 하는 것은 아닙니다",
+        "FAST는 신호를 기억하는 법이지 진단법이 아닙니다",
+        "‘지금은 괜찮다’는 말만으로 끝내지 마세요",
+        "119 신고 후, 서로 다른 두 시각을 전하세요",
+        "기다리는 동안 음식·물·약을 주어 해결하려 하지 않습니다",
+        "응급실 검사는 종류·원인·치료 방법을 확인합니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/stroke",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Fhero.webp&w=3840&q=75",
+          "alt": "메모판과 도움 연결을 상징하는 초록·노랑 장식 표지 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "한쪽 힘·감각, 말·이해, 시야, 균형, 심한 두통의 변화를 각각 다른 가상 인물로 표현한 다섯 장면",
+          "loaded": true,
+          "width": 356,
+          "height": 237
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Faction-v2.webp&w=3840&q=75",
+          "alt": "119 전화와 마지막 평소 상태·증상을 발견한 때의 빈 날짜와 시각 칸 두 개",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "뇌졸중 증상: 갑작스러운 신호 하나라도 119, 전달할 두 시각 | 오누림",
+      "h1": [
+        "뇌졸중 신호가 갑자기 나타나면 즉시 119"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "여러 증상이 함께 나타나야 하는 것은 아닙니다",
+        "FAST는 신호를 기억하는 법이지 진단법이 아닙니다",
+        "‘지금은 괜찮다’는 말만으로 끝내지 마세요",
+        "119 신고 후, 서로 다른 두 시각을 전하세요",
+        "기다리는 동안 음식·물·약을 주어 해결하려 하지 않습니다",
+        "응급실 검사는 종류·원인·치료 방법을 확인합니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/stroke",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Fhero.webp&w=3840&q=75",
+          "alt": "메모판과 도움 연결을 상징하는 초록·노랑 장식 표지 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "한쪽 힘·감각, 말·이해, 시야, 균형, 심한 두통의 변화를 각각 다른 가상 인물로 표현한 다섯 장면",
+          "loaded": true,
+          "width": 660,
+          "height": 440
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Faction-v2.webp&w=3840&q=75",
+          "alt": "119 전화와 마지막 평소 상태·증상을 발견한 때의 빈 날짜와 시각 칸 두 개",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "뇌졸중 증상: 갑작스러운 신호 하나라도 119, 전달할 두 시각 | 오누림",
+      "h1": [
+        "뇌졸중 신호가 갑자기 나타나면 즉시 119"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "여러 증상이 함께 나타나야 하는 것은 아닙니다",
+        "FAST는 신호를 기억하는 법이지 진단법이 아닙니다",
+        "‘지금은 괜찮다’는 말만으로 끝내지 마세요",
+        "119 신고 후, 서로 다른 두 시각을 전하세요",
+        "기다리는 동안 음식·물·약을 주어 해결하려 하지 않습니다",
+        "응급실 검사는 종류·원인·치료 방법을 확인합니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/stroke",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Fhero.webp&w=3840&q=75",
+          "alt": "메모판과 도움 연결을 상징하는 초록·노랑 장식 표지 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "한쪽 힘·감각, 말·이해, 시야, 균형, 심한 두통의 변화를 각각 다른 가상 인물로 표현한 다섯 장면",
+          "loaded": true,
+          "width": 720,
+          "height": 480
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fstroke%2Faction-v2.webp&w=3840&q=75",
+          "alt": "119 전화와 마지막 평소 상태·증상을 발견한 때의 빈 날짜와 시각 칸 두 개",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1429 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { spawnSync } from "node:child_process";
+import test from "node:test";
+import { healthArticles, healthTools, trustPages } from "../lib/health-v3/content";
+import { healthSupportGuides } from "../lib/health-v3/support-guides";
+import { getToolSafetyNotice, getToolSources, toolEditorial } from "../lib/health-v3/tool-editorial";
+import { authorProfileJsonLd, createMetadata } from "../lib/seo";
+import sitemap from "../app/sitemap";
+import robots from "../app/robots";
+
+test("individually excluded utilities remain self-canonical noindex follow without altering legacy defaults", () => {
+  const input = { title: "경고 카드", description: "인쇄용 안내", path: "/health/tools/blood-pressure-warning", noindex: true };
+  assert.deepEqual(createMetadata(input).robots, { index: false, follow: false });
+  const metadata = createMetadata({ ...input, follow: true });
+  assert.deepEqual(metadata.robots, { index: false, follow: true });
+  assert.equal(metadata.alternates?.canonical, "https://www.biz2lab.com/health/tools/blood-pressure-warning");
+  const included = new Set(sitemap().map(entry => entry.url));
+  for (const tool of healthTools) {
+    assert.equal(included.has(`https://www.biz2lab.com/health/tools/${tool.slug}`), toolEditorial[tool.slug]?.indexDecision !== "NOINDEX_FOLLOW", tool.slug);
+  }
+  const warning = healthTools.find(t => t.slug === "blood-pressure-warning")!;
+  assert.equal(warning.items, undefined);
+  assert.equal(toolEditorial[warning.slug].indexDecision, "NOINDEX_FOLLOW");
+  assert.match(toolEditorial[warning.slug].limitation, /심해질 때까지 기다리는 기준이 아니/);
+});
+
+test("diabetes terms stays a non-diagnostic reference without a fabricated fillable form", () => {
+  const tool = healthTools.find(t => t.slug === "diabetes-test-terms")!;
+  assert.equal(tool.kind, "guide");
+  assert.equal(tool.fields, undefined);
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(copy.limitation, /금식이나 약 중단을 새로 시작하지/);
+  assert.match(copy.limitation, /같은 날 다른 검사/);
+  assert.deepEqual(copy.sourceIds, ["SRC-NIDDK-TESTS", "SRC-NIDDK-A1C"]);
+  assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /입력·체크·저장 기능이 없는 인쇄용 참고 자료/);
+});
+
+test("corrections policy separates public access from unverified issue submission", () => {
+  const page = trustPages.find(page => page.slug === "corrections-policy")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "INDEX_SUPPORT");
+  assert.match(text, /실제 접수 가능 여부는 확인되지 않았습니다/);
+  assert.match(text, /의료기록·검사 이미지를 게시하거나 첨부하지 마세요/);
+  assert.doesNotMatch(text, /health@|현재 실동작/);
+  assert.ok(page.sections.flatMap(section => section.links ?? []).some(link => link.href === "https://github.com/mizzang0305-oss/Biz2Lab_Os/issues"));
+});
+
+test("contact stays accessible but noindex follow without promising intake", () => {
+  const page = trustPages.find(page => page.slug === "contact")!;
+  assert.equal(page.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(page.intro, /접수 가능 여부는 확인되지 않았습니다/);
+  assert.ok(page.sections.flatMap(section => section.links ?? []).some(link => link.href === "/health/trust/corrections-policy"));
+  assert.doesNotMatch(readFileSync("app/health/trust/[slug]/page.tsx", "utf8"), /issues\/new|정정·문의 작성하기/);
+  assert.doesNotMatch(JSON.stringify(robots().rules), /\/health\/trust/);
+});
+
+test("author profile marks only the real non-clinician role and never invents credentials", () => {
+  const page = trustPages.find(page => page.slug === "author")!;
+  const profile = authorProfileJsonLd();
+  assert.equal(profile["@type"], "ProfilePage");
+  assert.equal(profile.mainEntity["@type"], "Person");
+  assert.equal(profile.mainEntity.name, "박영훈");
+  assert.equal(profile.mainEntity.jobTitle, "비의료인 건강정보 편집자");
+  assert.equal(profile.mainEntity.url, "https://www.biz2lab.com/health/trust/author");
+  assert.doesNotMatch(JSON.stringify(profile), /Physician|MedicalOrganization|reviewedBy|image|hasCredential|award|dateCreated|dateModified/);
+  assert.match(page.sections.map(section => section.body).join(" "), /검토자는 배정되지 않았고 의료 검수도 미완료/);
+  assert.equal(page.indexDecision, "INDEX_SUPPORT");
+});
+
+test("editorial policy separates procedures from incomplete medical and real-reader validation", () => {
+  const page = trustPages.find(page => page.slug === "editorial-policy")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "INDEX_SUPPORT");
+  assert.match(text, /의료 검수와 실제 일반 독자 테스트는 미완료/);
+  assert.match(text, /현재 모든 글에 대한 검증 결과도 아닙니다/);
+  assert.match(text, /다시 배포했다는 이유만으로 모든 글을 최신으로 표시하지 않/);
+  assert.doesNotMatch(page.intro, /짧은 설명, 더 깊은 이해, 바로 쓸 행동 도구의 순서/);
+});
+
+test("source policy values claim fit over link counts and preserves unknown source dates", () => {
+  const page = trustPages.find(page => page.slug === "sources-policy")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "INDEX_SUPPORT");
+  assert.match(text, /날짜가 없으면 미표시로 남기/);
+  assert.match(text, /검토일을 실제 수정일로 대신하지 않/);
+  assert.match(text, /출처 개수나 링크 점검 통과가 의료 검수 완료를 뜻하지 않/);
+  assert.ok(page.sections.flatMap(section => section.links ?? []).some(link => link.href === "/health/guides/understanding-hba1c"));
+});
+
+test("medical review policy exposes unstarted review without upgrading the prepared packet", () => {
+  const page = trustPages.find(page => page.slug === "medical-review-policy")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "INDEX_SUPPORT");
+  assert.match(page.intro, /검수는 시작되지 않았고 완료되지도 않았습니다/);
+  assert.match(text, /검토자가 승인한 47개 문장이 아닙니다/);
+  assert.match(text, /대상 문장과 버전을 다시 대조해야/);
+  assert.match(text, /실제 일반 독자 테스트도 아직 실시하지 않았습니다/);
+  assert.doesNotMatch(text, /reviewedBy|의료 검수 완료입니다/);
+});
+
+test("AI disclosure identifies actual assistance without fabricating human validation", () => {
+  const page = trustPages.find(page => page.slug === "ai-disclosure")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "INDEX_SUPPORT");
+  assert.match(page.intro, /AI 보조가 사용됩니다/);
+  assert.match(text, /실제 사람 5명이 읽은 결과가 아니/);
+  assert.match(text, /모든 페이지의 검증 결과도 아닙니다/);
+  assert.match(text, /실제 일반 독자 테스트는 아직 실시하지 않았습니다/);
+  assert.match(text, /검토자는 미배정이고 의료 검수는 미완료/);
+});
+
+test("privacy distinguishes print-only health records from site analytics and public posts", () => {
+  const page = trustPages.find(page => page.slug === "privacy")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(text, /빈칸은 인쇄한 뒤 손으로 작성/);
+  assert.match(text, /Google Analytics.*Google AdSense 코드가 포함/);
+  assert.match(text, /모든 방문 정보 처리가 중단되는 것은 아닙니다/);
+  assert.match(text, /접수 가능 여부와 이메일 송수신은 검증되지 않았습니다/);
+  assert.doesNotMatch(text, /브라우저에서 적은 내용|자동으로 완전히 삭제/);
+});
+
+test("advertising policy separates editorial principles from approval and medical endorsement", () => {
+  const page = trustPages.find(page => page.slug === "advertising")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(text, /광고 승인·게재 상태는 서로 다릅니다/);
+  assert.match(text, /광고 클릭이 필요하다고 안내하지 않습니다/);
+  assert.match(text, /모든 내용이 오누림에서 검증되었다고 보장하지 않습니다/);
+  assert.doesNotMatch(text, /광고 승인 완료|거래 이력이 없습니다/);
+});
+
+test("disclaimer preserves urgent help without treating every new symptom as an emergency", () => {
+  const page = trustPages.find(page => page.slug === "disclaimer")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(text, /위급한 변화가 있으면 즉시 119/);
+  assert.match(text, /읽기를 신고의 선행 조건으로 삼지 마세요/);
+  assert.match(text, /여기에 없는 증상이 안전하다는 뜻은 아닙니다/);
+  assert.doesNotMatch(text, /새롭거나 심한 증상/);
+});
+
+test("terms retains the existing personal-use boundary and links to specific reader policies", () => {
+  const page = trustPages.find(page => page.slug === "terms")!;
+  const text = page.sections.map(section => section.body).join(" ");
+  assert.equal(page.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(text, /개인용 기록표를 출력할 수 있습니다/);
+  assert.match(text, /출처를 지우거나 오누림의 의료 권고처럼 재판매할 수 없습니다/);
+  assert.deepEqual(page.sections.flatMap(section => section.links ?? []).map(link => link.href),
+    ["/health/trust/privacy", "/health/trust/disclaimer", "/health/trust/corrections-policy"]);
+  assert.doesNotMatch(text, /모든 책임을 면제|자동으로 동의|관할 법원/);
+});
+
+test("trust pages distinguish public access from index decisions and use page-specific dates", () => {
+  const entries = sitemap();
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(slug => `/health/${slug}`),
+    ...healthSupportGuides.map(guide => `/health/guides/${guide.slug}`),
+    ...healthTools.map(tool => `/health/tools/${tool.slug}`), ...trustPages.map(page => `/health/trust/${page.slug}`)]);
+  for (const page of trustPages) {
+    const matches = entries.filter(entry => entry.url === `https://www.biz2lab.com/health/trust/${page.slug}`);
+    assert.equal(matches.length, page.indexDecision === "NOINDEX_FOLLOW" ? 0 : 1, page.slug);
+    if (matches.length) assert.equal(matches[0].lastModified, page.updatedAt ?? "2026-08-26");
+    for (const link of page.sections.flatMap(section => section.links ?? [])) {
+      if (link.href.startsWith("/")) assert.ok(routes.has(link.href), `${page.slug}: ${link.href}`);
+      else assert.equal(new URL(link.href).protocol, "https:", `${page.slug}: ${link.href}`);
+    }
+  }
+  const about = trustPages.find(page => page.slug === "about")!;
+  assert.equal(about.indexDecision, "INDEX_SUPPORT");
+  assert.match(about.sections.map(section => section.body).join(" "), /현재 면허 의료인 검수는 미완료/);
+  assert.ok(about.sections.flatMap(section => section.links ?? []).some(link => link.href === "/health/trust/corrections-policy"));
+});
+
+test("heart attack memo keeps emergency reporting before observations and personal recovery questions", () => {
+  const tool = healthTools.find(t => t.slug === "acute-myocardial-infarction-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 2);
+  assert.ok(tool.fields!.every(field => field.startsWith("신고 후:")));
+  assert.ok(tool.items!.every(question => question.startsWith("급한 평가·치료 뒤:")));
+  assert.match(copy.sheetNotice!, /약하거나 오락가락해도, 모두 나타나지 않아도 신고/);
+  assert.match(copy.sheetNotice!, /일정 시간 지나기를 기다리지 않습니다/);
+  assert.match(copy.sheetNotice!, /아스피린을 모두에게 금지하거나 같은 양을 처방하는 카드가 아닙니다/);
+  assert.match(copy.limitation, /처방약을 혼자 끊거나 조절하지/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 4);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(분간|시간|mg|점 이상)|정상 맥박이면/);
+});
+
+test("stroke memo separates post-call timestamps from post-acute questions without a diagnostic or treatment timer", () => {
+  const tool = healthTools.find(t => t.slug === "stroke-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 2);
+  assert.ok(tool.fields!.every(field => field.startsWith("신고 후:")));
+  assert.ok(tool.items!.every(question => question.startsWith("응급 평가·치료 뒤:")));
+  assert.match(copy.example, /깬 때를 실제 발병 시각으로 단정하지 않습니다/);
+  assert.match(copy.example, /두 시각이 같을 수도/);
+  assert.match(copy.limitation, /늦었다고 생각해 도움을 포기하지/);
+  assert.match(copy.sheetNotice!, /중 하나라도 있으면 즉시 119/);
+  assert.match(copy.sheetNotice!, /사라졌어도 신고/);
+  assert.match(copy.sheetNotice!, /평소 처방을 장기 중단하라는 뜻은 아닙니다/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 6);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(시간|분간|mg)|삼키게 하세요|걸어 보세요/);
+});
+
+test("anxiety memo records actual avoidance without prescribing exposure or dismissing new physical symptoms", () => {
+  const tool = healthTools.find(t => t.slug === "anxiety-disorder-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 2);
+  assert.match(tool.fields![1], /이미 피하게 된 활동/);
+  assert.match(copy.purpose, /기간·점수·기록 완성은 상담의 조건이 아닙니다/);
+  assert.match(copy.limitation, /숨 참기·두려운 상황으로 증상을 재현하지/);
+  assert.match(copy.limitation, /과거 진단·정상 검사로 새 증상을 불안 탓으로 확정하지/);
+  assert.match(copy.sheetNotice!, /모든 조건이 필요하지 않습니다/);
+  assert.match(copy.sheetNotice!, /긴급구조를 늦추거나 직접 운전하지/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 7);
+  assert.doesNotMatch(JSON.stringify(copy), /GAD-7|\d+\s*(분간|개월간|점 이상|mg)/);
+});
+
+test("depression memo distinguishes consent and personal voice without scoring safety or delaying crisis help", () => {
+  const tool = healthTools.find(t => t.slug === "depression-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.match(tool.fields![0], /본인의 말.*동의받은 주변 관찰/);
+  assert.match(copy.purpose, /가족 참여나 기록 완성은 진료의 조건이 아닙니다/);
+  assert.match(copy.limitation, /빈칸·짧은 기록을 위험 없음으로 판단하지/);
+  assert.match(copy.sheetNotice!, /이미 다쳤거나.*즉시 119/);
+  assert.match(copy.sheetNotice!, /혼자 두거나 비밀을 약속하지/);
+  assert.match(copy.sheetNotice!, /109 응답을 기다려 긴급 도움을 미루지/);
+  assert.equal(getToolSources(tool).length, 6);
+  assert.doesNotMatch(JSON.stringify(copy), /PHQ|\d+\s*(점 이상|주간|일간|mg)/);
+});
+
+test("UTI memo stays a parent companion without culture waiting or leftover antibiotic instructions", () => {
+  const tool = healthTools.find(t => t.slug === "urinary-tract-infection-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.match(tool.fields![1], /임신 가능성·도뇨관/);
+  assert.match(copy.purpose, /진료의 조건이 아닙니다/);
+  assert.match(copy.limitation, /남은 항생제·타인의 약을 쓰지 않고/);
+  assert.match(copy.sheetNotice!, /발열 또는 오한/);
+  assert.match(copy.sheetNotice!, /배뇨통이 없어도 미루지/);
+  assert.match(copy.sheetNotice!, /배양 결과·약효·기록을 기다리거나/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 6);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(시간|mg|리터|일간|주간)/);
+});
+
+test("kidney stone worksheet connects actual changes to passage follow-up without forced hydration", () => {
+  const tool = healthTools.find(t => t.slug === "kidney-stones-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.match(tool.fields![2], /수분 제한/);
+  assert.match(tool.items![1], /통증이 줄어도 배출 여부/);
+  assert.match(copy.purpose, /진료의 조건이 아닙니다/);
+  assert.match(copy.limitation, /물을 억지로 마시지 않습니다/);
+  assert.match(copy.sheetNotice!, /발열 또는 오한/);
+  assert.match(copy.sheetNotice!, /각각 즉시 의료 도움/);
+  assert.equal(getToolSources(tool).length, 6);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(mm|mg|리터|일간|주간)/);
+});
+
+test("headache worksheet records actual medicine days without an aura timer or a prescribing calendar", () => {
+  const tool = healthTools.find(t => t.slug === "migraine-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.match(tool.fields![0], /두통 발생일/);
+  assert.match(tool.fields![1], /실제 약 이름·사용일·반응/);
+  assert.match(copy.purpose, /진료의 조건이 아닙니다/);
+  assert.match(copy.limitation, /예방약에 급성기 약의 제한을 일괄 적용/);
+  assert.match(copy.sheetNotice!, /각각 즉시 119/);
+  assert.match(copy.sheetNotice!, /발열 또는 목 뻣뻣함/);
+  assert.equal(getToolSources(tool).length, 6);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(mg|시간|일간|주간|회 이상)/);
+});
+
+test("gout worksheet separates current joint changes and future management without a treatment sequence", () => {
+  const tool = healthTools.find(t => t.slug === "gout-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.match(copy.steps.join(" "), /정해진 치료 순서가 아닙니다/);
+  assert.match(copy.limitation, /발작·무증상 시기만으로 약의 시작·중단을 혼자 정하거나/);
+  assert.match(copy.sheetNotice!, /심하게 아프거나 붓거나 피부색이 달라지면 당일/);
+  assert.match(copy.sheetNotice!, /열·여러 신호가 모두 생기거나 약효·기록 완성을 기다리지/);
+  assert.equal(getToolSources(tool).length, 5);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(mg|리터|일간|주간)/);
+});
+
+test("sleep apnea worksheet separates observers and keeps emergency OR distinct from CPR AND", () => {
+  const tool = healthTools.find(t => t.slug === "sleep-apnea-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 4);
+  assert.equal(tool.items?.length, 3);
+  assert.match(tool.fields![0], /본인이 느낀/);
+  assert.match(tool.fields![1], /동의한 상대/);
+  assert.match(copy.description, /관찰이나 녹음이 없어도/);
+  assert.match(copy.steps.join(" "), /미확인/);
+  assert.match(copy.sheetNotice!, /반응이 없거나 정상 호흡이 아니면 즉시 119/);
+  assert.match(copy.sheetNotice!, /반응이 없고 정상 호흡이 없으면 119 안내에 따라 심폐소생술/);
+  assert.match(copy.limitation, /운전·숨 참기로 상태를 시험하지 않습니다/);
+  assert.equal(getToolSources(tool).length, 6);
+  assert.doesNotMatch(JSON.stringify(copy), /AHI|CPAP\s*\d|\d+\s*(점 이상|초 이상|%)/);
+});
+
+test("asthma worksheet checks a personal plan without generating inhaler doses or peak-flow zones", () => {
+  const tool = healthTools.find(t => t.slug === "asthma-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.match(copy.steps.join(" "), /미확인/);
+  assert.match(copy.limitation, /개인 행동계획을 대체하지 않습니다/);
+  assert.match(copy.limitation, /추가 흡입하지 않습니다/);
+  assert.match(copy.sheetNotice!, /갑작스러운 혼란은 즉시 119/);
+  assert.match(copy.sheetNotice!, /발작 중 처방약으로 완화되지 않아도 119/);
+  assert.equal(getToolSources(tool).length, 5);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(회|퍼프|mg|%)/);
+});
+
+test("IBS worksheet records either direction of pain change without a food challenge or diagnostic waiting period", () => {
+  const tool = healthTools.find(t => t.slug === "irritable-bowel-syndrome-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 4);
+  assert.equal(tool.items?.length, 3);
+  assert.match(tool.fields![0], /덜·더 아픔·비슷함·모르겠음/);
+  assert.match(copy.purpose, /진료의 조건은 아닙니다/);
+  assert.match(copy.limitation, /음식을 일부러 먹거나 약을 바꾸지/);
+  assert.match(copy.sheetNotice!, /갑자기 시작되거나 심한 복통/);
+  assert.match(copy.sheetNotice!, /타르 같은 변은 복통이 없어도 즉시 의료 도움/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 7);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(개월|주간|mg|점 이상)/);
+});
+
+test("MASLD worksheet joins original tests to individual history without scoring or unsupervised withdrawal", () => {
+  const tool = healthTools.find(t => t.slug === "metabolic-dysfunction-associated-steatotic-liver-disease-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.equal(tool.title, "지방간 검사 상담표");
+  assert.match(copy.steps.join(" "), /없음·미확인/);
+  assert.match(copy.limitation, /술을 끊기 전에 의료 도움/);
+  assert.match(copy.sheetNotice!, /토혈이 멈추고 다른 증상이 없어도/);
+  assert.match(copy.sheetNotice!, /환각·경련/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 6);
+  assert.doesNotMatch(JSON.stringify(copy), /FIB-4|APRI|\d+\s*(시간|mg|점 이상)/);
+});
+
+test("obesity memo preserves consent and actual changes without prescribing weight targets", () => {
+  const tool = healthTools.find(t => t.slug === "obesity-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 3);
+  assert.equal(tool.items?.length, 3);
+  assert.equal(tool.title, "비만 상담 메모");
+  assert.match(copy.purpose, /먼저 동의와 공유할 범위/);
+  assert.match(copy.steps.join(" "), /이미 안내받은 개인 기록 계획은 따릅니다/);
+  assert.match(copy.steps.join(" "), /시기가 겹쳐도 원인을 확정하거나 약을 끊지/);
+  assert.match(copy.sheetNotice!, /숨참 또는 가슴 압박/);
+  assert.match(copy.sheetNotice!, /즉시 119/);
+  assert.equal(getToolSafetyNotice(tool)?.tone, "warning");
+  assert.equal(getToolSources(tool).length, 5);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+\s*(kg|kcal|mg|점 이상)/);
+});
+
+test("tool sources resolve to documents and print safety remains visible", () => {
+  for (const tool of healthTools) {
+    const sources = getToolSources(tool);
+    assert.ok(sources.length > 0, tool.slug);
+    assert.ok(sources.every(s => /^https:\/\//.test(s.url)), tool.slug);
+  }
+  const renderer = readFileSync("components/health/HealthToolPage.tsx", "utf8");
+  assert.match(renderer, /tool\.fields\.map/);
+  assert.match(renderer, /href=\{source.url\}/);
+  assert.match(renderer, /빈칸은 인쇄한 뒤 손으로/);
+  assert.doesNotMatch(renderer, /<form|<textarea|type="text"/);
+  const print = readFileSync("app/health/onurim.module.css", "utf8").split("@media print")[1];
+  assert.match(print, /onurim-tool-footer\) \{ display: block !important/);
+  assert.match(print, /attr\(href\)/);
+  assert.match(print, /onurim-tool-footer p\) \{ margin: 0.25rem 0; font-size: 9pt/);
+  const qa = readFileSync("scripts/qa-onurim-tool.ts", "utf8");
+  assert.match(qa, /Checkbox keyboard reset failed/);
+  assert.match(qa, /state.checkedItems !== 0/);
+  assert.match(qa, /if \(state.focusedCheckbox\)/);
+});
+
+test("glucose log records real time and original units without prescribing a monitoring schedule", () => {
+  const tool = healthTools.find(t => t.slug === "glucose-observation-log")!;
+  assert.equal(tool.rows, 12);
+  assert.equal(tool.columns?.length, 7);
+  assert.match(tool.columns![0], /실제 측정시각/);
+  assert.match(tool.columns![1], /표시값·단위/);
+  const copy = toolEditorial[tool.slug];
+  assert.match(copy.purpose, /12번.*권고가 아닙니다/);
+  assert.match(copy.steps.join(" "), /기존 기기 안내·개인 대처 계획/);
+  assert.match(copy.sheetNotice!, /119/);
+  assert.match(copy.sheetNotice!, /억지로 먹이지/);
+  assert.ok(copy.sourceIds.includes("SRC-NIDDK-MANAGING"));
+  assert.doesNotMatch(JSON.stringify(tool), /mg\/dL|식후 2시간/);
+});
+
+test("reflux timing log inherits urgent help before instructions and does not prescribe a food experiment", () => {
+  const tool = healthTools.find(t => t.slug === "gerd-symptom-timing-log")!;
+  assert.equal(tool.rows, 12);
+  assert.equal(tool.columns?.length, 7);
+  assert.match(tool.columns![0], /증상 시작 시각/);
+  const copy = toolEditorial[tool.slug];
+  assert.equal(getToolSafetyNotice(tool), healthArticles[tool.articleSlug].sections[0]);
+  assert.match(copy.steps.join(" "), /일부러 증상을 유발하지/);
+  assert.match(copy.purpose, /12일을 채운 뒤.*뜻이 아닙니다/);
+  assert.match(copy.sheetNotice!, /커피 찌꺼기.*바로 의료 도움/);
+  assert.ok(getToolSources(tool).some(source => source.id === "SRC-NHLBI-HEART-ATTACK-SYMPTOMS"));
+});
+
+test("rhinitis questions connect existing products to individual instructions without blanket medicine withdrawal", () => {
+  const tool = healthTools.find(t => t.slug === "allergy-appointment-questions")!;
+  assert.equal(tool.fields?.length, 2);
+  assert.equal(tool.items?.length, 4);
+  const copy = toolEditorial[tool.slug];
+  assert.match(copy.purpose, /성인이/);
+  assert.match(copy.steps.join(" "), /모든 검사·약에 같은 중단 규칙을 적용하지/);
+  assert.match(copy.steps.join(" "), /임의로 약을 끊지/);
+  assert.match(copy.sheetNotice!, /즉시 119/);
+  assert.ok(copy.sourceIds.includes("SRC-MEDLINEPLUS-ALLERGY-SKIN-TEST"));
+  assert.doesNotMatch(JSON.stringify(copy), /[35]일|\d+\s*mg|검수 완료/);
+});
+
+test("rhinitis environment checklist is a noindex observation aid, not an exposure experiment or score", () => {
+  const tool = healthTools.find(t => t.slug === "allergy-environment-check")!;
+  assert.equal(tool.items?.length, 4);
+  assert.equal(tool.fields?.length, 1);
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.match(copy.steps.join(" "), /일부러 다시 노출되지/);
+  assert.match(copy.limitation, /환경이나 가족을 평가하지/);
+  assert.match(copy.limitation, /영향을 주거나 기존 치료/);
+  assert.match(copy.sheetNotice!, /즉시 119/);
+  assert.ok(copy.links.some(link => link.href.endsWith("/allergy-trigger-observation")));
+});
+
+test("rhinitis observation logs separate facts from suspected causes without intentional re-exposure", () => {
+  const tool = healthTools.find(t => t.slug === "allergy-trigger-observation")!;
+  assert.equal(tool.rows, 12);
+  assert.equal(tool.columns?.length, 7);
+  assert.match(tool.columns![0], /시작 시각/);
+  assert.ok(tool.columns!.includes("이미 사용한 약·스프레이"));
+  const copy = toolEditorial[tool.slug];
+  assert.match(copy.purpose, /12일 관찰.*뜻이 아닙니다/);
+  assert.match(copy.steps.join(" "), /일부러 다시 노출되지/);
+  assert.match(copy.limitation, /천식.*신속히 연락/);
+  assert.match(copy.limitation, /수면·일상에 영향을 주거나, 기존 치료/);
+  assert.match(copy.sheetNotice!, /즉시 119/);
+  assert.match(readFileSync("components/health/HealthToolPage.tsx", "utf8"), /화면 입력·체크·저장·제출 기능은 없습니다/);
+});
+
+test("each edited utility has distinct grounded metadata and existing contextual destinations", () => {
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s => `/health/${s}`),
+    ...healthSupportGuides.map(g => `/health/guides/${g.slug}`), ...healthTools.map(t => `/health/tools/${t.slug}`), ...trustPages.map(t => `/health/trust/${t.slug}`)]);
+  const copies = Object.entries(toolEditorial);
+  assert.equal(new Set(copies.map(([, c]) => c.title)).size, copies.length);
+  assert.equal(new Set(copies.map(([, c]) => c.description)).size, copies.length);
+  for (const [slug, copy] of copies) {
+    assert.ok(healthTools.some(t => t.slug === slug));
+    assert.ok(copy.purpose && copy.steps.length && copy.example && copy.limitation && copy.sourceIds.length);
+    assert.equal(new Set(copy.sourceIds).size, copy.sourceIds.length);
+    assert.ok(copy.links.every(link => routes.has(link.href)), slug);
+    assert.match(copy.updatedAt, /^\d{4}-\d{2}-\d{2}$/);
+  }
+});
+
+test("blood pressure print rows preserve individual measurement values without prescribing seven days", () => {
+  const tool = healthTools.find(t => t.slug === "blood-pressure-log")!;
+  assert.equal(tool.rows, 14);
+  assert.ok(tool.columns?.includes("회차"));
+  assert.ok(tool.columns?.includes("수축기(mmHg)"));
+  assert.ok(tool.columns?.includes("이완기(mmHg)"));
+  assert.doesNotMatch(JSON.stringify(tool), /쉬기 전\/후/);
+  const copy = toolEditorial[tool.slug];
+  assert.match(copy.purpose, /7일 측정.*처방하는 기준이 아닙니다/);
+  assert.match(copy.steps.join(" "), /1차·2차.*서로 다른 줄/);
+  assert.match(copy.limitation, /기다리지 말고 119/);
+  assert.ok(copy.links.every(l => l.href.startsWith("/health/")));
+  assert.match(copy.limitation, /재측정 후에도.*며칠 동안 기록을 모으느라 기다리지/);
+});
+
+test("restored neurological and self-harm fields cannot appear without their existing sourced urgent notices", () => {
+  for (const slug of ["migraine-visit-card", "depression-visit-card", "stroke-visit-card", "acute-myocardial-infarction-visit-card", "blood-pressure-warning"]) {
+    const tool = healthTools.find(t => t.slug === slug)!;
+    const notice = getToolSafetyNotice(tool)!;
+    assert.ok(notice);
+    assert.equal(notice, healthArticles[tool.articleSlug].sections.find(s => s.tone === "warning"));
+    assert.match(JSON.stringify(notice), /119/);
+    if (slug === "depression-visit-card") assert.match(JSON.stringify(notice), /109/);
+    const sources = getToolSources(tool).map(s => s.id);
+    assert.ok(notice.sourceIds?.every(id => sources.includes(id)));
+  }
+  assert.match(readFileSync("app/sitemap.ts", "utf8"), /toolEditorial\[tool.slug\]\?\.updatedAt/);
+});
+
+test("blood pressure preparation separates before-measurement checks from after-measurement facts", () => {
+  const tool = healthTools.find(t => t.slug === "blood-pressure-prep")!;
+  assert.equal(tool.items, undefined);
+  assert.deepEqual(tool.itemGroups?.map(group => group.items.length), [5, 2]);
+  assert.match(tool.itemGroups![0].title, /측정 전/);
+  assert.match(tool.itemGroups![1].title, /측정 후/);
+  assert.match(tool.itemGroups![0].items.join(" "), /최소 5분/);
+  assert.match(toolEditorial[tool.slug].purpose, /보장하지/);
+  assert.match(toolEditorial[tool.slug].steps.join(" "), /미리 모두 체크하지/);
+});
+
+test("SEO audit refuses colliding output paths before HTTP or file writes", () => {
+  const run = spawnSync(process.execPath, ["--import", "tsx", "scripts/audit-onurim-seo.ts", "--out", "invalid-output"], { encoding: "utf8" });
+  assert.notEqual(run.status, 0);
+  assert.match(run.stderr, /--out must end in \.json/);
+});
+
+test("SEO baseline joins exactly the 77 current routes without losing unknown URL verdicts", () => {
+  const raw = JSON.parse(readFileSync("docs/health-v3/onurim/seo-v2/raw/gsc-url-inspections-2026-09-06.json", "utf8"));
+  const expected = ["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`), ...trustPages.map(s=>`/health/trust/${s.slug}`)].sort();
+  const rows = raw.rows as string[][];
+  assert.deepEqual(rows.map(r=>r[0]).sort(), expected);
+  assert.equal(rows.filter(r=>r[1]==="I").length, 38);
+  assert.equal(rows.filter(r=>r[1]==="D").length, 34);
+  assert.equal(rows.filter(r=>r[1]==="U").length, 5);
+  assert.match(raw.sharedObservedFields.U.verdict, /아직 알려지지 않은/);
+});
+
+test("HbA1c has its own intent, accessible comparison data and resolvable source references", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="understanding-hba1c")!;
+  assert.match(guide.seoTitle!, /NGSP·IFCC/);
+  assert.notEqual(guide.seoTitle, guide.title);
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 3);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  assert.ok(table.rows.some(row=>row.includes("mmol/mol")));
+  assert.ok(table.rows.some(row=>row.includes("mg/dL 또는 mmol/L")));
+  assert.equal(guide.faq?.length, 5);
+  const sourceIds = new Set(guide.sources.map(s=>s.id));
+  for (const item of [...guide.sections, ...guide.faq!]) {
+    for (const id of item.sourceIds ?? []) assert.ok(sourceIds.has(id), id);
+  }
+  assert.equal(guide.publishedAt, "2026-08-26");
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.equal(guide.sourceCheckedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+  assert.doesNotMatch(JSON.stringify(guide), /6\.5|5\.7|reviewedBy|의료 검수 완료/);
+});
+
+test("danger signals puts independent emergency signs before paperwork and separates 109", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="danger-signals")!;
+  assert.equal(guide.sections[0].id, "urgent-action");
+  assert.equal(guide.sections[0].paragraphs?.length, 1);
+  assert.match(guide.sections[0].paragraphs![0], /하나라도.*즉시 119/);
+  assert.match(JSON.stringify(guide.sections[0].bullets), /감각.*어지럼/);
+  assert.match(JSON.stringify(guide.sections[0].bullets), /깨우기 어려움.*쓰러졌는지와 무관/);
+  assert.match(readFileSync("app/health/onurim.module.css", "utf8"), /onurim-support-page \.onurim-trust-sections \.onurim-tone-warning/);
+  assert.match(JSON.stringify(guide), /심한 통증만 기다리지/);
+  assert.match(JSON.stringify(guide), /109 상담은 당장 필요한 응급 구조를 대신하지/);
+  assert.match(JSON.stringify(guide), /돕는 사람도 자신의 안전/);
+  assert.match(JSON.stringify(guide), /신속히 의료기관에 연락해 평가/);
+  assert.equal(guide.faq?.length, 5);
+  assert.ok(guide.faqTitle && !guide.faqTitle.includes("검사표"));
+  assert.equal(guide.sources.length, 7);
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const item of [...guide.sections, ...guide.faq!]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.match(table.caption, /사전 작성표가 아닙니다/);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+  assert.doesNotMatch(JSON.stringify(guide), /2분|300mg|988|999|7119|의료 검수 완료/);
+});
+
+test("home blood pressure guide separates measurement conditions from diagnosis and emergency waiting", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="measuring-blood-pressure")!;
+  assert.equal(guide.sections.length, 6);
+  assert.equal(guide.faq?.length, 5);
+  assert.equal(guide.sections[0].id, "urgent-action");
+  assert.match(JSON.stringify(guide.sections[0]), /다시 재며 기다리지 말고 즉시 119/);
+  assert.match(JSON.stringify(guide.sections[0]), /한쪽 얼굴·팔·다리의 힘이나 감각이 달라지거나, 갑작스러운 말·시야 이상/);
+  assert.match(JSON.stringify(guide), /30분.*최소 5분/);
+  assert.match(JSON.stringify(guide), /1분 간격으로 두 번/);
+  assert.match(JSON.stringify(guide), /두 결과를 모두 기록/);
+  assert.match(JSON.stringify(guide), /모두에게 같은 일수나 복약 전후 순서를 일괄 적용하지/);
+  assert.doesNotMatch(JSON.stringify(guide), /180\/120|140\/90|135\/85|130\/80/);
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const unit of [...guide.sections, ...guide.faq!]) {
+    assert.ok(unit.sourceIds?.length);
+    for (const id of unit.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 4);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  assert.match(guide.sources.find(s=>s.id==="SUP-CDC-BP")!.sourceDate, /2026-09-04.*Reviewed2024-12-13/);
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+});
+
+test("lab results guide distinguishes reference ranges and result labels from diagnosis", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="reading-health-results")!;
+  assert.equal(guide.sections.length, 5);
+  assert.equal(guide.faq?.length, 5);
+  assert.equal(guide.sources.length, 4);
+  assert.match(JSON.stringify(guide), /혈액·소변 같은 검사실 검사/);
+  assert.match(JSON.stringify(guide), /범위 안이라고 질환이 전혀 없다는 보장은 없고/);
+  assert.match(JSON.stringify(guide), /모든 양성·음성에 재검이 반드시 필요한 것은 아닙니다/);
+  assert.match(JSON.stringify(guide), /위양성.*위음성/);
+  assert.match(JSON.stringify(guide), /의료진의 지시 없이 약을 중단하지/);
+  assert.doesNotMatch(JSON.stringify(guide), /서버에 보내지|6\.5|5\.7|8시간 금식|의료 검수 완료/);
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 4);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const unit of [...guide.sections, ...guide.faq!]) {
+    assert.ok(unit.sourceIds?.length);
+    for (const id of unit.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+});
+
+test("family medication support keeps consent and individual medicine instructions ahead of convenience", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="family-medication-support")!;
+  assert.equal(guide.sections.length, 5);
+  assert.equal(guide.faq?.length, 5);
+  assert.match(JSON.stringify(guide.sections[0]), /허락 없이.*약을 숨기거나 억지로 먹이지/);
+  assert.match(JSON.stringify(guide), /지시 없이 쪼개거나 갈거나 씹지/);
+  assert.match(JSON.stringify(guide), /임의로 두 배/);
+  assert.match(JSON.stringify(guide), /모든 약이 같은 약통에 옮겨 담기 적합한 것은 아닙니다/);
+  assert.match(JSON.stringify(guide), /확인하지 않은 복용을 완료로 표시하지/);
+  assert.match(JSON.stringify(guide), /즉시 119.*약 목록을 완성하거나/);
+  assert.match(JSON.stringify(guide), /안약·바르는 약/);
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 4);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const unit of [...guide.sections, ...guide.faq!]) {
+    assert.ok(unit.sourceIds?.length);
+    for (const id of unit.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+  assert.doesNotMatch(JSON.stringify(guide), /무료.*배달|우편.*약|1일 2회|500mg|의료 검수 완료/);
+});
+
+test("symptom journal is a communication example rather than a diagnostic or waiting rule", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="symptom-journal")!;
+  assert.equal(guide.sections[0].id, "urgent-action");
+  assert.match(JSON.stringify(guide.sections[0]), /즉시 119.*사진을 찍느라 기다리지/);
+  assert.match(JSON.stringify(guide), /검증된 진단 척도나 필수 제출 양식이 아닙니다/);
+  assert.match(JSON.stringify(guide), /정확한 시각 모름/);
+  assert.match(JSON.stringify(guide), /보이지 않는다는 이유로 불편을 지우지/);
+  assert.match(JSON.stringify(guide), /가상의 표현 예시/);
+  assert.match(JSON.stringify(guide), /진료 전에 채워야 할 최소 일수를 정하지/);
+  assert.match(JSON.stringify(guide), /약을 추가하거나 중단하지/);
+  assert.equal(guide.faq?.length, 5);
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 4);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  assert.match(guide.sources.find(s=>s.id==="SUP-NHLBI-SLEEP-DIARY")!.sourceDate, /2019-01/);
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const unit of [...guide.sections, ...guide.faq!]) {
+    assert.ok(unit.sourceIds?.length);
+    for (const id of unit.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+});
+
+test("disease and support contextual links resolve to existing public ONURIM routes", () => {
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`),
+    ...healthSupportGuides.map(g=>`/health/guides/${g.slug}`),
+    ...healthTools.map(t=>`/health/tools/${t.slug}`), ...trustPages.map(t=>`/health/trust/${t.slug}`)]);
+  for (const guide of [...healthSupportGuides, ...Object.values(healthArticles)]) {
+    for (const section of guide.sections) {
+      for (const link of section.links ?? []) assert.ok(routes.has(link.href), `${guide.slug}: ${link.href}`);
+    }
+  }
+});
+
+test("appointment questions prioritize concerns without capping disclosure or promising medical outcomes", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="appointment-questions")!;
+  assert.equal(guide.sections.length, 6);
+  assert.equal(guide.faq?.length, 5);
+  assert.match(JSON.stringify(guide), /질문의 상한이 아닙니다/);
+  assert.match(JSON.stringify(guide), /좋은 결과가 보장되는 것은 아닙니다/);
+  assert.match(JSON.stringify(guide), /연락이 없으니 정상/);
+  assert.match(JSON.stringify(guide), /모든 기관이 같은 서비스를 제공한다고 보장하지/);
+  assert.match(JSON.stringify(guide), /기억이 나지 않는다는 이유로 임의로 약을 끊거나/);
+  assert.match(JSON.stringify(guide), /즉시 119.*예약일·문의 답변을 기다리는/);
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 4);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const unit of [...guide.sections, ...guide.faq!]) {
+    assert.ok(unit.sourceIds?.length);
+    for (const id of unit.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  assert.match(guide.sources.find(s=>s.id==="SUP-NHS-DOCTOR-QUESTIONS")!.sourceDate, /^2023-01-12/);
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+});
+
+test("medication list distinguishes package strength from instructions and current from past records", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="medication-list")!;
+  assert.equal(guide.sections.length, 6);
+  assert.equal(guide.faq?.length, 5);
+  assert.match(JSON.stringify(guide), /함량만 보고 한 번의 사용량을 계산하거나 정하지/);
+  assert.match(JSON.stringify(guide), /임의 단위 환산하지/);
+  assert.match(JSON.stringify(guide), /안약·바르는 약/);
+  assert.match(JSON.stringify(guide), /의료진 안내로 중단한 과거 기록을 구분/);
+  assert.match(JSON.stringify(guide), /복용했는지 기억나지 않는 부분은 완료로 채우지/);
+  assert.match(JSON.stringify(guide), /즉시 119.*목록을 완성한 뒤 신고하지/);
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 5);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const unit of [...guide.sections, ...guide.faq!]) {
+    assert.ok(unit.sourceIds?.length);
+    for (const id of unit.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+  assert.doesNotMatch(JSON.stringify(guide), /500mg|1일 2회|서버에 보내지|약 식별 완료/);
+});
+
+test("parent health organizer separates consent, source documents, current lists and verification dates", () => {
+  const guide = healthSupportGuides.find(g=>g.slug==="older-parent-health-organizer")!;
+  assert.equal(guide.sections.length, 6);
+  assert.equal(guide.faq?.length, 6);
+  assert.match(JSON.stringify(guide), /치료를 대신 결정할 권한을 뜻하지/);
+  assert.match(JSON.stringify(guide), /현재 사용하는 전체 약 목록을 유지/);
+  assert.match(JSON.stringify(guide), /모름.*확인 필요/);
+  assert.match(JSON.stringify(guide), /기관이 인증한 표준 서식이 아닙니다/);
+  assert.match(JSON.stringify(guide), /의료진이 상태를 다시 평가한 날짜가 아닙니다/);
+  assert.match(JSON.stringify(guide), /원본 문서를 대신하지/);
+  assert.match(JSON.stringify(guide), /즉시 119.*모두 찾거나/);
+  const table = guide.sections.find(s=>s.table)!.table!;
+  assert.equal(table.rows.length, 4);
+  assert.ok(table.rows.every(row=>row.length===table.columns.length));
+  const ids = new Set(guide.sources.map(s=>s.id));
+  for (const unit of [...guide.sections, ...guide.faq!]) {
+    assert.ok(unit.sourceIds?.length);
+    for (const id of unit.sourceIds ?? []) assert.ok(ids.has(id), id);
+  }
+  assert.match(guide.sources.find(s=>s.id==="SUP-PARENT-RECORDS")!.sourceDate, /^2019-10-17/);
+  assert.equal(guide.updatedAt, "2026-09-06");
+  assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
+});
+
+test("new support schema does not fabricate a physician or FAQ rich result", () => {
+  const source = readFileSync("app/health/guides/[slug]/page.tsx", "utf8");
+  assert.doesNotMatch(source, /"Physician"|"MedicalOrganization"|reviewedBy|FAQPage/);
+  assert.match(source, /datePublished: guide\.publishedAt/);
+  assert.match(source, /dateModified: guide\.updatedAt/);
+  assert.match(source, /면허 의료인 검수 미완료/);
+  assert.match(readFileSync("components/health/HealthComparisonTable.tsx", "utf8"), /role="table"/);
+});
+
+test("hypertension preserves review provenance and maps new comparison content to actual sources", () => {
+  const article = healthArticles.hypertension;
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.publishedAt, "2026-08-26");
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.ok(article.sections.every(s=>s.imageId !== undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.match(JSON.stringify(article), /백의 고혈압/);
+  assert.match(JSON.stringify(article), /가면 고혈압/);
+  assert.doesNotMatch(article.eyebrow, /비공개|파일럿|Preview/);
+  assert.match(JSON.stringify(article), /재측정하며 기다리지 말고 119/);
+});
+
+test("legacy health Preview styling no longer hides public global navigation", () => {
+  const css = readFileSync("app/globals.css", "utf8");
+  assert.doesNotMatch(css, /body:has\(\.onurim-app\)\s*>\s*(header|footer)/);
+});
+
+test("type 2 diabetes separates laboratory roles, low glucose and emergency help without overriding a prescribed plan", () => {
+  const article = healthArticles["type-2-diabetes"];
+  assert.equal(article.faq.length, 6);
+  assert.ok(article.sections[0].table);
+  assert.equal(article.updatedAt, "2026-09-06");
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections.find(s=>s.tone==="warning")!;
+  assert.match(JSON.stringify(urgent), /어느 하나라도/);
+  assert.match(JSON.stringify(urgent), /안전하게 삼킬 수 없는/);
+  assert.ok(urgent.sourceIds!.includes("SRC-NHS-LOW-GLUCOSE"));
+  assert.match(JSON.stringify(article), /미리 정해 준 조절 계획/);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+});
+
+test("rhinitis separates allergy causes, test interpretation and spray roles", () => {
+  const article = healthArticles["allergic-rhinitis"];
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.doesNotMatch(article.eyebrow, /Preview|비공개/);
+  assert.match(JSON.stringify(article), /양성인 물질이 모두/);
+  assert.match(JSON.stringify(article), /끓인 뒤 식힌 물/);
+  assert.match(article.seoTitle!, /감기 차이/);
+  assert.match(JSON.stringify(article), /원인이 불확실하거나, 증상이 악화되거나, 수면·일상에 영향을 주거나, 기존 치료/);
+});
+
+test("GERD questions connect actual records to individual testing and follow-up without compulsory procedures", () => {
+  const tool = healthTools.find(t=>t.slug==="gerd-appointment-prep")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 2);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(getToolSources(tool).length, 6);
+  assert.equal(getToolSafetyNotice(tool), healthArticles[tool.articleSlug].sections[0]);
+  assert.match(copy.description, /성인/);
+  assert.match(copy.limitation, /모두 받아야 한다는 카드가 아닙니다/);
+  assert.match(copy.steps.join(" "), /해당 기관의 식사·약 준비 지침/);
+  assert.match(copy.sheetNotice!, /즉시 119/);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+시간 금식|\d+일 중단/);
+  assert.match(tool.title, /^위식도역류/);
+});
+
+test("GERD daily check remains noindex supporting observation and never defers urgent symptoms to appointment questions", () => {
+  const tool = healthTools.find(t=>t.slug==="gerd-everyday-patterns")!;
+  const editorial = toolEditorial[tool.slug];
+  assert.equal(editorial.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(editorial.inheritParentWarning, true);
+  assert.equal(tool.fields?.length, 1);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(editorial.steps.length, 2);
+  assert.equal(getToolSources(tool).length, 6);
+  assert.match(editorial.sheetNotice!, /즉시 119/);
+  assert.match(editorial.limitation, /삼키기 어렵거나 아프거나, 구토가 계속되거나, 이유 없이 체중/);
+  assert.doesNotMatch(JSON.stringify(tool), /흉통이나 삼킴 변화를 진료 질문/);
+  assert.match(JSON.stringify(editorial), /일부러 반복하지/);
+});
+
+test("GERD separates terms and timing without waiting for severe cardiac pain", () => {
+  const article = healthArticles["gastroesophageal-reflux-disease"];
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.sections[0].tone, "warning");
+  assert.match(JSON.stringify(article.sections[0]), /가볍거나 오르내릴/);
+  assert.match(JSON.stringify(article), /삼키기 어렵거나 아프거나, 구토가 계속되거나, 이유 없이 체중/);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.doesNotMatch(article.eyebrow, /Preview|비공개/);
+  assert.match(JSON.stringify(article), /식도 점막/);
+  assert.match(readFileSync("app/health/onurim.module.css", "utf8"), /onurim-article-hero > \*\) \{ min-width: 0; \}/);
+});
+
+test("OA family checklist is a noindex consent aid and not a pain or caregiver score", () => {
+  const tool = healthTools.find(t=>t.slug==="oa-family-support")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.fields?.length, 1);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(copy.steps.length, 2);
+  assert.equal(getToolSources(tool).length, 3);
+  assert.ok(getToolSafetyNotice(tool));
+  assert.match(copy.purpose, /오누림의 편집 원칙/);
+  assert.match(copy.limitation, /통증의 진실성·가족의 성실성·회복 정도를 평가하지/);
+  assert.match(tool.items!.join(" "), /동의한 범위/);
+  assert.match(copy.sheetNotice!, /119/);
+});
+
+test("OA visit questions connect personal activity priorities to choices without requiring procedures", () => {
+  const tool = healthTools.find(t=>t.slug==="oa-visit-questions")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(tool.fields?.length, 2);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(getToolSources(tool).length, 3);
+  assert.ok(getToolSafetyNotice(tool));
+  assert.match(copy.steps.join(" "), /다른 중요한 증상을 생략하지/);
+  assert.match(copy.limitation, /모든 사람에게 MRI·주사·수술이 필요하다는 목록이 아닙니다/);
+  assert.match(copy.sheetNotice!, /모든 증상이 모일 때까지 기다리지/);
+  assert.match(tool.items!.join(" "), /기대 효과와 부담/);
+});
+
+test("joint activity log records actual pain and function without a provocation test or mandatory activity quota", () => {
+  const tool = healthTools.find(t=>t.slug==="oa-daily-activity-log")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(tool.rows, 12);
+  assert.equal(tool.columns?.length, 7);
+  assert.match(tool.columns![1], /관절·좌우/);
+  assert.match(tool.columns![4], /피부 변화/);
+  assert.equal(getToolSources(tool).length, 4);
+  assert.equal(getToolSafetyNotice(tool), healthArticles.osteoarthritis.sections.find(s=>s.tone==="warning"));
+  assert.match(copy.steps.join(" "), /아픈 동작을 일부러 반복하거나/);
+  assert.match(copy.purpose, /12일 관찰이나 운동 횟수의 기준이 아닙니다/);
+  assert.match(copy.sheetNotice!, /모든 증상이 모일 때까지 기다리지/);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+걸음|\d+점 이상|\d+분 운동/);
+});
+
+test("osteoarthritis starts with function and separates acute joint changes from usual activity planning", () => {
+  const article = healthArticles.osteoarthritis;
+  assert.equal(article.faq.length, 6);
+  assert.ok(article.sections[0].table?.rows.some(row=>row[0]==="손가락·엄지"));
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections.find(s=>s.tone==="warning")!;
+  assert.ok(urgent.sourceIds!.includes("SRC-NHS-SEPTIC-ARTHRITIS"));
+  assert.match(JSON.stringify(urgent), /당일 신속히/);
+  assert.match(JSON.stringify(urgent), /열이 날 때까지 기다리는 기준이 아니며/);
+  assert.match(urgent.paragraphs![0], /갑자기 심하게 아프거나, 새로 붓거나, 관절 주변 피부색/);
+  assert.match(urgent.title, /관절통이나 새 부종/);
+  assert.match(article.summary[2], /아프거나 새로 붓는/);
+  assert.doesNotMatch(article.eyebrow, /Preview|비공개/);
+});
+
+test("article source count badges count distinct sources instead of claim IDs", () => {
+  const component = readFileSync("components/health/HealthArticle.tsx", "utf8");
+  assert.match(component, /new Set\(sourceIds \?\? healthClaims/);
+  assert.match(component, /sourceIds=\{section\.sourceIds\}/);
+  assert.match(component, /sourceIds=\{item\.sourceIds\}/);
+  assert.doesNotMatch(component, /출처 연결 \{ids\.length\}/);
+});
+
+test("lipid visit card keeps report conditions and personal targets distinct", () => {
+  const tool = healthTools.find(t=>t.slug==="dyslipidemia-visit-card")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 4);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(tool.title, "지질검사 진료 질문지");
+  assert.doesNotMatch(tool.description, /한 장|증상 흐름/);
+  assert.equal(getToolSources(tool).length, 6);
+  assert.ok(getToolSafetyNotice(tool));
+  assert.match(copy.steps.join(" "), /실제 식사 시각/);
+  assert.match(copy.steps.join(" "), /평소 약을 건너뛰지/);
+  assert.match(copy.sheetNotice!, /가볍더라도 즉시 119/);
+  assert.doesNotMatch(JSON.stringify(copy), /\d+시간.*금식|목표.*\d+\s*mg/);
+});
+
+test("bone density reference separates method and comparator without a self-diagnosis form", () => {
+  const tool = healthTools.find(t=>t.slug==="osteoporosis-terms")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "NOINDEX_FOLLOW");
+  assert.equal(tool.kind, "guide");
+  assert.equal(tool.fields, undefined);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(getToolSources(tool).length, 2);
+  assert.match(tool.items![2], /젊은 성인/);
+  assert.match(tool.items![3], /연령·성별·인종/);
+  assert.match(copy.limitation, /바꿔 적용/);
+  assert.doesNotMatch(JSON.stringify([copy, tool.items]), /-2\.5|위험.*\d+\s*%|\d+\s*mg/);
+});
+
+test("fall environment worksheet separates observation from resolution without unsafe home trials", () => {
+  const tool = healthTools.find(t=>t.slug==="osteoporosis-home-check")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 2);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(getToolSources(tool).length, 3);
+  assert.ok(getToolSafetyNotice(tool));
+  assert.match(copy.steps.join(" "), /체크는 살펴봤다는 표시/);
+  assert.match(copy.steps.join(" "), /미끄러짐을 재현하며 시험하지/);
+  assert.match(copy.limitation, /약을 스스로 끊/);
+  assert.match(copy.sheetNotice!, /의식이 또렷해도 즉시 119/);
+});
+
+test("osteoporosis preparation joins original test context and fracture history without autonomous score interpretation", () => {
+  const tool = healthTools.find(t=>t.slug==="osteoporosis-appointment-prep")!;
+  const copy = toolEditorial[tool.slug];
+  assert.equal(copy.indexDecision, "INDEX_UTILITY");
+  assert.equal(tool.fields?.length, 2);
+  assert.equal(tool.items?.length, 4);
+  assert.equal(getToolSources(tool).length, 4);
+  assert.ok(getToolSafetyNotice(tool));
+  assert.match(copy.steps.join(" "), /검사 날짜·기관·측정부위/);
+  assert.match(copy.limitation, /모두에게 같은 검사 간격/);
+  assert.match(copy.sheetNotice!, /의식이 또렷해도 즉시 119/);
+  assert.doesNotMatch(JSON.stringify(copy), /-2\.5|\d+\s*mg|\d+년마다/);
+});
+
+test("osteoporosis distinguishes test roles and escalates a fall even without impaired consciousness", () => {
+  const article = healthArticles.osteoporosis;
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections.find(s=>s.tone==="warning")!;
+  assert.ok(urgent.sourceIds!.includes("SRC-NHS-HIP-FRACTURE"));
+  assert.match(JSON.stringify(urgent), /의식이 흐려질 때까지 기다리지/);
+  assert.match(JSON.stringify(urgent), /직접 운전하지/);
+  assert.match(JSON.stringify(article), /혈중 칼슘/);
+  assert.match(JSON.stringify(article), /50세 미만 남성/);
+  assert.doesNotMatch(JSON.stringify(article), /-2\.5|-2\.0|FRAX/);
+});
+
+test("SEO citation counts include declared professional-society sources without a quality inference", () => {
+  const audit = readFileSync("scripts/audit-onurim-seo.ts", "utf8");
+  assert.match(audit, /\.onurim-source-list a\[href\]/);
+  assert.match(audit, /dom\.sourceUrls\.length \? dom\.sourceUrls/);
+  assert.match(audit, /DECLARED_SOURCE_BLOCK_NOT_QUALITY_VERDICT/);
+});
+
+test("kidney stones distinguish urinary locations, test roles and passage confirmation without forced hydration", () => {
+  const article = healthArticles["kidney-stones"];
+  assert.equal(article.archetype, "SIMPLE_ANALOGY");
+  assert.equal(article.sections.length, 6);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sections[0].tone, "warning");
+  assert.ok(article.sections[0].paragraphs);
+  assert.match(article.sections[0].paragraphs[0], /즉시 119에 연락합니다/);
+  assert.match(article.sections[0].paragraphs[1], /모두 나타날 때까지 기다리지 않습니다/);
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  const text = JSON.stringify(article);
+  assert.match(text, /배출 여부 및 콩팥 기능/);
+  assert.match(text, /수분 제한을 안내받았다면 임의로 늘리지/);
+  assert.match(text, /칼슘 식품을 모두 끊는 것은 적절하지 않습니다/);
+  assert.match(text, /서로 다른 구간입니다/);
+  assert.doesNotMatch(text, /\d+\s*(mm|리터|mg|주 뒤)|물.*반드시.*배출/);
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
+test("migraine separates a variable symptom history from new emergencies and medication schedules", () => {
+  const article = healthArticles.migraine;
+  assert.equal(article.archetype, "BODY_SIGNAL");
+  assert.equal(article.sections.length, 7);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sections[0].tone, "warning");
+  assert.ok(article.sections[0].paragraphs);
+  assert.match(article.sections[0].paragraphs[0], /즉시 119에 연락합니다/);
+  assert.match(article.sections[0].paragraphs[2], /발열 또는 목의 뻣뻣함/);
+  assert.match(article.sections[0].paragraphs[2], /두 증상이 모두 생길 때까지 기다리지 않습니다/);
+  assert.match(article.sections[0].paragraphs[2], /바로 평가받을 수 없으면 응급의료기관으로 가거나 119에 연락/);
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  assert.ok(!article.sourceIds.includes("SRC-NINDS-MIGRAINE"));
+  const text = JSON.stringify(article);
+  assert.match(text, /모두 있어야 하는 조건이 아닙니다/);
+  assert.match(text, /예방약의 계획된 사용과 급성 증상 때문에 추가로 사용한 약을 구분/);
+  assert.match(text, /일반적인 지속 시간을/);
+  assert.match(text, /직접 운전하지 말고/);
+  assert.doesNotMatch(text, /\d+\s*(시간|분|일|mg)|혈관 확장으로만|예방약은 모두 매일/);
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
+test("gout separates serum urate, acute joint assessment and individual long-term goals", () => {
+  const article = healthArticles.gout;
+  assert.equal(article.archetype, "MYTH_FIRST");
+  assert.equal(article.sections.length, 7);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  const text = JSON.stringify(article);
+  assert.match(text, /열이 날 때까지 기다리라는 뜻이 아닙니다/);
+  assert.match(text, /다른 사람의 약을 사용하지 마세요/);
+  assert.match(text, /검사를 위해 약을 스스로 끊지 않습니다/);
+  assert.match(text, /식품의 공통 목록이나 약 용량을 정하지 않습니다/);
+  assert.doesNotMatch(text, /\d+\s*(mg\/dL|리터|mg|주 뒤)|콜히친.*복용하면.*진단/);
+  const urgent = article.sections.find(s=>s.tone==="warning")!;
+  assert.ok(urgent.sourceIds?.includes("SRC-NHS-SEPTIC-ARTHRITIS"));
+  assert.ok(urgent.paragraphs);
+  assert.match(urgent.paragraphs[0], /즉시 119에 연락합니다/);
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
+test("sleep apnea separates family observations and medical testing without device prescriptions", () => {
+  const article = healthArticles["sleep-apnea"];
+  assert.equal(article.archetype, "FAMILY_SITUATION");
+  assert.equal(article.sections.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.updatedAt, "2026-09-06");
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  const text = JSON.stringify(article);
+  assert.match(text, /음성·불확정/);
+  assert.match(text, /이 성인 검사 안내를 아이에게 그대로 적용하지 않습니다/);
+  assert.match(text, /일정한 공기 압력/);
+  assert.match(text, /정상 호흡이 없는 경우에는 119 안내에 따라 심폐소생술/);
+  assert.match(text, /간헐적으로 불규칙하게 헐떡이는 것은 정상 호흡으로 보지 않습니다/);
+  assert.match(text, /수면다원검사가 권고되므로/);
+  assert.match(text, /복부 불편·팽만이 생기면 양압기 사용을 중단하고 의료진에게 연락합니다/);
+  const urgent = article.sections.find(s=>s.tone==="warning")!;
+  assert.ok(urgent.paragraphs);
+  assert.match(urgent.paragraphs[0], /^깨워도 반응이 없거나/);
+  assert.ok(urgent.sourceIds?.includes("SRC-SJA-RECOVERY"));
+  assert.doesNotMatch(text, /AHI\s*[>=]|\d+\s*(cmH2O|회\/시간|초 이상)|양압기 압력을 \d/);
+  assert.ok(article.visuals?.["osa-concept"].caption.includes("아래쪽 후두와 기관은 생략"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
+test("asthma explains airway narrowing and reads an existing plan without creating inhaler dosing rules", () => {
+  const article = healthArticles.asthma;
+  assert.equal(article.archetype, "SIMPLE_ANALOGY");
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const text = JSON.stringify(article);
+  assert.match(text, /한 흡입기가/);
+  assert.match(text, /새 계획을 만드는 표가 아닙니다/);
+  assert.match(text, /처방된 약으로 증상이 완화되지 않거나/);
+  assert.match(text, /색 변화까지 나타나야 하는 조건이 아닙니다/);
+  const urgent = article.sections.find(s=>s.tone==="warning")!;
+  assert.ok(urgent.paragraphs);
+  assert.match(urgent.paragraphs[0], /매우 어렵거나, 헐떡이거나, 말을 내기 힘들면/);
+  assert.match(urgent.paragraphs[1], /창백해지거나 파랗게 또는 회색빛/);
+  assert.equal(urgent.bullets, undefined);
+  assert.match(text, /안정된 때/);
+  assert.doesNotMatch(text, /\d+\s*(puff|회씩|번씩|분마다|mg)|SABA|MART|AIR/);
+  assert.ok(article.visuals?.["ast-action"].caption.includes("검수자 사진이 아닌"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
+test("IBS records either direction of pain change and does not normalize new bleeding or lifelong food restrictions", () => {
+  const article = healthArticles["irritable-bowel-syndrome"];
+  assert.equal(article.archetype, "BODY_SIGNAL");
+  assert.equal(article.sections.length, 6);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-07");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const text = JSON.stringify(article);
+  assert.match(text, /덜 아팠다 \/ 더 아팠다 \/ 비슷했다/);
+  assert.match(text, /음식을 다시 넣는 과정/);
+  assert.match(text, /모두에게 대장내시경이 필수라는 뜻도/);
+  assert.match(text, /갑자기 시작된 복통 또는 심한 복통/);
+  assert.match(article.sections.find(s=>s.tone === "warning")!.paragraphs![1], /타르 같은 변은 복통이 없어도 즉시 의료 도움/);
+  assert.ok(article.sections.find(s=>s.tone === "warning")!.sourceIds!.includes("SRC-NIDDK-GI-BLEEDING"));
+  assert.match(text, /체중 감소 중 하나라도/);
+  assert.match(text, /마음먹기에 달렸다/);
+  assert.doesNotMatch(text, /몇 개 이상이면|일주일에 \d|\d+개월|\d+\s*(g|mg|그램)/);
+  assert.ok(article.visuals?.["ibs-concept"].caption.includes("실제 신경"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
+test("MASLD separates enzyme, fat and fibrosis questions without self-diagnosis or unsupervised withdrawal", () => {
+  const article = healthArticles["metabolic-dysfunction-associated-steatotic-liver-disease"];
+  assert.equal(article.archetype, "QUESTION_FIRST");
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const text = JSON.stringify(article);
+  assert.match(text, /일반 초음파와 역할이 다릅니다/);
+  assert.match(text, /모두가 정밀검사를 받아야/);
+  assert.match(text, /먼저 의료 도움을/);
+  assert.match(text, /토한 뒤 멈췄고 다른 증상이 없어도/);
+  assert.doesNotMatch(text, /승인된 약이 없|\d+\s*(kg|㎏|kcal|%|U\/L|g\/일)/);
+  assert.ok(article.visuals?.["masld-concept"].src.endsWith("concept-v2.webp"));
+  assert.ok(article.visuals?.["masld-action"].caption.includes("AI 생성"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
+test("obesity uses consent-first family support and separates body measures from sudden fluid-related change", () => {
+  const article = healthArticles.obesity;
+  assert.equal(article.archetype, "FAMILY_SITUATION");
+  assert.match(article.sections[0].title, /가족/);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections.find(s=>s.tone==="warning")!;
+  assert.ok(urgent.sourceIds!.includes("SRC-MEDLINEPLUS-LEG-SWELLING"));
+  assert.match(JSON.stringify(urgent), /수분이 몸에 쌓이는/);
+  assert.match(JSON.stringify(urgent), /즉시 119/);
+  assert.match(JSON.stringify(article), /혼자 중단하거나/);
+  assert.doesNotMatch(JSON.stringify(article), /\d+\s*(kg|㎏|kcal|%|분 운동|시간 수면)/);
+  assert.ok(article.visuals?.["obs-concept"].src.endsWith("concept-v2.webp"));
+  assert.ok(article.visuals?.["obs-action"].src.endsWith("action-v2.webp"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
+test("myocardial infarction avoids pain or duration thresholds and separates troponin injury from a single-result diagnosis", () => {
+  const article = healthArticles["acute-myocardial-infarction"];
+  assert.equal(article.archetype, "QUESTION_FIRST");
+  assert.match(article.title, /119/);
+  assert.match(article.description, /확신이 없어도 즉시 119/);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sourceIds.length, 8);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections[0];
+  assert.equal(urgent.tone, "warning");
+  assert.equal(urgent.paragraphs?.length, 1);
+  assert.match(urgent.paragraphs![0], /확신이 없어도 즉시 119/);
+  const text = JSON.stringify(article);
+  assert.match(text, /통증 강도만으로 배제하지/);
+  assert.match(text, /심근경색과 심정지는 같은 말이 아닙니다/);
+  assert.match(text, /트로포닌은 심장근육 세포에 있는 단백질/);
+  assert.match(text, /다른 원인으로 심장근육이 손상된 경우에도/);
+  assert.match(text, /처음 검사에서 높지 않았더라도/);
+  assert.match(text, /아스피린이 모든 상황에서 금지라는 뜻도/);
+  assert.doesNotMatch(text, /\d+(\.\d+)?\s*(mg|시간 이내|분 이상|ng\/L)|911|999|GTN|ST 분절/);
+  assert.ok(article.visuals?.["acute-myocardial-infarction-concept"].caption.includes("완전 폐색이 모든"));
+  assert.ok(article.visuals?.["acute-myocardial-infarction-action"].caption.includes("모르면 모른다고"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
+test("stroke treats each sudden sign as urgent and separates last-known-well from discovery after calling", () => {
+  const article = healthArticles.stroke;
+  assert.equal(article.archetype, "BODY_SIGNAL");
+  assert.match(article.title, /즉시 119/);
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sourceIds.length, 8);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections[0];
+  assert.equal(urgent.tone, "warning");
+  assert.match(urgent.paragraphs![0], /하나라도 갑자기 나타나면 즉시 119/);
+  assert.equal(urgent.paragraphs?.length, 1);
+  assert.equal(urgent.bullets?.length, 5);
+  assert.match(urgent.bullets![3], /걷기 어렵거나, 어지럽거나, 균형 또는/);
+  assert.match(article.summary[0], /어지럼/);
+  assert.match(article.faq[0].answer, /어지럼/);
+  assert.match(article.sections[1].title, /FAST/);
+  assert.match(JSON.stringify(article), /호전되었어도 즉시 119/);
+  assert.match(JSON.stringify(article), /깬 시각이 실제 발병 시각이라고 단정하지/);
+  assert.match(JSON.stringify(article), /평소와 같았던 때와 처음 증상을 발견한 때/);
+  assert.match(JSON.stringify(article), /서로 달라야 한다고 억지로 채우지/);
+  assert.match(JSON.stringify(article), /음식이나 마실 것을 주지/);
+  assert.match(JSON.stringify(article), /평소 처방약을 장기적으로 끊으라는 뜻이 아닙니다/);
+  assert.doesNotMatch(JSON.stringify(article), /\d+(\.\d+)?\s*시간 이내|\d+\s*mg|911|\d+점 이상/);
+  assert.ok(article.visuals?.["stroke-concept"].caption.includes("하나라도 갑자기"));
+  assert.ok(article.visuals?.["stroke-concept"].caption.includes("컵은 배경 소품"));
+  assert.ok(article.visuals?.["stroke-action"].caption.includes("같을 수도 다를 수도"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
+test("anxiety distinguishes experiences and medication roles without diagnostic waiting or reassurance about new chest pain", () => {
+  const article = healthArticles["anxiety-disorder"];
+  assert.equal(article.archetype, "MYTH_FIRST");
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sourceIds.length, 11);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections[0];
+  assert.equal(urgent.tone, "warning");
+  assert.match(urgent.paragraphs![0], /즉시 119/);
+  assert.match(urgent.paragraphs![0], /모두 나타나야 하는 것은 아닙니다/);
+  assert.match(urgent.paragraphs![1], /지금의 심장·호흡 문제를 배제하지/);
+  assert.match(urgent.paragraphs![2], /의료진에게 신속히 연락해 평가/);
+  assert.match(JSON.stringify(article), /한 번 또는 가끔 발작/);
+  assert.match(JSON.stringify(article), /6개월이라는 말은 모든 불안장애의 공통 기준도/);
+  assert.match(JSON.stringify(article), /모두 필요할 때만 먹는다고 일반화하지/);
+  assert.match(JSON.stringify(article), /신체 증상을 유발하는 훈련을 시키는 것은 아닙니다/);
+  assert.doesNotMatch(JSON.stringify(article), /\d+점 이상|\d+\s*mg|988|911|\d+회 호흡|모든 항불안제는 즉시/);
+  assert.ok(article.visuals?.["anxiety-disorder-concept"].caption.includes("서로 겹칠"));
+  assert.ok(article.visuals?.["anxiety-disorder-action"].caption.includes("회피 권유가 아닙니다"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
+test("depression supports family listening without diagnostic thresholds or delayed emergency help", () => {
+  const article = healthArticles.depression;
+  assert.equal(article.archetype, "FAMILY_SITUATION");
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sourceIds.length, 8);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections[0];
+  assert.equal(urgent.tone, "warning");
+  assert.match(urgent.paragraphs![0], /즉시 119/);
+  assert.match(urgent.paragraphs![0], /109 상담 연결이나 예약 진료를 기다리느라/);
+  assert.match(JSON.stringify(article), /2주가 될 때까지 버텨야/);
+  assert.match(JSON.stringify(article), /비밀 보장을 약속하지/);
+  assert.match(JSON.stringify(article), /혼자 제압하려 하지 말고/);
+  assert.match(JSON.stringify(article), /자살 생각이 생기거나 심해지면 즉시/);
+  assert.doesNotMatch(JSON.stringify(article), /\d+점 이상|\d+\s*mg|988|911|무조건 완치|가장 안전한 약/);
+  assert.ok(article.visuals?.["depression-concept"].caption.includes("늘거나 줄 수"));
+  assert.ok(article.visuals?.["depression-action"].caption.includes("실제 환자나 의료인이 아니며"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
+test("UTI separates infection locations, test roles and urgent changes without self-prescribed antibiotics", () => {
+  const article = healthArticles["urinary-tract-infection"];
+  assert.equal(article.archetype, "QUESTION_FIRST");
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 1);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.equal(article.sourceIds.length, 10);
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  const urgent = article.sections[0];
+  assert.equal(urgent.tone, "warning");
+  assert.match(urgent.paragraphs![0], /즉시 119/);
+  assert.match(urgent.paragraphs![1], /모두 나타나야 하는 조건이 아니며/);
+  assert.match(JSON.stringify(article), /배뇨 불편은 없을 수도/);
+  assert.match(JSON.stringify(article), /세균이 보인다는 사실만으로 모두 항생제/);
+  assert.match(JSON.stringify(article), /남은 항생제나 다른 사람/);
+  assert.ok(article.sections.some(s=>s.sourceIds?.includes("SRC-CDC-ANTIBIOTIC-USE")));
+  assert.ok(article.sections.find(s=>s.table)?.sourceIds?.includes("SRC-MEDLINEPLUS-URINE-CULTURE"));
+  assert.doesNotMatch(JSON.stringify(article), /72시간|48시간|\d+일간|\d+\s*(mg|리터|L\/일)/);
+  assert.ok(article.visuals?.["urinary-tract-infection-concept"].caption.includes("서로 배타적인"));
+  assert.ok(article.visuals?.["urinary-tract-infection-action"].caption.includes("음성 판정이 아니며"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});
+
+test("dyslipidemia distinguishes lipid roles and preparation without a universal fasting or treatment target", () => {
+  const article = healthArticles.dyslipidemia;
+  assert.equal(article.faq.length, 6);
+  assert.equal(article.sections.filter(s=>s.table).length, 2);
+  assert.equal(article.updatedAt, "2026-09-06");
+  assert.ok(article.sections.every(s=>s.imageId!==undefined));
+  for (const item of [...article.sections, ...article.faq]) {
+    assert.ok(item.sourceIds?.length);
+    for (const id of item.sourceIds ?? []) assert.ok(article.sourceIds.includes(id), id);
+  }
+  assert.match(JSON.stringify(article), /모든 비금식 검사를 무효/);
+  assert.match(JSON.stringify(article), /아주 심해질 때까지 기다리지/);
+  assert.doesNotMatch(JSON.stringify(article), /\d+\s*(mg\/dL|시간 금식)/);
+  assert.ok(article.visuals?.["dlp-concept"].src.endsWith("concept-v2.webp"));
+  assert.ok(article.visuals?.["dlp-action"].src.endsWith("action-v2.webp"));
+  const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
+  for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
+});

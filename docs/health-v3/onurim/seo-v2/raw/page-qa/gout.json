@@ -1,0 +1,446 @@
+{
+  "route": "/health/gout",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T15:27:05.643Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "9f6a1748c31a789b2603b72745c8ed883f64e90e8bb32432d5358a2a8a21e9da",
+      "full": "8f601542e4d3f65bdcca8991341af185fe14341d102d132f57209c105406d2a2"
+    },
+    {
+      "width": 390,
+      "top": "b7ba4bb5a39065d144902ef76b0ce3bc106ae346b22d2f952216a38189baaa97",
+      "full": "de5d98d18385daef2c3604cc6ecddf8c69ef515b766206f0e46c21da422e237a"
+    },
+    {
+      "width": 430,
+      "top": "99c67126aef130e029fe2bb61afb2256e0ed2570eb10afb2da3db08c144a1f6c",
+      "full": "397dea68fcaa678da924d7f7a8489338bfd43048a91941a87847e7e6e914ee08"
+    },
+    {
+      "width": 768,
+      "top": "5903841d6ad4a4447612c618cffb5ce9da62936f10e0a0fe3e64268044b2e69c",
+      "full": "7e34872773e1c609ed0d1af9b7e43adae316fc7d7fdb4325c6f3260010a0274d"
+    },
+    {
+      "width": 1440,
+      "top": "8f971840e577704d163b259bf831304afa6840f86c7868e78cce200066def633",
+      "full": "3c6b5a14be5a1535c981598628d731c6e1504f0839d1b1af13e98af6f1f27810"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "통풍: 요산 수치만으로 진단할 수 없는 이유와 진료 준비 | 오누림",
+      "h1": [
+        "통풍이 걱정될 때, 요산 수치와 관절 통증을 나눠 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘어제 먹은 음식 때문’이라고만 생각하기 쉽습니다",
+        "혈액 속 요산과 관절의 염증은 같은 정보가 아닙니다",
+        "즉시 119가 필요한 변화와 급한 관절 진료를 구분하세요",
+        "진료에서는 관절의 변화와 검사 목적을 함께 봅니다",
+        "통증을 가라앉히는 치료와 앞으로의 예방은 목적이 다릅니다",
+        "‘이번 통증’과 ‘다음 관리’의 질문을 나눠 가져가세요",
+        "생활 관리는 음식 금지표 하나로 끝나지 않습니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/gout",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Fhero.webp&w=3840&q=75",
+          "alt": "진료 메모와 상담 준비를 상징하는 자주색 장식 표지 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "관절 공간의 작은 요산염 결정 기호와 별도 원 안의 혈액 검체를 나란히 보여 주는 비교 개념도",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Faction-v2.webp&w=3840&q=75",
+          "alt": "이번 통증과 다음 관리라는 두 제목 아래 관절과 빈 달력 기호를 놓은 진료 질문용 노트 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "통풍: 요산 수치만으로 진단할 수 없는 이유와 진료 준비 | 오누림",
+      "h1": [
+        "통풍이 걱정될 때, 요산 수치와 관절 통증을 나눠 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘어제 먹은 음식 때문’이라고만 생각하기 쉽습니다",
+        "혈액 속 요산과 관절의 염증은 같은 정보가 아닙니다",
+        "즉시 119가 필요한 변화와 급한 관절 진료를 구분하세요",
+        "진료에서는 관절의 변화와 검사 목적을 함께 봅니다",
+        "통증을 가라앉히는 치료와 앞으로의 예방은 목적이 다릅니다",
+        "‘이번 통증’과 ‘다음 관리’의 질문을 나눠 가져가세요",
+        "생활 관리는 음식 금지표 하나로 끝나지 않습니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/gout",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Fhero.webp&w=3840&q=75",
+          "alt": "진료 메모와 상담 준비를 상징하는 자주색 장식 표지 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "관절 공간의 작은 요산염 결정 기호와 별도 원 안의 혈액 검체를 나란히 보여 주는 비교 개념도",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Faction-v2.webp&w=3840&q=75",
+          "alt": "이번 통증과 다음 관리라는 두 제목 아래 관절과 빈 달력 기호를 놓은 진료 질문용 노트 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "통풍: 요산 수치만으로 진단할 수 없는 이유와 진료 준비 | 오누림",
+      "h1": [
+        "통풍이 걱정될 때, 요산 수치와 관절 통증을 나눠 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘어제 먹은 음식 때문’이라고만 생각하기 쉽습니다",
+        "혈액 속 요산과 관절의 염증은 같은 정보가 아닙니다",
+        "즉시 119가 필요한 변화와 급한 관절 진료를 구분하세요",
+        "진료에서는 관절의 변화와 검사 목적을 함께 봅니다",
+        "통증을 가라앉히는 치료와 앞으로의 예방은 목적이 다릅니다",
+        "‘이번 통증’과 ‘다음 관리’의 질문을 나눠 가져가세요",
+        "생활 관리는 음식 금지표 하나로 끝나지 않습니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/gout",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Fhero.webp&w=3840&q=75",
+          "alt": "진료 메모와 상담 준비를 상징하는 자주색 장식 표지 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "관절 공간의 작은 요산염 결정 기호와 별도 원 안의 혈액 검체를 나란히 보여 주는 비교 개념도",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Faction-v2.webp&w=3840&q=75",
+          "alt": "이번 통증과 다음 관리라는 두 제목 아래 관절과 빈 달력 기호를 놓은 진료 질문용 노트 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "통풍: 요산 수치만으로 진단할 수 없는 이유와 진료 준비 | 오누림",
+      "h1": [
+        "통풍이 걱정될 때, 요산 수치와 관절 통증을 나눠 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘어제 먹은 음식 때문’이라고만 생각하기 쉽습니다",
+        "혈액 속 요산과 관절의 염증은 같은 정보가 아닙니다",
+        "즉시 119가 필요한 변화와 급한 관절 진료를 구분하세요",
+        "진료에서는 관절의 변화와 검사 목적을 함께 봅니다",
+        "통증을 가라앉히는 치료와 앞으로의 예방은 목적이 다릅니다",
+        "‘이번 통증’과 ‘다음 관리’의 질문을 나눠 가져가세요",
+        "생활 관리는 음식 금지표 하나로 끝나지 않습니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/gout",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Fhero.webp&w=3840&q=75",
+          "alt": "진료 메모와 상담 준비를 상징하는 자주색 장식 표지 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "관절 공간의 작은 요산염 결정 기호와 별도 원 안의 혈액 검체를 나란히 보여 주는 비교 개념도",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Faction-v2.webp&w=3840&q=75",
+          "alt": "이번 통증과 다음 관리라는 두 제목 아래 관절과 빈 달력 기호를 놓은 진료 질문용 노트 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "통풍: 요산 수치만으로 진단할 수 없는 이유와 진료 준비 | 오누림",
+      "h1": [
+        "통풍이 걱정될 때, 요산 수치와 관절 통증을 나눠 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "‘어제 먹은 음식 때문’이라고만 생각하기 쉽습니다",
+        "혈액 속 요산과 관절의 염증은 같은 정보가 아닙니다",
+        "즉시 119가 필요한 변화와 급한 관절 진료를 구분하세요",
+        "진료에서는 관절의 변화와 검사 목적을 함께 봅니다",
+        "통증을 가라앉히는 치료와 앞으로의 예방은 목적이 다릅니다",
+        "‘이번 통증’과 ‘다음 관리’의 질문을 나눠 가져가세요",
+        "생활 관리는 음식 금지표 하나로 끝나지 않습니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/gout",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Fhero.webp&w=3840&q=75",
+          "alt": "진료 메모와 상담 준비를 상징하는 자주색 장식 표지 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "관절 공간의 작은 요산염 결정 기호와 별도 원 안의 혈액 검체를 나란히 보여 주는 비교 개념도",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fgout%2Faction-v2.webp&w=3840&q=75",
+          "alt": "이번 통증과 다음 관리라는 두 제목 아래 관절과 빈 달력 기호를 놓은 진료 질문용 노트 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 9,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "route": "/health/trust/sources-policy",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T17:08:03.256Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "27b836246d13441d76dca0826e2f7185390cbad3842cce0d126ddb31deba56cd",
+      "full": "b58236797d039d6eb9a681d72ad1e79dac9ae50cb7e462ef684c7534c7d4770f"
+    },
+    {
+      "width": 390,
+      "top": "42750b1aaaae6c2ccfdc1d84f988b5280516b0d959ae307f416d0d8cdf0337d3",
+      "full": "4850bdf2e727425eac3f9109cc9f3333a6a2fca47837c018d0899176293467f0"
+    },
+    {
+      "width": 430,
+      "top": "8f7a2ab54b676da531f5b9a183dd3387025eb7a64d669577f55a8d6e45e68635",
+      "full": "c9c507ebb06840950080b77b8d9b883a46e1aa01b233f76b70a5989728f38ff6"
+    },
+    {
+      "width": 768,
+      "top": "4dcf3c989116b212538c6dc75454dfeebf65d66632cf348821af1e919c1f4ab5",
+      "full": "f843a446411a48983d2a1118080d7dbc216e8ada140b956377de066992e4a59e"
+    },
+    {
+      "width": 1440,
+      "top": "7e818de9f6082951e39ea5050fd55abc4fd1f4ccc0470452b2135b17bbce97f0",
+      "full": "fb85db8a04378d8096326c87cc15236110de16ed936232e6ff0e354a09d08147"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "오누림 출처 정책: 자료 선정·날짜·적용 범위 확인 | 오누림",
+      "h1": [
+        "출처 정책"
+      ],
+      "h2": [
+        "질문에 맞는 원문을 고릅니다",
+        "링크 수보다 문장과의 연결을 봅니다",
+        "원문의 날짜와 확인한 날은 다릅니다",
+        "해외 설명을 국내 개인 지시로 옮기지 않습니다",
+        "출처 확인에도 한계가 있습니다"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/sources-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "오누림 출처 정책: 자료 선정·날짜·적용 범위 확인 | 오누림",
+      "h1": [
+        "출처 정책"
+      ],
+      "h2": [
+        "질문에 맞는 원문을 고릅니다",
+        "링크 수보다 문장과의 연결을 봅니다",
+        "원문의 날짜와 확인한 날은 다릅니다",
+        "해외 설명을 국내 개인 지시로 옮기지 않습니다",
+        "출처 확인에도 한계가 있습니다"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/sources-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "오누림 출처 정책: 자료 선정·날짜·적용 범위 확인 | 오누림",
+      "h1": [
+        "출처 정책"
+      ],
+      "h2": [
+        "질문에 맞는 원문을 고릅니다",
+        "링크 수보다 문장과의 연결을 봅니다",
+        "원문의 날짜와 확인한 날은 다릅니다",
+        "해외 설명을 국내 개인 지시로 옮기지 않습니다",
+        "출처 확인에도 한계가 있습니다"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/sources-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "오누림 출처 정책: 자료 선정·날짜·적용 범위 확인 | 오누림",
+      "h1": [
+        "출처 정책"
+      ],
+      "h2": [
+        "질문에 맞는 원문을 고릅니다",
+        "링크 수보다 문장과의 연결을 봅니다",
+        "원문의 날짜와 확인한 날은 다릅니다",
+        "해외 설명을 국내 개인 지시로 옮기지 않습니다",
+        "출처 확인에도 한계가 있습니다"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/sources-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "오누림 출처 정책: 자료 선정·날짜·적용 범위 확인 | 오누림",
+      "h1": [
+        "출처 정책"
+      ],
+      "h2": [
+        "질문에 맞는 원문을 고릅니다",
+        "링크 수보다 문장과의 연결을 봅니다",
+        "원문의 날짜와 확인한 날은 다릅니다",
+        "해외 설명을 국내 개인 지시로 옮기지 않습니다",
+        "출처 확인에도 한계가 있습니다"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/sources-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

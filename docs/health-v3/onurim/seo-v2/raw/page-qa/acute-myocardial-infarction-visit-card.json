@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/acute-myocardial-infarction-visit-card",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T16:34:11.500Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "e8d2deaa2b65b2bde78d9a7eb68d74dde013c1ce4942db09ac277dae603e3c9e",
+      "full": "0904d213c1171b34e2ff4519476fd52b08a5b1f090cf67c808ad474019adc701"
+    },
+    {
+      "width": 390,
+      "top": "e0ccedb1adcc2484adc656e2ece69006594c44f7c2d7055fba75250181a0ae71",
+      "full": "0b70d4ebc534ce6c4466ef57e8f6a9fc0ec159258822fef7f35297403d0fa7b1"
+    },
+    {
+      "width": 430,
+      "top": "c7f8e94b054e6b5870b2a594ed5ff134ee6fb1ef1f3925695c2cd6b4a1ab8d18",
+      "full": "74e6aac03ed9090b78095b0cb84204b7168e1c3945645eddec171f1b962749dd"
+    },
+    {
+      "width": 768,
+      "top": "57eafc8cf9b54b4ac0a7ae6b70bc36754016fafed7ab48f0955b5a5db2710471",
+      "full": "df260d03bef69cf7a17c2233d1c892449976067cc50b5c016b0bf6fbc18e6417"
+    },
+    {
+      "width": 1440,
+      "top": "3c5d2c95cc06c4494f6c0f035174432fc6d87d35d6e81b8febc5b91ca9621125",
+      "full": "ade414c11bb7e34f2fdb29f2e136c395408772668063f3955ad4609b2fe32e77"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "심근경색 전달 메모: 119 신고 후 관찰·치료 뒤 질문 | 오누림",
+      "h1": [
+        "심근경색 전달 메모"
+      ],
+      "h2": [
+        "지금 이런 변화가 있다면 먼저 119에 연락하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/acute-myocardial-infarction-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "심근경색 전달 메모: 119 신고 후 관찰·치료 뒤 질문 | 오누림",
+      "h1": [
+        "심근경색 전달 메모"
+      ],
+      "h2": [
+        "지금 이런 변화가 있다면 먼저 119에 연락하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/acute-myocardial-infarction-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "심근경색 전달 메모: 119 신고 후 관찰·치료 뒤 질문 | 오누림",
+      "h1": [
+        "심근경색 전달 메모"
+      ],
+      "h2": [
+        "지금 이런 변화가 있다면 먼저 119에 연락하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/acute-myocardial-infarction-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "심근경색 전달 메모: 119 신고 후 관찰·치료 뒤 질문 | 오누림",
+      "h1": [
+        "심근경색 전달 메모"
+      ],
+      "h2": [
+        "지금 이런 변화가 있다면 먼저 119에 연락하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/acute-myocardial-infarction-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "심근경색 전달 메모: 119 신고 후 관찰·치료 뒤 질문 | 오누림",
+      "h1": [
+        "심근경색 전달 메모"
+      ],
+      "h2": [
+        "지금 이런 변화가 있다면 먼저 119에 연락하세요",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/acute-myocardial-infarction-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

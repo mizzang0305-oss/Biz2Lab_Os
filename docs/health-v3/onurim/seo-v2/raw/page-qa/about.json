@@ -1,0 +1,281 @@
+{
+  "route": "/health/trust/about",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T16:49:09.670Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "aacfefde6e53b815e631d16bff8061113356bf8cc107b35de099cda8dcbe9f20",
+      "full": "60c9908835b3688e58a28f0b1b0a0ec779ed7d882ca3193800a717a32ed10483"
+    },
+    {
+      "width": 390,
+      "top": "fa8e1287d367be5956c0cfd55d41c6f6736e45bedd8f954d8f551fc4a7e6c315",
+      "full": "d459f12820c2866de712f354942cdc231358cd1462db408be38c49fe56435a0d"
+    },
+    {
+      "width": 430,
+      "top": "148b52ed3934bac9aeb2212eb2158f2f63038bea0a481a917ae6935e986e8621",
+      "full": "6118be63a234557408a0b6ca5dd7e378aa4b06ed64a4e28acd47ee64ea346acf"
+    },
+    {
+      "width": 768,
+      "top": "c2ec7e131433944f0c0033a9ef229c765386e72d773eb022cca9d693f463b614",
+      "full": "f5d5322fcf43f7072b7f407a09dd697aede327990ccd6dcbcb1241773890c771"
+    },
+    {
+      "width": 1440,
+      "top": "09cece7294364c7f735b7cb38d4ab215e9a1d7429f157649504e38a67fad6600",
+      "full": "4fc63d89f779b591c4abddd09d310fc28305c5387af620667898458da0c2cb29"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "오누림 소개: 건강정보의 범위·운영·확인 방법 | 오누림",
+      "h1": [
+        "오누림 소개"
+      ],
+      "h2": [
+        "어떤 도움을 얻을 수 있나요?",
+        "의료 서비스와는 다릅니다",
+        "누가 운영하고 작성하나요?",
+        "설명과 그림은 어떻게 확인하나요?",
+        "틀리거나 헷갈리는 표현을 발견했다면"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/about",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "오누림 소개: 건강정보의 범위·운영·확인 방법 | 오누림",
+      "h1": [
+        "오누림 소개"
+      ],
+      "h2": [
+        "어떤 도움을 얻을 수 있나요?",
+        "의료 서비스와는 다릅니다",
+        "누가 운영하고 작성하나요?",
+        "설명과 그림은 어떻게 확인하나요?",
+        "틀리거나 헷갈리는 표현을 발견했다면"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/about",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "오누림 소개: 건강정보의 범위·운영·확인 방법 | 오누림",
+      "h1": [
+        "오누림 소개"
+      ],
+      "h2": [
+        "어떤 도움을 얻을 수 있나요?",
+        "의료 서비스와는 다릅니다",
+        "누가 운영하고 작성하나요?",
+        "설명과 그림은 어떻게 확인하나요?",
+        "틀리거나 헷갈리는 표현을 발견했다면"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/about",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "오누림 소개: 건강정보의 범위·운영·확인 방법 | 오누림",
+      "h1": [
+        "오누림 소개"
+      ],
+      "h2": [
+        "어떤 도움을 얻을 수 있나요?",
+        "의료 서비스와는 다릅니다",
+        "누가 운영하고 작성하나요?",
+        "설명과 그림은 어떻게 확인하나요?",
+        "틀리거나 헷갈리는 표현을 발견했다면"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/about",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "오누림 소개: 건강정보의 범위·운영·확인 방법 | 오누림",
+      "h1": [
+        "오누림 소개"
+      ],
+      "h2": [
+        "어떤 도움을 얻을 수 있나요?",
+        "의료 서비스와는 다릅니다",
+        "누가 운영하고 작성하나요?",
+        "설명과 그림은 어떻게 확인하나요?",
+        "틀리거나 헷갈리는 표현을 발견했다면"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/about",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

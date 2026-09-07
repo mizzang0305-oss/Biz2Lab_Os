@@ -1,0 +1,68 @@
+{
+  "route": "/health/tools/anxiety-disorder-visit-card",
+  "observedAt": "2026-09-06T16:17:00.423Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "실제 상황·시작·반복 / 몸에서 느낀 변화 (미확인 가능)",
+    "이미 피하게 된 활동 / 잠·일·공부·관계에 생긴 불편",
+    "현재 약·보충제·카페인·술 / 최근 변화·실제 사용·반응"
+  ],
+  "sourceHrefs": [
+    "https://www.nimh.nih.gov/health/topics/mental-health-medications",
+    "https://www.nhs.uk/symptoms/chest-pain/",
+    "https://www.nhs.uk/symptoms/shortness-of-breath/",
+    "https://www.nimh.nih.gov/health/publications/panic-disorder-when-fear-overwhelms",
+    "https://www.129.go.kr/109",
+    "https://www.nimh.nih.gov/health/publications/suicide-faq",
+    "https://www.easylaw.go.kr/CSP/CnpClsMain.laf?ccfNo=3&cciNo=3&cnpClsNo=1&csmSeq=1465&popMenu=ov"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 7,
+    "overflow": 0,
+    "footerText": "불안 진료 메모 · 양식·안내 수정 2026-09-07교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료NIH/NIMH — Mental Health MedicationsNHS — Chest painNHS — Shortness of breathNIH/NIMH — Panic Disorder: What You Need to Know보건복지부 보건복지상담센터 — 자살예방상담전화 — 109 안내와 자주하는 질문NIH/NIMH — Frequently Asked Questions About Suicide찾기쉬운 생활법령정보 — 긴급구조활동 — 긴급구조 관련 특수번호 전화서비스의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 3,
+    "checkedItems": 0,
+    "focusedCheckbox": false,
+    "footerParagraphFontPx": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "links": [
+    {
+      "href": "/health/anxiety-disorder",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/symptom-journal",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/medication-list",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/appointment-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "6118631b6c77eb83623efab4251b5fd9a6a667a11442c7ddb11b14a4481e24fa",
+  "pdfBytes": 144876,
+  "failures": []
+}

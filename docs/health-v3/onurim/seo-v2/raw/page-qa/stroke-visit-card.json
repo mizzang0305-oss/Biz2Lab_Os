@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/stroke-visit-card",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T16:30:17.931Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "75e4d0d61ab70604e706459ed8da22ad45fd9dd191a6b2b4e4374669eea5508b",
+      "full": "cf20d4a86db6e05fb771ac0dbd81a7c6524f6ac19f9be925929ca09df8877e31"
+    },
+    {
+      "width": 390,
+      "top": "2312e4a0b8ae02f65528f9bfa47c207c33f995cf6015fe0b9de0929de531b3b4",
+      "full": "62caadddc840e97929dff3e92a41c0ef5f8bfd332b8e6ada6195d80edc71ed6b"
+    },
+    {
+      "width": 430,
+      "top": "b20aae3bbd3cee2db3425b84eaa2dbaaa225b7ac6066da90a2e8b6183c1aa62c",
+      "full": "acb73d9d1287b1effaa94d227e3c3930c78af4a5364b6d56911c23c58f58d796"
+    },
+    {
+      "width": 768,
+      "top": "b69d89e4abb06c16741e20a13b5929282752dd704a62e1ca45a8ebbed7e0631d",
+      "full": "bbd73c942337f80796e484b52e640a0aa6b21ae9bbec490e82ba2ef9659ba3aa"
+    },
+    {
+      "width": 1440,
+      "top": "9bb8945b317964e0131be0b5c5c894a03bc541026597c2cc01c6d854084d44b8",
+      "full": "686085b02f3167a234acf7f5468f721042cc43867e91ceb1973b386d41576e99"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "뇌졸중 전달 메모: 119 신고 후 두 시각·치료 뒤 질문 | 오누림",
+      "h1": [
+        "뇌졸중 전달 메모"
+      ],
+      "h2": [
+        "여러 증상이 함께 나타나야 하는 것은 아닙니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/stroke-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "뇌졸중 전달 메모: 119 신고 후 두 시각·치료 뒤 질문 | 오누림",
+      "h1": [
+        "뇌졸중 전달 메모"
+      ],
+      "h2": [
+        "여러 증상이 함께 나타나야 하는 것은 아닙니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/stroke-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "뇌졸중 전달 메모: 119 신고 후 두 시각·치료 뒤 질문 | 오누림",
+      "h1": [
+        "뇌졸중 전달 메모"
+      ],
+      "h2": [
+        "여러 증상이 함께 나타나야 하는 것은 아닙니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/stroke-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "뇌졸중 전달 메모: 119 신고 후 두 시각·치료 뒤 질문 | 오누림",
+      "h1": [
+        "뇌졸중 전달 메모"
+      ],
+      "h2": [
+        "여러 증상이 함께 나타나야 하는 것은 아닙니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/stroke-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "뇌졸중 전달 메모: 119 신고 후 두 시각·치료 뒤 질문 | 오누림",
+      "h1": [
+        "뇌졸중 전달 메모"
+      ],
+      "h2": [
+        "여러 증상이 함께 나타나야 하는 것은 아닙니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/stroke-visit-card",
+      "robots": "noindex, follow",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "route": "/health/tools/allergy-environment-check",
+  "observedAt": "2026-09-06T13:09:49.497Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "이미 바꾼 환경과 날짜·함께 달라진 점 (없음·미확인 표시 가능)"
+  ],
+  "sourceHrefs": [
+    "https://www.nhs.uk/conditions/allergic-rhinitis/",
+    "https://medlineplus.gov/ency/article/000813.htm",
+    "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6226"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 3,
+    "overflow": 0,
+    "footerText": "환경 변화 관찰 체크 · 양식·안내 수정 2026-09-06교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료NHS — Allergic rhinitisNIH/MedlinePlus — Allergic rhinitis질병관리청 국가건강정보포털 — 심폐소생술의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 1,
+    "checkedItems": 0
+  },
+  "links": [
+    {
+      "href": "/health/allergic-rhinitis",
+      "status": 200
+    },
+    {
+      "href": "/health/tools/allergy-trigger-observation",
+      "status": 200
+    },
+    {
+      "href": "/health/tools/allergy-appointment-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "01a247a734aa04a5e2828ac59bbac5e5b97173f4ef5eb234d3b415fcecf83056",
+  "pdfBytes": 113080,
+  "failures": []
+}

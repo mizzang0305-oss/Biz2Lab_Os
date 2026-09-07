@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { getTrustPage, trustPages } from "@/lib/health-v3/content";
-import { createMetadata } from "@/lib/seo";
+import { authorProfileJsonLd, breadcrumbJsonLd, createMetadata, jsonLd } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/site";
 
 export const dynamicParams = false;
 
@@ -13,7 +15,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const page = getTrustPage(slug);
-  return page ? createMetadata({ title: page.title, description: page.intro, path: `/health/trust/${slug}` }) : {};
+  return page ? createMetadata({ title: page.seoTitle ?? page.title, description: page.description ?? page.intro,
+    path: `/health/trust/${slug}`, noindex: page.indexDecision === "NOINDEX_FOLLOW", follow: true }) : {};
 }
 
 export default async function TrustPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -23,17 +26,18 @@ export default async function TrustPage({ params }: { params: Promise<{ slug: st
 
   return (
     <article className="onurim-trust-page">
+      {slug === "author" ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(authorProfileJsonLd()) }} /> : null}
+      {page.updatedAt ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbJsonLd([
+        { name: "오누림", url: absoluteUrl("/") },
+        { name: page.title, url: absoluteUrl(`/health/trust/${slug}`) },
+      ])) }} /> : null}
       <header><p className="onurim-eyebrow">오누림 신뢰 정책</p><h1>{page.title}</h1><p>{page.intro}</p></header>
+      {page.updatedAt ? <p>안내 수정 <time dateTime={page.updatedAt}>{page.updatedAt}</time> · 의료 검수일이 아닙니다</p> : null}
       <div className="onurim-trust-sections">
-        {page.sections.map((section) => <section key={section.title}><h2>{section.title}</h2><p>{section.body}</p></section>)}
+        {page.sections.map((section) => <section key={section.title}><h2>{section.title}</h2><p>{section.body}</p>
+          {section.links?.length ? <ul>{section.links.map(link => <li key={link.href}><Link href={link.href}>{link.label}</Link></li>)}</ul> : null}
+        </section>)}
       </div>
-      {slug === "corrections-policy" || slug === "contact" ? (
-        <p>
-          <a href="https://github.com/mizzang0305-oss/Biz2Lab_Os/issues/new" target="_blank" rel="noopener noreferrer">
-            GitHub Issues에서 정정·문의 작성하기
-          </a>
-        </p>
-      ) : null}
       {slug === "privacy" ? (
         <ul>
           <li><a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Google 광고 설정</a></li>

@@ -1,0 +1,441 @@
+{
+  "route": "/health/kidney-stones",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T15:45:39.042Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "03739755896e4feb1edb8fe95017865942639deafa2465c528252f162eb0f217",
+      "full": "a2b2d3fa7a226af53c9fe3869231e4e46e042feebeda7ba6de3c0e71574cd3f0"
+    },
+    {
+      "width": 390,
+      "top": "795349024d190666adb8624d53d28ed0e5d093486b688341c045732aaa241372",
+      "full": "7b60df39fe0c6ee97ee0ecc5009fbb2f34daecbc9624f1301cb5b6300538d052"
+    },
+    {
+      "width": 430,
+      "top": "a19568a014488d5dcab31bc4b880fc181d00503a71f6705e2d0fd81f707a6bff",
+      "full": "08d2fd7a19ad0295f63341334ebcfc3ea8364471a054a9b6d7f3bdc50033176a"
+    },
+    {
+      "width": 768,
+      "top": "4c3fc9c394294f77a54a7f354cf1f4280f69263d02f1aa2583d74780454d9d22",
+      "full": "d7c83b6630ba920abdb4eb986dec685623135dec53b13925b9c1bfc2cb512f34"
+    },
+    {
+      "width": 1440,
+      "top": "dd606f2310c157da82402d8e792c75638a097775bbfa5117a1db7fcbc95fc36e",
+      "full": "742678e5fa49344d8c11b8fe89a03ec28930bb88b5801a0b70bd78eb3ab49e0e"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "신장결석: 옆구리 통증·소변 변화와 검사 후 질문 | 오누림",
+      "h1": [
+        "신장결석, 소변길과 검사 결과를 함께 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "통증·열·소변 변화가 급하면 기록보다 평가가 먼저입니다",
+        "콩팥에서 몸 밖까지, 소변이 지나는 길을 따라가 보세요",
+        "검사는 ‘돌이 있나요?’에서 끝나지 않습니다",
+        "통증이 가라앉은 것과 배출 확인은 다릅니다",
+        "물과 식사, 같은 처방을 모두에게 적용하지 않습니다",
+        "검사 후 돌아오기 전, 네 가지 질문을 챙기세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/kidney-stones",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Fhero.webp&w=3840&q=75",
+          "alt": "진료 메모와 상담 준비를 상징하는 파랑·주황 장식 표지 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "두 콩팥에서 각각의 요관이 방광으로 이어지고 요도가 아래로 나오는 구조와 결석 위치 예시를 보여주는 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Faction-v2.webp&w=3840&q=75",
+          "alt": "위치와 크기, 막힘과 감염, 배출 확인, 성분과 예방을 묻는 빈 검사 후 질문 양식 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "신장결석: 옆구리 통증·소변 변화와 검사 후 질문 | 오누림",
+      "h1": [
+        "신장결석, 소변길과 검사 결과를 함께 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "통증·열·소변 변화가 급하면 기록보다 평가가 먼저입니다",
+        "콩팥에서 몸 밖까지, 소변이 지나는 길을 따라가 보세요",
+        "검사는 ‘돌이 있나요?’에서 끝나지 않습니다",
+        "통증이 가라앉은 것과 배출 확인은 다릅니다",
+        "물과 식사, 같은 처방을 모두에게 적용하지 않습니다",
+        "검사 후 돌아오기 전, 네 가지 질문을 챙기세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/kidney-stones",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Fhero.webp&w=3840&q=75",
+          "alt": "진료 메모와 상담 준비를 상징하는 파랑·주황 장식 표지 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "두 콩팥에서 각각의 요관이 방광으로 이어지고 요도가 아래로 나오는 구조와 결석 위치 예시를 보여주는 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Faction-v2.webp&w=3840&q=75",
+          "alt": "위치와 크기, 막힘과 감염, 배출 확인, 성분과 예방을 묻는 빈 검사 후 질문 양식 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "신장결석: 옆구리 통증·소변 변화와 검사 후 질문 | 오누림",
+      "h1": [
+        "신장결석, 소변길과 검사 결과를 함께 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "통증·열·소변 변화가 급하면 기록보다 평가가 먼저입니다",
+        "콩팥에서 몸 밖까지, 소변이 지나는 길을 따라가 보세요",
+        "검사는 ‘돌이 있나요?’에서 끝나지 않습니다",
+        "통증이 가라앉은 것과 배출 확인은 다릅니다",
+        "물과 식사, 같은 처방을 모두에게 적용하지 않습니다",
+        "검사 후 돌아오기 전, 네 가지 질문을 챙기세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/kidney-stones",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Fhero.webp&w=3840&q=75",
+          "alt": "진료 메모와 상담 준비를 상징하는 파랑·주황 장식 표지 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "두 콩팥에서 각각의 요관이 방광으로 이어지고 요도가 아래로 나오는 구조와 결석 위치 예시를 보여주는 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Faction-v2.webp&w=3840&q=75",
+          "alt": "위치와 크기, 막힘과 감염, 배출 확인, 성분과 예방을 묻는 빈 검사 후 질문 양식 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "신장결석: 옆구리 통증·소변 변화와 검사 후 질문 | 오누림",
+      "h1": [
+        "신장결석, 소변길과 검사 결과를 함께 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "통증·열·소변 변화가 급하면 기록보다 평가가 먼저입니다",
+        "콩팥에서 몸 밖까지, 소변이 지나는 길을 따라가 보세요",
+        "검사는 ‘돌이 있나요?’에서 끝나지 않습니다",
+        "통증이 가라앉은 것과 배출 확인은 다릅니다",
+        "물과 식사, 같은 처방을 모두에게 적용하지 않습니다",
+        "검사 후 돌아오기 전, 네 가지 질문을 챙기세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/kidney-stones",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Fhero.webp&w=3840&q=75",
+          "alt": "진료 메모와 상담 준비를 상징하는 파랑·주황 장식 표지 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "두 콩팥에서 각각의 요관이 방광으로 이어지고 요도가 아래로 나오는 구조와 결석 위치 예시를 보여주는 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Faction-v2.webp&w=3840&q=75",
+          "alt": "위치와 크기, 막힘과 감염, 배출 확인, 성분과 예방을 묻는 빈 검사 후 질문 양식 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "신장결석: 옆구리 통증·소변 변화와 검사 후 질문 | 오누림",
+      "h1": [
+        "신장결석, 소변길과 검사 결과를 함께 보기"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "통증·열·소변 변화가 급하면 기록보다 평가가 먼저입니다",
+        "콩팥에서 몸 밖까지, 소변이 지나는 길을 따라가 보세요",
+        "검사는 ‘돌이 있나요?’에서 끝나지 않습니다",
+        "통증이 가라앉은 것과 배출 확인은 다릅니다",
+        "물과 식사, 같은 처방을 모두에게 적용하지 않습니다",
+        "검사 후 돌아오기 전, 네 가지 질문을 챙기세요",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/kidney-stones",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Fhero.webp&w=3840&q=75",
+          "alt": "진료 메모와 상담 준비를 상징하는 파랑·주황 장식 표지 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "두 콩팥에서 각각의 요관이 방광으로 이어지고 요도가 아래로 나오는 구조와 결석 위치 예시를 보여주는 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fkidney-stones%2Faction-v2.webp&w=3840&q=75",
+          "alt": "위치와 크기, 막힘과 감염, 배출 확인, 성분과 예방을 묻는 빈 검사 후 질문 양식 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

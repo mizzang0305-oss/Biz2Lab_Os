@@ -1,0 +1,296 @@
+{
+  "route": "/health/tools/kidney-stones-visit-card",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T15:48:01.162Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "ae6b965fd458ea57daf6aac3c80887e1de614f080370688fdb79e42278a6af8c",
+      "full": "c734a5d9611cb6daf2bdbd37bb7cd46dbf3999eee38b63ed5a3632dcf6a403bd"
+    },
+    {
+      "width": 390,
+      "top": "54388725347e6c8d46d992a6795c9dc8c89089b56abe21900119004a5ac0b93c",
+      "full": "7f2a173c4e114eee29d2c5be0e7943f20ea887f475397fae4dcb647545bcdccd"
+    },
+    {
+      "width": 430,
+      "top": "8c13d91bcae539fd0795781556f2981696194f23a58970fbb54a23efc67227b8",
+      "full": "ac0745f30c01cd2382283c52e0027723cd38099be9210409ae9688dc0d19ce77"
+    },
+    {
+      "width": 768,
+      "top": "79d6d7991fc7ae7863af6d882fcf28af28c471895e1f23174c2a896b89ee0ffe",
+      "full": "1a9067ee96078deeb544a9aa421fe1a060e38b6b070497cf2089262b7ab79135"
+    },
+    {
+      "width": 1440,
+      "top": "bddfbca3c900952b32c37af9ea663b2b03c604bceffc4e1844a5891c3fc26af1",
+      "full": "010fd99e9ab3f7e2fb027acc1b540837a7b416eb0e7f3062b545ebeecc881f10"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "신장결석 진료 준비표: 검사 자료·배출 확인·개인 수분 계획 | 오누림",
+      "h1": [
+        "신장결석 진료 준비표"
+      ],
+      "h2": [
+        "통증·열·소변 변화가 급하면 기록보다 평가가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/kidney-stones-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "신장결석 진료 준비표: 검사 자료·배출 확인·개인 수분 계획 | 오누림",
+      "h1": [
+        "신장결석 진료 준비표"
+      ],
+      "h2": [
+        "통증·열·소변 변화가 급하면 기록보다 평가가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/kidney-stones-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "신장결석 진료 준비표: 검사 자료·배출 확인·개인 수분 계획 | 오누림",
+      "h1": [
+        "신장결석 진료 준비표"
+      ],
+      "h2": [
+        "통증·열·소변 변화가 급하면 기록보다 평가가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/kidney-stones-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "신장결석 진료 준비표: 검사 자료·배출 확인·개인 수분 계획 | 오누림",
+      "h1": [
+        "신장결석 진료 준비표"
+      ],
+      "h2": [
+        "통증·열·소변 변화가 급하면 기록보다 평가가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/kidney-stones-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "신장결석 진료 준비표: 검사 자료·배출 확인·개인 수분 계획 | 오누림",
+      "h1": [
+        "신장결석 진료 준비표"
+      ],
+      "h2": [
+        "통증·열·소변 변화가 급하면 기록보다 평가가 먼저입니다",
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/kidney-stones-visit-card",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 6,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,446 @@
+{
+  "route": "/health/depression",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T16:05:49.284Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "231cdfdffcee53425843ebe100ccd6534b82a20d0a5debffc498f426c1128749",
+      "full": "033742bd3b554ca36b3d0d17747acfda1d6386e6f066840fe2703cf9816dcff6"
+    },
+    {
+      "width": 390,
+      "top": "98536c7102f50158e8becb378aa26c881a2038f1c81a4f37f85bd502c9bfb047",
+      "full": "61dbe68c9c41913714c671e55da39e5470079e02ce674332f5bb0d6abdf682d0"
+    },
+    {
+      "width": 430,
+      "top": "732bb4db786ceb6a29f5f7b1fe3928419103446affd1d437d6b91034e7c31cc0",
+      "full": "57f6fc4b2bc137e7b66e16c36cbb7145092e3e465f5d9200b2bbfc55941df113"
+    },
+    {
+      "width": 768,
+      "top": "b5f26018156cf83481a93d17b72132d94e47c2a1c24fea12d32f28b1afe1d552",
+      "full": "a737a56112af4d2529d124c975e86856c7948a91ed3ab3fcc54cd1a34d62bd2e"
+    },
+    {
+      "width": 1440,
+      "top": "bb770231637d6a05436ef49da7a1ff29444c95c1e58f8eafa18d82bb0b3b5810",
+      "full": "51b2496f919ac69222016f275a0ae01b201caaa7b05431e19c2d8d85b7e4271c"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "우울증: 가족이 듣고 도울 말, 진료와 위기 도움의 구분 | 오누림",
+      "h1": [
+        "우울증이 걱정되는 가족에게, 어떤 말부터 건넬까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가족이 죽고 싶다고 말하면, 지금의 안전부터 살피세요",
+        "이유를 따지기 전에, 지금 어떤 점이 힘든지 들어 보세요",
+        "슬픈 표정만이 아니라, 달라진 일상을 살핍니다",
+        "2주나 설문 점수는 도움을 기다릴 기준이 아닙니다",
+        "치료는 개인에게 맞춰 정하고, 변화는 다시 알립니다",
+        "하루를 돕는 일은 작게, 지원은 계속 이어갑니다",
+        "109 상담과 119 긴급구조는 역할이 다릅니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/depression",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Fhero.webp&w=3840&q=75",
+          "alt": "메모와 도움 연결을 상징하는 초록·갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Faction-v2.webp&w=3840&q=75",
+          "alt": "서로 같은 눈높이의 의자에 앉아 한 사람이 말하고 다른 사람이 듣는 두 성인의 대화 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "잠·식사·흥미·집중을 각각 침구·그릇·스케치북·펼친 책으로 표현한 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "우울증: 가족이 듣고 도울 말, 진료와 위기 도움의 구분 | 오누림",
+      "h1": [
+        "우울증이 걱정되는 가족에게, 어떤 말부터 건넬까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가족이 죽고 싶다고 말하면, 지금의 안전부터 살피세요",
+        "이유를 따지기 전에, 지금 어떤 점이 힘든지 들어 보세요",
+        "슬픈 표정만이 아니라, 달라진 일상을 살핍니다",
+        "2주나 설문 점수는 도움을 기다릴 기준이 아닙니다",
+        "치료는 개인에게 맞춰 정하고, 변화는 다시 알립니다",
+        "하루를 돕는 일은 작게, 지원은 계속 이어갑니다",
+        "109 상담과 119 긴급구조는 역할이 다릅니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/depression",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Fhero.webp&w=3840&q=75",
+          "alt": "메모와 도움 연결을 상징하는 초록·갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Faction-v2.webp&w=3840&q=75",
+          "alt": "서로 같은 눈높이의 의자에 앉아 한 사람이 말하고 다른 사람이 듣는 두 성인의 대화 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "잠·식사·흥미·집중을 각각 침구·그릇·스케치북·펼친 책으로 표현한 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "우울증: 가족이 듣고 도울 말, 진료와 위기 도움의 구분 | 오누림",
+      "h1": [
+        "우울증이 걱정되는 가족에게, 어떤 말부터 건넬까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가족이 죽고 싶다고 말하면, 지금의 안전부터 살피세요",
+        "이유를 따지기 전에, 지금 어떤 점이 힘든지 들어 보세요",
+        "슬픈 표정만이 아니라, 달라진 일상을 살핍니다",
+        "2주나 설문 점수는 도움을 기다릴 기준이 아닙니다",
+        "치료는 개인에게 맞춰 정하고, 변화는 다시 알립니다",
+        "하루를 돕는 일은 작게, 지원은 계속 이어갑니다",
+        "109 상담과 119 긴급구조는 역할이 다릅니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/depression",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Fhero.webp&w=3840&q=75",
+          "alt": "메모와 도움 연결을 상징하는 초록·갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Faction-v2.webp&w=3840&q=75",
+          "alt": "서로 같은 눈높이의 의자에 앉아 한 사람이 말하고 다른 사람이 듣는 두 성인의 대화 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "잠·식사·흥미·집중을 각각 침구·그릇·스케치북·펼친 책으로 표현한 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "우울증: 가족이 듣고 도울 말, 진료와 위기 도움의 구분 | 오누림",
+      "h1": [
+        "우울증이 걱정되는 가족에게, 어떤 말부터 건넬까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가족이 죽고 싶다고 말하면, 지금의 안전부터 살피세요",
+        "이유를 따지기 전에, 지금 어떤 점이 힘든지 들어 보세요",
+        "슬픈 표정만이 아니라, 달라진 일상을 살핍니다",
+        "2주나 설문 점수는 도움을 기다릴 기준이 아닙니다",
+        "치료는 개인에게 맞춰 정하고, 변화는 다시 알립니다",
+        "하루를 돕는 일은 작게, 지원은 계속 이어갑니다",
+        "109 상담과 119 긴급구조는 역할이 다릅니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/depression",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Fhero.webp&w=3840&q=75",
+          "alt": "메모와 도움 연결을 상징하는 초록·갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Faction-v2.webp&w=3840&q=75",
+          "alt": "서로 같은 눈높이의 의자에 앉아 한 사람이 말하고 다른 사람이 듣는 두 성인의 대화 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "잠·식사·흥미·집중을 각각 침구·그릇·스케치북·펼친 책으로 표현한 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "우울증: 가족이 듣고 도울 말, 진료와 위기 도움의 구분 | 오누림",
+      "h1": [
+        "우울증이 걱정되는 가족에게, 어떤 말부터 건넬까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "가족이 죽고 싶다고 말하면, 지금의 안전부터 살피세요",
+        "이유를 따지기 전에, 지금 어떤 점이 힘든지 들어 보세요",
+        "슬픈 표정만이 아니라, 달라진 일상을 살핍니다",
+        "2주나 설문 점수는 도움을 기다릴 기준이 아닙니다",
+        "치료는 개인에게 맞춰 정하고, 변화는 다시 알립니다",
+        "하루를 돕는 일은 작게, 지원은 계속 이어갑니다",
+        "109 상담과 119 긴급구조는 역할이 다릅니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/depression",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Fhero.webp&w=3840&q=75",
+          "alt": "메모와 도움 연결을 상징하는 초록·갈색 장식 표지 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Faction-v2.webp&w=3840&q=75",
+          "alt": "서로 같은 눈높이의 의자에 앉아 한 사람이 말하고 다른 사람이 듣는 두 성인의 대화 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fdepression%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "잠·식사·흥미·집중을 각각 침구·그릇·스케치북·펼친 책으로 표현한 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

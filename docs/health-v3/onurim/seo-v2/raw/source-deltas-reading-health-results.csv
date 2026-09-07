@@ -1,0 +1,6 @@
+"delta_id","route","current_concept","risk","source_ids","checked_at","verification","licensed_review","original_47_packet"
+"SEO2-LAB-01","/health/guides/reading-health-results","혈액소변검사범위·검사목적이름단위날짜참고범위함께읽기","P1_INTERPRETATION","SUP-MEDLINEPLUS-LAB|SUP-NHS-BLOOD-TESTS","2026-09-06","SOURCE_CROSSCHECK_NOT_NATIONAL_SCREENING_OR_IMAGING_GRADES","NOT_COMPLETED","UNCHANGED"
+"SEO2-LAB-02","/health/guides/reading-health-results","참고범위안은건강보장아님·밖은확진아님·개인치료목표질문","P1_INTERPRETATION","SUP-MEDLINEPLUS-LAB|SUP-NHS-BLOOD-TESTS","2026-09-06","NO_NUMERIC_DIAGNOSIS_OR_TREATMENT_TARGET","NOT_COMPLETED","UNCHANGED"
+"SEO2-LAB-03","/health/guides/reading-health-results","양성음성의검사별의미·위양성위음성실제질환상태와결과불일치·불확정과재검별개","P1_INTERPRETATION","SUP-MEDLINEPLUS-LAB","2026-09-06","NO_AUTOMATIC_DIAGNOSIS_OR_MANDATORY_RETEST","NOT_COMPLETED","UNCHANGED"
+"SEO2-LAB-04","/health/guides/reading-health-results","검사법단위참고범위조건비교·준비안내못지키면알림·약자가중단금지","P1_MEDICATION","SUP-MEDLINEPLUS-LAB|SUP-MEDLINEPLUS-LAB-PREP","2026-09-06","NO_UNIVERSAL_FASTING_OR_MEDICATION_HOLD","NOT_COMPLETED","UNCHANGED"
+"SEO2-LAB-05","/health/guides/reading-health-results","결과설명담당자기한기관연락·획일재검기간없음·AMC기관사례만","P2_FOLLOWUP","SUP-NHS-BLOOD-TESTS|SUP-AMC-RESULT-CONSULT","2026-09-06","NO_IMPORTED_UK_OR_SINGLE_HOSPITAL_WAITING_PERIOD","NOT_COMPLETED","UNCHANGED"

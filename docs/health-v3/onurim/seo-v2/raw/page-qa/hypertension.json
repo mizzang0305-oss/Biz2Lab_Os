@@ -1,0 +1,501 @@
+{
+  "route": "/health/hypertension",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T04:46:11.590Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "bac4670e12a213598a29ef96eddf2c6a6bca2e1bef25485a149e8638e4782d62",
+      "full": "db22b81dc34f28e55b0afe8df2c52bde42bf467b25eb2a1667e1eae35aae71e3"
+    },
+    {
+      "width": 390,
+      "top": "1abe2271e28cf6b7692603e80c6d39f1791fd463ef19df564796f6d0e6136a61",
+      "full": "345b44b9c63edce56dd675a6fc055828f24da900dc933da0b7bf493483fe28e7"
+    },
+    {
+      "width": 430,
+      "top": "b4a9de07dc050b0f31e40f2c97866d8a89274ed7c2bbbcfc6cc50fc6c601705f",
+      "full": "4517a87b9b18c63294ef6fb515434688f7aae7d02fa9edc072639fc8d09ef8b7"
+    },
+    {
+      "width": 768,
+      "top": "4aa55a06e87174662a6a3baf72f5c3063b2a2b1c27b65cf9c754fd0b031140c6",
+      "full": "05a406c92c2e4370bf303e0d9d1e4aa1186ef45fbea787b737e28126c1c361ac"
+    },
+    {
+      "width": 1440,
+      "top": "298cde98ece9888053a53a53798bf7e07cef7d6ebff33623dfd842ce4b948408",
+      "full": "e6cb65518d70e566f381df5e30209120547461d25db4d9a7984ea29bc66be723"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "고혈압 증상과 혈압 재는 법, 가정혈압 기록표 | 오누림",
+      "h1": [
+        "고혈압을 이해하고 집에서 혈압을 정확히 기록하는 법"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "느낌보다 측정이 필요한 이유",
+        "위·아래 혈압은 서로 다른 순간을 봅니다",
+        "집과 진료실에서 다른 값이 나온다면",
+        "반복해서 재기 전에 조건부터 점검하세요",
+        "측정 전 5분이 기록의 질을 바꿉니다",
+        "무엇을 기록할까요?",
+        "진료에서 확인할 질문",
+        "생활 관리와 약은 역할이 다릅니다",
+        "기록보다 119가 먼저인 때",
+        "응급 증상은 없지만 값이 계속 걱정될 때",
+        "가족은 ‘감시’보다 준비를 돕습니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/hypertension",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fhero.webp&w=3840&q=75",
+          "alt": "집에서 혈압을 잰 뒤 기록표에 숫자와 시간을 적는 성인의 차분한 교육용 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fprocess-v2.webp&w=3840&q=75",
+          "alt": "혈관 내부에서 벽 쪽으로 향하는 화살표로 혈액이 혈관 벽을 미는 압력을 표현한 단순화 삽화",
+          "loaded": true,
+          "width": 290,
+          "height": 193
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fchecklist.webp&w=3840&q=75",
+          "alt": "등과 팔을 받치고 두 발을 바닥에 둔 채 맨팔 커프로 혈압을 재는 자세의 교육용 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 492
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fwarning.webp&w=3840&q=75",
+          "alt": "가슴 통증과 호흡곤란, 갑작스러운 한쪽 힘 빠짐과 말 이상 시 119 도움을 우선하는 경고 삽화",
+          "loaded": true,
+          "width": 286,
+          "height": 190
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "고혈압 증상과 혈압 재는 법, 가정혈압 기록표 | 오누림",
+      "h1": [
+        "고혈압을 이해하고 집에서 혈압을 정확히 기록하는 법"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "느낌보다 측정이 필요한 이유",
+        "위·아래 혈압은 서로 다른 순간을 봅니다",
+        "집과 진료실에서 다른 값이 나온다면",
+        "반복해서 재기 전에 조건부터 점검하세요",
+        "측정 전 5분이 기록의 질을 바꿉니다",
+        "무엇을 기록할까요?",
+        "진료에서 확인할 질문",
+        "생활 관리와 약은 역할이 다릅니다",
+        "기록보다 119가 먼저인 때",
+        "응급 증상은 없지만 값이 계속 걱정될 때",
+        "가족은 ‘감시’보다 준비를 돕습니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/hypertension",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fhero.webp&w=3840&q=75",
+          "alt": "집에서 혈압을 잰 뒤 기록표에 숫자와 시간을 적는 성인의 차분한 교육용 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fprocess-v2.webp&w=3840&q=75",
+          "alt": "혈관 내부에서 벽 쪽으로 향하는 화살표로 혈액이 혈관 벽을 미는 압력을 표현한 단순화 삽화",
+          "loaded": true,
+          "width": 320,
+          "height": 213
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fchecklist.webp&w=3840&q=75",
+          "alt": "등과 팔을 받치고 두 발을 바닥에 둔 채 맨팔 커프로 혈압을 재는 자세의 교육용 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fwarning.webp&w=3840&q=75",
+          "alt": "가슴 통증과 호흡곤란, 갑작스러운 한쪽 힘 빠짐과 말 이상 시 119 도움을 우선하는 경고 삽화",
+          "loaded": true,
+          "width": 316,
+          "height": 211
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "고혈압 증상과 혈압 재는 법, 가정혈압 기록표 | 오누림",
+      "h1": [
+        "고혈압을 이해하고 집에서 혈압을 정확히 기록하는 법"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "느낌보다 측정이 필요한 이유",
+        "위·아래 혈압은 서로 다른 순간을 봅니다",
+        "집과 진료실에서 다른 값이 나온다면",
+        "반복해서 재기 전에 조건부터 점검하세요",
+        "측정 전 5분이 기록의 질을 바꿉니다",
+        "무엇을 기록할까요?",
+        "진료에서 확인할 질문",
+        "생활 관리와 약은 역할이 다릅니다",
+        "기록보다 119가 먼저인 때",
+        "응급 증상은 없지만 값이 계속 걱정될 때",
+        "가족은 ‘감시’보다 준비를 돕습니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/hypertension",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fhero.webp&w=3840&q=75",
+          "alt": "집에서 혈압을 잰 뒤 기록표에 숫자와 시간을 적는 성인의 차분한 교육용 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fprocess-v2.webp&w=3840&q=75",
+          "alt": "혈관 내부에서 벽 쪽으로 향하는 화살표로 혈액이 혈관 벽을 미는 압력을 표현한 단순화 삽화",
+          "loaded": true,
+          "width": 360,
+          "height": 240
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fchecklist.webp&w=3840&q=75",
+          "alt": "등과 팔을 받치고 두 발을 바닥에 둔 채 맨팔 커프로 혈압을 재는 자세의 교육용 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fwarning.webp&w=3840&q=75",
+          "alt": "가슴 통증과 호흡곤란, 갑작스러운 한쪽 힘 빠짐과 말 이상 시 119 도움을 우선하는 경고 삽화",
+          "loaded": true,
+          "width": 356,
+          "height": 237
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "고혈압 증상과 혈압 재는 법, 가정혈압 기록표 | 오누림",
+      "h1": [
+        "고혈압을 이해하고 집에서 혈압을 정확히 기록하는 법"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "느낌보다 측정이 필요한 이유",
+        "위·아래 혈압은 서로 다른 순간을 봅니다",
+        "집과 진료실에서 다른 값이 나온다면",
+        "반복해서 재기 전에 조건부터 점검하세요",
+        "측정 전 5분이 기록의 질을 바꿉니다",
+        "무엇을 기록할까요?",
+        "진료에서 확인할 질문",
+        "생활 관리와 약은 역할이 다릅니다",
+        "기록보다 119가 먼저인 때",
+        "응급 증상은 없지만 값이 계속 걱정될 때",
+        "가족은 ‘감시’보다 준비를 돕습니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/hypertension",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fhero.webp&w=3840&q=75",
+          "alt": "집에서 혈압을 잰 뒤 기록표에 숫자와 시간을 적는 성인의 차분한 교육용 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fprocess-v2.webp&w=3840&q=75",
+          "alt": "혈관 내부에서 벽 쪽으로 향하는 화살표로 혈액이 혈관 벽을 미는 압력을 표현한 단순화 삽화",
+          "loaded": true,
+          "width": 664,
+          "height": 443
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fchecklist.webp&w=3840&q=75",
+          "alt": "등과 팔을 받치고 두 발을 바닥에 둔 채 맨팔 커프로 혈압을 재는 자세의 교육용 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fwarning.webp&w=3840&q=75",
+          "alt": "가슴 통증과 호흡곤란, 갑작스러운 한쪽 힘 빠짐과 말 이상 시 119 도움을 우선하는 경고 삽화",
+          "loaded": true,
+          "width": 660,
+          "height": 440
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "고혈압 증상과 혈압 재는 법, 가정혈압 기록표 | 오누림",
+      "h1": [
+        "고혈압을 이해하고 집에서 혈압을 정확히 기록하는 법"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "느낌보다 측정이 필요한 이유",
+        "위·아래 혈압은 서로 다른 순간을 봅니다",
+        "집과 진료실에서 다른 값이 나온다면",
+        "반복해서 재기 전에 조건부터 점검하세요",
+        "측정 전 5분이 기록의 질을 바꿉니다",
+        "무엇을 기록할까요?",
+        "진료에서 확인할 질문",
+        "생활 관리와 약은 역할이 다릅니다",
+        "기록보다 119가 먼저인 때",
+        "응급 증상은 없지만 값이 계속 걱정될 때",
+        "가족은 ‘감시’보다 준비를 돕습니다",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/hypertension",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fhero.webp&w=3840&q=75",
+          "alt": "집에서 혈압을 잰 뒤 기록표에 숫자와 시간을 적는 성인의 차분한 교육용 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fprocess-v2.webp&w=3840&q=75",
+          "alt": "혈관 내부에서 벽 쪽으로 향하는 화살표로 혈액이 혈관 벽을 미는 압력을 표현한 단순화 삽화",
+          "loaded": true,
+          "width": 724,
+          "height": 483
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fchecklist.webp&w=3840&q=75",
+          "alt": "등과 팔을 받치고 두 발을 바닥에 둔 채 맨팔 커프로 혈압을 재는 자세의 교육용 삽화",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Fhypertension%2Fwarning.webp&w=3840&q=75",
+          "alt": "가슴 통증과 호흡곤란, 갑작스러운 한쪽 힘 빠짐과 말 이상 시 119 도움을 우선하는 경고 삽화",
+          "loaded": true,
+          "width": 720,
+          "height": 480
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 5,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "route": "/health/tools/blood-pressure-prep",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T12:06:32.177Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "48289bf79a5bc8182dc07559cbfa66faae5d3e1878dbad60c47bf03c64c11bb7",
+      "full": "9ca49d96c550106f314ca802eba7eb69e1a55855ad6edfbfae353b22edaa831d"
+    },
+    {
+      "width": 390,
+      "top": "858271c7b1ab9c47f9a090e0a84b450c2652aac339d153593b0f0a0c60093d92",
+      "full": "33231eb7a9cf678c6cd2d8f4ffdc2b1863cbba7160e3664597ce8de53308ff08"
+    },
+    {
+      "width": 430,
+      "top": "ba591470c8ff0295edb561eaaf5687ac2937d0c87c61e08d6dc4aafd0d521b0e",
+      "full": "d19dbe30873b06e9e68ab8d53b78ccefb0cc6d8d5ece7a899c05dab6ed87e520"
+    },
+    {
+      "width": 768,
+      "top": "e43407b6da5d83874aac648c949762b778c52ae7524efe95d5f7beb7d895b1a5",
+      "full": "c52f7467208dc3c5be8e19bc56cfa568ca23e4b7ba9f5cab0645757d6cd7d4f1"
+    },
+    {
+      "width": 1440,
+      "top": "036d5470e66175ca6d6dec78a9575e93a3df24653043bcf90b6ce4d1c72e0bd7",
+      "full": "5a07d4476d8b73c877a172ee2b6e12ec429e83df0dd1b53abf6ed801ea5fbe05"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "혈압 측정 준비 체크리스트: 측정 전 자세와 측정 후 기록 | 오누림",
+      "h1": [
+        "혈압 측정 준비 체크리스트"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/blood-pressure-prep",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "혈압 측정 준비 체크리스트: 측정 전 자세와 측정 후 기록 | 오누림",
+      "h1": [
+        "혈압 측정 준비 체크리스트"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/blood-pressure-prep",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "혈압 측정 준비 체크리스트: 측정 전 자세와 측정 후 기록 | 오누림",
+      "h1": [
+        "혈압 측정 준비 체크리스트"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/blood-pressure-prep",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "혈압 측정 준비 체크리스트: 측정 전 자세와 측정 후 기록 | 오누림",
+      "h1": [
+        "혈압 측정 준비 체크리스트"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/blood-pressure-prep",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "혈압 측정 준비 체크리스트: 측정 전 자세와 측정 후 기록 | 오누림",
+      "h1": [
+        "혈압 측정 준비 체크리스트"
+      ],
+      "h2": [
+        "이 양식을 쓰는 때와 순서",
+        "인쇄해서 작성할 양식",
+        "기록을 이해하고 질문으로 옮기기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/tools/blood-pressure-prep",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

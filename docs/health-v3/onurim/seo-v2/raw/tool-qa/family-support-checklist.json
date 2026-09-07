@@ -1,0 +1,56 @@
+{
+  "route": "/health/tools/family-support-checklist",
+  "observedAt": "2026-09-06T12:39:54.146Z",
+  "scope": "LOCAL_EMPTY_FORM_PRINT_AND_UI_NOT_MEDICAL_VALIDATION",
+  "fields": [
+    "당사자와 동의한 도움 한 가지 (실명·검사값 불필요)"
+  ],
+  "sourceHrefs": [
+    "https://www.cdc.gov/diabetes/caring/index.html",
+    "https://www.niddk.nih.gov/health-information/diabetes/overview/managing-diabetes",
+    "https://www.nhs.uk/conditions/low-blood-sugar-hypoglycaemia/",
+    "https://www.cdc.gov/diabetes/about/diabetic-ketoacidosis.html",
+    "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6226"
+  ],
+  "horizontalNavigation": null,
+  "checkboxToggled": true,
+  "printState": {
+    "footerVisible": true,
+    "siteHeaderHidden": true,
+    "siteFooterHidden": true,
+    "sourceCount": 5,
+    "overflow": 0,
+    "footerText": "가족 지원 체크리스트 · 양식·안내 수정 2026-09-06교육·기록용 · 진단 결과 없음 · 약물 결정 없음 · 서버 저장 없음공식 출처 연결과 면허 의료인 검수는 다릅니다. 일반 건강교육 · 면허 의료인 검수 미완료CDC — Helping Friends and Family With DiabetesNIH/NIDDK — Managing DiabetesNHS — Low blood sugar (hypoglycaemia)CDC — Diabetic Ketoacidosis질병관리청 국가건강정보포털 — 심폐소생술의료 검토 상태 · 기록·개인정보 안내",
+    "fields": 1
+  },
+  "links": [
+    {
+      "href": "/health/type-2-diabetes",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/family-medication-support",
+      "status": 200
+    },
+    {
+      "href": "/health/tools/diabetes-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/guides/appointment-questions",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/medical-review-policy",
+      "status": 200
+    },
+    {
+      "href": "/health/trust/privacy",
+      "status": 200
+    }
+  ],
+  "nonGetRequests": [],
+  "pdfSha256": "ac0c3891cacc22061e520897c29414facb3f3799bf94cb2268e4578e7fc86880",
+  "pdfBytes": 112751,
+  "failures": []
+}

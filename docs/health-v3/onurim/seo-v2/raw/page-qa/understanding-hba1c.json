@@ -1,0 +1,361 @@
+{
+  "route": "/health/guides/understanding-hba1c",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T03:49:15.323Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "2e071289c900f212dffa9dbb143d785331a309537a47c5bfbeb37862d121761b",
+      "full": "b882e38d17855ea7110236cb177da1004fc54e569adf4c06f97380399c6c7705"
+    },
+    {
+      "width": 390,
+      "top": "c61b610fb492d846824a03d5baf7a4aab5a01682541d57dd2f94d30bf10d2829",
+      "full": "c409f7745a59af5c70b27b734f886c195feec40d47ff27522e6a8d5b113b3bcd"
+    },
+    {
+      "width": 430,
+      "top": "5bf764c874209c53d49a646c92cb29739d053788617df9066d5aae6345eced85",
+      "full": "3f4050f5336f76dc8eb1ee18acd98a2e290ac24164bb363a709c919c8881d304"
+    },
+    {
+      "width": 768,
+      "top": "c83dad59e21ea298b045105540743a7310f861bf630c10fe13b22f6f385217e9",
+      "full": "65f0a755236a8c6ce64eebe82dc861296fe3a2ef8e3e42130bad7c27631e7bd5"
+    },
+    {
+      "width": 1440,
+      "top": "20993deb78eef0e70bb74cd59519b5b7cbb1c75ea2870b061eb377cd274f1146",
+      "full": "73d87892b2ece2bb9d5b15278d101efead4755385ba15afb900c254ac42946f9"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "당화혈색소 HbA1c 뜻: NGSP·IFCC와 공복혈당 차이 | 오누림",
+      "h1": [
+        "당화혈색소(HbA1c), 검사표의 NGSP·IFCC부터 읽기"
+      ],
+      "h2": [
+        "HbA1c는 오늘 혈당의 다른 이름이 아닙니다",
+        "NGSP·IFCC: 같은 HbA1c라도 보고 단위가 다릅니다",
+        "결과표에서는 이 순서로 표시해 두세요",
+        "공복혈당과 맞지 않아 보일 때",
+        "검사 원본과 함께 가져갈 세 가지 질문",
+        "이 페이지가 정하지 않는 것",
+        "검사표를 보며 자주 묻는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/understanding-hba1c",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "당화혈색소 HbA1c 뜻: NGSP·IFCC와 공복혈당 차이 | 오누림",
+      "h1": [
+        "당화혈색소(HbA1c), 검사표의 NGSP·IFCC부터 읽기"
+      ],
+      "h2": [
+        "HbA1c는 오늘 혈당의 다른 이름이 아닙니다",
+        "NGSP·IFCC: 같은 HbA1c라도 보고 단위가 다릅니다",
+        "결과표에서는 이 순서로 표시해 두세요",
+        "공복혈당과 맞지 않아 보일 때",
+        "검사 원본과 함께 가져갈 세 가지 질문",
+        "이 페이지가 정하지 않는 것",
+        "검사표를 보며 자주 묻는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/understanding-hba1c",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "당화혈색소 HbA1c 뜻: NGSP·IFCC와 공복혈당 차이 | 오누림",
+      "h1": [
+        "당화혈색소(HbA1c), 검사표의 NGSP·IFCC부터 읽기"
+      ],
+      "h2": [
+        "HbA1c는 오늘 혈당의 다른 이름이 아닙니다",
+        "NGSP·IFCC: 같은 HbA1c라도 보고 단위가 다릅니다",
+        "결과표에서는 이 순서로 표시해 두세요",
+        "공복혈당과 맞지 않아 보일 때",
+        "검사 원본과 함께 가져갈 세 가지 질문",
+        "이 페이지가 정하지 않는 것",
+        "검사표를 보며 자주 묻는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/understanding-hba1c",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "당화혈색소 HbA1c 뜻: NGSP·IFCC와 공복혈당 차이 | 오누림",
+      "h1": [
+        "당화혈색소(HbA1c), 검사표의 NGSP·IFCC부터 읽기"
+      ],
+      "h2": [
+        "HbA1c는 오늘 혈당의 다른 이름이 아닙니다",
+        "NGSP·IFCC: 같은 HbA1c라도 보고 단위가 다릅니다",
+        "결과표에서는 이 순서로 표시해 두세요",
+        "공복혈당과 맞지 않아 보일 때",
+        "검사 원본과 함께 가져갈 세 가지 질문",
+        "이 페이지가 정하지 않는 것",
+        "검사표를 보며 자주 묻는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/understanding-hba1c",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "당화혈색소 HbA1c 뜻: NGSP·IFCC와 공복혈당 차이 | 오누림",
+      "h1": [
+        "당화혈색소(HbA1c), 검사표의 NGSP·IFCC부터 읽기"
+      ],
+      "h2": [
+        "HbA1c는 오늘 혈당의 다른 이름이 아닙니다",
+        "NGSP·IFCC: 같은 HbA1c라도 보고 단위가 다릅니다",
+        "결과표에서는 이 순서로 표시해 두세요",
+        "공복혈당과 맞지 않아 보일 때",
+        "검사 원본과 함께 가져갈 세 가지 질문",
+        "이 페이지가 정하지 않는 것",
+        "검사표를 보며 자주 묻는 질문",
+        "확인한 공식 출처"
+      ],
+      "canonical": "https://www.biz2lab.com/health/guides/understanding-hba1c",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-state-note",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-section-sources",
+        "onurim-state-note"
+      ],
+      "images": [],
+      "tableCount": 1,
+      "captionCount": 1,
+      "faqCount": 5,
+      "sourceCount": 4,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

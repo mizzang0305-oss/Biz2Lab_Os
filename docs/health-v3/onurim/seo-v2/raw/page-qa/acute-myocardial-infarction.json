@@ -1,0 +1,441 @@
+{
+  "route": "/health/acute-myocardial-infarction",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T16:34:15.474Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "7d6748ff558ba28418f5a5959dda3e298289008bb8217652257dcd822deb81a2",
+      "full": "f13c22bd343ed50d0c62f57eec3121fdbb7890190ab9d5d78e23e8fb86fbe536"
+    },
+    {
+      "width": 390,
+      "top": "4cd069f80fcfa33197e45af257a0ce1598d2324a5f771c7c6a3faa57c389c9fb",
+      "full": "c10d4467b42fcd0ae4955937f1b3a808dd63b967f2357f08e51af9f416138a4f"
+    },
+    {
+      "width": 430,
+      "top": "6b14e4abc726f411201760b3eb4ab273bb657b58da7ccd4c40a3ab911c0e44fd",
+      "full": "b97bb5871e5500e736ea28b8331f585a4b53c0a537f565a6cd53e6da99a77846"
+    },
+    {
+      "width": 768,
+      "top": "eaa24f5366f67d8b8e2f828148a93d8ea62f5eaef19e570750ac717d340656d0",
+      "full": "caf05d2989941f00089a3f7f59f592219edb80c47c7c2fba371781ce40a02ee8"
+    },
+    {
+      "width": 1440,
+      "top": "1be930391f600e92da7d7ec22edb8c0d030435a5db7098db44614f822e304806",
+      "full": "439218540031639ff1bcf79c29e22da9fed2c8dd83da93ec06130d33d538ff5a"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "급성심근경색 증상: 심한 흉통을 기다리지 말아야 하는 이유 | 오누림",
+      "h1": [
+        "급성심근경색, 얼마나 아파야 119를 불러야 할까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "지금 이런 변화가 있다면 먼저 119에 연락하세요",
+        "약하게 아프거나 체한 느낌이면 아닌가요?",
+        "심장은 혈액을 보내는데, 왜 자기 근육에 피가 부족해지나요?",
+        "신고한 뒤 어떤 내용을 전하면 되나요?",
+        "심전도와 트로포닌은 서로 무엇을 보나요?",
+        "급한 치료 뒤에는 무엇을 확인하나요?",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/acute-myocardial-infarction",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Fhero.webp&w=3840&q=75",
+          "alt": "메모판과 도움 연결을 상징하는 분홍·초록 장식 표지 삽화",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "심장 표면의 관상동맥과 심장근육, 혈류를 방해하는 혈관 벽 변화·혈전의 확대 개념도",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Faction-v2.webp&w=3840&q=75",
+          "alt": "먼저 119에 전화하는 가상 인물과 어디가 어떻게·처음 느낀 때·함께 생긴 변화·알고 있는 약의 빈 기록 칸",
+          "loaded": true,
+          "width": 328,
+          "height": 219
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "급성심근경색 증상: 심한 흉통을 기다리지 말아야 하는 이유 | 오누림",
+      "h1": [
+        "급성심근경색, 얼마나 아파야 119를 불러야 할까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "지금 이런 변화가 있다면 먼저 119에 연락하세요",
+        "약하게 아프거나 체한 느낌이면 아닌가요?",
+        "심장은 혈액을 보내는데, 왜 자기 근육에 피가 부족해지나요?",
+        "신고한 뒤 어떤 내용을 전하면 되나요?",
+        "심전도와 트로포닌은 서로 무엇을 보나요?",
+        "급한 치료 뒤에는 무엇을 확인하나요?",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/acute-myocardial-infarction",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Fhero.webp&w=3840&q=75",
+          "alt": "메모판과 도움 연결을 상징하는 분홍·초록 장식 표지 삽화",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "심장 표면의 관상동맥과 심장근육, 혈류를 방해하는 혈관 벽 변화·혈전의 확대 개념도",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Faction-v2.webp&w=3840&q=75",
+          "alt": "먼저 119에 전화하는 가상 인물과 어디가 어떻게·처음 느낀 때·함께 생긴 변화·알고 있는 약의 빈 기록 칸",
+          "loaded": true,
+          "width": 358,
+          "height": 239
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "급성심근경색 증상: 심한 흉통을 기다리지 말아야 하는 이유 | 오누림",
+      "h1": [
+        "급성심근경색, 얼마나 아파야 119를 불러야 할까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "지금 이런 변화가 있다면 먼저 119에 연락하세요",
+        "약하게 아프거나 체한 느낌이면 아닌가요?",
+        "심장은 혈액을 보내는데, 왜 자기 근육에 피가 부족해지나요?",
+        "신고한 뒤 어떤 내용을 전하면 되나요?",
+        "심전도와 트로포닌은 서로 무엇을 보나요?",
+        "급한 치료 뒤에는 무엇을 확인하나요?",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/acute-myocardial-infarction",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Fhero.webp&w=3840&q=75",
+          "alt": "메모판과 도움 연결을 상징하는 분홍·초록 장식 표지 삽화",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "심장 표면의 관상동맥과 심장근육, 혈류를 방해하는 혈관 벽 변화·혈전의 확대 개념도",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Faction-v2.webp&w=3840&q=75",
+          "alt": "먼저 119에 전화하는 가상 인물과 어디가 어떻게·처음 느낀 때·함께 생긴 변화·알고 있는 약의 빈 기록 칸",
+          "loaded": true,
+          "width": 398,
+          "height": 266
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "급성심근경색 증상: 심한 흉통을 기다리지 말아야 하는 이유 | 오누림",
+      "h1": [
+        "급성심근경색, 얼마나 아파야 119를 불러야 할까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "지금 이런 변화가 있다면 먼저 119에 연락하세요",
+        "약하게 아프거나 체한 느낌이면 아닌가요?",
+        "심장은 혈액을 보내는데, 왜 자기 근육에 피가 부족해지나요?",
+        "신고한 뒤 어떤 내용을 전하면 되나요?",
+        "심전도와 트로포닌은 서로 무엇을 보나요?",
+        "급한 치료 뒤에는 무엇을 확인하나요?",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/acute-myocardial-infarction",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Fhero.webp&w=3840&q=75",
+          "alt": "메모판과 도움 연결을 상징하는 분홍·초록 장식 표지 삽화",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "심장 표면의 관상동맥과 심장근육, 혈류를 방해하는 혈관 벽 변화·혈전의 확대 개념도",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Faction-v2.webp&w=3840&q=75",
+          "alt": "먼저 119에 전화하는 가상 인물과 어디가 어떻게·처음 느낀 때·함께 생긴 변화·알고 있는 약의 빈 기록 칸",
+          "loaded": true,
+          "width": 728,
+          "height": 485
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "급성심근경색 증상: 심한 흉통을 기다리지 말아야 하는 이유 | 오누림",
+      "h1": [
+        "급성심근경색, 얼마나 아파야 119를 불러야 할까요?"
+      ],
+      "h2": [
+        "먼저 기억할 세 가지",
+        "지금 이런 변화가 있다면 먼저 119에 연락하세요",
+        "약하게 아프거나 체한 느낌이면 아닌가요?",
+        "심장은 혈액을 보내는데, 왜 자기 근육에 피가 부족해지나요?",
+        "신고한 뒤 어떤 내용을 전하면 되나요?",
+        "심전도와 트로포닌은 서로 무엇을 보나요?",
+        "급한 치료 뒤에는 무엇을 확인하나요?",
+        "자주 묻는 질문",
+        "확인한 공식 출처",
+        "기록하고 물어보기"
+      ],
+      "canonical": "https://www.biz2lab.com/health/acute-myocardial-infarction",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow",
+        "onurim-mini-label",
+        "onurim-state-note",
+        "onurim-mini-label",
+        "onurim-aside-note"
+      ],
+      "images": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Fhero.webp&w=3840&q=75",
+          "alt": "메모판과 도움 연결을 상징하는 분홍·초록 장식 표지 삽화",
+          "loaded": true,
+          "width": 495,
+          "height": 330
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Fconcept-v2.webp&w=3840&q=75",
+          "alt": "심장 표면의 관상동맥과 심장근육, 혈류를 방해하는 혈관 벽 변화·혈전의 확대 개념도",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fonurim%2Facute-myocardial-infarction%2Faction-v2.webp&w=3840&q=75",
+          "alt": "먼저 119에 전화하는 가상 인물과 어디가 어떻게·처음 느낀 때·함께 생긴 변화·알고 있는 약의 빈 기록 칸",
+          "loaded": true,
+          "width": 788,
+          "height": 512
+        }
+      ],
+      "tableCount": 2,
+      "captionCount": 2,
+      "faqCount": 6,
+      "sourceCount": 8,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "Article",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

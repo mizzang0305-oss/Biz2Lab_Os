@@ -1,0 +1,8 @@
+"delta_id","route","current_concept","risk","source_ids","checked_at","verification","licensed_review","original_47_packet"
+"SEO2-DANGER-01","/health/guides/danger-signals","각갑작스러운뇌신호OR·심한통증필수아님·반응저하는쓰러짐여부무관·즉시119","P0_EMERGENCY","SUP-KDCA-STROKE|SUP-CDC-STROKE|SUP-NHLBI-MI|SUP-NHS-MI|SUP-MEDLINEPLUS-EMERGENCY","2026-09-06","SOURCE_CROSSCHECK_NO_WAIT_OR_SELF_DIAGNOSIS","NOT_COMPLETED","UNCHANGED"
+"SEO2-DANGER-02","/health/guides/danger-signals","일시호전과불확실성으로신고지연금지·직접운전가족대기금지","P0_EMERGENCY","SUP-CDC-STROKE|SUP-NHLBI-MI","2026-09-06","PRIMARY_SOURCE_CROSSCHECK_NO_DURATION_THRESHOLD","NOT_COMPLETED","UNCHANGED"
+"SEO2-DANGER-03","/health/guides/danger-signals","임박한안전위험119우선·109자살예방상담은구조대체아님·돕는사람안전","P0_EMERGENCY","SUP-MEDLINEPLUS-EMERGENCY|SUP-MOHW-109","2026-09-06","KOREAN_SERVICE_ROLE_CROSSCHECK_NO_CALL_TEST","NOT_COMPLETED","UNCHANGED"
+"SEO2-DANGER-04","/health/guides/danger-signals","신고후위치상태알고있는배경연락정보·작성완성요건아님·모름허용","P1_COMMUNICATION","SUP-NFA-119","2026-09-06","OFFICIAL_HTML_ALTERNATIVE_TEXT_READ_NO_IMAGE_COPY","NOT_COMPLETED","UNCHANGED"
+"SEO2-DANGER-05","/health/guides/danger-signals","전화의료지도·약찾기효과대기로신고지연금지·일괄투약금지또는용량미제시","P0_MEDICATION","SUP-NFA-119|SUP-NHLBI-MI|SUP-NHS-MI","2026-09-06","PRIMARY_SOURCE_CROSSCHECK_NO_CPR_OR_MEDICATION_PROTOCOL","NOT_COMPLETED","UNCHANGED"
+"SEO2-DANGER-06","/health/guides/danger-signals","성인대표목록한계·새호흡곤란심각하지않아도신속평가·소아임신외상개별판단미대체","P1_TRIAGE","SUP-MEDLINEPLUS-EMERGENCY|SUP-NFA-119|SUP-NHS-MI","2026-09-06","SCOPE_BOUNDARY_NOT_EXHAUSTIVE_OR_NO_SYMPTOM_EQUALS_SAFE","NOT_COMPLETED","UNCHANGED"
+

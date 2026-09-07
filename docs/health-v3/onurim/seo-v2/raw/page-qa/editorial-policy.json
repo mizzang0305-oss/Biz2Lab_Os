@@ -1,0 +1,281 @@
+{
+  "route": "/health/trust/editorial-policy",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T17:03:09.284Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "5713d6c811f10797545e6302de27627e0fff0a7702771d0bd664ddc69ca0691e",
+      "full": "a7c20a67d4c4c4a0e2733c061c9a22ff865ea60d524acbbd77a2d4912967f6e3"
+    },
+    {
+      "width": 390,
+      "top": "176779f42538ac5f175540833a75022a0c2204a6661e3f9ecbfb20744f9fb81e",
+      "full": "cde6108917e97cb790c8f012fb84a194cb2e41ed8fbf94291be79d81c2d20ed0"
+    },
+    {
+      "width": 430,
+      "top": "63f0fcfc3fb90f72588107367d7edc65143b3acc9e545401c2e08a3c21a4a29c",
+      "full": "0373591ac1fa9ab0f3cfc724f5b769676dd6906c2d6ff718bc17f6fa80e3218e"
+    },
+    {
+      "width": 768,
+      "top": "658a039378e65b268ac7ec091f93c72e05a7ce5c97dc158286999eefeaab83ed",
+      "full": "82e461ddd6f89f19d0ec6fe9a35a286feeb3cacd6611be36cd05a125fb274361"
+    },
+    {
+      "width": 1440,
+      "top": "b6a8fef345846622bb1899ab6942b7be0fb37b92338ab232872c6916f59bad96",
+      "full": "5634ea3a3f1d49b59494be730a5d7108ad141963ed22686eaeae60a0736feb53"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "오누림 편집 정책: 작성·수정·확인 단계를 구분하는 원칙 | 오누림",
+      "h1": [
+        "편집 정책"
+      ],
+      "h2": [
+        "페이지마다 해결할 질문을 먼저 정합니다",
+        "근거를 확인하되 독립적으로 구성합니다",
+        "절차와 완료 사실을 구분합니다",
+        "내용을 바꾼 때와 근거를 본 때를 나눕니다",
+        "기술 점검을 의료 판정으로 바꾸지 않습니다"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/editorial-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "오누림 편집 정책: 작성·수정·확인 단계를 구분하는 원칙 | 오누림",
+      "h1": [
+        "편집 정책"
+      ],
+      "h2": [
+        "페이지마다 해결할 질문을 먼저 정합니다",
+        "근거를 확인하되 독립적으로 구성합니다",
+        "절차와 완료 사실을 구분합니다",
+        "내용을 바꾼 때와 근거를 본 때를 나눕니다",
+        "기술 점검을 의료 판정으로 바꾸지 않습니다"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/editorial-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "오누림 편집 정책: 작성·수정·확인 단계를 구분하는 원칙 | 오누림",
+      "h1": [
+        "편집 정책"
+      ],
+      "h2": [
+        "페이지마다 해결할 질문을 먼저 정합니다",
+        "근거를 확인하되 독립적으로 구성합니다",
+        "절차와 완료 사실을 구분합니다",
+        "내용을 바꾼 때와 근거를 본 때를 나눕니다",
+        "기술 점검을 의료 판정으로 바꾸지 않습니다"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/editorial-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "오누림 편집 정책: 작성·수정·확인 단계를 구분하는 원칙 | 오누림",
+      "h1": [
+        "편집 정책"
+      ],
+      "h2": [
+        "페이지마다 해결할 질문을 먼저 정합니다",
+        "근거를 확인하되 독립적으로 구성합니다",
+        "절차와 완료 사실을 구분합니다",
+        "내용을 바꾼 때와 근거를 본 때를 나눕니다",
+        "기술 점검을 의료 판정으로 바꾸지 않습니다"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/editorial-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "오누림 편집 정책: 작성·수정·확인 단계를 구분하는 원칙 | 오누림",
+      "h1": [
+        "편집 정책"
+      ],
+      "h2": [
+        "페이지마다 해결할 질문을 먼저 정합니다",
+        "근거를 확인하되 독립적으로 구성합니다",
+        "절차와 완료 사실을 구분합니다",
+        "내용을 바꾼 때와 근거를 본 때를 나눕니다",
+        "기술 점검을 의료 판정으로 바꾸지 않습니다"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/editorial-policy",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

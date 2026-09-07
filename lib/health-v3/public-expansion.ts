@@ -1,4 +1,18 @@
 import type { HealthArticle, HealthClaim, HealthSource, HealthTool } from "./content";
+import { dyslipidemiaArticle, dyslipidemiaSources } from "./seo-v2/dyslipidemia";
+import { obesityArticle, obesitySources } from "./seo-v2/obesity";
+import { masldArticle, masldSources } from "./seo-v2/masld";
+import { ibsArticle, ibsSources } from "./seo-v2/irritable-bowel-syndrome";
+import { asthmaArticle, asthmaSources } from "./seo-v2/asthma";
+import { sleepApneaArticle, sleepApneaSources } from "./seo-v2/sleep-apnea";
+import { goutArticle, goutSources } from "./seo-v2/gout";
+import { migraineArticle, migraineSources } from "./seo-v2/migraine";
+import { kidneyStonesArticle, kidneyStonesSources } from "./seo-v2/kidney-stones";
+import { urinaryTractInfectionArticle, urinaryTractInfectionSources } from "./seo-v2/urinary-tract-infection";
+import { depressionArticle, depressionSources } from "./seo-v2/depression";
+import { anxietyArticle, anxietySources } from "./seo-v2/anxiety-disorder";
+import { strokeArticle, strokeSources } from "./seo-v2/stroke";
+import { myocardialInfarctionArticle, myocardialInfarctionSources } from "./seo-v2/acute-myocardial-infarction";
 
 type ExpansionSlug = Exclude<HealthArticle["slug"],
   | "hypertension"
@@ -26,6 +40,7 @@ type GuideConfig = {
   urgent: string;
   observationItems: string[];
   questions: string[];
+  toolSummary?: Pick<HealthTool, "title" | "description">;
   sources: [SourceInput, SourceInput, SourceInput];
 };
 
@@ -35,6 +50,7 @@ const guides: GuideConfig[] = [
   {
     slug: "dyslipidemia",
     prefix: "DLP",
+    toolSummary: { title: "지질검사 진료 질문지", description: "검사 원본·식사 조건·현재 이력을 모아 개인 목표와 다음 검사 계획을 묻는 인쇄 질문지입니다." },
     title: "이상지질혈증",
     cluster: "심장·혈관",
     archetype: "MYTH_FIRST",
@@ -45,8 +61,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 지질검사 결과뿐 아니라 나이, 가족력, 흡연, 혈압, 당뇨병과 심혈관질환 이력을 함께 살펴봅니다.",
     careBoundary: "검사표의 한 숫자로 약을 시작·중단하거나 인터넷 목표치에 맞추지 않습니다. 결과의 의미와 다음 검사 시점은 의료진에게 확인합니다.",
     urgent: "새롭고 심한 가슴 통증, 숨쉬기 어려움, 갑작스러운 한쪽 마비나 말 이상은 콜레스테롤 수치를 다시 볼 때가 아니라 119 도움을 요청할 때입니다.",
-    observationItems: ["검사 날짜와 검사명", "의료진이 설명한 목표", "가족력과 현재 질환", "복용 중인 약·보충제"],
-    questions: ["각 지질 수치는 제 상황에서 무엇을 뜻하나요?", "다음 검사는 언제 필요한가요?", "생활 조정과 치료 선택지는 어떻게 정하나요?"],
+    observationItems: ["이번·이전 검사 날짜 / 항목·수치·단위 (원본·미확인 가능)", "검사 전 안내 / 실제 식사 시각·준비 조건", "현재 질환 / 아는 심혈관질환 가족력·발병 시기", "현재 약·보충제 / 최근 변경·새 불편"],
+    questions: ["네 지질 항목은 제 이력과 검사 조건에서 각각 무엇을 뜻하나요?", "제게 적용하는 목표와 그 이유는 무엇인가요?", "생활 조정과 치료를 어떻게 함께 진행하며 기대 효과·부담은 무엇인가요?", "다음 검사는 언제 어떤 조건으로 받고, 그 전에 문의할 변화와 연락처는 무엇인가요?"],
     sources: [
       { id: "SRC-MEDLINEPLUS-CHOLESTEROL", organization: "NIH/MedlinePlus", title: "Cholesterol", url: "https://medlineplus.gov/cholesterol.html", sourceDate: "2025" },
       { id: "SRC-CDC-CHOLESTEROL", organization: "CDC", title: "About Cholesterol", url: "https://www.cdc.gov/cholesterol/about/", sourceDate: "2025" },
@@ -56,6 +72,7 @@ const guides: GuideConfig[] = [
   {
     slug: "obesity",
     prefix: "OBS",
+    toolSummary: { title: "비만 상담 메모", description: "체중과 함께 달라진 생활·약, 본인이 원하는 도움과 상담 질문을 정리하는 인쇄 보조표입니다." },
     title: "비만",
     cluster: "대사·내분비",
     archetype: "FAMILY_SITUATION",
@@ -66,8 +83,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 체중 변화의 흐름, 관련 질환, 복용 약, 수면과 생활 여건을 함께 확인할 수 있습니다.",
     careBoundary: "빠른 감량을 약속하는 식단·보충제·약을 스스로 시작하지 않습니다. 목표와 속도는 현재 건강 상태를 아는 의료진과 정합니다.",
     urgent: "실신, 의식 저하, 새롭고 심한 가슴 통증이나 호흡곤란이 있으면 체중 문제로 단정하지 말고 119에 도움을 요청합니다.",
-    observationItems: ["최근 체중 변화의 시기", "수면과 활동 변화", "현재 질환과 복용 약", "일상에서 실제로 어려운 점"],
-    questions: ["체중 외에 함께 볼 건강 지표는 무엇인가요?", "현재 약이나 수면이 영향을 줄 수 있나요?", "제게 안전하고 현실적인 목표는 무엇인가요?"],
+    observationItems: ["체중·옷의 맞음새 변화 시기 / 함께 생긴 불편", "수면·일상 여건 / 현재 질환·약·보충제와 변경 시기", "먼저 상담할 어려움 / 원하는 도움·혼자 하고 싶은 일"],
+    questions: ["제 변화와 불편은 체중 외에 무엇을 함께 확인해야 하나요?", "현재 몸 상태와 생활 여건에서 가능한 계획·지원은 무엇인가요?", "제안받은 방법의 기대 효과·부담과 경과를 확인할 때·문의처는 무엇인가요?"],
     sources: [
       { id: "SRC-NIDDK-OBESITY-DEFINITION", organization: "NIH/NIDDK", title: "Definition & Facts for Adult Overweight & Obesity", url: "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/definition-facts", sourceDate: "2024" },
       { id: "SRC-NIDDK-OBESITY-FACTORS", organization: "NIH/NIDDK", title: "Factors Affecting Weight & Health", url: "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/factors-affecting-weight-health", sourceDate: "2024" },
@@ -77,6 +94,7 @@ const guides: GuideConfig[] = [
   {
     slug: "metabolic-dysfunction-associated-steatotic-liver-disease",
     prefix: "MASLD",
+    toolSummary: { title: "지방간 검사 상담표", description: "기존 검사 원문·음주·약 이력을 모아 각 결과의 의미와 다음 확인 계획을 묻는 인쇄 양식입니다." },
     title: "지방간(MASLD)",
     cluster: "위장·간",
     archetype: "QUESTION_FIRST",
@@ -87,8 +105,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 병력, 혈액검사와 영상검사를 바탕으로 간의 상태를 살피고 다른 원인을 확인합니다.",
     careBoundary: "간 수치나 초음파 문구를 혼자 해석해 보충제나 약을 시작하지 않습니다. 음주, 기존 질환과 복용 약을 진료에서 함께 알립니다.",
     urgent: "피부나 눈이 노래지거나, 심한 복통·반복 구토·의식 변화가 새로 나타나면 온라인 기록보다 신속한 의료 평가를 우선합니다.",
-    observationItems: ["검사 날짜와 결과 문구", "음주 여부와 빈도", "대사질환과 복용 약", "새로 생긴 불편"],
-    questions: ["다른 간질환 원인도 확인해야 하나요?", "어떤 추적검사가 필요한가요?", "제 상황에서 우선할 생활 변화는 무엇인가요?"],
+    observationItems: ["검사 날짜·검사명 / 결과 원문·항목·단위·참고범위", "현재·과거 음주 횟수·한 번의 양 / 줄이거나 끊을 때의 불편", "알고 있는 질환 / 현재 약·보충제·생약·변경 시기 / 새 불편"],
+    questions: ["받은 검사는 간효소·지방·섬유화 중 무엇을 살폈고 무엇은 더 확인해야 하나요?", "음주·대사 요인·약과 다른 원인은 어떻게 함께 살피며, 음주 중단을 위한 도움이 필요한가요?", "추가 검사나 관리가 필요하다면 목적·준비 사항·다음 확인 시점과 그 전에 연락할 변화는 무엇인가요?"],
     sources: [
       { id: "SRC-NIDDK-MASLD-DEFINITION", organization: "NIH/NIDDK", title: "Definition & Facts of NAFLD & NASH", url: "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/definition-facts", sourceDate: "2025" },
       { id: "SRC-NIDDK-MASLD-SYMPTOMS", organization: "NIH/NIDDK", title: "Symptoms & Causes of NAFLD & NASH", url: "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/symptoms-causes", sourceDate: "2025" },
@@ -98,6 +116,7 @@ const guides: GuideConfig[] = [
   {
     slug: "irritable-bowel-syndrome",
     prefix: "IBS",
+    toolSummary: { title: "복통·배변 질문지", description: "배변 전후 통증과 변의 변화, 식사·약·새 불편을 정리해 상담하는 인쇄 양식입니다." },
     title: "과민성장증후군",
     cluster: "위장·간",
     archetype: "BODY_SIGNAL",
@@ -108,8 +127,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 증상 흐름과 병력을 확인하고, 필요하면 빈혈·감염·염증성 장질환 같은 다른 문제를 살피는 검사를 합니다.",
     careBoundary: "특정 음식 하나를 원인으로 확정하거나 장기간 과도하게 제한하지 않습니다. 기록을 바탕으로 의료진과 개인별 계획을 상의합니다.",
     urgent: "혈변이나 검은 변, 원인 없는 체중 감소, 심한 탈수·실신, 새롭고 심한 복통이 있으면 과민성장증후군으로 넘기지 말고 의료 도움을 받습니다.",
-    observationItems: ["복통이 시작된 시간", "배변 횟수와 모양 변화", "먹은 것과 수면", "혈변·체중 변화 여부"],
-    questions: ["다른 원인을 확인할 검사가 필요한가요?", "기록에서 어떤 패턴을 볼까요?", "무리한 음식 제한을 피하려면 어떻게 하나요?"],
+    observationItems: ["복통 시기·위치 / 배변 전후 덜·더 아픔·비슷함·모르겠음", "평소와 다른 배변 횟수·변의 단단함·묽음 / 일상 영향", "식사·수면·생활 / 실제 약 사용·최근 장염·아는 가족력", "새 출혈·이유 없는 체중 감소 / 밤에 통증으로 깬 일·시기"],
+    questions: ["제 통증·배변 변화와 이력에서 다른 원인을 확인할 검사가 필요한가요?", "식사 제한을 늘리지 않으려면 어떤 도움과 효과 확인·재도입 계획이 필요한가요?", "현재 증상에 맞는 관리와 그 부담, 다시 평가할 때·그 전에 연락할 변화는 무엇인가요?"],
     sources: [
       { id: "SRC-NIDDK-IBS-DEFINITION", organization: "NIH/NIDDK", title: "Definition & Facts for Irritable Bowel Syndrome", url: "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/definition-facts", sourceDate: "2017" },
       { id: "SRC-NIDDK-IBS-SYMPTOMS", organization: "NIH/NIDDK", title: "Symptoms & Causes of Irritable Bowel Syndrome", url: "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/symptoms-causes", sourceDate: "2017" },
@@ -119,6 +138,7 @@ const guides: GuideConfig[] = [
   {
     slug: "asthma",
     prefix: "AST",
+    toolSummary: { title: "천식 진료 질문지", description: "증상·흡입기 사용 기록을 가져가 기기 사용법과 개인 행동계획을 확인하는 인쇄 질문지입니다." },
     title: "천식",
     cluster: "호흡기·알레르기",
     archetype: "SIMPLE_ANALOGY",
@@ -129,8 +149,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 증상 패턴을 듣고 폐기능검사 등으로 숨을 내쉬는 흐름을 확인할 수 있습니다.",
     careBoundary: "흡입기 종류와 사용 시점은 개인별 천식 행동계획을 따릅니다. 다른 사람의 흡입기를 쓰거나 온라인 글로 약을 바꾸지 않습니다.",
     urgent: "숨쉬기가 매우 어렵거나 말하기 힘들고, 입술이 푸르게 보이거나 처지고 혼란스러우면 즉시 119에 도움을 요청합니다.",
-    observationItems: ["기침·쌕쌕거림 시간", "운동·감기·환경과의 관계", "수면 방해 여부", "처방된 행동계획과 실제 반응"],
-    questions: ["폐기능검사가 필요한가요?", "제 천식 행동계획을 어떻게 읽나요?", "응급실로 가야 할 신호는 무엇인가요?"],
+    observationItems: ["기침·숨참의 시기·상황 / 밤에 깸·평소 활동의 지장", "실제 흡입기·약 이름 / 사용한 때·그 뒤 변화·사용이 어려운 점", "현재 개인 행동계획·지난 발작/진료 기록 / 찾지 못한 지침"],
+    questions: ["제 기기로 사용하는 모습을 확인해 주실 수 있나요?", "현재 처방과 행동계획이 맞나요? 평소와 증상 변화 때의 지침을 어디서 확인하나요?", "다음 점검은 언제이며, 그 전에 진료팀에 연락할 때와 즉시 119를 부를 때는 언제인가요?"],
     sources: [
       { id: "SRC-NHLBI-ASTHMA-SYMPTOMS", organization: "NIH/NHLBI", title: "Asthma Symptoms", url: "https://www.nhlbi.nih.gov/health/asthma/symptoms", sourceDate: "2024" },
       { id: "SRC-NHLBI-ASTHMA-DIAGNOSIS", organization: "NIH/NHLBI", title: "Asthma Diagnosis", url: "https://www.nhlbi.nih.gov/health/asthma/diagnosis", sourceDate: "2024" },
@@ -140,6 +160,7 @@ const guides: GuideConfig[] = [
   {
     slug: "sleep-apnea",
     prefix: "OSA",
+    toolSummary: { title: "밤·낮 수면 질문지", description: "본인의 낮 졸림과 동의한 상대의 밤 관찰을 나눠 적고 수면검사·다음 계획을 질문하는 인쇄 양식입니다." },
     title: "수면무호흡증",
     cluster: "호흡기·알레르기",
     archetype: "FAMILY_SITUATION",
@@ -150,8 +171,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 증상과 위험 요인을 확인하고 수면검사로 유형과 심한 정도를 평가할 수 있습니다.",
     careBoundary: "코골이 녹음이나 스마트기기 수치만으로 진단하지 않습니다. 졸리면 운전과 위험 작업을 피하고 의료진과 상의합니다.",
     urgent: "깨우기 어렵거나 호흡이 돌아오지 않는 것처럼 보이거나 입술이 푸르게 보이면 즉시 119에 도움을 요청합니다.",
-    observationItems: ["코골이·숨 멎음 관찰", "헐떡이며 깬 횟수", "낮 졸림과 운전 영향", "수면 시간과 복용 약"],
-    questions: ["수면검사가 필요한가요?", "낮 졸림 동안 피해야 할 활동은 무엇인가요?", "치료 선택지는 어떤 검사 뒤 정하나요?"],
+    observationItems: ["본인이 느낀 낮 졸림·피로 / 집중·일상·운전·작업 영향", "동의한 상대가 본 밤의 호흡 변화 / 관찰 시점·미확인", "잠든 시간·깬 기억·일정 변화 / 실제 약·보충제", "기존 검사·치료 계획 원본 / 기기 사용 중 불편·문의할 점"],
+    questions: ["제 밤·낮 기록에서 어떤 평가가 필요하며, 검사 목적과 준비는 무엇인가요?", "졸림이 일상과 운전·위험 작업에 영향을 주는데 어떤 안전 계획과 평가가 필요한가요?", "검사 결과나 치료 중 불편은 언제 누구와 확인하고, 그 전에 연락할 변화는 무엇인가요?"],
     sources: [
       { id: "SRC-NHLBI-APNEA-OVERVIEW", organization: "NIH/NHLBI", title: "What Is Sleep Apnea?", url: "https://www.nhlbi.nih.gov/health/sleep-apnea", sourceDate: "2025" },
       { id: "SRC-NHLBI-APNEA-SYMPTOMS", organization: "NIH/NHLBI", title: "Sleep Apnea Symptoms", url: "https://www.nhlbi.nih.gov/health/sleep-apnea/symptoms", sourceDate: "2025" },
@@ -161,6 +182,7 @@ const guides: GuideConfig[] = [
   {
     slug: "gout",
     prefix: "GOUT",
+    toolSummary: { title: "통풍 진료 질문지", description: "관절 변화·요산 검사 원본·실제 약을 준비해 이번 통증과 이후 관리의 질문을 나누는 인쇄 양식입니다." },
     title: "통풍",
     cluster: "뼈·관절",
     archetype: "MYTH_FIRST",
@@ -171,8 +193,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 병력과 관절 상태를 확인하고 혈액검사, 관절액 검사나 영상검사를 선택할 수 있습니다.",
     careBoundary: "요산 수치 하나로 진단하거나 약을 임의로 끊지 않습니다. 음식만 탓하기보다 질환, 복용 약과 신장 상태를 함께 알립니다.",
     urgent: "열이 나면서 관절이 매우 붓고 아프거나 몸 상태가 빠르게 나빠지면 감염 등 다른 원인도 가능하므로 신속히 의료 도움을 받습니다.",
-    observationItems: ["아픈 관절과 시작 시각", "붓기·열감·발열 여부", "최근 질환·음주·식사", "현재 복용 약"],
-    questions: ["다른 관절 질환과 어떻게 구분하나요?", "요산 수치는 제 경우 어떻게 해석하나요?", "약과 생활 계획은 어떻게 함께 정하나요?"],
+    observationItems: ["관절 위치·시작 시각 / 붓기·열감·피부색·발열 등 실제 변화", "기존 요산 검사명·날짜·단위·원본 / 이전 발작과 진료 이력", "실제 약·보충제·사용 뒤 변화 / 다른 질환·식사·음주 상황"],
+    questions: ["이번 관절 변화에서 다른 원인을 확인할 검사와 그 목적은 무엇인가요?", "현재 통증과 이후 요산 관리에서 제 약은 각각 어떤 역할이며 사용 지침은 무엇인가요?", "개인 관리 목표·생활 조정과 다음 검사·진료는 어떻게 정하고, 그 전에 연락할 변화는 무엇인가요?"],
     sources: [
       { id: "SRC-NIAMS-GOUT", organization: "NIH/NIAMS", title: "Gout", url: "https://www.niams.nih.gov/health-topics/gout", sourceDate: "2023" },
       { id: "SRC-NIAMS-GOUT-DIAGNOSIS", organization: "NIH/NIAMS", title: "Gout: Diagnosis, Treatment, and Steps to Take", url: "https://www.niams.nih.gov/health-topics/gout/diagnosis-treatment-and-steps-to-take", sourceDate: "2023" },
@@ -182,6 +204,7 @@ const guides: GuideConfig[] = [
   {
     slug: "migraine",
     prefix: "MIG",
+    toolSummary: { title: "두통 진료 준비표", description: "두통 발생일·생활 영향과 실제 약 사용일·반응을 나누어 진료 질문과 답을 남기는 인쇄 양식입니다." },
     title: "편두통",
     cluster: "뇌·마음",
     archetype: "BODY_SIGNAL",
@@ -192,8 +215,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 두통의 시작과 양상, 신경학적 증상과 진찰을 바탕으로 다른 원인을 확인하고 검사 필요성을 판단합니다.",
     careBoundary: "진통제나 편두통 약을 자주 또는 임의로 바꾸지 않습니다. 두통 일지는 진단기가 아니라 진료에 패턴을 설명하는 자료입니다.",
     urgent: "갑자기 시작된 매우 심한 두통, 처음 겪는 말·시야·움직임 이상, 의식 저하나 균형 상실이 동반되면 즉시 119에 도움을 요청합니다.",
-    observationItems: ["시작 시각과 지속 시간", "통증 위치와 느낌", "빛·소리·메스꺼움", "처음 생긴 신경 증상"],
-    questions: ["다른 원인을 확인할 검사가 필요한가요?", "두통 일지에서 무엇을 볼까요?", "약을 얼마나 자주 쓰는지 왜 중요한가요?"],
+    observationItems: ["두통 발생일·시작·지속 / 동반 변화·일상 영향·평소와 다른 점", "실제 약 이름·사용일·반응 / 안내받은 사용 목적", "당시 수면·식사·생활 상황 / 기존 일지·검사 자료"],
+    questions: ["이번 변화에서 다른 원인 평가나 검사는 무엇을 확인하기 위한 것인가요?", "제 약의 증상 완화·예방 목적과 개인 사용 지침, 사용이 늘 때 연락할 기준은 무엇인가요?", "어떤 기록을 이어가고 언제 다시 확인하며, 그 전에 연락할 변화는 무엇인가요?"],
     sources: [
       { id: "SRC-NINDS-MIGRAINE", organization: "NIH/NINDS", title: "Migraine", url: "https://www.ninds.nih.gov/health-information/disorders/migraine", sourceDate: "2025" },
       { id: "SRC-MEDLINEPLUS-MIGRAINE", organization: "NIH/MedlinePlus", title: "Migraine", url: "https://medlineplus.gov/migraine.html", sourceDate: "2025" },
@@ -203,6 +226,7 @@ const guides: GuideConfig[] = [
   {
     slug: "kidney-stones",
     prefix: "KST",
+    toolSummary: { title: "신장결석 진료 준비표", description: "통증·소변 변화와 기존 검사·수분 제한·약 정보를 모아 배출 확인과 개인 계획을 묻는 인쇄 양식입니다." },
     title: "신장결석",
     cluster: "신장·비뇨기",
     archetype: "SIMPLE_ANALOGY",
@@ -213,8 +237,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 병력과 진찰, 소변·혈액검사와 영상검사를 이용해 결석의 위치와 막힘 여부를 확인할 수 있습니다.",
     careBoundary: "통증만으로 결석의 크기나 통과 여부를 예측하지 않습니다. 심장·신장 질환으로 수분 제한을 받은 사람은 물 섭취를 임의로 늘리지 않습니다.",
     urgent: "열·오한, 반복 구토, 소변이 거의 나오지 않음, 견디기 어려운 통증이 있으면 막힘이나 감염 가능성 때문에 신속한 의료 평가가 필요합니다.",
-    observationItems: ["통증 위치와 파도처럼 변하는지", "소변 색과 양", "열·오한·구토 여부", "과거 결석과 수분 제한"],
-    questions: ["결석의 위치와 크기는 어떻게 확인하나요?", "감염이나 막힘 신호가 있나요?", "결석 종류를 알면 예방이 달라지나요?"],
+    observationItems: ["통증 시기·위치 / 소변·열·오한·구토 등 실제 변화", "기존 소변·혈액·영상검사 원본 / 과거 결석·분석 자료", "다른 질환·안내받은 수분 제한 / 실제 약·보충제·식사"],
+    questions: ["위치·크기뿐 아니라 막힘·감염·콩팥 기능에서 확인할 점과 검사 목적은 무엇인가요?", "통증이 줄어도 배출 여부와 콩팥 상태를 언제 어떻게 확인하며, 그 전에 연락할 변화는 무엇인가요?", "제 결석 성분·다른 질환에 맞는 수분·식사·약 계획과 사용 지침은 무엇인가요?"],
     sources: [
       { id: "SRC-NIDDK-STONE-SYMPTOMS", organization: "NIH/NIDDK", title: "Symptoms & Causes of Kidney Stones", url: "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/symptoms-causes", sourceDate: "2017" },
       { id: "SRC-NIDDK-STONE-DIAGNOSIS", organization: "NIH/NIDDK", title: "Diagnosis of Kidney Stones", url: "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/diagnosis", sourceDate: "2017" },
@@ -224,6 +248,7 @@ const guides: GuideConfig[] = [
   {
     slug: "urinary-tract-infection",
     prefix: "UTI",
+    toolSummary: { title: "요로감염 진료 메모", description: "배뇨·몸 상태 변화와 개인 상황·최근 검사·항생제를 정리해 결과 전달과 재연락 계획을 묻는 인쇄 보조표입니다." },
     title: "요로감염",
     cluster: "신장·비뇨기",
     archetype: "QUESTION_FIRST",
@@ -234,8 +259,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 증상과 병력을 확인하고 소변검사와 소변배양검사 등으로 감염과 치료 선택을 살필 수 있습니다.",
     careBoundary: "남은 항생제나 다른 사람의 약을 쓰지 않습니다. 임신 가능성, 반복 감염, 다른 질환과 복용 약을 진료에서 알립니다.",
     urgent: "발열·오한과 함께 옆구리나 등 통증, 메스꺼움·구토가 나타나면 콩팥 감염 가능성이 있어 빠르게 의료 도움을 받습니다.",
-    observationItems: ["배뇨 불편 시작 시각", "소변 횟수·색·냄새 변화", "열·오한·옆구리 통증", "임신 가능성과 반복 감염"],
-    questions: ["소변검사나 배양검사가 필요한가요?", "콩팥 감염 신호가 있나요?", "약을 복용하며 어떤 변화를 알려야 하나요?"],
+    observationItems: ["배뇨 변화·시작 / 열·오한·옆구리·등 통증·구토 등 실제 변화", "임신 가능성·도뇨관·다른 질환 / 이전 감염·치료 상황", "최근 검사 원본·날짜 / 실제 항생제·사용·반응 / 약 알레르기"],
+    questions: ["이번 검사는 무엇을 확인하며 결과를 언제·어떻게 전달받나요?", "처방이 있다면 제 사용 지침과 부작용·복용 곤란 시 연락 방법은 무엇인가요?", "결과나 다음 진료 전 어떤 변화가 생기면 어디로 바로 연락하나요?"],
     sources: [
       { id: "SRC-NIDDK-UTI-DEFINITION", organization: "NIH/NIDDK", title: "Definition & Facts of Bladder Infection in Adults", url: "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/definition-facts", sourceDate: "2024" },
       { id: "SRC-NIDDK-UTI-SYMPTOMS", organization: "NIH/NIDDK", title: "Symptoms & Causes of Bladder Infection in Adults", url: "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/symptoms-causes", sourceDate: "2024" },
@@ -245,6 +270,7 @@ const guides: GuideConfig[] = [
   {
     slug: "depression",
     prefix: "DEP",
+    toolSummary: { title: "우울감 진료 메모", description: "본인의 말과 동의받은 관찰, 일상 어려움과 원하는 도움을 구분해 진료에 가져가는 인쇄 보조표입니다." },
     title: "우울증",
     cluster: "뇌·마음",
     archetype: "FAMILY_SITUATION",
@@ -255,8 +281,8 @@ const guides: GuideConfig[] = [
     evaluation: "정신건강 전문가는 증상의 기간과 일상 영향, 다른 신체 질환이나 약물 가능성을 함께 확인합니다.",
     careBoundary: "온라인 체크리스트만으로 진단하거나 치료를 중단하지 않습니다. 가족은 평가하거나 설득하기보다 안전하게 이야기를 듣고 전문 도움 연결을 돕습니다.",
     urgent: "자해·자살 생각이나 구체적인 위험이 있거나 즉시 안전을 지키기 어렵다면 혼자 두지 말고 119에 연락합니다. 24시간 자살예방 상담전화 109에도 도움을 요청할 수 있습니다.",
-    observationItems: ["기분과 흥미 변화 기간", "수면·식사·집중 변화", "일상에 미친 영향", "자해·자살 생각 여부"],
-    questions: ["다른 건강 문제도 확인해야 하나요?", "어떤 전문 도움을 받을 수 있나요?", "위기 때 가족이 따를 계획을 함께 만들 수 있나요?"],
+    observationItems: ["본인의 말 / 동의받은 주변 관찰·시점 (구분·미확인 가능)", "기분·흥미·잠·식사·일상 변화 / 실제 약·최근 변경", "먼저 상담할 어려움 / 원하는 도움·함께할 사람·혼자 말할 내용"],
+    questions: ["이 변화와 함께 확인할 다른 건강 문제나 약의 영향이 있나요?", "제가 원하는 도움에 맞는 치료·생활 지원과 참여 범위는 무엇인가요?", "악화나 위기 때 연락할 곳과 전문적으로 세울 개인 안전계획을 확인할 수 있나요?"],
     sources: [
       { id: "SRC-NIMH-DEPRESSION", organization: "NIH/NIMH", title: "Depression", url: "https://www.nimh.nih.gov/health/publications/depression", sourceDate: "2024" },
       { id: "SRC-WHO-DEPRESSION", organization: "WHO", title: "Depressive disorder (depression)", url: "https://www.who.int/news-room/fact-sheets/detail/depression", sourceDate: "2025-08-29" },
@@ -266,6 +292,7 @@ const guides: GuideConfig[] = [
   {
     slug: "anxiety-disorder",
     prefix: "ANX",
+    toolSummary: { title: "불안 진료 메모", description: "실제 상황·몸 변화, 이미 피한 일·생활 영향과 약 정보를 정리해 원하는 도움을 묻는 인쇄 보조표입니다." },
     title: "불안장애",
     cluster: "뇌·마음",
     archetype: "MYTH_FIRST",
@@ -276,8 +303,8 @@ const guides: GuideConfig[] = [
     evaluation: "의료진은 증상의 기간과 상황, 일상 영향, 다른 신체 질환이나 물질·약물 영향을 함께 확인합니다.",
     careBoundary: "숨이 가쁘거나 가슴이 답답하다는 이유를 모두 불안으로 단정하지 않습니다. 치료법이나 약은 전문 평가 뒤 개인 상황에 맞게 정합니다.",
     urgent: "자신이나 다른 사람을 해칠 위험이 있거나 안전을 지키기 어렵다면 즉시 119에 연락합니다. 자살 관련 위기에는 24시간 상담전화 109도 이용할 수 있습니다.",
-    observationItems: ["불안이 시작된 상황", "몸에서 느낀 변화", "피하게 된 활동", "수면과 일상 영향"],
-    questions: ["신체 원인을 함께 확인해야 하나요?", "불안의 종류는 어떻게 평가하나요?", "치료와 위기 계획을 어떻게 세우나요?"],
+    observationItems: ["실제 상황·시작·반복 / 몸에서 느낀 변화 (미확인 가능)", "이미 피하게 된 활동 / 잠·일·공부·관계에 생긴 불편", "현재 약·보충제·카페인·술 / 최근 변화·실제 사용·반응"],
+    questions: ["몸의 원인·약 영향과 제가 원하는 도움을 고려하면 어떤 평가·치료가 필요한가요?", "제 처방 지침과 새 불편·악화 때 연락처, 다음 확인 계획은 무엇인가요?"],
     sources: [
       { id: "SRC-NIMH-ANXIETY", organization: "NIH/NIMH", title: "Anxiety Disorders", url: "https://www.nimh.nih.gov/health/topics/anxiety-disorders", sourceDate: "2025" },
       { id: "SRC-NIMH-GAD", organization: "NIH/NIMH", title: "Generalized Anxiety Disorder: What You Need to Know", url: "https://www.nimh.nih.gov/health/publications/generalized-anxiety-disorder-gad", sourceDate: "2024" },
@@ -287,6 +314,7 @@ const guides: GuideConfig[] = [
   {
     slug: "stroke",
     prefix: "STR",
+    toolSummary: { title: "뇌졸중 전달 메모", description: "119 신고 후 두 시각·관찰한 변화를 전하고, 응급 평가·치료 뒤 질문을 따로 확인하는 보조표입니다." },
     title: "뇌졸중",
     cluster: "뇌·마음",
     archetype: "BODY_SIGNAL",
@@ -297,8 +325,8 @@ const guides: GuideConfig[] = [
     evaluation: "응급실에서는 증상 시작 시각과 신경학적 상태를 확인하고 뇌 영상검사 등으로 원인과 치료 가능성을 판단합니다.",
     careBoundary: "증상이 잠깐 좋아져도 집에서 쉬며 기다리거나 음식·약을 억지로 먹이지 않습니다. 발생 시각을 기억하고 119 지시를 따릅니다.",
     urgent: "한쪽 마비, 말 이상, 시야 이상, 갑작스러운 심한 두통이나 균형 상실 중 하나라도 갑자기 나타나면 즉시 119에 연락합니다.",
-    observationItems: ["마지막으로 정상으로 보인 시각", "갑자기 달라진 얼굴·팔·말", "시야·균형·두통 변화", "119에 전달할 복용 약"],
-    questions: ["증상 시작 시각을 어떻게 전달하나요?", "가족이 하지 말아야 할 행동은 무엇인가요?", "퇴원 뒤 재발 신호와 추적 계획은 무엇인가요?"],
+    observationItems: ["신고 후: 마지막으로 이번 변화 없이 평소와 같았던 날짜·시각", "신고 후: 처음 증상을 발견한 날짜·시각 (실제 시작과 다를 수 있음)", "신고 후: 실제 변화·호전 / 알고 있는 약·병력 (미확인 가능)"],
+    questions: ["응급 평가·치료 뒤: 확인된 종류와 제 치료·재활 계획은 무엇인가요?", "응급 평가·치료 뒤: 다시 신고할 신호, 개인 약 지침·다음 진료·연락처는 무엇인가요?"],
     sources: [
       { id: "SRC-KDCA-STROKE-PUBLIC", organization: "질병관리청 국가건강정보포털", title: "뇌졸중", url: "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5495", sourceDate: "2026-04-29" },
       { id: "SRC-KDCA-STROKE-119", organization: "질병관리청", title: "뇌졸중 조기증상 의심되면 즉시 119", url: "https://www.kdca.go.kr/kdca/2855/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa2RjYSUyRjQ3JTJGMjE4NzQ4JTJGYXJ0Y2xWaWV3LmRvJTNG", sourceDate: "2025-12-16" },
@@ -308,6 +336,7 @@ const guides: GuideConfig[] = [
   {
     slug: "acute-myocardial-infarction",
     prefix: "AMI",
+    toolSummary: { title: "심근경색 전달 메모", description: "119 신고 후 실제 증상·약 정보를 전하고, 급한 평가·치료 뒤 약·활동·재활 질문을 확인하는 보조표입니다." },
     title: "급성심근경색",
     cluster: "심장·혈관",
     archetype: "QUESTION_FIRST",
@@ -318,8 +347,8 @@ const guides: GuideConfig[] = [
     evaluation: "응급의료진은 증상과 심전도, 혈액검사 등을 이용해 심장 손상 여부를 빠르게 확인합니다.",
     careBoundary: "증상을 소화불량으로 단정하거나 직접 운전하지 않습니다. 아스피린을 포함한 약을 먼저 찾느라 119 연락을 늦추지 않습니다.",
     urgent: "새로운 심한 가슴 통증·압박감이나 숨참, 식은땀, 갑작스러운 어지럼이 심근경색처럼 느껴지면 확신이 없어도 즉시 119에 연락합니다.",
-    observationItems: ["증상이 시작된 시각", "통증·압박 위치와 퍼짐", "숨참·식은땀·메스꺼움", "119에 전달할 병력과 약"],
-    questions: ["재발 의심 신호는 무엇인가요?", "퇴원 뒤 활동은 어떻게 늘리나요?", "약을 잊거나 이상 반응이 있을 때 어디에 연락하나요?"],
+    observationItems: ["신고 후: 처음 느낀 날짜·시각 / 줄거나 다시 생긴 변화 (미확인 가능)", "신고 후: 실제 불편 위치·퍼짐 / 함께 생긴 호흡·몸 상태 변화", "신고 후: 알고 있는 병력·실제 사용 약·알레르기 (찾느라 지연 금지)"],
+    questions: ["급한 평가·치료 뒤: 제 약의 역할·사용법과 복용 곤란·불편 때 연락할 곳은 어디인가요?", "급한 평가·치료 뒤: 활동·심장재활·다음 방문 계획과 다시 의심 증상이 생겼을 때 행동은 무엇인가요?"],
     sources: [
       { id: "SRC-KDCA-CARDIO-2026", organization: "질병관리청", title: "갑작스러운 마비·언어장애·가슴통증 조기 대응", url: "https://kdca.go.kr/kdca/2848/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa2RjYSUyRjQyJTJGMzEwMDYxJTJGYXJ0Y2xWaWV3LmRvJTNG", sourceDate: "2026-02-11" },
       { id: "SRC-NHLBI-HEART-ATTACK", organization: "NIH/NHLBI", title: "What Is a Heart Attack?", url: "https://www.nhlbi.nih.gov/health/heart-attack", sourceDate: "2022-03-24" },
@@ -328,9 +357,24 @@ const guides: GuideConfig[] = [
   },
 ];
 
-export const expansionHealthSources: HealthSource[] = guides.flatMap((guide) =>
-  guide.sources.map((source) => ({ ...source, retrievedAt })),
-);
+// Source metadata can be refreshed without rewriting the original claim ledger.
+export const expansionHealthSources: HealthSource[] = Array.from(new Map([
+  ...guides.flatMap(guide => guide.sources.map(source => ({ ...source, retrievedAt }))),
+  ...dyslipidemiaSources,
+  ...obesitySources,
+  ...masldSources,
+  ...ibsSources,
+  ...asthmaSources,
+  ...sleepApneaSources,
+  ...goutSources,
+  ...migraineSources,
+  ...kidneyStonesSources,
+  ...urinaryTractInfectionSources,
+  ...depressionSources,
+  ...anxietySources,
+  ...strokeSources,
+  ...myocardialInfarctionSources,
+].map(source => [source.id, source])).values());
 
 function makeClaims(guide: GuideConfig): HealthClaim[] {
   const [primary, secondary, urgent] = guide.sources.map((source) => source.id);
@@ -384,15 +428,32 @@ function articleFor(guide: GuideConfig): HealthArticle {
   };
 }
 
+const seoArticles: Partial<Record<ExpansionSlug, HealthArticle>> = {
+  dyslipidemia: dyslipidemiaArticle,
+  obesity: obesityArticle,
+  "metabolic-dysfunction-associated-steatotic-liver-disease": masldArticle,
+  "irritable-bowel-syndrome": ibsArticle,
+  asthma: asthmaArticle,
+  "sleep-apnea": sleepApneaArticle,
+  gout: goutArticle,
+  migraine: migraineArticle,
+  "kidney-stones": kidneyStonesArticle,
+  "urinary-tract-infection": urinaryTractInfectionArticle,
+  depression: depressionArticle,
+  "anxiety-disorder": anxietyArticle,
+  stroke: strokeArticle,
+  "acute-myocardial-infarction": myocardialInfarctionArticle,
+};
+
 export const expansionHealthArticles = Object.fromEntries(
-  guides.map((guide) => [guide.slug, articleFor(guide)]),
+  guides.map((guide) => [guide.slug, seoArticles[guide.slug] ?? articleFor(guide)]),
 ) as Record<ExpansionSlug, HealthArticle>;
 
 export const expansionHealthTools: HealthTool[] = guides.map((guide) => ({
   slug: `${guide.slug}-visit-card`,
   articleSlug: guide.slug,
-  title: `${guide.title} 관찰·진료 질문 카드`,
-  description: "개인 진단 대신 증상 흐름과 의료진에게 물을 내용을 한 장에 정리합니다.",
+  title: guide.toolSummary?.title ?? `${guide.title} 관찰·진료 질문 카드`,
+  description: guide.toolSummary?.description ?? "개인 진단 대신 증상 흐름과 의료진에게 물을 내용을 한 장에 정리합니다.",
   claimIds: [`${guide.prefix}-P3-002`, `${guide.prefix}-P3-003`, `${guide.prefix}-P3-004`],
   kind: "questions",
   fields: guide.observationItems,

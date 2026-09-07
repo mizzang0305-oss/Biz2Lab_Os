@@ -1,0 +1,276 @@
+{
+  "route": "/health/trust/ai-disclosure",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T17:20:05.356Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "7135c4cf91b77b0eefd5cb01c82ae917ea25fc19a28ca3701bd205bb62fe0aef",
+      "full": "c3c70deac4a89f8b2beb623e367ecf758cfa1dbaadd669a9972a45514d5ad955"
+    },
+    {
+      "width": 390,
+      "top": "edc7e1e12fcffa42a20e82b17f3e5a54f73863122ebdaa1a2333a210d4448bb6",
+      "full": "6bf7e18312e008768b3017143a554e3f378ba6ee827e0faca4742087638e85ed"
+    },
+    {
+      "width": 430,
+      "top": "7f61992d4156daa5b21ef7b426093b45762d3a1a758f1a1cd1aa3efe95fc98f7",
+      "full": "53dc0ec2b7c13e19c850c69b5ace619ba0d71da130067e5de0edf0fd43eb6a8b"
+    },
+    {
+      "width": 768,
+      "top": "5dc4da496669c4499a08321ccb1cd966d9f7b5529864051c8ad63e93a96d9106",
+      "full": "eb97cedcafa8fa9d7307aecd8187cdab91dfd865d45d90ee0b6d4228054483fc"
+    },
+    {
+      "width": 1440,
+      "top": "188edf895ba0c6929ac0652ebbc9d7726ee7b0ec41d7068dff19acd8a777a253",
+      "full": "988f42037eb5750a86585263a7dc144fff2ed031cf921bc28e24626788b22e7f"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "오누림 AI 활용 공개: 사용 범위와 검증의 한계 | 오누림",
+      "h1": [
+        "AI 활용 공개"
+      ],
+      "h2": [
+        "AI의 답이 곧 사실 확인은 아닙니다",
+        "합성 독자 점검은 실제 사람의 의견이 아닙니다",
+        "그림과 도식은 교육용으로 읽어 주세요",
+        "현재 남아 있는 확인 단계"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/ai-disclosure",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "오누림 AI 활용 공개: 사용 범위와 검증의 한계 | 오누림",
+      "h1": [
+        "AI 활용 공개"
+      ],
+      "h2": [
+        "AI의 답이 곧 사실 확인은 아닙니다",
+        "합성 독자 점검은 실제 사람의 의견이 아닙니다",
+        "그림과 도식은 교육용으로 읽어 주세요",
+        "현재 남아 있는 확인 단계"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/ai-disclosure",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "오누림 AI 활용 공개: 사용 범위와 검증의 한계 | 오누림",
+      "h1": [
+        "AI 활용 공개"
+      ],
+      "h2": [
+        "AI의 답이 곧 사실 확인은 아닙니다",
+        "합성 독자 점검은 실제 사람의 의견이 아닙니다",
+        "그림과 도식은 교육용으로 읽어 주세요",
+        "현재 남아 있는 확인 단계"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/ai-disclosure",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "오누림 AI 활용 공개: 사용 범위와 검증의 한계 | 오누림",
+      "h1": [
+        "AI 활용 공개"
+      ],
+      "h2": [
+        "AI의 답이 곧 사실 확인은 아닙니다",
+        "합성 독자 점검은 실제 사람의 의견이 아닙니다",
+        "그림과 도식은 교육용으로 읽어 주세요",
+        "현재 남아 있는 확인 단계"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/ai-disclosure",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "오누림 AI 활용 공개: 사용 범위와 검증의 한계 | 오누림",
+      "h1": [
+        "AI 활용 공개"
+      ],
+      "h2": [
+        "AI의 답이 곧 사실 확인은 아닙니다",
+        "합성 독자 점검은 실제 사람의 의견이 아닙니다",
+        "그림과 도식은 교육용으로 읽어 주세요",
+        "현재 남아 있는 확인 단계"
+      ],
+      "canonical": "https://www.biz2lab.com/health/trust/ai-disclosure",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [
+        "onurim-eyebrow"
+      ],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": true,
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList"
+      ]
+    }
+  ]
+}

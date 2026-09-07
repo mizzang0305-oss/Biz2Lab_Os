@@ -1,0 +1,271 @@
+{
+  "route": "/",
+  "base": "http://127.0.0.1:3212",
+  "observedAt": "2026-09-06T17:45:47.753Z",
+  "scope": "LOCAL_OR_PREVIEW_MACHINE_QA_NOT_MEDICAL_OR_READER_VALIDATION",
+  "screenshotHashes": [
+    {
+      "width": 360,
+      "top": "b65960b7089666af489e815a2a9e2fe04ac37ce50524bab180941fe886b2c285",
+      "full": "f0f85d5b689c24a3895e860457b8b0669d3627abb00885a69ce01f88c801f64d"
+    },
+    {
+      "width": 390,
+      "top": "990bac3e1e3ddc2dbc19361c93659aa2a22c8c338c8f6a02bccafbee44b78837",
+      "full": "2658fd17f114aa7cae9c8a0ed9e46206e76b4a6b9b5ec6b9fe42eb0a638854f1"
+    },
+    {
+      "width": 430,
+      "top": "84768b339c03a3f528fc4609ebf4e24a7edba8e1aa4a372a2bc95e90a5f680b0",
+      "full": "3a74b4d393129fb1285173898690d356055c023ccd0156b212bc006e6d050f01"
+    },
+    {
+      "width": 768,
+      "top": "9353c27ba67b74bdb6bf41736b72dd96e68084ff3ad0dc3675ce7011662d167b",
+      "full": "374431654d35835e2ba67a60cae84d3aa754b0784ccb017d9e875b4d388add46"
+    },
+    {
+      "width": 1440,
+      "top": "9d6595df53c0528927261fd7598da67606b70a700afabcd8a0e8fe10187938fa",
+      "full": "ce2f58e76d5d3dedfd66a36079369dd8c45c12fed8fa5bdc648ccaabba036890"
+    }
+  ],
+  "failures": [],
+  "records": [
+    {
+      "width": 360,
+      "status": 200,
+      "title": "건강정보가 낯설 때, 질환 이해부터 진료 준비까지",
+      "h1": [
+        "건강정보를 이해하고,진료 질문을 준비하세요"
+      ],
+      "h2": [
+        "지금 필요한 안내는 무엇인가요?",
+        "지금 위급하다면 글보다 119가 먼저입니다",
+        "알아보려는 질환이 있나요?",
+        "검사표에서 생긴 질문",
+        "가족과 진료를 준비할 때",
+        "누가 쓰고, 어디까지 확인했나요?"
+      ],
+      "canonical": "https://www.biz2lab.com",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 754
+        }
+      ],
+      "paragraphsBelow14px": [],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": false,
+      "schemaTypes": [
+        "Organization",
+        "WebSite"
+      ]
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "title": "건강정보가 낯설 때, 질환 이해부터 진료 준비까지",
+      "h1": [
+        "건강정보를 이해하고,진료 질문을 준비하세요"
+      ],
+      "h2": [
+        "지금 필요한 안내는 무엇인가요?",
+        "지금 위급하다면 글보다 119가 먼저입니다",
+        "알아보려는 질환이 있나요?",
+        "검사표에서 생긴 질문",
+        "가족과 진료를 준비할 때",
+        "누가 쓰고, 어디까지 확인했나요?"
+      ],
+      "canonical": "https://www.biz2lab.com",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": false,
+      "schemaTypes": [
+        "Organization",
+        "WebSite"
+      ]
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "title": "건강정보가 낯설 때, 질환 이해부터 진료 준비까지",
+      "h1": [
+        "건강정보를 이해하고,진료 질문을 준비하세요"
+      ],
+      "h2": [
+        "지금 필요한 안내는 무엇인가요?",
+        "지금 위급하다면 글보다 119가 먼저입니다",
+        "알아보려는 질환이 있나요?",
+        "검사표에서 생긴 질문",
+        "가족과 진료를 준비할 때",
+        "누가 쓰고, 어디까지 확인했나요?"
+      ],
+      "canonical": "https://www.biz2lab.com",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 139
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 738
+        }
+      ],
+      "paragraphsBelow14px": [],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": false,
+      "schemaTypes": [
+        "Organization",
+        "WebSite"
+      ]
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "title": "건강정보가 낯설 때, 질환 이해부터 진료 준비까지",
+      "h1": [
+        "건강정보를 이해하고,진료 질문을 준비하세요"
+      ],
+      "h2": [
+        "지금 필요한 안내는 무엇인가요?",
+        "지금 위급하다면 글보다 119가 먼저입니다",
+        "알아보려는 질환이 있나요?",
+        "검사표에서 생긴 질문",
+        "가족과 진료를 준비할 때",
+        "누가 쓰고, 어디까지 확인했나요?"
+      ],
+      "canonical": "https://www.biz2lab.com",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": false,
+      "schemaTypes": [
+        "Organization",
+        "WebSite"
+      ]
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "title": "건강정보가 낯설 때, 질환 이해부터 진료 준비까지",
+      "h1": [
+        "건강정보를 이해하고,진료 질문을 준비하세요"
+      ],
+      "h2": [
+        "지금 필요한 안내는 무엇인가요?",
+        "지금 위급하다면 글보다 119가 먼저입니다",
+        "알아보려는 질환이 있나요?",
+        "검사표에서 생긴 질문",
+        "가족과 진료를 준비할 때",
+        "누가 쓰고, 어디까지 확인했나요?"
+      ],
+      "canonical": "https://www.biz2lab.com",
+      "robots": "",
+      "overflow": 0,
+      "navigationVisible": true,
+      "navigationDiagnostics": [
+        {
+          "tag": "HEADER",
+          "display": "block",
+          "height": 65
+        },
+        {
+          "tag": "FOOTER",
+          "display": "block",
+          "height": 410
+        }
+      ],
+      "paragraphsBelow14px": [],
+      "images": [],
+      "tableCount": 0,
+      "captionCount": 0,
+      "faqCount": 0,
+      "sourceCount": 0,
+      "duplicateIds": [],
+      "brokenLocalAnchors": [],
+      "faqKeyboard": true,
+      "consoleErrors": [],
+      "articleTextPresent": false,
+      "schemaTypes": [
+        "Organization",
+        "WebSite"
+      ]
+    }
+  ]
+}
