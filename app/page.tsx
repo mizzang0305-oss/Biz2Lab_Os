@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { createMetadata } from "@/lib/seo";
 import OnurimHomePage from "@/components/health/OnurimHomePage";
+import { OnurimSiteStructuredData } from "@/components/health/OnurimSiteStructuredData";
 import styles from "./health/onurim.module.css";
 import entryStyles from "./health/entry.module.css";
 
@@ -14,6 +15,7 @@ export const metadata: Metadata = createMetadata({
 export default function Home() {
   return (
     <div className={`onurim-app ${styles.shell} ${entryStyles.entryRoot}`}>
+      <OnurimSiteStructuredData />
       <OnurimHomePage />
     </div>
   );

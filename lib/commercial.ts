@@ -41,4 +41,3 @@ export const commercialServices = {
 } as const;
 
 export type CommercialService = keyof typeof commercialServices;
-export type CommercialStatus = "LIVE" | "BETA" | "COMING_SOON" | "HIDDEN";

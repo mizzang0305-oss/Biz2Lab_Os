@@ -8,6 +8,7 @@ import { metadata as servicesMetadata } from "@/app/services/page";
 import { metadata as webMetadata } from "@/app/web/page";
 import sitemap from "@/app/sitemap";
 import { commercialServices } from "@/lib/commercial";
+import { safeAttributionValue } from "@/lib/commercial-sensitive";
 import { commercialSubmissionSchema } from "@/lib/commercial-submission";
 
 const candidate = {
@@ -60,6 +61,11 @@ test("lead validation rejects missing consent, honeypots and service-path mismat
   assert.equal(commercialSubmissionSchema.safeParse({ ...candidate, consent: false }).success, false);
   assert.equal(commercialSubmissionSchema.safeParse({ ...candidate, website: "spam" }).success, false);
   assert.equal(commercialSubmissionSchema.safeParse({ ...candidate, landing_url: "/web" }).success, false);
+  assert.equal(commercialSubmissionSchema.safeParse({ ...candidate, message: "password: synthetic-secret-value" }).success, false);
+  assert.equal(commercialSubmissionSchema.safeParse({ ...candidate, message: "-----BEGIN PRIVATE KEY----- synthetic" }).success, false);
+  assert.equal(commercialSubmissionSchema.safeParse({ ...candidate, utm_campaign: "api_key: synthetic-secret-value" }).success, false);
+  assert.equal(safeAttributionValue("qa-campaign"), "qa-campaign");
+  assert.equal(safeAttributionValue("person@example.invalid"), "");
 });
 
 test("commercial intake rejects a cross-origin submission before any storage path", async () => {
@@ -69,6 +75,15 @@ test("commercial intake rejects a cross-origin submission before any storage pat
     body: JSON.stringify(candidate),
   }));
   assert.equal(response.status, 403);
+});
+
+test("commercial intake rejects an oversized chunked body before parsing", async () => {
+  const response = await POST(new Request("https://www.biz2lab.com/api/commercial", {
+    method: "POST",
+    headers: { origin: "https://www.biz2lab.com", "content-type": "application/json" },
+    body: "x".repeat(8193),
+  }));
+  assert.equal(response.status, 413);
 });
 
 test("inquiry never reports success while capture is disabled", async () => {

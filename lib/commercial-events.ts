@@ -1,6 +1,7 @@
 "use client";
 
 import type { CommercialService } from "@/lib/commercial";
+import { safeAttributionValue } from "@/lib/commercial-sensitive";
 
 export type CommercialEvent =
   | "service_view"
@@ -15,9 +16,9 @@ const attributionKey = "biz2lab:commercial-utm";
 
 export function commercialAttribution() {
   const params = new URLSearchParams(window.location.search);
-  let utmSource = params.get("utm_source")?.slice(0, 100) || "";
-  let utmMedium = params.get("utm_medium")?.slice(0, 100) || "";
-  let utmCampaign = params.get("utm_campaign")?.slice(0, 100) || "";
+  let utmSource = safeAttributionValue(params.get("utm_source"));
+  let utmMedium = safeAttributionValue(params.get("utm_medium"));
+  let utmCampaign = safeAttributionValue(params.get("utm_campaign"));
   let referrerSource = "";
   if (document.referrer) {
     try {
@@ -31,9 +32,9 @@ export function commercialAttribution() {
     } else if (!referrerSource) {
       const stored = JSON.parse(window.sessionStorage.getItem(attributionKey) || "null");
       if (stored && Date.now() - stored.at < 30 * 60 * 1000) {
-        utmSource = String(stored.utmSource || "").slice(0, 100);
-        utmMedium = String(stored.utmMedium || "").slice(0, 100);
-        utmCampaign = String(stored.utmCampaign || "").slice(0, 100);
+        utmSource = safeAttributionValue(String(stored.utmSource || ""));
+        utmMedium = safeAttributionValue(String(stored.utmMedium || ""));
+        utmCampaign = safeAttributionValue(String(stored.utmCampaign || ""));
       }
     }
   } catch { /* Storage may be unavailable; forms still work without UTM persistence. */ }
