@@ -39,7 +39,6 @@ export function PreviewAnalyticsQA({ measurementId }: { measurementId: string })
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
     document.head.appendChild(script);
-    return () => { script.remove(); };
   }, [measurementId]);
 
   return null;
