@@ -8,21 +8,21 @@ tags: [biz2lab, commercial, privacy, operations, release-gate]
 
 # Commercial Front Level 2 operations — draft
 
-This is an execution plan, not Production authorization or legal advice. The capture flag stays OFF until a safe DB test, operator access, and Owner policy decision are complete. `/` remains ONURIM; Commercial routes stay `noindex`.
+This is an execution plan, not Production authorization or legal advice. The Production capture flag stays OFF until the separate Owner policy and Production release decisions. `/` remains ONURIM; Commercial routes stay `noindex`.
 
 ## Current DB boundary
 
-- Windows has no local Docker-compatible runtime. GitHub Actions run `36133538583` started disposable Supabase Local with CLI 2.117.0 and applied the reviewed draft. No remote project was linked or used.
-- `supabase/migrations/20260925121544_biz2lab_commercial_submissions.sql` is now the one canonical one-time migration. Its plain `CREATE TABLE` intentionally fails if the table already exists; first inspect the Production target schema and migration history. Do not silently reuse an incompatible table. The canonical file still requires a clean local reset test before Production approval.
-- The migration grants only `SELECT`, `INSERT`, and `DELETE` to server-side `service_role`, revokes table and identity-sequence grants from `anon` and `authenticated`, and enables RLS without public policies. CI verified schema/grants plus anon Data API denial (401 for GET/PATCH/DELETE). The next clean-reset run also tests RLS with temporary grants that are rolled back.
-- The rolling repeat lookup rejects the same normalized email, service, and submission kind within 10 minutes. CI first proved a race: eight concurrent requests created three rows. A unique expression index now enforces one row per 10-minute UTC bucket; `23505` becomes 409. The cross-bucket rolling lookup remains best-effort, so an exact bucket-boundary race can still create two rows. This is not a distributed IP rate limit.
+- Windows has no local Docker-compatible runtime. GitHub Actions [draft run 36133538583](https://github.com/mizzang0305-oss/Biz2Lab_Os/actions/runs/36133538583) applied the SQL on disposable Supabase Local. [Canonical clean-reset run 36134122830](https://github.com/mizzang0305-oss/Biz2Lab_Os/actions/runs/36134122830) passed on CLI 2.117.0 and Postgres 17. No remote project was linked or used.
+- `supabase/migrations/20260925121544_biz2lab_commercial_submissions.sql` is the one canonical one-time migration. Its plain `CREATE TABLE` intentionally fails if the table already exists; inspect the Production target schema and migration history before any separate approval. Clean local reset reproduced the final schema.
+- The migration grants only `SELECT`, `INSERT`, and `DELETE` to server-side `service_role`, revokes table and identity-sequence grants from `anon` and `authenticated`, and enables RLS without public policies. CI verified schema/grants, anonymous Data API denial (401 for GET/PATCH/DELETE), and RLS zero-row behavior for anon/authenticated after temporary grants that were rolled back.
+- The rolling repeat lookup rejects the same normalized email, service, and submission kind within 10 minutes. CI first proved a race: eight concurrent requests created three rows. A unique expression index now enforces one row per 10-minute UTC bucket; `23505` becomes 409. The clean-reset run observed one 201 and seven 409 responses with one row. The cross-bucket rolling lookup remains best-effort, so an exact bucket-boundary race can still create two rows. This is not a distributed IP rate limit.
 - Existing application controls remain honeypot, minimum submit time, same-origin check, and an 8 KB request cap. No project-level rate rule was found in repository configuration. Vercel WAF rate limiting is a separate project setting with usage-based pricing, so no rule is activated in this phase without an exact Owner cost/scope decision.
 
 ## Safe DB acceptance before any SQL
 
-1. Owner identifies an existing disposable local, test, CI, development, or staging database by name/project ref and confirms it is not Production. Do not paste keys into chat or reports.
+1. For CI, use only the GitHub-hosted ephemeral Supabase Local configured by `.github/workflows/commercial-supabase-e2e.yml`. For a later Production migration, separately verify the exact Production project identity. Do not paste keys into chat or reports.
 2. Verify the target identity, empty/expected `public.commercial_submissions` state, migration ledger, endpoint, and database role in a secret-safe channel. Never infer safety from an environment-variable name alone.
-3. Apply the reviewed migration to that target only. Check all 13 columns, identity PK, kind/service/shape CHECK constraints, `created_at` default, repeat-lookup index, RLS, grants, and zero public policies. A second direct execution should fail as a one-time migration; normal replays must be controlled by the migration history, not `IF NOT EXISTS`.
+3. Apply the reviewed migration to that target only. Check all 13 columns, identity PK, kind/service/shape CHECK constraints, `created_at` default, lookup and unique dedupe indexes, RLS, grants, and zero public policies. A second direct execution should fail as a one-time migration; normal replays must be controlled by the migration history, not `IF NOT EXISTS`.
 4. As `anon`, attempt `SELECT`, `UPDATE`, and `DELETE`; each must fail. Repeat for ordinary `authenticated` if no user read path is approved. Verify `service_role` can insert and read only from the server. Do not put its credential in a browser bundle or response.
 
 ## Synthetic E2E and cleanup
@@ -60,7 +60,7 @@ order by created_at, id;
 ## Rollback
 
 - Application: keep Commercial capture disabled, or restore the prior approved Production deployment by exact ID after a separate release decision; verify `/` remains ONURIM and Commercial routes' behavior.
-- Database: the draft `supabase/rollback_draft/002_biz2lab_commercial_submissions_lockdown.sql` revokes write access and preserves rows for restricted read/deletion. Verify exact target and application write-off first. It is not a `DROP TABLE` script.
+- Database: the draft `supabase/rollback_draft/002_biz2lab_commercial_submissions_lockdown.sql` revoked write access and preserved existing rows in ephemeral CI; exact synthetic rows were then deleted. Verify the Production target and application write-off before any separately approved execution. It is not a `DROP TABLE` script.
 - Data: `DATA_PRESERVATION=true`, `AUTOMATIC_CUSTOMER_DATA_DELETE=false`. Later schema removal needs separate approval and evidence of retention completion. Neither rollback SQL nor Production deployment runs in this phase.
 
 ## Next Production smoke, only after separate Owner approval

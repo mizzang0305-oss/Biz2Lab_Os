@@ -10,6 +10,7 @@ on:
       - lib/commercial-*.ts
       - lib/supabase.ts
       - scripts/ci-commercial-*
+      - docs/commercial-level2-operations.md
       - supabase/**
       - package.json
       - package-lock.json
@@ -73,12 +74,12 @@ jobs:
       - name: Local database advisors
         shell: bash
         run: |
-          supabase db advisors --local --type security --fail-on none >"$RUNNER_TEMP/security-advisor.log" 2>&1 || {
+          supabase db advisors --local --type security --fail-on error >"$RUNNER_TEMP/security-advisor.log" 2>&1 || {
             node scripts/ci-commercial-sanitize-log.mjs "$RUNNER_TEMP/security-advisor.log"
             exit 1
           }
           echo 'SECURITY_ADVISOR=RAN_LOCAL'
-          supabase db advisors --local --type performance --fail-on none >"$RUNNER_TEMP/performance-advisor.log" 2>&1 || {
+          supabase db advisors --local --type performance --fail-on error >"$RUNNER_TEMP/performance-advisor.log" 2>&1 || {
             node scripts/ci-commercial-sanitize-log.mjs "$RUNNER_TEMP/performance-advisor.log"
             exit 1
           }
