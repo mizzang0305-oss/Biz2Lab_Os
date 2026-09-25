@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import type { CommercialService } from "@/lib/commercial";
 import { commercialAttribution, trackCommercialEvent } from "@/lib/commercial-events";
 
-type FormState = "idle" | "sending" | "saved" | "unavailable" | "error";
+type FormState = "idle" | "sending" | "saved" | "unavailable" | "secret_rejected" | "duplicate" | "error";
 
 async function submitCommercial(payload: Record<string, unknown>): Promise<FormState> {
   try {
@@ -16,6 +16,8 @@ async function submitCommercial(payload: Record<string, unknown>): Promise<FormS
     });
     const result = await response.json().catch(() => null);
     if (response.status === 201 && result?.ok && result?.stored) return "saved";
+    if (response.status === 400 && result?.error === "SECRET_CONTENT_REJECTED") return "secret_rejected";
+    if (response.status === 409 && result?.error === "DUPLICATE_SUBMISSION") return "duplicate";
     return response.status === 503 ? "unavailable" : "error";
   } catch {
     return "error";
@@ -24,11 +26,14 @@ async function submitCommercial(payload: Record<string, unknown>): Promise<FormS
 
 function Status({ state }: { state: FormState }) {
   if (state === "idle" || state === "sending") return null;
-  const message = state === "saved"
-    ? "접수가 저장되었습니다. 운영자가 확인한 뒤 안내합니다."
-    : state === "unavailable"
-      ? "현재 접수 저장을 확인할 수 없습니다. 제출되지 않았으므로 나중에 다시 시도해 주세요."
-      : "제출하지 못했습니다. 입력값과 연결 상태를 확인한 뒤 다시 시도해 주세요.";
+  const messages = {
+    saved: "접수가 저장되었습니다. 운영자가 확인한 뒤 안내합니다.",
+    unavailable: "현재 접수 저장을 확인할 수 없습니다. 제출되지 않았으므로 나중에 다시 시도해 주세요.",
+    secret_rejected: "비밀번호·API 키·토큰 등 비밀정보를 입력하지 마세요. 제거한 뒤 다시 제출해 주세요.",
+    duplicate: "같은 서비스에 최근 제출한 내용이 있습니다. 10분 뒤 다시 시도해 주세요.",
+    error: "제출하지 못했습니다. 입력값과 연결 상태를 확인한 뒤 다시 시도해 주세요.",
+  } satisfies Record<Exclude<FormState, "idle" | "sending">, string>;
+  const message = messages[state];
   return <p role={state === "saved" ? "status" : "alert"} className="mt-3 text-sm leading-6 text-slate-700">{message}</p>;
 }
 
