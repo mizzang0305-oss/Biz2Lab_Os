@@ -26,8 +26,10 @@ export function PreviewAnalyticsQA({ measurementId }: { measurementId: string })
     if (analyticsWindow.gtag) return;
 
     analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
-    analyticsWindow.gtag = (...args: unknown[]) => {
-      analyticsWindow.dataLayer?.push(args);
+    analyticsWindow.gtag = function gtag() {
+      // Google tag's documented dataLayer command uses the Arguments object.
+      // eslint-disable-next-line prefer-rest-params
+      analyticsWindow.dataLayer?.push(arguments);
     };
     analyticsWindow.gtag("js", new Date());
     analyticsWindow.gtag("config", measurementId, {
