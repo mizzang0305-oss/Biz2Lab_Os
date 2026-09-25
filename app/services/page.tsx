@@ -15,7 +15,7 @@ export default function ServicesPage() {
   return (
     <CommercialShell><div className="bg-[#f7faf9] text-slate-900">
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
-        <p className="text-sm font-bold uppercase tracking-[0.18em] text-teal-700">Biz2Lab Commercial Hub · Preview</p>
+        <p className="text-sm font-bold uppercase tracking-[0.18em] text-teal-700">Biz2Lab Commercial Hub</p>
         <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">사업의 다음 행동을 만드는 세 가지 서비스</h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-700">방문자에게 보여줄 화면, 운영 흐름, 스스로를 돌아보는 경험을 각각 준비하고 있습니다. 현재 볼 수 있는 시연과 아직 제공하지 않는 기능을 서비스별로 구분했습니다.</p>
         <p className="mt-5 max-w-3xl text-sm leading-6 text-slate-600">이 안내는 오누림 건강교육 콘텐츠와 별도입니다. 서비스 도입이나 사전 체험은 각 랜딩의 상태를 확인한 뒤 문의해 주세요.</p>
