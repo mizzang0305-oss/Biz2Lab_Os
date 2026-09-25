@@ -38,6 +38,7 @@ jobs:
         run: |
           docker version --format 'Docker server {{.Server.Version}}'
           docker info --format 'Docker ready {{.ServerVersion}}'
+          if command -v psql >/dev/null 2>&1; then psql --version; else echo 'psql client absent; use ephemeral DB container'; fi
           supabase --version
           supabase --help >/dev/null
           supabase start --help >/dev/null
@@ -69,10 +70,10 @@ jobs:
             echo 'CANONICAL_CLEAN_RESET=PASS'
           else
             sha256sum supabase/migrations_draft/002_biz2lab_commercial_submissions.sql
-            supabase db query --local --file supabase/migrations_draft/002_biz2lab_commercial_submissions.sql
+            bash scripts/ci-commercial-local-sql.sh supabase/migrations_draft/002_biz2lab_commercial_submissions.sql
             echo 'DRAFT_MIGRATION_APPLY=PASS'
           fi
-          supabase db query --local --file scripts/ci-commercial-schema-assertions.sql
+          bash scripts/ci-commercial-local-sql.sh scripts/ci-commercial-schema-assertions.sql
       - name: Full regression
         run: |
           npm test

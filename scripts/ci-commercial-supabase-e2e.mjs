@@ -214,7 +214,7 @@ try {
   report('CONCURRENT_DUPLICATE_ROWS', concurrentRows.length);
   report('CONCURRENT_HTTP', results.map((result) => result.status).join(','));
 
-  execFileSync('supabase', ['db', 'query', '--local', '--file',
+  execFileSync('bash', ['scripts/ci-commercial-local-sql.sh',
     'supabase/rollback_draft/002_biz2lab_commercial_submissions_lockdown.sql'], { stdio: 'pipe' });
   const afterLockdown = await api(payload(cleanEmail('lockdown')));
   assert.equal(afterLockdown.status, 503);
