@@ -71,6 +71,24 @@ test("commercial intake rejects a cross-origin submission before any storage pat
   assert.equal(response.status, 403);
 });
 
+test("commercial intake bounds streamed payloads without a content-length header", async () => {
+  const encoder = new TextEncoder();
+  const body = new ReadableStream<Uint8Array>({
+    start(controller) {
+      controller.enqueue(encoder.encode("x".repeat(5000)));
+      controller.enqueue(encoder.encode("x".repeat(5000)));
+      controller.close();
+    },
+  });
+  const response = await POST(new Request("https://www.biz2lab.com/api/commercial", {
+    method: "POST",
+    headers: { origin: "https://www.biz2lab.com", "content-type": "application/json" },
+    body,
+    duplex: "half",
+  } as RequestInit));
+  assert.equal(response.status, 413);
+});
+
 test("inquiry never reports success while capture is disabled", async () => {
   const previous = process.env.BIZ2LAB_COMMERCIAL_CAPTURE_ENABLED;
   process.env.BIZ2LAB_COMMERCIAL_CAPTURE_ENABLED = "false";

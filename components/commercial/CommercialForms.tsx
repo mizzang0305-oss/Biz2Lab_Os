@@ -90,7 +90,7 @@ export function CommercialForms({ service }: { service: CommercialService }) {
     <section id="inquiry" className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <p className="text-sm font-bold uppercase tracking-[0.16em] text-teal-700">Next step</p>
       <h2 className="mt-3 text-3xl font-bold text-slate-950">현재 단계에 맞는 상담을 요청하세요</h2>
-      <p className="mt-3 max-w-3xl text-slate-600">제공 가능 범위와 공개 시점을 먼저 확인합니다. 민감한 고객 정보, 건강 기록, 결제 정보는 입력하지 마세요.</p>
+      <p className="mt-3 max-w-3xl text-slate-600">제공 가능 범위와 공개 시점을 먼저 확인합니다. 고객 개인정보, 건강 기록, 결제 정보, 비밀번호, API key, token, credential 파일 내용은 입력하지 마세요.</p>
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
         <form onSubmit={handleInquiry} onFocusCapture={() => {
           if (!inquiryStarted.current) {

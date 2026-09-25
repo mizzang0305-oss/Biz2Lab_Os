@@ -1,6 +1,38 @@
 import { commercialSubmissionSchema } from "@/lib/commercial-submission";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
+const maxPayloadBytes = 8192;
+
+async function readBoundedBody(request: Request) {
+  if (!request.body) return "";
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let bytes = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      bytes += value.byteLength;
+      if (bytes > maxPayloadBytes) {
+        await reader.cancel();
+        return null;
+      }
+      chunks.push(value);
+    }
+    const body = new Uint8Array(bytes);
+    let offset = 0;
+    for (const chunk of chunks) {
+      body.set(chunk, offset);
+      offset += chunk.byteLength;
+    }
+    return new TextDecoder("utf-8", { fatal: true }).decode(body);
+  } catch {
+    return "";
+  } finally {
+    reader.releaseLock();
+  }
+}
+
 export async function POST(request: Request) {
   const origin = request.headers.get("origin");
   if (origin !== new URL(request.url).origin) {
@@ -11,12 +43,12 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "INVALID_CONTENT_TYPE" }, { status: 415 });
   }
 
-  if (Number(request.headers.get("content-length") ?? 0) > 8192) {
+  if (Number(request.headers.get("content-length") ?? 0) > maxPayloadBytes) {
     return Response.json({ ok: false, error: "PAYLOAD_TOO_LARGE" }, { status: 413 });
   }
 
-  const raw = await request.text().catch(() => "");
-  if (raw.length > 8192) {
+  const raw = await readBoundedBody(request);
+  if (raw === null) {
     return Response.json({ ok: false, error: "PAYLOAD_TOO_LARGE" }, { status: 413 });
   }
   let json: unknown;

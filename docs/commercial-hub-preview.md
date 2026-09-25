@@ -61,9 +61,11 @@ tags: [biz2lab, commercial, lead, preview]
 
 - `npm run typecheck`: PASS.
 - `npm run lint`: PASS, 기존 `tests/biz2lab-policy.test.ts` 미사용 import 경고 1건.
-- `npm test`: PASS, 335/335.
-- `npx tsx --test tests/commercial-preview.test.ts`: PASS, 5/5.
+- `npm test`: PASS, 336/336 (2026-09-25 gate audit).
+- `npx tsx --test tests/commercial-preview.test.ts`: PASS, 6/6.
 - `npm run build`: PASS.
+- `npm run verify:commercial-structured-data`: PASS. `/`·`/health`의 오누림 schema를 보존하고 네 Commercial 경로의 오누림 schema 상속을 차단한다.
+- `POST /api/commercial`은 Content-Length가 없는 스트림도 8KB에서 중단한다.
 - 로컬 Production 빌드에서 네 새 경로 HTTP 200, 세 서비스 랜딩의 폼 2개씩 확인.
 - Playwright 360·390·430px에서 Hero/카드/CTA/폼의 가로 넘침과 화면 밖 노출 없음. 로컬 문의는 저장 OFF로 실패 상태를 표시.
 - 로컬 브라우저에서 `/services?utm_source=threads&utm_medium=social&utm_campaign=qa` → `/mybiz` 이동 시 유입 값 보존을 확인했다. API 성공 응답을 **모의**한 브라우저 테스트에서 6개 이벤트의 `dataLayer` 호출을 확인했다. 이는 DB 저장·GA4 수집 증거가 아니다.
