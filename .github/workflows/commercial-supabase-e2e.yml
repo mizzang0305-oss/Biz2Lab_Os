@@ -1,0 +1,98 @@
+name: Commercial Supabase E2E
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - .github/workflows/commercial-supabase-e2e.yml
+      - app/api/commercial/**
+      - components/commercial/**
+      - lib/commercial-*.ts
+      - lib/supabase.ts
+      - scripts/ci-commercial-*
+      - supabase/**
+      - package.json
+      - package-lock.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: commercial-supabase-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ephemeral-local:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+          cache: npm
+      - uses: supabase/setup-cli@46f7f98c7f948ad727d22c1e67fab04c223a0520 # v3.0.0
+        with:
+          version: 2.117.0
+      - name: Discover local tools and Docker
+        run: |
+          docker version --format 'Docker server {{.Server.Version}}'
+          docker info --format 'Docker ready {{.ServerVersion}}'
+          supabase --version
+          supabase --help >/dev/null
+          supabase start --help >/dev/null
+          supabase status --help >/dev/null
+          supabase stop --help >/dev/null
+          supabase db query --help >/dev/null
+          supabase db reset --help >/dev/null
+          supabase migration new --help >/dev/null
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Start disposable Supabase Local
+        shell: bash
+        run: |
+          if ! supabase start --exclude realtime,storage-api,imgproxy,mailpit,postgres-meta,studio,edge-runtime,logflare,vector,supavisor >"$RUNNER_TEMP/supabase-start.log" 2>&1; then
+            node scripts/ci-commercial-sanitize-log.mjs "$RUNNER_TEMP/supabase-start.log"
+            exit 1
+          fi
+          echo 'SUPABASE_LOCAL_STARTED=PASS'
+      - name: Export ephemeral credentials without logging values
+        run: node scripts/ci-commercial-export-local-env.mjs
+      - name: Apply draft or reset canonical local migration
+        shell: bash
+        run: |
+          if compgen -G 'supabase/migrations/*.sql' >/dev/null; then
+            supabase db reset --local --no-seed >"$RUNNER_TEMP/supabase-reset.log" 2>&1 || {
+              node scripts/ci-commercial-sanitize-log.mjs "$RUNNER_TEMP/supabase-reset.log"
+              exit 1
+            }
+            echo 'CANONICAL_CLEAN_RESET=PASS'
+          else
+            sha256sum supabase/migrations_draft/002_biz2lab_commercial_submissions.sql
+            supabase db query --local --file supabase/migrations_draft/002_biz2lab_commercial_submissions.sql
+            echo 'DRAFT_MIGRATION_APPLY=PASS'
+          fi
+          supabase db query --local --file scripts/ci-commercial-schema-assertions.sql
+      - name: Full regression
+        run: |
+          npm test
+          npm run typecheck
+          npm run lint
+          npm run build
+          npm run verify:commercial-structured-data
+      - name: Browser and real database E2E
+        shell: bash
+        run: |
+          npx playwright install --with-deps chromium >"$RUNNER_TEMP/playwright-install.log" 2>&1 || {
+            node scripts/ci-commercial-sanitize-log.mjs "$RUNNER_TEMP/playwright-install.log"
+            exit 1
+          }
+          export APP_LOG_FILE="$RUNNER_TEMP/commercial-app.log"
+          npm run start -- --port 3100 >"$APP_LOG_FILE" 2>&1 &
+          app_pid=$!
+          trap 'kill "$app_pid" 2>/dev/null || true' EXIT
+          node scripts/ci-commercial-supabase-e2e.mjs
+      - name: Destroy local containers and volumes
+        if: always()
+        shell: bash
+        run: supabase stop --no-backup >"$RUNNER_TEMP/supabase-stop.log" 2>&1 || true
