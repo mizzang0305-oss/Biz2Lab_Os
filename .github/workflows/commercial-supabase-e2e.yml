@@ -59,21 +59,30 @@ jobs:
           echo 'SUPABASE_LOCAL_STARTED=PASS'
       - name: Export ephemeral credentials without logging values
         run: node scripts/ci-commercial-export-local-env.mjs
-      - name: Apply draft or reset canonical local migration
+      - name: Clean reset from canonical local migration
         shell: bash
         run: |
-          if compgen -G 'supabase/migrations/*.sql' >/dev/null; then
-            supabase db reset --local --no-seed >"$RUNNER_TEMP/supabase-reset.log" 2>&1 || {
-              node scripts/ci-commercial-sanitize-log.mjs "$RUNNER_TEMP/supabase-reset.log"
-              exit 1
-            }
-            echo 'CANONICAL_CLEAN_RESET=PASS'
-          else
-            sha256sum supabase/migrations_draft/002_biz2lab_commercial_submissions.sql
-            bash scripts/ci-commercial-local-sql.sh supabase/migrations_draft/002_biz2lab_commercial_submissions.sql
-            echo 'DRAFT_MIGRATION_APPLY=PASS'
-          fi
+          test -f supabase/migrations/20260925121544_biz2lab_commercial_submissions.sql
+          sha256sum supabase/migrations/20260925121544_biz2lab_commercial_submissions.sql
+          supabase db reset --local --no-seed >"$RUNNER_TEMP/supabase-reset.log" 2>&1 || {
+            node scripts/ci-commercial-sanitize-log.mjs "$RUNNER_TEMP/supabase-reset.log"
+            exit 1
+          }
+          echo 'CANONICAL_CLEAN_RESET=PASS'
           bash scripts/ci-commercial-local-sql.sh scripts/ci-commercial-schema-assertions.sql
+      - name: Local database advisors
+        shell: bash
+        run: |
+          supabase db advisors --local --type security --fail-on none >"$RUNNER_TEMP/security-advisor.log" 2>&1 || {
+            node scripts/ci-commercial-sanitize-log.mjs "$RUNNER_TEMP/security-advisor.log"
+            exit 1
+          }
+          echo 'SECURITY_ADVISOR=RAN_LOCAL'
+          supabase db advisors --local --type performance --fail-on none >"$RUNNER_TEMP/performance-advisor.log" 2>&1 || {
+            node scripts/ci-commercial-sanitize-log.mjs "$RUNNER_TEMP/performance-advisor.log"
+            exit 1
+          }
+          echo 'PERFORMANCE_ADVISOR=RAN_LOCAL'
       - name: Full regression
         run: |
           npm test

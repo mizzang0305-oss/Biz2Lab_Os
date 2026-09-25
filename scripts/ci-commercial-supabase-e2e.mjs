@@ -154,6 +154,10 @@ try {
   assert(inquiryRows[0].created_at && inquiryRows[0].consented_at);
   await page.waitForFunction(() => window.dataLayer.filter((entry) => entry[1] === 'inquiry_submit').length === 1);
   report('INQUIRY_FORM_API_PERSISTED_READBACK_ANALYTICS', 'PASS');
+  execFileSync('bash', ['scripts/ci-commercial-local-sql.sh',
+    'scripts/ci-commercial-rls-assertions.sql'], { stdio: 'pipe' });
+  assert.equal((await rows(inquiryEmail)).length, 1);
+  report('RLS_WITH_TEMPORARY_GRANTS_ANON_AND_AUTHENTICATED', 'PASS');
   await dataApiSecurity(inquiryRows[0].id);
 
   await inquiry.locator('input[name="name"]').fill('Persistence QA');
@@ -201,6 +205,23 @@ try {
   assert.equal((await api(payload(benignEmail, { message: 'API token 오류가 발생합니다. 일반 문장 테스트입니다.' }))).status, 201);
   assert.equal((await rows(benignEmail)).length, 1);
   report('SECRET_FALSE_POSITIVE', 'PASS');
+
+  const oldEmail = cleanEmail('expired');
+  const oldCreatedAt = new Date(Date.now() - 91 * 24 * 60 * 60 * 1000).toISOString();
+  const oldResult = await db.from(table).insert({
+    kind: 'email_lead', service: 'mybiz', email: oldEmail, name: null, message: null,
+    source: 'synthetic', landing_url: '/mybiz', utm_source: 'synthetic',
+    utm_medium: 'ci', utm_campaign: 'commercial_front_level2',
+    consented_at: oldCreatedAt, created_at: oldCreatedAt,
+  }).select('id').single();
+  assert.ifError(oldResult.error);
+  rowIds.add(oldResult.data.id);
+  const expiryCutoff = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString();
+  const expired = await db.from(table).select('id').lt('created_at', expiryCutoff)
+    .in('id', [oldResult.data.id, inquiryRows[0].id]);
+  assert.ifError(expired.error);
+  assert.deepEqual(expired.data.map((row) => row.id), [oldResult.data.id]);
+  report('RETENTION_90_DAY_QUERY_SYNTHETIC', 'PASS');
 
   assert.equal((await api(payload(cleanEmail('honeypot'), { website: 'filled' }))).status, 400);
   assert.equal((await api(payload(cleanEmail('delay'), { opened_at: Date.now() }))).status, 400);

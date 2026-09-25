@@ -31,7 +31,7 @@ tags: [biz2lab, commercial, lead, preview]
 - 이메일 신청: `email`, `service`, `source`, `landing_url`, UTM, 동의 시각. 광고성 뉴스레터 동의와 혼합하지 않는다.
 - 서버는 서비스·경로 일치, 입력 길이, 동의, 같은 출처 요청, 숨김 필드, 최소 제출 시간을 검사한다.
 - `BIZ2LAB_COMMERCIAL_CAPTURE_ENABLED`가 `true`가 아니거나 저장소가 없으면 `503`이며 성공 응답·성공 이벤트를 보내지 않는다.
-- 저장소 후보는 `supabase/migrations_draft/002_biz2lab_commercial_submissions.sql`이다. **미적용 초안**이며 anon/authenticated 접근을 허용하지 않는다.
+- 검증된 저장소 후보는 `supabase/migrations/20260925121544_biz2lab_commercial_submissions.sql`이다. **Production 미적용**이며 anon/authenticated 접근을 허용하지 않는다. 일회성 CI Supabase Local 검증을 거쳐 canonical migration으로 승격했다.
 - 현재 운영자 확인은 **NOT_VERIFIED**. 승인 후 Supabase의 제한된 운영 계정으로 `commercial_submissions`의 새 테스트 행과 서비스·유입 필드를 직접 조회해야 한다. 이메일·메시지는 승인된 운영자만 열람한다.
 - 현재 숨김 필드·제출 시간 검사는 기본 봇 억제일 뿐이다. 실제 트래픽의 분산 rate limit/abuse 대응은 Production gate다.
 - `/services/privacy`는 현재 수집 계약과 비활성 상태를 설명하는 Preview 안내다. 보관 기간, 삭제 요청, 운영 책임자, 저장 리전 등은 승인 전 확정 사실로 쓰지 않는다.
