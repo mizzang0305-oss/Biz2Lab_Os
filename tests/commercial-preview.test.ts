@@ -9,6 +9,7 @@ import { metadata as webMetadata } from "@/app/web/page";
 import sitemap from "@/app/sitemap";
 import { commercialServices } from "@/lib/commercial";
 import { safeAttributionValue } from "@/lib/commercial-sensitive";
+import { createCommercialMetadata } from "@/lib/commercial-seo";
 import { commercialSubmissionSchema } from "@/lib/commercial-submission";
 
 const candidate = {
@@ -75,6 +76,23 @@ test("commercial intake rejects a cross-origin submission before any storage pat
     body: JSON.stringify(candidate),
   }));
   assert.equal(response.status, 403);
+});
+
+test("Preview OG image resolves to the Preview deployment while canonical remains Production", () => {
+  const previousEnvironment = process.env.VERCEL_ENV;
+  const previousUrl = process.env.VERCEL_URL;
+  process.env.VERCEL_ENV = "preview";
+  process.env.VERCEL_URL = "preview.example.invalid";
+  try {
+    const metadata = createCommercialMetadata({ title: "Test", description: "Test", path: "/mybiz" });
+    assert.equal(metadata.alternates?.canonical, "https://www.biz2lab.com/mybiz");
+    assert.match(JSON.stringify(metadata.openGraph), /https:\/\/preview\.example\.invalid\/services\/opengraph-image/);
+  } finally {
+    if (previousEnvironment === undefined) delete process.env.VERCEL_ENV;
+    else process.env.VERCEL_ENV = previousEnvironment;
+    if (previousUrl === undefined) delete process.env.VERCEL_URL;
+    else process.env.VERCEL_URL = previousUrl;
+  }
 });
 
 test("commercial intake rejects an oversized chunked body before parsing", async () => {

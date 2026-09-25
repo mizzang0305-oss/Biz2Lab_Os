@@ -61,7 +61,7 @@ tags: [biz2lab, commercial, lead, preview]
 
 - `npm run typecheck`: PASS.
 - `npm run lint`: PASS, 기존 `tests/biz2lab-policy.test.ts` 미사용 import 경고 1건.
-- `npm test`: PASS, 336/336.
+- `npm test`: PASS, 337/337.
 - `npx tsx --test tests/commercial-preview.test.ts`: PASS, 5/5.
 - `npm run build`: PASS.
 - 로컬 Production 빌드에서 네 새 경로 HTTP 200, 세 서비스 랜딩의 폼 2개씩 확인.
@@ -131,6 +131,7 @@ tags: [biz2lab, commercial, lead, preview]
 - 로컬 Production 빌드에서 실제 API 저장 OFF는 503과 미접수 UI를 보였다. 모의 201 응답에서는 문의·Lead 각각의 service/source/landing/UTM과 성공 이벤트를 확인했다. 모의 응답은 DB 증거가 아니다.
 - `DATALAYER_VERIFIED`: 6개 이벤트 코드 경로와 브라우저 호출 확인. 실패한 문의 뒤 `inquiry_submit` 없음.
 - `GA4_NETWORK_EMISSION_VERIFIED`: 일부 이벤트의 `g/collect` POST/204 및 service/landing/source/campaign 확인. 6개 전체의 네트워크 송신은 일관되게 확인되지 않아 `PARTIAL`. `GA4_COLLECTION_VERIFIED=NOT_VERIFIED`.
+- Preview OG 이미지는 배포 주소의 `/services/opengraph-image`를 가리킨다. canonical은 계속 Production URL이다. 원래 후보의 Production OG 경로는 배포 전 404여서 Preview 메타 검증에서 발견·교정했다.
 - 기존 이메일 알림의 dev sink/dry-run 경로를 찾지 못해 `EMAIL_NOTIFICATION=NOT_VERIFIED`; 실제 메일 발송 없음.
 
 ### Production 승인 전 남은 정확한 Gate

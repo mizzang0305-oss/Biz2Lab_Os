@@ -6,7 +6,9 @@ import { absoluteUrl } from "@/lib/site";
 export function createCommercialMetadata(input: { title: string; description: string; path: string }): Metadata {
   const base = createMetadata({ ...input, noindex: true });
   const title = `${input.title} | Biz2Lab`;
-  const image = absoluteUrl("/services/opengraph-image");
+  const image = process.env.VERCEL_ENV === "preview" && process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}/services/opengraph-image`
+    : absoluteUrl("/services/opengraph-image");
   return {
     ...base,
     title: { absolute: title },
