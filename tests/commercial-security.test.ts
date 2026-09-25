@@ -33,7 +33,7 @@ function request(payload: CommercialSubmission) {
 function fakeStore() {
   const rows: Array<Record<string, unknown>> = [];
   let lookupError = false;
-  let insertError = false;
+  let insertError: string | null = null;
   const client = {
     from(table: string) {
       assert.equal(table, "commercial_submissions");
@@ -57,7 +57,7 @@ function fakeStore() {
           return query;
         },
         async insert(value: Record<string, unknown>) {
-          if (insertError) return { error: { code: "SYNTHETIC_INSERT_ERROR" } };
+          if (insertError) return { error: { code: insertError } };
           rows.push({ ...value, id: rows.length + 1, created_at: new Date().toISOString() });
           return { error: null };
         },
@@ -68,7 +68,7 @@ function fakeStore() {
     rows,
     resolveAdmin: () => client,
     failLookup: () => { lookupError = true; },
-    failInsert: () => { insertError = true; },
+    failInsert: (code = "SYNTHETIC_INSERT_ERROR") => { insertError = code; },
   };
 }
 
@@ -189,6 +189,22 @@ test("lookup or insert uncertainty fails closed without a success response", asy
     insert.failInsert();
     assert.equal((await handleCommercialPost(request(candidate), insert.resolveAdmin)).status, 503);
     assert.equal(insert.rows.length, 0);
+  } finally {
+    if (previous === undefined) delete process.env.BIZ2LAB_COMMERCIAL_CAPTURE_ENABLED;
+    else process.env.BIZ2LAB_COMMERCIAL_CAPTURE_ENABLED = previous;
+  }
+});
+
+test("database unique-index conflict is a duplicate response, not a success or server error", async () => {
+  const previous = process.env.BIZ2LAB_COMMERCIAL_CAPTURE_ENABLED;
+  process.env.BIZ2LAB_COMMERCIAL_CAPTURE_ENABLED = "true";
+  try {
+    const store = fakeStore();
+    store.failInsert("23505");
+    const response = await handleCommercialPost(request(candidate), store.resolveAdmin);
+    assert.equal(response.status, 409);
+    assert.equal((await response.json()).error, "DUPLICATE_SUBMISSION");
+    assert.equal(store.rows.length, 0);
   } finally {
     if (previous === undefined) delete process.env.BIZ2LAB_COMMERCIAL_CAPTURE_ENABLED;
     else process.env.BIZ2LAB_COMMERCIAL_CAPTURE_ENABLED = previous;

@@ -22,6 +22,14 @@ create table public.commercial_submissions (
 create index commercial_submissions_repeat_lookup_idx
   on public.commercial_submissions (service, kind, email, created_at desc);
 
+-- DB-enforced single insert per 10-minute UTC bucket. The server's rolling
+-- lookup also rejects repeats across adjacent bucket boundaries when visible.
+create unique index commercial_submissions_atomic_dedupe_idx
+  on public.commercial_submissions (
+    service, kind, email,
+    (date_bin('10 minutes'::interval, created_at, '2000-01-01 00:00:00+00'::timestamptz))
+  );
+
 alter table public.commercial_submissions enable row level security;
 revoke all on public.commercial_submissions from anon, authenticated;
 revoke all on sequence public.commercial_submissions_id_seq from anon, authenticated;

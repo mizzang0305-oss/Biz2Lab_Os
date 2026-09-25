@@ -118,6 +118,9 @@ export async function handleCommercialPost(
   });
 
   if (error) {
+    if (error.code === "23505") {
+      return Response.json({ ok: false, error: "DUPLICATE_SUBMISSION" }, { status: 409 });
+    }
     return Response.json({ ok: false, error: "SAVE_FAILED" }, { status: 503 });
   }
 

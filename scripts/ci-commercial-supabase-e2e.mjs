@@ -224,7 +224,9 @@ try {
   report('ROLLBACK_WRITE_LOCKDOWN_AND_DATA_PRESERVATION', 'PASS');
 
   if (concurrentRows.length !== 1) throw new Error('Concurrent duplicate inserts are not atomic');
-  report('ATOMIC_DEDUPE', 'PASS');
+  assert.equal(results.filter((result) => result.status === 201).length, 1);
+  assert.equal(results.filter((result) => result.status === 409).length, 7);
+  report('ATOMIC_DEDUPE', 'PASS_SAME_10_MINUTE_BUCKET');
 } catch (error) {
   failure = error;
 } finally {

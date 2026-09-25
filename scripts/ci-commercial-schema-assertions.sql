@@ -28,5 +28,10 @@ begin
     and tablename = 'commercial_submissions' and indexname = 'commercial_submissions_repeat_lookup_idx') then
     raise exception 'repeat lookup index missing';
   end if;
+  if not exists (select 1 from pg_indexes where schemaname = 'public'
+    and tablename = 'commercial_submissions' and indexname = 'commercial_submissions_atomic_dedupe_idx'
+    and indexdef like 'CREATE UNIQUE INDEX%') then
+    raise exception 'atomic dedupe unique index missing';
+  end if;
   raise notice 'SCHEMA_RLS_GRANTS_INDEXES=PASS';
 end $$;
