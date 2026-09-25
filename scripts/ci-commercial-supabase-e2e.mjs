@@ -5,7 +5,9 @@ import { join } from 'node:path';
 import { chromium } from '@playwright/test';
 import { createClient } from '@supabase/supabase-js';
 
-const base = 'http://127.0.0.1:3100';
+// Next start constructs the route Request URL from its localhost host binding.
+// Use that same origin for the browser, API calls, and origin validation.
+const base = 'http://localhost:3100';
 const table = 'commercial_submissions';
 const runId = Date.now().toString(36);
 const db = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
