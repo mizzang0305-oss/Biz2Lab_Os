@@ -104,7 +104,7 @@ export function CommercialForms({ service }: { service: CommercialService }) {
           <label className="grid gap-1 text-sm font-semibold text-slate-700">문의 내용<textarea name="message" required minLength={10} maxLength={5000} rows={5} className="min-w-0 rounded-lg border border-slate-300 px-3 py-3" placeholder="필요한 범위와 현재 상황을 개인정보 없이 적어 주세요." /></label>
           <div className="absolute -left-[10000px]" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
           <label className="flex items-start gap-2 text-sm leading-6 text-slate-600"><input name="consent" type="checkbox" required className="mt-1" />문의 답변을 위한 이메일·서비스·유입 정보 수집에 동의합니다.</label>
-          <a href="/services/privacy" className="text-sm font-semibold text-teal-700 underline">수집 항목과 현재 운영 상태 보기</a>
+          <a href="/services/privacy" className="inline-flex min-h-11 items-center text-sm font-semibold text-teal-700 underline">수집 항목과 현재 운영 상태 보기</a>
           <button disabled={inquiryState === "sending"} className="min-h-12 rounded-xl bg-slate-950 px-5 py-3 font-bold text-white disabled:opacity-60">{inquiryState === "sending" ? "저장 확인 중" : "문의 제출"}</button>
           <Status state={inquiryState} />
         </form>
@@ -114,7 +114,7 @@ export function CommercialForms({ service }: { service: CommercialService }) {
           <label className="grid gap-1 text-sm font-semibold text-slate-700">이메일<input name="lead_email" type="email" required maxLength={240} autoComplete="email" className="min-w-0 rounded-lg border border-slate-300 bg-white px-3 py-3" /></label>
           <div className="absolute -left-[10000px]" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
           <label className="flex items-start gap-2 text-sm leading-6 text-slate-600"><input name="lead_consent" type="checkbox" required className="mt-1" />선택한 서비스의 후속 안내를 위한 이메일·유입 정보 수집에 동의합니다.</label>
-          <a href="/services/privacy" className="text-sm font-semibold text-teal-700 underline">수집 항목과 현재 운영 상태 보기</a>
+          <a href="/services/privacy" className="inline-flex min-h-11 items-center text-sm font-semibold text-teal-700 underline">수집 항목과 현재 운영 상태 보기</a>
           <button disabled={leadState === "sending"} className="min-h-12 rounded-xl bg-teal-800 px-5 py-3 font-bold text-white disabled:opacity-60">{leadState === "sending" ? "저장 확인 중" : "이메일 신청"}</button>
           <Status state={leadState} />
         </form>

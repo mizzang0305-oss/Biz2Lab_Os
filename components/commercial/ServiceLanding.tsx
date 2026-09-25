@@ -14,7 +14,7 @@ export function ServiceLanding({ service }: { service: CommercialService }) {
     <div className="bg-[#f7faf9] text-slate-900">
       <ServiceView service={service} />
       <div className="border-b border-teal-100 bg-white px-4 py-3 text-center text-xs font-semibold text-slate-600">
-        Biz2Lab 서비스 안내 · <Link href="/services" className="text-teal-700 underline">3개 사업축 보기</Link> · 오누림 건강정보와 별도 운영 범위
+        Biz2Lab 서비스 안내 · <Link href="/services" className="inline-flex min-h-11 items-center text-teal-700 underline">3개 사업축 보기</Link> · 오누림 건강정보와 별도 운영 범위
       </div>
       <section className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.3fr_0.7fr] lg:items-center lg:py-24">
         <div className="min-w-0">

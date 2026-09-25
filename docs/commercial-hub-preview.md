@@ -41,7 +41,7 @@ tags: [biz2lab, commercial, lead, preview]
 - 코드 경로: `service_view`, `demo_view`, `cta_click`, `inquiry_start`, 저장 성공 후 `inquiry_submit`·`email_lead_submit`.
 - GA4 호출에는 `service`, `landing_url`, `source`, `campaign`을 보낸다. 직접 식별자와 문의 본문은 이벤트에 넣지 않는다.
 - `/services`에 붙은 UTM은 같은 브라우저 탭의 서비스 이동에서 최대 30분 동안 `sessionStorage`로 유지한다. 저장 실패 시 폼 자체는 계속 동작한다.
-- Preview에서는 기존 GA4 로더가 비활성이다. 로컬 `dataLayer` 관찰은 Production 수집 증명이 아니다.
+- Preview의 GA4 로더는 기본 비활성이다. Commercial Preview에서만 `?commercial_qa=1`을 열면 해당 브라우저 탭에서 최대 30분 동안 기존 GA4 ID로 `debug_mode`와 `traffic_type=preview_qa`를 붙여 네트워크 QA를 할 수 있다. 오누림 경로와 AdSense에는 적용하지 않는다. 이 동작은 실제 GA4 property 수집 확인과 구분한다.
 - 각 서비스 URL은 별도 title·description·canonical·OG 이미지가 있지만 검증 전 `noindex`다. 오누림 sitemap과 robots는 유지한다.
 - 관련성 없는 건강 콘텐츠에 서비스 CTA를 일괄 배치하지 않는다. 정보 글에서 서비스로의 링크는 별도 편집 검토 후 추가한다.
 
