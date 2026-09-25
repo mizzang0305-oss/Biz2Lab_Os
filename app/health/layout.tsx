@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { onurimTagline } from "@/lib/health-v3/content";
+import { OnurimSiteStructuredData } from "@/components/health/OnurimSiteStructuredData";
 import styles from "./onurim.module.css";
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 export default function HealthLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className={`onurim-app ${styles.shell}`}>
+      <OnurimSiteStructuredData />
       <div className={styles.main}>{children}</div>
     </div>
   );

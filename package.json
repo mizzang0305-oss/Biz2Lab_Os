@@ -10,6 +10,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
+    "verify:commercial-structured-data": "tsx scripts/verify-commercial-structured-data.ts",
     "pretest": "tsx scripts/prepare-evidence-test-runtime.ts",
     "test": "tsx scripts/run-node-tests.ts",
     "validate:posts": "tsx scripts/validate-posts.ts",
