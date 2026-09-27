@@ -1,14 +1,32 @@
 -- Draft rollback for an explicitly approved Production change only.
--- Preserve every stored row. This stops new service-role inserts while retaining
--- restricted read/delete capability for an approved operator cleanup process.
--- Run only after the application write path has been disabled and the exact
--- target table/sequence identity has been verified. Do not run in this phase.
+-- Preserve every stored Biz2Lab row. Capture is stopped by revoking only the
+-- service-role insert RPC. Read/retention/delete RPCs stay available for an
+-- approved operator cleanup process. The shared MyBiz schemas are untouched.
 begin;
 
-alter table public.commercial_submissions enable row level security;
-revoke all on public.commercial_submissions from public, anon, authenticated, service_role;
-revoke all on sequence public.commercial_submissions_id_seq from public, anon, authenticated, service_role;
-grant select, delete on public.commercial_submissions to service_role;
+do $$
+begin
+  if to_regclass('biz2lab.commercial_submissions') is null then
+    raise exception 'Biz2Lab commercial table missing';
+  end if;
+  if to_regprocedure(
+    'public.biz2lab_commercial_insert_submission(text,text,text,text,text,text,text,text,text,text,timestamptz,timestamptz)'
+  ) is null then
+    raise exception 'Biz2Lab insert RPC missing';
+  end if;
+end;
+$$;
+
+alter table biz2lab.commercial_submissions enable row level security;
+
+revoke execute on function public.biz2lab_commercial_insert_submission(
+  text,text,text,text,text,text,text,text,text,text,timestamptz,timestamptz
+) from service_role;
+
+-- Direct schema/table access remains closed to every Data API role.
+revoke all on schema biz2lab from public, anon, authenticated, service_role;
+revoke all on table biz2lab.commercial_submissions from public, anon, authenticated, service_role;
+revoke all on sequence biz2lab.commercial_submissions_id_seq from public, anon, authenticated, service_role;
 
 commit;
 
