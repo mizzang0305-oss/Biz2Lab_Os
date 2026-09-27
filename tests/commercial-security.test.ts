@@ -35,33 +35,40 @@ function fakeStore() {
   let lookupError = false;
   let insertError: string | null = null;
   const client = {
-    from(table: string) {
-      assert.equal(table, "commercial_submissions");
-      return {
-        select(column: string) {
-          assert.equal(column, "id");
-          const filters: Array<[string, unknown]> = [];
-          let cutoff = "";
-          const query = {
-            eq(key: string, value: unknown) { filters.push([key, value]); return query; },
-            gte(key: string, value: string) { assert.equal(key, "created_at"); cutoff = value; return query; },
-            async limit(count: number) {
-              assert.equal(count, 1);
-              if (lookupError) return { data: null, error: { code: "SYNTHETIC_LOOKUP_ERROR" } };
-              const data = rows.filter((row) =>
-                filters.every(([key, value]) => row[key] === value) && String(row.created_at) >= cutoff,
-              ).slice(0, 1).map((row) => ({ id: row.id }));
-              return { data, error: null };
-            },
-          };
-          return query;
-        },
-        async insert(value: Record<string, unknown>) {
-          if (insertError) return { error: { code: insertError } };
-          rows.push({ ...value, id: rows.length + 1, created_at: new Date().toISOString() });
-          return { error: null };
-        },
-      };
+    async rpc(name: string, args: Record<string, unknown>) {
+      if (name === "biz2lab_commercial_recent_submission_exists") {
+        if (lookupError) return { data: null, error: { code: "SYNTHETIC_LOOKUP_ERROR" } };
+        const cutoff = String(args.p_cutoff);
+        const found = rows.some((row) =>
+          row.service === args.p_service &&
+          row.kind === args.p_kind &&
+          row.email === args.p_email &&
+          String(row.created_at) >= cutoff
+        );
+        return { data: found, error: null };
+      }
+
+      if (name === "biz2lab_commercial_insert_submission") {
+        if (insertError) return { data: null, error: { code: insertError } };
+        rows.push({
+          id: rows.length + 1,
+          kind: args.p_kind,
+          service: args.p_service,
+          email: args.p_email,
+          name: args.p_name,
+          message: args.p_message,
+          source: args.p_source,
+          landing_url: args.p_landing_url,
+          utm_source: args.p_utm_source,
+          utm_medium: args.p_utm_medium,
+          utm_campaign: args.p_utm_campaign,
+          consented_at: args.p_consented_at,
+          created_at: args.p_created_at,
+        });
+        return { data: rows.length, error: null };
+      }
+
+      throw new Error(`unexpected RPC: ${name}`);
     },
   } as unknown as NonNullable<ReturnType<typeof getSupabaseAdmin>>;
   return {
