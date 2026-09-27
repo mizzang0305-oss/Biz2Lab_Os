@@ -4,8 +4,8 @@ import { ServiceLanding } from "@/components/commercial/ServiceLanding";
 import { createCommercialMetadata } from "@/lib/commercial-seo";
 
 export const metadata: Metadata = createCommercialMetadata({
-  title: "MyBiz 업무자동화 시연과 도입 범위",
-  description: "MyBiz의 작업 기록·고객 확인 시연을 보고 실제 도입 가능한 범위와 아직 제공하지 않는 기능을 확인하세요.",
+  title: "MyBiz Business Service OS 방향과 샘플 데모",
+  description: "작업부터 다음 고객까지 지향하는 MyBiz의 제품 방향과 현재 공개된 저장 없는 샘플 매장 화면의 제공 범위를 확인하세요.",
   path: "/mybiz",
 });
 
