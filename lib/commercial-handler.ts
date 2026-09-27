@@ -88,33 +88,36 @@ export async function handleCommercialPost(
 
   const normalizedEmail = data.email.toLowerCase();
   const cutoff = new Date(Date.now() - duplicateCooldownMs).toISOString();
-  const { data: recent, error: lookupError } = await supabase
-    .from("commercial_submissions")
-    .select("id")
-    .eq("service", data.service)
-    .eq("kind", data.kind)
-    .eq("email", normalizedEmail)
-    .gte("created_at", cutoff)
-    .limit(1);
+  const { data: recent, error: lookupError } = await supabase.rpc(
+    "biz2lab_commercial_recent_submission_exists",
+    {
+      p_service: data.service,
+      p_kind: data.kind,
+      p_email: normalizedEmail,
+      p_cutoff: cutoff,
+    },
+  );
   if (lookupError) {
     return Response.json({ ok: false, error: "STORAGE_UNAVAILABLE" }, { status: 503 });
   }
-  if (recent?.length) {
+  if (recent === true) {
     return Response.json({ ok: false, error: "DUPLICATE_SUBMISSION" }, { status: 409 });
   }
 
-  const { error } = await supabase.from("commercial_submissions").insert({
-    kind: data.kind,
-    service: data.service,
-    email: normalizedEmail,
-    name: data.kind === "inquiry" ? data.name : null,
-    message: data.kind === "inquiry" ? data.message : null,
-    source: data.source,
-    landing_url: data.landing_url,
-    utm_source: data.utm_source || null,
-    utm_medium: data.utm_medium || null,
-    utm_campaign: data.utm_campaign || null,
-    consented_at: new Date().toISOString(),
+  const now = new Date().toISOString();
+  const { error } = await supabase.rpc("biz2lab_commercial_insert_submission", {
+    p_kind: data.kind,
+    p_service: data.service,
+    p_email: normalizedEmail,
+    p_name: data.kind === "inquiry" ? data.name : null,
+    p_message: data.kind === "inquiry" ? data.message : null,
+    p_source: data.source,
+    p_landing_url: data.landing_url,
+    p_utm_source: data.utm_source || null,
+    p_utm_medium: data.utm_medium || null,
+    p_utm_campaign: data.utm_campaign || null,
+    p_consented_at: now,
+    p_created_at: now,
   });
 
   if (error) {
