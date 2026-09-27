@@ -1,7 +1,7 @@
 ---
 type: commercial-production-readiness
 project: Biz2Lab
-status: BLOCKED_EXISTING_MYBIZ_RLS
+status: BLOCKED_SHARED_DB_BACKUP_AND_BIZ2LAB_PRODUCTION_APPLY
 updated: 2026-09-25
 tags: [biz2lab, commercial, production, privacy, release-gate]
 ---
@@ -23,10 +23,10 @@ tags: [biz2lab, commercial, production, privacy, release-gate]
 ## Production stop gate
 
 - The Owner identified Supabase project `plnuyudyogbzwpmdulnw` (`Mybiz Project` in the `Mybiz` organization) as the intended Commercial Production DB. Read-only discovery found no `biz2lab` schema, no `biz2lab.commercial_submissions` table, and no `biz2lab_*` RPC objects. Existing MyBiz data is present; MyBiz continues to own its existing `public/core/private` objects while this project owns only the new `biz2lab` schema plus prefixed server RPCs.
-- Read-only security inspection found pre-existing public-schema tables with disabled RLS and broad anonymous table grants. This is outside the Commercial migration and may affect the existing MyBiz application. Do not apply blanket RLS changes without reviewing its policies and client paths. Production Commercial migration, deployment, and capture remain on hold until a separate security review closes this gate.
+- Read-only security inspection found pre-existing MyBiz public-schema issues, but the Commercial migration no longer writes a Biz2Lab table into that schema. Biz2Lab now owns only the dedicated `biz2lab` schema plus prefixed service-role RPCs, so MyBiz RLS remediation remains a separate shared-project security track rather than a direct schema dependency. Production Commercial migration still remains on hold until the isolated-schema candidate passes exact CI and the shared physical-DB backup/recovery result is confirmed from the DB operations room.
 - Vercel project `biz2-lab-os` owns `www.biz2lab.com`. Production environment variable names `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are listed; their values and project-ref match were not read. The currently served Production code does not expose Commercial routes. `BIZ2LAB_COMMERCIAL_CAPTURE_ENABLED` is not listed for Production, so capture is not enabled by an explicit true value.
 
-## Resume order after the stop gate closes
+## Resume order after the shared DB and Biz2Lab gates close
 
 1. Treat the shared Supabase project as two ownership domains: MyBiz manages its existing `public/core/private` security work in the MyBiz room; Biz2Lab manages only `biz2lab` schema objects and prefixed `biz2lab_commercial_*` service RPCs here. Verify the MyBiz security gate result, operator account, Vercel `SUPABASE_URL` project-ref match, Production schema/migration ledger, and exact candidate/migration hashes without exposing credentials.
 2. Obtain a separate Production change decision for the exact canonical migration and exact candidate SHA. Apply only the Biz2Lab migration to the verified project; immediately confirm the dedicated schema/table, 13 columns, indexes, RLS, no direct client/schema/table grants, service-role-only prefixed RPCs, absence of `public.commercial_submissions`, and denied anonymous direct/RPC access.
