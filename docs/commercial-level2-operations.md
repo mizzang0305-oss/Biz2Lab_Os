@@ -21,7 +21,7 @@ This is an execution plan, not Production authorization or legal advice. The Pro
 ## Safe DB acceptance before any SQL
 
 1. For CI, use only the GitHub-hosted ephemeral Supabase Local configured by `.github/workflows/commercial-supabase-e2e.yml`. For a later Production migration, separately verify the exact Production project identity. Do not paste keys into chat or reports.
-2. Verify the target identity, empty/expected `public.commercial_submissions` state, migration ledger, endpoint, and database role in a secret-safe channel. Never infer safety from an environment-variable name alone.
+2. Verify the target identity, absence/expected state of `biz2lab` schema and `biz2lab.commercial_submissions`, absence of conflicting `biz2lab_commercial_*` RPCs, migration ledger, endpoint, and database role in a secret-safe channel. Never infer safety from an environment-variable name alone.
 3. Apply the reviewed migration to that target only. Check all 13 columns, identity PK, kind/service/shape CHECK constraints, `created_at` default, lookup and unique dedupe indexes, RLS, grants, and zero public policies. A second direct execution should fail as a one-time migration; normal replays must be controlled by the migration history, not `IF NOT EXISTS`.
 4. As `anon`, attempt `SELECT`, `UPDATE`, and `DELETE`; each must fail. Repeat for ordinary `authenticated` if no user read path is approved. Verify `service_role` can insert and read only from the server. Do not put its credential in a browser bundle or response.
 
@@ -50,7 +50,7 @@ Use only unique `@example.invalid` identities. The app's service IDs are lowerca
 
 ```sql
 select id, kind, service, created_at
-from public.commercial_submissions
+from biz2lab.commercial_submissions
 where created_at < now() - interval '90 days'
 order by created_at, id;
 ```
@@ -60,7 +60,7 @@ order by created_at, id;
 ## Rollback
 
 - Application: keep Commercial capture disabled, or restore the prior approved Production deployment by exact ID after a separate release decision; verify `/` remains ONURIM and Commercial routes' behavior.
-- Database: the draft `supabase/rollback_draft/002_biz2lab_commercial_submissions_lockdown.sql` revoked write access and preserved existing rows in ephemeral CI; exact synthetic rows were then deleted. Verify the Production target and application write-off before any separately approved execution. It is not a `DROP TABLE` script.
+- Database: the draft `supabase/rollback_draft/002_biz2lab_commercial_submissions_lockdown.sql` revokes the service-role insert RPC while preserving the isolated `biz2lab.commercial_submissions` rows and read/delete maintenance RPCs. Verify the Production target and application write-off before any separately approved execution. It never changes MyBiz tables and is not a `DROP TABLE` script.
 - Data: `DATA_PRESERVATION=true`, `AUTOMATIC_CUSTOMER_DATA_DELETE=false`. Later schema removal needs separate approval and evidence of retention completion. Neither rollback SQL nor Production deployment runs in this phase.
 
 ## Next Production smoke, only after separate Owner approval
