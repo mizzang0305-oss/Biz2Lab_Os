@@ -8,7 +8,12 @@ import { createClient } from '@supabase/supabase-js';
 // Next start constructs the route Request URL from its localhost host binding.
 // Use that same origin for the browser, API calls, and origin validation.
 const base = 'http://localhost:3100';
-const table = 'commercial_submissions';
+const rpc = {
+  rows: 'biz2lab_commercial_rows_by_email',
+  insert: 'biz2lab_commercial_insert_submission',
+  expired: 'biz2lab_commercial_expired_ids',
+  remove: 'biz2lab_commercial_delete_submission',
+};
 const runId = Date.now().toString(36);
 const db = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
   auth: { autoRefreshToken: false, persistSession: false },
@@ -50,10 +55,11 @@ async function api(body, origin = base) {
   return { status: response.status, body: responseText };
 }
 async function rows(email) {
-  const result = await db.from(table).select('*').eq('email', email).order('id');
+  const result = await db.rpc(rpc.rows, { p_email: email });
   assert.ifError(result.error);
-  for (const row of result.data) rowIds.add(row.id);
-  return result.data;
+  const data = result.data || [];
+  for (const row of data) rowIds.add(row.id);
+  return data;
 }
 async function waitApp() {
   for (let i = 0; i < 40; i++) {
@@ -83,41 +89,40 @@ function clientBundleExposure() {
   }
   report('SERVICE_ROLE_CLIENT_EXPOSURE', 'NONE');
 }
-async function dataApiSecurity(id) {
-  const headers = { apikey: process.env.LOCAL_ANON_KEY,
-    authorization: `Bearer ${process.env.LOCAL_ANON_KEY}` };
-  const endpoint = `${process.env.SUPABASE_URL}/rest/v1/${table}`;
-  const get = await fetch(`${endpoint}?select=*`, { headers });
-  const getText = await get.text();
-  assert(!getText.includes('commercial-ci-inquiry-'), 'Anonymous Data API leaked inquiry');
-  if (get.ok) assert.deepEqual(JSON.parse(getText), [], 'Anonymous SELECT must return zero rows');
-  const patch = await fetch(`${endpoint}?id=eq.${id}`, {
-    method: 'PATCH', headers: { ...headers, 'content-type': 'application/json', prefer: 'return=representation' },
-    body: JSON.stringify({ name: 'Forbidden anonymous update' }),
+async function dataApiSecurity(id, email) {
+  const headers = {
+    apikey: process.env.LOCAL_ANON_KEY,
+    authorization: `Bearer ${process.env.LOCAL_ANON_KEY}`,
+    'content-type': 'application/json',
+  };
+
+  // No public relation exists and the biz2lab schema is not exposed through
+  // PostgREST. The only public API boundary is a service-role-only RPC.
+  const direct = await fetch(`${process.env.SUPABASE_URL}/rest/v1/commercial_submissions?select=*`, { headers });
+  const directText = await direct.text();
+  assert.equal(direct.ok, false, 'Legacy public commercial_submissions unexpectedly exists');
+  assert(!directText.includes('commercial-ci-inquiry-'), 'Anonymous direct Data API leaked inquiry');
+
+  const rpcRead = await fetch(`${process.env.SUPABASE_URL}/rest/v1/rpc/${rpc.rows}`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({ p_email: email }),
   });
-  const patchText = await patch.text();
-  assert(!patch.ok || patchText === '[]', 'Anonymous PATCH changed or returned a row');
-  const deletion = await fetch(`${endpoint}?id=eq.${id}`, {
-    method: 'DELETE', headers: { ...headers, prefer: 'return=representation' },
-  });
-  const deleteText = await deletion.text();
-  assert(!deletion.ok || deleteText === '[]', 'Anonymous DELETE changed or returned a row');
-  const verify = await db.from(table).select('id,name').eq('id', id).single();
-  assert.ifError(verify.error);
-  assert.equal(verify.data.name, 'Persistence QA');
-  report('DATA_API_ANON_READ_UPDATE_DELETE', `BLOCKED; statuses=${get.status}/${patch.status}/${deletion.status}`);
+  const rpcText = await rpcRead.text();
+  assert.equal(rpcRead.ok, false, 'Anonymous role executed Biz2Lab service RPC');
+  assert(!rpcText.includes(email), 'Anonymous RPC leaked inquiry data');
+
+  const verify = await rows(email);
+  assert.equal(verify.length, 1);
+  assert.equal(verify[0].id, id);
+  assert.equal(verify[0].name, 'Persistence QA');
+  report('DATA_API_ANON_DIRECT_AND_RPC', `BLOCKED; statuses=${direct.status}/${rpcRead.status}`);
 }
 async function exactCleanup() {
   for (const id of rowIds) {
-    const before = await db.from(table).select('id').eq('id', id).maybeSingle();
-    assert.ifError(before.error);
-    if (!before.data) continue;
-    const deletion = await db.from(table).delete().eq('id', id).select('id');
+    const deletion = await db.rpc(rpc.remove, { p_id: id });
     assert.ifError(deletion.error);
-    assert.equal(deletion.data.length, 1, 'Exact synthetic delete affected unexpected row count');
-    const after = await db.from(table).select('id').eq('id', id).maybeSingle();
-    assert.ifError(after.error);
-    assert.equal(after.data, null);
+    assert.equal(deletion.data, true, 'Exact synthetic delete did not remove one row');
   }
   report('SYNTHETIC_EXACT_ROW_DELETE', 'PASS');
 }
@@ -158,7 +163,7 @@ try {
     'scripts/ci-commercial-rls-assertions.sql'], { stdio: 'pipe' });
   assert.equal((await rows(inquiryEmail)).length, 1);
   report('RLS_WITH_TEMPORARY_GRANTS_ANON_AND_AUTHENTICATED', 'PASS');
-  await dataApiSecurity(inquiryRows[0].id);
+  await dataApiSecurity(inquiryRows[0].id, inquiryEmail);
 
   await inquiry.locator('input[name="name"]').fill('Persistence QA');
   await inquiry.locator('input[name="email"]').fill(inquiryEmail);
@@ -208,19 +213,29 @@ try {
 
   const oldEmail = cleanEmail('expired');
   const oldCreatedAt = new Date(Date.now() - 91 * 24 * 60 * 60 * 1000).toISOString();
-  const oldResult = await db.from(table).insert({
-    kind: 'email_lead', service: 'mybiz', email: oldEmail, name: null, message: null,
-    source: 'synthetic', landing_url: '/mybiz', utm_source: 'synthetic',
-    utm_medium: 'ci', utm_campaign: 'commercial_front_level2',
-    consented_at: oldCreatedAt, created_at: oldCreatedAt,
-  }).select('id').single();
+  const oldResult = await db.rpc(rpc.insert, {
+    p_kind: 'email_lead',
+    p_service: 'mybiz',
+    p_email: oldEmail,
+    p_name: null,
+    p_message: null,
+    p_source: 'synthetic',
+    p_landing_url: '/mybiz',
+    p_utm_source: 'synthetic',
+    p_utm_medium: 'ci',
+    p_utm_campaign: 'commercial_front_level2',
+    p_consented_at: oldCreatedAt,
+    p_created_at: oldCreatedAt,
+  });
   assert.ifError(oldResult.error);
-  rowIds.add(oldResult.data.id);
+  rowIds.add(oldResult.data);
   const expiryCutoff = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString();
-  const expired = await db.from(table).select('id').lt('created_at', expiryCutoff)
-    .in('id', [oldResult.data.id, inquiryRows[0].id]);
+  const expired = await db.rpc(rpc.expired, { p_cutoff: expiryCutoff });
   assert.ifError(expired.error);
-  assert.deepEqual(expired.data.map((row) => row.id), [oldResult.data.id]);
+  const relevantExpired = (expired.data || []).map((row) => row.id).filter((id) =>
+    id === oldResult.data || id === inquiryRows[0].id
+  );
+  assert.deepEqual(relevantExpired, [oldResult.data]);
   report('RETENTION_90_DAY_QUERY_SYNTHETIC', 'PASS');
 
   assert.equal((await api(payload(cleanEmail('honeypot'), { website: 'filled' }))).status, 400);
