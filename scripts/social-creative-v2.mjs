@@ -4,11 +4,18 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const [input, output, requestedMode] = process.argv.slice(2);
-if (!input || !output) throw new Error('usage: node scripts/social-creative-v2.cjs input.json output-dir');
+if (!input || !output) throw new Error('usage: node scripts/social-creative-v2.mjs input.json output-dir [visual-mode|all]');
 const data = JSON.parse(fs.readFileSync(input, 'utf8'));
 const required = ['campaign_id', 'brand', 'theme', 'headline', 'subheadline', 'key_points', 'disclaimer', 'visual_mode', 'landing_path'];
 for (const key of required) if (!data[key]) throw new Error(`missing ${key}`);
 if (!Array.isArray(data.key_points) || data.key_points.length !== 4) throw new Error('key_points must contain four labels');
+for (const key of required.filter(key => key !== 'key_points')) {
+  if (typeof data[key] !== 'string') throw new Error(`${key} must be text`);
+}
+if (data.key_points.some(point => typeof point !== 'string')) throw new Error('key_points must contain text labels');
+if (data.brand.length > 20 || data.disclaimer.length > 40 || (data.cta !== undefined && (typeof data.cta !== 'string' || data.cta.length > 20))) {
+  throw new Error('Brand, disclaimer, or CTA exceeds short-form limits');
+}
 if (!/^\/health(?:\/|$)/.test(data.landing_path)) throw new Error('ONURIM landing must be /health or /health/*');
 if (data.headline.length > 36 || data.subheadline.length > 34 || data.key_points.some(x => x.length > 9)) throw new Error('Artwork copy exceeds short-form limits');
 
@@ -149,8 +156,8 @@ const families = {premium_3d: ['candidate-a-premium-3d.png',premium], editorial:
 async function main() {
   fs.mkdirSync(output, {recursive:true});
   if (!families[data.visual_mode]) throw new Error('visual_mode must be premium_3d, editorial, or friendly_story');
-  if (requestedMode && !families[requestedMode]) throw new Error('unknown requested visual mode');
-  const selected = requestedMode ? [[requestedMode, families[requestedMode]]] : Object.entries(families);
+  if (requestedMode && requestedMode !== 'all' && !families[requestedMode]) throw new Error('unknown requested visual mode');
+  const selected = requestedMode === 'all' ? Object.entries(families) : [[requestedMode ?? data.visual_mode, families[requestedMode ?? data.visual_mode]]];
   for (const [mode,[name,render]] of selected) {
     const svg = render();
     const target = path.join(output,name);
