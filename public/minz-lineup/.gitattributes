@@ -1,0 +1,2 @@
+# Keep published hashes identical across Windows and Linux checkouts.
+* -text

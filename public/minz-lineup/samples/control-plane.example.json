@@ -1,0 +1,12 @@
+{
+  "kind": "MINZ_CONTROL_PLANE_PUBLIC_STATUS_EXAMPLE",
+  "version": 1,
+  "synthetic": true,
+  "sampleExecutable": false,
+  "windowsFoundationCommit": "fdf6e1c07995b5a46aa23c5d4cd2adb122f0b1e0",
+  "r13SourceRuntimeProvenance": "NOT_VERIFIED",
+  "runtimeExecution": "NOT_ENABLED",
+  "workerStart": false,
+  "queueConsumption": false,
+  "description": "Policy/capability/approval boundary example only; not an executable worker or runtime receipt."
+}
