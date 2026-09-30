@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "demo": true,
+  "motions": [
+    {
+      "id": "text-rise",
+      "title": "Text Reveal",
+      "recipe": {
+        "type": "text-reveal",
+        "target_selector": "[data-motion='text-reveal']",
+        "duration_ms": 500,
+        "stagger_ms": 20,
+        "easing": "out(4)"
+      }
+    },
+    {
+      "id": "card-tilt",
+      "title": "Card Tilt",
+      "recipe": {
+        "type": "card-tilt",
+        "target_selector": "[data-motion='card-tilt']",
+        "duration_ms": 420,
+        "stagger_ms": 0,
+        "easing": "out(3)"
+      }
+    },
+    {
+      "id": "field-stagger",
+      "title": "Field Stagger",
+      "recipe": {
+        "type": "field-stagger",
+        "target_selector": "[data-motion='field-stagger']",
+        "duration_ms": 420,
+        "stagger_ms": 65,
+        "easing": "out(3)"
+      }
+    },
+    {
+      "id": "panel-swap",
+      "title": "Panel Transition",
+      "recipe": {
+        "type": "panel-swap",
+        "target_selector": "[data-motion='section-reveal']",
+        "duration_ms": 420,
+        "stagger_ms": 0,
+        "easing": "out(3)"
+      }
+    },
+    {
+      "id": "light-sweep",
+      "title": "Light Sweep",
+      "recipe": {
+        "type": "light-sweep",
+        "target_selector": "[data-motion='cta-emphasis']",
+        "duration_ms": 420,
+        "stagger_ms": 0,
+        "easing": "out(3)"
+      }
+    },
+    {
+      "id": "route-draw",
+      "title": "Route Draw",
+      "recipe": {
+        "type": "route-draw",
+        "target_selector": "[data-motion='route-draw']",
+        "duration_ms": 420,
+        "stagger_ms": 0,
+        "easing": "out(3)"
+      }
+    },
+    {
+      "id": "metric-count",
+      "title": "Metric Count",
+      "recipe": {
+        "type": "metric-count",
+        "target_selector": "[data-motion='metric-count']",
+        "duration_ms": 420,
+        "stagger_ms": 0,
+        "easing": "out(3)"
+      }
+    },
+    {
+      "id": "scene-crossfade",
+      "title": "Scene Crossfade",
+      "recipe": {
+        "type": "scene-crossfade",
+        "target_selector": "[data-motion='scene-crossfade']",
+        "duration_ms": 420,
+        "stagger_ms": 0,
+        "easing": "out(3)"
+      }
+    },
+    {
+      "id": "orbit-turn",
+      "title": "Orbit Turn",
+      "recipe": {
+        "type": "orbit-turn",
+        "target_selector": "[data-motion='orbit-turn']",
+        "duration_ms": 420,
+        "stagger_ms": 0,
+        "easing": "out(3)"
+      }
+    },
+    {
+      "id": "scroll-reveal",
+      "title": "Scroll Reveal",
+      "recipe": {
+        "type": "section-reveal",
+        "target_selector": "[data-motion='section-reveal']",
+        "duration_ms": 380,
+        "stagger_ms": 0,
+        "easing": "out(3)"
+      }
+    },
+    {
+      "id": "progress-fill",
+      "title": "Progress Fill",
+      "recipe": {
+        "type": "progress-fill",
+        "target_selector": "[data-motion='progress-fill']",
+        "duration_ms": 420,
+        "stagger_ms": 0,
+        "easing": "out(3)"
+      }
+    },
+    {
+      "id": "inline-expand",
+      "title": "Inline Expand",
+      "recipe": {
+        "type": "inline-expand",
+        "target_selector": "[data-motion='inline-expand']",
+        "duration_ms": 420,
+        "stagger_ms": 0,
+        "easing": "out(3)"
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "id": "showcase-landing",
+      "title": "Showcase Landing",
+      "summary": "브랜드의 첫인상을 만드는 큰 문장과 여백",
+      "demo": true,
+      "palette": {
+        "background": "#0F172A",
+        "surface": "#1D2943",
+        "text": "#EDE9FE",
+        "muted": "#CBD5E1",
+        "accent": "#22D3EE",
+        "border": "#98ADC5",
+        "onAccent": "#0F172A",
+        "focus": "#22D3EE",
+        "error": "#FFC4C4",
+        "success": "#B6F0D2"
+      },
+      "motionIds": [
+        "text-rise",
+        "card-tilt",
+        "orbit-turn",
+        "scroll-reveal"
+      ]
+    },
+    {
+      "id": "premium-auth",
+      "title": "Premium Auth Demo",
+      "summary": "로그인·회원가입·복구 화면을 체험하는 UI 데모",
+      "demo": true,
+      "palette": {
+        "background": "#10100F",
+        "surface": "#24231F",
+        "text": "#FBF5E8",
+        "muted": "#D2C7AD",
+        "accent": "#E9C978",
+        "border": "#BBAF91",
+        "onAccent": "#10100F",
+        "focus": "#E9C978",
+        "error": "#FFD2BF",
+        "success": "#CEF2CD"
+      },
+      "motionIds": [
+        "field-stagger",
+        "panel-swap",
+        "light-sweep"
+      ]
+    },
+    {
+      "id": "ops-control",
+      "title": "Ops Control Demo",
+      "summary": "샘플 배송 목록과 경로를 살펴보는 운영 화면",
+      "demo": true,
+      "palette": {
+        "background": "#101819",
+        "surface": "#1C282A",
+        "text": "#F3F6F3",
+        "muted": "#C7DBD3",
+        "accent": "#82E8D1",
+        "border": "#9BBAB0",
+        "onAccent": "#101819",
+        "focus": "#82E8D1",
+        "error": "#FFD0C5",
+        "success": "#C4F2D5"
+      },
+      "motionIds": [
+        "route-draw",
+        "metric-count",
+        "progress-fill",
+        "inline-expand"
+      ]
+    },
+    {
+      "id": "campaign-editorial",
+      "title": "Campaign Editorial",
+      "summary": "장면 전환과 타이포그래피로 전하는 브랜드 이야기",
+      "demo": true,
+      "palette": {
+        "background": "#67D7DC",
+        "surface": "#B6F1EC",
+        "text": "#063F49",
+        "muted": "#155862",
+        "accent": "#063F49",
+        "border": "#17616A",
+        "onAccent": "#F3F7ED",
+        "focus": "#063F49",
+        "error": "#8E1D19",
+        "success": "#17592D"
+      },
+      "motionIds": [
+        "scene-crossfade",
+        "orbit-turn",
+        "text-rise"
+      ]
+    }
+  ]
+}
