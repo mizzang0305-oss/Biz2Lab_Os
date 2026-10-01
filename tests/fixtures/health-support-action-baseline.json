@@ -2,8 +2,9 @@
   "sourceSha": "c7d68d513b83ce859d6988f0c1cc863a77d2db64",
   "guides": {
     "danger-signals": {
-      "data": "e5c306c988ada06d0ce3352ec05f2baa94003cf5ae9c86d539befb3abbe6d56c",
-      "html": "cc606c92dd5a6eaf8614b31bc1ddad298f8b1665081f448d711af688eabfbe02"
+      "data": "f7bcc7620e54fa67d5040df0f30aff67f0aa33694b27c44cd9d2533463ad5a79",
+      "html": "3964aac365c8c8d961caad21bd23f794e30ee7b56d8fffdfc295528d5adfbab4",
+      "releasedSha": "add0b34cd4fe22e1c939cb190e2e26f0b862b41e"
     },
     "measuring-blood-pressure": {
       "data": "12382cf39acfb766d5dd59f517edd68690017bca92f783dda460882c60d5b15f",
