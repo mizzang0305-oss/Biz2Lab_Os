@@ -1,0 +1,33 @@
+name: Living affiliate publication
+on:
+  push:
+    paths:
+      - 'app/living/**'
+      - 'components/living/**'
+      - 'components/layout/SiteHeader.tsx'
+      - 'lib/living-posts.ts'
+      - 'tests/living-posts.test.ts'
+      - '.github/workflows/living-affiliate.yml'
+  pull_request:
+    paths:
+      - 'app/living/**'
+      - 'components/living/**'
+      - 'components/layout/SiteHeader.tsx'
+      - 'lib/living-posts.ts'
+      - 'tests/living-posts.test.ts'
+      - '.github/workflows/living-affiliate.yml'
+permissions:
+  contents: read
+jobs:
+  publication:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node node_modules/tsx/dist/cli.mjs --test tests/living-posts.test.ts
+      - run: node node_modules/eslint/bin/eslint.js app/living components/living components/layout/SiteHeader.tsx lib/living-posts.ts tests/living-posts.test.ts --max-warnings=0
+      - run: npm run typecheck
+      - run: npm run build

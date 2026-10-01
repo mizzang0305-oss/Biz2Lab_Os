@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { siteSettings } from "@/lib/site-settings";
+import { livingPosts } from "@/lib/living-posts";
 
 export function SiteHeader() {
   return (
@@ -35,6 +36,11 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
+            {livingPosts.length > 0 ? (
+              <Link href="/living" className="max-w-full rounded-sm px-1 py-0.5 transition hover:text-teal-700">
+                생활용품·광고
+              </Link>
+            ) : null}
           </nav>
         </div>
       </div>
