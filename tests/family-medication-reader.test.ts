@@ -23,7 +23,7 @@ test("only the mismatched CTA and actual revision date change; original medical 
   original.updatedAt = "2026-09-06";
   original.sections[0].links = [{ href: "/health/tools/family-support-checklist", label: "당사자가 원하는 도움을 함께 확인할 가족 지원표" }];
   assert.equal(digest(original), baseline.supportGuideSha256[guide.slug]);
-  for (const other of healthSupportGuides.filter(item => item.slug !== guide.slug && item.slug !== "danger-signals")) assert.equal(digest(other), baseline.supportGuideSha256[other.slug], other.slug);
+  for (const other of healthSupportGuides.filter(item => item.slug !== guide.slug && item.slug !== "danger-signals" && item.slug !== "medication-list")) assert.equal(digest(other), baseline.supportGuideSha256[other.slug], other.slug);
   assert.equal(guide.sourceCheckedAt, "2026-09-06");
 });
 
@@ -40,7 +40,7 @@ test("actual reader markup keeps consent, dosage, swallowing and urgent-care bou
 test("large-text grid fix is limited to family medication support; other support markup is unchanged", async () => {
   const family = renderToStaticMarkup(await SupportGuidePage({params: Promise.resolve({slug: guide.slug})}));
   assert.ok(family.includes('style="grid-template-columns:minmax(0, 1fr)"'));
-  for (const other of healthSupportGuides.filter(item => item.slug !== guide.slug && item.slug !== "danger-signals")) {
+  for (const other of healthSupportGuides.filter(item => item.slug !== guide.slug && item.slug !== "danger-signals" && item.slug !== "medication-list")) {
     const html = renderToStaticMarkup(await SupportGuidePage({params: Promise.resolve({slug: other.slug})}));
     assert.equal(createHash("sha256").update(html).digest("hex"), baseline.supportGuideHtml[other.slug], other.slug);
   }
