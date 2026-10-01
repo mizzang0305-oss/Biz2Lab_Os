@@ -191,7 +191,7 @@ function ClaimStatus({ ids, sourceIds }: { ids: string[]; sourceIds?: string[] }
 }
 
 export function HealthArticlePage({ article }: { article: HealthArticle }) {
-  const revisedSources = ["type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis"].includes(article.slug) && article.sourceCheckedAt === "2026-10-01";
+  const revisedSources = ["type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis", "asthma", "stroke", "acute-myocardial-infarction"].includes(article.slug) && article.sourceCheckedAt === "2026-10-01";
   const readerSources = article.slug === "kidney-stones" || revisedSources;
   const sourceName = (source: (typeof sources)[number]) => revisedSources && source.id === "SRC-MEDLINEPLUS-AR" ? "MedlinePlus Medical Encyclopedia / A.D.A.M." : source.organization;
   const visuals = { ...imageMeta, ...article.visuals };
@@ -278,7 +278,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
       <BodyTheater slug={article.slug} showSourceNames={revisedSources} />
 
       <div className="onurim-article-grid">
-        <div className="onurim-article-body">
+        <div className="onurim-article-body" style={["asthma", "stroke", "acute-myocardial-infarction"].includes(article.slug) ? { minWidth: 0 } : undefined}>
           {article.sections.map((section, index) => {
             const imageIndex = index === 1 ? 1 : index === 4 ? 3 : section.tone === "warning" ? 2 : -1;
             const imageId = section.imageId === null ? undefined : section.imageId ?? (imageIndex >= 0 ? article.imageIds[imageIndex] : undefined);

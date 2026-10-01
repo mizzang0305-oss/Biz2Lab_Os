@@ -41,7 +41,8 @@ test("ONURIM portfolio keeps twenty disease guides and source-audited SEO additi
   for (const article of Object.values(healthArticles)) {
     assert.ok(article.sections.length >= 6, article.slug);
     assert.ok(article.sourceIds.length >= 3, article.slug);
-    assert.ok(article.imageIds.length >= 3, article.slug);
+    // Stroke retains two public visuals after removing the inspected ambiguous cup scene.
+    assert.ok(article.imageIds.length >= (article.slug === "stroke" ? 2 : 3), article.slug);
     assert.ok(article.toolSlugs.length >= 1, article.slug);
   }
 });
