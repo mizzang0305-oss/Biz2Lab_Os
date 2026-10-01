@@ -1,0 +1,35 @@
+name: Health P1 reader corrections
+on:
+  push:
+    paths:
+      - 'components/health/HealthArticle.tsx'
+      - 'components/health/BodyTheater.tsx'
+      - 'lib/health-v3/body-theater.ts'
+      - 'lib/health-v3/seo-v2/kidney-stones.ts'
+      - 'tests/kidney-stones-reader.test.ts'
+      - 'tests/fixtures/health-p1-baseline.json'
+      - '.github/workflows/health-p1-reader.yml'
+  pull_request:
+    paths:
+      - 'components/health/HealthArticle.tsx'
+      - 'components/health/BodyTheater.tsx'
+      - 'lib/health-v3/body-theater.ts'
+      - 'lib/health-v3/seo-v2/kidney-stones.ts'
+      - 'tests/kidney-stones-reader.test.ts'
+      - 'tests/fixtures/health-p1-baseline.json'
+      - '.github/workflows/health-p1-reader.yml'
+permissions:
+  contents: read
+jobs:
+  reader-corrections:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node node_modules/tsx/dist/cli.mjs --test tests/kidney-stones-reader.test.ts tests/hypertension-reader.test.ts tests/health-v3-public-cutover.test.ts tests/onurim-entry-pages.test.ts tests/onurim-body-theater.test.ts
+      - run: node node_modules/eslint/bin/eslint.js components/health/HealthArticle.tsx components/health/BodyTheater.tsx tests/kidney-stones-reader.test.ts --max-warnings=0 --no-cache
+      - run: node node_modules/typescript/bin/tsc --noEmit --incremental false --pretty false
+      - run: node scripts/verify-minz-lineup.mjs

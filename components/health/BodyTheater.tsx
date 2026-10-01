@@ -1,9 +1,10 @@
 import { BODY_THEATER_DISCLOSURE, bodyTheaterScenes } from "@/lib/health-v3/body-theater";
-import type { HealthArticleSlug } from "@/lib/health-v3/content";
+import { getSources, type HealthArticleSlug } from "@/lib/health-v3/content";
 
 export function BodyTheater({ slug }: { slug: HealthArticleSlug }) {
   const scene = bodyTheaterScenes[slug];
   const titleId = `body-theater-${scene.sceneKey}`;
+  const readerSources = slug === "kidney-stones" ? getSources(scene.sourceIds) : undefined;
 
   return (
     <section className="onurim-body-theater" aria-labelledby={titleId} data-scene-key={scene.sceneKey} data-motion={scene.motion}>
@@ -27,7 +28,7 @@ export function BodyTheater({ slug }: { slug: HealthArticleSlug }) {
         </svg>
         <figcaption>{BODY_THEATER_DISCLOSURE}</figcaption>
       </figure>
-      <p className="onurim-body-theater-sources">근거: {scene.sourceIds.map((id, index) => <span key={id}>{index ? " · " : ""}<a href={`#source-${id}`}>{id}</a></span>)}</p>
+      <p className="onurim-body-theater-sources">근거: {scene.sourceIds.map((id, index) => <span key={id}>{index ? " · " : ""}<a href={`#source-${id}`}>{readerSources?.find(source => source.id === id)?.organization ?? id}</a></span>)}</p>
     </section>
   );
 }

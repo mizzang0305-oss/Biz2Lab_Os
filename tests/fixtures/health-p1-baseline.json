@@ -1,0 +1,35 @@
+{
+  "sourceSha": "8648b27b7d8a36ea413f9c1c90058524c57d9b5e",
+  "articleHtml": {
+    "hypertension": "26e16975b2d8e99533987928486870418bed5d64f8933bd9afca2e9d99262386",
+    "type-2-diabetes": "2520b102c7f0ca6b937bd5118c318687e2803a27a29ca509def1bccf5abb4b4e",
+    "allergic-rhinitis": "6539322055dfb2771e038d001baff29f603d21652eabe5c678cfd366ceecc728",
+    "gastroesophageal-reflux-disease": "34f2901d0124c6fbcfb06735734d8b0eaa3dff9416c0c5725d15df6a26e0ab40",
+    "osteoarthritis": "cd93663b3bd9e893479a8885cd891d88de120bdc072bbc483024452e91c60615",
+    "osteoporosis": "c5de19c9426e216f827947926b6fbf9d284008c1a24de44a0ee85aaceb4308ca",
+    "dyslipidemia": "c3e74553352e2fbe2dc89a0cbbf7ceaba41d6ebe7bec73e721a7d32c261f080c",
+    "obesity": "cf4090af3349d4ba49805147bdde8e804b5ac21136e758dd3755bb79d54e84b0",
+    "metabolic-dysfunction-associated-steatotic-liver-disease": "81eb7471736c55345ae476b8f20c7338cf148cd181b3e8d4aee1dc5cd4f80ec6",
+    "irritable-bowel-syndrome": "4b23945c428135e03c363747bc1be9ef6e655a66349852334e2a956ebc846b2d",
+    "asthma": "19da36ddfd15b51193dc35ff924a84c5eb3dacb88d2869c686870cf95d3e6b72",
+    "sleep-apnea": "c0bf319e53c20f28a3e54db44d121cc22140d2d2684b797726e231f4d98df605",
+    "gout": "5ae107cdc0aa3e8fc5d9033758d228a02f8a40d80f65917ff1ee74963ff34c14",
+    "migraine": "648782ef0f0744da754b398f676e4bb6f3f5d55eb1942d050400fd2a2a3bd9f1",
+    "kidney-stones": "6893f6597d36bbdb8e65ec4f0be366454d4222ccced5e38d601f65906b61eac9",
+    "urinary-tract-infection": "0e3800543bea8b64cef4911500d37dc254fcb92558be93d9d788f1081b879e79",
+    "depression": "a6bbbc538fc7fe8fb3e79b78233304ce5ea3e542f3f5709416efa716507b271e",
+    "anxiety-disorder": "8cc8e712b0be7c2b971b135193e05c145736788f530b6302ff656ee4e9732fc2",
+    "stroke": "fed5542b56962aa268161dac6ae100f8c980303f4676dda63879696613888726",
+    "acute-myocardial-infarction": "366af74416ee49149be10d64da10e131df231eb7c046b8b29682569e3463b332"
+  },
+  "claimRegistrySha256": "42acada02a3a1feb60707cf19b0bd5fc175e48644147981c3dbb3fd4395e3d75",
+  "supportGuidesSha256": "dd6650d38045c6f8ba20b0581353d2bf907fdf63bbcf0962ca6922e33d55ee4b",
+  "historicalKdcaSource": {
+    "id": "SRC-KDCA-KIDNEY-STONES",
+    "organization": "질병관리청 국가건강정보포털",
+    "title": "신장결석",
+    "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5433",
+    "sourceDate": "2026-05-11 (업데이트)",
+    "retrievedAt": "2026-09-06"
+  }
+}
