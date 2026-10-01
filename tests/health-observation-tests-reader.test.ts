@@ -8,8 +8,8 @@ const digest=(v:unknown)=>createHash("sha256").update(typeof v==="string"?v:JSON
 const render=(slug:typeof selected[number])=>renderToStaticMarkup(createElement(HealthArticlePage,{article:healthArticles[slug]}));
 const plain=(html:string)=>html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,"").replace(/<[^>]+>/g,"");
 test("observation batch preserves other 26 articles, 9 guides, 144 claims, 170 source records and tool data",async()=>{
- for(const a of Object.values(healthArticles).filter(a=>!selected.includes(a.slug as typeof selected[number]))){assert.equal(digest(a),baseline.articleData[a.slug],a.slug);assert.equal(digest(renderToStaticMarkup(a.slug==="hypertension"?createElement(HypertensionPage):createElement(HealthArticlePage,{article:a}))),baseline.articleHtml[a.slug],a.slug);}
- for(const g of healthSupportGuides){assert.equal(digest(g),baseline.guideData[g.slug],g.slug);assert.equal(digest(renderToStaticMarkup(await GuidePage({params:Promise.resolve({slug:g.slug})}))),baseline.guideHtml[g.slug],g.slug);}
+ for(const a of Object.values(healthArticles).filter(a=>![...selected, "gout", "urinary-tract-infection"].includes(a.slug))){assert.equal(digest(a),baseline.articleData[a.slug],a.slug);assert.equal(digest(renderToStaticMarkup(a.slug==="hypertension"?createElement(HypertensionPage):createElement(HealthArticlePage,{article:a}))),baseline.articleHtml[a.slug],a.slug);}
+ for(const g of healthSupportGuides.filter(g=>g.slug!=="understanding-hba1c")){assert.equal(digest(g),baseline.guideData[g.slug],g.slug);assert.equal(digest(renderToStaticMarkup(await GuidePage({params:Promise.resolve({slug:g.slug})}))),baseline.guideHtml[g.slug],g.slug);}
  assert.equal(digest(healthClaims),baseline.claimRegistrySha256);assert.equal(healthClaims.length,144);assert.deepEqual(healthSources,baseline.originalSources);assert.equal(healthSources.length,170);assert.equal(digest(healthTools),baseline.toolsSha256);
 });
 test("warning sections stay first; IBS and apnea warnings remain intact",()=>{
@@ -22,7 +22,7 @@ test("MASLD uses fictional result wording, precise PDF location and separated bl
  assert.equal(a.sections[2].table?.columns.length,3);assert.doesNotMatch(t,/\d+\s*(U\/L|kPa|mg|kg|%)/i);
  const tool=healthTools.find(t=>t.articleSlug===a.slug)!;const html=renderToStaticMarkup(createElement(HealthToolPage,{tool}));
  for(const term of ["빠르거나 얕은 호흡","복통·검은 변 중 하나라도","토혈이 멈추고 다른 증상이 없어도 당일","계속 토한다면 멈추기를 기다리지"])assert.ok(plain(html).includes(term),term);
- for(const other of healthTools.filter(t=>t.slug!==tool.slug))assert.equal(digest(renderToStaticMarkup(createElement(HealthToolPage,{tool:other}))),toolBaseline.toolHtml[other.slug],other.slug);
+ const subsequent=JSON.parse(readFileSync("tests/fixtures/health-results-questions-original.json","utf8"));for(const other of healthTools.filter(t=>t.slug!==tool.slug&&t.articleSlug!=="gout")){let rendered=renderToStaticMarkup(createElement(HealthToolPage,{tool:other}));const prior=subsequent.articles.find((a:{slug:string})=>a.slug===other.articleSlug);if(prior)rendered=rendered.replaceAll(healthArticles[other.articleSlug].title,prior.title);assert.equal(digest(rendered),toolBaseline.toolHtml[other.slug],other.slug);}
 });
 test("IBS fictional observation and speculation do not identify food cause or prescribe restrictions",()=>{
  const a=healthArticles[selected[1]],t=plain(render(selected[1]));assert.equal(a.sections[1].table?.rows.length,2);

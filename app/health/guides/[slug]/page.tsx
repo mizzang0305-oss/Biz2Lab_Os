@@ -27,7 +27,7 @@ export default async function HealthSupportGuidePage({ params }: { params: Promi
     <p className="onurim-section-sources">근거: {ids.map((id, index) => {
       const source = guide.sources.find(s => s.id === id);
       if (!source) throw new Error(`Missing support source ${id}`);
-      return <span key={id}>{index > 0 ? " · " : ""}<a href={`#source-${id}`}>{["medication-list", "older-parent-health-organizer", "measuring-blood-pressure"].includes(slug) ? `${source.organization}: ${source.title}` : source.organization}</a></span>;
+      return <span key={id}>{index > 0 ? " · " : ""}<a href={`#source-${id}`}>{["medication-list", "older-parent-health-organizer", "measuring-blood-pressure", "understanding-hba1c"].includes(slug) ? `${source.organization}: ${source.title}` : source.organization}</a></span>;
     })}</p>
   ) : null;
   const dateSchema = guide.publishedAt && guide.updatedAt ? {
@@ -55,7 +55,7 @@ export default async function HealthSupportGuidePage({ params }: { params: Promi
           발행 <time dateTime={guide.publishedAt}>{guide.publishedAt}</time> · 수정 <time dateTime={guide.updatedAt}>{guide.updatedAt}</time><br />
           <Link href="/health/trust/medical-review-policy">면허 의료인 검수 미완료</Link> · 공식 출처 대조와 의료 검수는 다릅니다.</p> : null}
       </header>
-      <div className="onurim-trust-sections" style={["family-medication-support", "danger-signals", "medication-list", "older-parent-health-organizer", "measuring-blood-pressure"].includes(slug) ? { gridTemplateColumns: "minmax(0, 1fr)" } : undefined}>
+      <div className="onurim-trust-sections" style={["family-medication-support", "danger-signals", "medication-list", "older-parent-health-organizer", "measuring-blood-pressure", "understanding-hba1c"].includes(slug) ? { gridTemplateColumns: "minmax(0, 1fr)" } : undefined}>
         {guide.sections.map((section) => (
           <section key={section.title} id={section.id} className={section.tone === "warning" ? "onurim-tone-warning" : undefined}>
             <h2>{section.title}</h2>
@@ -79,7 +79,7 @@ export default async function HealthSupportGuidePage({ params }: { params: Promi
           {guide.sources.map((source) => (
             <li key={source.id} id={`source-${source.id}`}>
               <a href={source.url} target="_blank" rel="noreferrer">{source.organization}, {source.title}</a>
-              <span>확인 {slug === "measuring-blood-pressure" ? guide.sourceCheckedAt : source.retrievedAt}</span>
+              <span>{slug === "understanding-hba1c" ? `원문 검토·표시일 ${source.sourceDate} · 출처 대조 ${guide.sourceCheckedAt}` : `확인 ${slug === "measuring-blood-pressure" ? guide.sourceCheckedAt : source.retrievedAt}`}</span>
             </li>
           ))}
         </ol>

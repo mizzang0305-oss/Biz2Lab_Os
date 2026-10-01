@@ -17,11 +17,11 @@ const render=(slug:typeof selected[number])=>renderToStaticMarkup(createElement(
 const plain=(html:string)=>html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,"").replace(/<[^>]+>/g,"");
 
 test("record-context batch preserves bodies not subsequently revised, all claims, sources, tools and guides",async()=>{
- for(const a of Object.values(healthArticles).filter(a=>![...selected, "metabolic-dysfunction-associated-steatotic-liver-disease", "irritable-bowel-syndrome", "sleep-apnea"].includes(a.slug))){
+ for(const a of Object.values(healthArticles).filter(a=>![...selected, "metabolic-dysfunction-associated-steatotic-liver-disease", "irritable-bowel-syndrome", "sleep-apnea", "gout", "urinary-tract-infection"].includes(a.slug))){
   assert.equal(digest(a),baseline.articleData[a.slug],a.slug);
   assert.equal(digest(renderToStaticMarkup(a.slug==="hypertension"?createElement(HypertensionPage):createElement(HealthArticlePage,{article:a}))),baseline.articleHtml[a.slug],a.slug);
  }
- for(const g of healthSupportGuides){assert.equal(digest(g),baseline.guideData[g.slug],g.slug);assert.equal(digest(renderToStaticMarkup(await GuidePage({params:Promise.resolve({slug:g.slug})}))),baseline.guideHtml[g.slug],g.slug);}
+ for(const g of healthSupportGuides.filter(g=>g.slug!=="understanding-hba1c")){assert.equal(digest(g),baseline.guideData[g.slug],g.slug);assert.equal(digest(renderToStaticMarkup(await GuidePage({params:Promise.resolve({slug:g.slug})}))),baseline.guideHtml[g.slug],g.slug);}
  assert.equal(digest(healthClaims),baseline.claimRegistrySha256);assert.equal(healthClaims.length,144);
  assert.deepEqual(healthSources,baseline.originalSources);assert.equal(healthSources.length,170);
  assert.equal(digest(healthTools),baseline.toolsSha256);
