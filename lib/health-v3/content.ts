@@ -121,6 +121,14 @@ export const onurimTagline =
 
 export const healthSources: HealthSource[] = [
   {
+    "id": "SRC-CDC-SAFE-SINUS-RINSING",
+    "organization": "CDC",
+    "title": "How to Safely Rinse Sinuses",
+    "url": "https://www.cdc.gov/naegleria/prevention/sinus-rinsing.html",
+    "sourceDate": "2025-07-16",
+    "retrievedAt": "2026-10-01"
+  },
+  {
     "id": "SRC-CDC-LOW-GLUCOSE-TREATMENT",
     "organization": "CDC",
     "title": "Treatment of Low Blood Sugar (Hypoglycemia)",

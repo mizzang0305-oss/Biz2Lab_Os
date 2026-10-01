@@ -10,6 +10,7 @@ import { healthSupportGuides } from "../lib/health-v3/support-guides";
 import { bodyTheaterScenes } from "../lib/health-v3/body-theater";
 import HypertensionPage from "../app/health/hypertension/page";
 import { metadata as diabetesMetadata } from "../app/health/type-2-diabetes/page";
+import { metadata as rhinitisMetadata } from "../app/health/allergic-rhinitis/page";
 
 const baseline = JSON.parse(readFileSync("tests/fixtures/health-lab-observation-baseline.json", "utf8"));
 const digest = (value: unknown) => createHash("sha256").update(typeof value === "string" ? value : JSON.stringify(value)).digest("hex");
@@ -27,6 +28,29 @@ test("three authorized revisions preserve all other disease bodies and previous 
   assert.equal(digest(healthTools), baseline.toolsSha256);
   assert.equal(digest(healthClaims), baseline.claimRegistrySha256);
   for (const source of baseline.originalSources) assert.deepEqual(healthSources.find(item => item.id === source.id), source);
+});
+
+test("rhinitis pairs a fictional fact-versus-guess table with a single main observation tool", () => {
+  const article = healthArticles["allergic-rhinitis"], html = render(article.slug), text = visible(html);
+  for (const term of ["양성인 물질이 모두", "실제 가족·지인의 기록이나 검사 결과", "가상 코·눈 관찰 예시", "관찰한 사실", "아직 확인하지 않은 추측", "침실", "실외", "일부러 의심 물질에 노출하거나 약을 끊어 확인하지", "검사기관에 약 이름", "청소나 가족의 노력이 부족해서"]) assert.ok(text.includes(term), term);
+  assert.deepEqual(article.toolSlugs, ["allergy-trigger-observation"]);
+  assert.equal(article.faq.length, 0);
+  assert.equal(article.updatedAt, "2026-10-01");
+  assert.equal(rhinitisMetadata.description, article.description);
+  assert.doesNotMatch(text, /SRC-|OFFICIAL_SOURCE_CHECKED|NOT_MEDICALLY_REVIEWED|기존 claim|자주 묻는 질문/);
+  assert.ok(text.includes("MedlinePlus Medical Encyclopedia / A.D.A.M."));
+  assert.doesNotMatch(text, /NIH\/MedlinePlus: Allergic rhinitis|NIH\/MedlinePlus, Allergic rhinitis/);
+  assert.ok(html.includes('href="/health/tools/allergy-trigger-observation"'));
+  for (const id of bodyTheaterScenes[article.slug].sourceIds) assert.ok(article.sourceIds.includes(id), id);
+});
+
+test("spray packaging and water safety do not become product or mixing prescriptions", () => {
+  const article = healthArticles["allergic-rhinitis"], html = render(article.slug), text = visible(html);
+  for (const term of ["제품 추천", "성분명", "안내된 기간", "확인 필요", "비강 스테로이드", "비강 항히스타민제", "비충혈제거제", "생리식염수", "수돗물을 그대로 사용하지", "끓인 뒤 식힌 물", "소금 농도·배합", "코 세척 뒤 두통·열·혼란·구토", "즉시 119"]) assert.ok(text.includes(term), term);
+  assert.ok(html.includes('href="https://www.cdc.gov/naegleria/prevention/sinus-rinsing.html"'));
+  assert.ok(article.sourceIds.includes("SRC-CDC-SAFE-SINUS-RINSING"));
+  assert.doesNotMatch(text, /소금 \d|표백제 \d|몇 방울|하루 \d회|스프레이를 \d/);
+  assert.ok(text.includes("면허 의료인의 검수를 받지 않았습니다"));
 });
 
 test("diabetes distinguishes test clocks, conditions and recheck questions without prescribing values", () => {
