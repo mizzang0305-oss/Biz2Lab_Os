@@ -55,7 +55,7 @@ export default async function HealthSupportGuidePage({ params }: { params: Promi
           발행 <time dateTime={guide.publishedAt}>{guide.publishedAt}</time> · 수정 <time dateTime={guide.updatedAt}>{guide.updatedAt}</time><br />
           <Link href="/health/trust/medical-review-policy">면허 의료인 검수 미완료</Link> · 공식 출처 대조와 의료 검수는 다릅니다.</p> : null}
       </header>
-      <div className="onurim-trust-sections">
+      <div className="onurim-trust-sections" style={slug === "family-medication-support" ? { gridTemplateColumns: "minmax(0, 1fr)" } : undefined}>
         {guide.sections.map((section) => (
           <section key={section.title} id={section.id} className={section.tone === "warning" ? "onurim-tone-warning" : undefined}>
             <h2>{section.title}</h2>
