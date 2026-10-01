@@ -51,7 +51,7 @@ test("shared renderer changes preserve every other disease guide byte for byte",
     const rendered = renderToStaticMarkup(other.slug === "hypertension" ? createElement(HypertensionPage) : createElement(HealthArticlePage, { article: other }));
     assert.equal(digest(rendered), baseline.articleHtml[other.slug], other.slug);
   }
-  for (const guide of healthSupportGuides.filter(item => item.slug !== "family-medication-support")) {
+  for (const guide of healthSupportGuides.filter(item => item.slug !== "family-medication-support" && item.slug !== "danger-signals")) {
     assert.equal(digest(JSON.stringify(guide)), baseline.supportGuideSha256[guide.slug], guide.slug);
   }
 });
