@@ -191,7 +191,7 @@ function ClaimStatus({ ids, sourceIds }: { ids: string[]; sourceIds?: string[] }
 }
 
 export function HealthArticlePage({ article }: { article: HealthArticle }) {
-  const revisedSources = ["type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis", "asthma", "stroke", "acute-myocardial-infarction"].includes(article.slug) && article.sourceCheckedAt === "2026-10-01";
+  const revisedSources = ["type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis", "asthma", "stroke", "acute-myocardial-infarction", "dyslipidemia", "obesity", "migraine"].includes(article.slug) && article.sourceCheckedAt === "2026-10-01";
   const readerSources = article.slug === "kidney-stones" || revisedSources;
   const sourceName = (source: (typeof sources)[number]) => revisedSources && source.id === "SRC-MEDLINEPLUS-AR" ? "MedlinePlus Medical Encyclopedia / A.D.A.M." : source.organization;
   const visuals = { ...imageMeta, ...article.visuals };

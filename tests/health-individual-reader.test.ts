@@ -19,7 +19,7 @@ const strip=(html:string)=>html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,"")
 const render=(slug:keyof typeof healthArticles)=>renderToStaticMarkup(createElement(HealthArticlePage,{article:healthArticles[slug]}));
 
 test("earlier scoped revisions preserve unchanged bodies, original claims, sources and every tool",async()=>{
- for(const a of Object.values(healthArticles).filter(a=>!["osteoarthritis","osteoporosis","asthma", "stroke", "acute-myocardial-infarction"].includes(a.slug))){assert.equal(digest(a),baseline.articleData[a.slug],a.slug);const html=a.slug==="hypertension"?renderToStaticMarkup(createElement(HypertensionPage)):render(a.slug);assert.equal(digest(html),baseline.articleHtml[a.slug],a.slug);}
+ for(const a of Object.values(healthArticles).filter(a=>!["osteoarthritis","osteoporosis","asthma", "stroke", "acute-myocardial-infarction", "dyslipidemia", "obesity", "migraine"].includes(a.slug))){assert.equal(digest(a),baseline.articleData[a.slug],a.slug);const html=a.slug==="hypertension"?renderToStaticMarkup(createElement(HypertensionPage)):render(a.slug);assert.equal(digest(html),baseline.articleHtml[a.slug],a.slug);}
  for(const g of healthSupportGuides.filter(g=>g.slug!=="measuring-blood-pressure")){assert.equal(digest(g),baseline.guideData[g.slug],g.slug);assert.equal(digest(renderToStaticMarkup(await GuidePage({params:Promise.resolve({slug:g.slug})}))),baseline.guideHtml[g.slug],g.slug);}
  assert.equal(digest(healthClaims),baseline.claimRegistrySha256);assert.equal(healthClaims.length,144);
  assert.deepEqual(healthSources,baseline.originalSources);assert.equal(digest(healthTools),baseline.toolsSha256);

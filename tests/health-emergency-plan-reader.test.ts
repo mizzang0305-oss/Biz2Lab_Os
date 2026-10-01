@@ -17,8 +17,8 @@ const digest=(v:unknown)=>createHash("sha256").update(typeof v==="string"?v:JSON
 const render=(slug:typeof selected[number])=>renderToStaticMarkup(createElement(HealthArticlePage,{article:healthArticles[slug]}));
 const plain=(html:string)=>html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,"").replace(/<[^>]+>/g,"");
 
-test("this batch preserves the other 26 article bodies, all original claims, sources and tool data",async()=>{
- for(const a of Object.values(healthArticles).filter(a=>!selected.includes(a.slug as typeof selected[number]))){
+test("earlier batch preserves article bodies not revised subsequently, all original claims, sources and tool data",async()=>{
+ for(const a of Object.values(healthArticles).filter(a=>![...selected, "dyslipidemia", "obesity", "migraine"].includes(a.slug))){
   assert.equal(digest(a),baseline.articleData[a.slug],a.slug);
   assert.equal(digest(renderToStaticMarkup(a.slug==="hypertension"?createElement(HypertensionPage):createElement(HealthArticlePage,{article:a}))),baseline.articleHtml[a.slug],a.slug);
  }
