@@ -8,7 +8,7 @@ import { getHealthSupportGuide, healthSupportGuides } from "../lib/health-v3/sup
 
 const baseline = JSON.parse(readFileSync("tests/fixtures/health-support-action-baseline.json", "utf8"));
 const hash = (value: string) => createHash("sha256").update(value).digest("hex");
-const revised = new Set(["medication-list"]);
+const revised = new Set(["older-parent-health-organizer"]);
 const danger = getHealthSupportGuide("danger-signals")!;
 
 test("emergency action precedes records and education; no counseling or symptom-strength prerequisite", () => {
@@ -83,4 +83,31 @@ test("medication paragraph sources identify distinct FDA documents; headline and
   assert.equal(data.description, guide.description);
   assert.equal(data.dateModified, "2026-10-01");
   assert.ok(html.includes('style="grid-template-columns:minmax(0, 1fr)"'));
+});
+
+test("fictional parent locator separates three dates, original/latest locations, roles and consent", () => {
+  const guide = getHealthSupportGuide("older-parent-health-organizer")!;
+  const example = guide.sections.find(section => section.id === "worked-locator")!;
+  assert.deepEqual(example.table?.rows.map(row => row[0]), ["검사 시행일", "다음 예약일", "가족의 자료 확인일", "원본 위치", "최신 찾기표 위치", "도움을 맡은 역할", "동의한 공유 범위", "아직 답을 못 받은 질문", "찾기표 변경일"]);
+  for (const text of ["가상 예시", "실제 부모님·가족의 이름", "의료진 재평가일이 아님", "가상 파일명", "확인 필요", "대신 결정", "공식 표준이나 의료인 검수 양식이 아닙니다", "화면 입력을 저장하지"]) assert.ok(JSON.stringify(guide).includes(text), text);
+  assert.equal(guide.faq, undefined);
+  assert.equal(guide.sections.find(section => section.id === "blank-sheet")?.table?.rows.length, 9);
+  const links = guide.sections.flatMap(section => section.links ?? []).map(link => link.href);
+  for (const href of ["/health/guides/medication-list", "/health/guides/reading-health-results", "/health/guides/appointment-questions", "/health/samples/parent-record-locator-blank.html"]) assert.ok(links.includes(href), href);
+  const sheet = readFileSync("public/health/samples/parent-record-locator-blank.html", "utf8");
+  assert.doesNotMatch(sheet, /<script|<input|<form|fetch\(/);
+  assert.ok(sheet.includes("@page{size:A4 portrait"));
+  assert.ok(sheet.includes("치료 동의 절차를 대신하지"));
+});
+
+test("parent locator markup keeps honest authorship and no invented clinical outcome", async () => {
+  const guide = getHealthSupportGuide("older-parent-health-organizer")!;
+  const html = renderToStaticMarkup(await SupportGuidePage({params: Promise.resolve({slug: guide.slug})}));
+  const data = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map(match => JSON.parse(match[1])).find(item => item["@type"] === "Article");
+  assert.equal(data.headline, guide.title);
+  assert.equal(data.description, guide.description);
+  assert.equal(data.dateModified, "2026-10-01");
+  assert.ok(html.includes("면허 의료인 검수 미완료"));
+  assert.ok(html.includes('style="grid-template-columns:minmax(0, 1fr)"'));
+  for (const section of guide.sections) for (const id of section.sourceIds ?? []) assert.ok(guide.sources.some(source => source.id === id), id);
 });

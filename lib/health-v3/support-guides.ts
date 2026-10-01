@@ -755,60 +755,257 @@ export const healthSupportGuides: HealthSupportGuide[] = [
     ]
   },
   {
-    slug: "older-parent-health-organizer",
-    title: "부모님 건강정보, 함께 정하고 찾기 쉽게 정리하세요",
-    seoTitle: "부모님 건강정보 정리: 약·검사·진료 기록과 확인 날짜",
-    description: "당사자가 동의한 범위에서 한 장 요약과 원본 위치를 나눕니다. 현재 전체 약 목록, 검사·예약 날짜, 연락처와 확인 필요 사항을 구분해 가족과 진료기관에 전달하는 방법입니다.",
-    publishedAt: "2026-08-26", updatedAt: "2026-09-06", sourceCheckedAt: "2026-09-06",
-    faqTitle: "가족끼리 기록을 정리하며 생기는 질문",
-    sections: [
-      { title: "무엇을 누가 볼지 부모님과 먼저 정합니다", paragraphs: [
-        "부모님이 어떤 도움을 원하고 누구에게 어떤 정보를 보여 주고 싶은지 먼저 묻습니다. 약·진료 기록을 가족이 갖고 있다는 사실이 치료를 대신 결정할 권한을 뜻하지는 않습니다. 혼자 할 수 있는 일과 도움받고 싶은 일을 함께 구분하세요.",
-        "모든 기록을 한 번에 모으기보다 당장 진료에 필요한 정보부터 시작할 수 있습니다. 이 안내는 가족의 일상적인 정보 정리 방법이지 법적 대리권, 치료 동의, 연명의료 결정을 정하는 문서가 아닙니다. 별도 권한이나 절차가 필요한지 불분명하면 해당 기관에 확인합니다.",
-      ], sourceIds: ["SUP-PARENT-NHS-CARERS", "SUP-PARENT-RECORDS"] },
-      { title: "한 장 요약에는 ‘어디에서 확인할지’도 남깁니다", paragraphs: [
-        "여러 기관에 검사·처방 기록이 나뉘어 있을 수 있습니다. 요약은 필요한 내용을 찾는 출발점이고 원본 문서를 대신하지 않습니다. 긴 결과지를 모두 옮기거나 숫자를 가족이 다시 해석하지 말고, 정확한 문서를 확인할 위치와 기관을 함께 적습니다.",
-        "아래 표는 오누림의 정리 예시이며 기관이 인증한 표준 서식이 아닙니다. ‘검사한 날’, ‘다음 예약일’, ‘가족이 정보를 확인한 날’을 구분하세요. 마지막 확인일은 가족이 자료를 확인한 날짜이지 의료진이 상태를 다시 평가한 날짜가 아닙니다.",
-      ], table: { caption: "요약·원본 위치·확인할 점을 나누는 안내표", columns: ["요약할 정보", "세부자료를 찾을 곳", "함께 확인할 점"], rows: [
-        ["현재 약·보충제와 알레르기", "최신 약 목록, 실제 약봉투·용기와 안내문", "현재 전체 목록인지, 모르는 반응·이름이 있는지"],
-        ["주요 진료·질환·수술 이력", "본인이 보관한 진료 안내와 해당 기관", "어떤 문서·설명을 바탕으로 적었는지, 날짜가 확실한지"],
-        ["검사 결과와 다음 예약", "검사 결과지, 예약 안내", "검사 시행일과 다음 예약일을 섞지 않았는지"],
-        ["진료기관·도움받을 사람의 연락처", "기관이 안내한 문의 경로, 동의한 연락처", "지금도 쓸 수 있는 경로인지, 누구에게 무엇을 공유할지"],
-      ] }, sourceIds: ["SUP-PARENT-RECORDS", "SUP-PARENT-FDA-LIST", "SUP-PARENT-TALK"], links: [{ href: "/health/guides/medication-list", label: "약 이름·함량·사용법의 상세 목록을 만드는 방법" }] },
-      { title: "현재 전체 정보와 바뀐 부분을 함께 유지합니다", paragraphs: [
-        "새 약이나 변경 안내를 받았다고 새로 바뀐 약만 남기지 않습니다. 현재 사용하는 전체 약 목록을 유지하면서, 의료진이 안내한 변경과 날짜를 별도로 표시합니다. 과거에 중단한 기록을 현재 목록과 섞거나 가족이 중단 여부를 추측하지 않습니다.",
-        "모르는 내용은 ‘모름’ 또는 ‘확인 필요’라고 씁니다. 알레르기나 복용약을 기억하지 못하는 것과 없다고 확인한 것은 다릅니다. 기관별 문서가 다르면 어느 날짜의 어떤 자료인지 함께 보여 주고 의료진·약사에게 확인합니다.",
-        "검사 결과는 원문을 보관하고 무엇을 설명받았는지, 다시 확인할 시점을 메모합니다. 결과지의 표시만 보고 새 병명을 만들어 넣지 않습니다. 오래된 요약밖에 없더라도 어떤 부분이 오래됐고 무엇이 바뀌었는지 알리는 데 사용할 수 있습니다.",
-      ], sourceIds: ["SUP-PARENT-FDA-LIST", "SUP-PARENT-RECORDS", "SUP-PARENT-TALK"], links: [{ href: "/health/guides/reading-health-results", label: "검사 숫자·참고범위를 확진과 혼동하지 않고 읽기" }] },
-      { title: "진료 뒤에는 ‘다음 행동’을 짧게 확인합니다", paragraphs: [
-        "동행했다면 본인이 어떤 설명을 들었고 무엇이 궁금한지 먼저 확인합니다. 필요한 메모를 돕되 본인이 느낀 불편과 가족이 관찰한 점을 구분합니다. 확실하지 않은 내용을 가족끼리 정답으로 채우지 않습니다.",
-        "지금 할 일, 다음 진료·검사 시점, 결과를 받을 방법, 그전에 문제가 생기면 문의할 곳을 확인하세요. 이해가 어려운 안내는 다시 설명하거나 적어 달라고 요청할 수 있습니다. 일정을 기록했다고 예약이 자동으로 끝난 것은 아니므로 필요한 예약 절차도 확인합니다.",
-      ], sourceIds: ["SUP-PARENT-TALK"], links: [{ href: "/health/guides/appointment-questions", label: "진료에서 다음 일정·결과·문의처를 확인할 질문" }] },
-      { title: "공유할 사람과 보관 위치를 함께 정합니다", paragraphs: [
-        "도움을 맡은 가족이 바뀌면 부모님이 동의한 범위에서 최신 요약이 있는 곳, 확인된 변경, 아직 답을 받지 못한 질문을 전달합니다. 가족 모두에게 모든 원본을 보내는 방식만 있는 것은 아닙니다. 종이 사본·휴대전화 메모 중 본인이 찾고 관리하기 쉬운 방법을 고릅니다.",
-        "공개 링크나 공개 문의 채널에 건강정보를 올리지 않습니다. 기록을 찾는 안내표에 앱 비밀번호를 함께 적거나, 필요하지 않은 식별정보를 모으는 방식은 피하세요. 오래된 사본은 최신본과 구분하고 원본을 함부로 버리지 않습니다.",
-        "돌보는 사람도 자신의 생활과 건강을 챙길 필요가 있습니다. 할 일을 한 사람이 모두 떠맡는 대신 필요한 도움과 교대할 때 전달할 범위를 상의합니다. 약을 실제로 챙길 때의 어려움은 별도 복약 지원 안내를 참고하세요.",
-      ], sourceIds: ["SUP-PARENT-NHS-CARERS", "SUP-PARENT-FDA-LIST", "SUP-PARENT-FDA-CARING"], links: [{ href: "/health/guides/family-medication-support", label: "동의한 범위에서 약 혼동·잊음·삼킴 어려움을 돕기" }] },
-      { id: "urgent-action", title: "응급상황에서는 기록을 찾느라 기다리지 않습니다", paragraphs: [
-        "심한 호흡곤란이나 반응이 떨어지는 변화 등 위급한 상태이면 즉시 119에 연락합니다. 파일·약 목록·결과지를 모두 찾거나 가족끼리 기록을 맞춰 본 뒤 신고하는 것이 아닙니다. 아는 정보를 전하고, 모르는 것은 모른다고 답합니다. 요약표가 없다고 도움 요청을 미루지 마세요.",
-      ], tone: "warning", sourceIds: ["SUP-PARENT-EMERGENCY"], links: [{ href: "/health/guides/danger-signals", label: "건강정보 정리보다 즉시 도움받아야 할 위험 신호" }] },
+    "slug": "older-parent-health-organizer",
+    "title": "부모님 서류, 다음 사람이 원본과 최신본을 찾을 수 있나요?",
+    "seoTitle": "부모님 건강정보 정리: 원본·최신본 위치와 가족 인계용 빈 양식",
+    "description": "건강정보를 모두 다시 쓰기보다, 당사자가 동의한 범위에서 다음 사람이 원본과 최신본을 찾도록 정리합니다. 검사일·예약일·가족 확인일을 구분한 가상 예시와 한 장 인쇄용 찾기표를 제공합니다.",
+    "publishedAt": "2026-08-26",
+    "updatedAt": "2026-10-01",
+    "sourceCheckedAt": "2026-10-01",
+    "sections": [
+      {
+        "id": "one-task",
+        "title": "이번 정리의 끝은 “다음 사람이 찾을 수 있음”입니다",
+        "paragraphs": [
+          "파일을 많이 모았어도 어느 것이 원본이고 어느 사본이 최신인지 알 수 없으면 인계가 막힙니다. 이번에는 건강정보 전체를 다시 쓰는 대신, 다음 사람이 필요한 자료를 찾을 위치와 아직 확인할 일을 한 장에 남겨 보세요.",
+          "먼저 부모님이 어떤 도움을 원하는지, 누가 어떤 정보를 볼 수 있는지 상의하세요. 이 찾기표는 편집용 기록 예시이며 공식 표준이나 의료인 검수 양식이 아닙니다. 의료서류 발급·열람·치료 동의 절차를 대신하는 문서도 아닙니다."
+        ],
+        "sourceIds": [
+          "SUP-PARENT-RECORDS",
+          "SUP-PARENT-NHS-CARERS"
+        ]
+      },
+      {
+        "id": "worked-locator",
+        "title": "가상 작성 예시: 세 날짜와 두 위치를 따로 적기",
+        "paragraphs": [
+          "아래 날짜·폴더·파일명·역할은 작성법을 보여 주기 위한 가상 예시입니다. 실제 부모님·가족의 이름, 연락처, 진단이나 검사 결과는 사용하지 않았습니다. 본인 자료에 맞게 확인해서 적으세요.",
+          "검사일은 검사를 시행한 날, 예약일은 다음 일정입니다. 가족이 자료를 확인한 날은 다른 칸에 적으며 의료진이 상태를 확인한 날짜로 바꾸지 않습니다."
+        ],
+        "table": {
+          "caption": "가상 원본·최신본 찾기표 — 한 사람의 실제 기록이 아닙니다",
+          "columns": [
+            "구분",
+            "가상 작성 내용"
+          ],
+          "rows": [
+            [
+              "검사 시행일",
+              "2026-09-25 (가상 검사일; 검사 종류·결과는 설정하지 않음)"
+            ],
+            [
+              "다음 예약일",
+              "2026-10-15 (가상 예약 안내에 적힌 날짜)"
+            ],
+            [
+              "가족의 자료 확인일",
+              "2026-10-01 (자료 위치를 확인한 날; 의료진 재평가일이 아님)"
+            ],
+            [
+              "원본 위치",
+              "서류함의 「예시 폴더」 안 「원본 봉투」 (모두 가상)"
+            ],
+            [
+              "최신 찾기표 위치",
+              "같은 폴더의 「찾기표_2026-10-01」 (가상 파일명)"
+            ],
+            [
+              "도움을 맡은 역할",
+              "당사자가 지정한 도움 제공자: 일정 메모와 원본 찾기"
+            ],
+            [
+              "동의한 공유 범위",
+              "예약·원본 위치만; 문서 내용 공유는 당사자에게 다시 확인"
+            ],
+            [
+              "아직 답을 못 받은 질문",
+              "이전 요약과 원본의 차이를 의료진에게 확인할 예정"
+            ],
+            [
+              "찾기표 변경일",
+              "2026-10-01: 원본·최신본 위치를 표시함 (가상)"
+            ]
+          ]
+        },
+        "sourceIds": [
+          "SUP-PARENT-RECORDS"
+        ]
+      },
+      {
+        "id": "blank-sheet",
+        "title": "빈 양식: 원본을 찾을 수 있는 만큼만",
+        "paragraphs": [
+          "아래 빈 양식이나 별도 한 장 인쇄용 찾기표를 사용하세요. 필요한 위치만 적고 비밀번호·계정 정보는 함께 적지 않습니다. 화면 입력을 저장하지 않으며 파일 업로드·가족 자동 공유·의료 판단 기능은 없습니다.",
+          "모르는 날짜·약·알레르기를 「없음」으로 채우지 말고 「확인 필요」로 남기세요. 문서가 서로 다르면 날짜와 원문을 구분한 채 질문을 적습니다. 빈칸을 없애려고 병명이나 변경 내용을 추측하지 않습니다."
+        ],
+        "table": {
+          "caption": "빈 원본·최신본 찾기표",
+          "columns": [
+            "구분",
+            "직접 적을 내용"
+          ],
+          "rows": [
+            [
+              "검사 시행일",
+              "________________________________"
+            ],
+            [
+              "다음 예약일",
+              "________________________________"
+            ],
+            [
+              "가족의 자료 확인일",
+              "________________________________"
+            ],
+            [
+              "원본 위치",
+              "________________________________"
+            ],
+            [
+              "최신 찾기표 위치",
+              "________________________________"
+            ],
+            [
+              "도움을 맡은 역할",
+              "________________________________"
+            ],
+            [
+              "동의한 공유 범위",
+              "________________________________"
+            ],
+            [
+              "아직 답을 못 받은 질문",
+              "________________________________"
+            ],
+            [
+              "찾기표 변경일",
+              "________________________________"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "href": "/health/samples/parent-record-locator-blank.html",
+            "label": "원본·최신본 찾기표 한 장만 열어 인쇄하기"
+          }
+        ],
+        "sourceIds": [
+          "SUP-PARENT-RECORDS",
+          "SUP-PARENT-TALK"
+        ]
+      },
+      {
+        "id": "handoff-check",
+        "title": "인계할 때는 위치·바뀐 것·남은 질문만 확인합니다",
+        "bullets": [
+          "당사자가 동의한 다음 담당자가 최신 찾기표와 원본을 실제로 찾을 수 있는지 확인합니다.",
+          "이번에 바뀐 위치나 안내를 표시하고 찾기표 변경일을 적습니다. 이전 사본은 과거 자료로 구분하며 원본을 함부로 버리지 않습니다.",
+          "다음 사람이 맡을 일과 공유 범위를 다시 확인합니다. 한 사람이 모든 일을 떠맡기보다 필요한 도움을 상의합니다.",
+          "해결되지 않은 질문은 완료 표시를 하지 않고 누구에게 확인할지 적습니다."
+        ],
+        "paragraphs": [
+          "건강정보를 공개 링크나 공개 문의 채널에 올리지 마세요. 이 예시에서 정한 가족 역할은 자료를 찾고 메모하는 역할이며, 다른 사람의 치료를 대신 결정하도록 지정하는 절차가 아닙니다."
+        ],
+        "sourceIds": [
+          "SUP-PARENT-NHS-CARERS",
+          "SUP-PARENT-FDA-CARING",
+          "SUP-PARENT-TALK"
+        ]
+      },
+      {
+        "id": "related-guides",
+        "title": "상세 내용은 원본과 기존 목록에 연결합니다",
+        "paragraphs": [
+          "현재 사용하는 약은 전체 목록을 유지하고, 새 안내와 날짜를 별도로 남깁니다. 중단한 과거 약을 현재 목록과 자동으로 합치거나 목록 정리를 이유로 약을 임의로 바꾸지 않습니다.",
+          "검사 결과는 원문을 보관하고 설명받은 내용과 아직 물을 질문을 구분하세요. 다음 진료·검사, 결과를 받을 방법과 문의할 곳은 받은 안내로 확인합니다. 찾기표에 일정을 적는 것만으로 예약이 완료되지는 않습니다."
+        ],
+        "sourceIds": [
+          "SUP-PARENT-FDA-LIST",
+          "SUP-PARENT-TALK"
+        ],
+        "links": [
+          {
+            "href": "/health/guides/medication-list",
+            "label": "함량·사용법·실제 사용을 나눌 약 목록"
+          },
+          {
+            "href": "/health/guides/reading-health-results",
+            "label": "검사 결과 원문과 설명을 구분해 읽기"
+          },
+          {
+            "href": "/health/guides/appointment-questions",
+            "label": "다음 일정·결과·문의처를 물을 진료 질문"
+          }
+        ]
+      },
+      {
+        "id": "urgent-action",
+        "title": "위급하면 폴더를 찾기보다 119",
+        "tone": "warning",
+        "paragraphs": [
+          "심한 호흡곤란이나 반응이 떨어지는 변화 등 위급한 상태이면 즉시 119에 연락하세요. 파일·약 목록·결과지를 찾거나 가족끼리 기록을 맞추느라 신고를 미루지 않습니다. 아는 정보를 전하고 모르는 것은 모른다고 답하세요."
+        ],
+        "sourceIds": [
+          "SUP-PARENT-EMERGENCY"
+        ],
+        "links": [
+          {
+            "href": "/health/guides/danger-signals",
+            "label": "서류 정리보다 즉시 도움받아야 할 위험 신호"
+          }
+        ]
+      }
     ],
-    faq: [
-      { question: "한 장만 만들면 원본 기록은 없어도 되나요?", answer: "요약과 원본의 역할은 다릅니다. 요약에는 필요한 정보를 찾을 위치·기관·날짜를 함께 적고, 정확한 검사 결과와 처방 안내는 원문으로 확인할 수 있게 둡니다. 한 장에 모두 옮겨 진단 내용을 다시 만드는 것이 아닙니다.", sourceIds: ["SUP-PARENT-RECORDS", "SUP-PARENT-TALK"] },
-      { question: "이번에 새로 바뀐 약만 적으면 되나요?", answer: "현재 사용하는 전체 목록을 유지하고, 확인된 변경과 날짜를 별도로 표시합니다. 새 약만 남기거나 과거 중단약을 현재 약으로 자동 합치지 않습니다. 중단·사용법이 불분명하면 의료진·약사에게 확인합니다.", sourceIds: ["SUP-PARENT-FDA-LIST", "SUP-PARENT-FDA-CARING"] },
-      { question: "기억나지 않는 알레르기는 ‘없음’으로 적어도 되나요?", answer: "기억나지 않는 것과 없다고 확인한 것은 다릅니다. ‘모름·확인 필요’라고 표시하고 어떤 내용을 확인해야 하는지 남깁니다. 건강정보를 완성하려고 가족이 추측해 채우지 않습니다.", sourceIds: ["SUP-PARENT-RECORDS", "SUP-PARENT-TALK"] },
-      { question: "병원마다 기록이 다르면 하나로 고쳐도 되나요?", answer: "자료의 날짜와 기관을 구분한 채 차이가 있는 내용을 보여 주고 설명을 요청합니다. 가족이 임의로 병명·약 정보를 고치거나 서로 다른 문서를 같은 시점의 정보처럼 합치지 않습니다.", sourceIds: ["SUP-PARENT-RECORDS", "SUP-PARENT-TALK"] },
-      { question: "형제자매에게 모든 기록을 공유해야 하나요?", answer: "먼저 부모님이 원하는 도움과 공유 범위를 상의합니다. 필요한 사람에게 필요한 정보를 전하는 방식도 가능합니다. 기록을 보관하는 것이 치료를 대신 결정할 권한을 자동으로 주는 것은 아닙니다.", sourceIds: ["SUP-PARENT-NHS-CARERS", "SUP-PARENT-FDA-LIST"] },
-      { question: "마지막 확인일은 병원에서 검사한 날인가요?", answer: "이 정리 예시의 마지막 확인일은 가족이 해당 자료를 확인한 날입니다. 검사 시행일·다음 예약일과 별도로 적고, 의료진이 상태를 재평가한 날짜로 바꾸지 않습니다. 날짜가 불확실하면 확인 필요라고 표시하세요.", sourceIds: ["SUP-PARENT-RECORDS", "SUP-PARENT-FDA-LIST"] },
-    ],
-    sources: [
-      { id: "SUP-PARENT-RECORDS", organization: "NIH/NLM MedlinePlus", title: "Personal Health Records", url: "https://medlineplus.gov/personalhealthrecords.html", sourceDate: "2019-10-17 (Last updated)", retrievedAt: "2026-09-06" },
-      { id: "SUP-PARENT-NHS-CARERS", organization: "NHS", title: "Medicines: tips for carers", url: "https://www.nhs.uk/social-care-and-support/practical-tips-if-you-care-for-someone/medicines-tips-for-carers/", sourceDate: "2024-04-25 (Page last reviewed)", retrievedAt: "2026-09-06" },
-      { id: "SUP-PARENT-FDA-LIST", organization: "U.S. FDA", title: "Create and Keep a Medication List for Your Health", url: "https://www.fda.gov/consumers/consumer-updates/create-and-keep-medication-list-your-health", sourceDate: "HTML 본문 자체 날짜 미표시", retrievedAt: "2026-09-06" },
-      { id: "SUP-PARENT-TALK", organization: "NIH/NLM MedlinePlus", title: "Talking With Your Doctor", url: "https://medlineplus.gov/talkingwithyourdoctor.html", sourceDate: "2024-10-05 (Last updated)", retrievedAt: "2026-09-06" },
-      { id: "SUP-PARENT-FDA-CARING", organization: "U.S. FDA / Office of Women's Health", title: "Caring for Others: Resources to Help You", url: "https://www.fda.gov/consumers/womens-health-topics/caring-others-resources-help-you", sourceDate: "HTML 본문 자체 날짜 미표시", retrievedAt: "2026-09-06" },
-      { id: "SUP-PARENT-EMERGENCY", organization: "MedlinePlus Medical Encyclopedia / A.D.A.M.", title: "Recognizing medical emergencies", url: "https://medlineplus.gov/ency/article/001927.htm", sourceDate: "2025-01-08 (Review Date)", retrievedAt: "2026-09-06" },
-    ],
+    "sources": [
+      {
+        "id": "SUP-PARENT-RECORDS",
+        "organization": "NIH/NLM MedlinePlus",
+        "title": "Personal Health Records",
+        "url": "https://medlineplus.gov/personalhealthrecords.html",
+        "sourceDate": "2019-10-17 (Last updated)",
+        "retrievedAt": "2026-10-01"
+      },
+      {
+        "id": "SUP-PARENT-NHS-CARERS",
+        "organization": "NHS",
+        "title": "Medicines: tips for carers",
+        "url": "https://www.nhs.uk/social-care-and-support/practical-tips-if-you-care-for-someone/medicines-tips-for-carers/",
+        "sourceDate": "2024-04-25 (Page last reviewed)",
+        "retrievedAt": "2026-10-01"
+      },
+      {
+        "id": "SUP-PARENT-FDA-LIST",
+        "organization": "U.S. FDA",
+        "title": "Create and Keep a Medication List for Your Health",
+        "url": "https://www.fda.gov/consumers/consumer-updates/create-and-keep-medication-list-your-health",
+        "sourceDate": "HTML 본문 자체 날짜 미표시",
+        "retrievedAt": "2026-10-01"
+      },
+      {
+        "id": "SUP-PARENT-TALK",
+        "organization": "NIH/NLM MedlinePlus",
+        "title": "Talking With Your Doctor",
+        "url": "https://medlineplus.gov/talkingwithyourdoctor.html",
+        "sourceDate": "2024-10-05 (Last updated)",
+        "retrievedAt": "2026-10-01"
+      },
+      {
+        "id": "SUP-PARENT-FDA-CARING",
+        "organization": "U.S. FDA / Office of Women's Health",
+        "title": "Caring for Others: Resources to Help You",
+        "url": "https://www.fda.gov/consumers/womens-health-topics/caring-others-resources-help-you",
+        "sourceDate": "HTML 본문 자체 날짜 미표시",
+        "retrievedAt": "2026-10-01"
+      },
+      {
+        "id": "SUP-PARENT-EMERGENCY",
+        "organization": "MedlinePlus Medical Encyclopedia / A.D.A.M.",
+        "title": "Recognizing medical emergencies",
+        "url": "https://medlineplus.gov/ency/article/001927.htm",
+        "sourceDate": "2025-01-08 (Review Date)",
+        "retrievedAt": "2026-10-01"
+      }
+    ]
   },
 ];
 
