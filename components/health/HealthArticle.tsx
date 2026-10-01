@@ -191,7 +191,9 @@ function ClaimStatus({ ids, sourceIds }: { ids: string[]; sourceIds?: string[] }
 }
 
 export function HealthArticlePage({ article }: { article: HealthArticle }) {
-  const readerSources = article.slug === "kidney-stones";
+  const revisedSources = ["type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease"].includes(article.slug) && article.sourceCheckedAt === "2026-10-01";
+  const readerSources = article.slug === "kidney-stones" || revisedSources;
+  const sourceName = (source: (typeof sources)[number]) => revisedSources && source.id === "SRC-MEDLINEPLUS-AR" ? "MedlinePlus Medical Encyclopedia / A.D.A.M." : source.organization;
   const visuals = { ...imageMeta, ...article.visuals };
   const sources = getSources(article.sourceIds);
   const tools = article.toolSlugs
@@ -201,7 +203,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
   const sourceLinks = (ids?: string[]) => ids?.length ? <p className="onurim-section-sources">근거: {ids.map((id, index) => {
     const source = sources.find(item => item.id === id);
     if (!source) throw new Error(`Missing article source ${article.slug}/${id}`);
-    return <span key={id}>{index > 0 ? " · " : ""}<a href={`#source-${id}`}>{source.organization}</a></span>;
+    return <span key={id}>{index > 0 ? " · " : ""}<a href={revisedSources ? source.url : `#source-${id}`}>{sourceName(source)}{revisedSources ? `: ${source.title}` : ""}</a></span>;
   })}</p> : null;
   const structuredData = {
     "@context": "https://schema.org",
@@ -273,7 +275,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
         <a className="onurim-urgent-jump" href="#urgent-action">응급 신호와 119 안내 바로 보기</a>
       </section>
 
-      <BodyTheater slug={article.slug} />
+      <BodyTheater slug={article.slug} showSourceNames={revisedSources} />
 
       <div className="onurim-article-grid">
         <div className="onurim-article-body">
@@ -313,7 +315,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
             );
           })}
 
-          <section className="onurim-content-section" aria-labelledby="faq-title">
+          {article.faq.length > 0 ? <section className="onurim-content-section" aria-labelledby="faq-title">
             <h2 id="faq-title">자주 묻는 질문</h2>
             <div className="onurim-faq-list">
               {article.faq.map((item) => (
@@ -325,14 +327,14 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
                 </details>
               ))}
             </div>
-          </section>
+          </section> : null}
 
           <section className="onurim-content-section" aria-labelledby="sources-title">
             <h2 id="sources-title">확인한 공식 출처</h2>
             <ol className="onurim-source-list">
               {sources.map((source) => (
                 <li key={source.id} id={`source-${source.id}`}>
-                  <a href={source.url} target="_blank" rel="noreferrer">{source.organization}, {source.title}</a>
+                  <a href={source.url} target="_blank" rel="noreferrer">{sourceName(source)}, {source.title}</a>
                   <span>확인 {article.sourceCheckedAt ?? source.retrievedAt}{readerSources ? "" : ` · ${source.id}`}</span>
                 </li>
               ))}
