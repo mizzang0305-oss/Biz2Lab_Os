@@ -32,7 +32,8 @@ test("measurement and fictional example preserve raw readings and no drug change
 
 test("emergency thresholds keep strict OR, asymptomatic and nonpregnant adult conditions", () => {
   for (const text of ["임신하지 않은 성인", "180 mmHg 초과", "또는 이완기", "120 mmHg 초과", "최소 1분", "즉시 의료진", "재측정을 기다리지 말고 119", "직접 운전하지", "낮아도 안전이 보장", "임신 중이거나 소아", "개인 상태에 따른 의료진의 지침", "면허 의료인의 검수를 받지 않았습니다"]) assert.ok(html.includes(text), text);
-  assert.equal(structured.find(item => item["@type"] === "Article").isBasedOn.length, 5);
+  assert.equal(structured.find(item => item["@type"] === "Article").isBasedOn.length, 6);
+  for (const text of ["평소와 다른 가슴", "가볍다고 넘기지", "약하게 시작", "확실하지 않아도", "통증이 심해지기를 기다리지", "https://www.nhlbi.nih.gov/health/heart-attack/symptoms"]) assert.ok(html.includes(text), text);
 });
 
 test("reader removes internal codes and repetitive FAQ while original claim/policy history stays", () => {

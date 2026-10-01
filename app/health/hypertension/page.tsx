@@ -13,6 +13,7 @@ const diagnosisSource = getSources(["SRC-KDCA-HTN"])[0].url;
 const measurementSource = "https://www.heart.org/-/media/Files/Health-Topics/High-Blood-Pressure/How_to_Measure_Your_Blood_Pressure_Letter_Size.pdf";
 const emergencySource = "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/when-to-call-911-for-high-blood-pressure";
 const localEmergencySource = "https://www.kdca.go.kr/bbs/kdca/42/305195/download.do";
+const chestDiscomfortSource = "https://www.nhlbi.nih.gov/health/heart-attack/symptoms";
 
 export const metadata: Metadata = createMetadata({
   title: article.seoTitle ?? article.title,
@@ -36,7 +37,7 @@ export default function HypertensionPage() {
     image: ["hero.webp", "checklist.webp", "warning.webp"].map(name => absoluteUrl(`/images/onurim/hypertension/${name}`)),
     author: { "@type": "Person", name: "박영훈", jobTitle: "비의료인 건강정보 편집자", url: absoluteUrl("/health/trust/author") },
     publisher: { "@type": "Organization", name: "오누림", url: absoluteUrl("/") },
-    isBasedOn: [homeSource, measurementSource, diagnosisSource, emergencySource, localEmergencySource],
+    isBasedOn: [homeSource, measurementSource, diagnosisSource, emergencySource, localEmergencySource, chestDiscomfortSource],
   };
 
   return (
@@ -119,6 +120,7 @@ export default function HypertensionPage() {
           <section id="urgent-action" className="onurim-content-section onurim-tone-warning" aria-labelledby="urgent-title">
             <h2 id="urgent-title">수치 확인보다 119가 먼저인 때</h2>
             <p><strong>갑작스러운 심한 가슴 통증, 호흡곤란, 한쪽 마비, 말이나 시야의 이상</strong>이 있으면 혈압 숫자를 확인하거나 내려가는지 기다리지 말고 119에 도움을 요청하세요. 직접 운전하지 마세요. <a href={localEmergencySource} target="_blank" rel="noreferrer">질병관리청의 조기증상·119 대응 안내(PDF)</a></p>
+            <p><strong>새롭거나 평소와 다른 가슴의 불편·압박감도 가볍다고 넘기지 마세요.</strong> 심근경색 증상은 약하게 시작하거나 서서히 나타날 수 있습니다. 심근경색이 의심되면 확실하지 않아도 혈압을 다시 재거나 통증이 심해지기를 기다리지 말고 119에 연락하세요. <a href={chestDiscomfortSource} target="_blank" rel="noreferrer">미국 국립심장폐혈액연구소(NHLBI)의 증상·응급 도움 안내</a></p>
             <p>그런 증상이 없는 경우, 미국심장협회의 <strong>임신하지 않은 성인</strong> 안내는 수축기 혈압이 <strong>180 mmHg 초과</strong> 또는 이완기 혈압이 <strong>120 mmHg 초과</strong>이면 최소 1분 후 다시 측정하고, 계속 높으면 즉시 의료진에게 연락하도록 설명합니다. 혈압이 매우 높고 가슴 통증·호흡곤란·마비·말이나 시야 이상 등의 증상이 함께 있으면 재측정을 기다리지 말고 119에 연락하세요. <a href={emergencySource} target="_blank" rel="noreferrer">미국심장협회의 매우 높은 혈압·응급 증상 안내</a> · <a href={measurementSource} target="_blank" rel="noreferrer">수축기 또는 이완기 기준표(PDF)</a></p>
             <p>이 숫자보다 낮아도 안전이 보장되는 것은 아닙니다. 임신 중이거나 소아인 경우 이 성인 기준을 적용하지 마세요. 개인 상태에 따른 의료진의 지침이 우선입니다.</p>
             <figure className="onurim-body-figure">
