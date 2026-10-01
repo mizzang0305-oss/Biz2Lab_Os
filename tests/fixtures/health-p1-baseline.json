@@ -31,5 +31,16 @@
     "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5433",
     "sourceDate": "2026-05-11 (업데이트)",
     "retrievedAt": "2026-09-06"
+  },
+  "supportGuideSha256": {
+    "danger-signals": "e5c306c988ada06d0ce3352ec05f2baa94003cf5ae9c86d539befb3abbe6d56c",
+    "measuring-blood-pressure": "12382cf39acfb766d5dd59f517edd68690017bca92f783dda460882c60d5b15f",
+    "understanding-hba1c": "80ecd950dfc2fa17e1b1b10fd04380d7f3ef96e2916b4a9d0fcf2fabbe62d817",
+    "reading-health-results": "87c5fd0ed2f856815655bbeeef0951b3aa8bc1925f93c14dfb128f4b417f009c",
+    "family-medication-support": "b15136f2dd4f7f90f352e5eeaafa2df770ab904a3434937bb6c6fb537e8221d4",
+    "symptom-journal": "1a2c99a9dda6c66e8e124bfba2605979a06331468c71c43bf6758163bdeb034d",
+    "appointment-questions": "616b41f9f662e1e8ff304000b25906cc1c04437227d4450d2f0522f657b43471",
+    "medication-list": "5780bbefe867822642ecbd3e5b2b2f19955c995cd7975dd0e26607faf16d445d",
+    "older-parent-health-organizer": "63d54af4db218e27536f53d0102317035c7dc702ce45b2ba805a3a2e0edbfb40"
   }
 }
