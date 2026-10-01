@@ -15,7 +15,7 @@ import { metadata as refluxMetadata } from "../app/health/gastroesophageal-reflu
 
 const baseline = JSON.parse(readFileSync("tests/fixtures/health-lab-observation-baseline.json", "utf8"));
 const digest = (value: unknown) => createHash("sha256").update(typeof value === "string" ? value : JSON.stringify(value)).digest("hex");
-const revisedSlugs = ["type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis", "asthma", "stroke", "acute-myocardial-infarction", "dyslipidemia", "obesity", "migraine"];
+const revisedSlugs = ["type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis", "asthma", "stroke", "acute-myocardial-infarction", "dyslipidemia", "obesity", "migraine", "metabolic-dysfunction-associated-steatotic-liver-disease", "irritable-bowel-syndrome", "sleep-apnea"];
 const render = (slug: keyof typeof healthArticles) => renderToStaticMarkup(createElement(HealthArticlePage, { article: healthArticles[slug] }));
 const visible = (html: string) => html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, "");
 

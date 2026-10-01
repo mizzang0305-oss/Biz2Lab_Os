@@ -1,0 +1,976 @@
+{
+  "articles": [
+    {
+      "slug": "metabolic-dysfunction-associated-steatotic-liver-disease",
+      "seoTitle": "지방간(MASLD) 검사 결과: 간 수치·초음파·섬유화 구분",
+      "title": "지방간이라는데 간 수치는 정상, 무엇을 더 물어볼까요?",
+      "eyebrow": "위장·간 · 결과가 다르게 보일 때의 질문",
+      "publishedAt": "2026-08-26",
+      "updatedAt": "2026-09-06",
+      "sourceCheckedAt": "2026-09-06",
+      "description": "지방간(MASLD)의 명칭과 지방·염증·섬유화를 구분하고, 간 수치·일반 초음파·탄성도검사의 역할을 설명합니다. 기존 검사표와 음주·약 정보를 진료 질문으로 정리합니다.",
+      "outcome": "서로 다른 간 검사 결과를 혼자 채점하지 않고, 어떤 상태를 확인했으며 무엇을 더 물을지 정리할 수 있습니다.",
+      "archetype": "QUESTION_FIRST",
+      "summary": [
+        "간 수치가 참고범위 안이라는 결과와 초음파의 지방간 소견은 함께 나올 수 있습니다.",
+        "지방 축적·염증과 손상·섬유화는 같은 말이 아니며 검사마다 확인할 수 있는 내용도 다릅니다.",
+        "검사표를 보고 약·보충제를 시작하지 않습니다. 음주와 현재 치료, 새 증상을 함께 알립니다."
+      ],
+      "sections": [
+        {
+          "title": "‘간 수치는 정상’과 ‘지방간’ 중 무엇이 맞을까요?",
+          "paragraphs": [
+            "둘 중 하나가 틀렸다고 고를 필요는 없습니다. 흔히 간 수치라고 부르는 AST·ALT와 일반 복부 초음파는 같은 것을 재는 검사가 아닙니다. 간효소가 참고범위 안에 있어도 지방간이나 중요한 간 상태가 모두 배제되는 것은 아닙니다.",
+            "반대로 간 수치가 높다는 이유만으로 지방간이나 섬유화의 정도를 확정할 수도 없습니다. 결과의 항목·단위·검사실 참고범위와 다른 검사, 개인 이력을 함께 봅니다. ‘어느 결과를 믿을까요?’보다 ‘각 검사가 무엇을 확인했나요?’라고 질문해 보세요. 모두가 정밀검사를 받아야 한다는 뜻은 아닙니다.",
+            "지방간은 뚜렷한 증상 없이 검진에서 발견될 수 있습니다. 피로나 오른쪽 윗배 불편이 있더라도 그것만으로 원인이나 심한 정도를 알 수는 없습니다."
+          ],
+          "claimIds": [
+            "MASLD-P3-002",
+            "MASLD-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-EASL-MASLD-2024",
+            "SRC-KDCA-LIVER-TESTS",
+            "SRC-NIDDK-MASLD-SYMPTOMS",
+            "SRC-AMC-FATTY-LIVER"
+          ],
+          "imageId": null,
+          "links": [
+            {
+              "href": "/health/guides/reading-health-results",
+              "label": "검사표의 항목·단위·참고범위부터 읽기"
+            }
+          ]
+        },
+        {
+          "title": "MASLD·NAFLD, 이름은 어떻게 연결되나요?",
+          "paragraphs": [
+            "지방간은 간에 지방이 과도하게 쌓인 상태를 가리키는 넓은 말입니다. 그중 MASLD는 간의 지방 축적과 함께 혈당·혈압·지질·체중 관련 대사 위험요인 등을 확인하는 질환 범주입니다. 모든 지방간을 곧바로 MASLD라고 부르는 것은 아닙니다.",
+            "과거 자료에는 비알코올성 지방간질환(NAFLD), 비알코올성 지방간염(NASH)이라는 말이 흔합니다. 새 명칭 체계에서는 각각 MASLD와 MASH라는 용어를 사용합니다. 대사 위험요인과 음주·다른 원인을 함께 고려하는 분류이므로 옛 결과표의 이름만 보고 내 진단을 바꾸지 않습니다.",
+            "대사 문제와 음주 영향이 겹치는 경우 등은 따로 구분할 수 있습니다. 술을 마시지 않는다는 사실만으로 진단을 확정하거나, 마신다는 이유로 대사 요인을 살피지 않아도 되는 것은 아닙니다."
+          ],
+          "claimIds": [
+            "MASLD-P3-001",
+            "MASLD-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-AASLD-MASLD-NAME",
+            "SRC-NIDDK-MASLD-DEFINITION",
+            "SRC-NIDDK-MASLD-SYMPTOMS"
+          ],
+          "imageId": null
+        },
+        {
+          "title": "간의 지방·염증·섬유화는 서로 다른 말입니다",
+          "bullets": [
+            "지방 축적: 간세포 안에 지방이 늘어난 상태를 말합니다.",
+            "염증과 간세포 손상: 지방이 있다는 것 외에 염증과 세포 손상이 함께 있는지를 살핍니다. 지방간염(MASH)의 설명과 연결됩니다.",
+            "섬유화: 손상에 대한 반응으로 간에 흉터 조직이 쌓이는 변화를 뜻합니다."
+          ],
+          "paragraphs": [
+            "이 세 가지는 같은 검사 결과를 다른 말로 표현한 것이 아닙니다. 한 사람에게 함께 나타날 수 있지만 누구나 차례로 거치는 세 단계도 아닙니다. ‘지방간 소견’이라는 한 문장을 지방간염이나 간경변 진단으로 바꾸어 읽지 마세요."
+          ],
+          "claimIds": [
+            "MASLD-P3-001",
+            "MASLD-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-NIDDK-MASLD-DEFINITION",
+            "SRC-NIDDK-MASLD-DIAGNOSIS",
+            "SRC-EASL-MASLD-2024"
+          ],
+          "imageId": "masld-concept"
+        },
+        {
+          "title": "검사마다 답할 수 있는 질문이 다릅니다",
+          "table": {
+            "caption": "기존 검사 결과의 역할과 한계를 묻는 표",
+            "columns": [
+              "검사·자료",
+              "무엇을 살피나요?",
+              "진료에서 확인할 질문"
+            ],
+            "rows": [
+              [
+                "AST·ALT 등 혈액검사",
+                "주로 간세포 손상과 관련된 단서를 봅니다. 간의 모든 기능을 하나의 점수로 나타내지는 않습니다.",
+                "수치 변화와 다른 결과를 함께 보면 어떤 의미인가요?"
+              ],
+              [
+                "일반 복부 초음파",
+                "간의 지방 축적 소견 등을 살핍니다. 이것만으로 지방간염·섬유화 정도를 확정하지 않습니다.",
+                "결과지의 지방 소견 외에 확인할 내용이 있나요?"
+              ],
+              [
+                "간 탄성도검사",
+                "간의 뻣뻣한 정도를 살펴 섬유화 위험 평가에 도움을 줍니다. 일반 초음파와 역할이 다릅니다.",
+                "제 상황에서 이 결과의 의미와 한계는 무엇인가요?"
+              ],
+              [
+                "조직검사 등 추가 평가",
+                "일부 상황에서 염증·손상·섬유화를 더 자세히 확인합니다. 모두에게 조직검사가 필요한 것은 아닙니다.",
+                "추가 평가를 권하는 이유와 이점·위험은 무엇인가요?"
+              ]
+            ]
+          },
+          "paragraphs": [
+            "이 표는 검사 주문 목록이 아닙니다. 어떤 검사가 필요한지는 의료진이 기존 결과와 다른 원인을 함께 살펴 정합니다. 인터넷 계산식에 수치를 넣어 섬유화 단계를 확정하거나 추적검사를 취소하지 않습니다."
+          ],
+          "claimIds": [
+            "MASLD-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-KDCA-LIVER-TESTS",
+            "SRC-NIDDK-MASLD-DIAGNOSIS",
+            "SRC-AMC-FATTY-LIVER"
+          ],
+          "tone": "note",
+          "imageId": null
+        },
+        {
+          "title": "진료에는 결과 원문과 음주·약 정보를 함께",
+          "paragraphs": [
+            "검사 결과는 기억으로 ‘좋았다·나빴다’고 적기보다 가능하면 원본 그대로 가져갑니다. 아래는 이미 가진 정보를 정리하는 예입니다. 해 보지 않은 검사나 모르는 가족력을 채우려고 새 검사를 받거나 추측할 필요는 없습니다."
+          ],
+          "bullets": [
+            "검사 날짜와 결과: 혈액검사의 항목·단위·참고범위, 초음파의 정확한 문구, 추가 평가를 받았다면 검사명과 결과.",
+            "음주 정보: 지금과 과거의 음주 횟수, 한 번에 마시는 양, 줄이거나 끊을 때 생기는 불편.",
+            "현재 치료: 처방약·일반약·보충제·생약의 이름과 시작 시기, 알고 있는 당뇨병·혈압·지질 문제.",
+            "질문: 다른 원인도 확인해야 하는지, 섬유화 평가가 필요한지, 다음 확인 시점과 그 전에 연락할 변화는 무엇인지."
+          ],
+          "claimIds": [
+            "MASLD-P3-003",
+            "MASLD-P3-004"
+          ],
+          "sourceIds": [
+            "SRC-NIDDK-MASLD-DIAGNOSIS",
+            "SRC-NIDDK-MASLD-SYMPTOMS",
+            "SRC-NHS-ALCOHOL-USE-DISORDER"
+          ],
+          "tone": "note",
+          "imageId": "masld-action",
+          "links": [
+            {
+              "href": "/health/tools/metabolic-dysfunction-associated-steatotic-liver-disease-visit-card",
+              "label": "지방간 결과 설명을 준비하는 진료 질문 카드"
+            },
+            {
+              "href": "/health/guides/medication-list",
+              "label": "보충제·생약까지 포함한 약 목록 만들기"
+            }
+          ]
+        },
+        {
+          "title": "보충제보다 개인에게 맞는 관리 계획을 확인하세요",
+          "paragraphs": [
+            "식사와 활동 조정, 필요한 경우의 체중 관리는 의료진과 생활 여건에 맞춰 계획합니다. 빨리 줄일수록 좋다고 생각해 굶거나 급격히 감량하지 않습니다. 혈당·혈압·지질을 함께 관리할 필요도 있으므로 간 수치 하나만 낮추는 것을 목표로 삼지 않습니다.",
+            "‘간에 좋다’는 광고가 안전한 치료를 뜻하지 않습니다. 보충제의 효과·안전 근거는 충분하지 않을 수 있고 일부 생약 등은 간에 해로울 수 있습니다. 제품명과 성분을 알리고, 검사표를 보고 약이나 보충제를 혼자 시작·중단하지 않습니다. 이 글은 특정 약의 국내 허가·처방 대상·용량을 안내하지 않습니다.",
+            "음주는 간 건강 계획에서 반드시 상의할 부분입니다. 다만 술을 줄이거나 끊을 때 떨림·식은땀 같은 금단 증상이 있거나 의존이 의심되면 혼자 갑자기 끊는 방식으로 해결하려 하지 말고 먼저 의료 도움을 받으세요. 이는 음주를 계속하라는 권장이 아니라 안전하게 중단할 도움을 받으라는 뜻입니다."
+          ],
+          "claimIds": [
+            "MASLD-P3-004"
+          ],
+          "sourceIds": [
+            "SRC-NIDDK-MASLD-TREATMENT",
+            "SRC-EASL-MASLD-2024",
+            "SRC-AMC-FATTY-LIVER",
+            "SRC-NHS-ALCOHOL-USE-DISORDER"
+          ],
+          "imageId": null,
+          "links": [
+            {
+              "href": "/health/obesity",
+              "label": "체중과 생활 여건을 함께 상담하는 방법"
+            },
+            {
+              "href": "/health/type-2-diabetes",
+              "label": "함께 확인하는 혈당 검사의 뜻"
+            },
+            {
+              "href": "/health/dyslipidemia",
+              "label": "LDL·HDL·중성지방 검사표 읽기"
+            }
+          ]
+        },
+        {
+          "title": "새 황달과 응급 변화는 다음 검진까지 미루지 마세요",
+          "paragraphs": [
+            "피부나 눈 흰자가 새로 노래지면 빠른 의료 평가가 필요합니다. 당일 의료기관에 연락해 신속한 진료를 받으세요. 지방간 때문이라고 단정하거나 정기검진일까지 기다리지 않습니다.",
+            "갑자기 혼란스러워하거나 어디에 있는지 모르는 등 평소와 다른 의식·인지 변화가 생기면 즉시 119에 도움을 요청합니다. 피를 토했거나 토하는 중에 어지럽거나 몸이 전반적으로 좋지 않은 경우, 숨이 가쁘거나 검은 변이 함께 있는 경우도 즉시 119에 연락합니다. 직접 운전하거나 기록을 완성하느라 지연하지 않습니다.",
+            "피를 토한 뒤 멈췄고 다른 증상이 없어도 신속히 의료 도움을 받아야 합니다. 이런 변화가 있다고 MASLD나 간경변이 확정되는 것은 아닙니다. 다양한 원인이 있어 온라인 자가판단보다 의료 평가가 먼저입니다."
+          ],
+          "claimIds": [
+            "MASLD-P3-005"
+          ],
+          "sourceIds": [
+            "SRC-NHS-JAUNDICE",
+            "SRC-NHS-VOMITING-BLOOD",
+            "SRC-NHS-SUDDEN-CONFUSION"
+          ],
+          "tone": "warning",
+          "imageId": null,
+          "links": [
+            {
+              "href": "/health/guides/danger-signals",
+              "label": "진료 기록보다 먼저 대응할 위험 신호"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "옛 결과표의 NAFLD는 MASLD와 무조건 같은 뜻인가요?",
+          "answer": "명칭은 연결되지만 새 분류는 간의 지방과 대사 요인, 음주·다른 원인을 함께 고려합니다. 옛 이름만으로 스스로 진단을 바꾸지 말고 현재 설명과 어떻게 연결되는지 묻습니다.",
+          "claimIds": [
+            "MASLD-P3-001"
+          ],
+          "sourceIds": [
+            "SRC-AASLD-MASLD-NAME"
+          ]
+        },
+        {
+          "question": "간 수치가 정상이면 더 확인하지 않아도 되나요?",
+          "answer": "정상 간효소만으로 지방 축적이나 중요한 간 손상을 모두 배제할 수는 없습니다. 반대로 이상 수치 하나가 특정 질환을 확정하지도 않습니다. 기존 결과와 개인 이력에 맞춰 다음 확인을 정합니다.",
+          "claimIds": [
+            "MASLD-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-EASL-MASLD-2024",
+            "SRC-KDCA-LIVER-TESTS"
+          ]
+        },
+        {
+          "question": "초음파의 지방간 소견이 지방간염·간경변이라는 뜻인가요?",
+          "answer": "같은 뜻이 아닙니다. 지방 축적, 염증·손상, 섬유화는 구분해서 평가합니다. 일반 초음파의 한 문구를 다른 진단이나 개인의 진행 단계로 바꾸어 읽지 않습니다.",
+          "claimIds": [
+            "MASLD-P3-001",
+            "MASLD-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-NIDDK-MASLD-DEFINITION",
+            "SRC-NIDDK-MASLD-DIAGNOSIS"
+          ]
+        },
+        {
+          "question": "일반 초음파와 간 탄성도검사는 다른가요?",
+          "answer": "일반 초음파로 보는 지방 소견과 탄성도검사로 살피는 간의 뻣뻣한 정도는 역할이 다릅니다. 탄성도 수치도 혼자 질환 단계를 확정하는 값은 아니므로 검사명과 원문으로 설명을 듣습니다.",
+          "claimIds": [
+            "MASLD-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-NIDDK-MASLD-DIAGNOSIS"
+          ]
+        },
+        {
+          "question": "술을 많이 마시지 않는데 왜 음주를 묻나요?",
+          "answer": "간의 지방에는 여러 원인이 관여할 수 있습니다. 지금과 과거의 음주, 대사 요인과 약 정보를 함께 알아야 원인과 분류를 살필 수 있습니다. 비난하거나 술만으로 원인을 정하기 위한 질문이 아닙니다.",
+          "claimIds": [
+            "MASLD-P3-003",
+            "MASLD-P3-004"
+          ],
+          "sourceIds": [
+            "SRC-AASLD-MASLD-NAME",
+            "SRC-NIDDK-MASLD-SYMPTOMS"
+          ]
+        },
+        {
+          "question": "간에 좋다는 보충제를 먼저 먹어도 되나요?",
+          "answer": "보충제가 확인된 치료를 대신한다고 생각하지 않습니다. 효과와 안전성의 근거가 부족할 수 있고 일부 제품은 간에 해로울 수 있습니다. 복용 전 제품명·성분을 의료진에게 알리고 상담합니다.",
+          "claimIds": [
+            "MASLD-P3-004"
+          ],
+          "sourceIds": [
+            "SRC-EASL-MASLD-2024",
+            "SRC-NIDDK-MASLD-TREATMENT"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "SRC-NIDDK-MASLD-DEFINITION",
+        "SRC-NIDDK-MASLD-SYMPTOMS",
+        "SRC-NIDDK-MASLD-DIAGNOSIS",
+        "SRC-NIDDK-MASLD-TREATMENT",
+        "SRC-AMC-FATTY-LIVER",
+        "SRC-KDCA-LIVER-TESTS",
+        "SRC-AASLD-MASLD-NAME",
+        "SRC-EASL-MASLD-2024",
+        "SRC-NHS-JAUNDICE",
+        "SRC-NHS-VOMITING-BLOOD",
+        "SRC-NHS-SUDDEN-CONFUSION",
+        "SRC-NHS-ALCOHOL-USE-DISORDER"
+      ],
+      "imageIds": [
+        "masld-hero",
+        "masld-concept",
+        "masld-action"
+      ],
+      "visuals": {
+        "masld-hero": {
+          "src": "/images/onurim/metabolic-dysfunction-associated-steatotic-liver-disease/hero.webp",
+          "alt": "네 줄의 기록 용지와 상담 준비를 상징하는 보라색 장식 표지 삽화",
+          "caption": "표지의 색과 줄은 실제 간 검사 결과나 의료 검수 완료 표시가 아닙니다.",
+          "width": 1536,
+          "height": 1024
+        },
+        "masld-concept": {
+          "src": "/images/onurim/metabolic-dysfunction-associated-steatotic-liver-disease/concept-v2.webp",
+          "alt": "왼쪽 간세포 안의 노란 지방 방울, 가운데 부푼 세포와 주변 염증세포, 오른쪽 세포 사이의 푸른 섬유조직을 구분한 개념도",
+          "caption": "왼쪽은 지방 축적, 가운데는 염증·세포 손상, 오른쪽은 섬유화를 단순화했습니다. 함께 나타날 수 있는 서로 다른 특징이며 누구나 순서대로 겪는 단계가 아닙니다. 실제 조직검사 영상·등급·치료 전후가 아닙니다.",
+          "width": 1536,
+          "height": 1024
+        },
+        "masld-action": {
+          "src": "/images/onurim/metabolic-dysfunction-associated-steatotic-liver-disease/action-v2.webp",
+          "alt": "성인 한 명이 혈액검사 결과지와 초음파 보고서 폴더를 옆에 놓고 별도 노트에 질문을 정리하는 생성 이미지",
+          "caption": "실제 환자 사진이 아닌 AI 생성 상황 예시입니다. 결과지의 빈칸·표지는 실제 값이나 판독이 아니며, 뒤쪽 약·보충제 포장은 목록을 준비한다는 뜻이지 복용 권장이 아닙니다.",
+          "width": 1536,
+          "height": 1024
+        }
+      },
+      "toolSlugs": [
+        "metabolic-dysfunction-associated-steatotic-liver-disease-visit-card"
+      ]
+    },
+    {
+      "slug": "irritable-bowel-syndrome",
+      "seoTitle": "과민성장증후군(IBS): 복통·배변 변화 기록과 진료 신호",
+      "title": "배가 아플 때, 배변 전후 무엇이 달라졌나요?",
+      "eyebrow": "위장·간 · 몸의 변화를 진료 언어로",
+      "publishedAt": "2026-08-26",
+      "updatedAt": "2026-09-07",
+      "sourceCheckedAt": "2026-09-06",
+      "description": "복통이 배변 전후 어떻게 달라지는지, 변의 형태와 횟수는 어떻게 변했는지 정리합니다. IBS·IBD의 차이, 음식 제한의 경계와 진료를 미루지 말아야 할 신호를 설명합니다.",
+      "outcome": "배변과 통증의 관계를 혼자 진단하지 않고 설명하며, 새 경고 신호는 기존 IBS 때문이라고 넘기지 않을 수 있습니다.",
+      "archetype": "BODY_SIGNAL",
+      "summary": [
+        "배변 뒤 통증은 덜해지거나 더해질 수 있습니다. 기억나는 변화를 그대로 적습니다.",
+        "IBS와 염증성 장질환(IBD)은 다르며, 증상이나 정상 검사 하나로 스스로 구별하지 않습니다.",
+        "새 출혈·체중 감소는 의료 평가가 필요하고, 갑작스럽거나 심한 복통·많은 출혈·쓰러짐은 응급 도움을 우선합니다."
+      ],
+      "sections": [
+        {
+          "title": "화장실을 다녀온 뒤의 느낌부터 떠올려 보세요",
+          "paragraphs": [
+            "‘배가 자주 아파요’에서 한 걸음 더 나아가, 변을 보기 전과 후에 무엇이 달랐는지 말해 보세요. 덜 아팠을 수도, 더 아팠을 수도 있습니다. 잘 모르거나 비슷했다면 그렇게 적으면 됩니다. 정답에 맞추려 기억을 고치지 마세요.",
+            "복통에 배변 횟수나 변의 형태 변화가 함께 반복될 때 과민성장증후군(IBS)을 살펴볼 수 있습니다. 하지만 화장실에 다녀온 뒤 편해졌다는 사실 하나가 IBS 진단은 아닙니다. 처음 생겼거나 반복되는 불편으로 일상이 어려우면 진료를 받아 원인을 확인합니다."
+          ],
+          "bullets": [
+            "통증의 변화: ‘덜 아팠다 / 더 아팠다 / 비슷했다 / 잘 모르겠다’처럼 자신의 말로 남깁니다.",
+            "배변의 변화: 평소보다 잦거나 드물었는지, 단단했는지 묽었는지를 함께 봅니다.",
+            "하루의 차이: 괜찮은 날도 있었는지, 식사나 외출·수면 중 언제 불편했는지 떠올립니다."
+          ],
+          "claimIds": [
+            "IBS-P3-001",
+            "IBS-P3-002"
+          ],
+          "sourceIds": [
+            "SRC-NIDDK-IBS-DIAGNOSIS",
+            "SRC-NIDDK-IBS-SYMPTOMS",
+            "SRC-NHS-IBS-SYMPTOMS",
+            "SRC-NHS-IBS-DIAGNOSIS"
+          ],
+          "imageId": "ibs-action"
+        },
+        {
+          "title": "검사에 뚜렷한 손상이 안 보여도 불편은 실제입니다",
+          "paragraphs": [
+            "IBS는 반복되는 복통과 설사·변비 등의 배변 변화가 함께 나타나는 질환입니다. 장의 움직임과 감각, 장과 뇌가 신호를 주고받는 작용 등 여러 요인을 함께 살핍니다. 어떤 사람은 장이 늘어나거나 내용물이 움직이는 자극을 더 민감하게 느낄 수 있습니다.",
+            "이 설명은 ‘마음먹기에 달렸다’거나 ‘아픈 척한다’는 뜻이 아닙니다. 수면·식사·생활의 긴장과 증상의 관계는 상담할 맥락이지 한 사람을 탓하거나 원인을 하나로 확정하는 답이 아닙니다. IBS가 있어도 모든 복통을 같은 이유로 설명하지 않습니다.",
+            "설사가 주로 나타나기도 하고 변비가 주로 나타나거나 두 양상이 번갈아 나타나기도 합니다. 다른 사람에게 맞았던 약이나 식단을 그대로 적용하지 않는 이유 중 하나입니다."
+          ],
+          "claimIds": [
+            "IBS-P3-001",
+            "IBS-P3-002",
+            "IBS-P3-004"
+          ],
+          "sourceIds": [
+            "SRC-NIDDK-IBS-DEFINITION",
+            "SRC-NIDDK-IBS-SYMPTOMS",
+            "SRC-KDCA-IBS",
+            "SRC-NIDDK-IBS-TREATMENT"
+          ],
+          "imageId": "ibs-concept"
+        },
+        {
+          "title": "IBS와 IBD는 이름이 비슷해도 다른 질환입니다",
+          "table": {
+            "caption": "약자를 풀어 읽기 — 증상으로 진단하는 표가 아닙니다",
+            "columns": [
+              "이름",
+              "구분해서 이해할 점"
+            ],
+            "rows": [
+              [
+                "IBS: 과민성장증후군",
+                "장-뇌 상호작용, 장의 기능과 감각 등을 살피는 질환입니다. 반복되는 복통과 배변 변화가 함께 나타납니다."
+              ],
+              [
+                "IBD: 염증성 장질환",
+                "크론병·궤양성대장염 등이 포함됩니다. 장에 염증을 일으키는 질환으로 IBS와 같지 않습니다."
+              ]
+            ]
+          },
+          "paragraphs": [
+            "복통·설사처럼 겹치는 증상이 있어 이름이나 증상 목록만으로 둘을 구별할 수 없습니다. 특히 새 출혈이나 설명되지 않는 체중 변화가 있으면 기존 IBS로 넘기지 말고 알립니다.",
+            "진료에서는 증상의 흐름과 병력·가족력, 신체검사를 먼저 살피고 필요에 따라 혈액·대변검사나 내시경 등으로 다른 원인을 확인합니다. 모두에게 대장내시경이 필수라는 뜻도, IBS가 의심되면 검사할 필요가 없다는 뜻도 아닙니다. ‘검사가 정상이니 IBS 확정’으로 결론 내리지 않습니다."
+          ],
+          "claimIds": [
+            "IBS-P3-001",
+            "IBS-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-NIDDK-IBS-DEFINITION",
+            "SRC-NHS-IBD",
+            "SRC-NHS-IBS-DIAGNOSIS",
+            "SRC-NIDDK-IBS-DIAGNOSIS",
+            "SRC-KDCA-IBS"
+          ],
+          "tone": "note",
+          "imageId": null,
+          "links": [
+            {
+              "href": "/health/guides/reading-health-results",
+              "label": "정상·이상 표시만으로 결론 내리지 않고 검사표 읽기"
+            }
+          ]
+        },
+        {
+          "title": "진료에서는 이 다섯 가지를 짧게 설명하세요",
+          "bullets": [
+            "언제·어디가: 시작 시기, 배의 어느 쪽인지, 어떻게 아팠는지와 일상에 미친 영향.",
+            "배변 전후: 통증이 줄거나 늘었는지, 비슷했는지. 모르면 모른다고 적습니다.",
+            "평소와 다른 변: 횟수·단단함·묽음과 급하게 화장실에 갔던 상황.",
+            "함께 바뀐 것: 식사·수면·생활 상황, 새 약이나 최근 장염·항생제 복용 등 알고 있는 정보.",
+            "놓치지 않을 변화: 출혈, 원인 없는 체중 감소, 통증 때문에 밤에 깬 일, 알고 있는 소화기질환 가족력."
+          ],
+          "paragraphs": [
+            "예를 들어 ‘아침 식사 뒤 아랫배가 불편했고 변을 본 뒤에도 비슷했다’처럼 관찰을 남길 수 있습니다. 이는 실제 환자 사례나 진단 기준이 아닌 기록 문장 예시입니다. ‘아침 음식이 원인이다’라는 결론까지 붙일 필요는 없습니다.",
+            "기록은 기억을 돕는 도구입니다. 빈칸을 모두 채우거나 일정 기간을 기다려야 진료받을 수 있는 것은 아닙니다. 말하기 불편한 배변 변화도 의료진에게 전달할 정보이며, 이 페이지에 개인정보나 변 사진을 보내지 않습니다."
+          ],
+          "claimIds": [
+            "IBS-P3-002",
+            "IBS-P3-003",
+            "IBS-P3-004"
+          ],
+          "sourceIds": [
+            "SRC-NHS-IBS-DIAGNOSIS",
+            "SRC-NIDDK-IBS-DIAGNOSIS",
+            "SRC-KDCA-IBS"
+          ],
+          "tone": "note",
+          "imageId": null,
+          "links": [
+            {
+              "href": "/health/tools/irritable-bowel-syndrome-visit-card",
+              "label": "복통·배변 변화의 진료 질문 카드"
+            },
+            {
+              "href": "/health/guides/symptom-journal",
+              "label": "추측과 관찰을 나누는 증상 기록법"
+            },
+            {
+              "href": "/health/guides/medication-list",
+              "label": "최근 시작한 약까지 목록으로 정리하기"
+            }
+          ]
+        },
+        {
+          "title": "먹지 못하는 음식 목록이 계속 늘어난다면",
+          "paragraphs": [
+            "IBS에 모두 똑같이 맞는 식단이나 약은 없습니다. 식사와 증상을 간단히 기록하되 한 번 불편했던 음식을 곧바로 평생 금지하지 않습니다. 증상을 피하려 많은 음식을 빼야 한다면 의료진에게 알리고 영양 전문가의 도움을 상의하세요.",
+            "저포드맙(low FODMAP) 식단은 일부 잘 흡수되지 않는 탄수화물의 섭취를 조정하는 방법입니다. 모든 사람에게 필요한 식단이 아니며, 시도할 경우 효과를 살펴보고 음식을 다시 넣는 과정까지 의료진·영양 전문가와 계획합니다. 인터넷 식품표를 영구적인 금지 목록으로 삼지 않습니다.",
+            "식이섬유나 유산균도 많이 먹을수록 좋은 하나의 해결책은 아닙니다. 섬유질을 갑자기 늘리면 가스·팽만이 불편할 수 있습니다. 설사·변비 양상과 현재 치료를 알리고 식사 조정이나 약·보충제의 필요성, 부작용 때의 행동을 확인합니다. 이 글은 지사제·변비약·항생제를 선택하거나 용량을 바꾸는 안내가 아닙니다.",
+            "잠과 활동, 스트레스를 다루는 도움도 개인 계획의 일부가 될 수 있습니다. 생활 조정 후에도 계속 어렵다면 의지가 부족해서라고 생각하지 말고 진료에서 계획을 다시 상의합니다."
+          ],
+          "claimIds": [
+            "IBS-P3-004"
+          ],
+          "sourceIds": [
+            "SRC-NHS-IBS-LIFESTYLE",
+            "SRC-NIDDK-IBS-DIET",
+            "SRC-NIDDK-IBS-TREATMENT",
+            "SRC-KDCA-IBS"
+          ],
+          "imageId": null,
+          "links": [
+            {
+              "href": "/health/guides/appointment-questions",
+              "label": "치료 목표·부작용·다음 상담을 묻는 질문"
+            }
+          ]
+        },
+        {
+          "title": "익숙한 IBS가 있어도 새 위험 신호는 따로 봅니다",
+          "paragraphs": [
+            "새 항문 출혈, 혈성 설사, 이유 없는 체중 감소 중 하나라도 생기면 기존 IBS 때문이라고 넘기지 마세요. 당일 의료기관에 연락해 신속한 평가를 받습니다. 통증 때문에 밤에 깨거나 양상이 달라진 경우도 진료에서 반드시 알립니다.",
+            "갑자기 시작된 복통 또는 심한 복통, 쓰러짐, 멈추지 않거나 많은 항문 출혈은 즉시 119에 도움을 요청할 신호입니다. 복통과 함께 피가 섞인 변이 나오는 경우도 응급 평가가 먼저입니다. 검고 끈적한 타르 같은 변은 복통이 없어도 즉시 의료 도움을 받습니다. 여러 신호가 모두 나타날 때까지 기다리지 않습니다.",
+            "응급 신호가 있으면 직접 운전하거나 음식 반응을 더 관찰하며 버티지 않습니다. 진료 메모를 끝내는 것보다 도움 요청이 먼저입니다. 이런 변화만으로 암이나 염증성 장질환이 확정되는 것은 아니지만, 온라인에서 원인을 정해 진료를 미뤄서는 안 됩니다."
+          ],
+          "claimIds": [
+            "IBS-P3-005"
+          ],
+          "sourceIds": [
+            "SRC-NHS-IBS-SYMPTOMS",
+            "SRC-NHS-STOMACH-ACHE",
+            "SRC-NHS-IBD",
+            "SRC-KDCA-IBS",
+            "SRC-NIDDK-GI-BLEEDING"
+          ],
+          "tone": "warning",
+          "imageId": null,
+          "links": [
+            {
+              "href": "/health/guides/danger-signals",
+              "label": "기록보다 의료 도움이 먼저인 위험 신호"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "변을 보고 배가 덜 아프면 IBS가 확실한가요?",
+          "answer": "아닙니다. 배변과 통증의 관계는 중요한 정보지만 그것만으로 진단하지 않습니다. 배변 후 더 아픈 경우도 있어 변화를 그대로 설명하고 병력·신체검사와 필요한 평가를 함께 받습니다.",
+          "claimIds": [
+            "IBS-P3-002",
+            "IBS-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-NIDDK-IBS-DIAGNOSIS",
+            "SRC-NHS-IBS-DIAGNOSIS"
+          ]
+        },
+        {
+          "question": "IBS와 IBD는 같은 병의 다른 이름인가요?",
+          "answer": "다릅니다. IBS는 과민성장증후군, IBD는 크론병·궤양성대장염 등이 포함되는 염증성 장질환입니다. 증상이 겹칠 수 있어 약자나 증상만으로 구별하지 않습니다.",
+          "claimIds": [
+            "IBS-P3-001",
+            "IBS-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-NHS-IBD",
+            "SRC-NIDDK-IBS-DEFINITION"
+          ]
+        },
+        {
+          "question": "IBS가 의심되면 모두 대장내시경을 받아야 하나요?",
+          "answer": "모두에게 일률적으로 필요한 것은 아닙니다. 의료진이 증상 변화·가족력·다른 검사 결과와 경고 신호를 보고 필요성을 판단합니다. 검사 하나가 정상이었다는 이유로 새 변화를 무시하지 않습니다.",
+          "claimIds": [
+            "IBS-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-NHS-IBS-DIAGNOSIS",
+            "SRC-NIDDK-IBS-DIAGNOSIS",
+            "SRC-KDCA-IBS"
+          ]
+        },
+        {
+          "question": "얼마나 오래 기록해야 진료받을 수 있나요?",
+          "answer": "일정 기간을 채우는 것이 진료의 조건은 아닙니다. 기억나는 통증·배변·생활 변화를 간단히 가져가도 됩니다. 출혈, 갑작스러운 복통 또는 심한 복통이 있으면 기록을 기다리지 말고 의료 도움을 받습니다.",
+          "claimIds": [
+            "IBS-P3-003",
+            "IBS-P3-005"
+          ],
+          "sourceIds": [
+            "SRC-NHS-IBS-DIAGNOSIS",
+            "SRC-NHS-IBS-SYMPTOMS",
+            "SRC-NHS-STOMACH-ACHE"
+          ]
+        },
+        {
+          "question": "저FODMAP 식단은 계속 엄격하게 지켜야 하나요?",
+          "answer": "모두에게 필요한 영구 제한 식단이 아닙니다. 시도의 필요성과 효과 확인, 음식을 다시 넣는 과정을 전문가와 상의합니다. 먹을 수 있는 음식이 계속 줄거나 증상이 잘 조절되지 않으면 혼자 제한을 늘리지 않습니다.",
+          "claimIds": [
+            "IBS-P3-004"
+          ],
+          "sourceIds": [
+            "SRC-NIDDK-IBS-DIET",
+            "SRC-NHS-IBS-LIFESTYLE"
+          ]
+        },
+        {
+          "question": "이미 IBS 진단을 받았다면 혈변도 지켜봐도 되나요?",
+          "answer": "기존 IBS로 단정하지 않습니다. 새 출혈이나 이유 없는 체중 감소는 신속히 평가받고, 많은·계속되는 출혈, 갑작스럽거나 심한 복통, 쓰러짐은 119 도움을 우선합니다. 검고 끈적한 타르 같은 변은 복통이 없어도 즉시 의료 도움을 받습니다. 응급 상황에는 기록보다 대응이 먼저입니다.",
+          "claimIds": [
+            "IBS-P3-005"
+          ],
+          "sourceIds": [
+            "SRC-NHS-IBS-SYMPTOMS",
+            "SRC-NHS-IBD",
+            "SRC-NHS-STOMACH-ACHE",
+            "SRC-NIDDK-GI-BLEEDING"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "SRC-NIDDK-IBS-DEFINITION",
+        "SRC-NIDDK-IBS-SYMPTOMS",
+        "SRC-NIDDK-IBS-DIAGNOSIS",
+        "SRC-NIDDK-IBS-TREATMENT",
+        "SRC-NIDDK-IBS-DIET",
+        "SRC-KDCA-IBS",
+        "SRC-NHS-IBS-SYMPTOMS",
+        "SRC-NHS-IBS-DIAGNOSIS",
+        "SRC-NHS-IBS-LIFESTYLE",
+        "SRC-NHS-STOMACH-ACHE",
+        "SRC-NHS-IBD",
+        "SRC-NIDDK-GI-BLEEDING"
+      ],
+      "imageIds": [
+        "ibs-hero",
+        "ibs-concept",
+        "ibs-action"
+      ],
+      "visuals": {
+        "ibs-hero": {
+          "src": "/images/onurim/irritable-bowel-syndrome/hero.webp",
+          "alt": "네 줄의 메모 용지와 상담 준비를 상징하는 갈색 장식 표지 삽화",
+          "caption": "표지의 줄과 십자 모양은 진단 결과나 의료인 검수 완료 표시가 아닙니다.",
+          "width": 1536,
+          "height": 1024
+        },
+        "ibs-concept": {
+          "src": "/images/onurim/irritable-bowel-syndrome/concept-v2.webp",
+          "alt": "머리의 뇌와 복부의 장 사이에 위쪽과 아래쪽을 향한 두 화살표가 놓인 장-뇌 상호작용 개념도",
+          "caption": "화살표는 장과 뇌의 양방향 소통을 단순화한 상징이며 실제 신경의 위치나 음식 이동 경로가 아닙니다. IBS와 관련된 여러 요인 중 일부로, 마음가짐 탓이거나 개인의 원인을 확정한다는 뜻이 아닙니다.",
+          "width": 1536,
+          "height": 1024
+        },
+        "ibs-action": {
+          "src": "/images/onurim/irritable-bowel-syndrome/action-v2.webp",
+          "alt": "화장실 문 앞에서 복부의 느낌을 살피는 성인과 책상에서 그 변화를 노트에 적는 같은 인물의 두 장면 삽화",
+          "caption": "관찰과 기록을 연결한 가상 장면으로 실제 환자나 치료 전후가 아닙니다. 배변 뒤 통증이 덜하거나 더하거나 비슷한 경우 모두 그대로 적습니다. 컵·시계는 특정 음료나 기록 시간을 권하는 뜻이 아닙니다.",
+          "width": 1536,
+          "height": 1024
+        }
+      },
+      "toolSlugs": [
+        "irritable-bowel-syndrome-visit-card"
+      ]
+    },
+    {
+      "slug": "sleep-apnea",
+      "seoTitle": "수면무호흡증: 코골이·낮 졸림 기록과 수면검사 질문",
+      "title": "수면무호흡증이 걱정될 때, 밤과 낮의 변화를 함께 정리하기",
+      "eyebrow": "호흡기·알레르기 · 서로 다른 단서를 모으기",
+      "publishedAt": "2026-08-26",
+      "updatedAt": "2026-09-06",
+      "sourceCheckedAt": "2026-09-06",
+      "description": "코골이와 수면무호흡증의 차이, 가족이 관찰한 밤의 변화와 낮 졸림 기록, 일반 기기와 의료 수면검사의 역할 및 양압기 상담 질문을 정리합니다.",
+      "outcome": "밤의 관찰과 낮의 경험을 구분해 진료에 전달하고, 기기 수치로 진단하지 않으며 졸음운전과 응급상황에 다르게 대응할 수 있습니다.",
+      "archetype": "FAMILY_SITUATION",
+      "summary": [
+        "수면무호흡증에서는 자는 동안 호흡이 반복해서 멈추거나 줄어들 수 있습니다. 코골이만으로 확정하지 않습니다.",
+        "함께 사는 사람이 본 밤의 변화와 본인이 느낀 낮 졸림은 서로 다른 상담 정보입니다.",
+        "졸리면 운전하지 마세요. 반응이 없거나 정상적으로 숨 쉬지 않는 상황은 평소 코골이로 단정하지 말고 즉시 119에 연락합니다."
+      ],
+      "sections": [
+        {
+          "title": "‘밤에 숨이 멎는 것 같았어’라는 말을 들었다면",
+          "paragraphs": [
+            "함께 자는 사람은 코골이·헐떡임·호흡이 멈추는 듯한 모습을 먼저 알아챌 수 있고, 당사자는 낮에 자꾸 졸리거나 집중하기 어렵다는 변화를 먼저 느낄 수 있습니다. 한 사람이 모든 정보를 알 필요는 없습니다.",
+            "코를 크게 곤다고 모두 수면무호흡증인 것은 아닙니다. 반대로 소리의 크기나 조용했던 하룻밤만으로 상태를 판정하지도 않습니다. 반복되는 호흡 변화나 일상에 영향을 주는 졸림은 의료진에게 이야기할 이유가 됩니다.",
+            "대화는 ‘왜 그렇게 코를 골아?’보다 ‘밤에 이런 모습을 봤는데, 낮에는 어땠어?’처럼 시작해 보세요. 이는 비난 없이 정보를 나누기 위한 편집 예시입니다. 녹음·촬영은 진료의 필수 조건이 아니며, 기록을 공유할 범위도 당사자와 먼저 이야기합니다."
+          ],
+          "claimIds": [
+            "OSA-P3-001",
+            "OSA-P3-002"
+          ],
+          "sourceIds": [
+            "SRC-NHLBI-APNEA-SYMPTOMS",
+            "SRC-KDCA-APNEA-MONTHLY"
+          ],
+          "imageId": "osa-action"
+        },
+        {
+          "title": "밤에 본 것과 낮에 느낀 것을 두 칸으로",
+          "paragraphs": [
+            "아래는 진료 전 대화를 정리하는 예시이지 진단표가 아닙니다. 본 것과 들은 것, 당사자가 느낀 것을 구분하고 모르는 내용은 모른다고 남깁니다. 정확한 시간을 재려고 밤새 감시하거나 일부러 잠을 줄일 필요는 없습니다."
+          ],
+          "table": {
+            "caption": "두 사람이 모을 수 있는 서로 다른 정보",
+            "columns": [
+              "밤의 관찰·수면 경험",
+              "낮의 영향·생활 정보"
+            ],
+            "rows": [
+              [
+                "들리거나 보였던 코골이·헐떡임·호흡 변화",
+                "회의·식사·대화 중 졸림 등 본인이 느낀 상황"
+              ],
+              [
+                "잠든 시간, 깬 기억, 전체 수면 시간",
+                "집중하기 어려웠던 일, 운전에 영향을 줄 정도의 졸림"
+              ],
+              [
+                "관찰한 날짜와 평소와 달랐던 점",
+                "복용 약과 수면 일정 등 진료에 함께 알릴 정보"
+              ]
+            ]
+          },
+          "claimIds": [
+            "OSA-P3-002",
+            "OSA-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-NHLBI-APNEA-SYMPTOMS",
+            "SRC-NHLBI-APNEA-DIAGNOSIS",
+            "SRC-KDCA-APNEA"
+          ],
+          "imageId": null,
+          "links": [
+            {
+              "href": "/health/tools/sleep-apnea-visit-card",
+              "label": "수면무호흡증 관찰·진료 질문 카드"
+            },
+            {
+              "href": "/health/guides/symptom-journal",
+              "label": "관찰과 추측을 나눠 쓰는 증상 기록"
+            }
+          ]
+        },
+        {
+          "title": "폐쇄성과 중추성, 같은 말은 아닙니다",
+          "paragraphs": [
+            "폐쇄성 수면무호흡증은 자는 동안 코·입 뒤쪽의 상기도가 좁아지거나 막혀 공기 흐름이 줄거나 멈추는 유형입니다. 상기도는 공기가 폐로 가기 전에 지나가는 위쪽 통로를 말합니다.",
+            "중추성 수면무호흡증은 뇌에서 호흡을 조절하는 신호의 문제와 관련된 유형입니다. ‘코골이가 있다’, ‘몸이 움직인다’는 가족 관찰만으로 두 유형을 구별하지 않습니다. 이 안내의 기도 그림은 폐쇄성의 한 개념만 설명합니다.",
+            "진료에서는 증상과 다른 질환·복용 약을 확인하고 검사 결과를 함께 봅니다. 체형만으로 확정하거나, 본인과 다른 체형의 사람은 해당하지 않는다고 판단하지 마세요. 비만 등 관련 요인은 비난의 근거가 아니라 상담할 정보입니다."
+          ],
+          "claimIds": [
+            "OSA-P3-001",
+            "OSA-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-NHLBI-APNEA-OVERVIEW",
+            "SRC-NHLBI-APNEA-DIAGNOSIS",
+            "SRC-KDCA-APNEA"
+          ],
+          "imageId": "osa-concept",
+          "links": [
+            {
+              "href": "/health/obesity",
+              "label": "체형 하나보다 생활·건강 변화를 함께 상담하기"
+            }
+          ]
+        },
+        {
+          "title": "일반 기기 기록과 의료 수면검사는 역할이 다릅니다",
+          "paragraphs": [
+            "‘집에서 확인했다’는 말도 무엇을 사용했는지에 따라 의미가 다릅니다. 워치·앱의 일반 기록이나 산소 수치 하나를 의료진이 계획하고 해석하는 수면검사와 같다고 보지 않습니다. 일부 기기의 의료적 기능도 제품·허가 목적에 따라 다르므로, 모든 웨어러블이 같다고 단정하지 않습니다.",
+            "산소포화도는 혈액이 산소를 얼마나 운반하는지에 관한 정보를 주지만, 측정값만으로 수면무호흡증을 확정하거나 배제할 수는 없습니다. 수치가 괜찮아 보여도 실제 증상과 느끼는 변화를 의료진에게 알려야 합니다."
+          ],
+          "table": {
+            "caption": "성인 수면 평가에서 기록과 검사가 맡는 역할",
+            "columns": [
+              "자료·검사",
+              "어떤 역할인가요?",
+              "진료에서 확인할 점"
+            ],
+            "rows": [
+              [
+                "일반 기기·앱과 본인 기록",
+                "증상이나 수면 상황을 설명할 보조 정보",
+                "무엇을 어떻게 측정한 기록인지, 해석에 어떤 한계가 있는지"
+              ],
+              [
+                "의료진이 선택한 가정 수면검사",
+                "적합한 성인에게 필요한 장비로 시행하는 의료 검사",
+                "내 상태에 적합한지, 측정이 잘 되었는지, 다음 평가는 무엇인지"
+              ],
+              [
+                "검사실 수면다원검사",
+                "호흡뿐 아니라 뇌파·움직임 등 여러 변화를 함께 평가",
+                "어떤 질문을 확인하기 위한 검사인지, 결과는 언제 누구와 볼지"
+              ]
+            ]
+          },
+          "claimIds": [
+            "OSA-P3-003",
+            "OSA-P3-004"
+          ],
+          "sourceIds": [
+            "SRC-AASM-OSA-DIAGNOSIS",
+            "SRC-FDA-OXIMETERS",
+            "SRC-KDCA-APNEA"
+          ],
+          "imageId": null,
+          "links": [
+            {
+              "href": "/health/guides/reading-health-results",
+              "label": "검사명·조건·추적 안내를 함께 읽기"
+            }
+          ]
+        },
+        {
+          "title": "검사 뒤에는 결과와 다음 단계를 함께 물어보세요",
+          "paragraphs": [
+            "가정검사는 모든 성인에게 맞는 선택은 아닙니다. 다른 질환이나 수면 문제에 따라 검사실 검사가 더 적합할 수 있습니다. 한 번의 가정검사가 음성·불확정이거나 측정이 충분하지 않았다면 수면다원검사가 권고되므로 의료진과 다음 검사 안내를 확인합니다. 이 성인 검사 안내를 아이에게 그대로 적용하지 않습니다.",
+            "진단 뒤에는 내 유형과 상태에 맞는 치료 선택지를 논의합니다. 양압기·구강 장치·생활 관리·수술 등은 누구에게나 같은 순서로 적용하는 목록이 아닙니다. 여기서는 기기를 선택하거나 약을 처방하지 않습니다.",
+            "양압기 중 CPAP는 일정한 공기 압력으로 수면 중 기도가 열린 상태를 유지하도록 돕는 장치입니다. 무호흡이 생긴 뒤에만 공기를 넣는 응급 소생 장치라는 뜻이 아닙니다. 자신의 장치 종류와 사용 지침을 확인하고 압력을 혼자 바꾸지 마세요.",
+            "마스크 누출·코막힘·소음·잠들기 어려움처럼 불편한 점은 진료팀에 구체적으로 알립니다. 복부 불편이나 배가 부푸는 팽만이 생기면 양압기 사용을 중단하고 의료진에게 연락합니다. 다른 새 증상도 무조건 참고 계속 사용하라는 뜻이 아니며, 신속히 연락해 사용 지침과 조정 방법을 확인합니다. 복용 중인 약은 목록으로 알려 주고, 수면에 영향을 줄 수 있다는 이유만으로 임의 중단하지 않습니다."
+          ],
+          "claimIds": [
+            "OSA-P3-003",
+            "OSA-P3-004"
+          ],
+          "sourceIds": [
+            "SRC-AASM-OSA-DIAGNOSIS",
+            "SRC-NHLBI-APNEA-TREATMENT",
+            "SRC-NHLBI-APNEA-LIVING",
+            "SRC-NHLBI-APNEA-DIAGNOSIS",
+            "SRC-KDCA-APNEA-MONTHLY"
+          ],
+          "imageId": null,
+          "links": [
+            {
+              "href": "/health/guides/medication-list",
+              "label": "진료팀에 알릴 복용 약 목록"
+            },
+            {
+              "href": "/health/guides/appointment-questions",
+              "label": "검사 결과와 다음 행동을 묻는 질문"
+            }
+          ]
+        },
+        {
+          "title": "즉시 119가 필요한 상황과 졸음운전 예방을 구분하세요",
+          "paragraphs": [
+            "깨워도 반응이 없거나 정상적으로 숨 쉬지 않으면 즉시 119에 연락합니다. 반응이 없고 정상 호흡이 없는 경우에는 119 안내에 따라 심폐소생술을 시작합니다. 간헐적으로 불규칙하게 헐떡이는 것은 정상 호흡으로 보지 않습니다.",
+            "평소 수면무호흡증이 있다는 이유로 기다리거나, 기기 경고·입술 색 변화·기록 완성을 추가 조건으로 삼지 마세요. 심한 호흡곤란이나 갑작스러운 의식 변화도 즉각 도움을 받을 상황입니다. 양압기를 조작하느라 신고와 응급 대응을 늦추지 않습니다.",
+            "낮에 피곤하거나 졸리면 운전하지 마세요. 짧은 거리라는 이유로 안전하다고 보거나, 커피·창문 열기만 믿고 운전하지 않습니다. 운전·위험 작업에 졸림이 영향을 준다면 평가와 안전한 활동 계획을 의료진과 상의합니다."
+          ],
+          "claimIds": [
+            "OSA-P3-004",
+            "OSA-P3-005"
+          ],
+          "sourceIds": [
+            "SRC-NHLBI-APNEA-LIVING",
+            "SRC-SJA-CPR",
+            "SRC-SJA-RECOVERY",
+            "SRC-NHS-BREATHLESSNESS"
+          ],
+          "tone": "warning",
+          "imageId": null,
+          "links": [
+            {
+              "href": "/health/guides/danger-signals",
+              "label": "호흡·의식 변화의 즉각 도움 신호"
+            }
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "코를 크게 골면 모두 수면무호흡증인가요?",
+          "answer": "그렇지 않습니다. 소리만으로 확정하지 말고 함께 나타나는 호흡 변화와 낮의 영향을 상담 정보로 정리합니다. 의심되는 변화가 있으면 의료진과 수면 평가를 상의하세요.",
+          "claimIds": [
+            "OSA-P3-001",
+            "OSA-P3-002"
+          ],
+          "sourceIds": [
+            "SRC-KDCA-APNEA-MONTHLY"
+          ]
+        },
+        {
+          "question": "함께 사는 사람은 무엇을 기록하면 좋나요?",
+          "answer": "본인이 보거나 들은 밤의 호흡 변화와 당사자가 느낀 낮 졸림을 구분합니다. 수면 시간·깬 기억도 도움이 될 수 있습니다. 녹음이나 밤샘 감시가 필수는 아니며, 모르는 정보는 추측하지 않습니다.",
+          "claimIds": [
+            "OSA-P3-002",
+            "OSA-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-NHLBI-APNEA-SYMPTOMS",
+            "SRC-NHLBI-APNEA-DIAGNOSIS"
+          ]
+        },
+        {
+          "question": "워치 산소 수치가 괜찮으면 안심해도 되나요?",
+          "answer": "일반 기기의 수치 하나로 확진·배제하지 않습니다. 측정 목적과 한계를 확인하고 증상도 함께 알립니다. 의료진이 선택한 가정검사는 일반 앱 기록과 같지 않습니다.",
+          "claimIds": [
+            "OSA-P3-003",
+            "OSA-P3-004"
+          ],
+          "sourceIds": [
+            "SRC-FDA-OXIMETERS",
+            "SRC-AASM-OSA-DIAGNOSIS"
+          ]
+        },
+        {
+          "question": "가정 수면검사와 검사실 검사는 어떻게 선택하나요?",
+          "answer": "의료진이 성인의 증상·다른 질환·검사 적합성을 판단합니다. 한 번의 가정검사가 음성·불확정이거나 측정이 충분하지 않았다면 수면다원검사가 권고되므로 다음 검사 안내를 확인하세요. 아이의 검사 기준은 별도입니다.",
+          "claimIds": [
+            "OSA-P3-003"
+          ],
+          "sourceIds": [
+            "SRC-AASM-OSA-DIAGNOSIS"
+          ]
+        },
+        {
+          "question": "양압기가 불편하면 압력을 낮춰도 되나요?",
+          "answer": "압력을 혼자 조정하지 말고 어떤 불편이 언제 생기는지 진료팀에 알립니다. 복부 불편·팽만이 생기면 양압기 사용을 중단하고 의료진에게 연락합니다. 다른 새 증상도 무조건 참고 버티기보다 사용 지침과 기기·마스크 조정 방법을 확인하세요.",
+          "claimIds": [
+            "OSA-P3-004"
+          ],
+          "sourceIds": [
+            "SRC-NHLBI-APNEA-TREATMENT",
+            "SRC-NHLBI-APNEA-LIVING"
+          ]
+        },
+        {
+          "question": "낮에 졸린데 짧은 거리만 운전해도 되나요?",
+          "answer": "졸리거나 피곤하면 운전하지 않습니다. 거리나 커피가 안전을 보장하지 않습니다. 일상·운전에 영향을 주는 졸림을 진료팀에 알리고 안전한 활동 계획을 상의합니다.",
+          "claimIds": [
+            "OSA-P3-004"
+          ],
+          "sourceIds": [
+            "SRC-NHLBI-APNEA-LIVING"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "SRC-NHLBI-APNEA-OVERVIEW",
+        "SRC-NHLBI-APNEA-SYMPTOMS",
+        "SRC-NHLBI-APNEA-DIAGNOSIS",
+        "SRC-NHLBI-APNEA-TREATMENT",
+        "SRC-NHLBI-APNEA-LIVING",
+        "SRC-KDCA-APNEA",
+        "SRC-KDCA-APNEA-MONTHLY",
+        "SRC-AASM-OSA-DIAGNOSIS",
+        "SRC-FDA-OXIMETERS",
+        "SRC-SJA-CPR",
+        "SRC-SJA-RECOVERY",
+        "SRC-NHS-BREATHLESSNESS"
+      ],
+      "imageIds": [
+        "osa-hero",
+        "osa-concept",
+        "osa-action"
+      ],
+      "visuals": {
+        "osa-hero": {
+          "src": "/images/onurim/sleep-apnea/hero.webp",
+          "alt": "메모 용지와 상담 준비를 상징하는 초록색 장식 표지 삽화",
+          "caption": "표지의 선·십자 모양은 수면검사 결과나 의료인 검수 완료 표시가 아닙니다.",
+          "width": 1536,
+          "height": 1024
+        },
+        "osa-concept": {
+          "src": "/images/onurim/sleep-apnea/concept-v2.webp",
+          "alt": "코와 입 뒤쪽의 열린 인두 공간과 혀·연구개 뒤의 공간이 좁아진 모습을 나란히 보여 주는 상기도 개념도",
+          "caption": "폐쇄성 수면무호흡의 상기도 좁아짐만 단순화한 비교입니다. 청록색은 빈 공기 공간을 강조한 색이지 실제 조직 색이 아닙니다. 중추성 원인·개인 진단·협착률·진행 단계·치료 전후를 보여 주지 않으며 아래쪽 후두와 기관은 생략했습니다.",
+          "width": 1536,
+          "height": 1024
+        },
+        "osa-action": {
+          "src": "/images/onurim/sleep-apnea/action-v2.webp",
+          "alt": "가정의 식탁에서 두 가상 성인이 각자의 노트를 두고 밤의 관찰과 낮의 경험을 서로 이야기하는 AI 생성 장면",
+          "caption": "실제 환자·검수자 사진이 아닌 AI 생성 장면입니다. 동의한 상대와 관찰·질문을 나누는 선택적 예시이며, 노트의 선은 진료 기록이나 검사 수치가 아닙니다. 가족의 감시·녹음·대리 진단을 권하지 않습니다.",
+          "width": 1536,
+          "height": 1024
+        }
+      },
+      "toolSlugs": [
+        "sleep-apnea-visit-card"
+      ]
+    }
+  ]
+}

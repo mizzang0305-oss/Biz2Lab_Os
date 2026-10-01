@@ -191,7 +191,7 @@ function ClaimStatus({ ids, sourceIds }: { ids: string[]; sourceIds?: string[] }
 }
 
 export function HealthArticlePage({ article }: { article: HealthArticle }) {
-  const revisedSources = ["type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis", "asthma", "stroke", "acute-myocardial-infarction", "dyslipidemia", "obesity", "migraine"].includes(article.slug) && article.sourceCheckedAt === "2026-10-01";
+  const revisedSources = ["type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis", "asthma", "stroke", "acute-myocardial-infarction", "dyslipidemia", "obesity", "migraine", "metabolic-dysfunction-associated-steatotic-liver-disease", "irritable-bowel-syndrome", "sleep-apnea"].includes(article.slug) && article.sourceCheckedAt === "2026-10-01";
   const readerSources = article.slug === "kidney-stones" || revisedSources;
   const sourceName = (source: (typeof sources)[number]) => revisedSources && source.id === "SRC-MEDLINEPLUS-AR" ? "MedlinePlus Medical Encyclopedia / A.D.A.M." : source.organization;
   const visuals = { ...imageMeta, ...article.visuals };
@@ -200,10 +200,11 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
     .map((slug) => healthTools.find((tool) => tool.slug === slug))
     .filter(Boolean);
   const articleClaims = healthClaims.filter((claim) => claim.articleSlug === article.slug);
+  const sourceTitle = (source: (typeof sources)[number]) => article.slug === "metabolic-dysfunction-associated-steatotic-liver-disease" && source.id === "SRC-EASL-MASLD-2024" ? "MASLD Clinical Practice Guidelines (2024 PDF): 정상 간효소 한계, 인쇄 496쪽/PDF 5쪽" : article.slug === "sleep-apnea" && source.id === "SRC-AASM-OSA-DIAGNOSIS" ? "Adult OSA Diagnostic Testing (2017 PDF): 권고 3, PDF 첫 페이지" : source.title;
   const sourceLinks = (ids?: string[]) => ids?.length ? <p className="onurim-section-sources">근거: {ids.map((id, index) => {
     const source = sources.find(item => item.id === id);
     if (!source) throw new Error(`Missing article source ${article.slug}/${id}`);
-    return <span key={id}>{index > 0 ? " · " : ""}<a href={revisedSources ? source.url : `#source-${id}`}>{sourceName(source)}{revisedSources ? `: ${source.title}` : ""}</a></span>;
+    return <span key={id}>{index > 0 ? " · " : ""}<a href={revisedSources ? source.url : `#source-${id}`}>{sourceName(source)}{revisedSources ? `: ${sourceTitle(source)}` : ""}</a></span>;
   })}</p> : null;
   const structuredData = {
     "@context": "https://schema.org",
@@ -271,7 +272,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
 
       <section className="onurim-summary" aria-labelledby="summary-title">
         <h2 id="summary-title">먼저 기억할 세 가지</h2>
-        <ul>{article.summary.map((item) => <li key={item}>{item}</li>)}</ul>
+        <ul style={article.slug === "sleep-apnea" ? { gridTemplateColumns: "minmax(0, 1fr)", overflowWrap: "anywhere" } : undefined}>{article.summary.map((item) => <li key={item}>{item}</li>)}</ul>
         <a className="onurim-urgent-jump" href="#urgent-action">응급 신호와 119 안내 바로 보기</a>
       </section>
 
@@ -334,7 +335,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
             <ol className="onurim-source-list">
               {sources.map((source) => (
                 <li key={source.id} id={`source-${source.id}`}>
-                  <a href={source.url} target="_blank" rel="noreferrer">{sourceName(source)}, {source.title}</a>
+                  <a href={source.url} target="_blank" rel="noreferrer">{sourceName(source)}, {sourceTitle(source)}</a>
                   <span>확인 {article.sourceCheckedAt ?? source.retrievedAt}{readerSources ? "" : ` · ${source.id}`}</span>
                 </li>
               ))}
