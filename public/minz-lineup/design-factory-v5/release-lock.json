@@ -154,8 +154,8 @@
     },
     {
       "path": "editor.mjs",
-      "bytes": 23597,
-      "sha256": "f532ca66effdc324769a818021bb3d8bfee5327770e4c0a6ab83a1fef71fdb88"
+      "bytes": 25483,
+      "sha256": "6a5bb74bbd6d9029c8ddc6dc4f3a016950a1052bafcb3ce1dacf6129ffbefe7e"
     },
     {
       "path": "index.html",
@@ -229,8 +229,8 @@
     },
     {
       "path": "preview.mjs",
-      "bytes": 1121,
-      "sha256": "a12ed071af9b1965d56ea7332ba09e445bf644301e4b2f46b3fe80dedc8ff1c1"
+      "bytes": 1504,
+      "sha256": "27c5f52811dae9b2292a68c9c3881a0d34d3a94070ee7d047655302c3ed6fa52"
     },
     {
       "path": "reference-rebased.html",
