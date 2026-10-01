@@ -187,7 +187,7 @@ export const batch2HealthArticles: Record<Batch2Slug, HealthArticle> = {
         "links": [
           {
             "href": "/health/tools/allergy-trigger-observation",
-            "label": "같은 항목을 직접 적는 인쇄용 코·눈 관찰표"
+            "label": "시간·장소·증상을 적는 기존 인쇄용 코·눈 관찰표"
           }
         ]
       },

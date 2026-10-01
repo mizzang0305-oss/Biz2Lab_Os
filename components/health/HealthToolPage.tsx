@@ -7,6 +7,7 @@ import { breadcrumbJsonLd, jsonLd } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 
 export function HealthToolPage({ tool }: { tool: HealthTool }) {
+  const readerLayout = ["glucose-observation-log", "diabetes-questions", "allergy-trigger-observation", "allergy-appointment-questions", "gerd-symptom-timing-log", "gerd-appointment-prep"].includes(tool.slug);
   const editorial = toolEditorial[tool.slug];
   const referenceOnly = tool.kind === "guide" && Boolean(editorial);
   const sources = getToolSources(tool);
@@ -87,11 +88,11 @@ export function HealthToolPage({ tool }: { tool: HealthTool }) {
         {itemGroups.map((group, groupIndex) => (
           <div className="onurim-tool-item-group" key={group.title || groupIndex}>
           {group.title ? <h3>{group.title}</h3> : null}
-          {referenceOnly ? <ul className="onurim-reference-list">{group.items.map(item => <li key={item}>{item}</li>)}</ul> : <div className={tool.kind === "warning" ? "onurim-warning-list" : "onurim-check-list"}>
+          {referenceOnly ? <ul className="onurim-reference-list">{group.items.map(item => <li key={item}>{item}</li>)}</ul> : <div className={tool.kind === "warning" ? "onurim-warning-list" : "onurim-check-list"} style={readerLayout ? { gridTemplateColumns: "minmax(0, 1fr)" } : undefined}>
             {group.items.map((item) => (
               <label key={item}>
                 {tool.kind !== "guide" && tool.kind !== "warning" ? <input type="checkbox" /> : <span aria-hidden>•</span>}
-                <span>{item}</span>
+                <span style={readerLayout ? { minWidth: 0, overflowWrap: "anywhere" } : undefined}>{item}</span>
               </label>
             ))}
           </div>}
