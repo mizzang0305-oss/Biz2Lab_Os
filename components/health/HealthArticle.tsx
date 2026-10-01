@@ -191,6 +191,7 @@ function ClaimStatus({ ids, sourceIds }: { ids: string[]; sourceIds?: string[] }
 }
 
 export function HealthArticlePage({ article }: { article: HealthArticle }) {
+  const readerSources = article.slug === "kidney-stones";
   const visuals = { ...imageMeta, ...article.visuals };
   const sources = getSources(article.sourceIds);
   const tools = article.toolSlugs
@@ -289,7 +290,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
               >
                 <div className="onurim-section-heading">
                   <h2>{section.title}</h2>
-                  <ClaimStatus ids={section.claimIds} sourceIds={section.sourceIds} />
+                  {readerSources ? null : <ClaimStatus ids={section.claimIds} sourceIds={section.sourceIds} />}
                 </div>
                 {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 {section.bullets ? <ul>{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul> : null}
@@ -319,7 +320,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
                 <details key={item.question} data-claim-ids={item.claimIds.join(",")}>
                   <summary>{item.question}</summary>
                   <p>{item.answer}</p>
-                  <ClaimStatus ids={item.claimIds} sourceIds={item.sourceIds} />
+                  {readerSources ? null : <ClaimStatus ids={item.claimIds} sourceIds={item.sourceIds} />}
                   {sourceLinks(item.sourceIds)}
                 </details>
               ))}
@@ -332,14 +333,14 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
               {sources.map((source) => (
                 <li key={source.id} id={`source-${source.id}`}>
                   <a href={source.url} target="_blank" rel="noreferrer">{source.organization}, {source.title}</a>
-                  <span>확인 {article.sourceCheckedAt ?? source.retrievedAt} · {source.id}</span>
+                  <span>확인 {article.sourceCheckedAt ?? source.retrievedAt}{readerSources ? "" : ` · ${source.id}`}</span>
                 </li>
               ))}
             </ol>
-            <p className="onurim-state-note">
+            {readerSources ? <p className="onurim-state-note">일반 건강정보이며 개인의 진단과 치료를 대신하지 않습니다. 면허 의료인의 검수를 받지 않았습니다. 공식 자료 확인 {article.sourceCheckedAt}.</p> : <p className="onurim-state-note">
               마지막 출처 대조: {article.sourceCheckedAt ?? "2026-08-26"} · 기존 claim {articleClaims.length}개 · OFFICIAL_SOURCE_CHECKED ·
               {article.seoTitle ? " 문장·출처 대조는 면허 의료인 검수와 다릅니다. · " : " PUBLIC_SAFETY_ADJUDICATED · "} NOT_MEDICALLY_REVIEWED
-            </p>
+            </p>}
             {article.seoTitle ? <p><Link href="/health/trust/sources-policy">출처 선정 기준</Link> · <Link href="/health/trust/editorial-policy">편집 원칙</Link> · <Link href="/health/trust/medical-review-policy">의료 검수 현재 상태</Link> · <Link href="/health">건강 가이드 전체 보기</Link></p> : null}
           </section>
         </div>
