@@ -18,7 +18,7 @@ const render=(slug:typeof selected[number])=>renderToStaticMarkup(createElement(
 const plain=(html:string)=>html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,"").replace(/<[^>]+>/g,"");
 
 test("earlier batch preserves article bodies not revised subsequently, all original claims, sources and tool data",async()=>{
- for(const a of Object.values(healthArticles).filter(a=>![...selected, "dyslipidemia", "obesity", "migraine"].includes(a.slug))){
+ for(const a of Object.values(healthArticles).filter(a=>![...selected, "dyslipidemia", "obesity", "migraine", "metabolic-dysfunction-associated-steatotic-liver-disease", "irritable-bowel-syndrome", "sleep-apnea"].includes(a.slug))){
   assert.equal(digest(a),baseline.articleData[a.slug],a.slug);
   assert.equal(digest(renderToStaticMarkup(a.slug==="hypertension"?createElement(HypertensionPage):createElement(HealthArticlePage,{article:a}))),baseline.articleHtml[a.slug],a.slug);
  }

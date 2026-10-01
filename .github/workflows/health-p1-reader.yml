@@ -10,6 +10,14 @@ on:
       - 'lib/health-v3/support-guides.ts'
       - 'lib/health-v3/content.ts'
       - 'lib/health-v3/batch2.ts'
+      - 'lib/health-v3/seo-v2/masld.ts'
+      - 'lib/health-v3/seo-v2/irritable-bowel-syndrome.ts'
+      - 'lib/health-v3/seo-v2/sleep-apnea.ts'
+      - 'lib/health-v3/tool-editorial.ts'
+      - 'tests/health-observation-tests-reader.test.ts'
+      - 'tests/fixtures/health-observation-tests-baseline.json'
+      - 'tests/fixtures/health-observation-tests-original.json'
+      - 'tests/fixtures/health-observation-tools-before-notice.json'
       - 'lib/health-v3/seo-v2/dyslipidemia.ts'
       - 'lib/health-v3/seo-v2/obesity.ts'
       - 'lib/health-v3/seo-v2/migraine.ts'
@@ -46,6 +54,14 @@ on:
       - 'lib/health-v3/support-guides.ts'
       - 'lib/health-v3/content.ts'
       - 'lib/health-v3/batch2.ts'
+      - 'lib/health-v3/seo-v2/masld.ts'
+      - 'lib/health-v3/seo-v2/irritable-bowel-syndrome.ts'
+      - 'lib/health-v3/seo-v2/sleep-apnea.ts'
+      - 'lib/health-v3/tool-editorial.ts'
+      - 'tests/health-observation-tests-reader.test.ts'
+      - 'tests/fixtures/health-observation-tests-baseline.json'
+      - 'tests/fixtures/health-observation-tests-original.json'
+      - 'tests/fixtures/health-observation-tools-before-notice.json'
       - 'lib/health-v3/seo-v2/dyslipidemia.ts'
       - 'lib/health-v3/seo-v2/obesity.ts'
       - 'lib/health-v3/seo-v2/migraine.ts'
@@ -83,7 +99,7 @@ jobs:
         with:
           node-version: '24'
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: node node_modules/tsx/dist/cli.mjs --test tests/health-record-context-reader.test.ts tests/health-emergency-plan-reader.test.ts tests/health-individual-reader.test.ts tests/health-lab-observation-reader.test.ts tests/health-support-action-reader.test.ts tests/family-medication-reader.test.ts tests/kidney-stones-reader.test.ts tests/hypertension-reader.test.ts tests/health-v3-public-cutover.test.ts tests/onurim-entry-pages.test.ts tests/onurim-body-theater.test.ts
-      - run: node node_modules/eslint/bin/eslint.js components/health/HealthArticle.tsx components/health/HealthToolPage.tsx components/health/BodyTheater.tsx 'app/health/guides/[slug]/page.tsx' lib/health-v3/support-guides.ts lib/health-v3/content.ts lib/health-v3/batch2.ts lib/health-v3/seo-v2/dyslipidemia.ts lib/health-v3/seo-v2/obesity.ts lib/health-v3/seo-v2/migraine.ts tests/health-record-context-reader.test.ts lib/health-v3/seo-v2/asthma.ts lib/health-v3/seo-v2/stroke.ts lib/health-v3/seo-v2/acute-myocardial-infarction.ts tests/health-emergency-plan-reader.test.ts tests/health-individual-reader.test.ts tests/health-lab-observation-reader.test.ts tests/health-support-action-reader.test.ts tests/family-medication-reader.test.ts tests/kidney-stones-reader.test.ts --max-warnings=0 --no-cache
+      - run: node node_modules/tsx/dist/cli.mjs --test tests/health-observation-tests-reader.test.ts tests/health-record-context-reader.test.ts tests/health-emergency-plan-reader.test.ts tests/health-individual-reader.test.ts tests/health-lab-observation-reader.test.ts tests/health-support-action-reader.test.ts tests/family-medication-reader.test.ts tests/kidney-stones-reader.test.ts tests/hypertension-reader.test.ts tests/health-v3-public-cutover.test.ts tests/onurim-entry-pages.test.ts tests/onurim-body-theater.test.ts
+      - run: node node_modules/eslint/bin/eslint.js components/health/HealthArticle.tsx components/health/HealthToolPage.tsx components/health/BodyTheater.tsx 'app/health/guides/[slug]/page.tsx' lib/health-v3/support-guides.ts lib/health-v3/content.ts lib/health-v3/batch2.ts lib/health-v3/seo-v2/masld.ts lib/health-v3/seo-v2/irritable-bowel-syndrome.ts lib/health-v3/seo-v2/sleep-apnea.ts lib/health-v3/tool-editorial.ts tests/health-observation-tests-reader.test.ts lib/health-v3/seo-v2/dyslipidemia.ts lib/health-v3/seo-v2/obesity.ts lib/health-v3/seo-v2/migraine.ts tests/health-record-context-reader.test.ts lib/health-v3/seo-v2/asthma.ts lib/health-v3/seo-v2/stroke.ts lib/health-v3/seo-v2/acute-myocardial-infarction.ts tests/health-emergency-plan-reader.test.ts tests/health-individual-reader.test.ts tests/health-lab-observation-reader.test.ts tests/health-support-action-reader.test.ts tests/family-medication-reader.test.ts tests/kidney-stones-reader.test.ts --max-warnings=0 --no-cache
       - run: node node_modules/typescript/bin/tsc --noEmit --incremental false --pretty false
       - run: node scripts/verify-minz-lineup.mjs
