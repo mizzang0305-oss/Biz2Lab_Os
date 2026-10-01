@@ -308,39 +308,236 @@ export const batch2HealthArticles: Record<Batch2Slug, HealthArticle> = {
     ]
   },
   "gastroesophageal-reflux-disease": {
-    slug: "gastroesophageal-reflux-disease", title: "역류질환과 식도염, 무엇이 다를까요?",
-    seoTitle: "위식도역류질환 증상과 역류성 식도염 차이",
-    publishedAt: "2026-08-26", updatedAt: "2026-09-06", sourceCheckedAt: "2026-09-06",
-    eyebrow: "소화 · 역류의 의미와 증상 시간표",
-    description: "역류·위식도역류질환·식도염의 차이를 구분하고 식사, 눕는 시간, 속쓰림을 함께 기록합니다. 검사·약에 관해 물을 질문, 흉통·삼킴 변화 때의 진료 경계를 살핍니다.",
-    outcome: "결과지의 병명과 증상 시간표를 구분해 읽고, 필요한 검사·생활 조정·약 사용법을 질문합니다.",
-    summary: ["역류는 현상, 위식도역류질환은 반복되는 불편이나 합병증을 다루는 질환, 식도염은 식도에 염증이 있는 상태를 뜻합니다.", "식사와 눕기·증상 시각을 함께 적으면 음식 하나만 탓하지 않고 상담할 수 있습니다.", "가슴 압박·숨참·식은땀 등으로 심근경색이 의심되면 역류인지 확인하느라 기다리지 말고119에 연락합니다."],
-    sections: [
-      { title: "가슴 불편을 먼저 역류라고 결론 내리지 마세요", paragraphs: ["새롭거나 평소와 다른 가슴 압박·통증, 숨참, 식은땀, 팔·턱 등으로 퍼지는 불편으로 심근경색이 의심되면 즉시119에 연락합니다. 심근경색은 증상이 가볍거나 오르내릴 수도 있으므로 ‘아주 심해질 때까지’ 기다리지 않습니다.", "심한 호흡곤란이나 의식 저하도119 도움이 먼저입니다. 위장약을 먹어 본 뒤 반응으로 원인을 가르거나, 시간표를 완성하느라 도움 요청을 미루지 않습니다."], claimIds: ["GERD-B2-003", "GERD-B2-008"], sourceIds: ["SRC-NHLBI-HEART-ATTACK-SYMPTOMS", "SRC-KDCA-CPR", "SRC-NIDDK-GERD-SYMPTOMS"], tone: "warning", imageId: null, links: [{ href: "/health/acute-myocardial-infarction", label: "심근경색 의심 신호와119 행동" }] },
-      { title: "현상·질환·염증을 나누면 결과지가 덜 헷갈립니다", table: { caption: "역류와 식도염을 읽는 세 가지 말", columns: ["표현", "뜻", "이것만으로 정할 수 없는 것"], rows: [
-        ["위식도역류(GER)", "위 내용물이 식도로 올라오는 현상; 가끔은 건강한 사람에게도 생김", "한 번의 역류가 곧 질환이라는 결론"],
-        ["위식도역류질환(GERD)", "역류가 반복되어 불편하거나 합병증과 이어지는 질환", "모든 속쓰림의 원인이나 개인의 중증도"],
-        ["역류성 식도염", "역류와 관련해 식도 점막에 염증이 생긴 상태", "역류질환이 있으면 누구나 식도염이 있다는 결론"],
-      ] }, paragraphs: ["결과지에 식도염이 적혀 있다면 관찰된 소견과 치료·추적 계획을 확인합니다. 반대로 식도염 소견이 없다고 모든 역류 증상과 다른 원인을 이 페이지에서 배제할 수는 없습니다."], claimIds: ["GERD-B2-001", "GERD-B2-003"], sourceIds: ["SRC-KDCA-GERD", "SRC-NIDDK-GERD-DEFINITION", "SRC-NIDDK-GERD-DIAGNOSIS"], imageId: null, links: [{ href: "/health/guides/reading-health-results", label: "검사 소견과 다음 진료 질문 나누기" }] },
-      { title: "위의 내용물이 식도 쪽으로 올라올 때", paragraphs: ["식도와 위 사이의 조임근과 횡격막은 위 내용물이 거꾸로 올라오는 것을 막는 데 관여합니다. 이 기능이 약해지거나 적절하지 않은 때 열리면 역류가 생길 수 있습니다. 그림의 세 장면은 이동 방향을 보여 주는 비유이지 누구나 거치는 악화 단계가 아닙니다.", "가슴 안쪽이 타는 듯하거나 신맛·쓴맛이 올라오는 느낌이 있을 수 있습니다. 기침이나 쉰 목소리가 동반되기도 하지만 이런 증상만으로 역류를 확정하지는 않습니다."], claimIds: ["GERD-B2-001", "GERD-B2-002", "GERD-B2-003"], sourceIds: ["SRC-KDCA-GERD", "SRC-NIDDK-GERD-SYMPTOMS"], imageId: "gerd-explainer" },
-      { title: "음식 이름 옆에 식사·눕기·불편 시각을 적습니다", paragraphs: ["같은 음식을 먹어도 양, 시간, 자세와 상황은 다를 수 있습니다. 음식 하나를 영구 금지하기 전에 증상이 생긴 날과 생기지 않은 날의 차이를 상담 자료로 남겨 보세요. 가족은 당사자가 원할 때 기록을 도울 수 있지만 식사나 체형을 평가하지 않습니다."], table: { caption: "진료용 시간표에 남길 서로 다른 정보", columns: ["기록 지점", "적을 내용", "질문으로 바꾸기"], rows: [
-        ["식사", "먹은 것·양·먹고 마신 시각", "특정 음식보다 양이나 시간이 관련되나요?"],
-        ["자세와 수면", "눕거나 잠든 시각, 몸을 굽힌 활동", "식사와 눕기 간격을 어떻게 조정할까요?"],
-        ["불편과 약", "느낌·지속 시간·삼킴 변화·실제 약 사용", "이 양상에 추가 검사나 약 확인이 필요한가요?"],
-      ] }, claimIds: ["GERD-B2-004", "GERD-B2-005", "GERD-B2-009", "GERD-B2-010"], sourceIds: ["SRC-NIDDK-GERD-DIAGNOSIS", "SRC-NIDDK-GERD-DIET", "SRC-NHS-GERD"], imageId: "gerd-action", links: [{ href: "/health/tools/gerd-symptom-timing-log", label: "식사·자세·증상 시간 기록표" }] },
-      { title: "모든 사람이 곧바로 내시경을 받는 것은 아닙니다", paragraphs: ["의료진은 증상과 병력을 먼저 보고 치료나 검사의 필요성을 정합니다. 합병증·다른 원인이 의심되거나 치료 후에도 좋아지지 않으면 검사를 고려할 수 있습니다. 내시경은 점막과 다른 문제를 살피고, 식도 산도 검사는 산 역류와 증상의 관계를 확인하는 데 쓰입니다."], bullets: ["지금 검사로 확인하려는 것은 염증인가요, 역류와 증상의 관계인가요?", "우선 치료하며 볼 경우 언제 결과를 다시 평가하나요?", "검사 전 식사와 복용 약에 대한 기관의 준비 지침은 무엇인가요?"], claimIds: ["GERD-B2-003", "GERD-B2-010", "GERD-B2-012"], sourceIds: ["SRC-NIDDK-GERD-DIAGNOSIS"], imageId: null, links: [{ href: "/health/tools/gerd-appointment-prep", label: "위식도역류 검사·치료 질문 카드" }] },
-      { title: "생활 조정과 약의 역할을 따로 확인합니다", paragraphs: ["밤이나 누웠을 때 증상이 있다면 눕기 최소 3시간 전에 식사를 마치는 방법이 도움이 될 수 있다는 안내가 있습니다. 누구에게나 같은 효과를 약속하는 규칙은 아니며 생활 여건과 개인 증상을 상담합니다. 증상을 유발하는 음식·음료는 개인마다 달라 공통 금지 목록을 만들지 않습니다.", "제산제 등 단기 증상 완화 약과 위산 분비를 줄이는 PPI는 역할과 사용 계획이 다릅니다. 일반의약품도 장기간 반복 복용하기 전에 확인하고, 처방약을 혼자 중단하거나 용량을 바꾸지 않습니다. 약 이름·시작일·사용법을 가져가 언제 다시 평가할지 물어보세요."], claimIds: ["GERD-B2-005", "GERD-B2-006", "GERD-B2-011", "GERD-B2-012"], sourceIds: ["SRC-NIDDK-GERD-DIET", "SRC-NHS-GERD"], imageId: null, links: [{ href: "/health/guides/medication-list", label: "일반의약품까지 복용약 목록에 정리" }] },
-      { title: "시간표보다 진료 확인을 앞세울 변화", paragraphs: ["삼키기 어렵거나 아프거나, 구토가 계속되거나, 이유 없이 체중이 줄면 기록을 더 모으려고 기다리지 말고 의료진에게 알립니다. 피가 섞이거나 커피 찌꺼기처럼 보이는 구토, 검고 타르 같은 변도 바로 의료 도움을 구할 변화입니다.", "속쓰림이 자주 반복되거나 생활 조정·약국 약으로 나아지지 않는 경우에도 진료로 원인을 확인합니다. 이 목록은 모든 위험을 배제하는 검사표가 아닙니다. 위에서 설명한 심장 의심·호흡·의식의 위급한 변화는119가 먼저입니다."], claimIds: ["GERD-B2-007", "GERD-B2-008"], sourceIds: ["SRC-NIDDK-GERD-SYMPTOMS", "SRC-NHS-GERD", "SRC-NHLBI-HEART-ATTACK-SYMPTOMS"], imageId: null, links: [{ href: "/health/guides/danger-signals", label: "응급 도움과 진료 상담의 경계" }] },
+    "slug": "gastroesophageal-reflux-disease",
+    "title": "내시경에 식도염이 없는데, 역류 증상은 왜 남을까요?",
+    "seoTitle": "역류질환·식도염·내시경 소견의 차이와 진료 질문",
+    "publishedAt": "2026-08-26",
+    "updatedAt": "2026-10-01",
+    "sourceCheckedAt": "2026-10-01",
+    "eyebrow": "소화 · 역류의 의미와 증상 시간표",
+    "description": "병명과 내시경 소견은 같은 설명서가 아닙니다. 역류·역류질환·식도염을 나눠 읽고, 식사·자세·시간 기록으로 다음 검사 질문을 준비합니다. 출혈·흉부 불편 등은 기록보다 도움을 우선합니다.",
+    "outcome": "결과지에 적힌 소견과 아직 남은 증상을 구분하고, 검사로 무엇을 확인했으며 다음에 무엇을 할지 질문합니다.",
+    "summary": [
+      "GER은 역류 현상, GERD는 반복되는 불편·합병증과 관련된 질환, 식도염은 식도에 염증이 생긴 소견입니다. 같은 단어로 바꾸어 읽지 않습니다.",
+      "내시경에서 식도염 소견이 없더라도 역류질환을 이 글만으로 배제할 수 없습니다. 증상·병력과 필요시 추가 검사를 의료진이 함께 봅니다.",
+      "삼킴 변화·이유 없는 체중 감소는 신속히 진료로 확인합니다. 출혈 의심은 즉시 의료 도움, 심근경색 의심·심한 호흡곤란·의식 저하는 즉시 119가 먼저입니다."
     ],
-    faq: [
-      { question: "위식도역류질환과 역류성 식도염은 같은 뜻인가요?", answer: "완전히 같은 말은 아닙니다. 역류질환은 반복되는 불편이나 합병증을 다루고, 식도염은 식도 점막의 염증을 말합니다. 검사 소견과 증상을 함께 해석합니다.", claimIds: ["GERD-B2-001", "GERD-B2-003"], sourceIds: ["SRC-KDCA-GERD", "SRC-NIDDK-GERD-DEFINITION"] },
-      { question: "가슴이 쓰리면 위장약부터 먹어 보면 되나요?", answer: "새롭거나 평소와 다른 가슴 불편을 약 반응으로 진단하지 않습니다. 심근경색이 의심되거나 호흡·의식이 위급하면 약 효과를 기다리지 말고119에 연락합니다.", claimIds: ["GERD-B2-003", "GERD-B2-008"], sourceIds: ["SRC-NHLBI-HEART-ATTACK-SYMPTOMS", "SRC-KDCA-CPR"] },
-      { question: "커피나 매운 음식은 평생 끊어야 하나요?", answer: "증상을 유발하는 음식·음료는 사람마다 다릅니다. 먹은 양과 시각, 눕기와 증상의 관계를 기록해 조정할 대상을 상담하며 이 글이 영구 금지 목록을 정하지 않습니다.", claimIds: ["GERD-B2-005", "GERD-B2-011"], sourceIds: ["SRC-NIDDK-GERD-DIET"] },
-      { question: "증상이 있으면 내시경을 반드시 하나요?", answer: "증상과 병력으로 먼저 평가하기도 합니다. 합병증이나 다른 원인이 의심되는지, 치료 반응이 어떤지에 따라 검사 목적과 필요성을 의료진이 정합니다.", claimIds: ["GERD-B2-003", "GERD-B2-010"], sourceIds: ["SRC-NIDDK-GERD-DIAGNOSIS"] },
-      { question: "기침이나 쉰 목소리만 있어도 역류인가요?", answer: "역류와 함께 나타날 수 있지만 원인은 다양합니다. 목·호흡 증상만으로 결론 내리지 말고 다른 가능성도 확인합니다.", claimIds: ["GERD-B2-002", "GERD-B2-003"], sourceIds: ["SRC-NIDDK-GERD-SYMPTOMS", "SRC-KDCA-GERD"] },
-      { question: "약을 먹고 좋아졌다가 다시 불편하면 용량을 늘리나요?", answer: "임의로 늘리거나 오래 반복 복용하지 말고 증상이 돌아온 시점과 실제 복용법을 알려 재평가받습니다. 개인의 처방 계획은 이 글로 바꾸지 않습니다.", claimIds: ["GERD-B2-006", "GERD-B2-012"], sourceIds: ["SRC-NHS-GERD"] },
+    "sections": [
+      {
+        "title": "역류 현상·병명·염증 소견은 서로 다른 설명서",
+        "table": {
+          "caption": "현상·질환·검사 소견을 나눠 읽기 — 실제 검사 결과가 아닙니다",
+          "columns": [
+            "표현",
+            "뜻",
+            "이것만으로 정할 수 없는 것"
+          ],
+          "rows": [
+            [
+              "위식도역류(GER)",
+              "위 내용물이 식도로 올라오는 현상; 가끔은 건강한 사람에게도 생김",
+              "한 번의 역류가 곧 질환이라는 결론"
+            ],
+            [
+              "위식도역류질환(GERD)",
+              "역류가 반복되어 불편하거나 합병증과 이어지는 질환",
+              "모든 속쓰림의 원인이나 개인의 중증도"
+            ],
+            [
+              "역류성 식도염",
+              "역류와 관련해 식도 점막에 염증이 생긴 상태",
+              "식도염 소견이 없으면 역류질환도 없다는 결론"
+            ]
+          ]
+        },
+        "paragraphs": [
+          "결과지의 「식도염 소견 없음」을 「모든 역류 문제 없음」으로 바꿔 읽어도 될까요? 질병관리청은 위식도역류질환이 있어도 내시경에서 미란성 식도염이 보이지 않는 경우가 있다고 설명합니다. 이 점은 혼자 역류질환을 확진하는 근거도 아닙니다.",
+          "내시경은 식도 점막과 다른 문제를 살피는 검사입니다. 반면 병명은 증상·병력과 검사 정보를 함께 해석해 정합니다. 아래 비교는 말의 역할을 나누는 설명이며 실제 환자의 결과표가 아닙니다."
+        ],
+        "claimIds": [
+          "GERD-B2-001",
+          "GERD-B2-003"
+        ],
+        "sourceIds": [
+          "SRC-KDCA-GERD",
+          "SRC-NIDDK-GERD-DEFINITION",
+          "SRC-NIDDK-GERD-DIAGNOSIS"
+        ],
+        "imageId": null,
+        "links": [
+          {
+            "href": "/health/guides/reading-health-results",
+            "label": "검사 소견과 다음 진료 질문 나누기"
+          }
+        ]
+      },
+      {
+        "title": "이번 검사로 무엇을 확인했는지 먼저 묻기",
+        "paragraphs": [
+          "의료진은 증상과 병력을 살펴 치료·검사 필요성을 정합니다. 합병증이나 다른 원인이 의심되거나 치료 뒤에도 나아지지 않을 때 검사를 고려할 수 있어, 모든 사람이 바로 같은 검사를 받는 것은 아닙니다.",
+          "내시경은 점막·합병증·다른 문제를 살피고, 식도 pH 검사는 산 역류와 증상·식사·수면의 관계를 확인하는 데 쓰입니다. 검사 전 약이나 식사를 혼자 바꾸지 말고 기관의 준비 지침을 받으세요."
+        ],
+        "bullets": [
+          "이번 결과는 점막에 보이는 소견인가요, 역류와 증상의 관계를 확인한 것인가요?",
+          "식도염 소견이 없어도 남은 증상은 어떻게 확인하나요?",
+          "치료하며 지켜본다면 언제 다시 평가하고, 어떤 변화가 있으면 먼저 연락하나요?"
+        ],
+        "claimIds": [
+          "GERD-B2-003",
+          "GERD-B2-010",
+          "GERD-B2-012"
+        ],
+        "sourceIds": [
+          "SRC-NIDDK-GERD-DIAGNOSIS",
+          "SRC-KDCA-GERD"
+        ],
+        "imageId": null,
+        "links": [
+          {
+            "href": "/health/tools/gerd-appointment-prep",
+            "label": "위식도역류 검사·치료 질문 카드"
+          }
+        ]
+      },
+      {
+        "title": "결과지는 소견을, 시간표는 생활 속 맥락을 보여 줍니다",
+        "paragraphs": [
+          "음식 이름만으로 원인을 확정하기보다 먹고 마신 시각, 양, 눕거나 잠든 시각, 불편의 시작과 약 사용을 나란히 남겨 보세요. 시간표는 병명을 붙이거나 약을 계산하는 도구가 아닙니다. 의료진과 확인할 차이를 찾는 자료입니다.",
+          "아래 표는 작성할 항목을 비교한 안내이며 실제 환자의 기록이나 가상 치료 결과가 아닙니다. 이미 쓰는 도구 한 장을 활용하고, 위험 신호가 생기면 빈칸을 채우느라 진료를 미루지 않습니다."
+        ],
+        "table": {
+          "caption": "결과지와 함께 가져갈 시간표의 세 지점",
+          "columns": [
+            "기록 지점",
+            "적을 내용",
+            "질문으로 바꾸기"
+          ],
+          "rows": [
+            [
+              "식사",
+              "먹은 것·양·먹고 마신 시각",
+              "특정 음식보다 양이나 시간이 관련되나요?"
+            ],
+            [
+              "자세와 수면",
+              "눕거나 잠든 시각, 몸을 굽힌 활동",
+              "식사와 눕기 간격을 어떻게 조정할까요?"
+            ],
+            [
+              "불편과 약",
+              "느낌·지속 시간·삼킴 변화·실제 약 사용",
+              "이 양상에 추가 검사나 약 확인이 필요한가요?"
+            ]
+          ]
+        },
+        "claimIds": [
+          "GERD-B2-004",
+          "GERD-B2-005",
+          "GERD-B2-009",
+          "GERD-B2-010"
+        ],
+        "sourceIds": [
+          "SRC-NIDDK-GERD-DIAGNOSIS",
+          "SRC-NIDDK-GERD-DIET",
+          "SRC-NHS-GERD"
+        ],
+        "imageId": "gerd-action",
+        "links": [
+          {
+            "href": "/health/tools/gerd-symptom-timing-log",
+            "label": "식사·자세·증상 시간 기록표"
+          }
+        ]
+      },
+      {
+        "title": "생활 조정과 약은 시간표를 보고 개인 계획으로 확인",
+        "paragraphs": [
+          "밤이나 누웠을 때 증상이 있다면 눕기 최소 3시간 전에 식사를 마치는 방법이 도움이 될 수 있다는 안내가 있습니다. 누구에게나 같은 효과를 약속하는 규칙은 아니며 생활 여건과 개인 증상을 상담합니다. 증상을 유발하는 음식·음료는 개인마다 달라 공통 금지 목록을 만들지 않습니다.",
+          "제산제 등 단기 증상 완화 약과 위산 분비를 줄이는 PPI는 역할과 사용 계획이 다릅니다. 일반의약품도 장기간 반복 복용하기 전에 확인하고, 처방약을 혼자 중단하거나 용량을 바꾸지 않습니다. 약 이름·시작일·사용법을 가져가 언제 다시 평가할지 물어보세요. 가족은 식사나 체형을 평가하기보다 당사자가 원할 때 기록·질문을 정리하는 일을 돕습니다."
+        ],
+        "claimIds": [
+          "GERD-B2-005",
+          "GERD-B2-006",
+          "GERD-B2-011",
+          "GERD-B2-012"
+        ],
+        "sourceIds": [
+          "SRC-NIDDK-GERD-DIET",
+          "SRC-NHS-GERD"
+        ],
+        "imageId": null,
+        "links": [
+          {
+            "href": "/health/guides/medication-list",
+            "label": "일반의약품까지 복용약 목록에 정리"
+          }
+        ]
+      },
+      {
+        "title": "삼킴 변화·체중 감소: 기록을 더 모으기 전에 진료",
+        "paragraphs": [
+          "삼키기 어렵거나 삼킬 때 아프고, 구토가 계속되거나 이유 없이 체중이 줄면 신속히 의료진에게 알리고 진료를 받으세요. 역류 때문이라고 단정하거나 정해진 기록 기간을 채울 때까지 기다리지 않습니다.",
+          "속쓰림이 반복되거나 생활 조정·일반의약품으로 나아지지 않는 경우에도 진료로 원인을 확인합니다. 피가 보이거나 커피 찌꺼기 같은 구토, 검고 타르 같은 변은 아래 즉시 도움 안내로 구분합니다."
+        ],
+        "claimIds": [
+          "GERD-B2-007",
+          "GERD-B2-010"
+        ],
+        "sourceIds": [
+          "SRC-NIDDK-GERD-SYMPTOMS",
+          "SRC-NHS-GERD"
+        ],
+        "imageId": null
+      },
+      {
+        "title": "출혈 의심·심장 의심·위급한 호흡이나 의식 변화에는 즉시 도움",
+        "paragraphs": [
+          "피가 섞이거나 커피 찌꺼기처럼 보이는 구토, 검고 타르 같은 변은 출혈 가능성이 있어 즉시 의료 도움을 받습니다. 어지러움·실신·숨참·의식 변화 등도 함께 있다면 즉시 119에 연락하세요. 양이 적어 보이거나 역류약을 먹었다는 이유로 기다리지 않습니다.",
+          "새롭거나 평소와 다른 가슴 압박·통증, 숨참, 식은땀, 팔·턱으로 퍼지는 불편으로 심근경색이 의심되면 즉시 119에 연락합니다. 증상이 가볍거나 오르내릴 수도 있으므로 아주 심해질 때까지 기다리지 않습니다. 심한 호흡곤란이나 의식 저하도 119가 먼저입니다.",
+          "위장약을 먹어 본 뒤 반응으로 가슴 불편의 원인을 가르거나, 시간표를 완성하느라 도움 요청을 미루지 않습니다. 이 목록에 해당하지 않는다고 안전이 보장되는 것은 아닙니다."
+        ],
+        "claimIds": [
+          "GERD-B2-003",
+          "GERD-B2-007",
+          "GERD-B2-008"
+        ],
+        "sourceIds": [
+          "SRC-NIDDK-GERD-SYMPTOMS",
+          "SRC-NIDDK-GI-BLEEDING",
+          "SRC-NHLBI-HEART-ATTACK-SYMPTOMS",
+          "SRC-KDCA-CPR"
+        ],
+        "tone": "warning",
+        "imageId": null,
+        "links": [
+          {
+            "href": "/health/guides/danger-signals",
+            "label": "기록보다 먼저 도움을 요청할 위험 신호와 119 안내"
+          }
+        ]
+      }
     ],
-    sourceIds: ["SRC-KDCA-GERD", "SRC-NIDDK-GERD-DEFINITION", "SRC-NIDDK-GERD-SYMPTOMS", "SRC-NIDDK-GERD-DIAGNOSIS", "SRC-NIDDK-GERD-DIET", "SRC-NHS-GERD", "SRC-NHLBI-HEART-ATTACK-SYMPTOMS", "SRC-KDCA-CPR"], imageIds: ["gerd-hero", "gerd-explainer", "gerd-action"], toolSlugs: ["gerd-symptom-timing-log", "gerd-everyday-patterns", "gerd-appointment-prep"],
+    "faq": [],
+    "sourceIds": [
+      "SRC-KDCA-GERD",
+      "SRC-NIDDK-GERD-DEFINITION",
+      "SRC-NIDDK-GERD-SYMPTOMS",
+      "SRC-NIDDK-GERD-DIAGNOSIS",
+      "SRC-NIDDK-GERD-DIET",
+      "SRC-NHS-GERD",
+      "SRC-NHLBI-HEART-ATTACK-SYMPTOMS",
+      "SRC-KDCA-CPR",
+      "SRC-NIDDK-GI-BLEEDING"
+    ],
+    "imageIds": [
+      "gerd-hero",
+      "gerd-explainer",
+      "gerd-action"
+    ],
+    "toolSlugs": [
+      "gerd-symptom-timing-log",
+      "gerd-appointment-prep"
+    ]
   },
   osteoarthritis: {
     slug: "osteoarthritis", seoTitle: "골관절염 증상과 운동, 무릎·손 관절 기록법", title: "골관절염, 통증과 일상 변화를 함께 살피기", eyebrow: "뼈·관절 · 활동과 진료 준비", description: "무릎·손·고관절의 통증과 달라진 일상을 함께 기록합니다. 골관절염의 검사·운동·치료 질문과 갑작스러운 심한 관절통이나 새 부종의 진료 신호를 구분합니다.", outcome: "통증이 생기는 활동과 어려워진 일을 골라 기록하고, 내게 맞는 운동·검사·치료 계획을 질문합니다.",

@@ -11,6 +11,7 @@ import { bodyTheaterScenes } from "../lib/health-v3/body-theater";
 import HypertensionPage from "../app/health/hypertension/page";
 import { metadata as diabetesMetadata } from "../app/health/type-2-diabetes/page";
 import { metadata as rhinitisMetadata } from "../app/health/allergic-rhinitis/page";
+import { metadata as refluxMetadata } from "../app/health/gastroesophageal-reflux-disease/page";
 
 const baseline = JSON.parse(readFileSync("tests/fixtures/health-lab-observation-baseline.json", "utf8"));
 const digest = (value: unknown) => createHash("sha256").update(typeof value === "string" ? value : JSON.stringify(value)).digest("hex");
@@ -28,6 +29,32 @@ test("three authorized revisions preserve all other disease bodies and previous 
   assert.equal(digest(healthTools), baseline.toolsSha256);
   assert.equal(digest(healthClaims), baseline.claimRegistrySha256);
   for (const source of baseline.originalSources) assert.deepEqual(healthSources.find(item => item.id === source.id), source);
+});
+
+test("reflux separates endoscopy from a diagnosis and the role of a timing log", () => {
+  const article = healthArticles["gastroesophageal-reflux-disease"], html = render(article.slug), text = visible(html);
+  assert.ok(article.sections[0].table?.rows.some(row => row[0].includes("GER)")));
+  assert.ok(article.sections[0].table?.rows.some(row => row[0].includes("GERD)")));
+  for (const term of ["식도염 소견 없음", "모든 역류 문제 없음", "미란성 식도염이 보이지 않는", "혼자 역류질환을 확진하는 근거도 아닙니다", "이번 검사로 무엇을 확인", "식도 pH 검사", "식사·수면", "결과지는 소견을", "시간표는 병명을 붙이거나 약을 계산하는 도구가 아닙니다", "실제 환자의 기록이나 가상 치료 결과가 아닙니다"]) assert.ok(text.includes(term), term);
+  assert.equal(article.faq.length, 0);
+  assert.equal(article.updatedAt, "2026-10-01");
+  assert.equal(refluxMetadata.description, article.description);
+  assert.ok(html.includes('href="/health/tools/gerd-symptom-timing-log"'));
+  assert.doesNotMatch(text, /SRC-|OFFICIAL_SOURCE_CHECKED|NOT_MEDICALLY_REVIEWED|기존 claim|자주 묻는 질문|즉시119|말고119/);
+  for (const id of [...article.sections.flatMap(section => section.sourceIds ?? []), ...bodyTheaterScenes[article.slug].sourceIds]) assert.ok(article.sourceIds.includes(id), id);
+});
+
+test("swallowing and weight changes prompt care, and suspected bleeding calls for immediate help", () => {
+  const article = healthArticles["gastroesophageal-reflux-disease"];
+  const prompt = article.sections.find(section => section.title.startsWith("삼킴 변화"))!;
+  const urgent = article.sections.find(section => section.tone === "warning")!;
+  assert.ok(prompt.paragraphs?.join(" ").includes("신속히 의료진에게 알리고 진료"));
+  assert.ok(prompt.paragraphs?.join(" ").includes("정해진 기록 기간을 채울 때까지 기다리지"));
+  const text = urgent.paragraphs?.join(" ") ?? "";
+  for (const term of ["커피 찌꺼기", "검고 타르 같은", "즉시 의료 도움", "실신", "즉시 119", "증상이 가볍거나 오르내릴", "위장약을 먹어 본 뒤 반응으로", "안전이 보장되는 것은 아닙니다"]) assert.ok(text.includes(term), term);
+  assert.ok(urgent.sourceIds?.includes("SRC-NIDDK-GI-BLEEDING"));
+  assert.ok(render(article.slug).includes('href="https://www.niddk.nih.gov/health-information/digestive-diseases/gastrointestinal-bleeding/symptoms-causes"'));
+  assert.doesNotMatch(text, /\d+시간|\d+일|식도염이면 119|식도염이 없으니 안전/);
 });
 
 test("rhinitis pairs a fictional fact-versus-guess table with a single main observation tool", () => {
