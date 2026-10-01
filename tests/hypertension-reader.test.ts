@@ -39,7 +39,7 @@ test("emergency thresholds keep strict OR, asymptomatic and nonpregnant adult co
 test("reader removes internal codes and repetitive FAQ while original claim/policy history stays", () => {
   assert.doesNotMatch(html, /SRC-|OFFICIAL_SOURCE_CHECKED|NOT_MEDICALLY_REVIEWED|data-claim-ids|근거 출처 \d|자주 묻는 질문|기존 claim/);
   assert.equal(healthClaims.filter(claim => claim.articleSlug === "hypertension").length, 13);
-  assert.equal(healthSources.length, 168);
+  assert.equal(healthSources.length, 170);
   assert.ok(trustPages.find(page => page.slug === "contact")?.intro.includes("접수 가능 여부는 확인되지 않았습니다"));
   assert.ok(trustPages.some(page => page.slug === "ai-disclosure"));
 });

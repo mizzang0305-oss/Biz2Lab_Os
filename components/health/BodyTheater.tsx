@@ -1,10 +1,10 @@
 import { BODY_THEATER_DISCLOSURE, bodyTheaterScenes } from "@/lib/health-v3/body-theater";
 import { getSources, type HealthArticleSlug } from "@/lib/health-v3/content";
 
-export function BodyTheater({ slug }: { slug: HealthArticleSlug }) {
+export function BodyTheater({ slug, showSourceNames = false }: { slug: HealthArticleSlug; showSourceNames?: boolean }) {
   const scene = bodyTheaterScenes[slug];
   const titleId = `body-theater-${scene.sceneKey}`;
-  const readerSources = slug === "kidney-stones" ? getSources(scene.sourceIds) : undefined;
+  const readerSources = slug === "kidney-stones" || showSourceNames ? getSources(scene.sourceIds) : undefined;
 
   return (
     <section className="onurim-body-theater" aria-labelledby={titleId} data-scene-key={scene.sceneKey} data-motion={scene.motion}>
