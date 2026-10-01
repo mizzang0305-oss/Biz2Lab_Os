@@ -654,58 +654,204 @@ export const healthSupportGuides: HealthSupportGuide[] = [
     ]
   },
   {
-    slug: "reading-health-results",
-    title: "건강검진 결과지, 숫자와 표시를 읽는 순서",
-    seoTitle: "건강검진 결과지 읽는 법: 참고범위·양성·재검 질문",
-    description: "빨간 숫자나 양성 표시만으로 병을 확정하지 않습니다. 혈액·소변 검사 결과에서 비교할 항목과 참고범위의 한계, 다시 검사하거나 진료받을 때 물을 질문을 정리합니다.",
-    publishedAt: "2026-08-26", updatedAt: "2026-09-06", sourceCheckedAt: "2026-09-06",
-    faqTitle: "결과 표시를 보고 생기는 질문",
-    sections: [
-      { title: "빨간 숫자를 읽기 전, 어떤 검사인지", paragraphs: [
-        "결과지의 색이나 화살표부터 병명으로 바꾸지 마세요. 먼저 검사명, 검사한 날짜, 결과와 단위, 그 검사실의 참고범위를 한 줄씩 함께 봅니다. 이 안내는 건강검진 중 혈액·소변 같은 검사실 검사 결과를 읽는 출발점입니다. 영상검사 소견이나 국가건강검진의 모든 종합 판정 등급을 해설하는 표는 아닙니다.",
-        "검사는 증상의 원인을 찾거나, 위험을 살피거나, 치료 중 변화를 확인하는 등 목적이 다릅니다. ‘이 검사는 제 경우 무엇을 확인하려고 했나요?’부터 물으면 같은 숫자를 어떻게 설명받아야 할지 길이 잡힙니다. 검사값만으로 몸 전체의 상태를 확정하지 않습니다.",
-      ], sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-NHS-BLOOD-TESTS"], links: [{ href: "/health/guides/understanding-hba1c", label: "HbA1c·당화혈색소와 혈당의 이름·단위를 구분하기" }] },
-      { title: "표시를 다음 질문으로 바꾸는 표", paragraphs: [
-        "참고범위는 비교에 사용하는 값의 범위입니다. 건강한 사람들의 검사 결과 등을 바탕으로 만들며 나이·집단·검사법 등에 따라 달라질 수 있습니다. 내 결과지의 범위를 확인하고, 인터넷에서 찾은 다른 검사실의 숫자를 그대로 대입하지 않습니다.",
-        "범위 안이라고 질환이 전혀 없다는 보장은 없고, 범위를 벗어났다고 곧바로 질환이 확정되는 것도 아닙니다. 증상, 병력과 다른 검사 결과를 함께 해석합니다. 치료 중이라면 ‘제게 따로 정해진 치료 목표가 있나요?’라고 묻고 목표 숫자를 임의로 정하지 않습니다.",
-      ], table: { caption: "결과를 확정 짓는 표가 아니라, 설명을 요청하는 질문표", columns: ["결과지에서 본 표시", "진료 때 확인할 질문"], rows: [
-        ["참고범위 밖·색 표시·화살표", "이 변화가 제 상황에서 어떤 의미인가요? 다른 결과와 함께 볼 항목은 무엇인가요?"],
-        ["참고범위 안인데 불편이 계속됨", "이 검사로 확인하지 못하는 원인이 있나요? 증상에 대해 더 살필 필요가 있나요?"],
-        ["양성 또는 음성", "이 검사는 무엇을 찾는 검사인가요? 이 표시만으로 알 수 있는 것과 없는 것은 무엇인가요?"],
-        ["판정이 불확실하다는 결과 또는 재검·추가 확인 안내", "무엇을 다시 확인하나요? 어떤 준비를 하고 언제·어디에서 확인하나요?"],
-      ] }, sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-NHS-BLOOD-TESTS"], links: [{ href: "/health/dyslipidemia", label: "콜레스테롤 결과는 개인 위험과 함께 보는 이유" }] },
-      { title: "양성·음성·판정 불확실은 무엇이 다른가요?", paragraphs: [
-        "양성은 보통 검사에서 찾던 물질이나 표지 등이 확인됐다는 뜻이고, 음성은 확인되지 않았다는 뜻입니다. 하지만 무엇을 찾는 검사인지에 따라 의미가 달라집니다. ‘양성은 무조건 나쁜 결과, 음성은 모든 질환이 없다는 뜻’으로 번역하지 않습니다.",
-        "검사에도 한계가 있습니다. 검사 결과가 질환이나 상태가 있다고 가리키지만 실제로는 없는 경우를 위양성, 없다고 가리키지만 실제로는 있는 경우를 위음성이라고 합니다. 판정 불확실은 명확히 결론 내리기 어려운 결과입니다. 이런 한계와 검사 목적에 따라 재검이나 다른 검사가 필요할 수 있지만, 모든 양성·음성에 재검이 반드시 필요한 것은 아닙니다.",
-        "의료진에게 ‘지금 결과로 어느 정도까지 판단할 수 있나요? 추가 확인이 필요하다면 이유가 무엇인가요?’라고 묻습니다. 이 페이지는 특정 검사로 질환을 확정하거나 검사 정확도를 계산하지 않습니다.",
-      ], sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-NHS-BLOOD-TESTS"] },
-      { title: "이전 결과와 비교할 때 빠뜨리기 쉬운 조건", paragraphs: [
-        "검사 이름이 비슷해도 단위·검사 방법·참고범위가 다르면 숫자만 나란히 놓고 좋아졌다거나 나빠졌다고 단정하기 어렵습니다. 이전 결과지를 함께 가져가 날짜와 검사 기관을 알려 주세요. 검사실마다 방법이 다를 수 있으므로 같은 검사실에서 이어서 확인할지 의료진과 상의합니다.",
-        "금식이나 다른 준비가 필요한지는 검사마다 다릅니다. 결과가 걱정된다고 다음 검사 전에 임의로 굶거나 약을 끊지 않습니다. 처방약·일반약·비타민·보충제를 알리고, 검사기관의 준비 안내를 확인하세요. 안내를 지키지 못했다면 숨기지 말고 무엇이 달랐는지 알립니다.",
-        "적어 갈 메모는 ‘검사 날짜 / 전과 다른 준비 조건 / 당시 불편 / 함께 복용한 것 / 묻고 싶은 점’ 정도면 됩니다. 모든 과거 기록을 찾아야 상담받을 수 있다는 뜻은 아닙니다. 모르는 부분은 추측 대신 ‘확인 필요’라고 남깁니다.",
-      ], sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-MEDLINEPLUS-LAB-PREP"], links: [{ href: "/health/guides/medication-list", label: "검사 전 알릴 약·비타민·보충제 목록 정리" }] },
-      { title: "결과지를 덮기 전, 다음 연락과 날짜를 확인하세요", paragraphs: [
-        "다음 행동은 숫자의 색이 아니라 검사 목적과 의료진의 설명에 맞춰 정합니다. 결과지에 재검·진료·추적 안내가 있다면 ‘누구에게, 언제까지, 무엇을 준비해 연락하나요?’를 확인하세요. 시점이 없거나 설명을 이해하기 어려우면 검사를 시행한 기관에 문의합니다.",
-        "모든 검사에 같은 재검 간격을 적용하지 않습니다. 결과를 언제 어떤 방법으로 설명받는지, 연락이 오지 않으면 어디로 문의하는지도 물어 두세요. 서울아산병원 건강증진센터는 결과 전달과 상담을 별도로 안내하는 국내 사례이며, 구체적인 연락 방식과 일정은 본인이 검사한 기관에서 확인해야 합니다.",
-        "상담 후에는 ‘지금 할 일 / 다음 확인 날짜 / 그 전에 변화가 생기면 연락할 곳’을 본인 말로 다시 확인합니다. 검사표를 읽는 일과 증상 때문에 도움을 요청하는 일은 별개입니다. 결과가 괜찮아 보인다는 이유로 현재의 불편을 설명하지 않고 넘기지 마세요.",
-      ], sourceIds: ["SUP-NHS-BLOOD-TESTS", "SUP-MEDLINEPLUS-LAB", "SUP-AMC-RESULT-CONSULT"], links: [
-        { href: "/health/guides/appointment-questions", label: "다음 진료·검사·악화 시 행동을 묻는 질문" },
-        { href: "/health/guides/danger-signals", label: "검사표 해석보다 도움 요청이 먼저인 위험 신호" },
-      ] },
+    "slug": "reading-health-results",
+    "title": "혈액·소변 검사표의 빨간 표시, 다음에 무엇을 물을까요?",
+    "seoTitle": "혈액·소변 검사 결과 읽기: 참고범위·표시에서 다음 질문으로",
+    "description": "혈액·소변 검사표에 표시가 생겼다면 병명을 붙이기 전에 검사명·단위·참고범위를 함께 봅니다. 가상의 결과지 조각으로 읽는 위치를 짚고, 다시 확인할 내용과 연락할 곳을 정리합니다.",
+    "publishedAt": "2026-08-26",
+    "updatedAt": "2026-10-01",
+    "sourceCheckedAt": "2026-10-01",
+    "faqTitle": "결과 표시를 보고 생기는 질문",
+    "sections": [
+      {
+        "title": "빨간 숫자를 읽기 전, 어떤 검사인지",
+        "paragraphs": [
+          "「표시에 색이 있으니 병이 있다는 뜻일까?」라는 질문에서 시작해 보세요. 지금 할 일은 색을 진단으로 번역하는 것이 아니라, 어떤 검사에서 무엇이 달라졌는지 설명을 받을 준비입니다.",
+          "결과지의 색이나 화살표부터 병명으로 바꾸지 마세요. 먼저 검사명, 검사한 날짜, 결과와 단위, 그 검사실의 참고범위를 한 줄씩 함께 봅니다. 이 안내는 건강검진 중 혈액·소변 같은 검사실 검사 결과를 읽는 출발점입니다. 영상검사 소견이나 국가건강검진의 모든 종합 판정 등급을 해설하는 표는 아닙니다.",
+          "검사는 증상의 원인을 찾거나, 위험을 살피거나, 치료 중 변화를 확인하는 등 목적이 다릅니다. ‘이 검사는 제 경우 무엇을 확인하려고 했나요?’부터 물으면 같은 숫자를 어떻게 설명받아야 할지 길이 잡힙니다. 검사값만으로 몸 전체의 상태를 확정하지 않습니다."
+        ],
+        "sourceIds": [
+          "SUP-MEDLINEPLUS-LAB",
+          "SUP-NHS-BLOOD-TESTS"
+        ],
+        "links": [
+          {
+            "href": "/health/guides/understanding-hba1c",
+            "label": "HbA1c·당화혈색소와 혈당의 이름·단위를 구분하기"
+          }
+        ]
+      },
+      {
+        "id": "result-fragment",
+        "title": "결과지 조각에서 네 군데만 먼저 찾기",
+        "paragraphs": [
+          "아래는 읽는 위치를 보여 주는 가상 결과지 조각입니다. 실제 환자 결과나 실제 검사 항목이 아니며, 진단 수치·정상 목표값·개인정보를 넣지 않았습니다. 내 결과지를 고치는 양식도 아닙니다."
+        ],
+        "table": {
+          "caption": "가상 결과지 조각 — 값을 판정하지 않는 읽기 연습",
+          "columns": [
+            "결과지의 자리",
+            "가상 표시와 다음 확인"
+          ],
+          "rows": [
+            [
+              "검사명",
+              "검사 항목 A — 무엇을 확인한 검사인지 묻기"
+            ],
+            [
+              "결과·단위",
+              "값: 생략 / 단위: 생략 — 실제 결과지에서는 둘을 함께 읽기"
+            ],
+            [
+              "검사실 참고범위·표시",
+              "범위: 생략 / 범위 밖 표시 있음 — 다른 기관 기준을 대입하지 않기"
+            ],
+            [
+              "재검·상담 안내",
+              "추가 확인 안내 있음 / 시점·연락처 없음 — 시행 기관에 확인 필요"
+            ]
+          ]
+        },
+        "sourceIds": [
+          "SUP-MEDLINEPLUS-LAB",
+          "SUP-NHS-BLOOD-TESTS"
+        ]
+      },
+      {
+        "title": "표시를 다음 질문으로 바꾸는 표",
+        "paragraphs": [
+          "참고범위는 비교에 사용하는 값의 범위입니다. 건강한 사람들의 검사 결과 등을 바탕으로 만들며 나이·집단·검사법 등에 따라 달라질 수 있습니다. 내 결과지의 범위를 확인하고, 인터넷에서 찾은 다른 검사실의 숫자를 그대로 대입하지 않습니다.",
+          "범위 안이라고 질환이 전혀 없다는 보장은 없고, 범위를 벗어났다고 곧바로 질환이 확정되는 것도 아닙니다. 증상, 병력과 다른 검사 결과를 함께 해석합니다. 치료 중이라면 ‘제게 따로 정해진 치료 목표가 있나요?’라고 묻고 목표 숫자를 임의로 정하지 않습니다."
+        ],
+        "table": {
+          "caption": "결과를 확정 짓는 표가 아니라, 설명을 요청하는 질문표",
+          "columns": [
+            "결과지에서 본 표시",
+            "진료 때 확인할 질문"
+          ],
+          "rows": [
+            [
+              "참고범위 밖·색 표시·화살표",
+              "이 변화가 제 상황에서 어떤 의미인가요? 다른 결과와 함께 볼 항목은 무엇인가요?"
+            ],
+            [
+              "참고범위 안인데 불편이 계속됨",
+              "이 검사로 확인하지 못하는 원인이 있나요? 증상에 대해 더 살필 필요가 있나요?"
+            ],
+            [
+              "양성 또는 음성",
+              "이 검사는 무엇을 찾는 검사인가요? 이 표시만으로 알 수 있는 것과 없는 것은 무엇인가요?"
+            ],
+            [
+              "판정이 불확실하다는 결과 또는 재검·추가 확인 안내",
+              "무엇을 다시 확인하나요? 어떤 준비를 하고 언제·어디에서 확인하나요?"
+            ]
+          ]
+        },
+        "sourceIds": [
+          "SUP-MEDLINEPLUS-LAB",
+          "SUP-NHS-BLOOD-TESTS"
+        ],
+        "links": [
+          {
+            "href": "/health/dyslipidemia",
+            "label": "콜레스테롤 결과는 개인 위험과 함께 보는 이유"
+          }
+        ]
+      },
+      {
+        "title": "양성·음성·판정 불확실은 무엇이 다른가요?",
+        "paragraphs": [
+          "양성은 보통 검사에서 찾던 물질이나 표지 등이 확인됐다는 뜻이고, 음성은 확인되지 않았다는 뜻입니다. 하지만 무엇을 찾는 검사인지에 따라 의미가 달라집니다. ‘양성은 무조건 나쁜 결과, 음성은 모든 질환이 없다는 뜻’으로 번역하지 않습니다.",
+          "검사에도 한계가 있습니다. 검사 결과가 질환이나 상태가 있다고 가리키지만 실제로는 없는 경우를 위양성, 없다고 가리키지만 실제로는 있는 경우를 위음성이라고 합니다. 판정 불확실은 명확히 결론 내리기 어려운 결과입니다. 이런 한계와 검사 목적에 따라 재검이나 다른 검사가 필요할 수 있지만, 모든 양성·음성에 재검이 반드시 필요한 것은 아닙니다.",
+          "의료진에게 ‘지금 결과로 어느 정도까지 판단할 수 있나요? 추가 확인이 필요하다면 이유가 무엇인가요?’라고 묻습니다. 이 페이지는 특정 검사로 질환을 확정하거나 검사 정확도를 계산하지 않습니다."
+        ],
+        "sourceIds": [
+          "SUP-MEDLINEPLUS-LAB",
+          "SUP-NHS-BLOOD-TESTS"
+        ]
+      },
+      {
+        "title": "이전 결과와 비교할 때 빠뜨리기 쉬운 조건",
+        "paragraphs": [
+          "검사 이름이 비슷해도 단위·검사 방법·참고범위가 다르면 숫자만 나란히 놓고 좋아졌다거나 나빠졌다고 단정하기 어렵습니다. 이전 결과지를 함께 가져가 날짜와 검사 기관을 알려 주세요. 검사실마다 방법이 다를 수 있으므로 같은 검사실에서 이어서 확인할지 의료진과 상의합니다.",
+          "금식이나 다른 준비가 필요한지는 검사마다 다릅니다. 결과가 걱정된다고 다음 검사 전에 임의로 굶거나 약을 끊지 않습니다. 처방약·일반약·비타민·보충제를 알리고, 검사기관의 준비 안내를 확인하세요. 안내를 지키지 못했다면 숨기지 말고 무엇이 달랐는지 알립니다.",
+          "이전 결과지가 있다면 함께 가져가고, 검사 준비가 달랐다면 그 사실을 알립니다. 모르는 조건은 「확인 필요」로 남깁니다. 약·비타민·보충제 정보는 아래 약 목록 안내로 따로 준비할 수 있습니다."
+        ],
+        "sourceIds": [
+          "SUP-MEDLINEPLUS-LAB",
+          "SUP-MEDLINEPLUS-LAB-PREP"
+        ],
+        "links": [
+          {
+            "href": "/health/guides/medication-list",
+            "label": "검사 전 알릴 약·비타민·보충제 목록 정리"
+          }
+        ]
+      },
+      {
+        "title": "결과지를 덮기 전, 다음 연락과 날짜를 확인하세요",
+        "paragraphs": [
+          "결과지의 재검·추적 안내를 읽고 「무엇을 다시 확인하는지 / 언제까지인지 / 어디로 연락하는지」를 표시하세요. 비어 있으면 검사 시행 기관에 문의합니다. 모든 검사에 같은 재검 간격을 적용하지 않습니다.",
+          "결과를 언제 어떤 방법으로 설명받는지, 예정된 연락이 없으면 어디로 문의할지도 확인합니다. 아래 서울아산병원 자료에서는 「결과상담」 부분을 참고했습니다. 결과 전달·상담 방식의 국내 사례이며 그 기관의 준비·복용 지시나 일정을 일반 기준으로 옮기지 않습니다.",
+          "상담 답을 행동·날짜·연락처로 옮기는 방법은 진료 질문 안내에 이어집니다. 검사표가 괜찮아 보인다는 이유로 현재의 불편을 넘기지 말고 의료진에게 알리세요."
+        ],
+        "sourceIds": [
+          "SUP-NHS-BLOOD-TESTS",
+          "SUP-MEDLINEPLUS-LAB",
+          "SUP-AMC-RESULT-CONSULT"
+        ],
+        "links": [
+          {
+            "href": "/health/samples/appointment-action-blank.html",
+            "label": "확인할 질문·다음 행동을 적는 빈 인쇄 메모"
+          },
+          {
+            "href": "/health/guides/appointment-questions",
+            "label": "다음 진료·검사·악화 시 행동을 묻는 질문"
+          },
+          {
+            "href": "/health/guides/danger-signals",
+            "label": "검사표 해석보다 도움 요청이 먼저인 위험 신호"
+          }
+        ]
+      }
     ],
-    faq: [
-      { question: "빨간 숫자가 하나 있으면 병이 있다는 뜻인가요?", answer: "그 표시 하나로 병을 확정할 수 없습니다. 해당 검사의 단위·참고범위와 함께 증상·병력·다른 검사 결과를 해석해야 합니다. ‘괜찮겠지’ 하고 무시하는 대신 그 변화의 의미와 다음 확인이 필요한지 물어보세요.", sourceIds: ["SUP-MEDLINEPLUS-LAB"] },
-      { question: "모두 참고범위 안이면 증상도 걱정하지 않아도 되나요?", answer: "검사값이 범위 안이어도 질환이 없다고 보장하지 않습니다. 불편이 계속된다면 그 증상과 검사 목적을 의료진에게 알립니다. 검사가 확인할 수 있는 범위와 추가 평가 필요성을 함께 설명받으세요.", sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-NHS-BLOOD-TESTS"] },
-      { question: "양성이면 재검 없이 치료부터 시작해야 하나요?", answer: "어떤 검사인지와 현재 상황에 따라 판단이 달라집니다. 양성 표시만 보고 약을 시작하거나 멈추지 말고, 결과가 의미하는 것과 추가 확인 또는 치료가 필요한지 의료진에게 설명받습니다.", sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-NHS-BLOOD-TESTS"] },
-      { question: "지난해보다 숫자가 높아졌는데 바로 나빠진 건가요?", answer: "검사명·단위·방법·참고범위와 검사 전 조건을 함께 비교해야 합니다. 두 결과지를 가져가 이번 변화가 의미 있는지 물어보세요. 숫자가 올랐다는 사실만으로 질환의 악화를 확정하지 않습니다.", sourceIds: ["SUP-MEDLINEPLUS-LAB", "SUP-MEDLINEPLUS-LAB-PREP"] },
-      { question: "재검을 잘 받으려면 약을 쉬고 오래 금식하면 되나요?", answer: "아닙니다. 필요한 준비는 검사별로 확인하고, 의료진의 지시 없이 약을 중단하지 않습니다. 임의로 더 오래 금식하는 것이 아니라 안내받은 조건을 따릅니다. 준비가 달랐다면 검사기관에 알리세요.", sourceIds: ["SUP-MEDLINEPLUS-LAB-PREP"] },
-    ],
-    sources: [
-      { id: "SUP-MEDLINEPLUS-LAB", organization: "NIH/NLM MedlinePlus", title: "How to Understand Your Lab Results", url: "https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/", sourceDate: "2025-09-04 (Last updated)", retrievedAt: "2026-09-06" },
-      { id: "SUP-MEDLINEPLUS-LAB-PREP", organization: "NIH/NLM MedlinePlus", title: "How to Prepare for a Lab Test", url: "https://medlineplus.gov/lab-tests/how-to-prepare-for-a-lab-test/", sourceDate: "2024-08-20 (Last updated)", retrievedAt: "2026-09-06" },
-      { id: "SUP-NHS-BLOOD-TESTS", organization: "NHS", title: "Blood tests", url: "https://www.nhs.uk/tests-and-treatments/blood-tests/", sourceDate: "2023-11-02 (Page last reviewed)", retrievedAt: "2026-09-06" },
-      { id: "SUP-AMC-RESULT-CONSULT", organization: "서울아산병원 건강증진센터", title: "건강검진 유의사항 — 결과상담", url: "https://health.amc.seoul.kr/health/personal/reference.do", sourceDate: "페이지 자체 날짜 미표시", retrievedAt: "2026-09-06" },
-    ],
+    "faq": [],
+    "sources": [
+      {
+        "id": "SUP-MEDLINEPLUS-LAB",
+        "organization": "NIH/NLM MedlinePlus",
+        "title": "How to Understand Your Lab Results",
+        "url": "https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/",
+        "sourceDate": "2025-09-04 (Last updated)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-MEDLINEPLUS-LAB-PREP",
+        "organization": "NIH/NLM MedlinePlus",
+        "title": "How to Prepare for a Lab Test",
+        "url": "https://medlineplus.gov/lab-tests/how-to-prepare-for-a-lab-test/",
+        "sourceDate": "2024-08-20 (Last updated)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-NHS-BLOOD-TESTS",
+        "organization": "NHS",
+        "title": "Blood tests",
+        "url": "https://www.nhs.uk/tests-and-treatments/blood-tests/",
+        "sourceDate": "2023-11-02 (Page last reviewed)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-AMC-RESULT-CONSULT",
+        "organization": "서울아산병원 건강증진센터",
+        "title": "건강검진 유의사항 — 결과상담",
+        "url": "https://health.amc.seoul.kr/health/personal/reference.do",
+        "sourceDate": "페이지 자체 날짜 미표시",
+        "retrievedAt": "2026-09-06"
+      }
+    ]
   },
   {
     slug: "family-medication-support",
@@ -759,119 +905,463 @@ export const healthSupportGuides: HealthSupportGuide[] = [
     ],
   },
   {
-    slug: "symptom-journal",
-    title: "아픈 증상을 짧고 정확하게 기록하는 방법",
-    seoTitle: "증상일지 쓰는 법: 시작·변화·일상 영향을 진료에 전하기",
-    description: "시작 시점, 느낀 불편, 달라지는 상황과 일상 영향을 가능한 만큼 기록합니다. 관찰과 원인 추정을 나누는 예시, 두통·수면 기록의 차이와 기록보다 도움 요청이 먼저인 때를 확인하세요.",
-    publishedAt: "2026-08-26", updatedAt: "2026-09-06", sourceCheckedAt: "2026-09-06",
-    faqTitle: "기록을 시작할 때 막히는 부분",
-    sections: [
-      { id: "urgent-action", title: "위험 신호라면 기록을 완성하지 말고 119", paragraphs: [
-        "심한 호흡곤란이나 갑자기 반응이 떨어지는 변화, 갑작스러운 한쪽 얼굴·팔·다리의 힘·감각 변화 또는 갑작스러운 말·시야 이상, 어지럼, 걷기·균형의 어려움 등이 있으면 즉시 119에 연락합니다. 일지를 채우거나 사진을 찍느라 기다리지 않습니다. 이런 신호가 잠깐 사라져도 도움을 미루지 않습니다.",
-      ], tone: "warning", sourceIds: ["SUP-JOURNAL-EMERGENCY", "SUP-JOURNAL-STROKE"], links: [{ href: "/health/guides/danger-signals", label: "기록보다 도움 요청이 먼저인 다른 위험 신호" }] },
-      { title: "처음부터 긴 일지 대신, 네 가지를 적습니다", paragraphs: [
-        "진료실에서 기억이 잘 나지 않을 수 있어 시작 시점과 불편한 모습을 미리 적어 두면 설명에 쓸 수 있습니다. 아래 네 칸은 오누림의 정리 예시이며 검증된 진단 척도나 필수 제출 양식이 아닙니다. 아는 항목만 적고, 정확히 기억나지 않으면 그 사실을 표시합니다.",
-      ], table: { caption: "진료에 가져갈 증상 메모 — 가능한 항목만 작성", columns: ["기록할 것", "적는 방법"], rows: [
-        ["언제 시작·반복됐는지", "처음 느낀 날짜·시각, 이어졌는지 반복됐는지; 시각이 추정이면 추정이라고 적기"],
-        ["어디가 어떻게 불편했는지", "본인이 느낀 위치와 불편을 자신의 말로; 같이 느낀 변화도 적기"],
-        ["어떤 상황에서 달라졌는지", "당시 활동이나 쉬고 있을 때의 차이, 더 심해지거나 덜한 때; 원인을 확정하지 않기"],
-        ["일상에서 무엇이 어려웠는지", "잠·식사·걷기·일·공부 등에 실제로 달라진 점; 점수로만 줄이지 않기"],
-      ] }, sourceIds: ["SUP-JOURNAL-TALK", "SUP-JOURNAL-HEADACHE", "SUP-NHLBI-SLEEP-DIARY"] },
-      { title: "‘느낀 것’과 ‘원인이라고 생각한 것’을 나눕니다", paragraphs: [
-        "‘식사 뒤 배가 불편했다’는 느낀 경험이고, ‘그 음식 때문에 병이 생겼다’는 원인 추정입니다. 경험을 적은 뒤 원인이 궁금하면 별도 질문으로 남기세요. 함께 일어났다는 기록만으로 원인을 확정하는 자료는 아닙니다.",
-        "본인이 느낀 통증·메스꺼움·불안처럼 다른 사람이 바로 볼 수 없는 불편도 중요한 설명입니다. 보호자가 적을 때는 ‘본인이 이렇게 말함’과 ‘내가 이렇게 관찰함’을 구분하고, 보이지 않는다는 이유로 불편을 지우지 않습니다.",
-        "예를 들어 ‘어제 저녁 식사 뒤 배가 불편했고 오늘 아침에는 덜했다. 정확한 시작 시각은 기억나지 않는다. 식사와 관련 있는지 궁금하다’처럼 쓸 수 있습니다. 가상의 표현 예시이며 병명이나 안전 여부를 판단하는 사례가 아닙니다. 낮은 통증 점수나 일할 수 있다는 사실만으로 응급상황을 배제하는 표도 아닙니다.",
-      ], sourceIds: ["SUP-JOURNAL-TALK", "SUP-JOURNAL-EMERGENCY"] },
-      { title: "증상에 따라 추가할 정보가 달라집니다", paragraphs: [
-        "두통 진료에서는 두통이 얼마나 자주 나타났는지와 이전 치료·약 사용 이력이 설명에 도움이 됩니다. St George’s 병원은 본인이 쓰던 일지도 가져올 수 있다고 안내합니다. 전용 양식을 구하지 못했다는 이유로 기록이나 진료를 미룰 필요는 없습니다.",
-        "수면에 관한 기록은 잠의 양과 질, 낮의 졸림, 복용약·술·카페인 같은 정보를 함께 살펴볼 수 있습니다. NHLBI 수면일지는 이런 내용을 적어 의료진과 검토하는 자료입니다. 수면 기록에 쓰는 항목을 모든 증상에 똑같이 요구하지 않습니다.",
-        "이미 사용한 약과 당시 변화를 기록하는 것과 약의 효과를 스스로 시험하는 것은 다릅니다. 기록을 만들려고 약을 더 먹거나 끊지 말고 실제 사용 정보를 알립니다. 어떤 항목을 얼마나 기록할지는 진료에서 본인 상황에 맞게 확인합니다.",
-      ], sourceIds: ["SUP-JOURNAL-HEADACHE", "SUP-NHLBI-SLEEP-DIARY", "SUP-JOURNAL-FDA-MEDICINES"], links: [
-        { href: "/health/migraine", label: "편두통 진료에서 증상의 흐름을 보는 이유" },
-        { href: "/health/sleep-apnea", label: "잠과 낮의 변화, 수면검사가 하는 역할" },
-        { href: "/health/guides/medication-list", label: "실제 사용한 약·보충제 정보를 함께 준비" },
-      ] },
-      { title: "진료에서는 가장 걱정되는 변화부터 전달합니다", paragraphs: [
-        "기록을 시간순으로 모두 읽기보다 ‘가장 불편한 점 / 언제부터 어떻게 달라졌는지 / 가장 알고 싶은 질문’을 먼저 말하고 필요한 부분을 보여 주세요. 이는 말문을 여는 정리법이지 모든 진료에 정해진 보고 순서는 아닙니다.",
-        "빈칸이 있거나 하루만 적었어도 현재 아는 내용을 전달합니다. 일정 기간을 채워야 진료받을 수 있다는 뜻이 아닙니다. 의료진이 별도 기록을 요청했다면 그 목적·항목·기간을 확인하고, 그 전에 새로운 변화가 생기면 언제 어디로 연락할지도 물어보세요.",
-        "메모를 누구에게 보여 줄지는 당사자와 상의합니다. 공개 문의·가족 단체방에 신체 사진이나 결과지·이름이 담긴 기록을 무심코 올리지 말고 필요한 사람에게 필요한 범위만 전달하세요. 이 페이지는 기록을 업로드하거나 진단받는 창구가 아닙니다.",
-      ], sourceIds: ["SUP-JOURNAL-TALK", "SUP-JOURNAL-HEADACHE"], links: [{ href: "/health/guides/appointment-questions", label: "진료 뒤 기록할 항목과 다음 연락 방법을 묻기" }] },
+    "slug": "symptom-journal",
+    "title": "「음식 때문인가요?」를 증상 메모로 다시 써 보기",
+    "seoTitle": "증상 메모 쓰기: 관찰·모르는 점·원인 질문을 구분하기",
+    "description": "원인이 떠올라도 메모에는 실제 느낀 변화부터 남깁니다. 가상의 복부 불편 메모를 고쳐 보며 관찰·모르는 점·질문을 나누고, 진료에 전할 내용을 짧게 정리합니다.",
+    "publishedAt": "2026-08-26",
+    "updatedAt": "2026-10-01",
+    "sourceCheckedAt": "2026-10-01",
+    "faqTitle": "기록을 시작할 때 막히는 부분",
+    "sections": [
+      {
+        "id": "urgent-action",
+        "title": "위험 신호라면 기록을 완성하지 말고 119",
+        "paragraphs": [
+          "심한 호흡곤란이나 갑자기 반응이 떨어지는 변화, 갑작스러운 한쪽 얼굴·팔·다리의 힘·감각 변화 또는 갑작스러운 말·시야 이상, 어지럼, 걷기·균형의 어려움 등이 있으면 즉시 119에 연락합니다. 일지를 채우거나 사진을 찍느라 기다리지 않습니다. 이런 신호가 잠깐 사라져도 도움을 미루지 않습니다."
+        ],
+        "tone": "warning",
+        "sourceIds": [
+          "SUP-JOURNAL-EMERGENCY",
+          "SUP-JOURNAL-STROKE"
+        ],
+        "links": [
+          {
+            "href": "/health/guides/danger-signals",
+            "label": "기록보다 도움 요청이 먼저인 다른 위험 신호"
+          }
+        ]
+      },
+      {
+        "id": "journal-edit",
+        "title": "한 문장을 관찰·모르는 점·질문으로 나누기",
+        "paragraphs": [
+          "표현을 고쳐 보는 가상 예시입니다. 실제 경험·환자 사례가 아니며, 복부 불편의 원인이나 안전 여부를 판단하지 않습니다.",
+          "고치기 전: 「어제 그 음식을 먹어서 배가 아팠다.」 고친 뒤에는 함께 일어난 일과 원인 결론을 나눕니다."
+        ],
+        "table": {
+          "caption": "가상 메모 편집 — 확실하지 않은 내용은 만들지 않기",
+          "columns": [
+            "나눌 자리",
+            "고친 표현"
+          ],
+          "rows": [
+            [
+              "관찰",
+              "어제 저녁 식사 뒤 배가 불편했고 오늘 아침에는 덜했다."
+            ],
+            [
+              "모르는 점",
+              "정확한 시작 시각은 기억나지 않는다."
+            ],
+            [
+              "질문",
+              "식사와 관련 있는지 궁금하다. 진료에서 확인할 정보는 무엇인가?"
+            ]
+          ]
+        },
+        "sourceIds": [
+          "SUP-JOURNAL-TALK"
+        ],
+        "links": [
+          {
+            "href": "/health/samples/appointment-action-blank.html",
+            "label": "진료에서 확인할 질문을 적는 빈 인쇄 메모"
+          }
+        ]
+      },
+      {
+        "title": "처음부터 긴 일지 대신, 네 가지를 적습니다",
+        "paragraphs": [
+          "진료실에서 기억이 잘 나지 않을 수 있어 시작 시점과 불편한 모습을 미리 적어 두면 설명에 쓸 수 있습니다. 아래 네 칸은 오누림의 정리 예시이며 검증된 진단 척도나 필수 제출 양식이 아닙니다. 아는 항목만 적고, 정확히 기억나지 않으면 그 사실을 표시합니다."
+        ],
+        "table": {
+          "caption": "진료에 가져갈 증상 메모 — 가능한 항목만 작성",
+          "columns": [
+            "기록할 것",
+            "적는 방법"
+          ],
+          "rows": [
+            [
+              "언제 시작·반복됐는지",
+              "처음 느낀 날짜·시각, 이어졌는지 반복됐는지; 시각이 추정이면 추정이라고 적기"
+            ],
+            [
+              "어디가 어떻게 불편했는지",
+              "본인이 느낀 위치와 불편을 자신의 말로; 같이 느낀 변화도 적기"
+            ],
+            [
+              "어떤 상황에서 달라졌는지",
+              "당시 활동이나 쉬고 있을 때의 차이, 더 심해지거나 덜한 때; 원인을 확정하지 않기"
+            ],
+            [
+              "일상에서 무엇이 어려웠는지",
+              "잠·식사·걷기·일·공부 등에 실제로 달라진 점; 점수로만 줄이지 않기"
+            ]
+          ]
+        },
+        "sourceIds": [
+          "SUP-JOURNAL-TALK",
+          "SUP-JOURNAL-HEADACHE",
+          "SUP-NHLBI-SLEEP-DIARY"
+        ]
+      },
+      {
+        "title": "‘느낀 것’과 ‘원인이라고 생각한 것’을 나눕니다",
+        "paragraphs": [
+          "‘식사 뒤 배가 불편했다’는 느낀 경험이고, ‘그 음식 때문에 병이 생겼다’는 원인 추정입니다. 경험을 적은 뒤 원인이 궁금하면 별도 질문으로 남기세요. 함께 일어났다는 기록만으로 원인을 확정하는 자료는 아닙니다.",
+          "본인이 느낀 통증·메스꺼움·불안처럼 다른 사람이 바로 볼 수 없는 불편도 중요한 설명입니다. 보호자가 적을 때는 ‘본인이 이렇게 말함’과 ‘내가 이렇게 관찰함’을 구분하고, 보이지 않는다는 이유로 불편을 지우지 않습니다.",
+          "가상 예시의 「오늘은 덜했다」는 느낌을 적은 것이지 안전 판정이 아닙니다. 낮은 통증 점수나 일할 수 있다는 사실만으로 응급상황을 배제하지 않습니다."
+        ],
+        "sourceIds": [
+          "SUP-JOURNAL-TALK",
+          "SUP-JOURNAL-EMERGENCY"
+        ]
+      },
+      {
+        "id": "unknown-practice",
+        "title": "모르는 시각은 「모름」으로 남기는 작은 연습",
+        "paragraphs": [
+          "「언제부터였나요?」라는 질문에 정확히 기억나지 않으면 「정확한 시각 모름」이나 「저녁쯤으로 기억」처럼 확실한 것과 추정을 나눠 적습니다. 빈칸을 채우려고 날짜나 시각을 만들지 않습니다.",
+          "점수를 적더라도 위치·느낌·변화·일상 영향을 함께 설명하세요. 며칠을 채워야 진료받을 수 있다는 최소 기록 기간은 없습니다. 지금 아는 내용을 전하고, 별도 기록이 필요하면 목적·항목·기간을 확인합니다."
+        ],
+        "sourceIds": [
+          "SUP-JOURNAL-TALK",
+          "SUP-JOURNAL-EMERGENCY"
+        ]
+      },
+      {
+        "title": "증상에 따라 추가할 정보가 달라집니다",
+        "paragraphs": [
+          "두통 진료에서는 두통이 얼마나 자주 나타났는지와 이전 치료·약 사용 이력이 설명에 도움이 됩니다. St George’s 병원은 본인이 쓰던 일지도 가져올 수 있다고 안내합니다. 전용 양식을 구하지 못했다는 이유로 기록이나 진료를 미룰 필요는 없습니다.",
+          "수면에 관한 기록은 잠의 양과 질, 낮의 졸림, 복용약·술·카페인 같은 정보를 함께 살펴볼 수 있습니다. NHLBI 수면일지는 이런 내용을 적어 의료진과 검토하는 자료입니다. 수면 기록에 쓰는 항목을 모든 증상에 똑같이 요구하지 않습니다.",
+          "이미 사용한 약과 당시 변화를 기록하는 것과 약의 효과를 스스로 시험하는 것은 다릅니다. 기록을 만들려고 약을 더 먹거나 끊지 말고 실제 사용 정보를 알립니다. 어떤 항목을 얼마나 기록할지는 진료에서 본인 상황에 맞게 확인합니다."
+        ],
+        "sourceIds": [
+          "SUP-JOURNAL-HEADACHE",
+          "SUP-NHLBI-SLEEP-DIARY",
+          "SUP-JOURNAL-FDA-MEDICINES"
+        ],
+        "links": [
+          {
+            "href": "/health/migraine",
+            "label": "편두통 진료에서 증상의 흐름을 보는 이유"
+          },
+          {
+            "href": "/health/sleep-apnea",
+            "label": "잠과 낮의 변화, 수면검사가 하는 역할"
+          },
+          {
+            "href": "/health/guides/medication-list",
+            "label": "실제 사용한 약·보충제 정보를 함께 준비"
+          }
+        ]
+      },
+      {
+        "title": "진료에서는 가장 걱정되는 변화부터 전달합니다",
+        "paragraphs": [
+          "기록을 시간순으로 모두 읽기보다 ‘가장 불편한 점 / 언제부터 어떻게 달라졌는지 / 가장 알고 싶은 질문’을 먼저 말하고 필요한 부분을 보여 주세요. 이는 말문을 여는 정리법이지 모든 진료에 정해진 보고 순서는 아닙니다.",
+          "빈칸이 있거나 하루만 적었어도 현재 아는 내용을 전달합니다. 일정 기간을 채워야 진료받을 수 있다는 뜻이 아닙니다. 의료진이 별도 기록을 요청했다면 그 목적·항목·기간을 확인하고, 그 전에 새로운 변화가 생기면 언제 어디로 연락할지도 물어보세요.",
+          "가족이 메모를 돕는다면 당사자가 원하는 도움인지 먼저 묻습니다. 「본인이 말함」과 「보호자 관찰」을 구분하고, 누구에게 어떤 범위로 보여 줄지 상의하세요. 공개 문의·가족 단체방에 이름·결과지·신체 사진을 무심코 올리지 않습니다. 이 페이지는 기록 업로드나 진단 창구가 아닙니다."
+        ],
+        "sourceIds": [
+          "SUP-JOURNAL-TALK",
+          "SUP-JOURNAL-HEADACHE"
+        ],
+        "links": [
+          {
+            "href": "/health/guides/appointment-questions",
+            "label": "진료 뒤 기록할 항목과 다음 연락 방법을 묻기"
+          }
+        ]
+      }
     ],
-    faq: [
-      { question: "시작 시각을 정확히 기억하지 못하면 어떻게 적나요?", answer: "‘정확한 시각 모름’이나 ‘저녁쯤으로 기억’처럼 확실한 것과 추정을 나눕니다. 빈칸을 채우려고 시각을 만들어 내지 않습니다. 지금 아는 증상과 변화부터 의료진에게 전달하세요.", sourceIds: ["SUP-JOURNAL-TALK"] },
-      { question: "통증을 숫자로만 적으면 충분한가요?", answer: "점수를 쓰더라도 위치·느낌·시작 시점·변화·일상 영향을 함께 설명합니다. 이 안내는 특정 점수를 진단하거나 응급 여부를 결정하는 기준으로 쓰지 않습니다. 위험 신호가 있으면 기록보다 도움 요청이 먼저입니다.", sourceIds: ["SUP-JOURNAL-TALK", "SUP-JOURNAL-EMERGENCY"] },
-      { question: "식사나 약 뒤에 생겼다면 그것이 원인인가요?", answer: "전후에 생긴 경험은 적되 원인을 확정하지 않습니다. 관련 있는지 질문으로 남기고 실제 사용한 약과 변화를 알립니다. 원인을 시험하려고 임의로 약을 추가하거나 중단하지 않습니다.", sourceIds: ["SUP-JOURNAL-TALK", "SUP-JOURNAL-FDA-MEDICINES"] },
-      { question: "며칠 이상 채워야 병원에 갈 수 있나요?", answer: "이 페이지는 진료 전에 채워야 할 최소 일수를 정하지 않습니다. 기록이 적어도 현재 불편을 알리고, 별도 일지가 필요한지는 의료진과 정하세요. 응급 신호는 기록 기간과 관계없이 즉시 도움을 요청합니다.", sourceIds: ["SUP-JOURNAL-TALK", "SUP-JOURNAL-EMERGENCY", "SUP-JOURNAL-STROKE"] },
-      { question: "가족이 대신 기록해도 되나요?", answer: "당사자가 원하는 도움인지 먼저 묻고, 본인이 말한 불편과 가족이 관찰한 것을 구분합니다. 진료에 함께 가거나 메모를 돕는 방법도 상의할 수 있습니다. 가족이 쓴 해석을 본인의 경험이나 확정 진단처럼 바꾸지 않습니다.", sourceIds: ["SUP-JOURNAL-TALK"] },
-    ],
-    sources: [
-      { id: "SUP-JOURNAL-TALK", organization: "NIH/NLM MedlinePlus", title: "Talking With Your Doctor", url: "https://medlineplus.gov/talkingwithyourdoctor.html", sourceDate: "2024-10-05 (Last updated)", retrievedAt: "2026-09-06" },
-      { id: "SUP-NHLBI-SLEEP-DIARY", organization: "NIH/NHLBI", title: "Sleep Diary — 자료 소개", url: "https://www.nhlbi.nih.gov/resources/sleep-diary", sourceDate: "2019-01 (Publication Date; HTML 소개 확인)", retrievedAt: "2026-09-06" },
-      { id: "SUP-JOURNAL-HEADACHE", organization: "St George’s University Hospitals NHS Foundation Trust", title: "Community Headache Hub — 진료 준비와 두통일지", url: "https://www.stgeorges.nhs.uk/service/neuro/neurology/headache-service/headache-hub/", sourceDate: "페이지 자체 날짜 미표시", retrievedAt: "2026-09-06" },
-      { id: "SUP-JOURNAL-EMERGENCY", organization: "MedlinePlus Medical Encyclopedia / A.D.A.M.", title: "Recognizing medical emergencies", url: "https://medlineplus.gov/ency/article/001927.htm", sourceDate: "2025-01-08 (Review Date)", retrievedAt: "2026-09-06" },
-      { id: "SUP-JOURNAL-STROKE", organization: "CDC", title: "Signs and Symptoms of Stroke", url: "https://www.cdc.gov/stroke/signs-symptoms/index.html", sourceDate: "2026-05-19 (페이지 표시일)", retrievedAt: "2026-09-06" },
-      { id: "SUP-JOURNAL-FDA-MEDICINES", organization: "U.S. FDA", title: "As You Age: You and Your Medicines", url: "https://www.fda.gov/drugs/information-consumers-and-patients-drugs/you-age-you-and-your-medicines", sourceDate: "HTML 본문 자체 날짜 미표시", retrievedAt: "2026-09-06" },
-    ],
+    "faq": [],
+    "sources": [
+      {
+        "id": "SUP-JOURNAL-TALK",
+        "organization": "NIH/NLM MedlinePlus",
+        "title": "Talking With Your Doctor",
+        "url": "https://medlineplus.gov/talkingwithyourdoctor.html",
+        "sourceDate": "2024-10-05 (Last updated)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-NHLBI-SLEEP-DIARY",
+        "organization": "NIH/NHLBI",
+        "title": "Sleep Diary — 자료 소개",
+        "url": "https://www.nhlbi.nih.gov/resources/sleep-diary",
+        "sourceDate": "2019-01 (Publication Date; HTML 소개 확인)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-JOURNAL-HEADACHE",
+        "organization": "St George’s University Hospitals NHS Foundation Trust",
+        "title": "Community Headache Hub — 진료 준비와 두통일지",
+        "url": "https://www.stgeorges.nhs.uk/service/neuro/neurology/headache-service/headache-hub/",
+        "sourceDate": "페이지 자체 날짜 미표시",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-JOURNAL-EMERGENCY",
+        "organization": "MedlinePlus Medical Encyclopedia / A.D.A.M.",
+        "title": "Recognizing medical emergencies",
+        "url": "https://medlineplus.gov/ency/article/001927.htm",
+        "sourceDate": "2025-01-08 (Review Date)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-JOURNAL-STROKE",
+        "organization": "CDC",
+        "title": "Signs and Symptoms of Stroke",
+        "url": "https://www.cdc.gov/stroke/signs-symptoms/index.html",
+        "sourceDate": "2026-05-19 (페이지 표시일)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-JOURNAL-FDA-MEDICINES",
+        "organization": "U.S. FDA",
+        "title": "As You Age: You and Your Medicines",
+        "url": "https://www.fda.gov/drugs/information-consumers-and-patients-drugs/you-age-you-and-your-medicines",
+        "sourceDate": "HTML 본문 자체 날짜 미표시",
+        "retrievedAt": "2026-09-06"
+      }
+    ]
   },
   {
-    slug: "appointment-questions",
-    title: "진료에서 꼭 묻고 싶은 것부터 준비하세요",
-    seoTitle: "병원 진료 전 질문 준비: 검사·치료·다음 연락 확인",
-    description: "가장 걱정되는 질문부터 고르고 검사 목적·치료 선택지·다음 일정을 확인합니다. 설명을 이해하지 못했거나 실행이 어려울 때 말하는 방법과 귀가 후 문의할 내용을 정리합니다.",
-    publishedAt: "2026-08-26", updatedAt: "2026-09-06", sourceCheckedAt: "2026-09-06",
-    faqTitle: "질문하기가 망설여질 때",
-    sections: [
-      { title: "가장 중요한 두세 가지부터 표시합니다", paragraphs: [
-        "진료에서 꼭 확인하고 싶은 걱정을 먼저 적습니다. AHRQ는 중요한 질문 세 가지를, NHS는 두세 가지를 먼저 준비하는 방법을 제안합니다. 질문을 그 개수까지만 해야 한다는 뜻은 아닙니다. 새로운 증상이나 약 알레르기 같은 중요한 정보는 개수 때문에 빼지 않습니다.",
-        "‘큰 병인가요?’라는 걱정도 말해도 됩니다. 이어서 ‘지금 무엇을 확인하고 있나요? 아직 모르는 점은 무엇인가요? 다음에 무엇으로 확인하나요?’처럼 설명받고 싶은 부분을 나눠 보세요. 질문을 잘해야만 진료받을 자격이 생기거나 좋은 결과가 보장되는 것은 아닙니다.",
-        "증상의 시작과 변화, 현재 쓰는 약·비타민·보충제, 알레르기와 과거 약 사용 중 겪은 문제를 아는 범위에서 준비합니다. 전부 외우려 하지 말고 메모나 실제 용기·안내문을 가져갈 수 있습니다.",
-      ], sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-NHS-DOCTOR-QUESTIONS", "SUP-MEDLINEPLUS-TALK"], links: [
-        { href: "/health/guides/symptom-journal", label: "증상이 언제·어떻게 달라졌는지 짧게 정리" },
-        { href: "/health/guides/medication-list", label: "약·보충제와 복용 정보를 빠뜨리지 않고 준비" },
-      ] },
-      { title: "검사·치료·다음 계획은 이렇게 물을 수 있습니다", paragraphs: [
-        "아래는 본인에게 해당하는 질문을 고르는 예시입니다. 특정 검사를 요구하거나, 모든 치료 선택지가 누구에게나 맞는다고 전제하는 목록이 아닙니다. 이미 설명받은 항목은 반복해서 모두 읽지 않아도 됩니다.",
-      ], table: { caption: "이번 진료에서 필요한 질문만 고르세요", columns: ["이야기할 주제", "확인할 질문"], rows: [
-        ["검사를 권유받았을 때", "무엇을 확인하나요? 어떻게 진행되고 어떤 준비가 필요한가요? 결과는 언제 어떤 방법으로 받나요?"],
-        ["치료를 선택할 때", "제 상황에서 가능한 선택지와 권하는 이유는 무엇인가요? 기대 효과·위험·기간은 어떻게 다른가요?"],
-        ["약을 처방받았을 때", "어떻게 사용하고 어떤 변화를 살펴야 하나요? 다른 약·보충제나 이전 이상 반응과 함께 고려할 점은 무엇인가요?"],
-        ["다음 계획을 정할 때", "다시 진료·검사할 시점은 언제인가요? 예상대로 결과나 예약 연락이 없으면 어디로 문의하나요?"],
-      ] }, sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-NHS-DOCTOR-QUESTIONS"], links: [{ href: "/health/guides/reading-health-results", label: "검사 결과의 표시를 다음 질문으로 바꾸기" }] },
-      { title: "이해가 안 되는 것과 실행이 어려운 것을 따로 말합니다", paragraphs: [
-        "설명이 어렵다면 ‘그 단어를 쉬운 말로 다시 설명해 주실 수 있나요?’라고 묻고 필요한 이름이나 안내를 적어 달라고 요청할 수 있습니다. 이해한 부분을 자신의 말로 말한 뒤 맞는지 확인하는 것도 방법입니다. 고개를 끄덕였다고 이해가 끝난 것은 아닙니다.",
-        "설명은 알겠지만 생활 여건, 불편, 비용 등으로 실행이 어렵다면 그 어려움을 알립니다. 가능하지 않은 일을 했다고 말하기보다 조정하거나 도움받을 방법이 있는지 상담하세요. 치료를 스스로 바꾸겠다는 통보가 아니라 함께 계획을 확인하는 대화입니다.",
-        "메모를 돕는 사람과 함께 가고 싶거나 통역·의사소통 지원이 필요하면 기관에 미리 가능 여부를 문의합니다. 모든 기관이 같은 서비스를 제공한다고 보장하지 않습니다. 동행인이 본인 대신 모든 답을 정하기보다 본인이 원하는 도움을 상의합니다.",
-      ], sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-NHS-DOCTOR-QUESTIONS", "SUP-MEDLINEPLUS-TALK"] },
-      { title: "귀가 전, 행동으로 옮길 내용을 확인합니다", paragraphs: [
-        "‘제가 이해한 것은 이렇습니다’라고 짧게 말하고 맞는지 확인해 보세요. 이어서 지금 할 일, 다음 확인 날짜, 결과를 받는 방법, 문제가 생기거나 연락이 오지 않을 때 문의할 곳을 적습니다. 날짜나 담당자를 모르면 임의로 정하지 말고 확인합니다.",
-        "여러 검사가 예정됐다면 어떤 예약을 본인이 해야 하는지와 결과를 누가 설명하는지도 묻습니다. 종이나 전자 안내를 받을 수 있는지 확인하되, 안내를 받았다는 사실과 내용을 이해했다는 것은 구분합니다.",
-      ], bullets: [
-        "지금 할 일: 안내받은 내용을 본인 말로 확인",
-        "다음 확인: 무엇을 언제·어디에서 확인할지",
-        "연락 방법: 결과를 받을 경로와 문제가 있을 때 문의처",
-        "아직 남은 질문: 어디에서 다시 확인할지",
-      ], sourceIds: ["SUP-NHS-DOCTOR-QUESTIONS", "SUP-AHRQ-ENGAGED", "SUP-MEDLINEPLUS-TALK"] },
-      { title: "집에 와서 헷갈리면, 추측 대신 다시 문의합니다", paragraphs: [
-        "안내문을 보아도 뜻이 분명하지 않거나 실제로 따르기 어렵다면 진료기관에 문의합니다. 약에 관한 질문은 처방 의료진·약사에게 확인할 수 있습니다. 기억이 나지 않는다는 이유로 임의로 약을 끊거나 복용법을 바꾸지 않습니다.",
-        "기대한 때 결과가 오지 않으면 ‘연락이 없으니 정상’이라고 결론 내리지 말고 확인할 경로를 이용합니다. 문의할 때는 어느 진료·검사인지와 이해되지 않는 부분을 짧게 말합니다. 개인 결과·처방전은 기관이 안내한 안전한 경로로 전달하고 공개 게시판에 올리지 않습니다.",
-      ], sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-NHS-DOCTOR-QUESTIONS", "SUP-MEDLINEPLUS-TALK"] },
-      { id: "urgent-action", title: "위급한 변화는 예약이나 답변을 기다리지 않습니다", paragraphs: [
-        "심한 호흡곤란이나 갑자기 반응이 떨어지는 변화 등 위급한 상태라면 즉시 119에 연락합니다. 질문표를 끝내거나 예약일·문의 답변을 기다리는 일이 먼저가 아닙니다. 평소 상담에서는 본인에게 어떤 변화가 생기면 빨리 도움받아야 하는지도 확인하세요.",
-      ], tone: "warning", sourceIds: ["SUP-APPOINTMENT-EMERGENCY", "SUP-NHS-DOCTOR-QUESTIONS"], links: [{ href: "/health/guides/danger-signals", label: "예약·질문보다 도움 요청이 먼저인 위험 신호" }] },
+    "slug": "appointment-questions",
+    "title": "진료실에서 끄덕인 설명, 집에서 할 일로 남기기",
+    "seoTitle": "진료 질문 준비: 답을 행동·날짜·연락처로 남기는 메모",
+    "description": "설명을 들었는데 집에 와서 무엇을 해야 할지 헷갈린다면 질문과 답 사이에 한 줄을 더 남겨 보세요. 중요한 질문부터 고르고, 들은 답을 다음 행동·기한·확인할 연락처로 정리합니다.",
+    "publishedAt": "2026-08-26",
+    "updatedAt": "2026-10-01",
+    "sourceCheckedAt": "2026-10-01",
+    "faqTitle": "질문하기가 망설여질 때",
+    "sections": [
+      {
+        "title": "가장 중요한 두세 가지부터 표시합니다",
+        "paragraphs": [
+          "설명을 들으며 고개를 끄덕이는 것과 집에서 할 일을 아는 것은 다를 수 있습니다. 「지금 제가 이해한 내용을 다시 말씀드려도 될까요?」로 확인하고, 모르는 부분을 메모에 남깁니다. 질문을 잘했다고 검사·치료 결과가 좋아진다고 보장하는 안내는 아닙니다.",
+          "진료에서 꼭 확인하고 싶은 걱정을 먼저 적습니다. AHRQ는 중요한 질문 세 가지를, NHS는 두세 가지를 먼저 준비하는 방법을 제안합니다. 질문을 그 개수까지만 해야 한다는 뜻은 아닙니다. 새로운 증상이나 약 알레르기 같은 중요한 정보는 개수 때문에 빼지 않습니다.",
+          "‘큰 병인가요?’라는 걱정도 말해도 됩니다. 이어서 ‘지금 무엇을 확인하고 있나요? 아직 모르는 점은 무엇인가요? 다음에 무엇으로 확인하나요?’처럼 설명받고 싶은 부분을 나눠 보세요. 질문을 잘해야만 진료받을 자격이 생기거나 좋은 결과가 보장되는 것은 아닙니다.",
+          "증상의 시작과 변화, 현재 쓰는 약·비타민·보충제, 알레르기와 과거 약 사용 중 겪은 문제를 아는 범위에서 준비합니다. 전부 외우려 하지 말고 메모나 실제 용기·안내문을 가져갈 수 있습니다."
+        ],
+        "sourceIds": [
+          "SUP-AHRQ-ENGAGED",
+          "SUP-NHS-DOCTOR-QUESTIONS",
+          "SUP-MEDLINEPLUS-TALK"
+        ],
+        "links": [
+          {
+            "href": "/health/guides/symptom-journal",
+            "label": "증상이 언제·어떻게 달라졌는지 짧게 정리"
+          },
+          {
+            "href": "/health/guides/medication-list",
+            "label": "약·보충제와 복용 정보를 빠뜨리지 않고 준비"
+          }
+        ]
+      },
+      {
+        "title": "검사·치료·다음 계획은 이렇게 물을 수 있습니다",
+        "paragraphs": [
+          "아래는 본인에게 해당하는 질문을 고르는 예시입니다. 특정 검사를 요구하거나, 모든 치료 선택지가 누구에게나 맞는다고 전제하는 목록이 아닙니다. 이미 설명받은 항목은 반복해서 모두 읽지 않아도 됩니다."
+        ],
+        "table": {
+          "caption": "이번 진료에서 필요한 질문만 고르세요",
+          "columns": [
+            "이야기할 주제",
+            "확인할 질문"
+          ],
+          "rows": [
+            [
+              "검사를 권유받았을 때",
+              "무엇을 확인하나요? 어떻게 진행되고 어떤 준비가 필요한가요? 결과는 언제 어떤 방법으로 받나요?"
+            ],
+            [
+              "치료를 선택할 때",
+              "제 상황에서 가능한 선택지와 권하는 이유는 무엇인가요? 기대 효과·위험·기간은 어떻게 다른가요?"
+            ],
+            [
+              "약을 처방받았을 때",
+              "어떻게 사용하고 어떤 변화를 살펴야 하나요? 다른 약·보충제나 이전 이상 반응과 함께 고려할 점은 무엇인가요?"
+            ],
+            [
+              "다음 계획을 정할 때",
+              "다시 진료·검사할 시점은 언제인가요? 예상대로 결과나 예약 연락이 없으면 어디로 문의하나요?"
+            ]
+          ]
+        },
+        "sourceIds": [
+          "SUP-AHRQ-ENGAGED",
+          "SUP-NHS-DOCTOR-QUESTIONS"
+        ],
+        "links": [
+          {
+            "href": "/health/guides/reading-health-results",
+            "label": "검사 결과의 표시를 다음 질문으로 바꾸기"
+          }
+        ]
+      },
+      {
+        "id": "question-dialogue",
+        "title": "「알겠습니다」 다음에 한 문장 더 — 가상 대화",
+        "paragraphs": [
+          "다음은 대화 방법만 보여 주는 편집자의 가상 예시입니다. 실제 진료·개인 경험이 아니며, 의료진의 검사·치료 답변을 지어내지 않았습니다.",
+          "질문하는 사람: 「말씀하신 것 중 집에서 할 일과 다음 확인 날짜를 제 말로 정리해도 될까요? 이해가 안 된 부분은 다시 설명해 주세요.」",
+          "이어서 확인할 말: 「날짜나 연락 방법은 어디에서 확인하나요? 예약 안내가 오지 않거나 상황이 달라지면 어느 창구에 문의하나요?」 실제 답은 진료기관에서 확인해 적습니다."
+        ],
+        "sourceIds": [
+          "SUP-NHS-DOCTOR-QUESTIONS",
+          "SUP-MEDLINEPLUS-TALK"
+        ]
+      },
+      {
+        "title": "이해가 안 되는 것과 실행이 어려운 것을 따로 말합니다",
+        "paragraphs": [
+          "설명이 어렵다면 ‘그 단어를 쉬운 말로 다시 설명해 주실 수 있나요?’라고 묻고 필요한 이름이나 안내를 적어 달라고 요청할 수 있습니다. 이해한 부분을 자신의 말로 말한 뒤 맞는지 확인하는 것도 방법입니다. 고개를 끄덕였다고 이해가 끝난 것은 아닙니다.",
+          "설명은 알겠지만 생활 여건, 불편, 비용 등으로 실행이 어렵다면 그 어려움을 알립니다. 가능하지 않은 일을 했다고 말하기보다 조정하거나 도움받을 방법이 있는지 상담하세요. 치료를 스스로 바꾸겠다는 통보가 아니라 함께 계획을 확인하는 대화입니다.",
+          "메모를 돕는 사람과 함께 가고 싶거나 통역·의사소통 지원이 필요하면 기관에 미리 가능 여부를 문의합니다. 모든 기관이 같은 서비스를 제공한다고 보장하지 않습니다. 동행인이 본인 대신 모든 답을 정하기보다 본인이 원하는 도움을 상의합니다."
+        ],
+        "sourceIds": [
+          "SUP-AHRQ-ENGAGED",
+          "SUP-NHS-DOCTOR-QUESTIONS",
+          "SUP-MEDLINEPLUS-TALK"
+        ]
+      },
+      {
+        "title": "귀가 전, 행동으로 옮길 내용을 확인합니다",
+        "paragraphs": [
+          "‘제가 이해한 것은 이렇습니다’라고 짧게 말하고 맞는지 확인해 보세요. 이어서 지금 할 일, 다음 확인 날짜, 결과를 받는 방법, 문제가 생기거나 연락이 오지 않을 때 문의할 곳을 적습니다. 날짜나 담당자를 모르면 임의로 정하지 말고 확인합니다.",
+          "여러 검사가 예정됐다면 어떤 예약을 본인이 해야 하는지와 결과를 누가 설명하는지도 묻습니다. 종이나 전자 안내를 받을 수 있는지 확인하되, 안내를 받았다는 사실과 내용을 이해했다는 것은 구분합니다.",
+          "빈 메모는 일반 진료 대화를 정리하는 오누림 편집 예시이며 공식 표준 양식이 아닙니다. 화면 입력·저장·전송 기능은 없습니다. 인쇄해서 쓰고 실제 안내를 받은 칸만 채우세요."
+        ],
+        "bullets": [
+          "지금 할 일: 안내받은 내용을 본인 말로 확인",
+          "다음 확인: 무엇을 언제·어디에서 확인할지",
+          "연락 방법: 결과를 받을 경로와 문제가 있을 때 문의처",
+          "아직 남은 질문: 어디에서 다시 확인할지"
+        ],
+        "sourceIds": [
+          "SUP-NHS-DOCTOR-QUESTIONS",
+          "SUP-AHRQ-ENGAGED",
+          "SUP-MEDLINEPLUS-TALK"
+        ],
+        "table": {
+          "caption": "답을 행동으로 남기는 다섯 칸 — 의료 안내는 실제 답만 기록",
+          "columns": [
+            "메모할 칸",
+            "빈칸에 남길 내용"
+          ],
+          "rows": [
+            [
+              "질문",
+              "가장 걱정되거나 이해되지 않는 내용"
+            ],
+            [
+              "들은 답",
+              "실제로 들은 설명 — 모르면 확인 필요"
+            ],
+            [
+              "내가 할 일",
+              "안내받은 다음 행동 — 스스로 치료 지시를 만들지 않기"
+            ],
+            [
+              "기한·다음 날짜",
+              "기관에서 확인한 날짜 — 모르면 확인 필요"
+            ],
+            [
+              "연락할 곳·방법",
+              "기관에서 확인한 창구 — 미확인 연락처를 추측하지 않기"
+            ]
+          ]
+        },
+        "links": [
+          {
+            "href": "/health/samples/appointment-action-blank.html",
+            "label": "질문·들은 답·행동·기한·연락처 빈 인쇄 메모 열기"
+          }
+        ]
+      },
+      {
+        "title": "집에 와서 헷갈리면, 추측 대신 다시 문의합니다",
+        "paragraphs": [
+          "안내문을 보아도 뜻이 분명하지 않거나 실제로 따르기 어렵다면 진료기관에 문의합니다. 약에 관한 질문은 처방 의료진·약사에게 확인할 수 있습니다. 기억이 나지 않는다는 이유로 임의로 약을 끊거나 복용법을 바꾸지 않습니다.",
+          "기대한 때 결과가 오지 않으면 ‘연락이 없으니 정상’이라고 결론 내리지 말고 확인할 경로를 이용합니다. 문의할 때는 어느 진료·검사인지와 이해되지 않는 부분을 짧게 말합니다. 개인 결과·처방전은 기관이 안내한 안전한 경로로 전달하고 공개 게시판에 올리지 않습니다."
+        ],
+        "sourceIds": [
+          "SUP-AHRQ-ENGAGED",
+          "SUP-NHS-DOCTOR-QUESTIONS",
+          "SUP-MEDLINEPLUS-TALK"
+        ]
+      },
+      {
+        "id": "source-dates",
+        "title": "출처의 원문 검토일과 이 글의 확인일은 다릅니다",
+        "paragraphs": [
+          "AHRQ 자료의 원문 검토는 2024년 11월, MedlinePlus 자료의 업데이트는 2024년 10월 5일로 표시되어 있습니다. NHS 질문 자료는 마지막 검토 2023년 1월 12일, 다음 검토 예정 2026년 1월 12일로 표시되어 있습니다.",
+          "예정일이 지났다는 것만으로 내용이 틀렸다고 단정하지 않습니다. 아래는 원문 표시일을 그대로 구분해 적고, 이 글에서 대조한 날짜는 2026년 10월 1일로 따로 남겼습니다. 특정 질환의 검사·치료 지시는 이 대화 안내에서 정하지 않습니다."
+        ],
+        "sourceIds": [
+          "SUP-AHRQ-ENGAGED",
+          "SUP-NHS-DOCTOR-QUESTIONS",
+          "SUP-MEDLINEPLUS-TALK"
+        ]
+      },
+      {
+        "id": "urgent-action",
+        "title": "위급한 변화는 예약이나 답변을 기다리지 않습니다",
+        "paragraphs": [
+          "심한 호흡곤란이나 갑자기 반응이 떨어지는 변화 등 위급한 상태라면 즉시 119에 연락합니다. 질문표를 끝내거나 예약일·문의 답변을 기다리는 일이 먼저가 아닙니다. 평소 상담에서는 본인에게 어떤 변화가 생기면 빨리 도움받아야 하는지도 확인하세요."
+        ],
+        "tone": "warning",
+        "sourceIds": [
+          "SUP-APPOINTMENT-EMERGENCY",
+          "SUP-NHS-DOCTOR-QUESTIONS"
+        ],
+        "links": [
+          {
+            "href": "/health/guides/danger-signals",
+            "label": "예약·질문보다 도움 요청이 먼저인 위험 신호"
+          }
+        ]
+      }
     ],
-    faq: [
-      { question: "질문이 너무 많으면 세 개만 해야 하나요?", answer: "두세 개는 우선순위를 정하는 예시이지 질문의 상한이 아닙니다. 중요한 걱정부터 말하고, 새로운 증상이나 약 알레르기 같은 정보는 빠뜨리지 않습니다. 이번에 다루지 못한 질문을 어디에서 확인할지도 물어보세요.", sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-NHS-DOCTOR-QUESTIONS"] },
-      { question: "의학 용어를 다시 물으면 진료를 방해하나요?", answer: "이해되지 않는 단어는 쉬운 말로 다시 설명하거나 적어 달라고 요청할 수 있습니다. 이해한 내용을 자신의 말로 확인하고, 필요하면 서면 안내를 받을 수 있는지도 물어보세요.", sourceIds: ["SUP-NHS-DOCTOR-QUESTIONS", "SUP-MEDLINEPLUS-TALK"] },
-      { question: "검사를 꼭 해 달라고 요청하는 표인가요?", answer: "아닙니다. 검사가 무엇을 확인하고 본인에게 왜 필요한지 설명받는 질문표입니다. 검사를 많이 받을수록 좋다는 뜻이나, 특정 검사·치료를 선택하라는 지시가 아닙니다.", sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-NHS-DOCTOR-QUESTIONS"] },
-      { question: "안내는 이해했지만 지키기 어렵다면 어떻게 하나요?", answer: "무엇이 어려운지 솔직하게 알리고 다른 방법이나 도움을 상담합니다. 실제로 하지 못한 일을 했다고 말하거나 약·치료 계획을 혼자 바꾸지 않습니다. 문의할 곳과 다음 확인 시점을 함께 정하세요.", sourceIds: ["SUP-AHRQ-ENGAGED", "SUP-MEDLINEPLUS-TALK"] },
-      { question: "검사 뒤 연락이 없으면 정상이라는 뜻인가요?", answer: "연락이 없는 것만으로 결과를 정하지 않습니다. 미리 안내받은 결과 확인 방법을 이용하고, 예상한 때 연락이 없으면 기관에 문의하세요. 결과의 의미와 다음에 할 일까지 설명받습니다.", sourceIds: ["SUP-NHS-DOCTOR-QUESTIONS", "SUP-AHRQ-ENGAGED"] },
-    ],
-    sources: [
-      { id: "SUP-AHRQ-ENGAGED", organization: "AHRQ", title: "Be More Engaged in Your Healthcare", url: "https://www.ahrq.gov/questions/be-engaged/index.html", sourceDate: "2024-11 (Page last reviewed; originally created2012-09)", retrievedAt: "2026-09-06" },
-      { id: "SUP-NHS-DOCTOR-QUESTIONS", organization: "NHS", title: "What to ask your doctor or other healthcare professional", url: "https://www.nhs.uk/nhs-services/gps/what-to-ask-your-doctor/", sourceDate: "2023-01-12 (Page last reviewed; next review2026-01-12와 구분)", retrievedAt: "2026-09-06" },
-      { id: "SUP-MEDLINEPLUS-TALK", organization: "NIH/NLM MedlinePlus", title: "Talking With Your Doctor", url: "https://medlineplus.gov/talkingwithyourdoctor.html", sourceDate: "2024-10-05 (Last updated)", retrievedAt: "2026-09-06" },
-      { id: "SUP-APPOINTMENT-EMERGENCY", organization: "MedlinePlus Medical Encyclopedia / A.D.A.M.", title: "Recognizing medical emergencies", url: "https://medlineplus.gov/ency/article/001927.htm", sourceDate: "2025-01-08 (Review Date)", retrievedAt: "2026-09-06" },
-    ],
+    "faq": [],
+    "sources": [
+      {
+        "id": "SUP-AHRQ-ENGAGED",
+        "organization": "AHRQ",
+        "title": "Be More Engaged in Your Healthcare",
+        "url": "https://www.ahrq.gov/questions/be-engaged/index.html",
+        "sourceDate": "2024-11 (Page last reviewed; originally created2012-09)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-NHS-DOCTOR-QUESTIONS",
+        "organization": "NHS",
+        "title": "What to ask your doctor or other healthcare professional",
+        "url": "https://www.nhs.uk/nhs-services/gps/what-to-ask-your-doctor/",
+        "sourceDate": "2023-01-12 (Page last reviewed; next review2026-01-12와 구분)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-MEDLINEPLUS-TALK",
+        "organization": "NIH/NLM MedlinePlus",
+        "title": "Talking With Your Doctor",
+        "url": "https://medlineplus.gov/talkingwithyourdoctor.html",
+        "sourceDate": "2024-10-05 (Last updated)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-APPOINTMENT-EMERGENCY",
+        "organization": "MedlinePlus Medical Encyclopedia / A.D.A.M.",
+        "title": "Recognizing medical emergencies",
+        "url": "https://medlineplus.gov/ency/article/001927.htm",
+        "sourceDate": "2025-01-08 (Review Date)",
+        "retrievedAt": "2026-09-06"
+      }
+    ]
   },
   {
     "slug": "medication-list",

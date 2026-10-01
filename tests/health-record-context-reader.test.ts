@@ -21,7 +21,7 @@ test("record-context batch preserves bodies not subsequently revised, all claims
   assert.equal(digest(a),baseline.articleData[a.slug],a.slug);
   assert.equal(digest(renderToStaticMarkup(a.slug==="hypertension"?createElement(HypertensionPage):createElement(HealthArticlePage,{article:a}))),baseline.articleHtml[a.slug],a.slug);
  }
- for(const g of healthSupportGuides.filter(g=>g.slug!=="understanding-hba1c")){assert.equal(digest(g),baseline.guideData[g.slug],g.slug);assert.equal(digest(renderToStaticMarkup(await GuidePage({params:Promise.resolve({slug:g.slug})}))),baseline.guideHtml[g.slug],g.slug);}
+ for(const g of healthSupportGuides.filter(g=>!["reading-health-results","symptom-journal","appointment-questions"].includes(g.slug)&&g.slug!=="understanding-hba1c")){assert.equal(digest(g),baseline.guideData[g.slug],g.slug);assert.equal(digest(renderToStaticMarkup(await GuidePage({params:Promise.resolve({slug:g.slug})}))),baseline.guideHtml[g.slug],g.slug);}
  assert.equal(digest(healthClaims),baseline.claimRegistrySha256);assert.equal(healthClaims.length,144);
  assert.deepEqual(healthSources,baseline.originalSources);assert.equal(healthSources.length,170);
  assert.equal(digest(healthTools),baseline.toolsSha256);
