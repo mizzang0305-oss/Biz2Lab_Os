@@ -31,8 +31,9 @@
       "html": "6ef542b46c69fe72672bb1bbce97702c2ce62bec13681b8533839053da780c7a"
     },
     "medication-list": {
-      "data": "5780bbefe867822642ecbd3e5b2b2f19955c995cd7975dd0e26607faf16d445d",
-      "html": "3a471098a8bdadca2677a918ab1d714a1517519d6b396f9f4eec51c626650c12"
+      "data": "aad29d4b470547678ef574d403a833a38a3c2278bca63fd895b42f43014c3a83",
+      "html": "e63c1c214c58d1812216c22c65e3eb6c8b4516f42970cbbc8d91e31e8938ccbe",
+      "releasedSha": "8033bd8e7f20fe5006872c99a11bf316cd32fa87"
     },
     "older-parent-health-organizer": {
       "data": "63d54af4db218e27536f53d0102317035c7dc702ce45b2ba805a3a2e0edbfb40",
