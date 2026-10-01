@@ -47,7 +47,7 @@ test("distinct pain-versus-passage question, urgent care and individual fluid bo
 });
 
 test("shared renderer changes preserve every other disease guide byte for byte", () => {
-  for (const other of Object.values(healthArticles).filter(item => !["kidney-stones", "type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis"].includes(item.slug))) {
+  for (const other of Object.values(healthArticles).filter(item => !["kidney-stones", "type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis", "asthma", "stroke", "acute-myocardial-infarction"].includes(item.slug))) {
     const rendered = renderToStaticMarkup(other.slug === "hypertension" ? createElement(HypertensionPage) : createElement(HealthArticlePage, { article: other }));
     assert.equal(digest(rendered), baseline.articleHtml[other.slug], other.slug);
   }

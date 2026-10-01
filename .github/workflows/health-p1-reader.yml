@@ -10,6 +10,12 @@ on:
       - 'lib/health-v3/support-guides.ts'
       - 'lib/health-v3/content.ts'
       - 'lib/health-v3/batch2.ts'
+      - 'lib/health-v3/seo-v2/asthma.ts'
+      - 'lib/health-v3/seo-v2/stroke.ts'
+      - 'lib/health-v3/seo-v2/acute-myocardial-infarction.ts'
+      - 'tests/health-emergency-plan-reader.test.ts'
+      - 'tests/fixtures/health-emergency-plan-baseline.json'
+      - 'tests/fixtures/health-emergency-plan-original.json'
       - 'tests/health-lab-observation-reader.test.ts'
       - 'tests/health-individual-reader.test.ts'
       - 'tests/fixtures/health-individual-reader-baseline.json'
@@ -34,6 +40,12 @@ on:
       - 'lib/health-v3/support-guides.ts'
       - 'lib/health-v3/content.ts'
       - 'lib/health-v3/batch2.ts'
+      - 'lib/health-v3/seo-v2/asthma.ts'
+      - 'lib/health-v3/seo-v2/stroke.ts'
+      - 'lib/health-v3/seo-v2/acute-myocardial-infarction.ts'
+      - 'tests/health-emergency-plan-reader.test.ts'
+      - 'tests/fixtures/health-emergency-plan-baseline.json'
+      - 'tests/fixtures/health-emergency-plan-original.json'
       - 'tests/health-lab-observation-reader.test.ts'
       - 'tests/health-individual-reader.test.ts'
       - 'tests/fixtures/health-individual-reader-baseline.json'
@@ -59,7 +71,7 @@ jobs:
         with:
           node-version: '24'
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: node node_modules/tsx/dist/cli.mjs --test tests/health-individual-reader.test.ts tests/health-lab-observation-reader.test.ts tests/health-support-action-reader.test.ts tests/family-medication-reader.test.ts tests/kidney-stones-reader.test.ts tests/hypertension-reader.test.ts tests/health-v3-public-cutover.test.ts tests/onurim-entry-pages.test.ts tests/onurim-body-theater.test.ts
-      - run: node node_modules/eslint/bin/eslint.js components/health/HealthArticle.tsx components/health/HealthToolPage.tsx components/health/BodyTheater.tsx 'app/health/guides/[slug]/page.tsx' lib/health-v3/support-guides.ts lib/health-v3/content.ts lib/health-v3/batch2.ts tests/health-individual-reader.test.ts tests/health-lab-observation-reader.test.ts tests/health-support-action-reader.test.ts tests/family-medication-reader.test.ts tests/kidney-stones-reader.test.ts --max-warnings=0 --no-cache
+      - run: node node_modules/tsx/dist/cli.mjs --test tests/health-emergency-plan-reader.test.ts tests/health-individual-reader.test.ts tests/health-lab-observation-reader.test.ts tests/health-support-action-reader.test.ts tests/family-medication-reader.test.ts tests/kidney-stones-reader.test.ts tests/hypertension-reader.test.ts tests/health-v3-public-cutover.test.ts tests/onurim-entry-pages.test.ts tests/onurim-body-theater.test.ts
+      - run: node node_modules/eslint/bin/eslint.js components/health/HealthArticle.tsx components/health/HealthToolPage.tsx components/health/BodyTheater.tsx 'app/health/guides/[slug]/page.tsx' lib/health-v3/support-guides.ts lib/health-v3/content.ts lib/health-v3/batch2.ts lib/health-v3/seo-v2/asthma.ts lib/health-v3/seo-v2/stroke.ts lib/health-v3/seo-v2/acute-myocardial-infarction.ts tests/health-emergency-plan-reader.test.ts tests/health-individual-reader.test.ts tests/health-lab-observation-reader.test.ts tests/health-support-action-reader.test.ts tests/family-medication-reader.test.ts tests/kidney-stones-reader.test.ts --max-warnings=0 --no-cache
       - run: node node_modules/typescript/bin/tsc --noEmit --incremental false --pretty false
       - run: node scripts/verify-minz-lineup.mjs
