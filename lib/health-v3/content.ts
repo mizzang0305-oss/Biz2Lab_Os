@@ -512,13 +512,13 @@ export const healthClaims: HealthClaim[] = [
 export const healthArticles: Record<HealthArticleSlug, HealthArticle> = {
   hypertension: {
     slug: "hypertension",
-    title: "고혈압을 이해하고 집에서 혈압을 정확히 기록하는 법",
-    seoTitle: "고혈압 증상과 혈압 재는 법, 가정혈압 기록표",
+    title: "집에서 잰 혈압, 진료 때 어떻게 보여줄까요?",
+    seoTitle: "집에서 잰 혈압, 진료 때 어떻게 보여줄까요?",
     publishedAt: "2026-08-26",
-    updatedAt: "2026-09-06",
-    sourceCheckedAt: "2026-09-06",
+    updatedAt: "2026-10-01",
+    sourceCheckedAt: "2026-10-01",
     eyebrow: "심장·혈관 · 가정혈압과 진료 준비",
-    description: "증상이 없어도 혈압을 확인해야 하는 이유, 측정 자세와 커프 점검, 진료실·가정혈압이 다를 때 남길 기록을 설명합니다. 응급 도움과 진료 상담의 경계도 구분합니다.",
+    description: "집과 병원에서 잰 혈압이 다를 때 가져갈 기록을 준비합니다. 측정 순서, 가상 기록 예시, 진료 질문과 119 도움을 먼저 요청해야 하는 상황을 확인하세요.",
     outcome: "측정 조건을 점검하고, 집과 진료실에서 잰 원래 값을 나란히 남겨 의료진에게 질문할 수 있습니다.",
     summary: [
       "고혈압은 증상만으로 알아차리기 어려워 측정이 필요합니다.",
