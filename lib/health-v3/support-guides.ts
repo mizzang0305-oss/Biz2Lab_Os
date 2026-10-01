@@ -204,57 +204,255 @@ export const healthSupportGuides: HealthSupportGuide[] = [
     ]
   },
   {
-    slug: "measuring-blood-pressure",
-    title: "집에서 혈압 재는 방법, 준비부터 기록까지",
-    seoTitle: "가정혈압 측정 방법: 커프·자세·반복 측정과 기록",
-    description: "맨팔에 맞는 위팔 커프, 안정 시간, 등·팔·발의 자세와 반복 측정 기록을 확인합니다. 진단 숫자를 고르는 대신 의료진에게 비교 가능한 결과와 측정 조건을 가져가는 방법입니다.",
-    publishedAt: "2026-08-26", updatedAt: "2026-09-06", sourceCheckedAt: "2026-09-06",
-    faqTitle: "집에서 잴 때 자주 막히는 부분",
-    sections: [
-      { id: "urgent-action", title: "응급 신호가 있다면 재측정보다 119", paragraphs: ["가슴 압박·불편 등으로 심근경색이 의심되거나, 심한 호흡곤란이 생기거나, 갑자기 한쪽 얼굴·팔·다리의 힘이나 감각이 달라지거나, 갑작스러운 말·시야 이상, 어지럼, 걷기·균형의 어려움이 생기면 혈압을 다시 재며 기다리지 말고 즉시 119에 연락합니다. 수치가 괜찮아 보인다는 이유로 도움을 미루지 않습니다."], tone: "warning", sourceIds: ["SUP-BP-NHLBI-MI", "SUP-BP-CDC-STROKE", "SUP-BP-NHS-MI"], links: [{ href: "/health/guides/danger-signals", label: "측정·기록보다 도움 요청이 먼저인 다른 위험 신호" }] },
-      { title: "기기보다 먼저, 내 팔에 맞는 커프인지", paragraphs: [
-        "가정에서는 검증된 자동 위팔 커프형 혈압계를 사용하는 것이 권장됩니다. 커프는 팔에 감아 공기를 넣는 띠입니다. 팔 둘레에 맞지 않으면 결과가 부정확해질 수 있으므로 제품의 적용 크기를 확인합니다.",
-        "이미 가진 기기를 진료에 가져가 커프가 맞는지와 사용법을 확인받으세요. 임신 중이거나 어린이가 사용하는 경우에는 해당 대상에서 검증된 기기인지도 확인합니다. 이 페이지는 특정 제품을 추천하거나 기기 정확도를 인증하지 않습니다.",
-      ], sourceIds: ["SUP-AHA-BP", "SUP-NHS-BP"], links: [{ href: "/health/tools/blood-pressure-prep", label: "기기와 함께 확인할 가정혈압 측정 준비표" }] },
-      { title: "앉아서 준비할 때와 측정 중 자세", paragraphs: [
-        "미국심장협회(AHA)·CDC의 준비 안내를 바탕으로, 측정 전 30분 동안은 흡연·카페인 음료·운동을 피하고 방광을 비운 뒤 최소 5분 조용히 쉽니다. 재는 동안 말하거나 휴대전화를 사용하지 않습니다. 이는 일상 측정을 위한 준비이지 응급 신호가 있을 때 기다릴 시간은 아닙니다.",
-      ], table: { caption: "버튼을 누르기 전 네 곳 확인 — 진단 기준표가 아닙니다", columns: ["확인할 곳", "맞출 조건"], rows: [
-        ["등", "등받이에 기대어 지지받기"],
-        ["발과 다리", "두 발을 바닥에 두고 다리를 꼬지 않기"],
-        ["팔", "탁자 등에 받쳐 커프가 심장 높이에 오도록 하기"],
-        ["커프와 옷", "옷 위가 아닌 맨팔에, 기기 설명서의 위치와 맞는 크기로 감기"],
-      ] }, sourceIds: ["SUP-AHA-BP", "SUP-CDC-BP"] },
-      { title: "한 번 잰 뒤에는 결과를 남기고 간격을 둡니다", paragraphs: [
-        "AHA는 한 번 앉아 잴 때 1분 간격으로 두 번 측정하고 두 결과를 모두 기록하도록 안내합니다. CDC는 1~2분 간격을 제시합니다. 의료진이 정해 준 간격·횟수·측정 팔이 있다면 그 계획과 기기 설명서를 따릅니다.",
-        "매일 비슷한 시각과 조건에서 기록하되 하루 중 언제, 며칠 동안 잴지는 의료진과 정합니다. 아침·저녁 측정을 안내받을 수 있지만 모두에게 같은 일수나 복약 전후 순서를 일괄 적용하지 않습니다. 원하는 숫자가 나올 때까지 계속 재서 낮은 값만 남기지 마세요.",
-      ], sourceIds: ["SUP-AHA-BP", "SUP-CDC-BP", "SUP-NHS-BP"] },
-      { title: "숫자 옆에 조건을 남겨야 비교할 수 있습니다", paragraphs: [
-        "날짜·시각과 두 번의 측정값을 기기 표시 그대로 옮깁니다. 첫 숫자(수축기)와 두 번째 숫자(이완기), 단위 mmHg를 구분하고 맥박 표시를 혈압값으로 바꾸어 적지 않습니다.",
-        "기록 예시는 ‘날짜/시각 → 첫 측정 → 두 번째 측정 → 당시 불편·평소와 달랐던 점’입니다. 실제 환자 수치나 정상 판정은 넣지 않았습니다. 방금 움직였거나 재는 동안 말한 일처럼 조건이 달랐다면 그 사실을 메모합니다.",
-      ], bullets: ["기기에 저장된 기록이나 원본 기록표를 진료에 가져갑니다.", "기기 오류 표시나 값 차이가 반복되면 커프·사용법·기기를 함께 확인받습니다."], sourceIds: ["SUP-AHA-BP", "SUP-CDC-BP", "SUP-NHS-BP"], links: [{ href: "/health/tools/blood-pressure-log", label: "측정값과 상황을 함께 적을 혈압 기록표" }] },
-      { title: "집과 병원 수치가 다를 때는 기록으로 질문하세요", paragraphs: [
-        "긴장이나 측정 전 활동·자세가 결과에 영향을 줄 수 있습니다. 한 번의 높은 값만으로 고혈압을 확정하거나 한 번 낮게 나왔다고 문제가 없다고 단정하지 않습니다. 두 장소의 기록과 측정 방법을 함께 보여 주고 차이를 어떻게 확인할지 물어보세요.",
-        "가정 측정은 진료를 돕는 자료이지 정기 진료의 대체가 아닙니다. 결과가 걱정되면 의료진에게 연락해 확인 계획을 정하고, 약을 스스로 중단하거나 늘리지 않습니다. 어떤 값·증상에서 바로 연락해야 하는지도 개인 계획으로 받아 두세요.",
-      ], sourceIds: ["SUP-AHA-BP", "SUP-CDC-BP"], links: [
-        { href: "/health/hypertension", label: "백의·가면 고혈압과 진단 과정을 이해하기" },
-        { href: "/health/tools/blood-pressure-questions", label: "기록 차이와 다음 측정 계획을 물을 진료 질문지" },
-      ] },
+    "slug": "measuring-blood-pressure",
+    "title": "혈압이 두 번 다르게 나왔어요. 어느 값을 적을까요?",
+    "seoTitle": "가정혈압 두 번 측정: 원값·시각·조건을 함께 남기는 순서",
+    "description": "첫 번째보다 두 번째 혈압이 낮게 나왔다면 낮은 값만 적으면 될까요? 두 값 모두 남기는 데서 시작합니다. 한 번의 측정 세션을 준비하고 시각·원값·조건을 함께 기록하는 순서를 따라갑니다.",
+    "publishedAt": "2026-08-26",
+    "updatedAt": "2026-10-01",
+    "sourceCheckedAt": "2026-10-01",
+    "faqTitle": "집에서 잴 때 자주 막히는 부분",
+    "sections": [
+      {
+        "id": "urgent-action",
+        "title": "응급 신호가 있다면 재측정보다 119",
+        "paragraphs": [
+          "새롭거나 평소와 다른 가슴 압박·불편 등으로 심근경색이 의심되면 심한 통증이 될 때까지 기다리지 않습니다. 심한 호흡곤란, 갑작스러운 한쪽 마비나 말·시야·균형의 변화도 혈압을 다시 재며 기다릴 신호가 아닙니다. 즉시 119에 연락하고 직접 운전하지 마세요. 수치가 낮아 보인다는 이유로 도움을 미루지 않습니다."
+        ],
+        "tone": "warning",
+        "sourceIds": [
+          "SUP-BP-NHLBI-MI",
+          "SUP-BP-CDC-STROKE",
+          "SUP-BP-NHS-MI"
+        ],
+        "links": [
+          {
+            "href": "/health/guides/danger-signals",
+            "label": "측정·기록보다 도움 요청이 먼저인 다른 위험 신호"
+          }
+        ]
+      },
+      {
+        "id": "very-high-without-symptoms",
+        "title": "증상이 없어도 매우 높은 값이 반복되면 즉시 연락",
+        "paragraphs": [
+          "증상이 없더라도 매우 높은 값이 다시 측정해도 계속 나오면 기록을 며칠 더 모으거나 정기진료까지 기다리지 말고 즉시 의료진에게 연락하세요. AHA가 비임신 성인에 대해 안내하는 매우 높은 범위와 재측정 방법은 아래 원문과 고혈압 글에서 확인할 수 있습니다. 응급 신호가 있다면 이 분기보다 위의 119 안내가 먼저입니다.",
+          "측정값만으로 스스로 진단하거나 약을 조절하지 마세요. 임신·소아에 성인 안내를 그대로 적용하지 말고 개별 의료진의 연락 지침을 우선하세요. 평소 연락 기준을 아직 받지 못했다면 무엇을 측정하고 언제 어디로 연락할지 진료에서 정해 두세요."
+        ],
+        "sourceIds": [
+          "SUP-AHA-BP",
+          "SUP-AHA-BP-URGENT"
+        ],
+        "links": [
+          {
+            "href": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/when-to-call-911-for-high-blood-pressure",
+            "label": "AHA 원문: 매우 높은 값·증상 유무에 따른 연락 안내 (미국 비임신 성인)"
+          },
+          {
+            "href": "/health/hypertension#urgent-action",
+            "label": "고혈압 글의 성인 수치 기준·예외와 도움 요청 안내"
+          }
+        ]
+      },
+      {
+        "title": "1. 팔과 커프, 같은 기기로 확인하기",
+        "paragraphs": [
+          "가정에서는 검증된 자동 위팔 커프형 혈압계를 사용하는 것이 권장됩니다. 커프는 팔에 감아 공기를 넣는 띠입니다. 팔 둘레에 맞지 않으면 결과가 부정확해질 수 있으므로 제품의 적용 크기를 확인합니다.",
+          "이미 가진 기기를 진료에 가져가 커프가 맞는지와 사용법을 확인받으세요. 임신 중이거나 어린이가 사용하는 경우에는 해당 대상에서 검증된 기기인지도 확인합니다. 이 페이지는 특정 제품을 추천하거나 기기 정확도를 인증하지 않습니다."
+        ],
+        "sourceIds": [
+          "SUP-AHA-BP",
+          "SUP-NHS-BP"
+        ],
+        "links": [
+          {
+            "href": "/health/tools/blood-pressure-prep",
+            "label": "인쇄용 준비표로 기기·커프·자세를 점검하기"
+          }
+        ]
+      },
+      {
+        "title": "2. 앉아 쉬고, 버튼을 누르기 전 네 곳 확인",
+        "paragraphs": [
+          "미국심장협회(AHA)·CDC의 준비 안내를 바탕으로, 측정 전 30분 동안은 흡연·카페인 음료·운동을 피하고 방광을 비운 뒤 최소 5분 조용히 쉽니다. 재는 동안 말하거나 휴대전화를 사용하지 않습니다. 이는 일상 측정을 위한 준비이지 응급 신호가 있을 때 기다릴 시간은 아닙니다."
+        ],
+        "table": {
+          "caption": "버튼을 누르기 전 네 곳 확인 — 진단 기준표가 아닙니다",
+          "columns": [
+            "확인할 곳",
+            "맞출 조건"
+          ],
+          "rows": [
+            [
+              "등",
+              "등받이에 기대어 지지받기"
+            ],
+            [
+              "발과 다리",
+              "두 발을 바닥에 두고 다리를 꼬지 않기"
+            ],
+            [
+              "팔",
+              "탁자 등에 받쳐 커프가 심장 높이에 오도록 하기"
+            ],
+            [
+              "커프와 옷",
+              "옷 위가 아닌 맨팔에, 기기 설명서의 위치와 맞는 크기로 감기"
+            ]
+          ]
+        },
+        "sourceIds": [
+          "SUP-AHA-BP",
+          "SUP-CDC-BP",
+          "SUP-AHA-BP-POSTURE"
+        ]
+      },
+      {
+        "title": "3. 한 번의 세션에서 두 원값 남기기",
+        "paragraphs": [
+          "AHA의 가정 측정 안내는 1분 간격으로 두 번 재고 두 결과 모두 기록하도록 설명합니다. 의료진이 정해 준 간격·횟수·측정 팔과 기기 설명서가 있다면 그 계획을 따르세요. 첫 값과 둘째 값의 차이만으로 어느 쪽이 맞는지 판단하지 않습니다.",
+          "원하는 숫자가 나올 때까지 계속 재서 낮은 값만 고르지 않습니다. 한 번 앉아 재는 횟수와 하루 중 측정 시각, 전체 기록 일수는 서로 다른 항목입니다. 다음 세션의 시각과 기간은 의료진과 정하고 약 먹는 시각도 임의로 바꾸지 않습니다."
+        ],
+        "sourceIds": [
+          "SUP-AHA-BP",
+          "SUP-CDC-BP",
+          "SUP-NHS-BP"
+        ]
+      },
+      {
+        "title": "4. 시각·혈압·맥박·조건을 한 세트로 묶기",
+        "paragraphs": [
+          "다음 두 줄은 설명을 위한 가상 작성 예시입니다. 실제 환자의 기록도, 정상 판정이나 개인 목표값도 아닙니다. 혈압은 수축기/이완기 순서와 mmHg 단위로 옮기고 맥박은 별도 칸에 적습니다.",
+          "둘째 값만 남기면 두 회차를 비교할 자료가 사라집니다. 말했거나 막 움직인 일처럼 측정 조건이 달랐다면 원값을 바꾸지 말고 그 사실을 메모하세요. 기기 오류나 큰 차이가 반복되면 기기·커프·원본 기록을 함께 가져가 사용법을 확인받습니다."
+        ],
+        "bullets": [
+          "기기에 저장된 기록이나 원본 기록표를 진료에 가져갑니다.",
+          "기기 오류 표시나 값 차이가 반복되면 커프·사용법·기기를 함께 확인받습니다."
+        ],
+        "sourceIds": [
+          "SUP-AHA-BP",
+          "SUP-CDC-BP",
+          "SUP-NHS-BP"
+        ],
+        "links": [
+          {
+            "href": "/health/tools/blood-pressure-log",
+            "label": "이 원값과 시각을 옮겨 적을 인쇄용 혈압 기록표 (화면 입력 저장 없음)"
+          }
+        ],
+        "table": {
+          "caption": "가상 작성 예시 — 두 값 모두 보존하며 정상·목표를 뜻하지 않습니다",
+          "columns": [
+            "날짜·시각 / 회차",
+            "혈압 (mmHg)",
+            "맥박 (회/분)",
+            "당시 조건 메모"
+          ],
+          "rows": [
+            [
+              "10월 1일 07:00 / 1차",
+              "146/89",
+              "72",
+              "5분 앉아 쉼, 대화 없음, 특별한 불편 없음"
+            ],
+            [
+              "10월 1일 07:01 / 2차",
+              "141/87",
+              "71",
+              "같은 팔·자세, 대화 없음"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "측정은 이 글에서, 진료의 질문은 기록과 함께",
+        "paragraphs": [
+          "집과 병원에서 잰 값이 다르면 두 장소의 원본 기록과 조건을 함께 가져가세요. 한 번의 값으로 진단하거나 가정 기록만으로 약을 중단·늘리지 않습니다. 차이를 확인하는 검사와 개인 목표는 의료진에게 질문할 내용입니다.",
+          "이 글의 결과물은 비교할 수 있는 두 회차의 기록입니다. 고혈압 글에서는 그 기록을 어떻게 보여 주고 어떤 질문을 남길지 이어갑니다. 가정 측정은 정기 진료를 대신하지 않습니다."
+        ],
+        "sourceIds": [
+          "SUP-AHA-BP",
+          "SUP-CDC-BP"
+        ],
+        "links": [
+          {
+            "href": "/health/hypertension",
+            "label": "백의·가면 고혈압과 진단 과정을 이해하기"
+          },
+          {
+            "href": "/health/tools/blood-pressure-questions",
+            "label": "기록 차이와 다음 측정 계획을 물을 진료 질문지"
+          }
+        ]
+      }
     ],
-    faq: [
-      { question: "옷 위에 커프를 감아도 되나요?", answer: "맨팔에 감습니다. 커프가 팔 둘레에 맞는지와 감는 위치도 기기 설명서에 따라 확인하세요. 얇은 옷이라는 이유로 같은 조건이라고 가정하지 않습니다.", sourceIds: ["SUP-AHA-BP", "SUP-CDC-BP"] },
-      { question: "커피를 마시거나 운동한 직후 재면 되나요?", answer: "일상적인 측정은 카페인·흡연·운동을 피할 준비 시간 30분과 조용히 쉬는 시간 최소 5분을 둡니다. 다만 응급 신호가 있으면 이 시간을 채우지 말고 즉시 도움을 요청합니다.", sourceIds: ["SUP-AHA-BP", "SUP-BP-NHLBI-MI", "SUP-BP-CDC-STROKE"] },
-      { question: "두 번의 값이 다르면 낮은 것만 적나요?", answer: "두 결과를 모두 기록합니다. 낮은 값을 골라 남기기보다 시각과 측정 조건을 함께 보여 주세요. 차이가 걱정되면 기기·커프·측정법과 기록을 의료진에게 확인받습니다.", sourceIds: ["SUP-AHA-BP", "SUP-CDC-BP"] },
-      { question: "아침·저녁으로 며칠이나 재야 하나요?", answer: "측정 목적과 상황에 따라 의료진이 일정을 정합니다. 한 번 앉아 재는 횟수와 하루 측정 시각, 전체 기록 일수는 서로 다른 항목입니다. 약 먹는 시각까지 임의로 바꾸지 말고 안내받은 계획을 확인하세요.", sourceIds: ["SUP-NHS-BP", "SUP-AHA-BP"] },
-      { question: "집에서 낮게 나오면 혈압약을 쉬어도 되나요?", answer: "기록만 보고 스스로 약을 쉬거나 조절하지 않습니다. 가정 측정 결과와 불편을 의료진에게 알리고 계획을 확인하세요. 가정 측정은 진료를 대신하지 않습니다.", sourceIds: ["SUP-AHA-BP"] },
-    ],
-    sources: [
-      { id: "SUP-AHA-BP", organization: "American Heart Association", title: "Home Blood Pressure Monitoring", url: "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home", sourceDate: "2025-08-14 (Last Reviewed)", retrievedAt: "2026-09-06" },
-      { id: "SUP-CDC-BP", organization: "CDC", title: "Measuring Your Blood Pressure", url: "https://www.cdc.gov/high-blood-pressure/measure/index.html", sourceDate: "2026-09-04 (Updated; Reviewed2024-12-13)", retrievedAt: "2026-09-06" },
-      { id: "SUP-NHS-BP", organization: "NHS", title: "Blood pressure test", url: "https://www.nhs.uk/tests-and-treatments/blood-pressure-test/", sourceDate: "2025-11-25 (Page last reviewed)", retrievedAt: "2026-09-06" },
-      { id: "SUP-BP-NHLBI-MI", organization: "NIH/NHLBI", title: "Heart Attack Symptoms", url: "https://www.nhlbi.nih.gov/health/heart-attack/symptoms", sourceDate: "2022-03-24 (Last updated)", retrievedAt: "2026-09-06" },
-      { id: "SUP-BP-CDC-STROKE", organization: "CDC", title: "Signs and Symptoms of Stroke", url: "https://www.cdc.gov/stroke/signs-symptoms/index.html", sourceDate: "2026-05-19 (페이지 표시일)", retrievedAt: "2026-09-06" },
-      { id: "SUP-BP-NHS-MI", organization: "NHS", title: "Heart attack", url: "https://www.nhs.uk/conditions/heart-attack/", sourceDate: "2026-03-31 (Page last reviewed)", retrievedAt: "2026-09-06" },
-    ],
+    "faq": [],
+    "sources": [
+      {
+        "id": "SUP-AHA-BP",
+        "organization": "American Heart Association",
+        "title": "Home Blood Pressure Monitoring",
+        "url": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home",
+        "sourceDate": "2025-08-14 (Last Reviewed)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-CDC-BP",
+        "organization": "CDC",
+        "title": "Measuring Your Blood Pressure",
+        "url": "https://www.cdc.gov/high-blood-pressure/measure/index.html",
+        "sourceDate": "2026-09-04 (Updated; Reviewed2024-12-13)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-NHS-BP",
+        "organization": "NHS",
+        "title": "Blood pressure test",
+        "url": "https://www.nhs.uk/tests-and-treatments/blood-pressure-test/",
+        "sourceDate": "2025-11-25 (Page last reviewed)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-BP-NHLBI-MI",
+        "organization": "NIH/NHLBI",
+        "title": "Heart Attack Symptoms",
+        "url": "https://www.nhlbi.nih.gov/health/heart-attack/symptoms",
+        "sourceDate": "2022-03-24 (Last updated)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-BP-CDC-STROKE",
+        "organization": "CDC",
+        "title": "Signs and Symptoms of Stroke",
+        "url": "https://www.cdc.gov/stroke/signs-symptoms/index.html",
+        "sourceDate": "2026-05-19 (페이지 표시일)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-BP-NHS-MI",
+        "organization": "NHS",
+        "title": "Heart attack",
+        "url": "https://www.nhs.uk/conditions/heart-attack/",
+        "sourceDate": "2026-03-31 (Page last reviewed)",
+        "retrievedAt": "2026-09-06"
+      },
+      {
+        "id": "SUP-AHA-BP-URGENT",
+        "organization": "American Heart Association",
+        "title": "When To Call 911 About High Blood Pressure",
+        "url": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/when-to-call-911-for-high-blood-pressure",
+        "sourceDate": "2025-08-14 (Last Reviewed)",
+        "retrievedAt": "2026-10-01"
+      },
+      {
+        "id": "SUP-AHA-BP-POSTURE",
+        "organization": "American Heart Association",
+        "title": "Home Blood Pressure Measurement Instructions (PDF)",
+        "url": "https://www.heart.org/-/media/Files/Health-Topics/High-Blood-Pressure/How_to_Measure_Your_Blood_Pressure_Letter_Size.pdf",
+        "sourceDate": "2025 (PDF copyright)",
+        "retrievedAt": "2026-10-01"
+      }
+    ]
   },
   {
     slug: "understanding-hba1c",

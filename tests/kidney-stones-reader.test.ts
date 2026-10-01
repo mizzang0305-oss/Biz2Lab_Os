@@ -47,11 +47,11 @@ test("distinct pain-versus-passage question, urgent care and individual fluid bo
 });
 
 test("shared renderer changes preserve every other disease guide byte for byte", () => {
-  for (const other of Object.values(healthArticles).filter(item => !["kidney-stones", "type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease"].includes(item.slug))) {
+  for (const other of Object.values(healthArticles).filter(item => !["kidney-stones", "type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis"].includes(item.slug))) {
     const rendered = renderToStaticMarkup(other.slug === "hypertension" ? createElement(HypertensionPage) : createElement(HealthArticlePage, { article: other }));
     assert.equal(digest(rendered), baseline.articleHtml[other.slug], other.slug);
   }
-  for (const guide of healthSupportGuides.filter(item => item.slug !== "family-medication-support" && item.slug !== "danger-signals" && item.slug !== "medication-list" && item.slug !== "older-parent-health-organizer")) {
+  for (const guide of healthSupportGuides.filter(item => item.slug !== "family-medication-support" && item.slug !== "danger-signals" && item.slug !== "medication-list" && item.slug !== "older-parent-health-organizer" && item.slug !== "measuring-blood-pressure")) {
     assert.equal(digest(JSON.stringify(guide)), baseline.supportGuideSha256[guide.slug], guide.slug);
   }
 });

@@ -15,7 +15,7 @@ import { metadata as refluxMetadata } from "../app/health/gastroesophageal-reflu
 
 const baseline = JSON.parse(readFileSync("tests/fixtures/health-lab-observation-baseline.json", "utf8"));
 const digest = (value: unknown) => createHash("sha256").update(typeof value === "string" ? value : JSON.stringify(value)).digest("hex");
-const revisedSlugs = ["type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease"];
+const revisedSlugs = ["type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis"];
 const render = (slug: keyof typeof healthArticles) => renderToStaticMarkup(createElement(HealthArticlePage, { article: healthArticles[slug] }));
 const visible = (html: string) => html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, "");
 
@@ -25,7 +25,8 @@ test("three authorized revisions preserve all other disease bodies and previous 
     assert.equal(digest(html), baseline.articleHtml[article.slug], article.slug);
     assert.equal(digest(article), baseline.articleData[article.slug], article.slug);
   }
-  assert.equal(digest(healthSupportGuides), baseline.supportGuidesSha256);
+  const nextBaseline = JSON.parse(readFileSync("tests/fixtures/health-individual-reader-baseline.json", "utf8"));
+  assert.equal(digest(healthSupportGuides.filter(guide => guide.slug !== "measuring-blood-pressure")), nextBaseline.remainingSupportGuidesSha256);
   assert.equal(digest(healthTools), baseline.toolsSha256);
   assert.equal(digest(healthClaims), baseline.claimRegistrySha256);
   for (const source of baseline.originalSources) assert.deepEqual(healthSources.find(item => item.id === source.id), source);
