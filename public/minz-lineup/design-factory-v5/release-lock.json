@@ -113,11 +113,6 @@
       "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
     },
     {
-      "path": "_next/static/chunks/webpack-751e1beccd0ebb9a.js",
-      "bytes": 3416,
-      "sha256": "64505582c3807d93a4e5aad28fb3c2a4475bbe5dbc7f414040cba930254e3938"
-    },
-    {
       "path": "_next/static/css/aa1f99874c09d2f0.css",
       "bytes": 29854,
       "sha256": "9357c41b32300f9fb1af3065249d6a458b9ac0b0d0a3e1be555372a7bde65f54"
@@ -136,6 +131,11 @@
       "path": "assets/anime.esm.min.js",
       "bytes": 118678,
       "sha256": "a19015a1a92d52025a2fb6703b6d67eadd1cc2aeaf880770e96e04cf6aa07be1"
+    },
+    {
+      "path": "assets/reference-bootstrap.js",
+      "bytes": 3416,
+      "sha256": "64505582c3807d93a4e5aad28fb3c2a4475bbe5dbc7f414040cba930254e3938"
     },
     {
       "path": "assets/reference-motion.mjs",
@@ -234,8 +234,8 @@
     },
     {
       "path": "reference-rebased.html",
-      "bytes": 20545,
-      "sha256": "db7c492b495d4655b5f7ad2bba108e1289ffbc8d1fffd09aa3154f0b2bdd1804"
+      "bytes": 20509,
+      "sha256": "eea503c8b0f87699e6d6391ff2385ca4987007ec3e4957a84f5f8d444991fd10"
     },
     {
       "path": "video.mjs",
