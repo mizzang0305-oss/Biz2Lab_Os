@@ -7,6 +7,7 @@ on:
       - 'lib/health-v3/body-theater.ts'
       - 'lib/health-v3/seo-v2/kidney-stones.ts'
       - 'lib/health-v3/support-guides.ts'
+      - 'app/health/guides/**/page.tsx'
       - 'tests/family-medication-reader.test.ts'
       - 'tests/kidney-stones-reader.test.ts'
       - 'tests/fixtures/health-p1-baseline.json'
@@ -18,6 +19,7 @@ on:
       - 'lib/health-v3/body-theater.ts'
       - 'lib/health-v3/seo-v2/kidney-stones.ts'
       - 'lib/health-v3/support-guides.ts'
+      - 'app/health/guides/**/page.tsx'
       - 'tests/family-medication-reader.test.ts'
       - 'tests/kidney-stones-reader.test.ts'
       - 'tests/fixtures/health-p1-baseline.json'
@@ -34,6 +36,6 @@ jobs:
           node-version: '24'
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node node_modules/tsx/dist/cli.mjs --test tests/family-medication-reader.test.ts tests/kidney-stones-reader.test.ts tests/hypertension-reader.test.ts tests/health-v3-public-cutover.test.ts tests/onurim-entry-pages.test.ts tests/onurim-body-theater.test.ts
-      - run: node node_modules/eslint/bin/eslint.js components/health/HealthArticle.tsx components/health/BodyTheater.tsx lib/health-v3/support-guides.ts tests/family-medication-reader.test.ts tests/kidney-stones-reader.test.ts --max-warnings=0 --no-cache
+      - run: node node_modules/eslint/bin/eslint.js components/health/HealthArticle.tsx components/health/BodyTheater.tsx 'app/health/guides/[slug]/page.tsx' lib/health-v3/support-guides.ts tests/family-medication-reader.test.ts tests/kidney-stones-reader.test.ts --max-warnings=0 --no-cache
       - run: node node_modules/typescript/bin/tsc --noEmit --incremental false --pretty false
       - run: node scripts/verify-minz-lineup.mjs

@@ -36,3 +36,12 @@ test("actual reader markup keeps consent, dosage, swallowing and urgent-care bou
   assert.equal(data.dateModified, "2026-10-01");
   assert.equal(data.isBasedOn.length, 5);
 });
+
+test("large-text grid fix is limited to family medication support; other support markup is unchanged", async () => {
+  const family = renderToStaticMarkup(await SupportGuidePage({params: Promise.resolve({slug: guide.slug})}));
+  assert.ok(family.includes('style="grid-template-columns:minmax(0, 1fr)"'));
+  for (const other of healthSupportGuides.filter(item => item.slug !== guide.slug)) {
+    const html = renderToStaticMarkup(await SupportGuidePage({params: Promise.resolve({slug: other.slug})}));
+    assert.equal(createHash("sha256").update(html).digest("hex"), baseline.supportGuideHtml[other.slug], other.slug);
+  }
+});

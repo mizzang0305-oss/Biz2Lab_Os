@@ -42,5 +42,17 @@
     "appointment-questions": "616b41f9f662e1e8ff304000b25906cc1c04437227d4450d2f0522f657b43471",
     "medication-list": "5780bbefe867822642ecbd3e5b2b2f19955c995cd7975dd0e26607faf16d445d",
     "older-parent-health-organizer": "63d54af4db218e27536f53d0102317035c7dc702ce45b2ba805a3a2e0edbfb40"
+  },
+  "supportRenderSourceSha": "671b13caebcc650a50c1cca924ab996c4b707d18",
+  "supportGuideHtml": {
+    "danger-signals": "cc606c92dd5a6eaf8614b31bc1ddad298f8b1665081f448d711af688eabfbe02",
+    "measuring-blood-pressure": "91f6b096ac5a7665b70839f45a0463d72305d881fe2a77828cea5ee70934d45f",
+    "understanding-hba1c": "f3c647b0ed84385dc1a245c5762ed92f39bd208ebc00008c210e8349734608c8",
+    "reading-health-results": "adb966bab6f49586e2b634284312e08da3284e6407f4b4339458c9455536525e",
+    "family-medication-support": "96eb4fc7d1f9e4193422c9afee96bd12e3264feb581e82f0c6875150c640418c",
+    "symptom-journal": "a7dfda405cc0c2b23ae5017e9b4e60fd2781d00d90372b4de51f877890c010d9",
+    "appointment-questions": "6ef542b46c69fe72672bb1bbce97702c2ce62bec13681b8533839053da780c7a",
+    "medication-list": "3a471098a8bdadca2677a918ab1d714a1517519d6b396f9f4eec51c626650c12",
+    "older-parent-health-organizer": "c94022edc6e8f20aa2171b7da22e34bda25a11352f0e3e7a126d32a9804b18aa"
   }
 }
