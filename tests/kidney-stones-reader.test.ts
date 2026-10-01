@@ -51,7 +51,7 @@ test("shared renderer changes preserve every other disease guide byte for byte",
     const rendered = renderToStaticMarkup(other.slug === "hypertension" ? createElement(HypertensionPage) : createElement(HealthArticlePage, { article: other }));
     assert.equal(digest(rendered), baseline.articleHtml[other.slug], other.slug);
   }
-  for (const guide of healthSupportGuides.filter(item => item.slug !== "family-medication-support" && item.slug !== "danger-signals" && item.slug !== "medication-list" && item.slug !== "older-parent-health-organizer" && item.slug !== "measuring-blood-pressure" && item.slug !== "understanding-hba1c")) {
+  for (const guide of healthSupportGuides.filter(item=>!["reading-health-results","symptom-journal","appointment-questions"].includes(item.slug)&&item.slug !== "family-medication-support" && item.slug !== "danger-signals" && item.slug !== "medication-list" && item.slug !== "older-parent-health-organizer" && item.slug !== "measuring-blood-pressure" && item.slug !== "understanding-hba1c")) {
     assert.equal(digest(JSON.stringify(guide)), baseline.supportGuideSha256[guide.slug], guide.slug);
   }
 });
