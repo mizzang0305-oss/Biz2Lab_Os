@@ -22,10 +22,10 @@ const expectedSlugs = [
 
 test("ONURIM portfolio keeps twenty disease guides and source-audited SEO additions", () => {
   assert.deepEqual(Object.keys(healthArticles).sort(), expectedSlugs);
-  assert.equal(healthSupportGuides.length, 9);
+  assert.equal(healthSupportGuides.length, 14);
   assert.equal(healthTools.length, 34);
   assert.equal(healthClaims.length, 144);
-  assert.equal(healthSources.length, 166);
+  assert.equal(healthSources.length, 170);
   assert.equal(new Set(healthSources.map(source => source.id)).size, healthSources.length);
   assert.equal(healthSources.find(source => source.id === "SRC-NIDDK-MANAGING")?.url,
     "https://www.niddk.nih.gov/health-information/diabetes/overview/managing-diabetes");
@@ -41,7 +41,8 @@ test("ONURIM portfolio keeps twenty disease guides and source-audited SEO additi
   for (const article of Object.values(healthArticles)) {
     assert.ok(article.sections.length >= 6, article.slug);
     assert.ok(article.sourceIds.length >= 3, article.slug);
-    assert.ok(article.imageIds.length >= 3, article.slug);
+    // Stroke retains two public visuals after removing the inspected ambiguous cup scene.
+    assert.ok(article.imageIds.length >= (article.slug === "stroke" ? 2 : 3), article.slug);
     assert.ok(article.toolSlugs.length >= 1, article.slug);
   }
 });

@@ -10,7 +10,7 @@ import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = createMetadata({
   title: "질환별 건강 안내서와 검사·진료 준비 도구 찾기",
-  description: "20개 질환을 분야별로 찾고, 검사표·증상 기록·가족 지원을 위한 9개 가이드와 34개 인쇄 도구를 살펴보세요. 각 자료의 쓰임과 도움 요청의 우선순위를 구분합니다.",
+  description: "20개 질환을 분야별로 찾고, 검사표·증상 기록·가족 지원을 위한 14개 가이드와 34개 인쇄 도구를 살펴보세요. 각 자료의 쓰임과 도움 요청의 우선순위를 구분합니다.",
   path: "/health",
 });
 
@@ -27,7 +27,7 @@ export default function OnurimHealthHub() {
         <p>설명을 읽을지, 검사표의 용어를 확인할지, 인쇄할 양식을 찾을지에 따라 골라보세요. 질환별 안내와 여러 질환에서 함께 쓰는 자료를 나눴습니다.</p>
         <nav className="onurim-hub-jumps" aria-label="자료 종류 바로가기">
           <Link href="#conditions">20개 질환 안내</Link>
-          <Link href="#guides">9개 공통 가이드</Link>
+          <Link href="#guides">14개 공통 가이드</Link>
           <Link href="#tools">34개 인쇄 도구</Link>
         </nav>
       </header>
@@ -58,7 +58,7 @@ export default function OnurimHealthHub() {
       </section>
 
       <section id="guides" className="onurim-hub-section">
-        <h2>여러 질환에서 함께 쓰는 9개 가이드</h2>
+        <h2>여러 질환에서 함께 쓰는 14개 가이드</h2>
         <p>특정 병명을 먼저 고르지 않아도 읽을 수 있습니다. 검사·기록·진료 준비 중 지금 필요한 내용을 찾으세요.</p>
         <div className="onurim-hub-directory">
           {hubSupportGroups.map(group => (

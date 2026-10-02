@@ -1,0 +1,2207 @@
+{
+  "baseSha": "e7f3340b48312b7842612ebf8838b63d5e33f09f",
+  "articleHtml": {
+    "hypertension": "26e16975b2d8e99533987928486870418bed5d64f8933bd9afca2e9d99262386",
+    "type-2-diabetes": "7bef7288d1a7711e0368a7281d61e94a0617abb241ab1f9e3507c26c2657a4f0",
+    "allergic-rhinitis": "b6ddecf6721b6f03f7544ea6c9df6e8edd8ad7d74cd7fdbb841bc4c26c174182",
+    "gastroesophageal-reflux-disease": "838e359af9a95240c56267183473c46d23c1c2be58cc537e5cb5f7323a249166",
+    "osteoarthritis": "324073bab7f854e6a3b3a6b321261019e588360e5f0d843593ea600e77c3f741",
+    "osteoporosis": "87c65c84123eb0bd903f34b124d0b56199ddaf13b05aaef8eea056a5aafaf42c",
+    "dyslipidemia": "b718c3fa49638654713cacd2b243e0dd143c525e2dfa3ed6466a0bbd81222b18",
+    "obesity": "58987285428c88f7a0a97b74136cfbcb3b08b00b2370c1703f9a25f6297ae855",
+    "metabolic-dysfunction-associated-steatotic-liver-disease": "4faa82e25637a941edc36ab76b2d94c769cb16cc75090052803ec80890be5f18",
+    "irritable-bowel-syndrome": "57aca29951133b33b2a565f6f47d210c471a756c916ce3ba3e50339d9dba12c1",
+    "asthma": "6154bf5ce40377e2c910603fcddec6c2b995a1eb5c22b4356a59972503d52d5e",
+    "sleep-apnea": "4fcba4afdf02390a6054369c89114514344faa7d205c65842a922a147f315daa",
+    "gout": "bb71f2cb9cf5696ce708770890273ae138380c9e6b3ffedc38cb4ab6fa25d5e1",
+    "migraine": "52b3e99bec48f20d43d0d5daf7be4e9f58dcd013753a355f2fb2c68a53597b3b",
+    "kidney-stones": "961d478bf40e0b23a7cd210cc45bbb9dfe55ad0500230867f4471662811d336d",
+    "urinary-tract-infection": "a150992a173ab2942bb163253ef0200c51ced0eb2ecbdc737f4e624499e7c708",
+    "depression": "a6bbbc538fc7fe8fb3e79b78233304ce5ea3e542f3f5709416efa716507b271e",
+    "anxiety-disorder": "8cc8e712b0be7c2b971b135193e05c145736788f530b6302ff656ee4e9732fc2",
+    "stroke": "7cb6185adb997f8fbf105213886db0c3037cabcffb86c9f116e140b7b8397ee6",
+    "acute-myocardial-infarction": "1239d7ce80ff35de136bc0f8e4648e1ecd006ba8cc129a4220e9e4f074e5de7d"
+  },
+  "articleData": {
+    "hypertension": "9476f50461d3799a0bd39bc66f73d8659af7d65900781ee8591677cd69cb89d5",
+    "type-2-diabetes": "cae49adabe6acb5c0dbadc2135a870edbe42af05823db0cdc55f5952670adc3e",
+    "allergic-rhinitis": "9f8cdac561a29b7c9bde5f90d440848cda53230b765899f75dabc0e2b7739a42",
+    "gastroesophageal-reflux-disease": "1db82314e2a677b0805a13aaaf894c56deeea5bc8df952d0a5611c3815599dac",
+    "osteoarthritis": "324f665868aaed831be0cd2501e68b4fb4182aa3c43a610ce60a7f0e12285b7f",
+    "osteoporosis": "7bc1bdeac5d3d72eade33f4c131e986e303ce32235907002646b9e10f50a4443",
+    "dyslipidemia": "1ded8e0cd58b48c7ecb6147d1425a6a1ba5f283dc3afdf83e064da0418868ac4",
+    "obesity": "2ec8a92e1249f2c2ed6d8011b8f7be4e6684068f09c66066fe121cabb4711a3f",
+    "metabolic-dysfunction-associated-steatotic-liver-disease": "f555ced4aab87ae0d4b73c3e51e5db17de9d5d396f200e8419146cd33371b32d",
+    "irritable-bowel-syndrome": "0f27573b53748555d040cc9c4d0a27f2da50d117a90e5f05d13ea45a7eeb2c9c",
+    "asthma": "9aecbd0de017220e6b96772f1e4ea3658803934a74ce18741c4982ca1f0a373c",
+    "sleep-apnea": "3af17055cb59eec8d622b0e450c3b400abb0bc384aa467b41e2a7fe0ceb0db40",
+    "gout": "505fda16d6fafc79f7df40e337b81fd3522d127e70d25aeab854aec575e28e28",
+    "migraine": "ec9c18d515a805de9b394dc77ddc33640ee640af7adae2225da2782f06068ca5",
+    "kidney-stones": "22333679ef19e2108f25236f5319d669e0f1904adacf81eb2cb4307c638eec89",
+    "urinary-tract-infection": "aa70d0a5bd89fb6471cb67b42706282f90dbd32effcda1f78f1915b44fe16178",
+    "depression": "0e4151419ae2a904b603b883b51f861d24e54360286b74776cd2ca06665ad5b1",
+    "anxiety-disorder": "0a56c0269faef68a8084713e83721df55189b35f98f04559c40f3ffb629c500a",
+    "stroke": "555d18751f367d9ce5e2ab20b9c2d6c0263f42ed2d9a435a671ea94c7f8fc0e2",
+    "acute-myocardial-infarction": "518fe043510e0ee7a8103a6c2af9d7b3a2b6f2e0e0ba4ef2755bfd42b0270ed6"
+  },
+  "guideHtml": {
+    "danger-signals": "3964aac365c8c8d961caad21bd23f794e30ee7b56d8fffdfc295528d5adfbab4",
+    "measuring-blood-pressure": "3e48f8b48dba5528163999c5384c25cc45225d219d41f84f8ffa728e827b9301",
+    "understanding-hba1c": "601c2532d3d4073922faa03a8c8cec21d15fbf34e3176fbebf159f9029474aac",
+    "reading-health-results": "fdb3022512e93bfd408d8445c00d82e31df589bc3e1b298b0dfdb3efd7a9cad2",
+    "family-medication-support": "619123fa9dac8c1e4a862b9bc7655f54a60878b62748b6cc2f2966115efbb2dd",
+    "symptom-journal": "0dd5c82832760b20c44ffa0a8796525588d3870d965765f2c18095f1312601d2",
+    "appointment-questions": "7cee932da8812bd840d065916f6fe6e517f9dd0c07f40518d7afe068a64f9da8",
+    "medication-list": "e63c1c214c58d1812216c22c65e3eb6c8b4516f42970cbbc8d91e31e8938ccbe",
+    "older-parent-health-organizer": "fbadada895edd25217c6063d2b57ac907896e5ac86eb427b918825060c954775"
+  },
+  "guideData": {
+    "danger-signals": "f7bcc7620e54fa67d5040df0f30aff67f0aa33694b27c44cd9d2533463ad5a79",
+    "measuring-blood-pressure": "a30bf0a8dedc79cc439d478a80ed8be10142e3d2312d49de24549376d80f5b2a",
+    "understanding-hba1c": "bd347a7f96ded487aefdde17a647bac5d83bee46f64c363fd56b5ebd06d35aed",
+    "reading-health-results": "98a2f69820aad6188e0c371234574c8cb4820c5796eea1183ac0bc87e18aaa85",
+    "family-medication-support": "0ab5089b94e820ec8cbd0152938315832d58749c742d9270792bb3d412c83232",
+    "symptom-journal": "1c305deaac472e469eb038a89fb75d2943fd70ffd30006de4d6ef17ed12f7247",
+    "appointment-questions": "b121097758698ac7ad1d90c470626f296688a6e51e92ddfac088529a330d4596",
+    "medication-list": "aad29d4b470547678ef574d403a833a38a3c2278bca63fd895b42f43014c3a83",
+    "older-parent-health-organizer": "b09f08f79ed2e45838192fd53d43027cecb5657b20393b586828a3fe548d68d8"
+  },
+  "claimRegistrySha256": "42acada02a3a1feb60707cf19b0bd5fc175e48644147981c3dbb3fd4395e3d75",
+  "originalSources": [
+    {
+      "id": "SRC-CDC-SAFE-SINUS-RINSING",
+      "organization": "CDC",
+      "title": "How to Safely Rinse Sinuses",
+      "url": "https://www.cdc.gov/naegleria/prevention/sinus-rinsing.html",
+      "sourceDate": "2025-07-16",
+      "retrievedAt": "2026-10-01"
+    },
+    {
+      "id": "SRC-CDC-LOW-GLUCOSE-TREATMENT",
+      "organization": "CDC",
+      "title": "Treatment of Low Blood Sugar (Hypoglycemia)",
+      "url": "https://www.cdc.gov/diabetes/treatment/treatment-low-blood-sugar-hypoglycemia.html",
+      "sourceDate": "2024-05-15 (본문 표시; 하단2024-05-14)",
+      "retrievedAt": "2026-10-01"
+    },
+    {
+      "id": "SRC-KDCA-HTN",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "고혈압",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6765",
+      "sourceDate": "페이지 표시일 미확인",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "SRC-CDC-HTN",
+      "organization": "CDC",
+      "title": "About High Blood Pressure",
+      "url": "https://www.cdc.gov/high-blood-pressure/about/",
+      "sourceDate": "2026-01-28",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "SRC-AHA-HOME-BP",
+      "organization": "American Heart Association",
+      "title": "Home Blood Pressure Monitoring",
+      "url": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home",
+      "sourceDate": "2025",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "SRC-KDCA-STROKE",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "뇌졸중에 대해서",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/ccvdInfo/ccvcdInfo/cbvcacdInfoMain.do",
+      "sourceDate": "페이지 표시일 미확인",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "SRC-KDCA-MI",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "심근경색에 대해서",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/ccvdInfo/cvcdInfo/miInfoMain.do",
+      "sourceDate": "페이지 표시일 미확인",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "SRC-KDCA-DIA",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "당뇨병",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5305",
+      "sourceDate": "페이지 표시일 미확인",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "SRC-NIDDK-T2D",
+      "organization": "NIH/NIDDK",
+      "title": "Type 2 Diabetes",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/type-2-diabetes",
+      "sourceDate": "페이지 표시일 미확인",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "SRC-NIDDK-A1C",
+      "organization": "NIH/NIDDK",
+      "title": "The A1C Test & Diabetes",
+      "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/a1c-test",
+      "sourceDate": "페이지 표시일 미확인",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "SRC-NIDDK-TESTS",
+      "organization": "NIH/NIDDK",
+      "title": "Diabetes Tests & Diagnosis",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis",
+      "sourceDate": "페이지 표시일 미확인",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "SRC-NIDDK-LIVING",
+      "organization": "NIH/NIDDK",
+      "title": "Healthy Living with Diabetes",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/healthy-living-with-diabetes",
+      "sourceDate": "페이지 표시일 미확인",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "SRC-CDC-DKA",
+      "organization": "CDC",
+      "title": "Diabetic Ketoacidosis",
+      "url": "https://www.cdc.gov/diabetes/about/diabetic-ketoacidosis.html",
+      "sourceDate": "2024-05-15",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "SRC-NIDDK-MANAGING",
+      "organization": "NIH/NIDDK",
+      "title": "Managing Diabetes",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/managing-diabetes",
+      "sourceDate": "2023-10 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-CDC-DIABETES-FAMILY",
+      "organization": "CDC",
+      "title": "Helping Friends and Family With Diabetes",
+      "url": "https://www.cdc.gov/diabetes/caring/index.html",
+      "sourceDate": "2024-05-15",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-CPR",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "심폐소생술",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6226",
+      "sourceDate": "2023",
+      "retrievedAt": "2026-08-24"
+    },
+    {
+      "id": "SRC-CDC-LOW-GLUCOSE",
+      "organization": "CDC",
+      "title": "Low Blood Sugar (Hypoglycemia)",
+      "url": "https://www.cdc.gov/diabetes/about/low-blood-sugar-hypoglycemia.html",
+      "sourceDate": "2024-05-16",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-LOW-GLUCOSE",
+      "organization": "NHS",
+      "title": "Low blood sugar (hypoglycaemia)",
+      "url": "https://www.nhs.uk/conditions/low-blood-sugar-hypoglycaemia/",
+      "sourceDate": "2023-08-03 (검토 예정일과 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-GI-BLEEDING",
+      "organization": "NIH/NIDDK",
+      "title": "Symptoms & Causes of GI Bleeding",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/gastrointestinal-bleeding/symptoms-causes",
+      "sourceDate": "2024-07 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-AR-QUESTIONS",
+      "organization": "NIH/MedlinePlus",
+      "title": "Allergic rhinitis - what to ask your doctor - adult",
+      "url": "https://medlineplus.gov/ency/patientinstructions/000247.htm",
+      "sourceDate": "2025-01-01 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-ALLERGY-SKIN-TEST",
+      "organization": "NIH/MedlinePlus",
+      "title": "Allergy testing - skin",
+      "url": "https://medlineplus.gov/ency/article/003519.htm",
+      "sourceDate": "2026-01-20 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-AR",
+      "organization": "NIH/MedlinePlus",
+      "title": "Allergic rhinitis",
+      "url": "https://medlineplus.gov/ency/article/000813.htm",
+      "sourceDate": "2026-01-20 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-HAY",
+      "organization": "NIH/MedlinePlus",
+      "title": "Hay Fever",
+      "url": "https://medlineplus.gov/hayfever.html",
+      "sourceDate": "페이지 표시일 미확인",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-CDC-POLLEN",
+      "organization": "CDC",
+      "title": "Pollen and Your Health",
+      "url": "https://www.cdc.gov/climate-health/php/effects/pollen-health.html",
+      "sourceDate": "2026-08-11 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-SNUH-AR",
+      "organization": "서울대학교병원",
+      "title": "알레르기 비염",
+      "url": "https://www.snuh.org/health/nMedInfo/nView.do?category=DIS&medid=AA000395",
+      "sourceDate": "페이지 표시일 미확인",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-AR",
+      "organization": "NHS",
+      "title": "Allergic rhinitis",
+      "url": "https://www.nhs.uk/conditions/allergic-rhinitis/",
+      "sourceDate": "2026-01-08 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-GERD-DEFINITION",
+      "organization": "NIH/NIDDK",
+      "title": "Definition & Facts for GER & GERD",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/definition-facts",
+      "sourceDate": "2020-07 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-GERD-SYMPTOMS",
+      "organization": "NIH/NIDDK",
+      "title": "Symptoms & Causes of GER & GERD",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/symptoms-causes",
+      "sourceDate": "2020-07 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-GERD-DIAGNOSIS",
+      "organization": "NIH/NIDDK",
+      "title": "Diagnosis of GER & GERD",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/diagnosis",
+      "sourceDate": "2020-07 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-GERD-DIET",
+      "organization": "NIH/NIDDK",
+      "title": "Eating, Diet, & Nutrition for GER & GERD",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/eating-diet-nutrition",
+      "sourceDate": "2020-07 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-GERD",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "위식도역류질환",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=2057",
+      "sourceDate": "2026-06-02 업데이트",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-GERD",
+      "organization": "NHS",
+      "title": "Heartburn and acid reflux",
+      "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/",
+      "sourceDate": "2023-11-20 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIAMS-OA",
+      "organization": "NIH/NIAMS",
+      "title": "Osteoarthritis",
+      "url": "https://www.niams.nih.gov/health-topics/osteoarthritis",
+      "sourceDate": "2023-09 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIAMS-OA-TREATMENT",
+      "organization": "NIH/NIAMS",
+      "title": "Osteoarthritis: Diagnosis, Treatment, and Steps to Take",
+      "url": "https://www.niams.nih.gov/health-topics/osteoarthritis/diagnosis-treatment-and-steps-to-take",
+      "sourceDate": "2023-09 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-CDC-OA",
+      "organization": "CDC",
+      "title": "Osteoarthritis",
+      "url": "https://www.cdc.gov/arthritis/osteoarthritis/index.html",
+      "sourceDate": "2024-01-26",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-CDC-ARTHRITIS-ACTIVITY",
+      "organization": "CDC",
+      "title": "About Physical Activity and Arthritis",
+      "url": "https://www.cdc.gov/arthritis/prevention/index.html",
+      "sourceDate": "2024-02-14",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-OA",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "골관절염",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=1988",
+      "sourceDate": "2026-06-08 업데이트",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-SEPTIC-ARTHRITIS",
+      "organization": "NHS",
+      "title": "Septic arthritis",
+      "url": "https://www.nhs.uk/conditions/septic-arthritis/",
+      "sourceDate": "2023-03-23 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIAMS-OP",
+      "organization": "NIH/NIAMS",
+      "title": "Osteoporosis",
+      "url": "https://www.niams.nih.gov/health-topics/osteoporosis",
+      "sourceDate": "2022-12 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIAMS-OP-TREATMENT",
+      "organization": "NIH/NIAMS",
+      "title": "Osteoporosis: Diagnosis, Treatment, and Steps to Take",
+      "url": "https://www.niams.nih.gov/health-topics/osteoporosis/diagnosis-treatment-and-steps-to-take",
+      "sourceDate": "2022-12 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIAMS-BMD",
+      "organization": "NIH/NIAMS",
+      "title": "Bone Mineral Density Tests: What the Numbers Mean",
+      "url": "https://www.niams.nih.gov/health-topics/bone-mineral-density-tests-what-numbers-mean",
+      "sourceDate": "2025-02 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIAMS-BONE-HEALTH",
+      "organization": "NIH/NIAMS",
+      "title": "Bone Health and Osteoporosis",
+      "url": "https://www.niams.nih.gov/health-topics/bone-health-and-osteoporosis",
+      "sourceDate": "2025-03 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-OP",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "골다공증",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5833",
+      "sourceDate": "2026-05-19 업데이트",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-HIP-FRACTURE",
+      "organization": "NHS",
+      "title": "Broken hip",
+      "url": "https://www.nhs.uk/conditions/broken-hip/",
+      "sourceDate": "2026-07-29 검토",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-BLOOD-CALCIUM",
+      "organization": "NIH/MedlinePlus",
+      "title": "Calcium Blood Test",
+      "url": "https://medlineplus.gov/lab-tests/calcium-blood-test/",
+      "sourceDate": "2024-12-02 업데이트",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-ISCD-ADULT-POSITIONS",
+      "organization": "International Society for Clinical Densitometry",
+      "title": "Official Adult Positions",
+      "url": "https://iscd.org/official-positions-2023/",
+      "sourceDate": "2023-08-24 승인",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-CHOLESTEROL",
+      "organization": "NIH/MedlinePlus",
+      "title": "Cholesterol",
+      "url": "https://medlineplus.gov/cholesterol.html",
+      "sourceDate": "2025-03-18",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-CDC-CHOLESTEROL",
+      "organization": "CDC",
+      "title": "About Cholesterol",
+      "url": "https://www.cdc.gov/cholesterol/about/",
+      "sourceDate": "2024-05-15",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-BLOOD-CHOLESTEROL",
+      "organization": "NIH/NHLBI",
+      "title": "What Is Blood Cholesterol?",
+      "url": "https://www.nhlbi.nih.gov/health/blood-cholesterol",
+      "sourceDate": "2024-04-17",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-OBESITY-DEFINITION",
+      "organization": "NIH/NIDDK",
+      "title": "Definition & Facts for Adult Overweight & Obesity",
+      "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/definition-facts",
+      "sourceDate": "2023-05 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-OBESITY-FACTORS",
+      "organization": "NIH/NIDDK",
+      "title": "Factors Affecting Weight & Health",
+      "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/factors-affecting-weight-health",
+      "sourceDate": "2023-05 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-OBESITY-RISKS",
+      "organization": "NIH/NIDDK",
+      "title": "Health Risks of Overweight & Obesity",
+      "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/health-risks",
+      "sourceDate": "2023-05 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-MASLD-DEFINITION",
+      "organization": "NIH/NIDDK",
+      "title": "Definition & Facts of NAFLD & NASH",
+      "url": "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/definition-facts",
+      "sourceDate": "2021-04 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-MASLD-SYMPTOMS",
+      "organization": "NIH/NIDDK",
+      "title": "Symptoms & Causes of NAFLD & NASH",
+      "url": "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/symptoms-causes",
+      "sourceDate": "2021-04 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-MASLD-DIAGNOSIS",
+      "organization": "NIH/NIDDK",
+      "title": "Diagnosis of NAFLD & NASH",
+      "url": "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/diagnosis",
+      "sourceDate": "2021-04 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-IBS-DEFINITION",
+      "organization": "NIH/NIDDK",
+      "title": "Definition & Facts for Irritable Bowel Syndrome",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/definition-facts",
+      "sourceDate": "2017-11 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-IBS-SYMPTOMS",
+      "organization": "NIH/NIDDK",
+      "title": "Symptoms & Causes of Irritable Bowel Syndrome",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/symptoms-causes",
+      "sourceDate": "2017-11 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-IBS-DIAGNOSIS",
+      "organization": "NIH/NIDDK",
+      "title": "Diagnosis of Irritable Bowel Syndrome",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/diagnosis",
+      "sourceDate": "2017-11 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-ASTHMA-SYMPTOMS",
+      "organization": "NIH/NHLBI",
+      "title": "Asthma Symptoms",
+      "url": "https://www.nhlbi.nih.gov/health/asthma/symptoms",
+      "sourceDate": "2024-04-17",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-ASTHMA-DIAGNOSIS",
+      "organization": "NIH/NHLBI",
+      "title": "Asthma Diagnosis",
+      "url": "https://www.nhlbi.nih.gov/health/asthma/diagnosis",
+      "sourceDate": "2024-04-17",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-ASTHMA-ATTACK",
+      "organization": "NIH/NHLBI",
+      "title": "Asthma Attack",
+      "url": "https://www.nhlbi.nih.gov/health/asthma/attacks",
+      "sourceDate": "2024-04-17",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-APNEA-OVERVIEW",
+      "organization": "NIH/NHLBI",
+      "title": "What Is Sleep Apnea?",
+      "url": "https://www.nhlbi.nih.gov/health/sleep-apnea",
+      "sourceDate": "2025-01-09",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-APNEA-SYMPTOMS",
+      "organization": "NIH/NHLBI",
+      "title": "Sleep Apnea Symptoms",
+      "url": "https://www.nhlbi.nih.gov/health/sleep-apnea/symptoms",
+      "sourceDate": "2025-01-09",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-APNEA-DIAGNOSIS",
+      "organization": "NIH/NHLBI",
+      "title": "Sleep Apnea Diagnosis",
+      "url": "https://www.nhlbi.nih.gov/health/sleep-apnea/diagnosis",
+      "sourceDate": "2025-01-09",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIAMS-GOUT",
+      "organization": "NIH/NIAMS",
+      "title": "Gout",
+      "url": "https://www.niams.nih.gov/health-topics/gout",
+      "sourceDate": "2023-12 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIAMS-GOUT-DIAGNOSIS",
+      "organization": "NIH/NIAMS",
+      "title": "Gout: Diagnosis, Treatment, and Steps to Take",
+      "url": "https://www.niams.nih.gov/health-topics/gout/diagnosis-treatment-and-steps-to-take",
+      "sourceDate": "2023-12 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-GOUT",
+      "organization": "NIH/MedlinePlus",
+      "title": "Gout",
+      "url": "https://medlineplus.gov/gout.html",
+      "sourceDate": "2024-02-26 (Last updated)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NINDS-MIGRAINE",
+      "organization": "NIH/NINDS",
+      "title": "Migraine",
+      "url": "https://www.ninds.nih.gov/health-information/disorders/migraine",
+      "sourceDate": "2025",
+      "retrievedAt": "2026-08-26"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-MIGRAINE",
+      "organization": "NIH/MedlinePlus",
+      "title": "Migraine",
+      "url": "https://medlineplus.gov/migraine.html",
+      "sourceDate": "2025-11-20 (Last updated)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-HEADACHE",
+      "organization": "NIH/MedlinePlus",
+      "title": "Headache",
+      "url": "https://medlineplus.gov/headache.html",
+      "sourceDate": "2025-11-19 (Last updated)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-STONE-SYMPTOMS",
+      "organization": "NIH/NIDDK",
+      "title": "Symptoms & Causes of Kidney Stones",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/symptoms-causes",
+      "sourceDate": "2017-05 (Last Reviewed)",
+      "retrievedAt": "2026-10-01"
+    },
+    {
+      "id": "SRC-NIDDK-STONE-DIAGNOSIS",
+      "organization": "NIH/NIDDK",
+      "title": "Diagnosis of Kidney Stones",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/diagnosis",
+      "sourceDate": "2017-05 (Last Reviewed)",
+      "retrievedAt": "2026-10-01"
+    },
+    {
+      "id": "SRC-NIDDK-STONE-TREATMENT",
+      "organization": "NIH/NIDDK",
+      "title": "Treatment for Kidney Stones",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/treatment",
+      "sourceDate": "2017-05 (Last Reviewed)",
+      "retrievedAt": "2026-10-01"
+    },
+    {
+      "id": "SRC-NIDDK-UTI-DEFINITION",
+      "organization": "NIH/NIDDK",
+      "title": "Definition & Facts of Bladder Infection in Adults",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/definition-facts",
+      "sourceDate": "2024-04 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-UTI-SYMPTOMS",
+      "organization": "NIH/NIDDK",
+      "title": "Symptoms & Causes of Bladder Infection in Adults",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/symptoms-causes",
+      "sourceDate": "2024-04 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-UTI-DIAGNOSIS",
+      "organization": "NIH/NIDDK",
+      "title": "Diagnosis of Bladder Infection in Adults",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/diagnosis",
+      "sourceDate": "2024-04 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIMH-DEPRESSION",
+      "organization": "NIH/NIMH",
+      "title": "Depression",
+      "url": "https://www.nimh.nih.gov/health/publications/depression",
+      "sourceDate": "2024 (Revised)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-WHO-DEPRESSION",
+      "organization": "WHO",
+      "title": "Depressive disorder (depression)",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/depression",
+      "sourceDate": "2025-08-29 (페이지 표시일)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MOHW-109",
+      "organization": "보건복지부",
+      "title": "자살예방 정책 추진",
+      "url": "https://www.mohw.go.kr/menu.es?mid=a10716040000",
+      "sourceDate": "페이지 작성·수정일 미표시 (본문 정책 시행일과 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIMH-ANXIETY",
+      "organization": "NIH/NIMH",
+      "title": "Anxiety Disorders",
+      "url": "https://www.nimh.nih.gov/health/topics/anxiety-disorders",
+      "sourceDate": "2024-12 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIMH-GAD",
+      "organization": "NIH/NIMH",
+      "title": "Generalized Anxiety Disorder: What You Need to Know",
+      "url": "https://www.nimh.nih.gov/health/publications/generalized-anxiety-disorder-gad",
+      "sourceDate": "2025 (Revised)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MOHW-109-ANX",
+      "organization": "보건복지부",
+      "title": "자살예방 정책 추진",
+      "url": "https://www.mohw.go.kr/menu.es?mid=a10716040000",
+      "sourceDate": "페이지 작성·수정일 미표시 (정책 시행일과 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-STROKE-PUBLIC",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "뇌졸중",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5495",
+      "sourceDate": "2026-04-29 (업데이트)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-STROKE-119",
+      "organization": "질병관리청",
+      "title": "뇌졸중 조기증상 의심되면 즉시 119",
+      "url": "https://www.kdca.go.kr/kdca/2855/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa2RjYSUyRjQ3JTJGMjE4NzQ4JTJGYXJ0Y2xWaWV3LmRvJTNG",
+      "sourceDate": "2025-12-16 (작성·최종수정)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-CDC-STROKE-SIGNS",
+      "organization": "CDC",
+      "title": "Signs and Symptoms of Stroke",
+      "url": "https://www.cdc.gov/stroke/signs-symptoms/index.html",
+      "sourceDate": "2026-05-19 (페이지 표시일)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-CARDIO-2026",
+      "organization": "질병관리청",
+      "title": "갑작스러운 마비·언어장애·가슴통증… 뇌졸중·심근경색 조기 대응 중요",
+      "url": "https://www.kdca.go.kr/kdca/2847/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa2RjYSUyRjQxJTJGMzEwMDYxJTJGYXJ0Y2xWaWV3LmRvJTNGcGFzc3dvcmQlM0QlMjZyZ3NCZ25kZVN0ciUzRCUyNmZpbmRPcG53cmQlM0QlMjZmaW5kV29yZCUzRCUyNnJnc0VuZGRlU3RyJTNEJTI2ZmluZFR5cGUlM0QlMjZmaW5kQ2xTZXElM0QlMjZwYWdlJTNEMSUyNg%3D%3D",
+      "sourceDate": "2026-02-11 (최종수정; 작성2026-02-10)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-HEART-ATTACK",
+      "organization": "NIH/NHLBI",
+      "title": "Heart Attack — What Is a Heart Attack?",
+      "url": "https://www.nhlbi.nih.gov/health/heart-attack",
+      "sourceDate": "2022-03-24 (Last updated)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-HEART-ATTACK-SYMPTOMS",
+      "organization": "NIH/NHLBI",
+      "title": "Heart Attack Symptoms",
+      "url": "https://www.nhlbi.nih.gov/health/heart-attack/symptoms",
+      "sourceDate": "2022-03-24 (Last updated)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-DLP",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "이상지질혈증",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6715",
+      "sourceDate": "2026-08-19 (업데이트)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-LIPID-TEST",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "지질 검사",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6709",
+      "sourceDate": "2026-05-06 (업데이트)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-CHOLESTEROL-DIAGNOSIS",
+      "organization": "NIH/NHLBI",
+      "title": "Blood Cholesterol — Diagnosis",
+      "url": "https://www.nhlbi.nih.gov/health/blood-cholesterol/diagnosis",
+      "sourceDate": "2024-04-18",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-CHOLESTEROL-CAUSES",
+      "organization": "NIH/NHLBI",
+      "title": "Blood Cholesterol — Causes and Risk Factors",
+      "url": "https://www.nhlbi.nih.gov/health/blood-cholesterol/causes",
+      "sourceDate": "2024-04-19",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-CHOLESTEROL-TREATMENT",
+      "organization": "NIH/NHLBI",
+      "title": "Blood Cholesterol — Treatment",
+      "url": "https://www.nhlbi.nih.gov/health/blood-cholesterol/treatment",
+      "sourceDate": "2024-04-19",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-HEALTHY-WEIGHT",
+      "organization": "NIH/NIDDK",
+      "title": "Am I at a Healthy Weight?",
+      "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/am-i-healthy-weight",
+      "sourceDate": "2023-05 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-OBESITY-TREATMENT",
+      "organization": "NIH/NIDDK",
+      "title": "Treatment for Overweight & Obesity",
+      "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/treatment",
+      "sourceDate": "2023-05 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-WEIGHT-CONVERSATION",
+      "organization": "NIH/NIDDK",
+      "title": "Talking with Your Patients about Weight",
+      "url": "https://www.niddk.nih.gov/health-information/professionals/clinical-tools-patient-management/weight-management/talking-with-your-patients-about-weight",
+      "sourceDate": "2023-08 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-AMC-OBESITY",
+      "organization": "서울아산병원",
+      "title": "비만(Obesity)",
+      "url": "https://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31809",
+      "sourceDate": "페이지 표시일 미확인",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-WEIGHT-GAIN",
+      "organization": "MedlinePlus / A.D.A.M.",
+      "title": "Weight gain - unintentional",
+      "url": "https://medlineplus.gov/ency/article/003084.htm",
+      "sourceDate": "2025-07-03 (Review Date)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-LEG-SWELLING",
+      "organization": "MedlinePlus / A.D.A.M.",
+      "title": "Foot, leg, and ankle swelling",
+      "url": "https://medlineplus.gov/ency/article/003104.htm",
+      "sourceDate": "2025-05-19 (Review Date)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-MASLD-TREATMENT",
+      "organization": "NIH/NIDDK",
+      "title": "Treatment for NAFLD & NASH",
+      "url": "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/treatment",
+      "sourceDate": "2021-04 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-AMC-FATTY-LIVER",
+      "organization": "서울아산병원",
+      "title": "지방간(Fatty liver)",
+      "url": "https://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31685",
+      "sourceDate": "페이지 표시일 미확인",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-LIVER-TESTS",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "간기능검사",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5444",
+      "sourceDate": "2026-05-06 (업데이트)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-AASLD-MASLD-NAME",
+      "organization": "미국간학회(AASLD)",
+      "title": "New MASLD Nomenclature",
+      "url": "https://www.aasld.org/new-masld-nomenclature",
+      "sourceDate": "페이지 표시일 미확인 (명칭 발표 2023-06과 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-EASL-MASLD-2024",
+      "organization": "EASL·EASD·EASO",
+      "title": "Clinical Practice Guidelines on the management of MASLD (496·513쪽 등)",
+      "url": "https://easlcampus.eu/sites/default/files/2024-08/EASL_CPGs_management_of_MASLD.pdf",
+      "sourceDate": "2024-06-07 (온라인 공개; 학술지 2024-09)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-JAUNDICE",
+      "organization": "NHS",
+      "title": "Jaundice",
+      "url": "https://www.nhs.uk/conditions/jaundice/",
+      "sourceDate": "2024-01-22",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-VOMITING-BLOOD",
+      "organization": "NHS",
+      "title": "Vomiting blood",
+      "url": "https://www.nhs.uk/symptoms/vomiting-blood/",
+      "sourceDate": "2025-08-18",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-SUDDEN-CONFUSION",
+      "organization": "NHS",
+      "title": "Sudden confusion (delirium)",
+      "url": "https://www.nhs.uk/symptoms/confusion/",
+      "sourceDate": "2024-05-28",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-ALCOHOL-USE-DISORDER",
+      "organization": "NHS",
+      "title": "Alcohol-use disorder",
+      "url": "https://www.nhs.uk/conditions/alcohol-use-disorder/",
+      "sourceDate": "2026-04-24",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-IBS-TREATMENT",
+      "organization": "NIH/NIDDK",
+      "title": "Treatment for Irritable Bowel Syndrome",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/treatment",
+      "sourceDate": "2017-11 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-IBS-DIET",
+      "organization": "NIH/NIDDK",
+      "title": "Eating, Diet, & Nutrition for Irritable Bowel Syndrome",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/eating-diet-nutrition",
+      "sourceDate": "2017-11 (Last Reviewed; 참고문헌 날짜와 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-IBS",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "과민성장증후군",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5250",
+      "sourceDate": "2026-05-15 (업데이트)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-IBS-SYMPTOMS",
+      "organization": "NHS",
+      "title": "Symptoms of IBS",
+      "url": "https://www.nhs.uk/conditions/irritable-bowel-syndrome-ibs/symptoms/",
+      "sourceDate": "2025-03-17",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-IBS-DIAGNOSIS",
+      "organization": "NHS",
+      "title": "Getting diagnosed with IBS",
+      "url": "https://www.nhs.uk/conditions/irritable-bowel-syndrome-ibs/getting-diagnosed/",
+      "sourceDate": "2025-03-17",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-IBS-LIFESTYLE",
+      "organization": "NHS",
+      "title": "Diet, lifestyle and medicines for IBS",
+      "url": "https://www.nhs.uk/conditions/irritable-bowel-syndrome-ibs/diet-lifestyle-and-medicines/",
+      "sourceDate": "2025-03-17 (페이지 검토; 동영상 날짜와 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-STOMACH-ACHE",
+      "organization": "NHS",
+      "title": "Stomach ache",
+      "url": "https://www.nhs.uk/symptoms/stomach-ache/",
+      "sourceDate": "2023-05-26 (표시된 차기 검토일 2026-05-26 경과)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-IBD",
+      "organization": "NHS",
+      "title": "Inflammatory bowel disease",
+      "url": "https://www.nhs.uk/conditions/inflammatory-bowel-disease/",
+      "sourceDate": "2023-05-05 (표시된 차기 검토일 2026-05-05 경과)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-ASTHMA-PLAN",
+      "organization": "NIH/NHLBI",
+      "title": "Asthma Treatment and Action Plan",
+      "url": "https://www.nhlbi.nih.gov/health/asthma/treatment-action-plan",
+      "sourceDate": "2024-04-17",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-ASTHMA-MANAGING",
+      "organization": "NIH/NHLBI",
+      "title": "Managing Asthma",
+      "url": "https://www.nhlbi.nih.gov/health/asthma/living-with",
+      "sourceDate": "2024-04-17",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-ASTHMA",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "천식",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6784",
+      "sourceDate": "2026-05-06 (업데이트)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-ASTHMA",
+      "organization": "NHS",
+      "title": "Asthma",
+      "url": "https://www.nhs.uk/conditions/asthma/",
+      "sourceDate": "2025-04-07 (페이지 검토; 동영상 날짜와 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-BREATHLESSNESS",
+      "organization": "NHS",
+      "title": "Shortness of breath",
+      "url": "https://www.nhs.uk/symptoms/shortness-of-breath/",
+      "sourceDate": "2024-01-30",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-APNEA-TREATMENT",
+      "organization": "NIH/NHLBI",
+      "title": "Sleep Apnea Treatment",
+      "url": "https://www.nhlbi.nih.gov/health/sleep-apnea/treatment",
+      "sourceDate": "2025-01-09",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-APNEA-LIVING",
+      "organization": "NIH/NHLBI",
+      "title": "Sleep Apnea Living With",
+      "url": "https://www.nhlbi.nih.gov/health/sleep-apnea/living-with",
+      "sourceDate": "2025-01-09",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-APNEA",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "수면무호흡증",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6308",
+      "sourceDate": "2026-07-30 (업데이트)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-APNEA-MONTHLY",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "자도 자도 피곤하다면? 수면무호흡증 진단·관리법",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/ntcnInfo/healthSourc/thtimtCntnts/thtimtCntntsView.do?thtimt_cntnts_sn=171",
+      "sourceDate": "2026-05 (페이지 표시 월; 등록·수정 구분 없음)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-AASM-OSA-DIAGNOSIS",
+      "organization": "American Academy of Sleep Medicine",
+      "title": "Clinical Practice Guideline for Diagnostic Testing for Adult Obstructive Sleep Apnea",
+      "url": "https://www.aasm.org/resources/clinicalguidelines/diagnostic-testing-osa.pdf",
+      "sourceDate": "2017-03-15 (원 논문 발행; JCSM 13(3):479–504)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-FDA-OXIMETERS",
+      "organization": "U.S. FDA",
+      "title": "Pulse Oximeters",
+      "url": "https://www.fda.gov/medical-devices/products-and-medical-procedures/pulse-oximeters",
+      "sourceDate": "페이지 날짜 미표시 (본문의 2025-01-07은 초안 발표일)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-SJA-CPR",
+      "organization": "St John Ambulance",
+      "title": "How to do CPR",
+      "url": "https://www.sja.org.uk/first-aid-advice/cpr/",
+      "sourceDate": "2025-04-28 (원출처 임상 검토일; 오누림 검수 아님)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-SJA-RECOVERY",
+      "organization": "St John Ambulance",
+      "title": "How to put someone in the recovery position",
+      "url": "https://www.sja.org.uk/first-aid-advice/recovery-position/",
+      "sourceDate": "2025-04-28 (원출처 임상 검토일; 오누림 검수 아님)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-URIC-ACID",
+      "organization": "NIH/MedlinePlus",
+      "title": "Uric Acid Test",
+      "url": "https://medlineplus.gov/lab-tests/uric-acid-test/",
+      "sourceDate": "2026-07-15 (Last updated)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-GOUT",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "통풍",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6732",
+      "sourceDate": "2026-05-18 (업데이트)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-GOUT",
+      "organization": "NHS",
+      "title": "Gout",
+      "url": "https://www.nhs.uk/conditions/gout/",
+      "sourceDate": "2023-08-24 (페이지 검토일; 다음 검토 예정일과 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-ACR-GOUT",
+      "organization": "American College of Rheumatology",
+      "title": "Gout",
+      "url": "https://rheumatology.org/patients/gout",
+      "sourceDate": "2025-02 (Updated)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-MIGRAINE",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "편두통",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6557",
+      "sourceDate": "2026-06-05 (업데이트)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-AMC-MIGRAINE",
+      "organization": "서울아산병원",
+      "title": "편두통(Migraine)",
+      "url": "https://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31876",
+      "sourceDate": "페이지 등록·수정일 미표시",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-MIGRAINE",
+      "organization": "NHS",
+      "title": "Migraine",
+      "url": "https://www.nhs.uk/conditions/migraine/",
+      "sourceDate": "2026-03-10 (페이지 검토일; 영상 검토일과 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-HEADACHE-DANGER",
+      "organization": "MedlinePlus Medical Encyclopedia / A.D.A.M.",
+      "title": "Headaches - danger signs",
+      "url": "https://medlineplus.gov/ency/patientinstructions/000424.htm",
+      "sourceDate": "2025-10-27 (Review Date; 오누림 검수 아님)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-MIGRAINE-HOME",
+      "organization": "MedlinePlus Medical Encyclopedia / A.D.A.M.",
+      "title": "Managing migraines at home",
+      "url": "https://medlineplus.gov/ency/patientinstructions/000420.htm",
+      "sourceDate": "2023-12-31 (Review Date; 참고문헌 날짜와 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-STONE-DEFINITION",
+      "organization": "NIH/NIDDK",
+      "title": "Definition & Facts for Kidney Stones",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/definition-facts",
+      "sourceDate": "2017-05 (Last Reviewed)",
+      "retrievedAt": "2026-10-01"
+    },
+    {
+      "id": "SRC-NIDDK-URINARY-TRACT",
+      "organization": "NIH/NIDDK",
+      "title": "The Urinary Tract & How It Works",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-tract-how-it-works",
+      "sourceDate": "2020-06 (Last Reviewed)",
+      "retrievedAt": "2026-10-01"
+    },
+    {
+      "id": "SRC-NIDDK-STONE-DIET",
+      "organization": "NIH/NIDDK",
+      "title": "Eating, Diet, & Nutrition for Kidney Stones",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/eating-diet-nutrition",
+      "sourceDate": "2017-05 (Last Reviewed; 참고문헌 날짜와 구분)",
+      "retrievedAt": "2026-10-01"
+    },
+    {
+      "id": "SRC-KDCA-KIDNEY-STONES",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "신장결석",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5433",
+      "sourceDate": "2026-05-11 (업데이트)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-EAU-UROLITHIASIS",
+      "organization": "European Association of Urology",
+      "title": "EAU Guidelines on Urolithiasis — Guidelines",
+      "url": "https://uroweb.org/guidelines/urolithiasis/chapter/guidelines",
+      "sourceDate": "페이지 자체 작성·수정일 미표시 (전문가 지침; 확인일과 구분)",
+      "retrievedAt": "2026-10-01"
+    },
+    {
+      "id": "SRC-NHS-KIDNEY-STONES",
+      "organization": "NHS",
+      "title": "Kidney stones — Overview",
+      "url": "https://www.nhs.uk/conditions/kidney-stones/",
+      "sourceDate": "2026-09-17 (페이지 검토일; 영상 날짜와 구분)",
+      "retrievedAt": "2026-10-01"
+    },
+    {
+      "id": "SRC-NHS-SEPSIS",
+      "organization": "NHS",
+      "title": "Sepsis",
+      "url": "https://www.nhs.uk/conditions/sepsis/",
+      "sourceDate": "2026-05-14 (페이지 검토일)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-UTI-TREATMENT",
+      "organization": "NIH/NIDDK",
+      "title": "Treatment for Bladder Infection in Adults",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/treatment",
+      "sourceDate": "2024-04 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIDDK-PYELONEPHRITIS-SYMPTOMS",
+      "organization": "NIH/NIDDK",
+      "title": "Symptoms & Causes of Kidney Infection (Pyelonephritis)",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-infection-pyelonephritis/symptoms-causes",
+      "sourceDate": "2024-10 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-UTI",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "요로감염",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6674",
+      "sourceDate": "2026-05-08 (업데이트; 치료 항목은 2018 지침 인용)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-UTI",
+      "organization": "NHS",
+      "title": "Urinary tract infections (UTIs)",
+      "url": "https://www.nhs.uk/conditions/urinary-tract-infections-utis/",
+      "sourceDate": "2025-07-11 (페이지 검토일)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-CDC-ANTIBIOTIC-USE",
+      "organization": "CDC",
+      "title": "Healthy Habits: Antibiotic Do’s and Don’ts",
+      "url": "https://www.cdc.gov/antibiotic-use/about/",
+      "sourceDate": "2025-09-23 (페이지 표시일)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-URINE-CULTURE",
+      "organization": "MedlinePlus / A.D.A.M.",
+      "title": "Urine culture",
+      "url": "https://medlineplus.gov/ency/article/003751.htm",
+      "sourceDate": "2024-10-09 (Review Date; 제공자 인증일과 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-DEPRESSIVE-MOOD",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "우울감",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6788",
+      "sourceDate": "2026-05-20 (업데이트)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MOHW-109-SERVICE",
+      "organization": "보건복지부 보건복지상담센터",
+      "title": "자살예방상담전화 — 109 안내와 자주하는 질문",
+      "url": "https://www.129.go.kr/109",
+      "sourceDate": "안내 본문 작성·수정일 미표시 (채용공고 날짜와 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIMH-SUICIDE-HELP-STEPS",
+      "organization": "NIH/NIMH",
+      "title": "5 Action Steps to Help Someone Having Thoughts of Suicide",
+      "url": "https://www.nimh.nih.gov/health/publications/5-action-steps-to-help-someone-having-thoughts-of-suicide",
+      "sourceDate": "2024 (Revised)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIMH-SUICIDE-FAQ",
+      "organization": "NIH/NIMH",
+      "title": "Frequently Asked Questions About Suicide",
+      "url": "https://www.nimh.nih.gov/health/publications/suicide-faq",
+      "sourceDate": "2023 (Revised)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-EASYLAW-EMERGENCY-NUMBERS",
+      "organization": "찾기쉬운 생활법령정보",
+      "title": "긴급구조활동 — 긴급구조 관련 특수번호 전화서비스",
+      "url": "https://www.easylaw.go.kr/CSP/CnpClsMain.laf?ccfNo=3&cciNo=3&cnpClsNo=1&csmSeq=1465&popMenu=ov",
+      "sourceDate": "2026-08-15 (본문 정보 작성 기준일)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-SNUH-ANXIETY",
+      "organization": "서울대학교병원",
+      "title": "불안장애 [anxiety disorder]",
+      "url": "https://www.snuh.org/health/nMedInfo/nView.do?medid=AA000615",
+      "sourceDate": "페이지 작성·수정일 미표시",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIMH-PANIC",
+      "organization": "NIH/NIMH",
+      "title": "Panic Disorder: What You Need to Know",
+      "url": "https://www.nimh.nih.gov/health/publications/panic-disorder-when-fear-overwhelms",
+      "sourceDate": "2025 (Revised)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NIMH-MENTAL-MEDICATIONS",
+      "organization": "NIH/NIMH",
+      "title": "Mental Health Medications",
+      "url": "https://www.nimh.nih.gov/health/topics/mental-health-medications",
+      "sourceDate": "2023-12 (Last Reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-CHEST-PAIN",
+      "organization": "NHS",
+      "title": "Chest pain",
+      "url": "https://www.nhs.uk/symptoms/chest-pain/",
+      "sourceDate": "2023-08-08 (Page last reviewed; 다음 검토 예정일과 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-TIA",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "일과성 허혈 발작",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=2607",
+      "sourceDate": "2026-07-30 (업데이트)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-STROKE-DIAGNOSIS",
+      "organization": "NIH/NHLBI",
+      "title": "Stroke Diagnosis",
+      "url": "https://www.nhlbi.nih.gov/health/stroke/diagnosis",
+      "sourceDate": "2023-05-26 (Last updated)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-STROKE-TREATMENT",
+      "organization": "NIH/NHLBI",
+      "title": "Stroke Treatment",
+      "url": "https://www.nhlbi.nih.gov/health/stroke/treatment",
+      "sourceDate": "2023-05-26 (Last updated; 개인별 치료시간 기준으로 사용하지 않음)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-STROKE-FOUNDATION-WAITING",
+      "organization": "Stroke Foundation Australia",
+      "title": "What to do while you wait for an ambulance",
+      "url": "https://strokefoundation.org.au/About-Stroke/Learn/signs-of-stroke/What-to-do-while-you-wait-for-an-ambulance",
+      "sourceDate": "페이지 작성·수정일 미표시 (copyright와 구분)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-WISCONSIN-STROKE-TIMES",
+      "organization": "Wisconsin Department of Health Services",
+      "title": "The Importance of an Accurate Last Known Well and Symptom Onset Time",
+      "url": "https://www.dhs.wisconsin.gov/publications/p02469.pdf",
+      "sourceDate": "2023-12 (문서 P-02469 판본; 두 시각 정의만 사용)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-KDCA-MYOCARDIAL-INFARCTION",
+      "organization": "질병관리청 국가건강정보포털",
+      "title": "급성 심근경색증",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=6770",
+      "sourceDate": "2026-04-23 (업데이트)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHLBI-HEART-ATTACK-DIAGNOSIS",
+      "organization": "NIH/NHLBI",
+      "title": "Heart Attack Diagnosis",
+      "url": "https://www.nhlbi.nih.gov/health/heart-attack/diagnosis",
+      "sourceDate": "2022-03-24 (Last updated)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-NHS-HEART-ATTACK",
+      "organization": "NHS",
+      "title": "Heart attack",
+      "url": "https://www.nhs.uk/conditions/heart-attack/",
+      "sourceDate": "2026-03-31 (Page last reviewed)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-CDC-HEART-ATTACK",
+      "organization": "CDC",
+      "title": "About Heart Attack Symptoms, Risk, and Recovery",
+      "url": "https://www.cdc.gov/heart-disease/about/heart-attack.html",
+      "sourceDate": "2024-10-24 (페이지 표시일)",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "SRC-MEDLINEPLUS-TROPONIN",
+      "organization": "NIH/NLM MedlinePlus",
+      "title": "Troponin Test",
+      "url": "https://medlineplus.gov/lab-tests/troponin-test/",
+      "sourceDate": "2023-10-30 (Last updated; 고정 재검시간 지시로 사용하지 않음)",
+      "retrievedAt": "2026-09-06"
+    }
+  ],
+  "toolsSha256": "c1369530bb6b8f9773bb3bf7e6c694caa08fb41f493b07d2a23219fa484d906c",
+  "originalTools": [
+    {
+      "slug": "blood-pressure-log",
+      "articleSlug": "hypertension",
+      "title": "가정 혈압 기록표",
+      "description": "결론을 계산하지 않고 측정 환경과 원래 값을 함께 남기는 개인 기록지입니다.",
+      "claimIds": [
+        "HTN-B1-006",
+        "HTN-B1-007",
+        "HTN-B1-008",
+        "HTN-B1-010"
+      ],
+      "kind": "log",
+      "columns": [
+        "날짜·시간",
+        "회차",
+        "수축기(mmHg)",
+        "이완기(mmHg)",
+        "맥박(회/분)",
+        "측정 조건·증상",
+        "안내받은 약·기타 메모"
+      ],
+      "rows": 14
+    },
+    {
+      "slug": "blood-pressure-questions",
+      "articleSlug": "hypertension",
+      "title": "고혈압 진료 질문 카드",
+      "description": "기록을 진료 대화로 연결하는 질문을 골라 적습니다.",
+      "claimIds": [
+        "HTN-B1-004",
+        "HTN-B1-008",
+        "HTN-B1-010"
+      ],
+      "kind": "questions",
+      "fields": [
+        "가져갈 혈압 기록·기기·약 정보",
+        "오늘 먼저 확인할 질문",
+        "설명대로 하기 어려운 점"
+      ],
+      "items": [
+        "이 혈압 기록에서 제가 꼭 확인해야 할 점은 무엇인가요?",
+        "집에서 측정할 때 제가 잘못하고 있는 부분이 있나요?",
+        "제가 복용 중인 약과 관련해 확인할 점이 있나요?",
+        "어떤 증상이 생기면 바로 진료를 받아야 하나요?",
+        "제게 맞는 측정 시간과 횟수는 어떻게 정하나요?"
+      ]
+    },
+    {
+      "slug": "blood-pressure-prep",
+      "articleSlug": "hypertension",
+      "title": "혈압 측정 준비 체크리스트",
+      "description": "같은 조건에서 더 안정적으로 측정하기 위한 준비표입니다.",
+      "claimIds": [
+        "HTN-B1-006",
+        "HTN-B1-007",
+        "HTN-B1-008"
+      ],
+      "kind": "checklist",
+      "itemGroups": [
+        {
+          "title": "측정 전: 커프를 작동하기 전에",
+          "items": [
+            "30분 전 흡연·카페인 음료·운동을 피했습니다.",
+            "화장실을 다녀왔습니다.",
+            "조용히 최소 5분 쉬었습니다.",
+            "등을 기대고 두 발을 바닥에 뒀습니다.",
+            "맨팔에 맞는 커프를 두고 팔을 심장 높이에서 받쳤습니다."
+          ]
+        },
+        {
+          "title": "측정 후: 실제 값과 시각을 남긴 다음",
+          "items": [
+            "말하지 않고 1분 간격으로 두 번 측정했습니다.",
+            "원래 값과 날짜·시간을 기록했습니다."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "blood-pressure-warning",
+      "articleSlug": "hypertension",
+      "title": "기록보다 119가 먼저인 경고 카드",
+      "description": "혈압 숫자를 다시 재며 기다리지 않아야 할 동반 신호를 기억합니다.",
+      "claimIds": [
+        "HTN-B1-011",
+        "HTN-B1-012"
+      ],
+      "kind": "warning"
+    },
+    {
+      "slug": "glucose-observation-log",
+      "articleSlug": "type-2-diabetes",
+      "title": "혈당 관찰 기록표",
+      "description": "이미 측정 중인 사람이 숫자와 생활 맥락을 함께 적는 기록지입니다.",
+      "claimIds": [
+        "DIA-B1-006",
+        "DIA-B1-011"
+      ],
+      "kind": "log",
+      "columns": [
+        "날짜·실제 측정시각",
+        "기기 표시값·단위",
+        "식사 시각·전후 관계",
+        "활동",
+        "증상",
+        "수면·평소와 다른 상황",
+        "기기·기타 메모"
+      ],
+      "rows": 12
+    },
+    {
+      "slug": "diabetes-questions",
+      "articleSlug": "type-2-diabetes",
+      "title": "제2형 당뇨병 진료 질문지",
+      "description": "검사 의미와 다음 행동을 의료진에게 확인하기 위한 질문지입니다.",
+      "claimIds": [
+        "DIA-B1-006",
+        "DIA-B1-009",
+        "DIA-B1-010",
+        "DIA-B1-011"
+      ],
+      "kind": "questions",
+      "fields": [
+        "가져갈 검사 결과지: 검사명·검사일·단위",
+        "이미 남긴 혈당 기록·현재 약 목록에서 확인할 점"
+      ],
+      "items": [
+        "제 검사 결과는 어떤 기간과 상태를 보여 주나요?",
+        "재검이 필요하다면 어떤 검사와 시점인가요?",
+        "제가 기록할 때 식사·활동·증상 중 무엇을 함께 적을까요?",
+        "복용 중인 약에서 제가 알아둘 저혈당 또는 이상 반응은 무엇인가요?",
+        "가족이 안전하게 도울 수 있는 범위는 어디까지인가요?"
+      ]
+    },
+    {
+      "slug": "family-support-checklist",
+      "articleSlug": "type-2-diabetes",
+      "title": "가족 지원 체크리스트",
+      "description": "감시와 비난을 줄이고 당사자가 원하는 도움을 확인합니다.",
+      "claimIds": [
+        "DIA-B1-010",
+        "DIA-B1-011",
+        "DIA-B1-012",
+        "DIA-B1-013"
+      ],
+      "kind": "checklist",
+      "fields": [
+        "당사자와 동의한 도움 한 가지 (실명·검사값 불필요)"
+      ],
+      "items": [
+        "당사자가 원하는 도움을 먼저 물었습니다.",
+        "음식과 숫자를 평가하거나 비난하지 않았습니다.",
+        "진료 질문과 결과지 정리를 함께 준비했습니다.",
+        "처방약을 대신 결정하거나 바꾸지 않았습니다.",
+        "응급 상황의 개인 행동 계획을 의료진에게 확인했습니다."
+      ]
+    },
+    {
+      "slug": "diabetes-test-terms",
+      "articleSlug": "type-2-diabetes",
+      "title": "혈당 검사 용어 한 장",
+      "description": "공복혈당과 HbA1c가 보는 시간 범위를 구분합니다.",
+      "claimIds": [
+        "DIA-B1-006",
+        "DIA-B1-007",
+        "DIA-B1-008",
+        "DIA-B1-009"
+      ],
+      "kind": "guide",
+      "items": [
+        "공복혈당: 보통 최소 8시간 금식한 뒤 한 시점의 혈당을 확인하는 검사",
+        "당화혈색소(HbA1c): 대략 지난 3개월 평균 혈당 수준에 관한 정보를 주는 검사",
+        "두 검사는 서로 다른 정보를 주며, 결과 해석과 재검 여부는 의료진이 판단",
+        "가정용 한 번의 측정값은 자가 진단이나 약 변경 지시가 아님"
+      ]
+    },
+    {
+      "slug": "allergy-trigger-observation",
+      "articleSlug": "allergic-rhinitis",
+      "title": "알레르기 비염 관찰표",
+      "description": "증상·장소·시간을 적되 원인을 판정하지 않는 기록지입니다.",
+      "claimIds": [
+        "AR-B2-003",
+        "AR-B2-005",
+        "AR-B2-012"
+      ],
+      "kind": "log",
+      "columns": [
+        "날짜·시작 시각",
+        "장소·활동",
+        "코 증상·지속 시간",
+        "눈·호흡 변화",
+        "수면·일상 영향",
+        "이미 사용한 약·스프레이",
+        "환경 변화·기타 메모"
+      ],
+      "rows": 12
+    },
+    {
+      "slug": "allergy-environment-check",
+      "articleSlug": "allergic-rhinitis",
+      "title": "환경 변화 관찰 체크",
+      "description": "환경을 바꾼 뒤의 흐름을 살피고 개인 효과를 단정하지 않습니다.",
+      "claimIds": [
+        "AR-B2-006",
+        "AR-B2-012"
+      ],
+      "kind": "checklist",
+      "fields": [
+        "이미 바꾼 환경과 날짜·함께 달라진 점 (없음·미확인 표시 가능)"
+      ],
+      "items": [
+        "오늘의 증상과 장소를 적었습니다.",
+        "바꾼 환경이 있다면 날짜를 함께 적었습니다.",
+        "좋아짐·나빠짐을 한 번의 경험으로 확정하지 않았습니다.",
+        "약 시작·변경은 의료진 또는 약사에게 확인합니다."
+      ]
+    },
+    {
+      "slug": "allergy-appointment-questions",
+      "articleSlug": "allergic-rhinitis",
+      "title": "알레르기 비염 진료 질문 카드",
+      "description": "증상 흐름과 검사 필요 여부를 묻기 위한 질문 카드입니다.",
+      "claimIds": [
+        "AR-B2-008",
+        "AR-B2-011"
+      ],
+      "kind": "questions",
+      "fields": [
+        "진료에서 먼저 말할 관찰 사례 (시각·장소·코/눈/호흡·수면 영향)",
+        "현재 약·코/눈 제품명과 실제 사용법 (원본 지참·미확인 표시 가능)"
+      ],
+      "items": [
+        "이 증상 흐름에서 다른 원인이나 검사를 확인할 필요가 있나요?",
+        "검사가 예정되면 현재 제품별로 어떤 준비 사항을 확인해야 하나요?",
+        "이 약·스프레이의 사용법·기간과 불편이 생길 때 문의 기준은 무엇인가요?",
+        "제가 원하는 가족의 기록 도움과 다음 상담 시점은 어떻게 정하면 좋나요?"
+      ]
+    },
+    {
+      "slug": "gerd-symptom-timing-log",
+      "articleSlug": "gastroesophageal-reflux-disease",
+      "title": "역류 증상·시간 기록표",
+      "description": "식사·자세·수면과 불편의 흐름을 적는 관찰표입니다.",
+      "claimIds": [
+        "GERD-B2-004",
+        "GERD-B2-011"
+      ],
+      "kind": "log",
+      "columns": [
+        "날짜·증상 시작 시각",
+        "먹고 마신 것·양·시각",
+        "눕기·수면·굽힌 활동",
+        "불편 종류·지속 시간",
+        "삼킴 변화",
+        "이미 사용한 약·시각",
+        "기타 메모"
+      ],
+      "rows": 12
+    },
+    {
+      "slug": "gerd-everyday-patterns",
+      "articleSlug": "gastroesophageal-reflux-disease",
+      "title": "역류 생활 패턴 관찰 체크",
+      "description": "이미 바꾼 일과 관찰 사실을 구분하는 기록표 보조 도구입니다.",
+      "claimIds": [
+        "GERD-B2-005",
+        "GERD-B2-011"
+      ],
+      "kind": "checklist",
+      "fields": [
+        "이미 바꾼 일·날짜 / 같은 시기 다른 변화 / 남은 불편 (없음·미확인 가능)"
+      ],
+      "items": [
+        "식사·자세·증상이 있었던 실제 시각을 기록표에 나누어 적었습니다.",
+        "특정 음식이나 행동 하나를 원인으로 단정하지 않았습니다.",
+        "약의 시작·중단·변경은 온라인 글로 결정하지 않았습니다.",
+        "위의 위험 신호는 다음 예약이나 체크 완료를 기다리지 않는다는 안내를 확인했습니다."
+      ]
+    },
+    {
+      "slug": "gerd-appointment-prep",
+      "articleSlug": "gastroesophageal-reflux-disease",
+      "title": "위식도역류 진료 준비 카드",
+      "description": "증상·약·검사 필요 여부를 묻기 위한 질문 카드입니다.",
+      "claimIds": [
+        "GERD-B2-007",
+        "GERD-B2-010",
+        "GERD-B2-012"
+      ],
+      "kind": "questions",
+      "fields": [
+        "먼저 설명할 불편·시각·지속 / 식사·자세 흐름 (기록 원본·미확인 가능)",
+        "현재 약 이름·실제 사용법 / 이전 검사·기관 안내 (있는 자료 지참)"
+      ],
+      "items": [
+        "이 증상에서 다른 원인이나 합병증을 확인할 필요가 있나요?",
+        "지금 검사가 필요한가요? 한다면 무엇을 확인하며 어떻게 준비하나요?",
+        "가져온 약·일반약의 사용 계획과 불편할 때 문의 기준은 무엇인가요?",
+        "치료·관찰 결과는 언제 다시 확인하며 예약 전에 연락할 변화와 문의처는 무엇인가요?"
+      ]
+    },
+    {
+      "slug": "oa-daily-activity-log",
+      "articleSlug": "osteoarthritis",
+      "title": "관절 일상 변화 기록표",
+      "description": "활동 전후의 관절 변화와 일상 영향을 적는 관찰표입니다.",
+      "claimIds": [
+        "OA-B2-004",
+        "OA-B2-011"
+      ],
+      "kind": "log",
+      "columns": [
+        "날짜·관찰 시각",
+        "관절·좌우",
+        "실제 활동·시간",
+        "전후 통증·뻣뻣함",
+        "붓기·열감·피부 변화",
+        "수면·일상 영향",
+        "기존 약·기타 메모"
+      ],
+      "rows": 12
+    },
+    {
+      "slug": "oa-visit-questions",
+      "articleSlug": "osteoarthritis",
+      "title": "골관절염 진료 질문 카드",
+      "description": "원인 확인과 개인별 활동·치료 선택을 묻기 위한 질문 카드입니다.",
+      "claimIds": [
+        "OA-B2-003",
+        "OA-B2-005",
+        "OA-B2-010"
+      ],
+      "kind": "questions",
+      "fields": [
+        "관절·좌우 / 어려워진 활동 / 다시 편하게 하고 싶은 일",
+        "현재 약·바르는 제품·보조기구와 불편 / 기존 검사 (원본·미확인 가능)"
+      ],
+      "items": [
+        "다른 원인을 확인할 검사가 필요한가요? 제게 제안하는 검사는 무엇을 확인하나요?",
+        "제가 원하는 활동에 맞는 운동·휴식 계획과 통증 때 조정 기준은 무엇인가요?",
+        "약·재활·보조기구 등 제안받은 선택의 기대 효과와 부담은 어떻게 다른가요?",
+        "효과와 불편은 언제 다시 평가하며 예약 전에 연락할 변화와 문의처는 무엇인가요?"
+      ]
+    },
+    {
+      "slug": "oa-family-support",
+      "articleSlug": "osteoarthritis",
+      "title": "관절 불편 가족 지원 체크",
+      "description": "속도를 재촉하지 않고 일상 지원과 질문 준비를 돕는 체크리스트입니다.",
+      "claimIds": [
+        "OA-B2-009",
+        "OA-B2-010"
+      ],
+      "kind": "checklist",
+      "fields": [
+        "함께 정한 도움·담당 / 원하지 않는 도움 / 확인 날짜 (미정 가능)"
+      ],
+      "items": [
+        "당사자가 원하는 도움을 먼저 물었습니다.",
+        "겉모습으로 통증을 단정하거나 활동을 재촉하지 않았습니다.",
+        "동의한 범위에서 기록과 진료 질문을 함께 정리했습니다.",
+        "약·주사·보조기구를 대신 결정하지 않았습니다."
+      ]
+    },
+    {
+      "slug": "osteoporosis-appointment-prep",
+      "articleSlug": "osteoporosis",
+      "title": "골다공증 진료 준비표",
+      "description": "골절·낙상·복용 약과 검사 질문을 정리하는 준비표입니다.",
+      "claimIds": [
+        "OP-B2-004",
+        "OP-B2-005",
+        "OP-B2-011"
+      ],
+      "kind": "questions",
+      "fields": [
+        "기존 검사 날짜·부위 / 골절·낙상 시기·부위·상황 (원본·미확인 가능)",
+        "현재 약·보충제 / 관련 과거 약·질환·가족력 등 진료에 알릴 이력"
+      ],
+      "items": [
+        "제게 골밀도 검사가 필요한가요? 기존 결과는 제 이력과 함께 어떻게 해석하나요?",
+        "골절·낙상·현재 상태와 약 이력에서 추가로 확인할 원인이 있나요?",
+        "제게 맞는 치료·영양·활동 및 낙상 예방 계획은 어떻게 나누어 준비하나요?",
+        "다음 진료·검사는 언제, 무엇을 확인하며 그 전에 연락할 변화와 문의처는 무엇인가요?"
+      ]
+    },
+    {
+      "slug": "osteoporosis-home-check",
+      "articleSlug": "osteoporosis",
+      "title": "낙상 위험 집안 점검표",
+      "description": "통로와 조명을 점검하되 골절 예방을 보장하지 않는 체크리스트입니다.",
+      "claimIds": [
+        "OP-B2-006",
+        "OP-B2-010",
+        "OP-B2-012"
+      ],
+      "kind": "checklist",
+      "fields": [
+        "장소 / 발견한 점 / 해당 없음·미확인 구분",
+        "필요한 도움·의논할 사람 / 다시 확인할 때 / 아직 해결하지 못한 점"
+      ],
+      "items": [
+        "통로의 걸릴 수 있는 물건을 살폈습니다.",
+        "전선과 들뜨거나 미끄러지는 매트를 살폈습니다.",
+        "밤에 이동할 곳의 조명과 켜는 위치를 확인했습니다.",
+        "욕실·계단의 손잡이와 미끄러운 곳을 안전하게 살폈습니다."
+      ]
+    },
+    {
+      "slug": "osteoporosis-terms",
+      "articleSlug": "osteoporosis",
+      "title": "골밀도 검사 용어 카드",
+      "description": "골밀도 검사와 결과 해석의 경계를 구분하는 안내입니다.",
+      "claimIds": [
+        "OP-B2-001",
+        "OP-B2-004",
+        "OP-B2-012"
+      ],
+      "kind": "guide",
+      "items": [
+        "BMD / 골밀도: 뼈 속 칼슘 등 무기질의 밀도를 측정한 정보입니다.",
+        "DXA / DEXA: X선을 이용하는 골밀도 검사 방법입니다. 흔히 척추·고관절을 측정합니다.",
+        "T점수 / T-score: 건강한 젊은 성인의 골밀도 기준과 비교한 값입니다.",
+        "Z점수 / Z-score: 연령·성별·인종 등을 고려한 참조 집단의 골밀도와 비교한 값입니다."
+      ]
+    },
+    {
+      "slug": "dyslipidemia-visit-card",
+      "articleSlug": "dyslipidemia",
+      "title": "지질검사 진료 질문지",
+      "description": "검사 원본·식사 조건·현재 이력을 모아 개인 목표와 다음 검사 계획을 묻는 인쇄 질문지입니다.",
+      "claimIds": [
+        "DLP-P3-002",
+        "DLP-P3-003",
+        "DLP-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "이번·이전 검사 날짜 / 항목·수치·단위 (원본·미확인 가능)",
+        "검사 전 안내 / 실제 식사 시각·준비 조건",
+        "현재 질환 / 아는 심혈관질환 가족력·발병 시기",
+        "현재 약·보충제 / 최근 변경·새 불편"
+      ],
+      "items": [
+        "네 지질 항목은 제 이력과 검사 조건에서 각각 무엇을 뜻하나요?",
+        "제게 적용하는 목표와 그 이유는 무엇인가요?",
+        "생활 조정과 치료를 어떻게 함께 진행하며 기대 효과·부담은 무엇인가요?",
+        "다음 검사는 언제 어떤 조건으로 받고, 그 전에 문의할 변화와 연락처는 무엇인가요?"
+      ]
+    },
+    {
+      "slug": "obesity-visit-card",
+      "articleSlug": "obesity",
+      "title": "비만 상담 메모",
+      "description": "체중과 함께 달라진 생활·약, 본인이 원하는 도움과 상담 질문을 정리하는 인쇄 보조표입니다.",
+      "claimIds": [
+        "OBS-P3-002",
+        "OBS-P3-003",
+        "OBS-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "체중·옷의 맞음새 변화 시기 / 함께 생긴 불편",
+        "수면·일상 여건 / 현재 질환·약·보충제와 변경 시기",
+        "먼저 상담할 어려움 / 원하는 도움·혼자 하고 싶은 일"
+      ],
+      "items": [
+        "제 변화와 불편은 체중 외에 무엇을 함께 확인해야 하나요?",
+        "현재 몸 상태와 생활 여건에서 가능한 계획·지원은 무엇인가요?",
+        "제안받은 방법의 기대 효과·부담과 경과를 확인할 때·문의처는 무엇인가요?"
+      ]
+    },
+    {
+      "slug": "metabolic-dysfunction-associated-steatotic-liver-disease-visit-card",
+      "articleSlug": "metabolic-dysfunction-associated-steatotic-liver-disease",
+      "title": "지방간 검사 상담표",
+      "description": "기존 검사 원문·음주·약 이력을 모아 각 결과의 의미와 다음 확인 계획을 묻는 인쇄 양식입니다.",
+      "claimIds": [
+        "MASLD-P3-002",
+        "MASLD-P3-003",
+        "MASLD-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "검사 날짜·검사명 / 결과 원문·항목·단위·참고범위",
+        "현재·과거 음주 횟수·한 번의 양 / 줄이거나 끊을 때의 불편",
+        "알고 있는 질환 / 현재 약·보충제·생약·변경 시기 / 새 불편"
+      ],
+      "items": [
+        "받은 검사는 간효소·지방·섬유화 중 무엇을 살폈고 무엇은 더 확인해야 하나요?",
+        "음주·대사 요인·약과 다른 원인은 어떻게 함께 살피며, 음주 중단을 위한 도움이 필요한가요?",
+        "추가 검사나 관리가 필요하다면 목적·준비 사항·다음 확인 시점과 그 전에 연락할 변화는 무엇인가요?"
+      ]
+    },
+    {
+      "slug": "irritable-bowel-syndrome-visit-card",
+      "articleSlug": "irritable-bowel-syndrome",
+      "title": "복통·배변 질문지",
+      "description": "배변 전후 통증과 변의 변화, 식사·약·새 불편을 정리해 상담하는 인쇄 양식입니다.",
+      "claimIds": [
+        "IBS-P3-002",
+        "IBS-P3-003",
+        "IBS-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "복통 시기·위치 / 배변 전후 덜·더 아픔·비슷함·모르겠음",
+        "평소와 다른 배변 횟수·변의 단단함·묽음 / 일상 영향",
+        "식사·수면·생활 / 실제 약 사용·최근 장염·아는 가족력",
+        "새 출혈·이유 없는 체중 감소 / 밤에 통증으로 깬 일·시기"
+      ],
+      "items": [
+        "제 통증·배변 변화와 이력에서 다른 원인을 확인할 검사가 필요한가요?",
+        "식사 제한을 늘리지 않으려면 어떤 도움과 효과 확인·재도입 계획이 필요한가요?",
+        "현재 증상에 맞는 관리와 그 부담, 다시 평가할 때·그 전에 연락할 변화는 무엇인가요?"
+      ]
+    },
+    {
+      "slug": "asthma-visit-card",
+      "articleSlug": "asthma",
+      "title": "천식 진료 질문지",
+      "description": "증상·흡입기 사용 기록을 가져가 기기 사용법과 개인 행동계획을 확인하는 인쇄 질문지입니다.",
+      "claimIds": [
+        "AST-P3-002",
+        "AST-P3-003",
+        "AST-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "기침·숨참의 시기·상황 / 밤에 깸·평소 활동의 지장",
+        "실제 흡입기·약 이름 / 사용한 때·그 뒤 변화·사용이 어려운 점",
+        "현재 개인 행동계획·지난 발작/진료 기록 / 찾지 못한 지침"
+      ],
+      "items": [
+        "제 기기로 사용하는 모습을 확인해 주실 수 있나요?",
+        "현재 처방과 행동계획이 맞나요? 평소와 증상 변화 때의 지침을 어디서 확인하나요?",
+        "다음 점검은 언제이며, 그 전에 진료팀에 연락할 때와 즉시 119를 부를 때는 언제인가요?"
+      ]
+    },
+    {
+      "slug": "sleep-apnea-visit-card",
+      "articleSlug": "sleep-apnea",
+      "title": "밤·낮 수면 질문지",
+      "description": "본인의 낮 졸림과 동의한 상대의 밤 관찰을 나눠 적고 수면검사·다음 계획을 질문하는 인쇄 양식입니다.",
+      "claimIds": [
+        "OSA-P3-002",
+        "OSA-P3-003",
+        "OSA-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "본인이 느낀 낮 졸림·피로 / 집중·일상·운전·작업 영향",
+        "동의한 상대가 본 밤의 호흡 변화 / 관찰 시점·미확인",
+        "잠든 시간·깬 기억·일정 변화 / 실제 약·보충제",
+        "기존 검사·치료 계획 원본 / 기기 사용 중 불편·문의할 점"
+      ],
+      "items": [
+        "제 밤·낮 기록에서 어떤 평가가 필요하며, 검사 목적과 준비는 무엇인가요?",
+        "졸림이 일상과 운전·위험 작업에 영향을 주는데 어떤 안전 계획과 평가가 필요한가요?",
+        "검사 결과나 치료 중 불편은 언제 누구와 확인하고, 그 전에 연락할 변화는 무엇인가요?"
+      ]
+    },
+    {
+      "slug": "gout-visit-card",
+      "articleSlug": "gout",
+      "title": "통풍 진료 질문지",
+      "description": "관절 변화·요산 검사 원본·실제 약을 준비해 이번 통증과 이후 관리의 질문을 나누는 인쇄 양식입니다.",
+      "claimIds": [
+        "GOUT-P3-002",
+        "GOUT-P3-003",
+        "GOUT-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "관절 위치·시작 시각 / 붓기·열감·피부색·발열 등 실제 변화",
+        "기존 요산 검사명·날짜·단위·원본 / 이전 발작과 진료 이력",
+        "실제 약·보충제·사용 뒤 변화 / 다른 질환·식사·음주 상황"
+      ],
+      "items": [
+        "이번 관절 변화에서 다른 원인을 확인할 검사와 그 목적은 무엇인가요?",
+        "현재 통증과 이후 요산 관리에서 제 약은 각각 어떤 역할이며 사용 지침은 무엇인가요?",
+        "개인 관리 목표·생활 조정과 다음 검사·진료는 어떻게 정하고, 그 전에 연락할 변화는 무엇인가요?"
+      ]
+    },
+    {
+      "slug": "migraine-visit-card",
+      "articleSlug": "migraine",
+      "title": "두통 진료 준비표",
+      "description": "두통 발생일·생활 영향과 실제 약 사용일·반응을 나누어 진료 질문과 답을 남기는 인쇄 양식입니다.",
+      "claimIds": [
+        "MIG-P3-002",
+        "MIG-P3-003",
+        "MIG-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "두통 발생일·시작·지속 / 동반 변화·일상 영향·평소와 다른 점",
+        "실제 약 이름·사용일·반응 / 안내받은 사용 목적",
+        "당시 수면·식사·생활 상황 / 기존 일지·검사 자료"
+      ],
+      "items": [
+        "이번 변화에서 다른 원인 평가나 검사는 무엇을 확인하기 위한 것인가요?",
+        "제 약의 증상 완화·예방 목적과 개인 사용 지침, 사용이 늘 때 연락할 기준은 무엇인가요?",
+        "어떤 기록을 이어가고 언제 다시 확인하며, 그 전에 연락할 변화는 무엇인가요?"
+      ]
+    },
+    {
+      "slug": "kidney-stones-visit-card",
+      "articleSlug": "kidney-stones",
+      "title": "신장결석 진료 준비표",
+      "description": "통증·소변 변화와 기존 검사·수분 제한·약 정보를 모아 배출 확인과 개인 계획을 묻는 인쇄 양식입니다.",
+      "claimIds": [
+        "KST-P3-002",
+        "KST-P3-003",
+        "KST-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "통증 시기·위치 / 소변·열·오한·구토 등 실제 변화",
+        "기존 소변·혈액·영상검사 원본 / 과거 결석·분석 자료",
+        "다른 질환·안내받은 수분 제한 / 실제 약·보충제·식사"
+      ],
+      "items": [
+        "위치·크기뿐 아니라 막힘·감염·콩팥 기능에서 확인할 점과 검사 목적은 무엇인가요?",
+        "통증이 줄어도 배출 여부와 콩팥 상태를 언제 어떻게 확인하며, 그 전에 연락할 변화는 무엇인가요?",
+        "제 결석 성분·다른 질환에 맞는 수분·식사·약 계획과 사용 지침은 무엇인가요?"
+      ]
+    },
+    {
+      "slug": "urinary-tract-infection-visit-card",
+      "articleSlug": "urinary-tract-infection",
+      "title": "요로감염 진료 메모",
+      "description": "배뇨·몸 상태 변화와 개인 상황·최근 검사·항생제를 정리해 결과 전달과 재연락 계획을 묻는 인쇄 보조표입니다.",
+      "claimIds": [
+        "UTI-P3-002",
+        "UTI-P3-003",
+        "UTI-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "배뇨 변화·시작 / 열·오한·옆구리·등 통증·구토 등 실제 변화",
+        "임신 가능성·도뇨관·다른 질환 / 이전 감염·치료 상황",
+        "최근 검사 원본·날짜 / 실제 항생제·사용·반응 / 약 알레르기"
+      ],
+      "items": [
+        "이번 검사는 무엇을 확인하며 결과를 언제·어떻게 전달받나요?",
+        "처방이 있다면 제 사용 지침과 부작용·복용 곤란 시 연락 방법은 무엇인가요?",
+        "결과나 다음 진료 전 어떤 변화가 생기면 어디로 바로 연락하나요?"
+      ]
+    },
+    {
+      "slug": "depression-visit-card",
+      "articleSlug": "depression",
+      "title": "우울감 진료 메모",
+      "description": "본인의 말과 동의받은 관찰, 일상 어려움과 원하는 도움을 구분해 진료에 가져가는 인쇄 보조표입니다.",
+      "claimIds": [
+        "DEP-P3-002",
+        "DEP-P3-003",
+        "DEP-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "본인의 말 / 동의받은 주변 관찰·시점 (구분·미확인 가능)",
+        "기분·흥미·잠·식사·일상 변화 / 실제 약·최근 변경",
+        "먼저 상담할 어려움 / 원하는 도움·함께할 사람·혼자 말할 내용"
+      ],
+      "items": [
+        "이 변화와 함께 확인할 다른 건강 문제나 약의 영향이 있나요?",
+        "제가 원하는 도움에 맞는 치료·생활 지원과 참여 범위는 무엇인가요?",
+        "악화나 위기 때 연락할 곳과 전문적으로 세울 개인 안전계획을 확인할 수 있나요?"
+      ]
+    },
+    {
+      "slug": "anxiety-disorder-visit-card",
+      "articleSlug": "anxiety-disorder",
+      "title": "불안 진료 메모",
+      "description": "실제 상황·몸 변화, 이미 피한 일·생활 영향과 약 정보를 정리해 원하는 도움을 묻는 인쇄 보조표입니다.",
+      "claimIds": [
+        "ANX-P3-002",
+        "ANX-P3-003",
+        "ANX-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "실제 상황·시작·반복 / 몸에서 느낀 변화 (미확인 가능)",
+        "이미 피하게 된 활동 / 잠·일·공부·관계에 생긴 불편",
+        "현재 약·보충제·카페인·술 / 최근 변화·실제 사용·반응"
+      ],
+      "items": [
+        "몸의 원인·약 영향과 제가 원하는 도움을 고려하면 어떤 평가·치료가 필요한가요?",
+        "제 처방 지침과 새 불편·악화 때 연락처, 다음 확인 계획은 무엇인가요?"
+      ]
+    },
+    {
+      "slug": "stroke-visit-card",
+      "articleSlug": "stroke",
+      "title": "뇌졸중 전달 메모",
+      "description": "119 신고 후 두 시각·관찰한 변화를 전하고, 응급 평가·치료 뒤 질문을 따로 확인하는 보조표입니다.",
+      "claimIds": [
+        "STR-P3-002",
+        "STR-P3-003",
+        "STR-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "신고 후: 마지막으로 이번 변화 없이 평소와 같았던 날짜·시각",
+        "신고 후: 처음 증상을 발견한 날짜·시각 (실제 시작과 다를 수 있음)",
+        "신고 후: 실제 변화·호전 / 알고 있는 약·병력 (미확인 가능)"
+      ],
+      "items": [
+        "응급 평가·치료 뒤: 확인된 종류와 제 치료·재활 계획은 무엇인가요?",
+        "응급 평가·치료 뒤: 다시 신고할 신호, 개인 약 지침·다음 진료·연락처는 무엇인가요?"
+      ]
+    },
+    {
+      "slug": "acute-myocardial-infarction-visit-card",
+      "articleSlug": "acute-myocardial-infarction",
+      "title": "심근경색 전달 메모",
+      "description": "119 신고 후 실제 증상·약 정보를 전하고, 급한 평가·치료 뒤 약·활동·재활 질문을 확인하는 보조표입니다.",
+      "claimIds": [
+        "AMI-P3-002",
+        "AMI-P3-003",
+        "AMI-P3-004"
+      ],
+      "kind": "questions",
+      "fields": [
+        "신고 후: 처음 느낀 날짜·시각 / 줄거나 다시 생긴 변화 (미확인 가능)",
+        "신고 후: 실제 불편 위치·퍼짐 / 함께 생긴 호흡·몸 상태 변화",
+        "신고 후: 알고 있는 병력·실제 사용 약·알레르기 (찾느라 지연 금지)"
+      ],
+      "items": [
+        "급한 평가·치료 뒤: 제 약의 역할·사용법과 복용 곤란·불편 때 연락할 곳은 어디인가요?",
+        "급한 평가·치료 뒤: 활동·심장재활·다음 방문 계획과 다시 의심 증상이 생겼을 때 행동은 무엇인가요?"
+      ]
+    }
+  ],
+  "toolHtml": {
+    "blood-pressure-log": "77aa6589c256680fec8685a976d58bed62082a99bb683babf3755e0c9954a628",
+    "blood-pressure-questions": "24684712555e0d03cf40aaa9905ebac768af92f802fbb00256d34011e22369b1",
+    "blood-pressure-prep": "6bf3dc3a1318b9c4a94ffeaa5e4cab00930f76237fb12ddad592eb3fa715d894",
+    "blood-pressure-warning": "603707f3d7b5571b78c40156a89b25401a6ebc79f3e4859f62e4b4667a9212d3",
+    "glucose-observation-log": "3fc7f366b290840de78ce737466865169a1512502be0eb1b509b5804c78c9b12",
+    "diabetes-questions": "398b7f0afdaf4f0435f11aee7b052b74c4b1711686faa3bdcf3b8eb85daa8fc4",
+    "family-support-checklist": "bbc22d68c0b71202ad181cbfa14fdbbd858777cbacb62ef3f22087967d28c262",
+    "diabetes-test-terms": "cf964205411b8e5864345d4ca7252a6776fbe6155c340a8436fe4eadc18cf7aa",
+    "allergy-trigger-observation": "a6daf50aaecde326936b8b03c9615aae18a3c6e231b3bb4219b41bfac96e44b8",
+    "allergy-environment-check": "4fb4e284202581160e6eeb8145cb9ae49dedd0e1aa5c2a2748a93c0876c75438",
+    "allergy-appointment-questions": "0e05fcf78721f43315fc1f943184bba83c20d322f551207f05a45279186575c3",
+    "gerd-symptom-timing-log": "46c2c0c275c846543e25e92aacd1686602883e939acda80b2f11defa881fe970",
+    "gerd-everyday-patterns": "551790c17a232b72bd774c33311757932349012f8d5949a70a595c91f7a26977",
+    "gerd-appointment-prep": "cfb83f14172d46eccaf087d176eefb0679ce2088cbb0d10ead477d71c6dbc4ec",
+    "oa-daily-activity-log": "4035182dccac3899c576295e8a343db687871215d8c4ef9d7495ff13b52d25c1",
+    "oa-visit-questions": "d5a9a1d2457dd0b9e95c3a75015267ed4da2a1cc5691be12ed8f3e530e757ec0",
+    "oa-family-support": "b62b4596a883535ddb034b5119a12e835392d2c24c2bbb599926adbc6874baaf",
+    "osteoporosis-appointment-prep": "452edc3293c23e5ae79ff2fa1e1f5b27efb47fb94b87f777e0d9be5fc4832fcf",
+    "osteoporosis-home-check": "50361f937a7585d822250558c1e58dd194118211a166cdd0c1ce15aff62f0088",
+    "osteoporosis-terms": "4a490a9e85213f314d06a24e8b11c2d6ece8df9c2b92f11d63cc9ae8f6e3da0e",
+    "dyslipidemia-visit-card": "d1739b9c3101a89672bf08328f92c4901ed878d92d05d81eb7b37da930c91b76",
+    "obesity-visit-card": "007ff2b55004947621d759bd961540583ae9c0c930f63df749a8d8a93685c856",
+    "metabolic-dysfunction-associated-steatotic-liver-disease-visit-card": "f47653b2b43ef88acf4227a6bd47cf8bd595a2ff6eaf7ab8cc73351ed794e4d8",
+    "irritable-bowel-syndrome-visit-card": "9e09c429f66dea4f7d4b2fb792adfcd225b0306d4279cd6ae3148275c39563c6",
+    "asthma-visit-card": "70f9f95559e87e6f9c76080ab2bc76811781252b64559f394871df9f06f4f94c",
+    "sleep-apnea-visit-card": "0028af33211b5f9649b740319947df907a663f5ec3f73929d797fd175d625ce0",
+    "gout-visit-card": "89a25d7805d38eabc507d11f65d215053087d46599f325cbf6aef02d92742ce0",
+    "migraine-visit-card": "755463967617c17e1e4352c91ccf85b5929fc8f4e4053ad0b3e877dd80f1b666",
+    "kidney-stones-visit-card": "784fa7f51a0d82887902266450c5903136c726730cc738d32c983743008a357c",
+    "urinary-tract-infection-visit-card": "50ba9faae2d9f981b9c9d6d95dd265692a60f69e237f0d724bfabab11f06dd13",
+    "depression-visit-card": "d5487952bafed245926d0b9ef76a4b765207ba7e01b48fb5d919ba3a60a2122b",
+    "anxiety-disorder-visit-card": "49a11f785843d7b939980005d0e53ba010a41a999b2fea752adc4a1848705a39",
+    "stroke-visit-card": "cfe26ac632dd38d8d164a288d3578695d6694a8f1642b05166deec8466dae2fa",
+    "acute-myocardial-infarction-visit-card": "2456918a44a8ab8d59db6da8c55f64e91513526eb0ccecad3bf8977d05c94eb7"
+  }
+}

@@ -539,9 +539,9 @@ test("SEO audit refuses colliding output paths before HTTP or file writes", () =
   assert.match(run.stderr, /--out must end in \.json/);
 });
 
-test("SEO baseline joins exactly the 77 current routes without losing unknown URL verdicts", () => {
+test("September 6 SEO baseline retains its 77 observed routes without inventing later URL verdicts", () => {
   const raw = JSON.parse(readFileSync("docs/health-v3/onurim/seo-v2/raw/gsc-url-inspections-2026-09-06.json", "utf8"));
-  const expected = ["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`), ...trustPages.map(s=>`/health/trust/${s.slug}`)].sort();
+  const expected = ["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.filter(s => (s.publishedAt ?? "2026-08-26") <= "2026-09-06").map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`), ...trustPages.map(s=>`/health/trust/${s.slug}`)].sort();
   const rows = raw.rows as string[][];
   assert.deepEqual(rows.map(r=>r[0]).sort(), expected);
   assert.equal(rows.filter(r=>r[1]==="I").length, 38);

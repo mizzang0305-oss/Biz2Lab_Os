@@ -191,16 +191,20 @@ function ClaimStatus({ ids, sourceIds }: { ids: string[]; sourceIds?: string[] }
 }
 
 export function HealthArticlePage({ article }: { article: HealthArticle }) {
+  const revisedSources = ["type-2-diabetes", "allergic-rhinitis", "gastroesophageal-reflux-disease", "osteoarthritis", "osteoporosis", "asthma", "stroke", "acute-myocardial-infarction", "dyslipidemia", "obesity", "migraine", "metabolic-dysfunction-associated-steatotic-liver-disease", "irritable-bowel-syndrome", "sleep-apnea", "gout", "urinary-tract-infection"].includes(article.slug) && article.sourceCheckedAt === "2026-10-01";
+  const readerSources = article.slug === "kidney-stones" || revisedSources;
+  const sourceName = (source: (typeof sources)[number]) => revisedSources && source.id === "SRC-MEDLINEPLUS-AR" ? "MedlinePlus Medical Encyclopedia / A.D.A.M." : source.organization;
   const visuals = { ...imageMeta, ...article.visuals };
   const sources = getSources(article.sourceIds);
   const tools = article.toolSlugs
     .map((slug) => healthTools.find((tool) => tool.slug === slug))
     .filter(Boolean);
   const articleClaims = healthClaims.filter((claim) => claim.articleSlug === article.slug);
+  const sourceTitle = (source: (typeof sources)[number]) => article.slug === "metabolic-dysfunction-associated-steatotic-liver-disease" && source.id === "SRC-EASL-MASLD-2024" ? "MASLD Clinical Practice Guidelines (2024 PDF): 정상 간효소 한계, 인쇄 496쪽/PDF 5쪽" : article.slug === "sleep-apnea" && source.id === "SRC-AASM-OSA-DIAGNOSIS" ? "Adult OSA Diagnostic Testing (2017 PDF): 권고 3, PDF 첫 페이지" : source.title;
   const sourceLinks = (ids?: string[]) => ids?.length ? <p className="onurim-section-sources">근거: {ids.map((id, index) => {
     const source = sources.find(item => item.id === id);
     if (!source) throw new Error(`Missing article source ${article.slug}/${id}`);
-    return <span key={id}>{index > 0 ? " · " : ""}<a href={`#source-${id}`}>{source.organization}</a></span>;
+    return <span key={id}>{index > 0 ? " · " : ""}<a href={revisedSources ? source.url : `#source-${id}`}>{sourceName(source)}{revisedSources ? `: ${sourceTitle(source)}` : ""}</a></span>;
   })}</p> : null;
   const structuredData = {
     "@context": "https://schema.org",
@@ -268,14 +272,14 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
 
       <section className="onurim-summary" aria-labelledby="summary-title">
         <h2 id="summary-title">먼저 기억할 세 가지</h2>
-        <ul>{article.summary.map((item) => <li key={item}>{item}</li>)}</ul>
+        <ul style={article.slug === "sleep-apnea" ? { gridTemplateColumns: "minmax(0, 1fr)", overflowWrap: "anywhere" } : undefined}>{article.summary.map((item) => <li key={item}>{item}</li>)}</ul>
         <a className="onurim-urgent-jump" href="#urgent-action">응급 신호와 119 안내 바로 보기</a>
       </section>
 
-      <BodyTheater slug={article.slug} />
+      <BodyTheater slug={article.slug} showSourceNames={revisedSources} />
 
       <div className="onurim-article-grid">
-        <div className="onurim-article-body">
+        <div className="onurim-article-body" style={["asthma", "stroke", "acute-myocardial-infarction"].includes(article.slug) ? { minWidth: 0 } : undefined}>
           {article.sections.map((section, index) => {
             const imageIndex = index === 1 ? 1 : index === 4 ? 3 : section.tone === "warning" ? 2 : -1;
             const imageId = section.imageId === null ? undefined : section.imageId ?? (imageIndex >= 0 ? article.imageIds[imageIndex] : undefined);
@@ -289,7 +293,7 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
               >
                 <div className="onurim-section-heading">
                   <h2>{section.title}</h2>
-                  <ClaimStatus ids={section.claimIds} sourceIds={section.sourceIds} />
+                  {readerSources ? null : <ClaimStatus ids={section.claimIds} sourceIds={section.sourceIds} />}
                 </div>
                 {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 {section.bullets ? <ul>{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul> : null}
@@ -312,34 +316,34 @@ export function HealthArticlePage({ article }: { article: HealthArticle }) {
             );
           })}
 
-          <section className="onurim-content-section" aria-labelledby="faq-title">
+          {article.faq.length > 0 ? <section className="onurim-content-section" aria-labelledby="faq-title">
             <h2 id="faq-title">자주 묻는 질문</h2>
             <div className="onurim-faq-list">
               {article.faq.map((item) => (
                 <details key={item.question} data-claim-ids={item.claimIds.join(",")}>
                   <summary>{item.question}</summary>
                   <p>{item.answer}</p>
-                  <ClaimStatus ids={item.claimIds} sourceIds={item.sourceIds} />
+                  {readerSources ? null : <ClaimStatus ids={item.claimIds} sourceIds={item.sourceIds} />}
                   {sourceLinks(item.sourceIds)}
                 </details>
               ))}
             </div>
-          </section>
+          </section> : null}
 
           <section className="onurim-content-section" aria-labelledby="sources-title">
             <h2 id="sources-title">확인한 공식 출처</h2>
             <ol className="onurim-source-list">
               {sources.map((source) => (
                 <li key={source.id} id={`source-${source.id}`}>
-                  <a href={source.url} target="_blank" rel="noreferrer">{source.organization}, {source.title}</a>
-                  <span>확인 {article.sourceCheckedAt ?? source.retrievedAt} · {source.id}</span>
+                  <a href={source.url} target="_blank" rel="noreferrer">{sourceName(source)}, {sourceTitle(source)}</a>
+                  <span>확인 {article.sourceCheckedAt ?? source.retrievedAt}{readerSources ? "" : ` · ${source.id}`}</span>
                 </li>
               ))}
             </ol>
-            <p className="onurim-state-note">
+            {readerSources ? <p className="onurim-state-note">일반 건강정보이며 개인의 진단과 치료를 대신하지 않습니다. 면허 의료인의 검수를 받지 않았습니다. 공식 자료 확인 {article.sourceCheckedAt}.</p> : <p className="onurim-state-note">
               마지막 출처 대조: {article.sourceCheckedAt ?? "2026-08-26"} · 기존 claim {articleClaims.length}개 · OFFICIAL_SOURCE_CHECKED ·
               {article.seoTitle ? " 문장·출처 대조는 면허 의료인 검수와 다릅니다. · " : " PUBLIC_SAFETY_ADJUDICATED · "} NOT_MEDICALLY_REVIEWED
-            </p>
+            </p>}
             {article.seoTitle ? <p><Link href="/health/trust/sources-policy">출처 선정 기준</Link> · <Link href="/health/trust/editorial-policy">편집 원칙</Link> · <Link href="/health/trust/medical-review-policy">의료 검수 현재 상태</Link> · <Link href="/health">건강 가이드 전체 보기</Link></p> : null}
           </section>
         </div>

@@ -1,0 +1,43 @@
+{
+  "sourceSha": "c7d68d513b83ce859d6988f0c1cc863a77d2db64",
+  "guides": {
+    "danger-signals": {
+      "data": "f7bcc7620e54fa67d5040df0f30aff67f0aa33694b27c44cd9d2533463ad5a79",
+      "html": "3964aac365c8c8d961caad21bd23f794e30ee7b56d8fffdfc295528d5adfbab4",
+      "releasedSha": "add0b34cd4fe22e1c939cb190e2e26f0b862b41e"
+    },
+    "measuring-blood-pressure": {
+      "data": "12382cf39acfb766d5dd59f517edd68690017bca92f783dda460882c60d5b15f",
+      "html": "91f6b096ac5a7665b70839f45a0463d72305d881fe2a77828cea5ee70934d45f"
+    },
+    "understanding-hba1c": {
+      "data": "80ecd950dfc2fa17e1b1b10fd04380d7f3ef96e2916b4a9d0fcf2fabbe62d817",
+      "html": "f3c647b0ed84385dc1a245c5762ed92f39bd208ebc00008c210e8349734608c8"
+    },
+    "reading-health-results": {
+      "data": "87c5fd0ed2f856815655bbeeef0951b3aa8bc1925f93c14dfb128f4b417f009c",
+      "html": "adb966bab6f49586e2b634284312e08da3284e6407f4b4339458c9455536525e"
+    },
+    "family-medication-support": {
+      "data": "0ab5089b94e820ec8cbd0152938315832d58749c742d9270792bb3d412c83232",
+      "html": "619123fa9dac8c1e4a862b9bc7655f54a60878b62748b6cc2f2966115efbb2dd"
+    },
+    "symptom-journal": {
+      "data": "1a2c99a9dda6c66e8e124bfba2605979a06331468c71c43bf6758163bdeb034d",
+      "html": "a7dfda405cc0c2b23ae5017e9b4e60fd2781d00d90372b4de51f877890c010d9"
+    },
+    "appointment-questions": {
+      "data": "616b41f9f662e1e8ff304000b25906cc1c04437227d4450d2f0522f657b43471",
+      "html": "6ef542b46c69fe72672bb1bbce97702c2ce62bec13681b8533839053da780c7a"
+    },
+    "medication-list": {
+      "data": "aad29d4b470547678ef574d403a833a38a3c2278bca63fd895b42f43014c3a83",
+      "html": "e63c1c214c58d1812216c22c65e3eb6c8b4516f42970cbbc8d91e31e8938ccbe",
+      "releasedSha": "8033bd8e7f20fe5006872c99a11bf316cd32fa87"
+    },
+    "older-parent-health-organizer": {
+      "data": "63d54af4db218e27536f53d0102317035c7dc702ce45b2ba805a3a2e0edbfb40",
+      "html": "c94022edc6e8f20aa2171b7da22e34bda25a11352f0e3e7a126d32a9804b18aa"
+    }
+  }
+}

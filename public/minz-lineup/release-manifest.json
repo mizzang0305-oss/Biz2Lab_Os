@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "release": "minz-biz2lab-public-v1",
+  "productStatusIsNotExecutionPermission": true,
+  "downloads": [
+    {
+      "name": "minz-biz2lab-reference-v1.0.0.zip",
+      "path": "/minz-lineup/downloads/minz-biz2lab-reference-v1.0.0.zip",
+      "sha256": "2bea457705c03930ffdd29e19a33c5f4ebda70888c160925d05c8698bcbc8b33",
+      "bytes": 34989
+    },
+    {
+      "name": "minz-public-showcase-taste-v2-static.zip",
+      "path": "/minz-lineup/downloads/minz-public-showcase-taste-v2-static.zip",
+      "sha256": "c8fc08aaa9624589a85b264e98e17e48c25eec2a3d7193deed62d6774fa2aadb",
+      "bytes": 363863
+    }
+  ],
+  "nonExecutingSamples": [
+    {
+      "name": "control-plane.example.json",
+      "path": "/minz-lineup/samples/control-plane.example.json",
+      "sha256": "feed9ab63b7373213d42f64f71b458ca9b493992080bb1be6fe6287158daaef9",
+      "bytes": 461
+    },
+    {
+      "name": "design-showcase.json",
+      "path": "/minz-lineup/samples/design-showcase.json",
+      "sha256": "c1b3538108ee859de32feae4b2b8ee41d2ec5d6d45c7bc8ca654950e4d9937c6",
+      "bytes": 5748
+    },
+    {
+      "name": "engineering-validation.json",
+      "path": "/minz-lineup/samples/engineering-validation.json",
+      "sha256": "141b9f3cb2de4da66602583d8b4c1ae226fce6961f239d88ea81cf375a2624d0",
+      "bytes": 1044
+    },
+    {
+      "name": "skill-factory.example.json",
+      "path": "/minz-lineup/samples/skill-factory.example.json",
+      "sha256": "2f44a62165d163d9a1636dab87b13bcec6fba9b749d5683542d1739d0b4f1718",
+      "bytes": 347
+    }
+  ],
+  "engineeringSourceCommit": "cc81759e65337a66967ba321ec8d9e56df88901f",
+  "designBaseCommit": "ea7b5d422f6c2fc30e641f368798550d930722e4",
+  "designReviewedSourceDigest": "21e2d7484891a7bbe93e6f32dd61fa935d8845656b8306fca446856814762a18",
+  "controlPlaneR13Runtime": "NOT_VERIFIED"
+}

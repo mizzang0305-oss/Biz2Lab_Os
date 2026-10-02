@@ -1,0 +1,34 @@
+{
+  "kind": "MINZ_ENGINEERING_P1A_PUBLIC_VALIDATION_SUMMARY",
+  "version": 1,
+  "sourceCommit": "cc81759e65337a66967ba321ec8d9e56df88901f",
+  "validationDate": "2026-09-30",
+  "basis": "ACTUAL_LOCAL_WINDOWS_SYNTHETIC_TESTS_NOT_PRODUCTION",
+  "existingTests": {
+    "passed": 45,
+    "failed": 0,
+    "skipped": 0
+  },
+  "scope": [
+    "static scan/map/doctor",
+    "explicit COMPARISON_ONLY local snapshots",
+    "readonly diff",
+    "linked evidence hashes"
+  ],
+  "snapshotPurpose": "COMPARISON_ONLY",
+  "diff": {
+    "status": "COMPLETE",
+    "staticObservation": "CONTENT_CHANGE",
+    "evidenceCompleteness": "COMPLETE",
+    "readOnlyBytesAndMtimesPreserved": true
+  },
+  "namespaceTypecheck": "PASS",
+  "namespaceLint": "PASS",
+  "healthAssessment": "NOT_EVALUATED",
+  "aiBehaviorAssessment": "NOT_EVALUATED_STATIC_ONLY",
+  "taskContractExecution": "NOT_PRESENT_IN_PINNED_NAMESPACE_NOT_TESTED",
+  "fullJarvisBuild": "NOT_TESTED",
+  "providerCalls": 0,
+  "databaseAccess": 0,
+  "sampleExecutable": false
+}

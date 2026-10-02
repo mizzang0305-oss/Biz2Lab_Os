@@ -1,0 +1,17 @@
+{
+  "campaign_id": "BZ-260929-001",
+  "v1_reference": "DESIGN_BASELINE_V1_FAIL_REFERENCE",
+  "v1_observation": "Readable and accurate, but a large white four-row table dominates the frame and weakens focal depth and feed impact.",
+  "rubric_max": {"scroll_stop_power":20,"visual_richness":15,"premium_feel":15,"brand_distinctiveness":15,"mobile_readability":15,"information_clarity":10,"social_native_feel":5,"no_ai_generic_look":5},
+  "candidates": {
+    "A": {"visual_mode":"premium_3d","scores":{"scroll_stop_power":19,"visual_richness":14,"premium_feel":14,"brand_distinctiveness":14,"mobile_readability":14,"information_clarity":9,"social_native_feel":4,"no_ai_generic_look":4},"total":92,"result":"PASS"},
+    "B": {"visual_mode":"editorial","scores":{"scroll_stop_power":16,"visual_richness":13,"premium_feel":12,"brand_distinctiveness":12,"mobile_readability":12,"information_clarity":9,"social_native_feel":4,"no_ai_generic_look":4},"total":82,"result":"REJECT_MOBILE_READABILITY_AND_TOTAL"},
+    "C": {"visual_mode":"friendly_story","scores":{"scroll_stop_power":17,"visual_richness":13,"premium_feel":12,"brand_distinctiveness":13,"mobile_readability":14,"information_clarity":9,"social_native_feel":4,"no_ai_generic_look":5},"total":87,"result":"REJECT_TOTAL"}
+  },
+  "selected_candidate":"A",
+  "selection_reason":"The floating generic result card provides a clear focal object; the mint-violet headline remains legible in a small feed preview and is distinctive from the V1 table.",
+  "estimated_text_density_percent":24,
+  "text_density_method":"Visual estimate of glyph-bearing regions against the 1080x1350 canvas; caption carries detailed health guidance.",
+  "automatic_rejection_check":{"hangul_cutoff":false,"title_overflow":false,"wrong_aspect_ratio":false,"whole_frame_text_boxes":false,"stock_or_patient_data":false,"medical_efficacy_claim":false,"ai_robot":false},
+  "reviewer_note":"Scores are human visual assessments, not instrument measurements. Recheck with a 270px-wide mobile thumbnail for each new campaign."
+}

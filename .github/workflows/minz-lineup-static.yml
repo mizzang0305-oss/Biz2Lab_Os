@@ -1,0 +1,25 @@
+name: MINZ public artifact verification
+on:
+  push:
+    paths:
+      - 'app/minz-lineup/**'
+      - 'public/minz-lineup/**'
+      - 'scripts/verify-minz-lineup.mjs'
+      - '.github/workflows/minz-lineup-static.yml'
+  pull_request:
+    paths:
+      - 'app/minz-lineup/**'
+      - 'public/minz-lineup/**'
+      - 'scripts/verify-minz-lineup.mjs'
+      - '.github/workflows/minz-lineup-static.yml'
+permissions:
+  contents: read
+jobs:
+  public-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node scripts/verify-minz-lineup.mjs

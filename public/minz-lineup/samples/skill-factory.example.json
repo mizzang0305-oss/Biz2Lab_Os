@@ -1,0 +1,14 @@
+{
+  "example": true,
+  "product": "MINZ Skill Factory",
+  "skill": "biz2lab-search-growth-auditor",
+  "schema_model_version": 2,
+  "metadata_registered": true,
+  "executable": false,
+  "active": false,
+  "auto_invocation": false,
+  "auto_routing": false,
+  "read_only": true,
+  "proposal_only": true,
+  "production_allowed": false
+}

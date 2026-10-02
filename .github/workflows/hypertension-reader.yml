@@ -1,0 +1,29 @@
+name: Hypertension reader edition verification
+on:
+  push:
+    paths:
+      - 'app/health/hypertension/page.tsx'
+      - 'lib/health-v3/content.ts'
+      - 'tests/hypertension-reader.test.ts'
+      - '.github/workflows/hypertension-reader.yml'
+  pull_request:
+    paths:
+      - 'app/health/hypertension/page.tsx'
+      - 'lib/health-v3/content.ts'
+      - 'tests/hypertension-reader.test.ts'
+      - '.github/workflows/hypertension-reader.yml'
+permissions:
+  contents: read
+jobs:
+  reader-edition:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node node_modules/tsx/dist/cli.mjs --test tests/hypertension-reader.test.ts tests/health-v3-public-cutover.test.ts tests/onurim-entry-pages.test.ts tests/onurim-body-theater.test.ts
+      - run: node node_modules/eslint/bin/eslint.js app/health/hypertension/page.tsx tests/hypertension-reader.test.ts --max-warnings=0 --no-cache
+      - run: node node_modules/typescript/bin/tsc --noEmit --incremental false --pretty false
+      - run: node scripts/verify-minz-lineup.mjs

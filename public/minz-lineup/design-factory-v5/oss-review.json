@@ -1,0 +1,156 @@
+{
+  "records": [
+    {
+      "name": "sortablejs",
+      "version": "1.15.7",
+      "license": "MIT",
+      "gitCommit": "031649b8116565e02419e8aa2d252d7d8c82b9da",
+      "registryGitHead": "031649b8116565e02419e8aa2d252d7d8c82b9da",
+      "upstreamVersionMatched": true,
+      "integrity": "sha512-Kk8wLQPlS+yi1ZEf48a4+fzHa4yxjC30M/Sr2AnQu+f/MPwvvX9XjZ6OWejiz8crBsLwSq8GHqaxaET7u6ux0A==",
+      "archiveSha256": "66cbfc8fa18860783584fe0c346baf6cbf3399da72d23d21053425ba232abed4",
+      "runtimeDependencies": {},
+      "installScriptsExecuted": false,
+      "status": "ACCEPTED_BOUNDED_RUNTIME_SCOPE",
+      "staticHits": {
+        "fetch\\(": [],
+        "XMLHttpRequest": [],
+        "WebSocket": [],
+        "eval\\(": [],
+        "new Function": [],
+        "localStorage": [],
+        "sessionStorage": [],
+        "document.cookie": [],
+        "postMessage": []
+      },
+      "files": [
+        {
+          "path": "oss\\sortablejs\\LICENSE",
+          "sha256": "e94dfc31e800d169257569db270457c9f028440c9ccae41e7eb78b2db18f1298",
+          "bytes": 1106
+        },
+        {
+          "path": "oss\\sortablejs\\package.json",
+          "sha256": "1d9129ec0c10a4b244e917dba2cd84037ff7648343cf51902ae4d4907e09ab2f",
+          "bytes": 1765
+        },
+        {
+          "path": "oss\\sortablejs\\Sortable.js",
+          "sha256": "70deb5bead2baa4b52b1e8e756cfacd0dbbfca56760b830c5afee64e7aeddea7",
+          "bytes": 126278
+        }
+      ],
+      "runtimeScope": "Editor section ordering, no storage/plugins/network",
+      "review": "Sortable code contains no scanned network/eval/storage/cookie APIs. axe has built-in CSS/media XHR preload and internal Function/template/configuration utilities; integration disables preload and caller customization. No downloaded build/install scripts run. Browser request and CSP checks required."
+    },
+    {
+      "name": "axe-core",
+      "version": "4.13.0",
+      "license": "MPL-2.0",
+      "gitCommit": "1cc54b900413660610180d631feb73c9e74f4dc9",
+      "registryGitHead": null,
+      "upstreamVersionMatched": true,
+      "integrity": "sha512-UzGt8zg7Ny8djbYMhxl2zuEevVa7r2gJjYY5Lwr1xM7+XU2nd6CkIWFTVcCIbAP63vSz71NaVyyuSk9lHKcy0A==",
+      "archiveSha256": "096912f6e77b4b695fc9304b7be65091db42d98de054da674ae222a11cb33f70",
+      "runtimeDependencies": {},
+      "installScriptsExecuted": false,
+      "status": "ACCEPTED_BOUNDED_RUNTIME_SCOPE",
+      "staticHits": {
+        "fetch\\(": [],
+        "XMLHttpRequest": [
+          "l);\n      return new Promise(function(resolve, reject) {\n        var request = new window.XMLHttpRequest();\n        request.open('GET', url);\n        request.timeout = constants_default.preload.timeout;\n        request.addEventListener('error',"
+        ],
+        "WebSocket": [],
+        "eval\\(": [],
+        "new Function": [
+          "              def[code] = value;\n                }\n              } else {\n                new Function('def', 'def[\\'' + code + '\\']=' + value)(def);\n              }\n            }\n            return '';\n          }).replace(c4.use || skip, fu",
+          "p[\\'' + rw + '\\']';\n                }\n              });\n            }\n            var v = new Function('def', 'return ' + code)(def);\n            return v ? resolveDefs(c4, v, def) : v;\n          });\n        }\n        function unescape(code) ",
+          "(c4.doNotSkipEncoded || '') + '));' + str;\n          }\n          try {\n            return new Function(c4.varname, str);\n          } catch (e) {\n            if (typeof console !== 'undefined') {\n              console.log('Could not create a t",
+          "--) {\n              args.push('a' + (++i).toString(36));\n            }\n            return new Function('fn', 'return function (' + args.join(', ') + ') { return fn.apply(this, arguments); };');\n          };\n        }();\n        module.exports",
+          "fault[spec];\n        }\n        if (/^\\s*function[\\s\\w]*\\(/.test(spec)) {\n          return new Function('return ' + spec + ';')();\n        }\n        throw new ReferenceError('Function ID does not exist in the metadata-function-map: '.concat(sp",
+          "a.messages[prop].indexOf('function') === 0) {\n                  metadata.messages[prop] = new Function('return ' + metadata.messages[prop] + ';')();\n                }\n              });\n            }\n          }\n          if (this.checks[spec."
+        ],
+        "localStorage": [],
+        "sessionStorage": [],
+        "document.cookie": [],
+        "postMessage": [
+          "l.port1.onmessage = flush;\n          return function() {\n            return channel.port2.postMessage(0);\n          };\n        }\n        function useSetTimeout() {\n          var globalSetTimeout = setTimeout;\n          return function() {\n  ",
+          "return false;\n      }\n      messageIds.push(uuid2);\n      return true;\n    }\n    function postMessage(win, data, sendToParent, replyHandler) {\n      sendToParent ? assertIsParentWindow(win) : assertIsFrameWindow(win);\n      if (data.message ",
+          "ent);\n      }\n      allowedOrigins.forEach(function(origin) {\n        try {\n          win.postMessage(dataString, origin);\n        } catch (err2) {\n          if (err2 instanceof win.DOMException) {\n            throw new Error('allowedOrigins",
+          " if (!win.parent !== window) {\n        return axe.log(error);\n      }\n      try {\n        postMessage(win, {\n          topic: null,\n          channelId: channelId,\n          message: error,\n          messageId: createMessageId(),\n          k",
+          " channelId,\n          message: message,\n          keepalive: keepalive\n        };\n        postMessage(win, data, sendToParent, replyHandler);\n      };\n    }\n    function originIsAllowed(origin) {\n      var allowedOrigins = axe._audit.allowed",
+          "indow.addEventListener !== 'function') {\n          return false;\n        }\n        return postMessage(win, data, false, replyHandler);\n      }\n    };\n    function setDefaultFrameMessenger(respondable2) {\n      respondable2.updateMessenger(fr",
+          "{\n      respondable2.updateMessenger(frameMessenger);\n    }\n    var closeHandler;\n    var postMessage2;\n    var topicHandlers = {};\n    function _respondable(win, topic, message, keepalive, replyHandler) {\n      var data = {\n        topic: t",
+          "Id: ''.concat(v4(), ':').concat(v4()),\n        keepalive: keepalive\n      };\n      return postMessage2(win, data, replyHandler);\n    }\n    function messageListener(data, responder) {\n      var topic = data.topic, message = data.message, keep",
+          ";\n        closeHandler = close;\n      } else {\n        closeHandler = null;\n      }\n      postMessage2 = post;\n    };\n    _respondable.subscribe = function subscribe(topic, topicHandler) {\n      assert_default(typeof topicHandler === 'functi"
+        ]
+      },
+      "files": [
+        {
+          "path": "oss\\axe-core\\axe.js",
+          "sha256": "138a93a4ce7b7c6c08ed84144e45dcd8cc36d2d4ff8ed673619faf0406906d88",
+          "bytes": 1305279
+        },
+        {
+          "path": "oss\\axe-core\\axe.min.js",
+          "sha256": "c24f097bd2f451d4f933e8bc7d8d539f8672a2ebcb5cc9f9f3eec8ca9470a0c1",
+          "bytes": 580491
+        },
+        {
+          "path": "oss\\axe-core\\LICENSE",
+          "sha256": "af175b9d96ee93c21a036152e1b905b0b95304d4ae8c2c921c7609100ba8df7e",
+          "bytes": 15921
+        },
+        {
+          "path": "oss\\axe-core\\LICENSE-3RD-PARTY.txt",
+          "sha256": "4f8563870d0fca38bbc3e00b6f670cb7fa9f380ba9f26a7f7d1184a6b18b1653",
+          "bytes": 3766
+        },
+        {
+          "path": "oss\\axe-core\\package.json",
+          "sha256": "d208b100bbee8f00e469bf8093fad40b5e3bdb0565fb4c1d89b6c9a289a06847",
+          "bytes": 7079
+        }
+      ],
+      "runtimeScope": "User-requested automated QA on same-origin owned DOM; preload:false, iframes:false; no caller configure, custom rules, template metadata or external assets",
+      "review": "Sortable code contains no scanned network/eval/storage/cookie APIs. axe has built-in CSS/media XHR preload and internal Function/template/configuration utilities; integration disables preload and caller customization. No downloaded build/install scripts run. Browser request and CSP checks required."
+    }
+  ],
+  "executed": false,
+  "executedAtReview": false,
+  "reviewResult": "PASS_STATIC_SOURCE_IDENTITY_AND_BOUNDED_ADOPTION",
+  "licensePlan": "MIT notices preserved; axe MPL unmodified full human-readable source, MPL and third-party notices served next to engine; editor/export own code remains separate",
+  "advisoryCheck": {
+    "sortable": "No published repository advisories on 2026-10-01",
+    "axe": "No published repository advisories on 2026-10-01",
+    "limitation": "Repository advisory absence is not a comprehensive vulnerability proof"
+  },
+  "compared": [
+    {
+      "name": "GrapesJS core",
+      "license": "BSD-3-Clause",
+      "decision": "defer",
+      "reason": "Full builder overlaps own structured editor and creates an avoidable framework/model rewrite."
+    },
+    {
+      "name": "Remotion",
+      "license": "Commercial eligibility conditions; not universally free",
+      "decision": "defer",
+      "reason": "No assumption about company size/license eligibility. Native browser WebM meets bounded video requirement with no new cost."
+    },
+    {
+      "name": "browser-fs-access / ZIP dependencies",
+      "decision": "defer",
+      "reason": "Native project upload/download and own bounded store-only ZIP suffice; no extra package needed."
+    }
+  ],
+  "verificationPlan": [
+    "Actual mouse/touch reorder plus keyboard alternative",
+    "Invalid imports and script-looking text remain inert",
+    "Editor and exported pages axe scans, narrow widths",
+    "Web ZIP independently extracted, all file hashes checked and replayed",
+    "Actual WebM decode, playback, resolution, duration, caption and export checks",
+    "Reduced motion, active handle count, cancel/retry and request log",
+    "Preserve all earlier bytes and mtimes"
+  ]
+}
