@@ -12,9 +12,11 @@ export function assertAsthmaTerminologyContract(article: HealthArticle) {
   assert.ok(paragraphs);
   assert.equal(paragraphs[0], approvedAsthmaGlossary);
   // Remove only the two approved acronym tokens at the exact verified slot, keeping the paragraph.
-  const withoutApprovedTokens = JSON.stringify(article, (key, value) =>
-    key === "paragraphs" && value === paragraphs
-      ? paragraphs.map((paragraph, index) => index === 0 ? paragraph.replace(/\b(?:AIR|MART)\b/g, "[approved term]") : paragraph)
-      : value);
+  const withoutApprovedTokens = JSON.stringify({
+    ...article,
+    sections: article.sections.map((section, sectionIndex) => sectionIndex === 1
+      ? { ...section, paragraphs: paragraphs.map((paragraph, index) => index === 0 ? paragraph.replace(/\b(?:AIR|MART)\b/g, "[approved term]") : paragraph) }
+      : section),
+  });
   assert.doesNotMatch(withoutApprovedTokens, /SABA|MART|AIR/);
 }

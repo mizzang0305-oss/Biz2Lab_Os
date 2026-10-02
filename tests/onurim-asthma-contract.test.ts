@@ -24,6 +24,9 @@ test("asthma keeps dose and acronym rejection outside the exact approved tokens 
     rejectMutation(`${term} in a second paragraph of the glossary section`, article => { article.sections[1].paragraphs!.push(term); });
   }
   rejectMutation("approved glossary duplicated in another section", article => { article.sections[2].paragraphs!.push(approvedAsthmaGlossary); });
+  rejectMutation("approved paragraphs shared with another section", article => { article.sections[2].paragraphs = article.sections[1].paragraphs; });
+  rejectMutation("approved paragraphs shared with an added section", article => { article.sections.push({ ...article.sections[2], paragraphs: article.sections[1].paragraphs }); });
+  rejectMutation("approved section object shared at another position", article => { article.sections[2] = article.sections[1]; });
   for (const dose of ["2puff", "2회씩", "2번씩", "2분마다", "2mg", "2회분", "2퍼프", "2밀리그램"]) {
     rejectMutation(`${dose} inside the approved slot`, article => { article.sections[1].paragraphs![0] += ` ${dose}`; });
     rejectMutation(`${dose} in another article field`, article => { article.description += ` ${dose}`; });
