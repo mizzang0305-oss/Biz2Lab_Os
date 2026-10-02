@@ -36,6 +36,7 @@ export const hubConditionGroups: { id: string; title: string; slugs: HealthArtic
 ];
 
 export const hubSupportGroups = [
+  { title: "생활 건강·검사·정보 확인", slugs: ["health-claim-before-forwarding", "soap-or-sanitizer-different-jobs", "hearing-sound-and-words", "vaccination-record-not-found", "eye-exam-and-trip-home"] },
   { title: "생활 속 정보·서류·이동 준비", slugs: ["lock-screen-info-before-saving", "photo-backup-is-not-sharing", "appointment-route-entrance-and-lift", "pdf-search-image-text-difference", "nutrition-label-same-quantity"] },
   { title: "측정·검사", slugs: ["reading-health-results", "understanding-hba1c", "measuring-blood-pressure"] },
   { title: "기록·진료·약 목록", slugs: ["symptom-journal", "appointment-questions", "medication-list"] },
