@@ -139,7 +139,7 @@ test("ONURIM hub exposes every public guide and tool while retired resources sta
   assert.equal(staticPublicRoutes.includes("/health"), true);
   assert.equal(healthMetadata.alternates?.canonical, "https://www.biz2lab.com/health");
   assert.equal(Object.keys(healthArticles).length, 20);
-  assert.equal(healthSupportGuides.length, 9);
+  assert.equal(healthSupportGuides.length, 14);
   assert.equal(healthTools.length, 34);
   assert.doesNotMatch(html, /AdSense|재심사/);
 

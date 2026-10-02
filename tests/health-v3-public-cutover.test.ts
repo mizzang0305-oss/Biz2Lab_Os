@@ -22,7 +22,7 @@ const expectedSlugs = [
 
 test("ONURIM portfolio keeps twenty disease guides and source-audited SEO additions", () => {
   assert.deepEqual(Object.keys(healthArticles).sort(), expectedSlugs);
-  assert.equal(healthSupportGuides.length, 9);
+  assert.equal(healthSupportGuides.length, 14);
   assert.equal(healthTools.length, 34);
   assert.equal(healthClaims.length, 144);
   assert.equal(healthSources.length, 170);

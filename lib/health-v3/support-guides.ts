@@ -1,4 +1,5 @@
 import type { HealthSource } from "./content";
+import { dailyGuides20261002 } from "./daily-guides-20261002";
 
 export type HealthSupportGuide = {
   slug: string;
@@ -21,6 +22,7 @@ export type HealthSupportGuide = {
 };
 
 export const healthSupportGuides: HealthSupportGuide[] = [
+  ...dailyGuides20261002,
   {
     "slug": "danger-signals",
     "title": "지금 위험 신호가 있다면, 기록보다 119가 먼저입니다",

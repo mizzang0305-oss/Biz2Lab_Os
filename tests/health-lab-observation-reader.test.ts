@@ -26,7 +26,7 @@ test("three authorized revisions preserve all other disease bodies and previous 
     assert.equal(digest(article), baseline.articleData[article.slug], article.slug);
   }
   const nextBaseline = JSON.parse(readFileSync("tests/fixtures/health-individual-reader-baseline.json", "utf8"));
-  for (const guide of healthSupportGuides.filter(guide=>!["reading-health-results","symptom-journal","appointment-questions"].includes(guide.slug)&&!["measuring-blood-pressure", "understanding-hba1c"].includes(guide.slug))) assert.equal(digest(guide), nextBaseline.guideData[guide.slug], guide.slug);
+  for (const guide of healthSupportGuides.filter(guide=>Object.hasOwn(nextBaseline.guideData, guide.slug)&&!["reading-health-results","symptom-journal","appointment-questions"].includes(guide.slug)&&!["measuring-blood-pressure", "understanding-hba1c"].includes(guide.slug))) assert.equal(digest(guide), nextBaseline.guideData[guide.slug], guide.slug);
   assert.equal(digest(healthTools), baseline.toolsSha256);
   assert.equal(digest(healthClaims), baseline.claimRegistrySha256);
   for (const source of baseline.originalSources) assert.deepEqual(healthSources.find(item => item.id === source.id), source);

@@ -18,7 +18,7 @@ const plain=(html:string)=>html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,"")
 const render=async(slug:string)=>renderToStaticMarkup(await GuidePage({params:Promise.resolve({slug})}));
 test("guide action batch preserves all20 disease, other6 guide,144 claims,170 source records and34 existing tools",async()=>{
  for(const a of Object.values(healthArticles)){assert.equal(digest(a),baseline.articleData[a.slug],a.slug);assert.equal(digest(renderToStaticMarkup(a.slug==="hypertension"?createElement(HypertensionPage):createElement(HealthArticlePage,{article:a}))),baseline.articleHtml[a.slug],a.slug);}
- for(const g of healthSupportGuides.filter(g=>!selected.includes(g.slug))){assert.equal(digest(g),baseline.guideData[g.slug],g.slug);assert.equal(digest(await render(g.slug)),baseline.guideHtml[g.slug],g.slug);}
+ for(const g of healthSupportGuides.filter(g=>Object.hasOwn(baseline.guideData, g.slug)&&!selected.includes(g.slug))){assert.equal(digest(g),baseline.guideData[g.slug],g.slug);assert.equal(digest(await render(g.slug)),baseline.guideHtml[g.slug],g.slug);}
  assert.equal(healthClaims.length,144);assert.equal(digest(healthClaims),baseline.claimRegistrySha256);assert.equal(healthSources.length,170);assert.deepEqual(healthSources,baseline.originalSources);assert.equal(digest(healthTools),baseline.toolsSha256);
  for(const t of healthTools)assert.equal(digest(renderToStaticMarkup(createElement(HealthToolPage,{tool:t}))),baseline.toolHtml[t.slug],t.slug);
 });
