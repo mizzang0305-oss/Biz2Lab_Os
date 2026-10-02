@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import test from "node:test";
-import { healthArticles, healthTools, trustPages } from "../lib/health-v3/content";
+import { healthArticles, healthSources, healthTools, trustPages } from "../lib/health-v3/content";
 import { healthSupportGuides } from "../lib/health-v3/support-guides";
 import { getToolSafetyNotice, getToolSources, toolEditorial } from "../lib/health-v3/tool-editorial";
 import { authorProfileJsonLd, createMetadata } from "../lib/seo";
@@ -430,7 +430,10 @@ test("reflux timing log inherits urgent help before instructions and does not pr
   assert.equal(tool.columns?.length, 7);
   assert.match(tool.columns![0], /증상 시작 시각/);
   const copy = toolEditorial[tool.slug];
-  assert.equal(getToolSafetyNotice(tool), healthArticles[tool.articleSlug].sections[0]);
+  const notice = getToolSafetyNotice(tool);
+  assert.ok(notice);
+  assert.equal(notice, healthArticles[tool.articleSlug].sections.find(section => section.tone === "warning"));
+  assert.match(JSON.stringify(notice), /119/);
   assert.match(copy.steps.join(" "), /일부러 증상을 유발하지/);
   assert.match(copy.purpose, /12일을 채운 뒤.*뜻이 아닙니다/);
   assert.match(copy.sheetNotice!, /커피 찌꺼기.*바로 의료 도움/);
@@ -695,13 +698,39 @@ test("symptom journal is a communication example rather than a diagnostic or wai
   assert.ok(guide.sources.every(s=>s.retrievedAt===guide.sourceCheckedAt));
 });
 
-test("disease and support contextual links resolve to existing public ONURIM routes", () => {
+test("disease and support contextual links resolve to public ONURIM targets or registered HTTPS sources", () => {
   const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`),
     ...healthSupportGuides.map(g=>`/health/guides/${g.slug}`),
     ...healthTools.map(t=>`/health/tools/${t.slug}`), ...trustPages.map(t=>`/health/trust/${t.slug}`)]);
+  const withoutFragment = (href: string) => {
+    const url = new URL(href);
+    url.hash = "";
+    return url.href;
+  };
+  const sourceUrls = new Set([
+    ...healthSources.map(source => source.url),
+    ...healthSupportGuides.flatMap(guide => guide.sources.map(source => source.url)),
+  ].map(withoutFragment));
   for (const guide of [...healthSupportGuides, ...Object.values(healthArticles)]) {
     for (const section of guide.sections) {
-      for (const link of section.links ?? []) assert.ok(routes.has(link.href), `${guide.slug}: ${link.href}`);
+      for (const link of section.links ?? []) {
+        if (link.href.startsWith("/")) {
+          const url = new URL(link.href, "https://www.biz2lab.com");
+          assert.equal(url.origin, "https://www.biz2lab.com");
+          const publicSample = url.pathname.startsWith("/health/samples/") && url.pathname.endsWith(".html") && existsSync(`public${url.pathname}`);
+          assert.ok(routes.has(url.pathname) || publicSample, `${guide.slug}: ${link.href}`);
+          if (url.hash) {
+            const article = Object.values(healthArticles).find(target => `/health/${target.slug}` === url.pathname);
+            const targetGuide = healthSupportGuides.find(target => `/health/guides/${target.slug}` === url.pathname);
+            const anchor = decodeURIComponent(url.hash.slice(1));
+            assert.ok((article && anchor === "urgent-action" && article.sections.some(section => section.tone === "warning")) ||
+              targetGuide?.sections.some(section => section.id === anchor), `${guide.slug}: missing anchor ${link.href}`);
+          }
+        } else {
+          assert.equal(new URL(link.href).protocol, "https:", `${guide.slug}: ${link.href}`);
+          assert.ok(sourceUrls.has(withoutFragment(link.href)), `${guide.slug}: unregistered source ${link.href}`);
+        }
+      }
     }
   }
 });
@@ -847,7 +876,10 @@ test("GERD questions connect actual records to individual testing and follow-up 
   assert.equal(tool.fields?.length, 2);
   assert.equal(tool.items?.length, 4);
   assert.equal(getToolSources(tool).length, 6);
-  assert.equal(getToolSafetyNotice(tool), healthArticles[tool.articleSlug].sections[0]);
+  const notice = getToolSafetyNotice(tool);
+  assert.ok(notice);
+  assert.equal(notice, healthArticles[tool.articleSlug].sections.find(section => section.tone === "warning"));
+  assert.match(JSON.stringify(notice), /119/);
   assert.match(copy.description, /성인/);
   assert.match(copy.limitation, /모두 받아야 한다는 카드가 아닙니다/);
   assert.match(copy.steps.join(" "), /해당 기관의 식사·약 준비 지침/);
