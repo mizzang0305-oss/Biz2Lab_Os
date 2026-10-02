@@ -8,6 +8,7 @@ import { getToolSafetyNotice, getToolSources, toolEditorial } from "../lib/healt
 import { authorProfileJsonLd, createMetadata } from "../lib/seo";
 import sitemap from "../app/sitemap";
 import robots from "../app/robots";
+import { assertAsthmaTerminologyContract } from "./helpers/asthma-terminology-contract";
 import type { HealthSupportGuide } from "../lib/health-v3/support-guides";
 
 function assertGuideSourceProvenance(guide: HealthSupportGuide) {
@@ -1242,10 +1243,7 @@ test("asthma explains airway narrowing and reads an existing plan without creati
   assert.match(urgent.paragraphs[1], /창백해지거나 파랗게 또는 회색빛/);
   assert.equal(urgent.bullets, undefined);
   assert.match(text, /안정된 때/);
-  assert.doesNotMatch(text, /\d+\s*(puff|회씩|번씩|분마다|mg)/);
-  const glossary = article.sections[1].paragraphs![0];
-  assert.match(glossary, /NHS.*AIR.*MART.*내 약을 골라 주는 기준이 아니라.*개인 지침을 확인/);
-  assert.doesNotMatch(text.replace(JSON.stringify(glossary).slice(1, -1), ""), /SABA|MART|AIR/);
+  assertAsthmaTerminologyContract(article);
   assert.ok(article.visuals?.["ast-action"].caption.includes("검수자 사진이 아닌"));
   const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(s=>`/health/${s}`), ...healthSupportGuides.map(s=>`/health/guides/${s.slug}`), ...healthTools.map(s=>`/health/tools/${s.slug}`)]);
   for (const link of article.sections.flatMap(s=>s.links ?? [])) assert.ok(routes.has(link.href), link.href);
