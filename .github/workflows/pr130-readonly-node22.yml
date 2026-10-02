@@ -1,0 +1,145 @@
+name: PR130 exact-source Node22 validation
+
+on:
+  push:
+    branches: [codex/pr130-readonly-node22-50ddd43]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr130-readonly-node22-50ddd43
+  cancel-in-progress: false
+
+jobs:
+  exact-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        shell: bash
+    env:
+      EXPECTED_SOURCE_SHA: 50ddd4381a57760f244b9886779110cd22f490dc
+      EXPECTED_SOURCE_TREE: 413d7cc19da4f35e96959334da627b1ce1e49e14
+      EXPECTED_LOCK_SHA256: 198bc9d1312e09daa553186ea6fe608db61e595efa655504c81f27dedd7da8b7
+      BIZ2LAB_COMMERCIAL_CAPTURE_ENABLED: 'false'
+      COMMERCIAL_FRONT_READY: 'false'
+      NEXT_TELEMETRY_DISABLED: '1'
+      NODE_DISABLE_COLORS: '1'
+      FORCE_COLOR: '0'
+    steps:
+      - name: Checkout the reviewed application SHA, independently of the CI control commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: 50ddd4381a57760f244b9886779110cd22f490dc
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Verify application identity and absence of DB credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/pr130-readonly-evidence"
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SOURCE_SHA"
+          test "$(git rev-parse HEAD^{tree})" = "$EXPECTED_SOURCE_TREE"
+          test "$(sha256sum package-lock.json | cut -d' ' -f1)" = "$EXPECTED_LOCK_SHA256"
+          test -z "$(git status --porcelain)"
+          node <<'NODE'
+          const keys = Object.keys(process.env).filter(k => /(^|_)(SUPABASE|DATABASE_URL|POSTGRES|PGPASSWORD|SERVICE_ROLE)(_|$)/i.test(k));
+          if (keys.length) throw new Error('DB credential variable present; fail closed (values not logged)');
+          if (process.env.BIZ2LAB_COMMERCIAL_CAPTURE_ENABLED !== 'false' || process.env.COMMERCIAL_FRONT_READY !== 'false') throw new Error('Capture/readiness gate changed');
+          if (process.versions.node.split('.')[0] !== '22') throw new Error('Wrong Node major');
+          NODE
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Install a temporary Node network guard without changing source
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > "$RUNNER_TEMP/pr130-network-guard.cjs" <<'NODE'
+          const fs = require('node:fs');
+          const net = require('node:net');
+          const loopback = new Set(['localhost', '127.0.0.1', '::1', '::ffff:127.0.0.1']);
+          const fonts = new Set(['fonts.googleapis.com', 'fonts.gstatic.com']);
+          function check(host, port, transport) {
+            host = String(host || 'localhost').replace(/^\[|\]$/g, '').toLowerCase();
+            const buildIpc = process.env.VERIFY_ALLOW_FONTS === '1' && /^\d+$/.test(process.argv[2] || '') && String(port) === process.argv[2];
+            if (loopback.has(host) && buildIpc) return;
+            if (process.env.VERIFY_ALLOW_FONTS === '1' && fonts.has(host) && String(port) === '443') return;
+            fs.appendFileSync(process.env.VERIFY_NETWORK_LOG, JSON.stringify({host, port: String(port), transport, action: 'blocked'}) + '\n');
+            throw new Error(`Read-only CI network denied: ${host}:${port}`);
+          }
+          const original = net.Socket.prototype.connect;
+          net.Socket.prototype.connect = function(...args) {
+            const options = (Array.isArray(args[0]) ? args[0] : net._normalizeArgs(args))[0];
+            if (!options.path) check(options.host, options.port, 'socket');
+            return original.apply(this, args);
+          };
+          const originalFetch = globalThis.fetch;
+          if (originalFetch) globalThis.fetch = function(input, options) {
+            const url = new URL(typeof input === 'string' || input instanceof URL ? input : input.url);
+            check(url.hostname, url.port || (url.protocol === 'https:' ? 443 : 80), 'fetch');
+            return originalFetch(input, options);
+          };
+          NODE
+          printf 'NODE_OPTIONS=--require=%s\n' "$RUNNER_TEMP/pr130-network-guard.cjs" >> "$GITHUB_ENV"
+          printf 'VERIFY_NETWORK_LOG=%s\n' "$RUNNER_TEMP/pr130-readonly-evidence/network-blocks.jsonl" >> "$GITHUB_ENV"
+          printf 'VERIFY_ALLOW_FONTS=0\n' >> "$GITHUB_ENV"
+      - name: Full test suite with exact expected totals
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm test 2>&1 | tee "$RUNNER_TEMP/pr130-readonly-evidence/test.log"
+          node <<'NODE'
+          const fs = require('node:fs');
+          const text = fs.readFileSync(process.env.RUNNER_TEMP + '/pr130-readonly-evidence/test.log', 'utf8').replace(/\u001b\[[0-9;]*m/g, '');
+          for (const [label, n] of [['tests',418], ['pass',418], ['fail',0], ['cancelled',0], ['skipped',0], ['todo',0]]) {
+            if (!new RegExp('^(?:ℹ|#)?\\s*' + label + '\\s+' + n + '\\s*$', 'm').test(text)) throw new Error('Unexpected full-suite total: ' + label);
+          }
+          NODE
+      - name: Typecheck
+        run: npm run typecheck 2>&1 | tee "$RUNNER_TEMP/pr130-readonly-evidence/type.log"
+      - name: Full lint with existing warnings visible
+        run: npm run lint 2>&1 | tee "$RUNNER_TEMP/pr130-readonly-evidence/lint.log"
+      - name: SEO and MINZ artifacts
+        run: |
+          npm run validate:seo 2>&1 | tee "$RUNNER_TEMP/pr130-readonly-evidence/seo.log"
+          node scripts/verify-minz-lineup.mjs 2>&1 | tee "$RUNNER_TEMP/pr130-readonly-evidence/minz.log"
+      - name: Actual preview build with public font reads only
+        env:
+          VERIFY_ALLOW_FONTS: '1'
+          NODE_ENV: production
+          VERCEL_ENV: preview
+        run: npm run build 2>&1 | tee "$RUNNER_TEMP/pr130-readonly-evidence/build.log"
+      - name: Built commercial structured-data boundary
+        run: npm run verify:commercial-structured-data 2>&1 | tee "$RUNNER_TEMP/pr130-readonly-evidence/structured-data.log"
+      - name: Record tested source and CI control identities separately
+        if: always()
+        env:
+          CI_JOB_STATUS: ${{ job.status }}
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs'), cp = require('node:child_process'), crypto = require('node:crypto');
+          const out = process.env.RUNNER_TEMP + '/pr130-readonly-evidence'; fs.mkdirSync(out, {recursive:true});
+          const git = (...args) => cp.execFileSync('git', args, {encoding:'utf8'}).trim();
+          const status = git('status', '--porcelain');
+          const sha = git('rev-parse', 'HEAD'), tree = git('rev-parse', 'HEAD^{tree}');
+          const lock = crypto.createHash('sha256').update(fs.readFileSync('package-lock.json')).digest('hex');
+          const identity = {tested_source_sha:sha, tested_source_tree:tree, ci_control_sha:process.env.GITHUB_SHA,
+            node:process.version, lock_sha256:lock, tracked_source_status:status, job_status:process.env.CI_JOB_STATUS,
+            capture_enabled:false, commercial_front_ready:false, db_migration:'NOT_RUN', db_e2e:'NOT_RUN', deployment:'NOT_RUN',
+            run_url:`https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
+            build_id:fs.existsSync('.next/BUILD_ID') ? fs.readFileSync('.next/BUILD_ID','utf8').trim() : null};
+          fs.writeFileSync(out + '/identity.json', JSON.stringify(identity,null,2)+'\n');
+          if (sha !== process.env.EXPECTED_SOURCE_SHA || tree !== process.env.EXPECTED_SOURCE_TREE || lock !== process.env.EXPECTED_LOCK_SHA256 || status) throw new Error('Source identity or cleanliness changed');
+          NODE
+      - name: Archive evidence, including failures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: pr130-source-50ddd43-node22
+          path: ${{ runner.temp }}/pr130-readonly-evidence/
+          if-no-files-found: error
+          retention-days: 1
