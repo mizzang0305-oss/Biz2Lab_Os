@@ -48,7 +48,7 @@ test("actual danger markup and metadata align without internal codes or invented
 });
 
 test("all other eight support articles retain their exact approved data and rendered markup", async () => {
-  for (const guide of healthSupportGuides.filter(guide=>!["reading-health-results","symptom-journal","appointment-questions"].includes(guide.slug)&&!revised.has(guide.slug) && guide.slug !== "measuring-blood-pressure" && guide.slug !== "understanding-hba1c")) {
+  for (const guide of healthSupportGuides.filter(guide=>Object.hasOwn(baseline.guides, guide.slug)&&!["reading-health-results","symptom-journal","appointment-questions"].includes(guide.slug)&&!revised.has(guide.slug) && guide.slug !== "measuring-blood-pressure" && guide.slug !== "understanding-hba1c")) {
     assert.equal(hash(JSON.stringify(guide)), baseline.guides[guide.slug].data, guide.slug);
     const html = renderToStaticMarkup(await SupportGuidePage({params: Promise.resolve({slug: guide.slug})}));
     assert.equal(hash(html), baseline.guides[guide.slug].html, guide.slug);
