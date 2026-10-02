@@ -1,5 +1,6 @@
 import type { HealthSource } from "./content";
 import { dailyGuides20261002 } from "./daily-guides-20261002";
+import { dailyGuides20261003 } from "./daily-guides-20261003";
 
 export type HealthSupportGuide = {
   slug: string;
@@ -22,6 +23,7 @@ export type HealthSupportGuide = {
 };
 
 export const healthSupportGuides: HealthSupportGuide[] = [
+  ...dailyGuides20261003,
   ...dailyGuides20261002,
   {
     "slug": "danger-signals",
