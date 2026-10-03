@@ -21,7 +21,8 @@ test("two-step SSR uses one approved photo each and distinguishes completion fro
 });
 test("home exposes age conditions without treating grade as participation eligibility",()=>{
  const html=renderToStaticMarkup(createElement(PocketMoneyHome));
- for(const copy of ["즐거운 용돈벌이","용돈 벌기, 가입하기 전에 조건부터.","초등학생","중학생","고등학생","대학생"])assert.ok(html.includes(copy),copy);
+ const text=html.replace(/<[^>]+>/g,"");
+ for(const copy of ["즐거운 용돈벌이","용돈 벌기, 가입하기 전에 조건부터.","초등학생","중학생","고등학생","대학생"])assert.ok(text.includes(copy),copy);
  assert.ok(html.includes('href="/health"'));
  assert.doesNotMatch(html,/<input|<form|추천인|예상 수익/);
  assert.deepEqual(getPublishedPocketGuides(),[]);

@@ -1,7 +1,7 @@
 import {test,expect,type Page,type BrowserContext} from "@playwright/test";
 import fs from "node:fs";
 import {build} from "esbuild";
-const origin="http://127.0.0.1:33153",harness=origin+"/__resume-test-harness";
+const origin=`http://127.0.0.1:${process.env.POCKET_PREVIEW_PORT??"33153"}`,harness=origin+"/__resume-test-harness";
 const key="pocket-money:resume:declaration-finish";
 let html="";
 const network=new WeakMap<BrowserContext,{automatic:string[];writes:string[];intentional:number;allowNavigation:boolean}>();
