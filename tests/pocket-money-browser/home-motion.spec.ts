@@ -64,6 +64,8 @@ test("200 percent text zoom and no-JS fallback preserve conditions and health na
  await page.setViewportSize({width:390,height:844});await page.goto("/",{waitUntil:"networkidle"});
  await page.addStyleTag({content:'html{font-size:200% !important}'});
  expect(await page.getByRole("button",{name:"중학생",exact:true}).evaluate(n=>parseFloat(getComputedStyle(n).fontSize))).toBeGreaterThanOrEqual(32);
+ const zoomLabel=page.getByRole("button",{name:"초등학생",exact:true}).getByText("초등학생",{exact:true});
+ expect(await zoomLabel.evaluate(n=>n.getBoundingClientRect().height)).toBeLessThanOrEqual(await zoomLabel.evaluate(n=>parseFloat(getComputedStyle(n).lineHeight))+1);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  for(const badge of await page.locator("#guides span").all()){
   const box=await badge.boundingBox(),parent=await badge.evaluate(n=>n.parentElement!.getBoundingClientRect().toJSON());
