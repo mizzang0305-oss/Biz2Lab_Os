@@ -12,6 +12,8 @@ export function PocketMoneyHome(){
  const [burst,setBurst]=useState<{target:string;x:number;y:number}|null>(null);
  useEffect(()=>{
   const media=window.matchMedia("(prefers-reduced-motion: reduce)");
+  const container=root.current;
+  const retireReveal=(event:AnimationEvent)=>{if(event.target instanceof HTMLElement)event.target.classList.remove(styles.revealOnce);};
   const observer=typeof IntersectionObserver==="undefined"?null:new IntersectionObserver(entries=>{
    for(const entry of entries)if(entry.isIntersecting){
     entry.target.setAttribute("data-reveal-played","true");
@@ -20,9 +22,10 @@ export function PocketMoneyHome(){
    }
   },{threshold:.18});
   root.current?.querySelectorAll("[data-home-reveal]").forEach(node=>observer?.observe(node));
-  const stop=()=>{if(media.matches||document.hidden){if(timer.current!==null)window.clearTimeout(timer.current);setBurst(null);}};
+  const stop=()=>{if(media.matches||document.hidden){if(timer.current!==null)window.clearTimeout(timer.current);setBurst(null);container?.querySelectorAll("[data-home-reveal]").forEach(node=>node.classList.remove(styles.revealOnce));}};
+  container?.addEventListener("animationend",retireReveal);container?.addEventListener("animationcancel",retireReveal);
   media.addEventListener("change",stop);document.addEventListener("visibilitychange",stop);
-  return()=>{observer?.disconnect();if(timer.current!==null)window.clearTimeout(timer.current);media.removeEventListener("change",stop);document.removeEventListener("visibilitychange",stop);};
+  return()=>{observer?.disconnect();if(timer.current!==null)window.clearTimeout(timer.current);container?.removeEventListener("animationend",retireReveal);container?.removeEventListener("animationcancel",retireReveal);media.removeEventListener("change",stop);document.removeEventListener("visibilitychange",stop);};
  },[]);
  const trigger=(event:MouseEvent<HTMLElement>,target:string)=>{
   if(window.matchMedia("(prefers-reduced-motion: reduce)").matches||document.hidden)return;

@@ -41,6 +41,17 @@ test("scroll entrance occurs once and content never relies on animation",async({
  expect(await card.evaluate(n=>n.getAnimations().filter(a=>a.playState==="running").length)).toBe(0);
  expect(await card.evaluate(n=>getComputedStyle(n).opacity)).toBe("1");
 });
+test("preference toggles do not replay completed or interrupted entrances",async({page})=>{
+ await page.goto("/",{waitUntil:"networkidle"});const card=page.locator("[data-home-reveal]").last();
+ await card.scrollIntoViewIfNeeded();await expect(card).toHaveAttribute("data-reveal-played","true");await page.waitForTimeout(400);
+ await page.emulateMedia({reducedMotion:"reduce"});await page.emulateMedia({reducedMotion:"no-preference"});
+ expect(await card.evaluate(n=>n.getAnimations().filter(a=>a.playState==="running").length)).toBe(0);
+ await page.reload({waitUntil:"networkidle"});const first=page.locator("[data-home-reveal]").first();await first.scrollIntoViewIfNeeded();
+ await expect(first).toHaveAttribute("data-reveal-played","true");
+ await page.emulateMedia({reducedMotion:"reduce"});await page.emulateMedia({reducedMotion:"no-preference"});
+ expect(await first.evaluate(n=>n.getAnimations().filter(a=>a.playState==="running").length)).toBe(0);
+ expect(await first.evaluate(n=>getComputedStyle(n).opacity)).toBe("1");
+});
 test("reduced motion disables effects while keyboard selection and navigation still work",async({page})=>{
  await page.emulateMedia({reducedMotion:"reduce"});await page.goto("/",{waitUntil:"networkidle"});
  const button=page.getByRole("button",{name:"중학생",exact:true});await button.focus();await page.keyboard.press("Enter");
