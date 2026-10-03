@@ -5,16 +5,28 @@ on:
       - 'app/living/**'
       - 'components/living/**'
       - 'components/layout/SiteHeader.tsx'
+      - 'components/layout/PublicRouteChrome.tsx'
+      - 'components/pocket-money/opportunity-list.module.css'
+      - 'app/privacy/**'
+      - 'app/sitemap.ts'
       - 'lib/living-posts.ts'
       - 'tests/living-posts.test.ts'
+      - 'tests/public-disclosure-navigation.test.ts'
+      - 'tests/pocket-money-retirement.test.ts'
       - '.github/workflows/living-affiliate.yml'
   pull_request:
     paths:
       - 'app/living/**'
       - 'components/living/**'
       - 'components/layout/SiteHeader.tsx'
+      - 'components/layout/PublicRouteChrome.tsx'
+      - 'components/pocket-money/opportunity-list.module.css'
+      - 'app/privacy/**'
+      - 'app/sitemap.ts'
       - 'lib/living-posts.ts'
       - 'tests/living-posts.test.ts'
+      - 'tests/public-disclosure-navigation.test.ts'
+      - 'tests/pocket-money-retirement.test.ts'
       - '.github/workflows/living-affiliate.yml'
 permissions:
   contents: read
@@ -27,7 +39,7 @@ jobs:
         with:
           node-version: '24'
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: node node_modules/tsx/dist/cli.mjs --test tests/living-posts.test.ts
-      - run: node node_modules/eslint/bin/eslint.js app/living components/living components/layout/SiteHeader.tsx lib/living-posts.ts tests/living-posts.test.ts --max-warnings=0
+      - run: node node_modules/tsx/dist/cli.mjs --test tests/living-posts.test.ts tests/public-disclosure-navigation.test.ts tests/pocket-money-retirement.test.ts
+      - run: node node_modules/eslint/bin/eslint.js app/living app/privacy app/sitemap.ts components/living components/layout/SiteHeader.tsx components/layout/PublicRouteChrome.tsx lib/living-posts.ts tests/living-posts.test.ts tests/public-disclosure-navigation.test.ts tests/pocket-money-retirement.test.ts --max-warnings=0
       - run: npm run typecheck
       - run: npm run build

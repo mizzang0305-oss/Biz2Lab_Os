@@ -1,4 +1,5 @@
 import { affiliateDisclosure, type LivingPost } from "@/lib/living-posts";
+import Link from "next/link";
 
 export type LivingArticleContent = Pick<LivingPost, "title" | "summary" | "productName" | "publishedAt" | "facts" | "selectionTips" | "limitations" | "affiliateUrl">;
 
@@ -48,6 +49,9 @@ export function LivingArticle({ post }: { post: LivingArticleContent }) {
           </a>
         </aside>
       </div>
+      <nav className="mt-10 border-t border-slate-300 pt-4" aria-label="생활용품 탐색">
+        <Link href="/living" className="inline-flex min-h-11 items-center text-base font-semibold text-teal-800 underline underline-offset-4">생활용품 목록으로 돌아가기</Link>
+      </nav>
     </article>
   );
 }
