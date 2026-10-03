@@ -36,8 +36,8 @@ test("legacy redirect and admin gate still fail closed",()=>{
   assert.equal(proxy(new NextRequest("https://www.biz2lab.com/ko/about")).status,410);
   assert.equal(proxy(new NextRequest("https://www.biz2lab.com/admin/content-automation")).status,404);
 });
-test("sitemap and feed expose pocket information only; duplicate home redirects",async()=>{
-  assert.deepEqual(sitemap().map(entry=>entry.url),["https://www.biz2lab.com/"]);
+test("sitemap includes the site disclosure without retired health; duplicate home redirects",async()=>{
+  assert.deepEqual(sitemap().map(entry=>entry.url),["https://www.biz2lab.com/","https://www.biz2lab.com/privacy"]);
   const rss=await GET().text();assert.doesNotMatch(rss,/health|onurim|오누림/);assert.equal((rss.match(/<item>/g)??[]).length,opportunities.length);
   assert.throws(()=>PocketMoneyAlias(),error=>error instanceof Error && "digest" in error && error.digest==="NEXT_REDIRECT;replace;/;308;");
 });
