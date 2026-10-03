@@ -80,7 +80,7 @@ test("sitewide surfaces no longer promise unpublished contract content or entert
   assert.match(openGraphImage, /ONURIM|건강 안내/);
   assert.doesNotMatch(layout, /alternates:\s*{\s*canonical:\s*siteConfig\.url/);
   assert.match(layout, /href="#site-content"/);
-  assert.match(layout, /id="site-content"/);
+  assert.match(read("components/layout/PublicRouteChrome.tsx"), /id="site-content"/);
   assert.match(home, /20개 주요 질환 안내/);
   assert.match(home, /의료인 검수는 미완료/);
   assert.doesNotMatch(home, /lossNumberLinks|pathLinks/);

@@ -3,15 +3,17 @@ import type { MetadataRoute } from "next";
 import { healthArticles, healthTools, trustPages } from "@/lib/health-v3/content";
 import { healthSupportGuides } from "@/lib/health-v3/support-guides";
 import { toolEditorial } from "@/lib/health-v3/tool-editorial";
-import { homeUpdatedAt, healthHubUpdatedAt } from "@/lib/health-v3/entry-pages";
+import { healthHubUpdatedAt } from "@/lib/health-v3/entry-pages";
 import { staticPublicRoutes } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
+import { getPublishedPocketGuides } from "@/lib/pocket-money/guide";
+import { pocketUpdatedAt } from "@/lib/pocket-money/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Public route inventory is not the set of approved search index candidates.
   const staticEntries = staticPublicRoutes.filter(route => !route.startsWith("/health/trust/")).map((route) => ({
     url: absoluteUrl(route),
-    lastModified: new Date(route === "/" ? homeUpdatedAt : route === "/health" ? healthHubUpdatedAt : "2026-07-26"),
+    lastModified: new Date(route === "/" ? pocketUpdatedAt : route === "/health" ? healthHubUpdatedAt : "2026-07-26"),
     changeFrequency: route === "/" ? "daily" : "weekly",
     priority: route === "/" ? 1 : 0.8,
   })) satisfies MetadataRoute.Sitemap;
@@ -48,5 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
     .filter((entry) => !staticUrls.has(entry.url));
 
-  return [...staticEntries, ...guideEntries, ...supportEntries, ...toolEntries, ...supplementalTrustEntries];
+  const pocketEntries = [{ url: absoluteUrl("/pocket-money"), lastModified: new Date(pocketUpdatedAt), changeFrequency: "weekly" as const, priority: 0.8 },
+    ...getPublishedPocketGuides().map(guide => ({ url: absoluteUrl(`/pocket-money/guides/${guide.slug}`), lastModified: new Date(guide.updatedAt), changeFrequency: "monthly" as const, priority: 0.7 }))];
+  return [...staticEntries, ...guideEntries, ...supportEntries, ...toolEntries, ...supplementalTrustEntries, ...pocketEntries];
 }

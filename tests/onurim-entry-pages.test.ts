@@ -9,6 +9,7 @@ import sitemap from "@/app/sitemap";
 import { healthArticles, healthTools, trustPages } from "@/lib/health-v3/content";
 import { healthSupportGuides } from "@/lib/health-v3/support-guides";
 import { homeUpdatedAt } from "@/lib/health-v3/entry-pages";
+import { pocketUpdatedAt } from "@/lib/pocket-money/seo";
 
 test("home has its own server-rendered reader choices instead of importing the full hub", () => {
   const root = readFileSync("app/page.tsx", "utf8");
@@ -32,9 +33,9 @@ test("every home content destination belongs to the existing inventory", () => {
   assert.doesNotMatch(html, /<input|<form|<textarea/);
 });
 
-test("home date matches sitemap without inventing other entry-page freshness", () => {
+test("ONURIM component preserves its date while the new root has its own sitemap date", () => {
   const html = renderToStaticMarkup(createElement(OnurimHomePage));
   assert.ok(html.includes(`<time dateTime="${homeUpdatedAt}">${homeUpdatedAt}</time>`));
   const home = sitemap().find(entry => new URL(entry.url).pathname === "/")!;
-  assert.equal(new Date(home.lastModified!).toISOString().slice(0, 10), homeUpdatedAt);
+  assert.equal(new Date(home.lastModified!).toISOString().slice(0, 10), pocketUpdatedAt);
 });
