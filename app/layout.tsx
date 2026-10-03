@@ -3,8 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { PreviewAnalyticsQA } from "@/components/commercial/PreviewAnalyticsQA";
 import { googleSetup } from "@/lib/google-setup";
-import { jsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -47,15 +47,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: jsonLd(organizationJsonLd()) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: jsonLd(websiteJsonLd()) }}
-        />
-        {!isVercelPreview ? (
+        {isVercelPreview ? <PreviewAnalyticsQA measurementId={googleSetup.ga4MeasurementId} /> : (
           <>
             <Script
               id="biz2lab-adsense-client"
@@ -78,7 +70,7 @@ export default function RootLayout({
               `}
             </Script>
           </>
-        ) : null}
+        )}
         <a
           href="#site-content"
           className="sr-only z-50 rounded-md bg-white px-4 py-2 font-semibold text-slate-950 focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
