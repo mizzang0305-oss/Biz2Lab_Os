@@ -26,6 +26,12 @@ body {
   overflow-wrap: break-word;
 }
 
+/* Commercial Preview has its own navigation. The ONURIM root and health pages keep their chrome. */
+body:has(.commercial-shell) > header,
+body:has(.commercial-shell) > footer {
+  display: none;
+}
+
 main {
   min-width: 0;
 }
