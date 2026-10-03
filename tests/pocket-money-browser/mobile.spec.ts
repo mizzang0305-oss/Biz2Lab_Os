@@ -17,7 +17,7 @@ for(const width of [360,390,430])test(`mobile main ${width}px preserves readable
  await page.getByRole("button",{name:"중학생",exact:true}).click();await expect(page.getByTestId("audience-notice")).toContainText("학년만으로");
  expect(await page.evaluate(()=>location.search)).toBe("");expect(await page.evaluate(()=>localStorage.length)).toBe(0);
  expect(await page.locator("input,textarea,form").count()).toBe(0);
- await page.screenshot({path:path.resolve(`../.pocket-money-${process.env.POCKET_PREVIEW_PORT==="33154"?"motion-":""}implementation`,`local-home-${width}.png`),fullPage:true});
+ await page.screenshot({path:path.resolve("../.pocket-money-resume-clear-implementation",`local-home-${width}.png`),fullPage:true});
  expect(attempts).toEqual([]);
 });
 test("unreviewed real images keep guide inaccessible and out of sitemap",async({page})=>{

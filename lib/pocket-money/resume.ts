@@ -22,5 +22,8 @@ export function saveResume(storage:ResumeStorage|null,guide:PocketGuide,stepId:s
  if(!storage||!guide.steps.some(step=>step.id===stepId))return false;
  try{storage.setItem(key(guide.id),JSON.stringify({guideId:guide.id,version:guide.version,stepId}));return true;}catch{return false;}
 }
-export function clearResume(storage:ResumeStorage|null,guideId:string):void{try{storage?.removeItem(key(guideId));}catch{}}
+export function clearResume(storage:ResumeStorage|null,guideId:string):boolean{
+ if(!storage)return false;
+ try{storage.removeItem(key(guideId));return true;}catch{return false;}
+}
 

@@ -5,7 +5,7 @@ import {captureHealthRoutes,healthDataHash,protectedSourceHashes} from "./snapsh
 async function main(){
  const baseline=JSON.parse(fs.readFileSync("tests/fixtures/pocket-money-health39-baseline.json","utf8"));
  const port=process.env.POCKET_PREVIEW_PORT??"33153";
- if(!["33153","33154"].includes(port))throw new Error("Health verification uses an owned local port only");
+ if(!["33153","33154","33155"].includes(port))throw new Error("Health verification uses an owned local port only");
  const candidate=await captureHealthRoutes(`http://127.0.0.1:${port}`);
  const changed=candidate.entries.flatMap((entry,i)=>{
   const old=baseline.entries[i];const fields=["route","bodySha256","metadata","schemas","sourceLinks"].filter(k=>JSON.stringify(entry[k as keyof typeof entry])!==JSON.stringify(old[k]));

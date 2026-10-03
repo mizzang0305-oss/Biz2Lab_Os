@@ -29,4 +29,16 @@ test("blocked, null and corrupted storage cannot break reading or save invalid s
  const wrong=storage(JSON.stringify({...state(),version:"old"}));assert.equal(loadResume(wrong,guide),null);
  const good=storage();assert.equal(saveResume(good,guide,"deleted"),false);assert.equal(good.map.size,0);
 });
+test("clearing reports success only after removing this guide record",()=>{
+ const s=storage(JSON.stringify(state("consent-register")));s.map.set("synthetic-other-guide","keep");
+ assert.equal(clearResume(s,guide.id),true);assert.equal(s.getItem(key),null);assert.equal(s.getItem("synthetic-other-guide"),"keep");
+ assert.equal(clearResume(s,guide.id),true);
+});
+test("failed or unavailable clearing preserves the synthetic saved record and permits retry",()=>{
+ const s=storage(JSON.stringify(state("consent-register"))),before=s.getItem(key);
+ const failed={...s,removeItem(){throw new Error("SecurityError");}};
+ assert.equal(clearResume(failed,guide.id),false);assert.equal(s.getItem(key),before);
+ assert.equal(clearResume(null,guide.id),false);
+ assert.equal(clearResume(s,guide.id),true);assert.equal(s.getItem(key),null);
+});
 

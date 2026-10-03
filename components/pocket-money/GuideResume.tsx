@@ -25,7 +25,11 @@ export function GuideResume({guide}:{guide:PocketGuide}){
   return()=>{window.clearTimeout(timer);window.removeEventListener("scroll",scroll);window.removeEventListener("pagehide",persist);window.removeEventListener("pageshow",refresh);window.removeEventListener("hashchange",hash);document.removeEventListener("visibilitychange",visibility);document.removeEventListener("click",click,true);};
  },[guide]);
  const move=(stepId:string)=>{cleared.current=false;current.current=stepId;saveResume(sessionStore(),guide,stepId);window.history.replaceState(null,"",`#step-${stepId}`);document.getElementById(`step-${stepId}`)?.scrollIntoView({block:"start"});setResume({stepId,source:"hash",stale:false});};
- const clear=()=>{clearResume(sessionStore(),guide.id);cleared.current=true;current.current=guide.steps[0].id;window.history.replaceState(null,"",window.location.pathname+window.location.search);setResume(null);setMessage("이 탭의 읽기 위치를 지웠어요.");};
+ const clear=()=>{
+  if(cleared.current||!window.confirm("이 탭의 저장된 읽기 위치를 지울까요?"))return;
+  if(!clearResume(sessionStore(),guide.id)){setMessage("읽기 위치를 지우지 못했어요. 현재 읽기 위치를 유지합니다. 잠시 후 다시 눌러 주세요.");return;}
+  cleared.current=true;current.current=guide.steps[0].id;window.history.replaceState(null,"",window.location.pathname+window.location.search);setResume(null);setMessage("이 탭의 읽기 위치를 지웠어요.");
+ };
  const number=guide.steps.findIndex(s=>s.id===resume?.stepId)+1;
  return <aside className={styles.resumePanel} aria-label="읽기 위치" data-testid="resume-panel">
  <p aria-live="polite">{number>0?`${number}단계부터 이어 읽기`:"같은 탭에서 읽던 단계부터 이어 읽어요."}</p>
