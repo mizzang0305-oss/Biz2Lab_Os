@@ -87,15 +87,15 @@ test("webmaster owner action pack keeps verification owner-driven", () => {
   assert.match(googleNextActions, /Search Console showing 0 clicks is normal for a new property/);
 });
 
-test("search discovery files cover ONURIM guides without exposing retired content or ops", async () => {
+test("search discovery files exclude retired health content and ops", async () => {
   const sitemapUrls = new Set(sitemap().map((entry) => entry.url));
   const rss = await getRss().text();
   const robotsConfig = robots();
 
   for (const article of Object.values(healthArticles)) {
     const absoluteRoute = `https://www.biz2lab.com/health/${article.slug}`;
-    assert.equal(sitemapUrls.has(absoluteRoute), true, `${article.slug} must be in sitemap`);
-    assert.equal(rss.includes(absoluteRoute), true, `${article.slug} must be in RSS`);
+    assert.equal(sitemapUrls.has(absoluteRoute), false, `${article.slug} must leave sitemap`);
+    assert.equal(rss.includes(absoluteRoute), false, `${article.slug} must leave RSS`);
   }
 
   for (const post of getPublicPosts()) {

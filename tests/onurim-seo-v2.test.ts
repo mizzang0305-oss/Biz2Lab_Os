@@ -9,7 +9,7 @@ import { authorProfileJsonLd, createMetadata } from "../lib/seo";
 import sitemap from "../app/sitemap";
 import robots from "../app/robots";
 
-test("individually excluded utilities remain self-canonical noindex follow without altering legacy defaults", () => {
+test("archived utility metadata remains intact and all health utilities leave the public sitemap", () => {
   const input = { title: "경고 카드", description: "인쇄용 안내", path: "/health/tools/blood-pressure-warning", noindex: true };
   assert.deepEqual(createMetadata(input).robots, { index: false, follow: false });
   const metadata = createMetadata({ ...input, follow: true });
@@ -17,7 +17,7 @@ test("individually excluded utilities remain self-canonical noindex follow witho
   assert.equal(metadata.alternates?.canonical, "https://www.biz2lab.com/health/tools/blood-pressure-warning");
   const included = new Set(sitemap().map(entry => entry.url));
   for (const tool of healthTools) {
-    assert.equal(included.has(`https://www.biz2lab.com/health/tools/${tool.slug}`), toolEditorial[tool.slug]?.indexDecision !== "NOINDEX_FOLLOW", tool.slug);
+    assert.equal(included.has(`https://www.biz2lab.com/health/tools/${tool.slug}`), false, tool.slug);
   }
   const warning = healthTools.find(t => t.slug === "blood-pressure-warning")!;
   assert.equal(warning.items, undefined);
@@ -153,15 +153,15 @@ test("terms retains the existing personal-use boundary and links to specific rea
   assert.doesNotMatch(text, /모든 책임을 면제|자동으로 동의|관할 법원/);
 });
 
-test("trust pages distinguish public access from index decisions and use page-specific dates", () => {
+test("archived trust pages retain index decisions and links while leaving the public sitemap", () => {
   const entries = sitemap();
   const routes = new Set(["/", "/health", ...Object.keys(healthArticles).map(slug => `/health/${slug}`),
     ...healthSupportGuides.map(guide => `/health/guides/${guide.slug}`),
     ...healthTools.map(tool => `/health/tools/${tool.slug}`), ...trustPages.map(page => `/health/trust/${page.slug}`)]);
   for (const page of trustPages) {
     const matches = entries.filter(entry => entry.url === `https://www.biz2lab.com/health/trust/${page.slug}`);
-    assert.equal(matches.length, page.indexDecision === "NOINDEX_FOLLOW" ? 0 : 1, page.slug);
-    if (matches.length) assert.equal(matches[0].lastModified, page.updatedAt ?? "2026-08-26");
+    assert.equal(matches.length, 0, page.slug);
+    assert.ok(page.updatedAt === undefined || /^\d{4}-\d{2}-\d{2}$/.test(page.updatedAt));
     for (const link of page.sections.flatMap(section => section.links ?? [])) {
       if (link.href.startsWith("/")) assert.ok(routes.has(link.href), `${page.slug}: ${link.href}`);
       else assert.equal(new URL(link.href).protocol, "https:", `${page.slug}: ${link.href}`);
@@ -519,7 +519,7 @@ test("restored neurological and self-harm fields cannot appear without their exi
     const sources = getToolSources(tool).map(s => s.id);
     assert.ok(notice.sourceIds?.every(id => sources.includes(id)));
   }
-  assert.match(readFileSync("app/sitemap.ts", "utf8"), /toolEditorial\[tool.slug\]\?\.updatedAt/);
+  assert.equal(sitemap().some(entry => entry.url.includes("/health/")), false);
 });
 
 test("blood pressure preparation separates before-measurement checks from after-measurement facts", () => {

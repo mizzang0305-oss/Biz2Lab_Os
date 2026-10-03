@@ -4,7 +4,6 @@ import {createElement} from "react";import {renderToStaticMarkup} from "react-do
 import {PocketGuide} from "../components/pocket-money/PocketGuide";
 import {PocketMoneyHome} from "../components/pocket-money/PocketMoneyHome";
 import {createPocketMetadata,siteSchemasForPath} from "../lib/pocket-money/seo";
-import {organizationJsonLd,websiteJsonLd} from "../lib/seo";
 import {firstGuideDraft} from "../lib/pocket-money/first-guide";
 import {validateGuide,getPublishedPocketGuides} from "../lib/pocket-money/guide";
 import {generateStaticParams} from "../app/pocket-money/guides/[slug]/page";
@@ -19,23 +18,24 @@ test("two-step SSR uses one approved photo each and distinguishes completion fro
  assert.ok(html.includes("기후행동 지구의 시민 등록하기"));
  assert.ok(html.includes("기준 기기 미확인"));
 });
-test("home exposes age conditions without treating grade as participation eligibility",()=>{
+test("home shows concrete opportunities and actions without the retired health surface",()=>{
  const html=renderToStaticMarkup(createElement(PocketMoneyHome));
  const text=html.replace(/<[^>]+>/g,"");
- for(const copy of ["즐거운 용돈벌이","용돈 벌기, 가입하기 전에 조건부터.","초등학생","중학생","고등학생","대학생"])assert.ok(text.includes(copy),copy);
- assert.ok(html.includes('href="/health"'));
- assert.doesNotMatch(html,/<input|<form|추천인|예상 수익/);
+ for(const copy of ["용돈벌이·부업, 할 일부터 골라요","패널나우","탄소중립포인트","크라우드웍스","방법 보기","공식 시작","만 14세 이상","연령 조건 미확인","소요시간 미확인"])assert.ok(text.includes(copy),copy);
+ assert.equal((html.match(/data-opportunity=/g)??[]).length,4);
+ assert.doesNotMatch(html,/href="\/health|오누림|<form|추천인|예상 수익/);
  assert.deepEqual(getPublishedPocketGuides(),[]);
  assert.doesNotMatch(html,/href="\/pocket-money\/guides\/declaration-finish"/);
  assert.deepEqual(generateStaticParams(),[]);
 });
-test("new route metadata overrides root while health schemas remain exact",()=>{
+
+test("pocket metadata stays distinct and retired routes receive no public site schema",()=>{
  const metadata=createPocketMetadata({title:"즐거운 용돈벌이",description:"조건부터 읽기",path:"/"});
  assert.equal(metadata.alternates?.canonical,"https://www.biz2lab.com/");
  assert.deepEqual(metadata.title,{absolute:"즐거운 용돈벌이"});
  assert.equal(metadata.applicationName,"즐거운 용돈벌이");
- assert.deepEqual(siteSchemasForPath("/health"),[organizationJsonLd(),websiteJsonLd()]);
- assert.deepEqual(siteSchemasForPath("/health/guides/a"),[organizationJsonLd(),websiteJsonLd()]);
+ assert.deepEqual(siteSchemasForPath("/health"),[]);
+ assert.deepEqual(siteSchemasForPath("/health/guides/a"),[]);
  assert.deepEqual(siteSchemasForPath(null),[]);
  for(const route of ["/","/pocket-money","/pocket-money/guides/declaration-finish"])assert.ok(JSON.stringify(siteSchemasForPath(route)).includes("즐거운 용돈벌이"));
  assert.ok(!JSON.stringify(siteSchemasForPath("/pocket-money-else")).includes("즐거운 용돈벌이"));

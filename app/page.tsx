@@ -3,7 +3,7 @@ import { createPocketMetadata } from "@/lib/pocket-money/seo";
 
 export const metadata = createPocketMetadata({
   title: "즐거운 용돈벌이",
-  description: "가입하기 전에 나이·비용·지급 조건부터 확인하세요. 확인한 화면과 공식 안내로 차근차근 읽어요.",
+  description: "설문, 앱테크, 재택부업과 혜택을 목록으로 살펴보세요. 할 일·보상·연령·비용·마감 조건과 공식 시작 링크를 함께 안내합니다.",
   path: "/",
 });
 

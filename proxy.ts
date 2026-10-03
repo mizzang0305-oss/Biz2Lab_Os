@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
+import {isRetiredPublicPath,isRetiredImage} from "./lib/public-retirement";
 
 function isAdminConsoleEnabled() {
   return process.env.BIZ2LAB_ADMIN_CONSOLE_ENABLED === "true";
@@ -36,6 +37,11 @@ function denied(status: number, error: string) {
 }
 
 export function proxy(request: NextRequest) {
+  const {pathname, searchParams, origin} = request.nextUrl;
+  if (isRetiredPublicPath(pathname) || (pathname === "/_next/image" && isRetiredImage(searchParams.get("url") ?? "", origin))) {
+    return new NextResponse("이 페이지는 더 이상 제공하지 않습니다.", {status:410,headers:{"Content-Type":"text/plain; charset=utf-8","Cache-Control":"no-store","X-Robots-Tag":"noindex, nofollow"}});
+  }
+  if (pathname === "/_next/image") return NextResponse.next();
   if (request.nextUrl.pathname === "/ko") {
     return NextResponse.redirect(new URL("/", request.url), 308);
   }
@@ -71,5 +77,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/content-automation/:path*", "/ko", "/ko/:path*"],
+  matcher: ["/admin/content-automation/:path*", "/ko", "/ko/:path*", "/health/:path*", "/images/onurim/:path*", "/social/onurim/:path*", "/pagefind/:path*", "/_next/image"],
 };
