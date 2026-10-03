@@ -36,7 +36,7 @@ test("October 3 additions preserve all 34 prior articles and all claim/source/to
   for (const tool of healthTools) assert.equal(digest(renderToStaticMarkup(createElement(HealthToolPage, { tool }))), baseline.toolHtml[tool.slug], tool.slug);
 });
 
-test("October 3 five new articles have original titles, public navigation and honest source/date metadata", async () => {
+test("October 3 five new articles have original titles, archived navigation and honest source/date metadata", async () => {
   assert.equal(dailyGuides20261003.length, 5);
   assert.equal(healthSupportGuides.length, 19);
   assert.equal(new Set(healthSupportGuides.map(g => g.slug)).size, 19);
@@ -49,7 +49,7 @@ test("October 3 five new articles have original titles, public navigation and ho
     const metadata = await generateMetadata({ params: Promise.resolve({ slug: guide.slug }) });
     assert.equal(metadata.alternates?.canonical, `https://www.biz2lab.com${route}`);
     assert.equal(metadata.description, guide.description);
-    assert.equal(new Date(sitemap().find(e => new URL(e.url).pathname === route)!.lastModified!).toISOString().slice(0, 10), "2026-10-03");
+    assert.equal(sitemap().some(e => new URL(e.url).pathname === route), false);
     const html = await render(guide.slug);
     const schemas = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map(m => JSON.parse(m[1]));
     const article = schemas.find(s => s["@type"] === "Article");

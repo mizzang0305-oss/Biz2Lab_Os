@@ -16,7 +16,7 @@ test("health inventory includes current disease20 support19 tool34 trust12",()=>
  assert.equal(inventory.trust.length,12);
  assert.equal(new Set(inventory.articles).size,39);
 });
-test("current health39 data and protected source match immutable master capture",()=>{
+test("archived health39 data, content and assets remain byte-identical after public retirement",()=>{
  const fixture=JSON.parse(readFileSync("tests/fixtures/pocket-money-health39-baseline.json","utf8"));
  assert.equal(fixture.baseSha,base);
  assert.deepEqual(fixture.inventory,healthInventory());
@@ -24,5 +24,8 @@ test("current health39 data and protected source match immutable master capture"
  assert.equal(fixture.auxiliary.length,46);
  assert.equal(fixture.externalRequestAttempts,0);
  assert.equal(fixture.dataSha256,healthDataHash());
- assert.deepEqual(fixture.protectedSources,protectedSourceHashes());
+ // These delivery entrypoints now retire the public health surface. Original bytes are archived at 2d12404.
+ const deliveryChanges=new Set(["proxy.ts","app/rss.xml/route.ts"]);
+ const preserved=(sources:Record<string,string>)=>Object.fromEntries(Object.entries(sources).filter(([file])=>!deliveryChanges.has(file)));
+ assert.deepEqual(preserved(fixture.protectedSources),preserved(protectedSourceHashes()));
 });

@@ -62,16 +62,16 @@ test("legacy public P0/P1 Claim registry is adjudicated without fabricating lice
   assert.equal(currentMedicalReviewState.medicalReviewCompleted, false);
 });
 
-test("new root retains health discovery and archived legacy sources", () => {
+test("new root retires health discovery while preserving archived sources", () => {
   const rootPage = read("app/page.tsx");
   const sitemap = read("app/sitemap.ts");
   const rss = read("app/rss.xml/route.ts");
   const proxy = read("proxy.ts");
   assert.doesNotMatch(rootPage, /permanentRedirect\("\/ko"\)/);
   assert.match(rootPage, /PocketMoneyHome/);
-  assert.match(sitemap, /healthArticles/);
+  assert.doesNotMatch(sitemap, /healthArticles/);
   assert.doesNotMatch(sitemap, /getSitemapPosts/);
-  assert.match(rss, /healthArticles/);
+  assert.doesNotMatch(rss, /healthArticles/);
   assert.doesNotMatch(rss, /getPublicPosts/);
   assert.match(proxy, /LEGACY_BIZ2LAB_PUBLIC_ROUTE_RETIRED/);
   assert.match(proxy, /status: 410/);
@@ -91,7 +91,7 @@ test("public privacy disclosure matches the enabled Google scripts", () => {
   assert.match(trustPage, /policies\.google\.com\/technologies\/partner-sites/);
 });
 
-test("public health routes are indexable and internal review remains fail-closed", () => {
+test("archived health route metadata remains intact and internal review retains its gate", () => {
   const healthLayout = read("app/health/layout.tsx");
   const reviewLayout = read("app/health/review/layout.tsx");
   assert.doesNotMatch(healthLayout, /VERCEL_ENV/);

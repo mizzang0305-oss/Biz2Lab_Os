@@ -77,7 +77,8 @@ test("sitewide surfaces no longer promise unpublished contract content or entert
   assert.doesNotMatch(siteSettings.hero.title, /전자계약/);
   assert.doesNotMatch(siteSettings.hero.description, /계약 미작성/);
   assert.doesNotMatch(openGraphImage, /Biz2Lab PLAY|영화 추천|결말 해석|OTT 생활/);
-  assert.match(openGraphImage, /ONURIM|건강 안내/);
+  assert.match(openGraphImage, /Joyful Pocket Money/);
+  assert.doesNotMatch(openGraphImage, /ONURIM|건강 안내/);
   assert.doesNotMatch(layout, /alternates:\s*{\s*canonical:\s*siteConfig\.url/);
   assert.match(layout, /href="#site-content"/);
   assert.match(read("components/layout/PublicRouteChrome.tsx"), /id="site-content"/);
@@ -132,7 +133,7 @@ test("every public article has distinct practical value and an appropriate evide
   }
 });
 
-test("ONURIM hub exposes every public guide and tool while retired resources stay undiscoverable", () => {
+test("archived ONURIM hub retains its inventory while health is absent from public discovery", () => {
   const html = renderToStaticMarkup(createElement(OnurimHomePage));
   const sitemapUrls = new Set(sitemap().map((entry) => entry.url));
 
@@ -154,7 +155,7 @@ test("ONURIM hub exposes every public guide and tool while retired resources sta
   }
 
   assert.equal(sitemapUrls.has("https://www.biz2lab.com/ko/resources"), false);
-  assert.equal(sitemapUrls.has("https://www.biz2lab.com/health"), true);
+  assert.equal(sitemapUrls.has("https://www.biz2lab.com/health"), false);
 });
 
 test("homepage recommends only reviewed public articles", () => {
@@ -228,7 +229,7 @@ test("article template no longer injects the same generic checklist and CTA into
   assert.match(articleSource, /isAccessibleForFree/);
 });
 
-test("reader-facing ONURIM trust surfaces disclose authorship, corrections, and review limits", () => {
+test("archived ONURIM trust surfaces retain disclosure without leaking into the new root", () => {
   const trustPage = read("app/health/trust/[slug]/page.tsx");
   const home = read("app/health/page.tsx");
   const layout = read("app/layout.tsx");
@@ -243,7 +244,7 @@ test("reader-facing ONURIM trust surfaces disclose authorship, corrections, and 
   assert.doesNotMatch(trustPage, /issues\/new/);
   assert.match(home, /현재 의료인 검수는 미완료/);
   assert.match(home, /AI 활용 공개/);
-  assert.match(layout, /\/health\/trust\/author/);
+  assert.doesNotMatch(layout, /\/health\/trust\/author/);
 });
 
 test("five representative articles expose public sources or commit-pinned private evidence", () => {

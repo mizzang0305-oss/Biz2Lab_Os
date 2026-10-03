@@ -13,7 +13,6 @@ import {
   validatePublishedPostInventory,
   type ContentIndexRow,
 } from "@/lib/content-validation";
-import { editorialIdentity } from "@/lib/editorial-evidence";
 import { getEvidenceForPost } from "@/lib/evidence";
 import { googleSetup } from "@/lib/google-setup";
 import { trustPages } from "@/lib/health-v3/content";
@@ -396,7 +395,7 @@ test("official canonical metadata uses the www production domain", () => {
   assert.equal(metadata.openGraph?.url, "https://www.biz2lab.com/ko");
 });
 
-test("public authorship links the visible editorial identity to its about page and operator account", () => {
+test("archived health authorship retains its provenance while the root uses the pocket brand", () => {
   const trustPageSource = fs.readFileSync(
     path.join(process.cwd(), "app", "health", "trust", "[slug]", "page.tsx"),
     "utf8",
@@ -414,7 +413,7 @@ test("public authorship links the visible editorial identity to its about page a
   assert.match(seoSource, /publishingPrinciples:\s*absoluteUrl\("\/health\/trust\/editorial-policy"\)/);
   assert.match(
     layoutSource,
-    /authors:\s*\[\{ name: siteConfig\.author, url: absoluteUrl\("\/health\/trust\/author"\) \}\]/,
+    /authors:\s*\[\{ name: `\$\{pocketBrand\} 운영자` \}\]/,
   );
 });
 
@@ -544,7 +543,7 @@ test("content automation admin route is protected and not registered as public c
   assert.match(authSource, /BIZ2LAB_ADMIN_TOKEN/);
   assert.match(authSource, /timingSafeEqual/);
   assert.match(authSource, /Basic/);
-  assert.match(proxySource, /matcher:\s*\["\/admin\/content-automation\/:path\*", "\/ko", "\/ko\/:path\*"\]/);
+  assert.match(proxySource, /matcher:\s*\["\/admin\/content-automation\/:path\*", "\/ko", "\/ko\/:path\*",/);
   assert.match(proxySource, /WWW-Authenticate/);
   assert.match(actionsSource, /WEB_PUBLICATION_DISABLED/);
   assert.doesNotMatch(actionsSource, /dryRun:\s*false/);

@@ -36,7 +36,7 @@ test("five additions preserve all twenty disease and nine guide data/SSR, claims
   for (const tool of healthTools) assert.equal(digest(renderToStaticMarkup(createElement(HealthToolPage, { tool }))), baseline.toolHtml[tool.slug], tool.slug);
 });
 
-test("five unique new guides have consistent public metadata, dates, sitemap and health-hub navigation", async () => {
+test("five unique new guides have consistent archived metadata, dates and navigation with no public sitemap entry", async () => {
   assert.equal(dailyGuides20261002.length, 5);
   assert.equal(healthSupportGuides.length, 19);
   assert.equal(new Set(healthSupportGuides.map(g => g.slug)).size, 19);
@@ -49,7 +49,7 @@ test("five unique new guides have consistent public metadata, dates, sitemap and
     const meta = await generateMetadata({ params: Promise.resolve({ slug: guide.slug }) });
     assert.equal(meta.alternates?.canonical, `https://www.biz2lab.com${route}`);
     assert.equal(meta.description, guide.description);
-    assert.equal(new Date(sitemap().find(e => new URL(e.url).pathname === route)!.lastModified!).toISOString().slice(0, 10), "2026-10-02");
+    assert.equal(sitemap().some(e => new URL(e.url).pathname === route), false);
     const html = await render(guide.slug);
     const schemas = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map(m => JSON.parse(m[1]));
     const article = schemas.find(s => s["@type"] === "Article");

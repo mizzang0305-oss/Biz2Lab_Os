@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
-import { SiteFooter } from "@/components/layout/SiteFooter";
-import { SiteHeader } from "@/components/layout/SiteHeader";
 import { googleSetup } from "@/lib/google-setup";
 import { PublicRouteChrome } from "@/components/layout/PublicRouteChrome";
-import { absoluteUrl, siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/site";
+import {pocketBrand} from "@/lib/pocket-money/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,14 +20,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "오누림",
-    template: "%s | 오누림",
+    default: pocketBrand,
+    template: `%s | ${pocketBrand}`,
   },
-  description: siteConfig.description,
-  applicationName: siteConfig.name,
-  authors: [{ name: siteConfig.author, url: absoluteUrl("/health/trust/author") }],
-  creator: siteConfig.author,
-  publisher: siteConfig.author,
+  description: "용돈벌이와 부업의 할 일, 보상, 참여 조건과 공식 시작 링크를 확인하세요.",
+  applicationName: pocketBrand,
+  authors: [{ name: `${pocketBrand} 운영자` }],
+  creator: `${pocketBrand} 운영자`,
+  publisher: `${pocketBrand} 운영자`,
   other: {
     "google-adsense-account": googleSetup.adsenseClientId,
   },
@@ -77,7 +76,7 @@ export default function RootLayout({
         >
           본문으로 건너뛰기
         </a>
-        <PublicRouteChrome legacyHeader={<SiteHeader />} legacyFooter={<SiteFooter />}>
+        <PublicRouteChrome>
           {children}
         </PublicRouteChrome>
       </body>
