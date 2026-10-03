@@ -4,7 +4,7 @@ import Script from "next/script";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { googleSetup } from "@/lib/google-setup";
-import { jsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+import { PublicRouteChrome } from "@/components/layout/PublicRouteChrome";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -47,14 +47,6 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: jsonLd(organizationJsonLd()) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: jsonLd(websiteJsonLd()) }}
-        />
         {!isVercelPreview ? (
           <>
             <Script
@@ -85,11 +77,9 @@ export default function RootLayout({
         >
           본문으로 건너뛰기
         </a>
-        <SiteHeader />
-        <main id="site-content" tabIndex={-1} className="flex-1">
+        <PublicRouteChrome legacyHeader={<SiteHeader />} legacyFooter={<SiteFooter />}>
           {children}
-        </main>
-        <SiteFooter />
+        </PublicRouteChrome>
       </body>
     </html>
   );

@@ -39,11 +39,11 @@ test("archived Biz2Lab source retains editorial attribution and a contact link, 
   assert.match(article, /editorialIdentity\.authorUrl/);
 });
 
-test("the ONURIM root is the single indexable homepage", () => {
+test("new mobile root preserves ONURIM access and retired locale discovery", () => {
   const rootPage = readSource("app", "page.tsx");
   const sitemapUrls = sitemap().map((entry) => entry.url);
 
-  assert.match(rootPage, /OnurimHomePage/);
+  assert.match(rootPage, /PocketMoneyHome/);
   assert.doesNotMatch(rootPage, /permanentRedirect/);
   assert.equal(staticPublicRoutes.includes("/"), true);
   assert.equal(sitemapUrls.includes("https://www.biz2lab.com/"), true);

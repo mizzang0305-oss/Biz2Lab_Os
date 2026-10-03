@@ -9,7 +9,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:px-5 lg:flex-row lg:items-center">
         <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between lg:flex-1">
           <Link
-            href="/"
+            href="/health"
             className="flex min-w-0 items-center gap-2"
             aria-label="오누림 홈"
           >

@@ -62,13 +62,13 @@ test("legacy public P0/P1 Claim registry is adjudicated without fabricating lice
   assert.equal(currentMedicalReviewState.medicalReviewCompleted, false);
 });
 
-test("root and discovery surfaces are health-only while legacy source stays archived", () => {
+test("new root retains health discovery and archived legacy sources", () => {
   const rootPage = read("app/page.tsx");
   const sitemap = read("app/sitemap.ts");
   const rss = read("app/rss.xml/route.ts");
   const proxy = read("proxy.ts");
   assert.doesNotMatch(rootPage, /permanentRedirect\("\/ko"\)/);
-  assert.match(rootPage, /OnurimHomePage/);
+  assert.match(rootPage, /PocketMoneyHome/);
   assert.match(sitemap, /healthArticles/);
   assert.doesNotMatch(sitemap, /getSitemapPosts/);
   assert.match(rss, /healthArticles/);
