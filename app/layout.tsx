@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import { googleSetup } from "@/lib/google-setup";
 import { PublicRouteChrome } from "@/components/layout/PublicRouteChrome";
-import { siteConfig } from "@/lib/site";
-import {pocketBrand} from "@/lib/pocket-money/seo";
+import {knowledgeBrand} from "@/lib/essays/antikythera";
+import {knowledgeOrigin, knowledgeIsPublished} from "@/lib/essays/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,16 +17,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(knowledgeOrigin()),
+  robots: {index: knowledgeIsPublished(), follow: knowledgeIsPublished()},
   title: {
-    default: pocketBrand,
-    template: `%s | ${pocketBrand}`,
+    default: knowledgeBrand,
+    template: `%s | ${knowledgeBrand}`,
   },
-  description: "용돈벌이와 부업의 할 일, 보상, 참여 조건과 공식 시작 링크를 확인하세요.",
-  applicationName: pocketBrand,
-  authors: [{ name: `${pocketBrand} 운영자` }],
-  creator: `${pocketBrand} 운영자`,
-  publisher: `${pocketBrand} 운영자`,
+  description: "철학·과학·역사, 질문 하나에서 시작해 원자료를 따라가는 이야기.",
+  applicationName: knowledgeBrand,
+  authors: [{ name: "Biz2Lab 운영자" }],
+  creator: "Biz2Lab 운영자",
+  publisher: "Biz2Lab 운영자",
   other: {
     "google-adsense-account": googleSetup.adsenseClientId,
   },
@@ -38,7 +38,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isVercelPreview = process.env.VERCEL_ENV === "preview";
 
   return (
     <html
@@ -46,30 +45,8 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        {!isVercelPreview ? (
-          <>
-            <Script
-              id="biz2lab-adsense-client"
-              src={googleSetup.adsenseScriptUrl}
-              strategy="beforeInteractive"
-              async
-              crossOrigin="anonymous"
-            />
-            <Script
-              id="biz2lab-ga4-loader"
-              src={googleSetup.ga4ScriptUrl}
-              strategy="afterInteractive"
-            />
-            <Script id="biz2lab-ga4-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${googleSetup.ga4MeasurementId}');
-              `}
-            </Script>
-          </>
-        ) : null}
+        {/* The approved release keeps third-party measurement/ad scripts paused.
+            Existing public publisher IDs remain in google-setup. */}
         <a
           href="#site-content"
           className="sr-only z-50 rounded-md bg-white px-4 py-2 font-semibold text-slate-950 focus:not-sr-only focus:fixed focus:left-4 focus:top-4"

@@ -1,0 +1,122 @@
+{
+  "antikythera": {
+    "sha256": "6c5c946baaadd232cd6ec426cebee276d6049155a339c4f0fcdfe9ddfee5132b",
+    "sourceCheckedAt": "2026-10-04T03:41:56.395025+00:00"
+  },
+  "frankenstein-ai": {
+    "sha256": "dd47a42b902bc66de36ea9d71e44599eb794c079c28d6d82abf7281261a60858",
+    "sourceCheckedAt": "2026-10-04T04:02:17.755350+00:00"
+  },
+  "eratosthenes": {
+    "sha256": "d254e92658bdaf525d3ed1d1d39d3404281c6de91971a82fc3e0b78779449e3e",
+    "sourceCheckedAt": "2026-10-04T04:31:06+00:00"
+  },
+  "calendar": {
+    "sha256": "1481f802138ab0503cf99247b6f61426e9b18e25f015e14635ff81e2fa23c6bd",
+    "sourceCheckedAt": "2026-10-04T04:31:06+00:00"
+  },
+  "longitude": {
+    "sha256": "64b971729c05ec0815373b001b50a5a7bba8e0c91559c47a96f6ebbd4513e72d",
+    "sourceCheckedAt": "2026-10-04T04:31:06+00:00"
+  },
+  "maps": {
+    "sha256": "626fb5387683d519613da978d5c02ef0159c76b4b583f40a6482b61190d69a0c",
+    "sourceCheckedAt": "2026-10-04T05:59:51+00:00"
+  },
+  "relativity": {
+    "sha256": "4b684d690f5eae83e662731f243dff31d29474ea486b5a381acf2b639eb3c192",
+    "sourceCheckedAt": "2026-10-04T04:31:06+00:00"
+  },
+  "telescope": {
+    "sha256": "3b72f7fb4bfa5a8092d3896297edc5f95559c96d1f74abf59874cfe1128c42d5",
+    "sourceCheckedAt": "2026-10-04T05:59:51+00:00"
+  },
+  "microscope": {
+    "sha256": "10df5c2da8e3d2373ac51bc47156367f1934a65334271aeac362a66d0d02ced4",
+    "sourceCheckedAt": "2026-10-04T04:31:06+00:00"
+  },
+  "evolution": {
+    "sha256": "51820756034aa603fbef972f439f09f0492e60cfe108931b40185f8f5e23169d",
+    "sourceCheckedAt": "2026-10-04T04:26:29Z"
+  },
+  "mendel": {
+    "sha256": "ed4e8a533a4564d497e0a45747d23dd73ebb6b8827fbccb2ec593b2e415a3f9e",
+    "sourceCheckedAt": "2026-10-04T04:26:29Z"
+  },
+  "periodic-table": {
+    "sha256": "301efb7cb24a8e333b9e02ce6625259ca6501e4cead16528b622038647ceb577",
+    "sourceCheckedAt": "2026-10-04T04:26:29Z"
+  },
+  "entropy": {
+    "sha256": "fe6c185bffdcb5710c427b88cc8268d0cefc1da53e01f9046dda2d8c2c0aa984",
+    "sourceCheckedAt": "2026-10-04T04:26:29Z"
+  },
+  "quantum": {
+    "sha256": "84c517b1a552692559aba7b13668fcbbbfe399560a931c041db1caa7996b1b1e",
+    "sourceCheckedAt": "2026-10-04T04:26:29Z"
+  },
+  "plate-tectonics": {
+    "sha256": "c40fc163a924b405018964a44dfacf1c939e7882d9c4639301a23af473e86967",
+    "sourceCheckedAt": "2026-10-04T04:26:29Z"
+  },
+  "dna-code": {
+    "sha256": "e409d3ac56dbf606fe7793edb419af0804dc2c69cc3e78b6b1590f544c762373",
+    "sourceCheckedAt": "2026-10-04T04:51:00Z"
+  },
+  "printing": {
+    "sha256": "f2b4f88b77ae7b5c003a834b1cfa038ecdbe73e00267eed1bb57914587185713",
+    "sourceCheckedAt": "2026-10-04T06:01:17.582219+00:00"
+  },
+  "steam-work": {
+    "sha256": "cad24d4d0a7ae5a0a8ffec39e716762507c10342c1877ac41e14bda6f5ad68bb",
+    "sourceCheckedAt": "2026-10-04T06:01:17.582219+00:00"
+  },
+  "electromagnetism": {
+    "sha256": "9f8d432bab1b985a2c9080f36367adfb50b1fadc201e75b052c77c5a34c32767",
+    "sourceCheckedAt": "2026-10-04T04:30:14.210241+00:00"
+  },
+  "shannon": {
+    "sha256": "2bee57c7cadb10a9c364cba62bb65d1656aec9a87808462fedb082d042dee17e",
+    "sourceCheckedAt": "2026-10-04T06:01:17.582219+00:00"
+  },
+  "feedback": {
+    "sha256": "1adc5edb129328bd12f5fd24d36aff59de7b2a0d7acfe95d955b30d1ccb7b6f5",
+    "sourceCheckedAt": "2026-10-04T06:38:00.462218+00:00"
+  },
+  "programmable-weaving": {
+    "sha256": "c2741aa29c3e319c92e7a48fccfe39417a08a00eb84572e9362cb8dd91108113",
+    "sourceCheckedAt": "2026-10-04T04:30:14.210241+00:00"
+  },
+  "turing-computation": {
+    "sha256": "6e36579b353934701aa16c65a7d0e6d3dad555ca9b3440ccd90afa0285535936",
+    "sourceCheckedAt": "2026-10-04T04:30:14.210241+00:00"
+  },
+  "germ-theory": {
+    "sha256": "c39545198b450763bf264518bb5dbe62eeb639be076f4529e0ff3c4367b075e2",
+    "sourceCheckedAt": "2026-10-04T04:30:55Z"
+  },
+  "reproducibility": {
+    "sha256": "0c556cc21ee3c1ce57700c6a1c5482ff3ebe189bf8af46c23c0fac259d1d8cc5",
+    "sourceCheckedAt": "2026-10-04T05:56:39Z"
+  },
+  "atomic-age": {
+    "sha256": "bbb3d448f960957d8c56797d8dba431c9f938b2749e9f39464958aef000389e0",
+    "sourceCheckedAt": "2026-10-04T04:30:55Z"
+  },
+  "archives-silence": {
+    "sha256": "29bd97edf56cdfb1608e7b76f7b8d10dc5c586ed2da0b72eadc32fb4d1a91628",
+    "sourceCheckedAt": "2026-10-04T04:30:55Z"
+  },
+  "earthrise": {
+    "sha256": "939a69b1d86bce4a84d0a2f2653135bc113b496ae8616383cdfbf88aee0e1791",
+    "sourceCheckedAt": "2026-10-04T04:30:55Z"
+  },
+  "climate-ice": {
+    "sha256": "9daa4817d0bf8d5f755a907f7d52571ee5d8d8498e3a6aec72499afce8d47daf",
+    "sourceCheckedAt": "2026-10-04T04:30:55Z"
+  },
+  "model-limits": {
+    "sha256": "679e6f6485a1e992400286ca094312e2a9c26fb8b4016acccba89c8a0418d0e1",
+    "sourceCheckedAt": "2026-10-04T04:30:55Z"
+  }
+}

@@ -9,7 +9,7 @@ import sitemap from "@/app/sitemap";
 import { healthArticles, healthTools, trustPages } from "@/lib/health-v3/content";
 import { healthSupportGuides } from "@/lib/health-v3/support-guides";
 import { homeUpdatedAt } from "@/lib/health-v3/entry-pages";
-import { pocketUpdatedAt } from "@/lib/pocket-money/seo";
+import { antikytheraEssay } from "@/lib/essays/antikythera";
 
 test("home has its own server-rendered reader choices instead of importing the full hub", () => {
   const root = readFileSync("app/page.tsx", "utf8");
@@ -33,9 +33,11 @@ test("every home content destination belongs to the existing inventory", () => {
   assert.doesNotMatch(html, /<input|<form|<textarea/);
 });
 
-test("ONURIM component preserves its date while the new root has its own sitemap date", () => {
+test("ONURIM component preserves its date while the approved new root has its own sitemap date", (t) => {
+  process.env.VERCEL_ENV="production";process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED="true";
+  t.after(()=>{delete process.env.VERCEL_ENV;delete process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED;});
   const html = renderToStaticMarkup(createElement(OnurimHomePage));
   assert.ok(html.includes(`<time dateTime="${homeUpdatedAt}">${homeUpdatedAt}</time>`));
   const home = sitemap().find(entry => new URL(entry.url).pathname === "/")!;
-  assert.equal(new Date(home.lastModified!).toISOString().slice(0, 10), pocketUpdatedAt);
+  assert.equal(new Date(home.lastModified!).toISOString().slice(0, 10), antikytheraEssay.updatedAt);
 });

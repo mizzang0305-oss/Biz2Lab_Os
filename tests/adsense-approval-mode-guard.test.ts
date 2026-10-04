@@ -20,7 +20,7 @@ function walkFiles(dir: string): string[] {
   });
 }
 
-test("AdSense approval mode stays documented outside the client script tag", () => {
+test("AdSense approval settings remain preserved while candidate loaders are paused", () => {
   const approvalMode = (
     googleSetup as typeof googleSetup & {
       adsenseApprovalMode?: {
@@ -40,8 +40,7 @@ test("AdSense approval mode stays documented outside the client script tag", () 
     runtimeNoablateAllowedWhen:
       "hidden, unfilled, no ad slot attribute, and no measurable layout footprint",
   });
-  assert.match(layoutSource, /biz2lab-adsense-client/);
-  assert.match(layoutSource, /src=\{googleSetup\.adsenseScriptUrl\}/);
+  assert.doesNotMatch(layoutSource, /<Script|src=\{googleSetup\.adsenseScriptUrl\}/);
   assert.doesNotMatch(layoutSource, /data-approval-mode\s*=/);
   assert.doesNotMatch(layoutSource, /<ins[^>]+adsbygoogle/i);
 });

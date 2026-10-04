@@ -1,9 +1,14 @@
 import type {MetadataRoute} from "next";
-import {absoluteUrl} from "@/lib/site";
-import {getPublishedPocketGuides} from "@/lib/pocket-money/guide";
-import {pocketUpdatedAt} from "@/lib/pocket-money/seo";
+import {knowledgeUrl, knowledgeIsPublished} from "@/lib/essays/seo";
+import {antikytheraEssay} from "@/lib/essays/antikythera";
+import {essayThemes, getSeriesEssays} from "@/lib/essays/series";
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [{url:absoluteUrl("/"),lastModified:new Date(pocketUpdatedAt),changeFrequency:"weekly",priority:1},
-    {url:absoluteUrl("/privacy"),lastModified:new Date("2026-10-03"),changeFrequency:"monthly",priority:0.3},
-    ...getPublishedPocketGuides().map(guide=>({url:absoluteUrl(`/pocket-money/guides/${guide.slug}`),lastModified:new Date(guide.updatedAt),changeFrequency:"monthly" as const,priority:0.7}))];
+  if (!knowledgeIsPublished()) return [];
+  const essays = getSeriesEssays();
+  return [{url:knowledgeUrl("/"),lastModified:new Date(antikytheraEssay.updatedAt),changeFrequency:"weekly",priority:1},
+    ...essays.map(essay => ({url:knowledgeUrl(essay.path),...(essay.slug === "antikythera" ? {lastModified:new Date(antikytheraEssay.updatedAt)} : {}),changeFrequency:"monthly" as const,priority:0.7})),
+    ...essayThemes.filter(theme => essays.some(essay => essay.theme === theme.name)).map(theme => ({url:knowledgeUrl(`/topics/${theme.slug}`),changeFrequency:"monthly" as const,priority:0.5})),
+    {url:knowledgeUrl("/about"),changeFrequency:"monthly",priority:0.3},
+    {url:knowledgeUrl("/contact"),changeFrequency:"monthly",priority:0.3},
+    {url:knowledgeUrl("/privacy"),lastModified:new Date("2026-10-04"),changeFrequency:"monthly",priority:0.3}];
 }

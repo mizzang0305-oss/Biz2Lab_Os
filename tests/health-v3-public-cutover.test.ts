@@ -68,7 +68,7 @@ test("new root retires health discovery while preserving archived sources", () =
   const rss = read("app/rss.xml/route.ts");
   const proxy = read("proxy.ts");
   assert.doesNotMatch(rootPage, /permanentRedirect\("\/ko"\)/);
-  assert.match(rootPage, /PocketMoneyHome/);
+  assert.match(rootPage, /KnowledgeHome/);
   assert.doesNotMatch(sitemap, /healthArticles/);
   assert.doesNotMatch(sitemap, /getSitemapPosts/);
   assert.doesNotMatch(rss, /healthArticles/);
@@ -77,13 +77,12 @@ test("new root retires health discovery while preserving archived sources", () =
   assert.match(proxy, /status: 410/);
 });
 
-test("public privacy disclosure matches the enabled Google scripts", () => {
+test("archived privacy disclosure retains Google information while candidate loaders are paused", () => {
   const content = read("lib/health-v3/content.ts");
   const trustPage = read("app/health/trust/[slug]/page.tsx");
   const layout = read("app/layout.tsx");
 
-  assert.match(layout, /googleSetup\.adsenseScriptUrl/);
-  assert.match(layout, /googleSetup\.ga4ScriptUrl/);
+  assert.doesNotMatch(layout, /<Script|googleSetup\.adsenseScriptUrl|googleSetup\.ga4ScriptUrl/);
   assert.match(content, /Google Analytics/);
   assert.match(content, /Google AdSense/);
   assert.match(content, /쿠키/);

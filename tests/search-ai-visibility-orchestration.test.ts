@@ -87,7 +87,9 @@ test("webmaster owner action pack keeps verification owner-driven", () => {
   assert.match(googleNextActions, /Search Console showing 0 clicks is normal for a new property/);
 });
 
-test("search discovery files exclude retired health content and ops", async () => {
+test("approved search discovery files exclude retired health content and ops", async (t) => {
+  process.env.VERCEL_ENV="production";process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED="true";
+  t.after(()=>{delete process.env.VERCEL_ENV;delete process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED;});
   const sitemapUrls = new Set(sitemap().map((entry) => entry.url));
   const rss = await getRss().text();
   const robotsConfig = robots();

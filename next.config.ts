@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+const knowledgeContentTrace = ["./content/knowledge-essays/*.md", "./data/knowledge-publication.json", "./data/knowledge-series-plan.json", "./components/essays/AntikytheraEssay.tsx"];
 
 const nextConfig: NextConfig = {
   turbopack: {
@@ -30,6 +31,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     localPatterns: [
+      { pathname: "/images/essays/**", search: "" },
       {
         pathname: "/images/evidence/**",
         search: "",
@@ -55,6 +57,22 @@ const nextConfig: NextConfig = {
         destination: "/ko/small-business/unify-order-channels",
         permanent: true,
       },
+    ];
+  },
+  outputFileTracingIncludes: {
+    "/": knowledgeContentTrace,
+    "/essays/*": knowledgeContentTrace,
+    "/essays/**/*": [...knowledgeContentTrace, "./assets/fonts/NotoSansKR-series-subset.woff", "./assets/fonts/series-font-provenance.json"],
+    "/topics/*": knowledgeContentTrace,
+    "/sitemap.xml": knowledgeContentTrace,
+    "/rss.xml": knowledgeContentTrace,
+  },
+  async headers() {
+    const published = process.env.VERCEL_ENV === "production" && process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED === "true";
+    return [
+      ...(published ? [] : [{ source: "/:path*", headers: [{key: "X-Robots-Tag", value: "noindex, nofollow"}] }]),
+      {source:"/admin/:path*",headers:[{key:"Content-Security-Policy",value:"frame-ancestors 'none'"},{key:"X-Frame-Options",value:"DENY"},{key:"Cache-Control",value:"no-store"},{key:"X-Robots-Tag",value:"noindex, nofollow"}]},
+      {source:"/review/:path*",headers:[{key:"Content-Security-Policy",value:"frame-ancestors 'none'"},{key:"X-Frame-Options",value:"DENY"},{key:"Cache-Control",value:"no-store"}]},
     ];
   },
 };

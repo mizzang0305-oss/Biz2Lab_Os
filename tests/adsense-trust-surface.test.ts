@@ -39,11 +39,13 @@ test("archived Biz2Lab source retains editorial attribution and a contact link, 
   assert.match(article, /editorialIdentity\.authorUrl/);
 });
 
-test("new mobile root preserves ONURIM access and retired locale discovery", () => {
+test("approved knowledge root preserves canonical discovery without retired locale links", (t) => {
+  process.env.VERCEL_ENV="production";process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED="true";
+  t.after(()=>{delete process.env.VERCEL_ENV;delete process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED;});
   const rootPage = readSource("app", "page.tsx");
   const sitemapUrls = sitemap().map((entry) => entry.url);
 
-  assert.match(rootPage, /PocketMoneyHome/);
+  assert.match(rootPage, /KnowledgeHome/);
   assert.doesNotMatch(rootPage, /permanentRedirect/);
   assert.equal(staticPublicRoutes.includes("/"), true);
   assert.equal(sitemapUrls.includes("https://www.biz2lab.com/"), true);
