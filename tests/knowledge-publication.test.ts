@@ -178,3 +178,26 @@ test("body diagrams are original self-contained vectors without external loads o
     assert.doesNotMatch(svg, /<script|<foreignObject|<image|<!DOCTYPE|\son\w+=|(?:href|src)=|@import|<animate|<set\b/);
   }
 });
+
+test("calendar image credits follow the museum record without assigning an unverified artist", () => {
+  const essay = getSeriesEssay("calendar")!;
+  const photo = getEssayPhoto("calendar")!;
+  const image = (knowledgeSchemas(essay.path, essay)[1] as { image: Record<string, unknown> }).image;
+  assert.equal(image.creator, undefined);
+  assert.match(photo.caption, /작가 미상.*1582년 7월–1583년 6월/);
+  assert.ok(essay.sources.some(source => source.url === "https://brunelleschi.imss.fi.it/galileopalazzostrozzi/oggetto/CommissioneRiformaCalendario.html"));
+});
+
+test("Faraday replacement matches the credited Commons original and share-alike terms", () => {
+  const photo = getEssayPhoto("electromagnetism")!;
+  const provenance = JSON.parse(fs.readFileSync("assets/images/raw/faraday-magnetic-laboratory-andyscott.provenance.json", "utf8"));
+  assert.equal(sha256(fs.readFileSync("assets/images/raw/faraday-magnetic-laboratory-andyscott.jpg")), provenance.sourceSha256);
+  assert.equal(photo.assetVersion, provenance.sourceSha256.slice(0, 12));
+  assert.equal(photo.creator, "AndyScott");
+  assert.equal(photo.sourceUrl, provenance.sourceUrl);
+  assert.equal(photo.licenseUrl, "https://creativecommons.org/licenses/by-sa/4.0/");
+  const html = renderToStaticMarkup(createElement(SeriesEssay, { essay: getSeriesEssay("electromagnetism")! }));
+  assert.match(html, /1831년 고리 장치의 실험 당시 사진은 아닙니다/);
+  assert.match(html, /변환본에도 CC BY-SA 4.0을 적용합니다/);
+  assert.doesNotMatch(html, /Faraday_ring_transformer/);
+});

@@ -10,7 +10,7 @@ sources:
     note: 1968년 12월 24일 달 궤도 임무와 네 번째 공전 부근의 촬영 경과.
   - label: NASA, Apollo 8 Earthrise
     url: https://www.nasa.gov/image-article/apollo-8-earthrise/
-    note: 아폴로 8호에서 빌 앤더스가 촬영한 유명한 컬러 사진의 소개. 이 원고에서는 이미지를 복제하지 않는다.
+    note: 아폴로 8호에서 빌 앤더스가 촬영한 유명한 컬러 사진의 소개. 사진은 본문의 출처·이용 조건과 함께 제시했다.
   - label: NASA Scientific Visualization Studio, Earthrise, The 45th Anniversary
     url: https://svs.gsfc.nasa.gov/4129/
     note: 촬영 사진과 위성 구름 자료 등에 근거한 후대의 재구성. 우주선 회전이 지구를 시야에 들어오게 했다는 설명.
