@@ -1,5 +1,6 @@
 import "./helpers/register-pocket-css";
 import assert from "node:assert/strict";
+import { essayMedia } from "../lib/essays/media";
 import fs from "node:fs";
 import test from "node:test";
 import { createElement } from "react";
@@ -64,13 +65,17 @@ test("generic essay renders the full text, a matching version and usable heading
   assert.match(html, /data-body-sha256="[a-f0-9]{64}"/); assert.ok(html.includes(essay.title)); assert.equal((html.match(/<h1/g) ?? []).length, 1);
   for (const section of essay.sections) { assert.ok(html.includes(`id="${section.id}"`)); assert.ok(html.includes(`href="#${section.id}"`)); }
   for (const citation of essay.sources) assert.ok(html.includes(citation.url.replaceAll("&", "&amp;")));
-  assert.doesNotMatch(html, /<img|<iframe|<form|<textarea|<input/);
+  assert.doesNotMatch(html, /<iframe|<form|<textarea|<input/);
+  assert.equal((html.match(/<img\b/g) ?? []).length, 1);
+  assert.match(html, /src="\/images\/essays\/frankenstein-ai\/concept\.svg"/);
 });
 test("malicious manuscript labels stay text and body links cannot execute script or reach a missing essay", () => {
   const raw = source.replace(/^title:.*$/m, 'title: "</script><script>alert(1)</script>"') + "\n[메모](javascript:alert%281%29)\n[미작성 글](/essays/unwritten)\n";
   const essay = { ...parseEssayManuscript(raw, "frankenstein-ai"), sourceCheckedAt: null, authorRecordMatches: false };
   const html = renderToStaticMarkup(createElement(SeriesEssay, { essay }));
-  assert.match(html, /&lt;script&gt;/); assert.doesNotMatch(html, /<script|href="javascript|href="\/essays\/unwritten|<img|<input|<form/);
+  assert.match(html, /&lt;script&gt;/); assert.doesNotMatch(html, /<script|href="javascript|href="\/essays\/unwritten|<input|<form/);
+  assert.equal((html.match(/<img\b/g) ?? []).length, 1);
+  assert.match(html, /src="\/images\/essays\/frankenstein-ai\/concept\.svg"/);
   const structured = renderToStaticMarkup(createElement(EssayStructuredData, { path: essay.path, article: essay }));
   const scripts = [...structured.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
   assert.equal(scripts.length, 3); assert.equal((structured.match(/<script/g) ?? []).length, 3); assert.doesNotMatch(structured, /<script>alert/); assert.match(structured, /\\u003c/);
@@ -82,7 +87,7 @@ test("each existing essay receives distinct article metadata and truthful schema
     const schemas = knowledgeSchemas(essay.path, essay) as Record<string, unknown>[]; const serialized = JSON.stringify(schemas);
     assert.match(serialized, /BlogPosting/); assert.match(serialized, /BreadcrumbList/); assert.ok(serialized.includes(essay.title)); assert.doesNotMatch(serialized, /datePublished|dateModified|interactionStatistic|aggregateRating|reviewCount/);
     if (essay.slug === "antikythera") assert.equal((schemas[1].image as string[]).length, 2);
-    else assert.equal(Object.hasOwn(schemas[1], "image"), false, "이미지 없는 본문에 대표 이미지로 텍스트 카드를 대신 넣지 않습니다.");
+    else assert.equal(Object.hasOwn(schemas[1], "image"), false, "OG 텍스트 카드를 본문의 원자료 이미지로 선언하지 않습니다.");
   }
 });
 test("candidate discovery remains empty and release discovery lists every real manuscript only", async () => {
@@ -120,4 +125,30 @@ test("approved release includes contact while preview discovery stays protected"
   process.env.VERCEL_ENV="production"; process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED="true";
   assert.equal(sitemap().length, 40);
   assert.ok(sitemap().some(entry=>entry.url === "https://www.biz2lab.com/contact"));
+});
+
+test("every formerly text-only article has one relevant local body diagram with source and accessible description", () => {
+  const all = getSeriesEssays().filter(essay => essay.slug !== "antikythera");
+  assert.equal(essayMedia.length, all.length);
+  assert.equal(new Set(essayMedia.map(figure => figure.src)).size, 29);
+  for (const essay of all) {
+    const figure = essayMedia.find(item => item.slug === essay.slug)!;
+    assert.ok(figure && essay.sections.some(section => section.id === figure.afterSection), essay.slug);
+    assert.ok(essay.sources.some(source => source.url === figure.sourceUrl));
+    assert.ok(figure.alt.length > 15 && figure.caption.length > 40);
+    const html = renderToStaticMarkup(createElement(SeriesEssay, { essay }));
+    assert.equal((html.match(/data-essay-body-media=/g) ?? []).length, 1);
+    assert.ok(html.includes(`src="${figure.src}"`) && html.includes(figure.alt));
+    assert.match(html, /<figcaption>/);
+  }
+});
+
+test("body diagrams are original self-contained vectors without external loads or active content", () => {
+  for (const figure of essayMedia) {
+    assert.match(figure.src, /^\/images\/essays\/[a-z0-9-]+\/concept\.svg$/);
+    const svg = fs.readFileSync(`public${figure.src}`, "utf8");
+    assert.match(svg, /viewBox="0 0 640 460"/);
+    assert.ok(svg.includes(figure.title));
+    assert.doesNotMatch(svg, /<script|<foreignObject|<image|<!DOCTYPE|\son\w+=|(?:href|src)=|@import|<animate|<set\b/);
+  }
 });
