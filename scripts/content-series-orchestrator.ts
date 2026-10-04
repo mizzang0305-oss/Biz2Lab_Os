@@ -3,7 +3,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-import sharp from "sharp";
+import sharp, { type Metadata } from "sharp";
 
 import type { ImageBrief } from "@/lib/image-generation/types";
 
@@ -969,7 +969,7 @@ export async function importCodexImageArtifact(
     .jpeg({ quality: 92, mozjpeg: true })
     .toFile(targetAbsolutePath);
   const image = sharp(targetAbsolutePath);
-  let metadata: sharp.Metadata;
+  let metadata: Metadata;
   try {
     metadata = await image.metadata();
   } finally {

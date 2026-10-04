@@ -33,11 +33,13 @@ test("every home content destination belongs to the existing inventory", () => {
   assert.doesNotMatch(html, /<input|<form|<textarea/);
 });
 
-test("ONURIM component preserves its date while the approved new root has its own sitemap date", (t) => {
+test("ONURIM component preserves its date while the new root does not inherit an article date", (t) => {
   process.env.VERCEL_ENV="production";process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED="true";
   t.after(()=>{delete process.env.VERCEL_ENV;delete process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED;});
   const html = renderToStaticMarkup(createElement(OnurimHomePage));
   assert.ok(html.includes(`<time dateTime="${homeUpdatedAt}">${homeUpdatedAt}</time>`));
   const home = sitemap().find(entry => new URL(entry.url).pathname === "/")!;
-  assert.equal(new Date(home.lastModified!).toISOString().slice(0, 10), antikytheraEssay.updatedAt);
+  assert.equal(home.lastModified, undefined);
+  const article = sitemap().find(entry => new URL(entry.url).pathname === antikytheraEssay.path)!;
+  assert.equal(new Date(article.lastModified!).toISOString().slice(0, 10), antikytheraEssay.updatedAt);
 });

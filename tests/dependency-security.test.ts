@@ -54,20 +54,26 @@ test("dependency overrides keep Next.js private build and image packages on patc
   const lockfile = readJson<Lockfile>("package-lock.json");
 
   assert.equal(manifest.overrides?.next?.postcss, "8.5.26");
-  assert.equal(manifest.overrides?.next?.sharp, "0.35.3");
+  assertVersionAtLeast(manifest.overrides?.next?.sharp, "0.35.5", "next/sharp override");
   assert.equal(manifest.overrides?.nanoid, "3.3.18");
   assertVersionAtLeast(lockfile.packages["node_modules/next/node_modules/postcss"]?.version, "8.5.26", "next/postcss");
   assertVersionAtLeast(lockfile.packages["node_modules/nanoid"]?.version, "3.3.18", "nanoid");
-  assertVersionAtLeast(lockfile.packages["node_modules/next/node_modules/sharp"]?.version, "0.35.0", "next/sharp");
+  assertVersionAtLeast(lockfile.packages["node_modules/next"]?.version, "16.3.6", "next");
+  assertVersionAtLeast(
+    (lockfile.packages["node_modules/next/node_modules/sharp"] ?? lockfile.packages["node_modules/sharp"])?.version,
+    "0.35.5",
+    "next/sharp",
+  );
+  assertVersionAtLeast(lockfile.packages["node_modules/baseline-browser-mapping"]?.version, "2.11.0", "baseline-browser-mapping");
 });
 
 test("lockfile keeps YAML and glob parsers above their patched minimums", () => {
   const manifest = readJson<PackageManifest>("package.json");
   const lockfile = readJson<Lockfile>("package-lock.json");
 
-  assert.equal(manifest.overrides?.["gray-matter"]?.["js-yaml"], "3.15.1");
-  assertVersionAtLeast(lockfile.packages["node_modules/gray-matter/node_modules/js-yaml"]?.version, "3.15.1", "gray-matter/js-yaml");
-  assertVersionAtLeast(lockfile.packages["node_modules/js-yaml"]?.version, "4.3.0", "js-yaml");
+  assertVersionAtLeast(manifest.overrides?.["gray-matter"]?.["js-yaml"], "3.15.2", "gray-matter/js-yaml override");
+  assertVersionAtLeast(lockfile.packages["node_modules/gray-matter/node_modules/js-yaml"]?.version, "3.15.2", "gray-matter/js-yaml");
+  assertVersionAtLeast(lockfile.packages["node_modules/js-yaml"]?.version, "4.3.2", "js-yaml");
   assertVersionAtLeast(lockfile.packages["node_modules/brace-expansion"]?.version, "1.1.16", "brace-expansion@1");
   assertVersionAtLeast(
     lockfile.packages["node_modules/@typescript-eslint/typescript-estree/node_modules/brace-expansion"]?.version,
