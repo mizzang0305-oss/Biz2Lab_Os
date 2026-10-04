@@ -4,9 +4,12 @@ import Link from "next/link";
 import {siteSchemasForPath} from "@/lib/pocket-money/seo";
 import {jsonLd} from "@/lib/seo";
 import styles from "@/components/pocket-money/opportunity-list.module.css";
+import {KnowledgeChrome} from "@/components/essays/KnowledgeChrome";
 export function PublicRouteChrome({children}:{children:React.ReactNode}) {
   const pathname=usePathname();
   const living=pathname==="/living"||pathname?.startsWith("/living/")===true;
+  const pocket=pathname==="/pocket-money"||pathname?.startsWith("/pocket-money/")===true;
+  if(!living&&!pocket)return <KnowledgeChrome pathname={pathname}>{children}</KnowledgeChrome>;
   const schemas=siteSchemasForPath(pathname);
   return <div className={`${styles.chrome}${living?` ${styles.livingChrome}`:""}`} data-testid={living?undefined:"home-surface"}>
     {schemas.map((schema,i)=><script key={i} type="application/ld+json" dangerouslySetInnerHTML={{__html:jsonLd(schema)}}/>)}
@@ -18,6 +21,7 @@ export function PublicRouteChrome({children}:{children:React.ReactNode}) {
       <nav aria-label="사이트 안내">
         <Link href="/">홈</Link>
         <Link href="/living" aria-current={pathname==="/living"?"page":undefined}>생활용품 목록</Link>
+        <Link href="/contact" aria-current={pathname==="/contact"?"page":undefined}>문의 안내</Link>
         <Link href="/privacy" aria-current={pathname==="/privacy"?"page":undefined}>개인정보·광고 안내</Link>
       </nav>
     </footer>

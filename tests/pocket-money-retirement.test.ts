@@ -8,6 +8,7 @@ import {healthInventory} from "../scripts/snapshot-health39";
 import {opportunities,filterOpportunities,opportunityCategories} from "../lib/pocket-money/opportunities";
 import sitemap from "../app/sitemap";
 import {GET} from "../app/rss.xml/route";
+import {getSeriesEssays} from "../lib/essays/series";
 import PocketMoneyAlias from "../app/pocket-money/page";
 
 test("all 39 articles, 46 auxiliary URLs, hub and assets retire before rendering",async()=>{
@@ -36,9 +37,11 @@ test("legacy redirect and admin gate still fail closed",()=>{
   assert.equal(proxy(new NextRequest("https://www.biz2lab.com/ko/about")).status,410);
   assert.equal(proxy(new NextRequest("https://www.biz2lab.com/admin/content-automation")).status,404);
 });
-test("sitemap includes the site disclosure without retired health; duplicate home redirects",async()=>{
-  assert.deepEqual(sitemap().map(entry=>entry.url),["https://www.biz2lab.com/","https://www.biz2lab.com/privacy"]);
-  const rss=await GET().text();assert.doesNotMatch(rss,/health|onurim|오누림/);assert.equal((rss.match(/<item>/g)??[]).length,opportunities.length);
+test("approved sitemap includes the site disclosure without retired health; duplicate home redirects",async(t)=>{
+  process.env.VERCEL_ENV="production";process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED="true";
+  t.after(()=>{delete process.env.VERCEL_ENV;delete process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED;});
+  const urls=sitemap().map(entry=>entry.url);for(const path of ["/","/privacy","/about"])assert.ok(urls.includes(`https://www.biz2lab.com${path}`));assert.equal(urls.filter(url=>url.includes("/essays/")).length,getSeriesEssays().length);assert.doesNotMatch(JSON.stringify(urls),/health|onurim|admin|review/);
+  const rss=await GET().text();assert.doesNotMatch(rss,/health|onurim|오누림/);assert.equal((rss.match(/<item>/g)??[]).length,getSeriesEssays().length);
   assert.throws(()=>PocketMoneyAlias(),error=>error instanceof Error && "digest" in error && error.digest==="NEXT_REDIRECT;replace;/;308;");
 });
 test("every category has actionable official information with visible constraints",()=>{

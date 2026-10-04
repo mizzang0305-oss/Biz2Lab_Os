@@ -1,0 +1,364 @@
+{
+  "articles": [
+    {
+      "order": 1,
+      "slug": "antikythera",
+      "title": "2천 년 전의 컴퓨터, 우리가 아는 과거는 얼마나 정확할까?",
+      "question": "남아 있지 않은 것을 없었다고 말할 수 있을까?",
+      "theme": "관측과 증거",
+      "related": [
+        "turing-computation",
+        "archives-silence",
+        "model-limits"
+      ]
+    },
+    {
+      "order": 2,
+      "slug": "frankenstein-ai",
+      "title": "프랑켄슈타인은 왜 자신이 만든 존재에게서 도망쳤을까",
+      "question": "만들 수 있다는 사실 뒤에 어떤 책임이 남을까?",
+      "theme": "지식과 책임",
+      "related": [
+        "turing-computation",
+        "feedback",
+        "atomic-age"
+      ]
+    },
+    {
+      "order": 3,
+      "slug": "eratosthenes",
+      "title": "막대기의 그림자로 지구를 재는 방법",
+      "question": "눈앞의 작은 차이로 보이지 않는 전체를 어떻게 추론할까?",
+      "theme": "측정과 질서",
+      "related": [
+        "maps",
+        "model-limits",
+        "antikythera"
+      ]
+    },
+    {
+      "order": 4,
+      "slug": "calendar",
+      "title": "달력은 하늘을 세면서 사람의 시간을 정한다",
+      "question": "자연의 주기와 사회의 약속은 어디에서 만날까?",
+      "theme": "측정과 질서",
+      "related": [
+        "relativity",
+        "longitude",
+        "steam-work"
+      ]
+    },
+    {
+      "order": 5,
+      "slug": "longitude",
+      "title": "배 위의 시계가 바꾼 위치의 질문",
+      "question": "시각을 함께 알면 왜 위치를 알 수 있을까?",
+      "theme": "측정과 질서",
+      "related": [
+        "calendar",
+        "maps",
+        "relativity"
+      ]
+    },
+    {
+      "order": 6,
+      "slug": "maps",
+      "title": "둥근 지구를 펼치면 무엇이 달라질까",
+      "question": "지도에서 커 보이는 것이 실제로도 큰 것일까?",
+      "theme": "측정과 질서",
+      "related": [
+        "eratosthenes",
+        "earthrise",
+        "model-limits"
+      ]
+    },
+    {
+      "order": 7,
+      "slug": "relativity",
+      "title": "같은 시간이라고 말하려면 먼저 맞춰야 할 것",
+      "question": "떨어져 있는 두 시계의 지금은 어떻게 비교할까?",
+      "theme": "측정과 질서",
+      "related": [
+        "longitude",
+        "calendar",
+        "model-limits"
+      ]
+    },
+    {
+      "order": 8,
+      "slug": "telescope",
+      "title": "망원경이 보여준 것과 사람들이 받아들인 것",
+      "question": "새로 본 장면은 언제 설명을 바꿀 증거가 될까?",
+      "theme": "관측과 증거",
+      "related": [
+        "antikythera",
+        "microscope",
+        "reproducibility"
+      ]
+    },
+    {
+      "order": 9,
+      "slug": "microscope",
+      "title": "작은 세계를 본 뒤에도 설명은 남아 있었다",
+      "question": "더 크게 보이면 곧바로 더 잘 이해하게 될까?",
+      "theme": "관측과 증거",
+      "related": [
+        "germ-theory",
+        "telescope",
+        "dna-code"
+      ]
+    },
+    {
+      "order": 10,
+      "slug": "evolution",
+      "title": "생명의 역사는 사다리보다 가지에 가깝다",
+      "question": "달라졌다는 말은 더 나아졌다는 말일까?",
+      "theme": "설명과 모형",
+      "related": [
+        "mendel",
+        "dna-code",
+        "archives-silence"
+      ]
+    },
+    {
+      "order": 11,
+      "slug": "mendel",
+      "title": "완두콩을 세면 유전의 규칙이 보일까",
+      "question": "규칙적인 비율이 개별 생명의 운명도 정할까?",
+      "theme": "설명과 모형",
+      "related": [
+        "evolution",
+        "dna-code",
+        "reproducibility"
+      ]
+    },
+    {
+      "order": 12,
+      "slug": "periodic-table",
+      "title": "빈칸을 남긴 표가 더 많은 것을 설명했다",
+      "question": "모르는 것을 드러내는 배열은 어떻게 예측을 만들까?",
+      "theme": "설명과 모형",
+      "related": [
+        "model-limits",
+        "quantum",
+        "antikythera"
+      ]
+    },
+    {
+      "order": 13,
+      "slug": "entropy",
+      "title": "깨진 컵을 되돌리기 어려운 이유",
+      "question": "가능한 변화와 저절로 일어나는 변화는 어떻게 다를까?",
+      "theme": "설명과 모형",
+      "related": [
+        "steam-work",
+        "shannon",
+        "quantum"
+      ]
+    },
+    {
+      "order": 14,
+      "slug": "quantum",
+      "title": "이중 슬릿 앞에서 우리가 바꿔 묻는 질문",
+      "question": "입자의 길과 도착 무늬를 같은 방식으로 알 수 있을까?",
+      "theme": "설명과 모형",
+      "related": [
+        "model-limits",
+        "periodic-table",
+        "relativity"
+      ]
+    },
+    {
+      "order": 15,
+      "slug": "plate-tectonics",
+      "title": "움직이지 않는 것처럼 보이는 대륙을 움직인 증거",
+      "question": "설명에 맞는 모양만으로 충분한 증거가 될까?",
+      "theme": "관측과 증거",
+      "related": [
+        "telescope",
+        "reproducibility",
+        "climate-ice"
+      ]
+    },
+    {
+      "order": 16,
+      "slug": "dna-code",
+      "title": "생명의 암호라는 말이 설명하는 것과 가리는 것",
+      "question": "DNA를 읽는다는 것은 생명을 모두 읽는다는 뜻일까?",
+      "theme": "관측과 증거",
+      "related": [
+        "mendel",
+        "evolution",
+        "shannon"
+      ]
+    },
+    {
+      "order": 17,
+      "slug": "printing",
+      "title": "책을 복제하는 속도가 생각의 길을 바꿨다",
+      "question": "같은 문장을 함께 읽으면 판단도 같아질까?",
+      "theme": "기계와 연결",
+      "related": [
+        "archives-silence",
+        "reproducibility",
+        "shannon"
+      ]
+    },
+    {
+      "order": 18,
+      "slug": "steam-work",
+      "title": "증기기관은 힘뿐 아니라 시간을 바꿨다",
+      "question": "기계가 일을 빠르게 하면 누구의 하루가 바뀔까?",
+      "theme": "기계와 연결",
+      "related": [
+        "entropy",
+        "calendar",
+        "programmable-weaving"
+      ]
+    },
+    {
+      "order": 19,
+      "slug": "electromagnetism",
+      "title": "서로 다른 현상을 하나의 언어로 묶는 일",
+      "question": "전기와 자석을 함께 설명하면 무엇이 가능해질까?",
+      "theme": "기계와 연결",
+      "related": [
+        "shannon",
+        "model-limits",
+        "relativity"
+      ]
+    },
+    {
+      "order": 20,
+      "slug": "shannon",
+      "title": "정보를 셀 때 의미를 잠시 내려놓은 이유",
+      "question": "뜻을 몰라도 메시지를 정확하게 전할 수 있을까?",
+      "theme": "기계와 연결",
+      "related": [
+        "entropy",
+        "dna-code",
+        "turing-computation"
+      ]
+    },
+    {
+      "order": 21,
+      "slug": "feedback",
+      "title": "되먹임은 목표를 이루면서 목표를 되묻게 한다",
+      "question": "잘 조절되는 시스템이 잘못된 목적도 따를 수 있을까?",
+      "theme": "기계와 연결",
+      "related": [
+        "frankenstein-ai",
+        "steam-work",
+        "model-limits"
+      ]
+    },
+    {
+      "order": 22,
+      "slug": "programmable-weaving",
+      "title": "직물의 무늬가 기계의 명령이 되었을 때",
+      "question": "작업 순서를 물건에 기록하면 기술은 어디에 남을까?",
+      "theme": "기계와 연결",
+      "related": [
+        "turing-computation",
+        "steam-work",
+        "antikythera"
+      ]
+    },
+    {
+      "order": 23,
+      "slug": "turing-computation",
+      "title": "풀 수 없는 문제도 계산의 경계를 알려준다",
+      "question": "규칙이 분명한 질문은 모두 기계로 풀 수 있을까?",
+      "theme": "지식과 책임",
+      "related": [
+        "frankenstein-ai",
+        "programmable-weaving",
+        "shannon"
+      ]
+    },
+    {
+      "order": 24,
+      "slug": "germ-theory",
+      "title": "보이지 않는 원인을 알면 책임의 방향도 달라진다",
+      "question": "병의 원인을 설명하는 방식은 누구를 탓하는가?",
+      "theme": "지식과 책임",
+      "related": [
+        "microscope",
+        "reproducibility",
+        "model-limits"
+      ]
+    },
+    {
+      "order": 25,
+      "slug": "reproducibility",
+      "title": "같은 결과를 다시 얻지 못하면 무엇을 물어야 할까",
+      "question": "한 번 실패한 재현은 원래 연구를 곧바로 지울까?",
+      "theme": "지식과 책임",
+      "related": [
+        "mendel",
+        "telescope",
+        "archives-silence"
+      ]
+    },
+    {
+      "order": 26,
+      "slug": "atomic-age",
+      "title": "원자핵을 이해한 뒤 선택해야 했던 것들",
+      "question": "할 수 있게 된 일과 해야 할 일은 누가 구분할까?",
+      "theme": "지식과 책임",
+      "related": [
+        "frankenstein-ai",
+        "feedback",
+        "earthrise"
+      ]
+    },
+    {
+      "order": 27,
+      "slug": "archives-silence",
+      "title": "기록이 없는 사람도 역사에 있었다",
+      "question": "남아 있는 자료는 누구의 목소리를 더 크게 만드는가?",
+      "theme": "지식과 책임",
+      "related": [
+        "antikythera",
+        "printing",
+        "evolution"
+      ]
+    },
+    {
+      "order": 28,
+      "slug": "earthrise",
+      "title": "지구를 밖에서 본 사진은 무엇을 바꿨을까",
+      "question": "한 장의 사진이 생각을 바꾸는 과정은 어떻게 확인할까?",
+      "theme": "인간의 자리",
+      "related": [
+        "maps",
+        "climate-ice",
+        "atomic-age"
+      ]
+    },
+    {
+      "order": 29,
+      "slug": "climate-ice",
+      "title": "얼음 속 공기는 과거의 대기를 어떻게 기억할까",
+      "question": "오래된 기후를 현재의 측정으로 어떻게 읽을까?",
+      "theme": "인간의 자리",
+      "related": [
+        "earthrise",
+        "plate-tectonics",
+        "model-limits"
+      ]
+    },
+    {
+      "order": 30,
+      "slug": "model-limits",
+      "title": "좋은 설명에는 어디까지라는 말이 있다",
+      "question": "틀릴 수 있는 모형을 어떻게 믿고 사용할까?",
+      "theme": "인간의 자리",
+      "related": [
+        "antikythera",
+        "quantum",
+        "reproducibility"
+      ]
+    }
+  ]
+}

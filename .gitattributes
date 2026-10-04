@@ -1,0 +1,2 @@
+content/knowledge-essays/*.md -text
+components/essays/AntikytheraEssay.tsx -text

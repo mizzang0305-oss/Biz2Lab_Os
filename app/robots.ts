@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { forbiddenPublicRoutePrefixes } from "@/lib/locales";
-import { absoluteUrl } from "@/lib/site";
+import { knowledgeUrl, knowledgeIsPublished } from "@/lib/essays/seo";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -11,13 +11,15 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: [
           "/api/",
+          "/admin/",
+          "/review/",
           "/ko/",
           "/health/review/",
           ...forbiddenPublicRoutePrefixes.map((prefix) => `${prefix}/`),
         ],
       },
     ],
-    sitemap: absoluteUrl("/sitemap.xml"),
+    ...(knowledgeIsPublished() ? {sitemap: knowledgeUrl("/sitemap.xml")} : {}),
   };
 }
 

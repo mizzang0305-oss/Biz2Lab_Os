@@ -395,7 +395,7 @@ test("official canonical metadata uses the www production domain", () => {
   assert.equal(metadata.openGraph?.url, "https://www.biz2lab.com/ko");
 });
 
-test("archived health authorship retains its provenance while the root uses the pocket brand", () => {
+test("archived health authorship retains its provenance while the root uses the knowledge essay brand", () => {
   const trustPageSource = fs.readFileSync(
     path.join(process.cwd(), "app", "health", "trust", "[slug]", "page.tsx"),
     "utf8",
@@ -413,7 +413,7 @@ test("archived health authorship retains its provenance while the root uses the 
   assert.match(seoSource, /publishingPrinciples:\s*absoluteUrl\("\/health\/trust\/editorial-policy"\)/);
   assert.match(
     layoutSource,
-    /authors:\s*\[\{ name: `\$\{pocketBrand\} 운영자` \}\]/,
+    /authors:\s*\[\{ name: "Biz2Lab 운영자" \}\]/,
   );
 });
 
@@ -443,12 +443,7 @@ test("Google setup uses exact approved public values without Search Console meta
   assert.equal(fs.existsSync(searchConsoleFilePath), false);
 
   assert.match(layoutSource, /"google-adsense-account": googleSetup\.adsenseClientId/);
-  assert.match(layoutSource, /next\/script/);
-  assert.match(layoutSource, /biz2lab-adsense-client/);
-  assert.match(layoutSource, /biz2lab-ga4-loader/);
-  assert.match(layoutSource, /biz2lab-ga4-init/);
-  assert.match(layoutSource, /strategy="beforeInteractive"/);
-  assert.match(layoutSource, /crossOrigin="anonymous"/);
+  assert.doesNotMatch(layoutSource, /next\/script|<Script|googleSetup\.ga4ScriptUrl|googleSetup\.adsenseScriptUrl/);
   assert.doesNotMatch(layoutSource, /google-site-verification/);
 });
 
