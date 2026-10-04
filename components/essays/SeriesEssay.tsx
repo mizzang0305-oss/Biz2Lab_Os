@@ -28,9 +28,10 @@ export function SeriesEssay({ essay }: { essay: Essay }) {
       <p className={styles.draftNote}>Biz2Lab 지식 에세이</p>
     </header>
     <div className={`${styles.prose} ${styles.markdownProse}`}>
+      {photo && <ArticlePhoto photo={photo} opening />}
       {essay.intro && markdown(essay.intro)}
       <ReadingExperience chapters={[...essay.sections.map(section => [section.id, section.title] as const), ["sources", "직접 들여다볼 원자료"]]} />
-      {essay.sections.map(section => <section key={section.id} id={section.id} aria-labelledby={`${section.id}-title`}><h2 id={`${section.id}-title`}>{section.title}</h2>{photo?.section === section.id && <ArticlePhoto photo={photo} />}{markdown(section.content)}{figure?.afterSection === section.id && (!photo || photo.keepDiagram) && <ArticleDiagram figure={figure} />}</section>)}
+      {essay.sections.map(section => <section key={section.id} id={section.id} aria-labelledby={`${section.id}-title`}><h2 id={`${section.id}-title`}>{section.title}</h2>{markdown(section.content)}{figure?.afterSection === section.id && (!photo || photo.keepDiagram) && <ArticleDiagram figure={figure} />}</section>)}
       <section className={styles.sources} id="sources" aria-labelledby="sources-title"><h2 id="sources-title">직접 들여다볼 원자료</h2>
         <p>아래 자료의 근거를 연결해 구성한 에세이입니다. 자료에서 확인한 사실과, 이를 오늘의 질문에 연결하는 원고의 해석을 구분해 읽어 주세요.</p>
         <ol>{essay.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label} <span aria-hidden="true">↗</span><span className={styles.srOnly}> (새 창)</span></a><p>{source.note}</p></li>)}</ol>

@@ -1,16 +1,16 @@
 import { essayPhotoSrc, type EssayPhoto } from "@/lib/essays/photos";
 import styles from "./essays.module.css";
 
-export function ArticlePhoto({ photo }: { photo: EssayPhoto }) {
+export function ArticlePhoto({ photo, opening = false }: { photo: EssayPhoto; opening?: boolean }) {
   const srcSet = (format: "avif" | "webp" | "jpg") => photo.widths.map(width => `${essayPhotoSrc(photo, width, format)} ${width}w`).join(", ");
   const sizes = "(max-width: 760px) calc(100vw - 40px), 680px";
-  return <figure className={styles.articlePhoto} data-source-photo={photo.slug}>
+  return <figure className={`${styles.articlePhoto} ${opening ? styles.openingPhoto : ""}`} data-source-photo={photo.slug}>
     <picture>
       <source type="image/avif" srcSet={srcSet("avif")} sizes={sizes} />
       <source type="image/webp" srcSet={srcSet("webp")} sizes={sizes} />
       {/* Precomputed, local picture variants provide format negotiation without runtime requests. */}
       <img src={essayPhotoSrc(photo, photo.width, "jpg")} srcSet={srcSet("jpg")} sizes={sizes}
-        width={photo.width} height={photo.height} alt={photo.alt} loading="lazy" decoding="async" />
+        width={photo.width} height={photo.height} alt={photo.alt} loading={opening ? "eager" : "lazy"} decoding="async" />
     </picture>
     <figcaption><strong>{photo.title}</strong><p>{photo.caption}</p>
       <p className={styles.photoCredit}>{photo.credit}</p>
