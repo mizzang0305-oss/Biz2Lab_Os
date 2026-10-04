@@ -67,7 +67,9 @@ test("generic essay renders the full text, a matching version and usable heading
   for (const section of essay.sections) { assert.ok(html.includes(`id="${section.id}"`)); assert.ok(html.includes(`href="#${section.id}"`)); }
   for (const citation of essay.sources) assert.ok(html.includes(citation.url.replaceAll("&", "&amp;")));
   assert.doesNotMatch(html, /<iframe|<form|<textarea|<input/);
-  assert.equal((html.match(/<img\b/g) ?? []).length, 1);
+  assert.equal((html.match(/data-source-photo=/g) ?? []).length, 1);
+  assert.equal((html.match(/<img\b/g) ?? []).length, 1 + getRelatedEssays(essay.slug).length);
+  assert.deepEqual([...html.matchAll(/data-preview-photo="([^"]+)"/g)].map(match => match[1]), getRelatedEssays(essay.slug).map(related => related.slug));
   assert.match(html, /data-source-photo="frankenstein-ai"/);
 });
 test("malicious manuscript labels stay text and body links cannot execute script or reach a missing essay", () => {
@@ -75,7 +77,9 @@ test("malicious manuscript labels stay text and body links cannot execute script
   const essay = { ...parseEssayManuscript(raw, "frankenstein-ai"), sourceCheckedAt: null, authorRecordMatches: false };
   const html = renderToStaticMarkup(createElement(SeriesEssay, { essay }));
   assert.match(html, /&lt;script&gt;/); assert.doesNotMatch(html, /<script|href="javascript|href="\/essays\/unwritten|<input|<form/);
-  assert.equal((html.match(/<img\b/g) ?? []).length, 1);
+  assert.equal((html.match(/data-source-photo=/g) ?? []).length, 1);
+  assert.equal((html.match(/<img\b/g) ?? []).length, 1 + getRelatedEssays(essay.slug).length);
+  assert.deepEqual([...html.matchAll(/data-preview-photo="([^"]+)"/g)].map(match => match[1]), getRelatedEssays(essay.slug).map(related => related.slug));
   assert.match(html, /data-source-photo="frankenstein-ai"/);
   const structured = renderToStaticMarkup(createElement(EssayStructuredData, { path: essay.path, article: essay }));
   const scripts = [...structured.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
@@ -134,7 +138,7 @@ test("approved release includes contact while preview discovery stays protected"
   assert.ok(sitemap().some(entry=>entry.url === "https://www.biz2lab.com/contact"));
 });
 
-test("each generic article places one credited responsive source image before its section text", () => {
+test("each generic article opens with one credited responsive source image and preserves its diagrams", () => {
   const all = getSeriesEssays().filter(essay => essay.slug !== "antikythera");
   assert.equal(essayMedia.length, all.length);
   assert.equal(new Set(essayMedia.map(figure => figure.src)).size, 29);
@@ -151,15 +155,17 @@ test("each generic article places one credited responsive source image before it
     assert.equal((html.match(/data-source-photo=/g) ?? []).length, 1);
     assert.equal((html.match(/data-essay-body-media=/g) ?? []).length, Number(photo.keepDiagram));
     if (photo.keepDiagram) assert.ok(html.includes(`src="${figure.src}"`) && html.includes(figure.alt));
-    assert.ok(html.includes(photo.alt) && html.includes(photo.credit.replaceAll("&", "&amp;")));
-    assert.ok(html.includes(`href="${photo.sourceUrl.replaceAll("&", "&amp;")}"`));
-    assert.ok(html.includes(`href="${photo.licenseUrl}"`));
-    assert.match(html, /<source type="image\/avif"/); assert.match(html, /<source type="image\/webp"/);
-    assert.match(html, /loading="lazy"/);
-    assert.ok(html.indexOf(`id="${photo.section}-title"`) < html.indexOf(`data-source-photo="${essay.slug}"`));
+    const openingPhoto = html.match(/<figure\b[^>]*data-source-photo="[^"]+"[\s\S]*?<\/figure>/)?.[0];
+    assert.ok(openingPhoto, essay.slug);
+    assert.ok(openingPhoto.includes(photo.alt) && openingPhoto.includes(photo.credit.replaceAll("&", "&amp;")));
+    assert.ok(openingPhoto.includes(`href="${photo.sourceUrl.replaceAll("&", "&amp;")}"`));
+    assert.ok(openingPhoto.includes(`href="${photo.licenseUrl}"`));
+    assert.match(openingPhoto, /<source type="image\/avif"/); assert.match(openingPhoto, /<source type="image\/webp"/);
+    assert.match(openingPhoto, /loading="eager"/);
+    assert.ok(html.indexOf(`data-source-photo="${essay.slug}"`) < html.indexOf(`id="${essay.sections[0].id}-title"`));
     for (const width of photo.widths) for (const format of ["avif", "webp", "jpg"] as const)
       assert.ok(fs.existsSync(`public${essayPhotoSrc(photo, width, format)}`));
-    assert.match(html, /<figcaption>/);
+    assert.match(openingPhoto, /<figcaption>/);
   }
 });
 
