@@ -16,7 +16,6 @@ export default async function SocialImage() {
     </div>
     <div style={{display:"flex",alignItems:"center",width:460}}>
       {/* Original scientific raster, resized only. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`data:image/jpeg;base64,${image.toString("base64")}`} width={460} height={460} alt="2021 proposed model" />
     </div>
   </div>, {...size,fonts:[{name:"Noto Sans KR",data:font,weight:600,style:"normal"}]});
