@@ -10,6 +10,8 @@ import { LivingArticle } from "../components/living/LivingArticle";
 import { livingPosts } from "../lib/living-posts";
 import PrivacyPage, { metadata } from "../app/privacy/page";
 import { config } from "../proxy";
+import { proxy } from "../proxy";
+import { NextRequest } from "next/server";
 import { knowledgeOrigin } from "../lib/essays/seo";
 
 function chrome(pathname: string) {
@@ -34,15 +36,22 @@ test("every surviving public surface links to an unblocked privacy disclosure", 
   assert.doesNotMatch(html, /<form|<input|<textarea|href="\/ko\/contact"/);
 });
 
-test("living routes retain their own identity and working index navigation", () => {
+test("living originals are preserved while public delivery and blog navigation are retired", () => {
   for (const path of ["/living", `/living/${livingPosts[0].slug}`]) {
     const html = chrome(path);
     assert.match(html, /<header[\s\S]*Biz2Lab 생활용품/);
     assert.match(html, /<header[\s\S]*href="\/living"/);
     assert.doesNotMatch(html, /보상 읽는 법|즐거운 용돈벌이|pocket-organization/);
-    assert.equal(unstable_doesMiddlewareMatch({ config, url: path }), false);
+    assert.equal(unstable_doesMiddlewareMatch({ config, url: path }), true);
+    for (const headers of [new Headers(), new Headers({ rsc: "1", "next-router-prefetch": "1" })]) {
+      const response = proxy(new NextRequest(`https://www.biz2lab.com${path}`, { headers }));
+      assert.equal(response.status, 410);
+      assert.match(response.headers.get("x-robots-tag")!, /noindex/);
+    }
   }
   assert.match(chrome("/"), /지식 에세이/);
+  for (const path of ["/", "/about", "/contact", "/privacy", "/essays/antikythera", "/topics/models"])
+    assert.doesNotMatch(chrome(path), /href="\/living(?:\/|")|생활용품/);
   const article = renderToStaticMarkup(createElement(LivingArticle, { post: livingPosts[0] }));
   assert.match(article, /href="\/living"[^>]*>생활용품 목록으로 돌아가기/);
   assert.match(article, /data-affiliate-disclosure/);
