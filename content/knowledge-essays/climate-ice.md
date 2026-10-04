@@ -14,6 +14,9 @@ sources:
   - label: Lüthi 외, EPICA Dome C 800KYr Carbon Dioxide Data, 2008, NOAA 보존 원자료
     url: https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/epica_domec/edc-co2-2008.txt
     note: 논문 서지·초록과 깊이, 공기 연대, 이산화탄소 농도, 측정오차 열을 확인. 2015년 분석 편향 수정 안내가 있는 이전 버전이며 최신 농도 기준으로 사용하지 않는다.
+  - label: NOAA NCEI, Antarctic Ice Cores Revised 800KYr CO2 Data, 2015
+    url: https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/antarctica2015co2composite.txt
+    note: 2015년 분석 편향 수정과 이전 2008년 자료를 대체한다는 안내를 확인. 이전 버전의 한계를 대조할 수정 자료이며 현재 대기 농도 자료는 아니다.
   - label: NSIDC, Why Ice Sheets Matter
     url: https://nsidc.org/learn/parts-cryosphere/ice-sheets/why-ice-sheets-matter
     note: 빙상에 남은 층과 갇힌 공기방울이 과거 기후 기록을 제공한다는 설명. 도판과 최신 피해·전망 수치를 복제하지 않는다.

@@ -12,8 +12,8 @@
     "sourceCheckedAt": "2026-10-04T04:31:06+00:00"
   },
   "calendar": {
-    "sha256": "1481f802138ab0503cf99247b6f61426e9b18e25f015e14635ff81e2fa23c6bd",
-    "sourceCheckedAt": "2026-10-04T04:31:06+00:00"
+    "sha256": "fcfea0f5d9db70991d0e3b026c9cf0e7d77c83f3ee71916c654646a08c444a00",
+    "sourceCheckedAt": "2026-10-04T22:57:19.448843+00:00"
   },
   "longitude": {
     "sha256": "64b971729c05ec0815373b001b50a5a7bba8e0c91559c47a96f6ebbd4513e72d",
@@ -80,7 +80,7 @@
     "sourceCheckedAt": "2026-10-04T06:01:17.582219+00:00"
   },
   "feedback": {
-    "sha256": "1adc5edb129328bd12f5fd24d36aff59de7b2a0d7acfe95d955b30d1ccb7b6f5",
+    "sha256": "38afacfd00817d65c03995499963aa29339c7b82cd97edfe937fba12743165d7",
     "sourceCheckedAt": "2026-10-04T06:38:00.462218+00:00"
   },
   "programmable-weaving": {
@@ -88,7 +88,7 @@
     "sourceCheckedAt": "2026-10-04T04:30:14.210241+00:00"
   },
   "turing-computation": {
-    "sha256": "6e36579b353934701aa16c65a7d0e6d3dad555ca9b3440ccd90afa0285535936",
+    "sha256": "19bd1445d3c2ae36a9332f89ae8c0a6c22f64641153be94e65830115dbd85a33",
     "sourceCheckedAt": "2026-10-04T04:30:14.210241+00:00"
   },
   "germ-theory": {
@@ -108,12 +108,12 @@
     "sourceCheckedAt": "2026-10-04T04:30:55Z"
   },
   "earthrise": {
-    "sha256": "939a69b1d86bce4a84d0a2f2653135bc113b496ae8616383cdfbf88aee0e1791",
+    "sha256": "68b58cf314942e3dc797d9f3bbe4de6c4ab49bd8c7f58371119cc773d0c4efaa",
     "sourceCheckedAt": "2026-10-04T04:30:55Z"
   },
   "climate-ice": {
-    "sha256": "9daa4817d0bf8d5f755a907f7d52571ee5d8d8498e3a6aec72499afce8d47daf",
-    "sourceCheckedAt": "2026-10-04T04:30:55Z"
+    "sha256": "279733fa7912be28daed751aed45e12c689efced1f356a21239950a08e13dc63",
+    "sourceCheckedAt": "2026-10-04T22:57:19.449006+00:00"
   },
   "model-limits": {
     "sha256": "679e6f6485a1e992400286ca094312e2a9c26fb8b4016acccba89c8a0418d0e1",

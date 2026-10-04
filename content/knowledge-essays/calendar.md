@@ -5,6 +5,9 @@ description: "하루와 달, 계절의 길이는 정수로 맞아떨어지지 �
 theme: "측정과 질서"
 question: "자연의 주기와 사회의 약속은 어디에서 만날까?"
 sources:
+  - label: "갈릴레오 박물관: La commissione per la riforma del calendario"
+    url: "https://brunelleschi.imss.fi.it/galileopalazzostrozzi/oggetto/CommissioneRiformaCalendario.html"
+    note: "본문 회화판의 작가 미상 표기, 제작 시기 1582년 7월–1583년 6월, 시에나 국립기록보관소 소장 번호 72를 확인했다. 이미지 파일의 제공 출처와 이용 조건은 사진 아래에 따로 표시했다."
   - label: "미 해군 천문대: Introduction to Calendars"
     url: "https://aa.usno.navy.mil/faq/calendars"
     note: "태양력·태음력·태음태양력의 구별과 그레고리력 도입의 천문·종교 맥락을 확인했습니다."

@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(knowledgeOrigin()),
-  robots: {index: knowledgeIsPublished(), follow: knowledgeIsPublished()},
+  ...(!knowledgeIsPublished() ? { robots: { index: false, follow: false } } : {}),
   title: {
     default: knowledgeBrand,
     template: `%s | ${knowledgeBrand}`,
