@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { knowledgeOrigin } from "@/lib/essays/seo";
 
 const title = "개인정보처리방침 및 광고 안내";
-const description = "Biz2Lab의 분석·광고 기능의 현재 상태, 호스팅 접속 정보와 외부 링크 이용을 안내합니다.";
+const description = "Biz2Lab 지식 에세이의 분석·광고 기능의 현재 상태, 호스팅 접속 정보와 외부 링크 이용을 안내합니다.";
 
 export const metadata: Metadata = {
   title: { absolute: `${title} | Biz2Lab` },
@@ -23,7 +23,7 @@ export default function PrivacyPage() {
       <div className="mt-8 space-y-8 text-base leading-8">
         <section aria-labelledby="privacy-scope">
           <h2 id="privacy-scope" className="text-2xl font-bold text-slate-950">현재 사이트의 정보 처리</h2>
-          <p className="mt-3">이 안내는 Biz2Lab의 지식 에세이와 생활용품 페이지에 적용됩니다. 이 공개 페이지에는 회원가입, 뉴스레터 신청, 문의 입력 양식이 없습니다. 원자료·영상의 열람과 상품 구매는 연결된 외부 사이트에서 진행합니다.</p>
+          <p className="mt-3">이 안내는 Biz2Lab의 지식 에세이에 적용됩니다. 이 공개 페이지에는 회원가입, 뉴스레터 신청, 문의 입력 양식이 없습니다. 원자료·영상의 열람은 연결된 외부 사이트에서 진행합니다.</p>
           <p className="mt-3">페이지에 접속하면 방문 URL, 접속 시각, IP 주소, 브라우저·기기 정보 등이 사이트 제공에 필요한 호스팅 서비스에서 처리될 수 있습니다. 외부 사이트의 처리 항목과 보관 방식은 해당 서비스의 정책과 설정에 따릅니다.</p>
         </section>
         <section aria-labelledby="privacy-analytics">
@@ -42,9 +42,8 @@ export default function PrivacyPage() {
           <p className="mt-3">Analytics 이용을 제한하는 방법은 <a className="font-semibold text-teal-800 underline underline-offset-4" href="https://tools.google.com/dlpage/gaoptout?hl=ko" target="_blank" rel="noopener noreferrer">Google Analytics 차단 브라우저 부가 기능 안내 (새 창)</a>를 확인하세요. 지원되는 브라우저와 기능 범위는 Google 안내에 따릅니다.</p>
         </section>
         <section aria-labelledby="privacy-external">
-          <h2 id="privacy-external" className="text-2xl font-bold text-slate-950">외부 서비스와 제휴 링크</h2>
-          <p className="mt-3">공식 서비스·자료와 상품 링크를 누르면 외부 사이트로 이동합니다. 외부 사이트의 가입 정보, 신청 정보, 구매·결제 정보는 해당 서비스에서 처리하며, 이용 전 해당 사이트의 개인정보 및 광고 안내를 확인하세요.</p>
-          <p className="mt-3">생활용품의 쿠팡 파트너스 제휴 링크는 해당 글에서 표시합니다. 그 링크를 통한 구매에 따라 일정액의 수수료를 제공받을 수 있으며, 해당 글의 제휴 고지와 판매 페이지의 조건을 함께 확인하세요.</p>
+          <h2 id="privacy-external" className="text-2xl font-bold text-slate-950">외부 서비스와 링크</h2>
+          <p className="mt-3">원자료·영상 링크를 누르면 외부 사이트로 이동합니다. 외부 사이트에서의 정보 처리는 해당 서비스의 정책과 설정에 따르며, 이용 전 해당 사이트의 개인정보 및 광고 안내를 확인하세요.</p>
         </section>
       </div>
     </article>

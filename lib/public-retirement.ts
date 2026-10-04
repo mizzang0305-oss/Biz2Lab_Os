@@ -2,7 +2,7 @@
 export function isRetiredPublicPath(pathname: string): boolean {
   let path = pathname;
   try { path = decodeURIComponent(path); } catch { /* malformed paths are handled by the router */ }
-  return ["/health", "/images/onurim", "/social/onurim", "/pagefind"].some(prefix => path === prefix || path.startsWith(`${prefix}/`));
+  return ["/health", "/living", "/images/onurim", "/social/onurim", "/pagefind"].some(prefix => path === prefix || path.startsWith(`${prefix}/`));
 }
 
 export function isRetiredImage(url: string, origin: string): boolean {

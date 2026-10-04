@@ -25,6 +25,8 @@ on:
       - 'tests/knowledge-publication.test.ts'
       - 'next.config.ts'
       - 'eslint.config.mjs'
+      - 'proxy.ts'
+      - 'lib/public-retirement.ts'
       - 'app/sitemap.ts'
       - 'lib/living-posts.ts'
       - 'tests/living-posts.test.ts'
@@ -56,6 +58,8 @@ on:
       - 'tests/knowledge-publication.test.ts'
       - 'next.config.ts'
       - 'eslint.config.mjs'
+      - 'proxy.ts'
+      - 'lib/public-retirement.ts'
       - 'app/sitemap.ts'
       - 'lib/living-posts.ts'
       - 'tests/living-posts.test.ts'
@@ -74,6 +78,6 @@ jobs:
           node-version: '24'
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: node node_modules/tsx/dist/cli.mjs --test tests/knowledge-publication.test.ts tests/living-posts.test.ts tests/public-disclosure-navigation.test.ts tests/pocket-money-retirement.test.ts
-      - run: node node_modules/eslint/bin/eslint.js app/living app/about app/contact app/privacy app/essays app/topics app/layout.tsx app/page.tsx app/robots.ts app/rss.xml app/sitemap.ts components/essays components/living components/layout/SiteHeader.tsx components/layout/PublicRouteChrome.tsx lib/essays lib/living-posts.ts next.config.ts tests/knowledge-publication.test.ts tests/living-posts.test.ts tests/public-disclosure-navigation.test.ts tests/pocket-money-retirement.test.ts --max-warnings=0
+      - run: node node_modules/eslint/bin/eslint.js app/living app/about app/contact app/privacy app/essays app/topics app/layout.tsx app/page.tsx app/robots.ts app/rss.xml app/sitemap.ts components/essays components/living components/layout/SiteHeader.tsx components/layout/PublicRouteChrome.tsx lib/essays lib/living-posts.ts next.config.ts proxy.ts lib/public-retirement.ts tests/knowledge-publication.test.ts tests/living-posts.test.ts tests/public-disclosure-navigation.test.ts tests/pocket-money-retirement.test.ts --max-warnings=0
       - run: npm run typecheck
       - run: npm run build

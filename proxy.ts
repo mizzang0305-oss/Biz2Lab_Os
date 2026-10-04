@@ -77,5 +77,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/content-automation/:path*", "/ko", "/ko/:path*", "/health/:path*", "/images/onurim/:path*", "/social/onurim/:path*", "/pagefind/:path*", "/_next/image"],
+  matcher: ["/admin/content-automation/:path*", "/ko", "/ko/:path*", "/health/:path*", "/living/:path*", "/images/onurim/:path*", "/social/onurim/:path*", "/pagefind/:path*", "/_next/image"],
 };
