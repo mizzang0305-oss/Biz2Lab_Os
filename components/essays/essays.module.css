@@ -29,3 +29,5 @@
 @media(max-width:359px){.essayCollection,.topicHeader{padding-inline:16px;}.essayCard h3,.essayCard h4{font-size:21px;}}
 
 .reviewDetails{border-bottom:1px solid var(--line);padding:12px 0;font-size:13px;line-height:1.9;}.reviewDetails summary{cursor:pointer;min-height:44px;padding:10px 0;font-weight:700;word-break:keep-all;}.reviewDetails h3{font-size:19px;margin:20px 0 12px;}.reviewDetails h4{font-size:15px;margin:24px 0 10px;}.reviewDetails p{margin:12px 0;}.reviewDetails ul{padding-left:24px;margin:14px 0;}.reviewDetails li{margin-bottom:14px;}.reviewDetails code{font-size:12px;overflow-wrap:anywhere;}
+
+.articleDiagram{margin:34px 0 42px;padding:0;}.articleDiagram>img{display:block;width:100%;height:auto;max-width:640px;border:1px solid var(--line);}.articleDiagram figcaption{padding:18px 0 0;font-size:16px;line-height:1.95;word-break:keep-all;overflow-wrap:anywhere;}.articleDiagram figcaption strong{display:block;font-size:19px;color:var(--ink);}.articleDiagram figcaption p{margin:10px 0;}.articleDiagram .diagramCredit,.articleDiagram .diagramSource{font-size:13px;color:var(--muted);}.diagramSource a{text-underline-offset:4px;}
