@@ -1,6 +1,7 @@
 import "./helpers/register-pocket-css";
 import assert from "node:assert/strict";
 import { essayMedia } from "../lib/essays/media";
+import { essayPhotos, essayPhotoSrc, getEssayPhoto } from "../lib/essays/photos";
 import fs from "node:fs";
 import test from "node:test";
 import { createElement } from "react";
@@ -10,7 +11,7 @@ import { SeriesEssay } from "../components/essays/SeriesEssay";
 import { KnowledgeHome } from "../components/essays/KnowledgeHome";
 import { EssayCollection } from "../components/essays/EssayCollection";
 import { EssayStructuredData } from "../components/essays/EssayStructuredData";
-import { knowledgeMetadata, knowledgeSchemas } from "../lib/essays/seo";
+import { knowledgeMetadata, knowledgeSchemas, knowledgeUrl } from "../lib/essays/seo";
 import sitemap from "../app/sitemap";
 import { GET as rss } from "../app/rss.xml/route";
 import coverage from "../assets/fonts/series-font-provenance.json";
@@ -67,7 +68,7 @@ test("generic essay renders the full text, a matching version and usable heading
   for (const citation of essay.sources) assert.ok(html.includes(citation.url.replaceAll("&", "&amp;")));
   assert.doesNotMatch(html, /<iframe|<form|<textarea|<input/);
   assert.equal((html.match(/<img\b/g) ?? []).length, 1);
-  assert.match(html, /src="\/images\/essays\/frankenstein-ai\/concept\.svg"/);
+  assert.match(html, /data-source-photo="frankenstein-ai"/);
 });
 test("malicious manuscript labels stay text and body links cannot execute script or reach a missing essay", () => {
   const raw = source.replace(/^title:.*$/m, 'title: "</script><script>alert(1)</script>"') + "\n[메모](javascript:alert%281%29)\n[미작성 글](/essays/unwritten)\n";
@@ -75,7 +76,7 @@ test("malicious manuscript labels stay text and body links cannot execute script
   const html = renderToStaticMarkup(createElement(SeriesEssay, { essay }));
   assert.match(html, /&lt;script&gt;/); assert.doesNotMatch(html, /<script|href="javascript|href="\/essays\/unwritten|<input|<form/);
   assert.equal((html.match(/<img\b/g) ?? []).length, 1);
-  assert.match(html, /src="\/images\/essays\/frankenstein-ai\/concept\.svg"/);
+  assert.match(html, /data-source-photo="frankenstein-ai"/);
   const structured = renderToStaticMarkup(createElement(EssayStructuredData, { path: essay.path, article: essay }));
   const scripts = [...structured.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
   assert.equal(scripts.length, 3); assert.equal((structured.match(/<script/g) ?? []).length, 3); assert.doesNotMatch(structured, /<script>alert/); assert.match(structured, /\\u003c/);
@@ -87,7 +88,13 @@ test("each existing essay receives distinct article metadata and truthful schema
     const schemas = knowledgeSchemas(essay.path, essay) as Record<string, unknown>[]; const serialized = JSON.stringify(schemas);
     assert.match(serialized, /BlogPosting/); assert.match(serialized, /BreadcrumbList/); assert.ok(serialized.includes(essay.title)); assert.doesNotMatch(serialized, /datePublished|dateModified|interactionStatistic|aggregateRating|reviewCount/);
     if (essay.slug === "antikythera") assert.equal((schemas[1].image as string[]).length, 2);
-    else assert.equal(Object.hasOwn(schemas[1], "image"), false, "OG 텍스트 카드를 본문의 원자료 이미지로 선언하지 않습니다.");
+    else {
+      const photo = getEssayPhoto(essay.slug)!;
+      const image = schemas[1].image as Record<string, unknown>;
+      assert.equal(image["@type"], "ImageObject");
+      assert.equal(image.contentUrl, knowledgeUrl(essayPhotoSrc(photo, photo.width, "jpg")));
+      assert.equal(image.creditText, photo.credit); assert.equal(image.license, photo.licenseUrl);
+    }
   }
 });
 test("candidate discovery remains empty and release discovery lists every real manuscript only", async () => {
@@ -127,18 +134,31 @@ test("approved release includes contact while preview discovery stays protected"
   assert.ok(sitemap().some(entry=>entry.url === "https://www.biz2lab.com/contact"));
 });
 
-test("every formerly text-only article has one relevant local body diagram with source and accessible description", () => {
+test("each generic article places one credited responsive source image before its section text", () => {
   const all = getSeriesEssays().filter(essay => essay.slug !== "antikythera");
   assert.equal(essayMedia.length, all.length);
   assert.equal(new Set(essayMedia.map(figure => figure.src)).size, 29);
+  assert.equal(essayPhotos.length, 29);
+  assert.equal(new Set(essayPhotos.map(photo => photo.slug)).size, 29);
   for (const essay of all) {
     const figure = essayMedia.find(item => item.slug === essay.slug)!;
     assert.ok(figure && essay.sections.some(section => section.id === figure.afterSection), essay.slug);
     assert.ok(essay.sources.some(source => source.url === figure.sourceUrl));
     assert.ok(figure.alt.length > 15 && figure.caption.length > 40);
     const html = renderToStaticMarkup(createElement(SeriesEssay, { essay }));
-    assert.equal((html.match(/data-essay-body-media=/g) ?? []).length, 1);
-    assert.ok(html.includes(`src="${figure.src}"`) && html.includes(figure.alt));
+    const photo = getEssayPhoto(essay.slug)!;
+    assert.ok(photo && essay.sections.some(section => section.id === photo.section), essay.slug);
+    assert.equal((html.match(/data-source-photo=/g) ?? []).length, 1);
+    assert.equal((html.match(/data-essay-body-media=/g) ?? []).length, Number(photo.keepDiagram));
+    if (photo.keepDiagram) assert.ok(html.includes(`src="${figure.src}"`) && html.includes(figure.alt));
+    assert.ok(html.includes(photo.alt) && html.includes(photo.credit.replaceAll("&", "&amp;")));
+    assert.ok(html.includes(`href="${photo.sourceUrl.replaceAll("&", "&amp;")}"`));
+    assert.ok(html.includes(`href="${photo.licenseUrl}"`));
+    assert.match(html, /<source type="image\/avif"/); assert.match(html, /<source type="image\/webp"/);
+    assert.match(html, /loading="lazy"/);
+    assert.ok(html.indexOf(`id="${photo.section}-title"`) < html.indexOf(`data-source-photo="${essay.slug}"`));
+    for (const width of photo.widths) for (const format of ["avif", "webp", "jpg"] as const)
+      assert.ok(fs.existsSync(`public${essayPhotoSrc(photo, width, format)}`));
     assert.match(html, /<figcaption>/);
   }
 });

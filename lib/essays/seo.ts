@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { antikytheraEssay, essayFigures, essaySources, knowledgeBrand } from "./antikythera";
+import { essayPhotoSrc, getEssayPhoto } from "./photos";
 export function knowledgeIsPublished() {
   return process.env.VERCEL_ENV === "production" && process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED === "true";
 }
@@ -27,12 +28,18 @@ export function knowledgeSchemas(pathname: string | null, article?: KnowledgeArt
   const entry = article?.path === pathname ? article : pathname === antikytheraEssay.path ? { ...antikytheraEssay, theme: "관측과 증거", sources: essaySources } : null;
   if (pathname !== "/" && !entry) return [];
   const organization = { "@type": "Organization", name: "Biz2Lab", url: knowledgeUrl("/") };
+  const photo = entry ? getEssayPhoto(entry.path.split("/").at(-1) ?? "") : undefined;
   return [{ "@context": "https://schema.org", "@type": "WebSite", name: knowledgeBrand, url: knowledgeUrl("/"), inLanguage: "ko-KR" },
     ...(entry ? [
       { "@context": "https://schema.org", "@type": "BlogPosting", headline: entry.title,
         description: entry.description, inLanguage: "ko-KR", url: knowledgeUrl(entry.path), articleSection: entry.theme,
         mainEntityOfPage: knowledgeUrl(entry.path), author: organization, publisher: organization,
-        ...(entry.path === antikytheraEssay.path ? { image: essayFigures.map(figure => knowledgeUrl(figure.src)) } : {}), citation: entry.sources.map(source => source.url) },
+        ...(entry.path === antikytheraEssay.path ? { image: essayFigures.map(figure => knowledgeUrl(figure.src)) } : photo ? { image: {
+          "@type": "ImageObject", contentUrl: knowledgeUrl(essayPhotoSrc(photo, photo.width, "jpg")),
+          caption: photo.caption, creditText: photo.credit,
+          ...(photo.creator ? { creator: { "@type": photo.creatorType ?? "Person", name: photo.creator } } : {}),
+          license: photo.licenseUrl, width: photo.width, height: photo.height,
+        } } : {}), citation: entry.sources.map(source => source.url) },
       { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
         { "@type": "ListItem", position: 1, name: knowledgeBrand, item: knowledgeUrl("/") },
         { "@type": "ListItem", position: 2, name: entry.title, item: knowledgeUrl(entry.path) } ] }

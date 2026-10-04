@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import sharp from "sharp";
+import sharp, { type Sharp } from "sharp";
 
 import { imageWidths } from "@/lib/image";
 import { getPublicPosts } from "@/lib/posts";
@@ -43,7 +43,7 @@ function rawImageTargets(): RawImageTarget[] {
     .sort((a, b) => a.postSlug.localeCompare(b.postSlug));
 }
 
-async function writeWebp(input: sharp.Sharp, outputPath: string, width: number) {
+async function writeWebp(input: Sharp, outputPath: string, width: number) {
   await input
     .clone()
     .resize({ width, withoutEnlargement: true })

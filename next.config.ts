@@ -70,6 +70,7 @@ const nextConfig: NextConfig = {
   async headers() {
     const published = process.env.VERCEL_ENV === "production" && process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED === "true";
     return [
+      { source: "/images/essays/:slug/source-photo/:version/:file", headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }] },
       ...(published ? [] : [{ source: "/:path*", headers: [{key: "X-Robots-Tag", value: "noindex, nofollow"}] }]),
       {source:"/admin/:path*",headers:[{key:"Content-Security-Policy",value:"frame-ancestors 'none'"},{key:"X-Frame-Options",value:"DENY"},{key:"Cache-Control",value:"no-store"},{key:"X-Robots-Tag",value:"noindex, nofollow"}]},
       {source:"/review/:path*",headers:[{key:"Content-Security-Policy",value:"frame-ancestors 'none'"},{key:"X-Frame-Options",value:"DENY"},{key:"Cache-Control",value:"no-store"}]},
