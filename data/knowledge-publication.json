@@ -64,7 +64,7 @@
     "sourceCheckedAt": "2026-10-04T04:51:00Z"
   },
   "printing": {
-    "sha256": "f2b4f88b77ae7b5c003a834b1cfa038ecdbe73e00267eed1bb57914587185713",
+    "sha256": "c6b2c263984654bcde69d785c047088b3c7fb9c12f5faa5a9da9c54c0ae6f8c7",
     "sourceCheckedAt": "2026-10-04T06:01:17.582219+00:00"
   },
   "steam-work": {
@@ -72,15 +72,15 @@
     "sourceCheckedAt": "2026-10-04T06:01:17.582219+00:00"
   },
   "electromagnetism": {
-    "sha256": "9f8d432bab1b985a2c9080f36367adfb50b1fadc201e75b052c77c5a34c32767",
+    "sha256": "9dbf0da561e97ff1b7f14469cf80576765030c535da80eacad2f9ae05b0c7e2a",
     "sourceCheckedAt": "2026-10-04T04:30:14.210241+00:00"
   },
   "shannon": {
-    "sha256": "2bee57c7cadb10a9c364cba62bb65d1656aec9a87808462fedb082d042dee17e",
+    "sha256": "9021c5dbcbcf5a77509c8fd628efce3922c58d524b86f9c3bb8101a8fea2635b",
     "sourceCheckedAt": "2026-10-04T06:01:17.582219+00:00"
   },
   "feedback": {
-    "sha256": "38afacfd00817d65c03995499963aa29339c7b82cd97edfe937fba12743165d7",
+    "sha256": "fb2f66abe49e3b9d08f192ebf200d465db82af3e5994687a68abf94b6fbb7002",
     "sourceCheckedAt": "2026-10-04T06:38:00.462218+00:00"
   },
   "programmable-weaving": {
@@ -88,7 +88,7 @@
     "sourceCheckedAt": "2026-10-04T04:30:14.210241+00:00"
   },
   "turing-computation": {
-    "sha256": "19bd1445d3c2ae36a9332f89ae8c0a6c22f64641153be94e65830115dbd85a33",
+    "sha256": "0fc1aa1e43dadb3104f177c873f334d17fa392c1d266c64a4bdb2398626cc3ff",
     "sourceCheckedAt": "2026-10-04T04:30:14.210241+00:00"
   },
   "germ-theory": {
@@ -100,7 +100,7 @@
     "sourceCheckedAt": "2026-10-04T05:56:39Z"
   },
   "atomic-age": {
-    "sha256": "bbb3d448f960957d8c56797d8dba431c9f938b2749e9f39464958aef000389e0",
+    "sha256": "6d6fe1c5551e6054b28e8d5659a10187b663bb1170328d0e8d7b0955622732d2",
     "sourceCheckedAt": "2026-10-04T04:30:55Z"
   },
   "archives-silence": {
@@ -112,7 +112,7 @@
     "sourceCheckedAt": "2026-10-04T04:30:55Z"
   },
   "climate-ice": {
-    "sha256": "279733fa7912be28daed751aed45e12c689efced1f356a21239950a08e13dc63",
+    "sha256": "801dda1962c021d96ce03f87db021973fcf90d110a19e238c3f88664ba5a8eff",
     "sourceCheckedAt": "2026-10-04T22:57:19.449006+00:00"
   },
   "model-limits": {

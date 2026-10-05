@@ -10,7 +10,7 @@ sources:
     note: "소장번호 Or.8210/P.2, 868년, 종이에 잉크로 찍은 목판 인쇄를 실제 소장 기록에서 확인. 이 기록으로 인쇄의 발명 시점이나 세계 최초를 판정하지 않았다."
   - label: "UNESCO · 직지 세계기록유산"
     url: "https://www.unesco.org/en/memory-world/baegun-hwasang-chorok-buljo-jikji-simche-yojeol-volii-second-volume-anthology-great-buddhist-priests"
-    note: "1377년 청주 흥덕사 금속활자 인쇄와 현존 증거라는 표현을 확인. 검색에 제공된 공식 페이지 본문을 대조했다."
+    note: "UNESCO의 공식 페이지에서 소개하는 1377년 청주 흥덕사 금속활자 인쇄와 현존 증거에 관한 설명."
   - label: "Library of Congress · Gutenberg Bible"
     url: "https://www.loc.gov/exhibits/bibles/interactives/gutenberg/index.html"
     note: "약 1455년 제작, 약 180부라는 추정과 세계 최초 인쇄본으로 부르면 안 된다는 안내를 확인."

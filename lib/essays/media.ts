@@ -267,7 +267,7 @@ export const essayMedia: readonly EssayMedia[] = [
     "title": "카드의 구멍에서 날실의 선택으로",
     "src": "/images/essays/programmable-weaving/concept.svg",
     "alt": "구멍 난 카드의 선택 패턴이 올라가는 날실로 이어지는 직조 개념도",
-    "caption": "도안을 옮긴 카드와 그에 대응하는 날실 선택을 간략히 연결했습니다. 실제 자카르 장치의 기계 설계나 직물 무늬를 복제한 그림은 아닙니다.",
+    "caption": "도안을 옮긴 카드와 그에 대응하는 날실 선택을 간략히 연결했습니다. 실제 자카드 장치의 기계 설계나 직물 무늬를 복제한 그림은 아닙니다.",
     "sourceUrl": "https://www.scienceandindustrymuseum.org.uk/objects-and-stories/jacquard-loom",
     "sourceLabel": "Science and Industry Museum · The story of the Jacquard loom",
     "width": 640,

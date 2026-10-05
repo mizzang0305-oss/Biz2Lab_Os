@@ -7,7 +7,7 @@ question: 할 수 있게 된 일과 해야 할 일은 누가 구분할까?
 sources:
   - label: Meitner와 Frisch, Disintegration of Uranium by Neutrons, Nature, 1939
     url: https://www.nature.com/articles/143239a0
-    note: 논문의 저자와 발표일, 출판사 편집 요약에서 확인한 핵분열 해석. 유료 전문을 읽었다고 주장하지 않는다.
+    note: 논문의 저자·발표일과 출판사 편집 요약의 핵분열 해석. 참고 범위는 공개된 요약이며 유료 전문은 아니다.
   - label: 미국 에너지부, The Manhattan Project, 2012
     url: https://www.energy.gov/management/articles/manhattan-project
     note: 1938년 연구, 1939년 편지, 1942년 본격 사업과 1945년 경과. 무기 설계나 재료 생산 설명은 원고에 옮기지 않는다.
