@@ -13,7 +13,7 @@ sources:
     note: "모델·측정·과도응답·되먹임 설계와 자동조타 예시의 구분을 확인. 온도조절·운영 목표 사례는 이 글의 가상 예시다."
   - label: "MIT Press · Cybernetics"
     url: "https://mitpress.mit.edu/9780262537841/cybernetics-or-control-and-communication-in-the-animal-and-the-machine/"
-    note: "위너의 책 초판 1948년과 동물·기계의 제어·통신을 연결한 범위를 출판사 안내에서 확인. 책 전체를 직접 정독했다고 주장하지 않는다."
+    note: "1948년 초판과 동물·기계의 제어·통신을 연결한 책의 범위에 관한 출판사 소개. 이 글의 참고 범위는 그 소개이며 책 전문은 아니다."
   - label: "MIT OCW · Dynamics and Control II, Lecture 30"
     url: "https://ocw.mit.edu/courses/2-004-dynamics-and-control-ii-spring-2008/8feaee5bdf326b4a67e08dbdb4bc9971_lecture_30.pdf"
     note: "전체 응답의 과도·정상상태 성분 분리와 정현파 정상상태 응답을 확인. 안정적인 계에서 과도 성분이 사라지는 조건과 목표 온도 사례를 구분했다."

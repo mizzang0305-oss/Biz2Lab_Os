@@ -7,7 +7,7 @@ question: "규칙이 분명한 질문은 모두 기계로 풀 수 있을까?"
 sources:
   - label: "Turing · On Computable Numbers, University of Virginia 제공 사본"
     url: "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf"
-    note: "원 논문의 상태·테이프·기호 조작 및 기계 설명 부호를 공식 대학에 게시된 사본의 검색 제공 본문으로 확인. 직접 열기 실패 범위를 기록했다."
+    note: "공식 대학에 게시된 원 논문 사본. 상태·테이프·기호 조작과 기계 설명 부호는 검색으로 제공된 본문 범위에서 참고했으며, 사본 전문을 직접 열어 확인하지는 못했다."
   - label: "London Mathematical Society · 원 논문 서지"
     url: "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/plms/s2-42.1.230"
     note: "학술지의 1937년 표기 확인. 통상 1936년 논문으로 불리는 것과 서지 표기를 구분한다."

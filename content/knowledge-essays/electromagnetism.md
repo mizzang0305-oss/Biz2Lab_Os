@@ -7,13 +7,13 @@ question: "전기와 자석을 함께 설명하면 무엇이 가능해질까?"
 sources:
   - label: "Royal Institution · Michael Faraday's ring-coil apparatus"
     url: "https://www.rigb.org/explore-science/explore/collection/michael-faradays-ring-coil-apparatus"
-    note: "1831년 8월 29일 실험, 철 고리·절연된 두 코일과 잠시 흐른 유도 전류를 확인. 제작 소요일 추정은 인용하지 않았다."
+    note: "1831년 8월 29일 실험의 철 고리·절연된 두 코일과 잠시 흐른 유도 전류에 관한 설명."
   - label: "Maxwell · A Dynamical Theory of the Electromagnetic Field (1865)"
     url: "https://archive.org/download/dynamicaltheoryo00maxw/dynamicaltheoryo00maxw.pdf"
     note: "원 논문 제VI부 91–97항의 빛·전자기파와 속도 비교를 확인. 당시 매질 가설을 현재 사실로 서술하지 않았다."
   - label: "OpenStax · Maxwell’s Equations and Electromagnetic Waves"
     url: "https://openstax.org/books/university-physics-volume-2/pages/16-1-maxwells-equations-and-electromagnetic-waves"
-    note: "현재 고전 전자기학의 장 변화 관계와 헤르츠 실험 해설을 대조. 그림·문제·문장이나 번역을 재사용하지 않았다."
+    note: "고전 전자기학의 장 변화 관계와 헤르츠 실험을 설명하는 참고 교재."
 ---
 
 ## 철 고리의 양쪽에서 일어난 일
