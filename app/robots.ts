@@ -13,7 +13,7 @@ export default function robots(): MetadataRoute.Robots {
           "/api/",
           "/admin/",
           "/review/",
-          "/ko/",
+          // Retired /ko/* pages must be crawlable so their HTTP 410 is observed.
           "/health/review/",
           ...forbiddenPublicRoutePrefixes.map((prefix) => `${prefix}/`),
         ],

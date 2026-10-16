@@ -16,7 +16,7 @@ export default function PrivacyPage() {
   return (
     <article className="mx-auto max-w-3xl px-4 py-10 text-slate-800 sm:px-6">
       <h1 className="text-3xl font-bold leading-snug text-slate-950">{title}</h1>
-      <p className="mt-4 text-sm text-slate-600">업데이트: <time dateTime="2026-10-05">2026-10-05</time></p>
+      <p className="mt-4 text-sm text-slate-600">업데이트: <time dateTime="2026-10-16">2026-10-16</time></p>
       <aside className="mt-6 rounded-lg border border-slate-300 bg-slate-50 p-4 text-sm leading-7" aria-label="현재 분석·광고 상태">
         <p>현재 지식 에세이와 MINZ 공개 데모는 Google Analytics와 AdSense 스크립트를 불러오지 않습니다. 지식 에세이에는 회원가입, 댓글 접수와 문의 입력 양식이 없습니다. MINZ의 데모 입력과 브라우저 저장은 아래 별도 안내를 확인하세요. 외부 사이트로 이동하면 해당 사이트의 개인정보·쿠키 정책이 적용됩니다.</p>
       </aside>
@@ -25,6 +25,7 @@ export default function PrivacyPage() {
           <h2 id="privacy-scope" className="text-2xl font-bold text-slate-950">현재 사이트의 정보 처리</h2>
           <p className="mt-3">이 안내는 Biz2Lab의 지식 에세이와 MINZ 공개 목록·쇼케이스·갤러리·개발 페이지에 적용됩니다. 지식 에세이에는 회원가입, 뉴스레터 신청, 문의 입력 양식이 없습니다. 원자료·영상의 열람은 연결된 외부 사이트에서 진행합니다.</p>
           <p className="mt-3">페이지에 접속하면 방문 URL, 접속 시각, IP 주소, 브라우저·기기 정보 등이 사이트 제공에 필요한 호스팅 서비스에서 처리될 수 있습니다. 외부 사이트의 처리 항목과 보관 방식은 해당 서비스의 정책과 설정에 따릅니다.</p>
+          <p className="mt-3">지식 에세이의 계산 실험에 입력한 숫자는 현재 화면에서만 계산합니다. 입력값을 서버로 전송하거나 브라우저 저장소에 보관하지 않습니다. 페이지를 새로 열면 예시 값으로 돌아갑니다.</p>
         </section>
         <section aria-labelledby="privacy-minz">
           <h2 id="privacy-minz" className="text-2xl font-bold text-slate-950">MINZ 데모 입력과 브라우저 저장</h2>

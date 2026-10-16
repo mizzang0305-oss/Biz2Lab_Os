@@ -10,5 +10,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...essayThemes.filter(theme => essays.some(essay => essay.theme === theme.name)).map(theme => ({url:knowledgeUrl(`/topics/${theme.slug}`),changeFrequency:"monthly" as const,priority:0.5})),
     {url:knowledgeUrl("/about"),changeFrequency:"monthly",priority:0.3},
     {url:knowledgeUrl("/contact"),changeFrequency:"monthly",priority:0.3},
-    {url:knowledgeUrl("/privacy"),lastModified:new Date("2026-10-04"),changeFrequency:"monthly",priority:0.3}];
+    {url:knowledgeUrl("/privacy"),lastModified:new Date("2026-10-16"),changeFrequency:"monthly",priority:0.3}];
 }

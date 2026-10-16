@@ -27,7 +27,7 @@ export type KnowledgeArticleSeo = { path: string; title: string; description: st
 export function knowledgeSchemas(pathname: string | null, article?: KnowledgeArticleSeo): unknown[] {
   const entry = article?.path === pathname ? article : pathname === antikytheraEssay.path ? { ...antikytheraEssay, theme: "관측과 증거", sources: essaySources } : null;
   if (pathname !== "/" && !entry) return [];
-  const organization = { "@type": "Organization", name: "Biz2Lab", url: knowledgeUrl("/") };
+  const organization = { "@type": "Organization", name: "Biz2Lab", url: knowledgeUrl("/about") };
   const photo = entry ? getEssayPhoto(entry.path.split("/").at(-1) ?? "") : undefined;
   return [{ "@context": "https://schema.org", "@type": "WebSite", name: knowledgeBrand, url: knowledgeUrl("/"), inLanguage: "ko-KR" },
     ...(entry ? [
