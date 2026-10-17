@@ -96,7 +96,7 @@
     "sourceCheckedAt": "2026-10-04T04:30:55Z"
   },
   "reproducibility": {
-    "sha256": "0c556cc21ee3c1ce57700c6a1c5482ff3ebe189bf8af46c23c0fac259d1d8cc5",
+    "sha256": "b1e7ddd09dbbb0996f22a08526f34d95439f43af50742f7f767c48a82c32d57a",
     "sourceCheckedAt": "2026-10-04T05:56:39Z"
   },
   "atomic-age": {
@@ -104,11 +104,11 @@
     "sourceCheckedAt": "2026-10-04T04:30:55Z"
   },
   "archives-silence": {
-    "sha256": "29bd97edf56cdfb1608e7b76f7b8d10dc5c586ed2da0b72eadc32fb4d1a91628",
+    "sha256": "9bcd9aaf1506990711e34ee3f0e6659fbab4c678c650f42e2cf4fa00e246a403",
     "sourceCheckedAt": "2026-10-04T04:30:55Z"
   },
   "earthrise": {
-    "sha256": "68b58cf314942e3dc797d9f3bbe4de6c4ab49bd8c7f58371119cc773d0c4efaa",
+    "sha256": "7ded788582da26130f4a19a9674c3219ff6c468df4852e3ee47402c377cee5d7",
     "sourceCheckedAt": "2026-10-04T04:30:55Z"
   },
   "climate-ice": {
@@ -116,7 +116,7 @@
     "sourceCheckedAt": "2026-10-04T22:57:19.449006+00:00"
   },
   "model-limits": {
-    "sha256": "679e6f6485a1e992400286ca094312e2a9c26fb8b4016acccba89c8a0418d0e1",
+    "sha256": "5339f4163511095624d03482fdb63576b53cb6dbca02a88196b766f4811799f7",
     "sourceCheckedAt": "2026-10-04T04:30:55Z"
   }
 }
