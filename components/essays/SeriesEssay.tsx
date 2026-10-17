@@ -9,7 +9,8 @@ import { ArticlePhoto } from "./ArticlePhoto";
 import { getEssayPhoto } from "@/lib/essays/photos";
 import { getEssayMedia } from "@/lib/essays/media";
 import { EssayProvenance } from "./EssayProvenance";
-import { ReadingExperiment } from "./ReadingExperiment";
+import { ReadingExperimentOnDemand } from "./ReadingExperimentOnDemand";
+import { hasReadingExperiment } from "@/lib/essays/experiments";
 import styles from "./essays.module.css";
 
 export function SeriesEssay({ essay }: { essay: Essay }) {
@@ -21,7 +22,7 @@ export function SeriesEssay({ essay }: { essay: Essay }) {
     a: ({ href, children }) => href ? <a href={href} className={styles.sourceLink} {...(href.startsWith("https:") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{children}{href.startsWith("https:") && <span className={styles.srOnly}> (새 창)</span>}</a> : <span>{children}</span>,
     img: () => null,
     input: () => null,
-    table: ({ children }) => <div className={styles.markdownTable}><table>{children}</table></div>,
+    table: ({ children }) => <div className={styles.markdownTable} role="region" aria-label="비교표 · 넓은 표는 좌우로 스크롤할 수 있습니다" tabIndex={0}><table>{children}</table></div>,
   }}>{content}</ReactMarkdown>;
   return <article className={styles.article} data-essay-slug={essay.slug} data-manuscript-sha256={essay.manuscriptSha256} data-body-sha256={essay.bodySha256}>
     <header className={styles.articleHeader}><Link href="/" className={styles.backLink}>← 이야기 첫 화면</Link>
@@ -34,7 +35,7 @@ export function SeriesEssay({ essay }: { essay: Essay }) {
       {essay.intro && markdown(essay.intro)}
       <ReadingExperience chapters={[...essay.sections.map(section => [section.id, section.title] as const), ["sources", "참고 자료와 확인 범위"]]} />
       {essay.sections.map(section => <section key={section.id} id={section.id} aria-labelledby={`${section.id}-title`}><h2 id={`${section.id}-title`}>{section.title}</h2>{markdown(section.content)}{figure?.afterSection === section.id && (!photo || photo.keepDiagram) && <ArticleDiagram figure={figure} />}</section>)}
-      <ReadingExperiment slug={essay.slug} />
+      {hasReadingExperiment(essay.slug) && <ReadingExperimentOnDemand slug={essay.slug} />}
       <section className={styles.sources} id="sources" aria-labelledby="sources-title"><h2 id="sources-title">참고 자료와 확인 범위</h2>
         <p>아래 자료의 근거를 연결해 구성한 에세이입니다. 자료에서 확인한 사실과, 이를 오늘의 질문에 연결하는 원고의 해석을 구분해 읽어 주세요.</p>
         <ol>{essay.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label} <span aria-hidden="true">↗</span><span className={styles.srOnly}> (새 창)</span></a><p>{source.note}</p></li>)}</ol>

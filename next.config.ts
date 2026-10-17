@@ -52,6 +52,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...[
+        ["/minz-lineup/index.html", "/minz-lineup"],
+        ["/minz-lineup/showcase/index.html", "/minz-lineup/showcase"],
+        ["/minz-lineup/showcase/gallery/index.html", "/minz-lineup/showcase/gallery"],
+        ["/minz-lineup/design-factory-v5/index.html", "/minz-lineup/design-factory-v5"],
+      ].map(([source, destination]) => ({ source, destination, permanent: true })),
       {
         source: "/ko/sales-ops/unify-order-channels-for-sales",
         destination: "/ko/small-business/unify-order-channels",
@@ -70,6 +76,8 @@ const nextConfig: NextConfig = {
   async headers() {
     const published = process.env.VERCEL_ENV === "production" && process.env.BIZ2LAB_KNOWLEDGE_PUBLISH_APPROVED === "true";
     return [
+      // This is an editor iframe shell, not a standalone article. Keep it usable.
+      { source: "/minz-lineup/design-factory-v5/preview.html", headers: [{ key: "X-Robots-Tag", value: "noindex, follow" }, { key: "X-Content-Type-Options", value: "nosniff" }] },
       { source: "/images/essays/:slug/source-photo/:version/:file", headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }] },
       ...(published ? [] : [{ source: "/:path*", headers: [{key: "X-Robots-Tag", value: "noindex, nofollow"}] }]),
       {source:"/admin/:path*",headers:[{key:"Content-Security-Policy",value:"frame-ancestors 'none'"},{key:"X-Frame-Options",value:"DENY"},{key:"Cache-Control",value:"no-store"},{key:"X-Robots-Tag",value:"noindex, nofollow"}]},
