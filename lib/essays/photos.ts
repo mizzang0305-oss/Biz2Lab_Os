@@ -387,7 +387,7 @@ export const essayPhotos: readonly EssayPhoto[] = [
     "section": "scene-1",
     "title": "1377년 직지의 실제 지면",
     "alt": "금속활자로 인쇄된 1377년 직지의 두 페이지",
-    "caption": "프랑스 국립도서관이 보존·디지털화한 『직지』의 4v–5r쪽입니다. 복제 속도와 판본의 차이를 이야기하기 전에 실제 인쇄 지면을 볼 수 있습니다.",
+    "caption": "프랑스 국립도서관이 보존·디지털화한 『직지』의 4v–5r쪽입니다. 세 인쇄물의 기법과 현존 조건을 비교하기 전에 실제 인쇄 지면을 볼 수 있습니다.",
     "kind": "historical-source",
     "credit": "『직지』, 1377 · Bibliothèque nationale de France, Gallica · Wikimedia Commons 원자료",
     "creator": null,

@@ -4,119 +4,119 @@
     "sourceCheckedAt": "2026-10-04T03:41:56.395025+00:00"
   },
   "frankenstein-ai": {
-    "sha256": "dd47a42b902bc66de36ea9d71e44599eb794c079c28d6d82abf7281261a60858",
-    "sourceCheckedAt": "2026-10-04T04:02:17.755350+00:00"
+    "sha256": "c4b465d16efd88046aca042758caa1cfdc7df7777eba5fd25c12eeb66eb86f00",
+    "sourceCheckedAt": null
   },
   "eratosthenes": {
-    "sha256": "d254e92658bdaf525d3ed1d1d39d3404281c6de91971a82fc3e0b78779449e3e",
-    "sourceCheckedAt": "2026-10-04T04:31:06+00:00"
+    "sha256": "2acfbddb1cf282306b83200b5291955c576a49d5505bc3f7653e59206acab5b2",
+    "sourceCheckedAt": null
   },
   "calendar": {
-    "sha256": "fcfea0f5d9db70991d0e3b026c9cf0e7d77c83f3ee71916c654646a08c444a00",
-    "sourceCheckedAt": "2026-10-04T22:57:19.448843+00:00"
+    "sha256": "c1d69a5fffa7e349234eb3a574f814e49f4be953fa906e6d92e29f8f4cb558c7",
+    "sourceCheckedAt": null
   },
   "longitude": {
-    "sha256": "64b971729c05ec0815373b001b50a5a7bba8e0c91559c47a96f6ebbd4513e72d",
-    "sourceCheckedAt": "2026-10-04T04:31:06+00:00"
+    "sha256": "09d698bde76c4177ac3931ddf39848a56d83710951ad140fd7492020d68bbbb4",
+    "sourceCheckedAt": null
   },
   "maps": {
-    "sha256": "626fb5387683d519613da978d5c02ef0159c76b4b583f40a6482b61190d69a0c",
-    "sourceCheckedAt": "2026-10-04T05:59:51+00:00"
+    "sha256": "b35c893c4f091e460d6fd595b6be7eb5c36ad93bd5aff1f4c4d36dd87536cf5c",
+    "sourceCheckedAt": null
   },
   "relativity": {
-    "sha256": "4b684d690f5eae83e662731f243dff31d29474ea486b5a381acf2b639eb3c192",
-    "sourceCheckedAt": "2026-10-04T04:31:06+00:00"
+    "sha256": "7d36660153194fd5355c1e502de0e8c21209ff8d6012581306b4fc9e087baf14",
+    "sourceCheckedAt": null
   },
   "telescope": {
-    "sha256": "3b72f7fb4bfa5a8092d3896297edc5f95559c96d1f74abf59874cfe1128c42d5",
-    "sourceCheckedAt": "2026-10-04T05:59:51+00:00"
+    "sha256": "b4bbbe3eb7c5be5bb7830403ea6b5adaa720d69470be046e9f1d4d8eed2ff175",
+    "sourceCheckedAt": null
   },
   "microscope": {
-    "sha256": "10df5c2da8e3d2373ac51bc47156367f1934a65334271aeac362a66d0d02ced4",
-    "sourceCheckedAt": "2026-10-04T04:31:06+00:00"
+    "sha256": "5fb7e46cadb2a0dccae6cdfba95612361dc4171d3bddddccf2b32acdf2a5e103",
+    "sourceCheckedAt": null
   },
   "evolution": {
-    "sha256": "51820756034aa603fbef972f439f09f0492e60cfe108931b40185f8f5e23169d",
-    "sourceCheckedAt": "2026-10-04T04:26:29Z"
+    "sha256": "a495d2fc582c34abdf9e3e12e1813635b07bd3f4f8cf106ccc6be6bcd5479b8c",
+    "sourceCheckedAt": null
   },
   "mendel": {
-    "sha256": "ed4e8a533a4564d497e0a45747d23dd73ebb6b8827fbccb2ec593b2e415a3f9e",
-    "sourceCheckedAt": "2026-10-04T04:26:29Z"
+    "sha256": "fdc4674ca556ab1eacf05bf54b959a3bc81fd81e2e0a9f4a4c092e721cf22037",
+    "sourceCheckedAt": null
   },
   "periodic-table": {
-    "sha256": "301efb7cb24a8e333b9e02ce6625259ca6501e4cead16528b622038647ceb577",
-    "sourceCheckedAt": "2026-10-04T04:26:29Z"
+    "sha256": "9208c57c9754c38f9408c85b7877a023a0e7fdfc72397b320de4740951a716c5",
+    "sourceCheckedAt": null
   },
   "entropy": {
-    "sha256": "fe6c185bffdcb5710c427b88cc8268d0cefc1da53e01f9046dda2d8c2c0aa984",
-    "sourceCheckedAt": "2026-10-04T04:26:29Z"
+    "sha256": "0216066f37168692943d497899698059718d270d38c7a9bee9093765a0373c7f",
+    "sourceCheckedAt": null
   },
   "quantum": {
-    "sha256": "84c517b1a552692559aba7b13668fcbbbfe399560a931c041db1caa7996b1b1e",
-    "sourceCheckedAt": "2026-10-04T04:26:29Z"
+    "sha256": "915e54de5228fb499364bd9d0b69384380407aa03351f35a4eae68ca7dea74ec",
+    "sourceCheckedAt": null
   },
   "plate-tectonics": {
-    "sha256": "c40fc163a924b405018964a44dfacf1c939e7882d9c4639301a23af473e86967",
-    "sourceCheckedAt": "2026-10-04T04:26:29Z"
+    "sha256": "d62d9a2e1024b00c0e9bde068a5042618c2951e3a8e196bc2916d1328b498c3f",
+    "sourceCheckedAt": null
   },
   "dna-code": {
-    "sha256": "e409d3ac56dbf606fe7793edb419af0804dc2c69cc3e78b6b1590f544c762373",
-    "sourceCheckedAt": "2026-10-04T04:51:00Z"
+    "sha256": "457e7e7e40bcc2f2019417cefe2884c7bbf8a47c335ab336219b879bfe3b035f",
+    "sourceCheckedAt": null
   },
   "printing": {
-    "sha256": "c6b2c263984654bcde69d785c047088b3c7fb9c12f5faa5a9da9c54c0ae6f8c7",
-    "sourceCheckedAt": "2026-10-04T06:01:17.582219+00:00"
+    "sha256": "11d656a8192810361611d89aa833b3be9ca97ccf88914c9d7e1b2da11d76fc7c",
+    "sourceCheckedAt": null
   },
   "steam-work": {
-    "sha256": "cad24d4d0a7ae5a0a8ffec39e716762507c10342c1877ac41e14bda6f5ad68bb",
-    "sourceCheckedAt": "2026-10-04T06:01:17.582219+00:00"
+    "sha256": "eb6987ce3b6d2a7d9547d049cc652d59c600e0434c4ea31c65a06dab79706867",
+    "sourceCheckedAt": null
   },
   "electromagnetism": {
-    "sha256": "9dbf0da561e97ff1b7f14469cf80576765030c535da80eacad2f9ae05b0c7e2a",
-    "sourceCheckedAt": "2026-10-04T04:30:14.210241+00:00"
+    "sha256": "e0516fb87f241475983bf23cd55f5fe315f3b3e5427a33b37053601b6468b307",
+    "sourceCheckedAt": null
   },
   "shannon": {
-    "sha256": "9021c5dbcbcf5a77509c8fd628efce3922c58d524b86f9c3bb8101a8fea2635b",
-    "sourceCheckedAt": "2026-10-04T06:01:17.582219+00:00"
+    "sha256": "a095b4f3cf1e232e4220ccda07f4aca382383ea7a4cf7ba5cdf96ec243631abf",
+    "sourceCheckedAt": null
   },
   "feedback": {
-    "sha256": "fb2f66abe49e3b9d08f192ebf200d465db82af3e5994687a68abf94b6fbb7002",
-    "sourceCheckedAt": "2026-10-04T06:38:00.462218+00:00"
+    "sha256": "4ad4895253c16506959d1c150eeb4186474bb9322c03a8502454033869b3442a",
+    "sourceCheckedAt": null
   },
   "programmable-weaving": {
-    "sha256": "c2741aa29c3e319c92e7a48fccfe39417a08a00eb84572e9362cb8dd91108113",
-    "sourceCheckedAt": "2026-10-04T04:30:14.210241+00:00"
+    "sha256": "8d2184ee78b751f912d879947723564f3e1c18abade633f897d1783e8bfb8cbe",
+    "sourceCheckedAt": null
   },
   "turing-computation": {
-    "sha256": "2929f623986ae0c4cd43abfa3d81a049a2f626f4b1ca162718dc88d4c89353d3",
-    "sourceCheckedAt": "2026-10-04T04:30:14.210241+00:00"
+    "sha256": "d9c1ec7ce85cfe75a4caf598ebca1c4ec23fa72ae27a76ea9f9e18f0ac2fb8a6",
+    "sourceCheckedAt": null
   },
   "germ-theory": {
-    "sha256": "c39545198b450763bf264518bb5dbe62eeb639be076f4529e0ff3c4367b075e2",
-    "sourceCheckedAt": "2026-10-04T04:30:55Z"
+    "sha256": "026138e94f79fdb5d8065e1770c499c6bbce8ecc92c5dc41c8b66c90ffef8de9",
+    "sourceCheckedAt": null
   },
   "reproducibility": {
-    "sha256": "b1e7ddd09dbbb0996f22a08526f34d95439f43af50742f7f767c48a82c32d57a",
-    "sourceCheckedAt": "2026-10-04T05:56:39Z"
+    "sha256": "3739c50c54d195f9e847582778d394a9f138d865d3ff7fbf61ae17a428112bd7",
+    "sourceCheckedAt": null
   },
   "atomic-age": {
-    "sha256": "6d6fe1c5551e6054b28e8d5659a10187b663bb1170328d0e8d7b0955622732d2",
-    "sourceCheckedAt": "2026-10-04T04:30:55Z"
+    "sha256": "dc442244dcf770f68551745b334d38e9063e72831f251590a59583d765b02f3b",
+    "sourceCheckedAt": null
   },
   "archives-silence": {
-    "sha256": "9bcd9aaf1506990711e34ee3f0e6659fbab4c678c650f42e2cf4fa00e246a403",
-    "sourceCheckedAt": "2026-10-04T04:30:55Z"
+    "sha256": "f80925fc830765e0f55a0311aa25224233d3c611d6a84ae7d1c3ce516331e753",
+    "sourceCheckedAt": null
   },
   "earthrise": {
-    "sha256": "7ded788582da26130f4a19a9674c3219ff6c468df4852e3ee47402c377cee5d7",
-    "sourceCheckedAt": "2026-10-04T04:30:55Z"
+    "sha256": "2977b1023cb003a7884e871460de5052c89d3e46913337632f228b885688c4b4",
+    "sourceCheckedAt": null
   },
   "climate-ice": {
     "sha256": "801dda1962c021d96ce03f87db021973fcf90d110a19e238c3f88664ba5a8eff",
     "sourceCheckedAt": "2026-10-04T22:57:19.449006+00:00"
   },
   "model-limits": {
-    "sha256": "5339f4163511095624d03482fdb63576b53cb6dbca02a88196b766f4811799f7",
-    "sourceCheckedAt": "2026-10-04T04:30:55Z"
+    "sha256": "2270c84c00c99c323df405b147fa57230d7ead82798a01b6afc44d37220986ec",
+    "sourceCheckedAt": null
   }
 }
