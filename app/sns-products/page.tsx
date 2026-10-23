@@ -98,7 +98,7 @@ export default function ProductsPage() {
               {product.features.map((feature) => <li key={feature} className="flex gap-2"><span aria-hidden="true" className="text-[#8c9c7a]">·</span><span>{feature}</span></li>)}
             </ul>
             <div className="mt-auto">
-              <a href={product.url} target="_blank" rel="sponsored noopener noreferrer" aria-label={`${product.name} ${product.option} 상품·옵션 확인, 쿠팡 새 창`} className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#34462c] px-4 py-3 text-center text-sm font-bold text-white transition-colors hover:bg-[#24341d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#34462c]">쿠팡에서 상품·옵션 확인 <span aria-hidden="true">↗</span></a>
+              <a href={product.url} target="_blank" rel="sponsored noopener noreferrer" style={{ color: "#ffffff" }} aria-label={`${product.name} ${product.option} 상품·옵션 확인, 쿠팡 새 창`} className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#34462c] px-4 py-3 text-center text-sm font-bold text-white transition-colors hover:bg-[#24341d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#34462c]">쿠팡에서 상품·옵션 확인 <span aria-hidden="true">↗</span></a>
               <p className="mt-2 text-center text-xs text-[#7b8472]">광고 링크 · 새 창에서 판매 페이지로 이동</p>
             </div>
           </article>

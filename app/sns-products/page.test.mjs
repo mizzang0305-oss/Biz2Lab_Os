@@ -27,6 +27,7 @@ test("the product route discloses advertising before five verified direct produc
   for (const anchor of affiliateAnchors) {
     assert.match(anchor[1], /target="_blank"/);
     assert.match(anchor[1], /rel="sponsored noopener noreferrer"/);
+    assert.match(anchor[1], /\bstyle="[^"]*\bcolor:#ffffff(?:;|")/i);
     assert.match(anchor[2], /상품·옵션 확인/);
   }
   const disclosure = "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.";
