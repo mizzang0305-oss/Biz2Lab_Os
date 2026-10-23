@@ -1,9 +1,9 @@
 ---
 slug: earthrise
 title: 지구를 밖에서 본 사진은 무엇을 바꿨을까
-description: 1968년 아폴로 8호에서 촬영한 지구돋이 사진은 지구를 바라보는 구도를 넓혔다. 촬영 당시의 움직임과 후대의 재구성, 이미 진행 중이던 환경 논의를 함께 읽으며 한 사진의 영향과 입증할 수 있는 범위를 구분한다.
+description: NASA의 촬영 재구성 자료와 1969년 기념우표의 도안 채택 사례를 읽는다. 촬영 구도의 변화와 사진의 사용 기록을 확인하고, 환경운동이나 정책에 미친 인과효과는 확정하지 않는다.
 theme: 인간의 자리
-question: 한 장의 사진이 생각을 바꾸는 과정은 어떻게 확인할까?
+question: 촬영 재구성과 우표 도안은 지구돋이에 관해 무엇을 확인해 줄까?
 sources:
   - label: NASA, Apollo 8 in Lunar Orbit
     url: https://www.nasa.gov/history/50-years-ago-apollo-8-in-lunar-orbit/
