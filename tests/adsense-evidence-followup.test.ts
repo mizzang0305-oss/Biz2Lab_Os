@@ -5,6 +5,7 @@ import { Children, isValidElement } from "react";
 import { unstable_getResponseFromNextConfig } from "next/experimental/testing/server";
 import nextConfig from "../next.config";
 import { SeriesEssay } from "../components/essays/SeriesEssay";
+import { ReadingExperimentOnDemand } from "../components/essays/ReadingExperimentOnDemand";
 import { getSeriesEssay } from "../lib/essays/series";
 
 test("public HTML aliases reach the served MINZ page and keep query values", async () => {
@@ -49,15 +50,15 @@ test("the internal preview shell stays accessible but excluded from indexing", a
 });
 
 test("non-calculator essays do not instantiate a calculator client boundary", () => {
-  function slugBoundaries(node: unknown): string[] {
+  function calculatorBoundaries(node: unknown): string[] {
     if (!isValidElement<{ slug?: string; children?: React.ReactNode }>(node)) return [];
     return [
-      ...(typeof node.type !== "string" && node.props.slug ? [node.props.slug] : []),
-      ...Children.toArray(node.props.children).flatMap(slugBoundaries),
+      ...(node.type === ReadingExperimentOnDemand && node.props.slug ? [node.props.slug] : []),
+      ...Children.toArray(node.props.children).flatMap(calculatorBoundaries),
     ];
   }
-  // RelatedReading is expected on both pages; the extra slug boundary is the experiment.
-  assert.deepEqual(slugBoundaries(SeriesEssay({ essay: getSeriesEssay("frankenstein-ai")! })), ["frankenstein-ai"]);
-  assert.deepEqual(slugBoundaries(SeriesEssay({ essay: getSeriesEssay("eratosthenes")! })), ["eratosthenes", "eratosthenes"]);
+  // Slug-bearing server components such as related reading and reflections are not calculators.
+  assert.deepEqual(calculatorBoundaries(SeriesEssay({ essay: getSeriesEssay("frankenstein-ai")! })), []);
+  assert.deepEqual(calculatorBoundaries(SeriesEssay({ essay: getSeriesEssay("eratosthenes")! })), ["eratosthenes"]);
 });
 

@@ -6,7 +6,7 @@ import styles from "./essays.module.css";
 const defaultChapters = [
   ["wreck", "바다에서 나온 조각"], ["gears", "톱니가 하는 계산"],
   ["inside", "보이지 않던 안쪽"], ["model", "2021년의 제안"],
-  ["unknown", "아직 남은 빈칸"], ["today", "오늘의 질문"], ["sources", "원자료와 영상"],
+  ["unknown", "아직 남은 빈칸"], ["today", "오늘의 질문"], ["sources", "원자료와 영상"], ["reflection", "이 글을 정리하며"],
 ] as const;
 
 export function ReadingExperience({ chapters = defaultChapters }: { chapters?: readonly (readonly [string, string])[] } = {}) {
