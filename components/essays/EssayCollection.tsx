@@ -8,6 +8,7 @@ export function EssayCollection({ themeSlug, compact = false }: { themeSlug?: st
   const CardHeading = themeSlug ? "h3" : "h4";
   if (compact) return <section className={`${styles.essayCollection} ${styles.compactCollection}`} id="essays" aria-labelledby="collection-title">
     <h2 id="collection-title">모든 이야기</h2>
+    <p className={styles.collectionIntro}>어디서 시작할지 고민된다면 주제를 골라 보세요. 읽는 순서, 주장 비교표, 짧은 확인 과제를 먼저 살펴볼 수 있습니다.</p>
     <nav id="themes" className={styles.themeNavigation} aria-label="주제별 이야기">{themes.map(theme => <Link key={theme.slug} href={`/topics/${theme.slug}`}>{theme.name}</Link>)}</nav>
     <div className={styles.compactThemes}>{themes.map(theme => <section className={styles.compactTheme} key={theme.slug} aria-labelledby={`theme-${theme.slug}`}>
       <h3 id={`theme-${theme.slug}`}><Link href={`/topics/${theme.slug}`}>{theme.name}</Link></h3>
