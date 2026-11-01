@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getEssayTheme, getSeriesEssays } from "@/lib/essays/series";
 import { knowledgeMetadata } from "@/lib/essays/seo";
 import { EssayCollection } from "@/components/essays/EssayCollection";
+import { TopicReadingGuide } from "@/components/essays/TopicReadingGuide";
 import styles from "@/components/essays/essays.module.css";
 type Props = { params: Promise<{ theme: string }> };
 export const dynamic = "force-dynamic";
@@ -17,5 +18,5 @@ export async function generateMetadata({ params }: Props) {
 }
 export default async function Page({ params }: Props) {
   const theme = findTheme((await params).theme);
-  return <><header className={styles.topicHeader}><Link href="/" className={styles.backLink}>← 이야기 첫 화면</Link><p className={styles.kicker}>주제별 이야기</p><h1>{theme.name}</h1></header><EssayCollection themeSlug={theme.slug} /></>;
+  return <><header className={styles.topicHeader}><Link href="/" className={styles.backLink}>← 이야기 첫 화면</Link><p className={styles.kicker}>주제별 이야기</p><h1>{theme.name}</h1></header><TopicReadingGuide themeSlug={theme.slug} /><EssayCollection themeSlug={theme.slug} /></>;
 }
