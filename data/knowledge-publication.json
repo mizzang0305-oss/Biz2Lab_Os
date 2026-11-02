@@ -118,5 +118,9 @@
   "model-limits": {
     "sha256": "2270c84c00c99c323df405b147fa57230d7ead82798a01b6afc44d37220986ec",
     "sourceCheckedAt": null
+  },
+  "simpson-paradox": {
+    "sha256": "8a78ed01f4f3f3d5a0f0f197e7fd64610121b0ca8df4a1f8da2125fcec362da7",
+    "sourceCheckedAt": "2026-11-02"
   }
 }

@@ -9,7 +9,7 @@ import { ArticlePhoto } from "./ArticlePhoto";
 import { getEssayPhoto } from "@/lib/essays/photos";
 import { getEssayMedia } from "@/lib/essays/media";
 import { EssayProvenance } from "./EssayProvenance";
-import { EssayReflection } from "./EssayReflection";
+import { EssayReflection, hasEssayReflection } from "./EssayReflection";
 import { ReadingExperimentOnDemand } from "./ReadingExperimentOnDemand";
 import { hasReadingExperiment } from "@/lib/essays/experiments";
 import styles from "./essays.module.css";
@@ -30,11 +30,12 @@ export function SeriesEssay({ essay }: { essay: Essay }) {
       <p className={styles.kicker}><Link href={`/topics/${theme.slug}`}>{essay.theme}</Link></p><h1>{essay.title}</h1>
       <p className={styles.articleDeck}>{essay.question}</p>
       <p className={styles.draftNote}>Biz2Lab 지식 에세이</p>
+      {essay.publishedAt && <p className={styles.publicationDate}>게시 <time dateTime={essay.publishedAt}>{essay.publishedAt.replaceAll("-", ".")}</time>{essay.updatedAt && <> · 수정 <time dateTime={essay.updatedAt}>{essay.updatedAt.replaceAll("-", ".")}</time></>}</p>}
     </header>
     <div className={`${styles.prose} ${styles.markdownProse}`}>
       {photo && <ArticlePhoto photo={photo} opening />}
       {essay.intro && markdown(essay.intro)}
-      <ReadingExperience chapters={[...essay.sections.map(section => [section.id, section.title] as const), ["sources", "참고 자료와 확인 범위"], ["reflection", "이 글을 정리하며"]]} />
+      <ReadingExperience chapters={[...essay.sections.map(section => [section.id, section.title] as const), ["sources", "참고 자료와 확인 범위"], ...(hasEssayReflection(essay.slug) ? [["reflection", "이 글을 정리하며"] as const] : [])]} />
       {essay.sections.map(section => <section key={section.id} id={section.id} aria-labelledby={`${section.id}-title`}><h2 id={`${section.id}-title`}>{section.title}</h2>{markdown(section.content)}{figure?.afterSection === section.id && (!photo || photo.keepDiagram) && <ArticleDiagram figure={figure} />}</section>)}
       {hasReadingExperiment(essay.slug) && <ReadingExperimentOnDemand slug={essay.slug} />}
       <section className={styles.sources} id="sources" aria-labelledby="sources-title"><h2 id="sources-title">참고 자료와 확인 범위</h2>
@@ -48,3 +49,4 @@ export function SeriesEssay({ essay }: { essay: Essay }) {
     </div>
   </article>;
 }
+

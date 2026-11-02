@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="460" viewBox="0 0 640 460" role="img" aria-labelledby="simpson-title simpson-desc">
+  <title id="simpson-title">가상 접수 자료: 팀별 완료율은 상승하고 전체 완료율은 하락</title>
+  <desc id="simpson-desc">두 달 모두 접수 100건이며 막대의 전체 폭은 같습니다. 접수 후 2영업일 안의 완료는 단색, 미완료는 빗금으로 표시했습니다. 4월 A팀은 80건 중 완료 72건과 미완료 8건으로 완료율 90%, B팀은 20건 중 완료 8건과 미완료 12건으로 완료율 40%입니다. 전체는 80건 완료로 80%입니다. 5월 A팀은 20건 중 완료 19건과 미완료 1건으로 완료율 95%, B팀은 80건 중 완료 40건과 미완료 40건으로 완료율 50%입니다. 전체는 59건 완료로 59%입니다. B팀의 접수 비중이 20%에서 80%로 바뀌었습니다. 설명용 가상 자료이며 실제 운영 실적이 아닙니다. 같은 수치는 본문 표에서도 읽을 수 있습니다.</desc>
+  <defs>
+    <pattern id="team-a-incomplete" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="#e5efeb"/>
+      <path d="M-1 1L1-1M0 6L6 0M5 7L7 5" stroke="#1e5b50" stroke-width="1"/>
+    </pattern>
+    <pattern id="team-b-incomplete" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="#f1e8ef"/>
+      <path d="M-1 1L1-1M0 6L6 0M5 7L7 5" stroke="#713c61" stroke-width="1"/>
+    </pattern>
+    <pattern id="legend-incomplete" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="#f0eee7"/>
+      <path d="M-1 1L1-1M0 6L6 0M5 7L7 5" stroke="#555b57" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="460" rx="12" fill="#f8f6ef"/>
+  <g font-family="'Noto Sans KR', 'Noto Sans CJK KR', 'Malgun Gothic', sans-serif" fill="#202923">
+    <text x="28" y="37" font-size="23" font-weight="700">완료율이 오른 두 팀, 내려간 전체</text>
+    <text x="28" y="62" font-size="13" fill="#505b53">설명용 가상 자료 · 각 달 접수 100건 · 접수 후 2영업일 기준</text>
+
+    <g font-size="13">
+      <rect x="28" y="79" width="14" height="14" fill="#1e5b50"/>
+      <text x="49" y="91">A팀</text>
+      <rect x="101" y="79" width="14" height="14" fill="#713c61"/>
+      <text x="122" y="91">B팀</text>
+      <rect x="177" y="79" width="17" height="14" fill="url(#legend-incomplete)" stroke="#555b57"/>
+      <text x="201" y="91">빗금 = 기한 내 미완료</text>
+      <text x="608" y="91" text-anchor="end" fill="#505b53">막대 폭 = 접수 건수</text>
+    </g>
+
+    <g aria-label="4월 가상 자료">
+      <text x="28" y="130" font-size="18" font-weight="700">4월</text>
+      <text x="281.6" y="130" text-anchor="middle" font-size="15" font-weight="700">A팀 80건</text>
+      <text x="553.6" y="130" text-anchor="middle" font-size="15" font-weight="700">B팀 20건</text>
+      <rect x="64" y="144" width="391.68" height="38" fill="#1e5b50" data-period="april" data-team="a" data-completed="true" data-count="72"/>
+      <rect x="455.68" y="144" width="43.52" height="38" fill="url(#team-a-incomplete)" data-period="april" data-team="a" data-completed="false" data-count="8"/>
+      <rect x="499.2" y="144" width="43.52" height="38" fill="#713c61" data-period="april" data-team="b" data-completed="true" data-count="8"/>
+      <rect x="542.72" y="144" width="65.28" height="38" fill="url(#team-b-incomplete)" data-period="april" data-team="b" data-completed="false" data-count="12"/>
+      <rect x="64" y="144" width="544" height="38" fill="none" stroke="#38443c"/>
+      <path d="M499.2 140V186" stroke="#202923" stroke-width="2"/>
+      <g font-size="16" font-weight="700" text-anchor="middle">
+        <text x="259.84" y="169" fill="#ffffff">완료 72</text>
+        <text x="477.44" y="169" stroke="#e5efeb" stroke-width="4" paint-order="stroke">8</text>
+        <text x="520.96" y="169" fill="#ffffff">8</text>
+        <text x="575.36" y="169" stroke="#f1e8ef" stroke-width="4" paint-order="stroke">12</text>
+      </g>
+      <text x="64" y="206" font-size="14">A: 72/80건 = 90% · B: 8/20건 = 40%</text>
+      <text x="608" y="206" text-anchor="end" font-size="15" font-weight="700">전체 80/100건 = 80%</text>
+    </g>
+
+    <g aria-label="5월 가상 자료">
+      <text x="28" y="253" font-size="18" font-weight="700">5월</text>
+      <text x="118.4" y="253" text-anchor="middle" font-size="15" font-weight="700">A팀 20건</text>
+      <text x="390.4" y="253" text-anchor="middle" font-size="15" font-weight="700">B팀 80건</text>
+      <rect x="64" y="267" width="103.36" height="38" fill="#1e5b50" data-period="may" data-team="a" data-completed="true" data-count="19"/>
+      <rect x="167.36" y="267" width="5.44" height="38" fill="url(#team-a-incomplete)" data-period="may" data-team="a" data-completed="false" data-count="1"/>
+      <rect x="172.8" y="267" width="217.6" height="38" fill="#713c61" data-period="may" data-team="b" data-completed="true" data-count="40"/>
+      <rect x="390.4" y="267" width="217.6" height="38" fill="url(#team-b-incomplete)" data-period="may" data-team="b" data-completed="false" data-count="40"/>
+      <rect x="64" y="267" width="544" height="38" fill="none" stroke="#38443c"/>
+      <path d="M172.8 263V309" stroke="#202923" stroke-width="2"/>
+      <g font-size="16" font-weight="700" text-anchor="middle">
+        <text x="115.68" y="292" fill="#ffffff">완료 19</text>
+        <text x="281.6" y="292" fill="#ffffff">완료 40</text>
+        <text x="499.2" y="292" stroke="#f1e8ef" stroke-width="4" paint-order="stroke">미완료 40</text>
+      </g>
+      <path d="M170.08 265L190 244H207" fill="none" stroke="#38443c" stroke-width="1.25"/>
+      <text x="211" y="248" font-size="12">미완료 1건</text>
+      <text x="64" y="329" font-size="14">A: 19/20건 = 95% · B: 40/80건 = 50%</text>
+      <text x="608" y="329" text-anchor="end" font-size="15" font-weight="700">전체 59/100건 = 59%</text>
+    </g>
+
+    <path d="M28 353H612" stroke="#c7cfc6"/>
+    <text x="28" y="381" font-size="17" font-weight="700">팀별 완료율: A 90% → 95% · B 40% → 50%</text>
+    <text x="28" y="407" font-size="16">B팀의 접수 비중: 20% → 80% · 전체 완료율: 80% → 59%</text>
+    <text x="28" y="436" font-size="12" fill="#505b53">본문을 위해 구성한 가상 건수입니다. 실제 운영 실적이 아닙니다.</text>
+  </g>
+</svg>

@@ -359,6 +359,18 @@
         "quantum",
         "reproducibility"
       ]
+    },
+    {
+      "order": 31,
+      "slug": "simpson-paradox",
+      "title": "심슨의 역설: 팀별 완료율은 올랐는데 전체는 왜 떨어질까",
+      "question": "팀별 비율과 전체 비율의 방향이 다를 때 어느 숫자를 보고해야 할까?",
+      "theme": "설명과 모형",
+      "related": [
+        "model-limits",
+        "reproducibility",
+        "mendel"
+      ]
     }
   ]
 }

@@ -23,9 +23,9 @@ export function knowledgeMetadata(title: string, description: string, path: stri
     openGraph: { title, description, url: knowledgeUrl(path), siteName: knowledgeBrand, locale: "ko_KR", type: article ? "article" : "website" },
     twitter: { card: "summary_large_image", title, description } };
 }
-export type KnowledgeArticleSeo = { path: string; title: string; description: string; theme: string; sources: readonly { url: string }[] };
+export type KnowledgeArticleSeo = { path: string; title: string; description: string; theme: string; sources: readonly { url: string }[]; publishedAt?: string; updatedAt?: string };
 export function knowledgeSchemas(pathname: string | null, article?: KnowledgeArticleSeo): unknown[] {
-  const entry = article?.path === pathname ? article : pathname === antikytheraEssay.path ? { ...antikytheraEssay, theme: "관측과 증거", sources: essaySources } : null;
+  const entry: KnowledgeArticleSeo | null = article?.path === pathname ? article : pathname === antikytheraEssay.path ? { ...antikytheraEssay, updatedAt: undefined, theme: "관측과 증거", sources: essaySources } : null;
   if (pathname !== "/" && !entry) return [];
   const organization = { "@type": "Organization", name: "Biz2Lab", url: knowledgeUrl("/about") };
   const photo = entry ? getEssayPhoto(entry.path.split("/").at(-1) ?? "") : undefined;
@@ -34,6 +34,7 @@ export function knowledgeSchemas(pathname: string | null, article?: KnowledgeArt
       { "@context": "https://schema.org", "@type": "BlogPosting", headline: entry.title,
         description: entry.description, inLanguage: "ko-KR", url: knowledgeUrl(entry.path), articleSection: entry.theme,
         mainEntityOfPage: knowledgeUrl(entry.path), author: organization, publisher: organization,
+        ...(entry.publishedAt ? { datePublished: entry.publishedAt, ...(entry.updatedAt ? { dateModified: entry.updatedAt } : {}) } : {}),
         ...(entry.path === antikytheraEssay.path ? { image: essayFigures.map(figure => knowledgeUrl(figure.src)) } : photo ? { image: {
           "@type": "ImageObject", contentUrl: knowledgeUrl(essayPhotoSrc(photo, photo.width, "jpg")),
           caption: photo.caption, creditText: photo.credit,
@@ -45,3 +46,4 @@ export function knowledgeSchemas(pathname: string | null, article?: KnowledgeArt
         { "@type": "ListItem", position: 2, name: entry.title, item: knowledgeUrl(entry.path) } ] }
     ] : [])];
 }
+

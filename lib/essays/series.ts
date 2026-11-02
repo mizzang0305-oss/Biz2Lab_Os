@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import { z } from "zod";
 import plan from "@/data/knowledge-series-plan.json";
 import publicationRecords from "@/data/knowledge-publication.json";
+import releaseDates from "@/data/knowledge-release-dates.json";
 import { antikytheraEssay, essaySources } from "./antikythera";
 
 export const essayThemes = [
@@ -29,6 +30,7 @@ export type SeriesEssay = {
   slug: string; order: number; path: string; title: string; description: string; theme: string; question: string;
   sources: readonly EssaySource[]; related: readonly string[]; content: string; intro: string; sections: EssaySection[];
   manuscriptSha256: string; bodySha256: string; sourceCheckedAt: string | null; authorRecordMatches: boolean;
+  publishedAt?: string; updatedAt?: string;
 };
 
 function isPublicHttps(value: string) {
@@ -75,6 +77,15 @@ function authorRecord(slug: string, manuscriptSha256: string) {
     return { sourceCheckedAt, authorRecordMatches };
   } catch { return { sourceCheckedAt: null, authorRecordMatches: false }; }
 }
+// Publication dates are editorial records, never inferred from source checks or file timestamps.
+export function getEssayReleaseDates(slug: string): { publishedAt?: string; updatedAt?: string } {
+  const record = (releaseDates as Record<string, { publishedAt: string; updatedAt?: string }>)[slug];
+  const valid = (value: unknown): value is string => typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value)
+    && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
+  if (!record || !valid(record.publishedAt)) return {};
+  return { publishedAt: record.publishedAt,
+    ...(valid(record.updatedAt) && record.updatedAt >= record.publishedAt ? { updatedAt: record.updatedAt } : {}) };
+}
 export function getSeriesEssay(slug: string): SeriesEssay | null {
   if (!/^[a-z][a-z0-9-]{0,70}$/.test(slug) || !plannedEssays.some(entry => entry.slug === slug)) return null;
   if (slug === "antikythera") {
@@ -82,15 +93,18 @@ export function getSeriesEssay(slug: string): SeriesEssay | null {
     const raw = fs.readFileSync(path.join(process.cwd(), "components", "essays", "AntikytheraEssay.tsx"), "utf8");
     const sections = [...raw.replaceAll("\r\n", "\n").matchAll(/<section id="([^"]+)"[\s\S]*?<\/section>/g)].map(match => match[0]).join("\n");
     const record = authorRecord(slug, sha256(raw));
-    return { ...antikytheraEssay, slug, order: 1, theme: entry.theme, question: entry.question, sources: essaySources, related: entry.related,
+    return { ...antikytheraEssay, updatedAt: undefined, ...getEssayReleaseDates(slug), slug, order: 1, theme: entry.theme, question: entry.question, sources: essaySources, related: entry.related,
       content: "", intro: "", sections: [], manuscriptSha256: sha256(raw), bodySha256: sha256(sections), ...record, sourceCheckedAt: record.sourceCheckedAt ?? antikytheraEssay.updatedAt };
   }
   const file = path.join(contentRoot, `${slug}.md`);
   if (!fs.existsSync(file) || fs.statSync(file).size > 128_000) return null;
-  try { const essay = parseEssayManuscript(fs.readFileSync(file, "utf8"), slug); return { ...essay, ...authorRecord(slug, essay.manuscriptSha256) }; }
+  try { const essay = parseEssayManuscript(fs.readFileSync(file, "utf8"), slug); return { ...essay, ...authorRecord(slug, essay.manuscriptSha256), ...getEssayReleaseDates(slug) }; }
   catch { return null; }
 }
 export function getSeriesEssays() { return plannedEssays.map(entry => getSeriesEssay(entry.slug)).filter((essay): essay is SeriesEssay => essay !== null); }
+export function getChronologicalEssays() {
+  return getSeriesEssays().sort((a, b) => (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "") || a.order - b.order);
+}
 export function getRelatedEssays(slug: string) {
   const essay = getSeriesEssay(slug);
   return essay ? essay.related.map(related => getSeriesEssay(related)).filter((related): related is SeriesEssay => related !== null) : [];
@@ -102,3 +116,4 @@ export function safeEssayHref(value: string | undefined, availablePaths: readonl
   if (value === "/" || value === "/privacy" || availablePaths.includes(value.split("#")[0])) return value;
   return isPublicHttps(value) ? value : undefined;
 }
+
