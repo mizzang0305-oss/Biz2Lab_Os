@@ -377,7 +377,21 @@ export const essayMedia: readonly EssayMedia[] = [
     "width": 640,
     "height": 460,
     "credit": "Biz2Lab 편집 개념도 · 원자료의 이미지나 실측 데이터 복제 아님"
+  },
+  {
+    "slug": "simpson-paradox",
+    "afterSection": "scene-2",
+    "title": "팀별 완료율과 전체 완료율이 엇갈리는 이유",
+    "src": "/images/essays/simpson-paradox/concept.svg",
+    "alt": "가상 접수 자료의 두 달을 같은 100건 폭으로 비교한 막대. A팀과 B팀 완료율은 모두 올랐지만 B팀 접수 비중이 20%에서 80%로 늘면서 전체 완료율은 80%에서 59%로 내려간다. 정확한 건수는 본문 표에 있다.",
+    "caption": "단색은 접수 뒤 2영업일 안의 완료, 빗금은 기한 내 미완료입니다. 각 달의 총 접수는 100건으로 같지만 팀별 접수 비중은 다릅니다. 실제 운영 실적이 아닌 본문의 자체 가상 예시입니다.",
+    "sourceUrl": "https://math.bme.hu/~marib/bsmeur/simpson.pdf",
+    "sourceLabel": "Simpson (1951), 집계와 분류의 해석",
+    "width": 640,
+    "height": 460,
+    "credit": "Biz2Lab 자체 도해 · 설명을 위해 만든 가상 자료 · 원논문의 수치나 그림 복제 아님"
   }
 ];
 
 export function getEssayMedia(slug: string) { return essayMedia.find(figure => figure.slug === slug); }
+

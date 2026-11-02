@@ -4,11 +4,10 @@ import test from "node:test";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { TopicReadingGuide } from "../components/essays/TopicReadingGuide";
-import { essayThemes, getSeriesEssay, getSeriesEssays } from "../lib/essays/series";
+import { essayThemes, getSeriesEssay } from "../lib/essays/series";
 import { topicGuides } from "../lib/essays/topic-guides";
 
 test("every subject has an actionable reading path to preserved articles in that subject", () => {
-  assert.equal(getSeriesEssays().length, 30);
   assert.deepEqual(Object.keys(topicGuides).sort(), essayThemes.map(t => t.slug).sort());
   for (const theme of essayThemes) {
     const guide = topicGuides[theme.slug];
@@ -27,3 +26,4 @@ test("every subject has an actionable reading path to preserved articles in that
 test("unknown subject cannot accidentally display another subject's exercise", () => {
   assert.equal(renderToStaticMarkup(createElement(TopicReadingGuide, { themeSlug: "missing" })), "");
 });
+

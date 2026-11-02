@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { getSeriesEssay } from "@/lib/essays/series";
+import { getSeriesEssay, getChronologicalEssays } from "@/lib/essays/series";
 import { ArticlePreviewImage } from "./ArticlePreviewImage";
 import { EssayCollection } from "./EssayCollection";
 import styles from "./essays.module.css";
 export function KnowledgeHome() {
   const lead = getSeriesEssay("earthrise")!;
   const recommendations = ["antikythera", "frankenstein-ai"].map(slug => getSeriesEssay(slug)!);
+  const latest = getChronologicalEssays().filter(essay => essay.publishedAt).slice(0, 3);
   return <>
     <section className={styles.homeSelection} id="stories" aria-labelledby="home-title">
       <article className={styles.leadFeature} data-home-feature={lead.slug}>
@@ -23,6 +24,14 @@ export function KnowledgeHome() {
         </article>)}
       </aside>
     </section>
+    {latest.length > 0 && <section className={styles.latestEssays} aria-labelledby="latest-title">
+      <p className={styles.kicker}>새로 나온 이야기</p><h2 id="latest-title">새로운 질문을 이어갑니다.</h2>
+      <ul>{latest.map(essay => <li key={essay.slug} data-latest-essay={essay.slug}>
+        <p className={styles.publicationDate}><time dateTime={essay.publishedAt}>{essay.publishedAt!.replaceAll("-", ".")}</time> · {essay.theme}</p>
+        <h3><Link href={essay.path}>{essay.title}</Link></h3><p>{essay.description}</p>
+        <Link href={essay.path} className={styles.readLink}>이야기 읽기 <span aria-hidden="true">→</span></Link>
+      </li>)}</ul>
+    </section>}
     <EssayCollection compact />
     <section className={styles.readingExperiments} aria-labelledby="experiments-title">
       <p className={styles.kicker}>읽고, 숫자로 확인하기</p>
@@ -40,3 +49,4 @@ export function KnowledgeHome() {
     </section>
   </>;
 }
+
