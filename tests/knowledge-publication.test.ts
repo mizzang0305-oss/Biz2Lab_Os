@@ -42,6 +42,12 @@ test("series plan preserves the original thirty identities and admits additional
 });
 test("publication dates come from a separate ledger and never from source verification dates", () => {
   const dates = JSON.parse(fs.readFileSync("data/knowledge-release-dates.json", "utf8")) as Record<string, { publishedAt: string; updatedAt?: string }>;
+  const preservedSlugs = new Set<string>(preservedEssaySlugs);
+  for (const essay of getSeriesEssays()) {
+    if (!preservedSlugs.has(essay.slug)) assert.ok(essay.publishedAt, `${essay.slug} requires a recorded publication date`);
+  }
+  const publicationDates = Object.values(dates).map(record => record.publishedAt);
+  assert.equal(new Set(publicationDates).size, publicationDates.length, "Publish at most one new essay per Korean calendar day");
   for (const slug of preservedEssaySlugs) {
     const essay = getSeriesEssay(slug)!;
     assert.equal(essay.publishedAt, undefined, slug);
