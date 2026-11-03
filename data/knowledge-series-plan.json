@@ -371,6 +371,18 @@
         "reproducibility",
         "mendel"
       ]
+    },
+    {
+      "order": 32,
+      "slug": "mars-climate-orbiter-units",
+      "title": "단위 하나가 탐사선을 잃게 했을까: 화성 기후 궤도선 사고의 진짜 교훈",
+      "question": "숫자가 맞아 보여도 단위가 다르면 어떤 검증이 먼저 필요한가?",
+      "theme": "측정과 질서",
+      "related": [
+        "longitude",
+        "model-limits",
+        "reproducibility"
+      ]
     }
   ]
 }

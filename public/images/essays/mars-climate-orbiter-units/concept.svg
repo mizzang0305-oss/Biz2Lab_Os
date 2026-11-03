@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="460" viewBox="0 0 640 460" role="img" aria-labelledby="unit-title unit-desc">
+  <title id="unit-title">숫자 12.0이 단위가 다른 인터페이스를 지나며 만드는 4.448배 차이</title>
+  <desc id="unit-desc">설명용 가상 자료입니다. 생산자는 12.0 파운드힘초를 보냈지만 단위 표기가 빠졌고, 소비자는 12.0 뉴턴초로 읽습니다. 올바르게 환산하면 53.378664 뉴턴초이므로 4.448222배 차이가 납니다. 아래에는 물리량, 단위, 방향, 좌표계, 시간 기준, 범위를 함께 확인하라는 점검 순서가 있습니다.</desc>
+  <rect width="640" height="460" rx="12" fill="#f8f6ef"/>
+  <g font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif" fill="#202923">
+    <text x="28" y="42" font-size="23" font-weight="700">숫자는 같아도 단위가 다르면 다른 값이다</text>
+    <text x="28" y="68" font-size="13" fill="#566058">설명용 가상 자료 · 실제 탐사선의 충격량이나 질량이 아님</text>
+
+    <rect x="28" y="104" width="168" height="106" rx="8" fill="#e6f0ec" stroke="#1e5b50" stroke-width="2"/>
+    <text x="112" y="132" text-anchor="middle" font-size="14" font-weight="700" fill="#1e5b50">생산자</text>
+    <text x="112" y="174" text-anchor="middle" font-size="31" font-weight="700">12.0</text>
+    <text x="112" y="198" text-anchor="middle" font-size="15">lbf·s</text>
+
+    <path d="M204 157H315" stroke="#37433c" stroke-width="3"/>
+    <path d="M305 147L318 157L305 167" fill="none" stroke="#37433c" stroke-width="3"/>
+    <rect x="218" y="111" width="84" height="28" rx="14" fill="#f3d9c8"/>
+    <text x="260" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#7b3d1f">단위 누락</text>
+
+    <rect x="326" y="104" width="128" height="106" rx="8" fill="#f0e7ef" stroke="#713c61" stroke-width="2"/>
+    <text x="390" y="132" text-anchor="middle" font-size="14" font-weight="700" fill="#713c61">소비자 해석</text>
+    <text x="390" y="174" text-anchor="middle" font-size="31" font-weight="700">12.0</text>
+    <text x="390" y="198" text-anchor="middle" font-size="15">N·s</text>
+
+    <rect x="474" y="104" width="138" height="106" rx="8" fill="#fff" stroke="#b2602e" stroke-width="2"/>
+    <text x="543" y="132" text-anchor="middle" font-size="14" font-weight="700" fill="#9a4b20">올바른 환산</text>
+    <text x="543" y="174" text-anchor="middle" font-size="25" font-weight="700">53.378664</text>
+    <text x="543" y="198" text-anchor="middle" font-size="15">N·s</text>
+
+    <path d="M28 238H612" stroke="#c4ccc5"/>
+    <text x="28" y="273" font-size="18" font-weight="700">12.0 × 4.448222 = 53.378664</text>
+    <text x="612" y="273" text-anchor="end" font-size="17" font-weight="700" fill="#9a4b20">4.448222배 차이</text>
+    <text x="28" y="300" font-size="13" fill="#566058">NIST 환산: 1 lbf = 4.448222 N · 초(s)는 양쪽에 그대로 유지</text>
+
+    <text x="28" y="344" font-size="17" font-weight="700">인터페이스에서 함께 잠글 항목</text>
+    <g font-size="13">
+      <rect x="28" y="364" width="88" height="42" rx="6" fill="#e6f0ec"/><text x="72" y="390" text-anchor="middle">물리량</text>
+      <rect x="125" y="364" width="78" height="42" rx="6" fill="#e6f0ec"/><text x="164" y="390" text-anchor="middle">단위</text>
+      <rect x="212" y="364" width="78" height="42" rx="6" fill="#e6f0ec"/><text x="251" y="390" text-anchor="middle">방향</text>
+      <rect x="299" y="364" width="88" height="42" rx="6" fill="#e6f0ec"/><text x="343" y="390" text-anchor="middle">좌표계</text>
+      <rect x="396" y="364" width="96" height="42" rx="6" fill="#e6f0ec"/><text x="444" y="390" text-anchor="middle">시간 기준</text>
+      <rect x="501" y="364" width="111" height="42" rx="6" fill="#e6f0ec"/><text x="556.5" y="390" text-anchor="middle">범위·오류</text>
+    </g>
+    <text x="28" y="438" font-size="12" fill="#566058">Biz2Lab 자체 도해 · 원자료의 그림이나 실제 임무 수치를 복제하지 않음</text>
+  </g>
+</svg>

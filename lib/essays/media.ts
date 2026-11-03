@@ -390,6 +390,19 @@ export const essayMedia: readonly EssayMedia[] = [
     "width": 640,
     "height": 460,
     "credit": "Biz2Lab 자체 도해 · 설명을 위해 만든 가상 자료 · 원논문의 수치나 그림 복제 아님"
+  },
+  {
+    "slug": "mars-climate-orbiter-units",
+    "afterSection": "scene-2",
+    "title": "숫자 12.0이 단위가 다른 인터페이스를 지나며 만드는 4.448배 차이",
+    "src": "/images/essays/mars-climate-orbiter-units/concept.svg",
+    "alt": "설명용 가상 자료에서 생산자가 보낸 12.0 파운드힘초를 소비자가 12.0 뉴턴초로 오인한다. 올바른 환산값은 53.378664 뉴턴초이며, 아래에 물리량·단위·방향·좌표계·시간 기준·범위 점검 항목이 있다.",
+    "caption": "같은 숫자 12.0도 lbf·s와 N·s에서는 다른 충격량입니다. NIST 환산계수로 올바른 값은 53.378664 N·s이며, 실제 화성 기후 궤도선의 수치가 아닌 본문의 자체 가상 예시입니다.",
+    "sourceUrl": "https://discovery.larc.nasa.gov/discovery/PDF_FILES/mars_climate_orbiter_phaseII.pdf",
+    "sourceLabel": "NASA 화성 기후 궤도선 사고 조사 보고서",
+    "width": 640,
+    "height": 460,
+    "credit": "Biz2Lab 자체 도해 · 설명용 가상 수치 · NASA 그림이나 실제 임무 수치 복제 아님"
   }
 ];
 
