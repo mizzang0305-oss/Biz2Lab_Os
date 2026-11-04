@@ -403,6 +403,19 @@ export const essayMedia: readonly EssayMedia[] = [
     "width": 640,
     "height": 460,
     "credit": "Biz2Lab 자체 도해 · 설명용 가상 수치 · NASA 그림이나 실제 임무 수치 복제 아님"
+  },
+  {
+    "slug": "pale-blue-dot-pixel",
+    "afterSection": "scene-2",
+    "title": "창백한 푸른 점의 각크기와 픽셀 비교",
+    "src": "/images/essays/pale-blue-dot-pixel/concept.svg",
+    "alt": "보이저 1호 협각 카메라의 한 픽셀 시야각 0.000530도와 지구 전체 지름의 자체 계산값 약 0.215픽셀, NASA가 기록한 밝은 초승달 지구 0.12픽셀을 세 단계로 비교한다.",
+    "caption": "지구 전체 지름의 약 0.215픽셀은 평균 지름 12,742km와 근사 거리 64억km로 계산한 규모입니다. NASA의 0.12픽셀은 사진 속 밝은 초승달 지구 기록이며, 실제 원본 픽셀이나 점확산 모양을 복제한 그림이 아닙니다.",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/a-voyager-far-from-home-79091/",
+    "sourceLabel": "NASA Earth Observatory 및 본문 자체 계산",
+    "width": 640,
+    "height": 460,
+    "credit": "Biz2Lab 자체 도해 · NASA 원본 이미지나 센서 모양 복제 아님"
   }
 ];
 

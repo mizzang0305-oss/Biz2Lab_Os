@@ -383,6 +383,18 @@
         "model-limits",
         "reproducibility"
       ]
+    },
+    {
+      "order": 33,
+      "slug": "pale-blue-dot-pixel",
+      "title": "0.12픽셀의 지구를 우리는 어떻게 보았을까: 창백한 푸른 점 읽기",
+      "question": "한 픽셀보다 작은 지구 사진에서 실제 관측과 확대·색 처리·해석을 어떻게 구분할까?",
+      "theme": "인간의 자리",
+      "related": [
+        "earthrise",
+        "telescope",
+        "model-limits"
+      ]
     }
   ]
 }

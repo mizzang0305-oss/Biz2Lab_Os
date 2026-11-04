@@ -126,5 +126,9 @@
   "mars-climate-orbiter-units": {
     "sha256": "554ddd07bbd3f38d9e916a99f1fe3dc5338e5eed43e47cc37255b1491f44afda",
     "sourceCheckedAt": "2026-11-03"
+  },
+  "pale-blue-dot-pixel": {
+    "sha256": "61e50adc9a1aa2c4ccb81c2128d8474f64117d0c37b30e01af6c03da88938543",
+    "sourceCheckedAt": "2026-11-04"
   }
 }
