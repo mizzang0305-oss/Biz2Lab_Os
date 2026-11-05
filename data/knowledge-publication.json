@@ -130,5 +130,9 @@
   "pale-blue-dot-pixel": {
     "sha256": "61e50adc9a1aa2c4ccb81c2128d8474f64117d0c37b30e01af6c03da88938543",
     "sourceCheckedAt": "2026-11-04"
+  },
+  "telephone-exchange-scaling": {
+    "sha256": "397bffe610d052f85df52aff8577f572a0ef65b824fc34482e1cb7009c5b6407",
+    "sourceCheckedAt": "2026-11-05"
   }
 }

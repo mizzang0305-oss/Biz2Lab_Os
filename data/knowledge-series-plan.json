@@ -395,6 +395,18 @@
         "telescope",
         "model-limits"
       ]
+    },
+    {
+      "order": 34,
+      "slug": "telephone-exchange-scaling",
+      "title": "모든 전화를 서로 직접 이으면 왜 전화망이 되지 않을까",
+      "question": "사용자가 늘 때 모든 쌍을 직접 잇는 방식과 중앙 교환 방식의 연결 규모는 어떻게 달라지며, 줄어든 선 대신 무엇을 관리해야 할까?",
+      "theme": "기계와 연결",
+      "related": [
+        "shannon",
+        "feedback",
+        "programmable-weaving"
+      ]
     }
   ]
 }
