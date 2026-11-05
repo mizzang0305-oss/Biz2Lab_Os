@@ -416,6 +416,19 @@ export const essayMedia: readonly EssayMedia[] = [
     "width": 640,
     "height": 460,
     "credit": "Biz2Lab 자체 도해 · NASA 원본 이미지나 센서 모양 복제 아님"
+  },
+  {
+    "slug": "telephone-exchange-scaling",
+    "afterSection": "scene-1",
+    "title": "직접 연결 15개와 교환기 연결 6개의 비교",
+    "src": "/images/essays/telephone-exchange-scaling/concept.svg",
+    "alt": "전화기 여섯 대를 모든 쌍으로 직접 이으면 선이 15개이고, 가운데 교환기를 두면 바깥 가입자선은 6개가 되는 구조 비교.",
+    "caption": "여섯 끝점의 모든 쌍은 15개지만 중앙 접근선은 6개입니다. 선 수만 비교한 설명용 모형이며 실제 교환대 내부 배선·거리·동시 통화 용량을 나타내지 않습니다.",
+    "sourceUrl": "https://home.nps.gov/subjects/nationalhistoriclandmarks/site-of-the-first-telephone-exchange.htm",
+    "sourceLabel": "National Park Service 기록 및 본문 자체 계산",
+    "width": 640,
+    "height": 460,
+    "credit": "Biz2Lab 자체 도해 · 역사 교환대 도면이나 실측 배선 복제 아님"
   }
 ];
 
