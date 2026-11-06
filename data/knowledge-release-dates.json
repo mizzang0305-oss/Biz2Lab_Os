@@ -13,5 +13,11 @@
   },
   "gtin-check-digit": {
     "publishedAt": "2026-11-06"
+  },
+  "anscombe-quartet": {
+    "publishedAt": "2026-11-06"
+  },
+  "sampling-aliasing": {
+    "publishedAt": "2026-11-06"
   }
 }

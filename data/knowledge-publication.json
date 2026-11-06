@@ -138,5 +138,13 @@
   "gtin-check-digit": {
     "sha256": "5559959469052893a0a6744a25a3bd582e8b40b05d27342dfbd62177a4ebde84",
     "sourceCheckedAt": "2026-11-06"
+  },
+  "anscombe-quartet": {
+    "sha256": "7a463e1535a196a4d8ce000d479cd498b726aacd1891e6118374c994b7fc3509",
+    "sourceCheckedAt": "2026-11-06"
+  },
+  "sampling-aliasing": {
+    "sha256": "5ba90bf68f5814d064dba8824178e9e2fc4110e66d587c99121ca1bc4485eb40",
+    "sourceCheckedAt": "2026-11-06"
   }
 }

@@ -442,6 +442,32 @@ export const essayMedia: readonly EssayMedia[] = [
     "width": 640,
     "height": 460,
     "credit": "Biz2Lab 자체 도해 · 실제 상품 번호나 바코드 이미지 아님"
+  },
+  {
+    "slug": "anscombe-quartet",
+    "afterSection": "scene-2",
+    "title": "비슷한 회귀 요약을 만드는 네 가지 좌표 배열",
+    "src": "/images/essays/anscombe-quartet/concept.svg",
+    "alt": "같은 축에서 비교한 네 산점도. I은 직선 주변의 흩어짐, II는 곡선, III은 한 점이 위로 벗어남, IV는 x가 8인 열 점과 19인 한 점으로 이루어진다.",
+    "caption": "Anscombe의 가상 자료를 원논문 표와 R 데이터로 대조해 새로 그렸습니다. 선은 각 묶음의 최소제곱 직선이며 모든 패널의 축 범위가 같습니다.",
+    "sourceUrl": "https://svn.r-project.org/R/trunk/src/library/datasets/data/anscombe.R",
+    "sourceLabel": "Anscombe (1973) 및 R Project 공개 데이터 값",
+    "width": 640,
+    "height": 640,
+    "credit": "Biz2Lab 자체 산점도 · 원자료의 숫자를 재계산 · 원본 도판 복제 아님"
+  },
+  {
+    "slug": "sampling-aliasing",
+    "afterSection": "scene-1",
+    "title": "같은 시각의 기록값이 일치하는 두 사인파",
+    "src": "/images/essays/sampling-aliasing/concept.svg",
+    "alt": "위 패널의 1000Hz는 5밀리초 동안 다섯 번, 아래 패널의 200Hz는 한 번 반복된다. 초당 800번 읽는 다섯 시점의 값은 둘 다 0, 1, 0, 마이너스 1, 0이다.",
+    "caption": "진폭 1, 시작 위상 0인 수식으로 만든 가상 신호입니다. 곡선은 주어진 수식이고 검은 점은 초당 800번 읽은 값입니다. 실제 센서 실험이나 표본에서 복원한 곡선이 아닙니다.",
+    "sourceUrl": "https://www.mathworks.com/help/daq/making-quality-measurements.html",
+    "sourceLabel": "MathWorks의 표본화 설명과 본문 자체 계산",
+    "width": 640,
+    "height": 560,
+    "credit": "Biz2Lab 자체 계산·도해 · 가상 신호 · 외부 그림 복제 아님"
   }
 ];
 
