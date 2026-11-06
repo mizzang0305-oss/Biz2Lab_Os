@@ -6,8 +6,8 @@
   "licenseSha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
   "fontToolsVersion": "4.68.0",
   "weight": 600,
-  "bytes": 38436,
-  "sha256": "91839566818e82c2982a66c27d4115514b97732f084dacd97f5fcfb57246e277",
+  "bytes": 38764,
+  "sha256": "95d104b383426431049bd7ca513d19fcdae96e7533b7f0701afc170d4b4f3179",
   "coveredCodepoints": [
     32,
     33,
@@ -142,6 +142,7 @@
     44992,
     45012,
     45032,
+    45149,
     45208,
     45216,
     45224,
@@ -337,6 +338,7 @@
     51089,
     51096,
     51104,
+    51105,
     51109,
     51116,
     51200,
@@ -384,6 +386,7 @@
     52980,
     52981,
     52996,
+    53076,
     53097,
     53356,
     53360,
@@ -394,6 +397,7 @@
     53552,
     53584,
     53596,
+    53685,
     53952,
     54016,
     54056,
@@ -457,8 +461,9 @@
     "simpson-paradox",
     "mars-climate-orbiter-units",
     "pale-blue-dot-pixel",
-    "telephone-exchange-scaling"
+    "telephone-exchange-scaling",
+    "gtin-check-digit"
   ],
-  "cardTextSha256": "98a1507201d5f7d1d0c764ce7322ef2f991cb31eb2cc2e7d231bab1af9335ec9",
+  "cardTextSha256": "a382f5df04cec149ead1c5ef91805edc2633e6493204bd5f43d8498ab5606677",
   "purpose": "Server-generated local series social cards; no visitor or request-time font fetch."
 }

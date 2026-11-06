@@ -407,6 +407,18 @@
         "feedback",
         "programmable-weaving"
       ]
+    },
+    {
+      "order": 35,
+      "slug": "gtin-check-digit",
+      "title": "바코드 끝자리로 어떤 오타를 잡을 수 있을까",
+      "question": "두 숫자의 자리를 바꿨는데도 바코드 검사가 통과하는 이유는 무엇일까?",
+      "theme": "측정과 질서",
+      "related": [
+        "shannon",
+        "mars-climate-orbiter-units",
+        "model-limits"
+      ]
     }
   ]
 }

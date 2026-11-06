@@ -134,5 +134,9 @@
   "telephone-exchange-scaling": {
     "sha256": "397bffe610d052f85df52aff8577f572a0ef65b824fc34482e1cb7009c5b6407",
     "sourceCheckedAt": "2026-11-05"
+  },
+  "gtin-check-digit": {
+    "sha256": "5559959469052893a0a6744a25a3bd582e8b40b05d27342dfbd62177a4ebde84",
+    "sourceCheckedAt": "2026-11-06"
   }
 }
