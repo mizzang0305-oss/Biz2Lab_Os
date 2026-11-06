@@ -47,7 +47,13 @@ test("publication dates come from a separate ledger and never from source verifi
     if (!preservedSlugs.has(essay.slug)) assert.ok(essay.publishedAt, `${essay.slug} requires a recorded publication date`);
   }
   const publicationDates = Object.values(dates).map(record => record.publishedAt);
-  assert.equal(new Set(publicationDates).size, publicationDates.length, "Publish at most one new essay per Korean calendar day");
+  // The user raised the daily target on 2026-11-06; retain the previous historical limit.
+  const counts = new Map<string, number>();
+  for (const date of publicationDates) counts.set(date, (counts.get(date) ?? 0) + 1);
+  for (const [date, count] of counts) {
+    const limit = date < "2026-11-06" ? 1 : 3;
+    assert.ok(count <= limit, `Publish at most ${limit} new essays on Korean date ${date}, found ${count}`);
+  }
   for (const slug of preservedEssaySlugs) {
     const essay = getSeriesEssay(slug)!;
     assert.equal(essay.publishedAt, undefined, slug);

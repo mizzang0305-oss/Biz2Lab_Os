@@ -419,6 +419,30 @@
         "mars-climate-orbiter-units",
         "model-limits"
       ]
+    },
+    {
+      "order": 36,
+      "slug": "anscombe-quartet",
+      "title": "상관계수는 같은데 그래프는 다르다: 앤스컴 사중주 직접 읽기",
+      "question": "평균과 상관계수가 거의 같으면 같은 예측식을 믿어도 될까?",
+      "theme": "설명과 모형",
+      "related": [
+        "simpson-paradox",
+        "model-limits",
+        "reproducibility"
+      ]
+    },
+    {
+      "order": 37,
+      "slug": "sampling-aliasing",
+      "title": "1000Hz가 200Hz로 보이는 이유: 표본화와 앨리어싱",
+      "question": "빠르게 변하는 신호가 기록에서는 느리게 보일 때 무엇부터 확인해야 할까?",
+      "theme": "관측과 증거",
+      "related": [
+        "pale-blue-dot-pixel",
+        "shannon",
+        "model-limits"
+      ]
     }
   ]
 }
