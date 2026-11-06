@@ -429,6 +429,19 @@ export const essayMedia: readonly EssayMedia[] = [
     "width": 640,
     "height": 460,
     "credit": "Biz2Lab 자체 도해 · 역사 교환대 도면이나 실측 배선 복제 아님"
+  },
+  {
+    "slug": "gtin-check-digit",
+    "afterSection": "scene-3",
+    "title": "자리바꿈 뒤에도 나머지가 0인 두 합",
+    "src": "/images/essays/gtin-check-digit/concept.svg",
+    "alt": "끝 세 자리 161은 1+18+1=20, 611은 6+3+1=10이다. 두 합을 10으로 나눈 나머지는 모두 0이다.",
+    "caption": "앞 열 자리를 0으로 둔 가상 번호입니다. 가운데 숫자에만 3을 곱하면 두 입력의 합이 정확히 10만큼 달라집니다.",
+    "sourceUrl": "https://assets.ctfassets.net/9uypwcnuzbqi/7oxH9aoSSK3z1v4TorzfCY/bc949d91aa4b1e1a03e7743b9704ee41/GS1au-fact-sheet-manual-check-digit-calculation.pdf",
+    "sourceLabel": "GS1 Australia 계산 규칙과 자체 가상 예시",
+    "width": 640,
+    "height": 460,
+    "credit": "Biz2Lab 자체 도해 · 실제 상품 번호나 바코드 이미지 아님"
   }
 ];
 

@@ -10,5 +10,8 @@
   },
   "telephone-exchange-scaling": {
     "publishedAt": "2026-11-05"
+  },
+  "gtin-check-digit": {
+    "publishedAt": "2026-11-06"
   }
 }
