@@ -468,7 +468,46 @@ export const essayMedia: readonly EssayMedia[] = [
     "width": 640,
     "height": 560,
     "credit": "Biz2Lab 자체 계산·도해 · 가상 신호 · 외부 그림 복제 아님"
-  }
+  },
+{
+  "slug": "condorcet-agenda",
+  "afterSection": "scene-2",
+  "title": "세 비교에서 바뀌는 다수 연합",
+  "src": "/images/essays/condorcet-agenda/concept.svg",
+  "alt": "A는 B에 6 대 3, B는 C에 7 대 2, C는 A에 5 대 4로 이긴다. 아홉 명의 고정된 순위로 만든 가상 예이다.",
+  "caption": "화살표는 쌍별 승자에서 패자로 향합니다. 매번 과반이 있지만 모든 상대를 이기는 안건은 없습니다. 실제 설문이 아닌 자체 가상 집계입니다.",
+  "sourceUrl": "https://micro.econ.kit.edu/2431.php",
+  "sourceLabel": "KIT의 순환 설명과 본문 자체 집계",
+  "width": 640,
+  "height": 460,
+  "credit": "Biz2Lab 자체 도해 · 외부 그림 및 실제 실험 자료 복제 아님"
+},
+{
+  "slug": "euler-bridge-route",
+  "afterSection": "scene-2",
+  "title": "네 지역에 닿는 일곱 다리",
+  "src": "/images/essays/euler-bridge-route/concept.svg",
+  "alt": "A와 B 사이 두 다리, A와 C 사이 두 다리, AD·BD·CD 각 한 다리. 차수는 A 5, B 3, C 3, D 3이다.",
+  "caption": "같은 두 지역 사이의 다리도 별개의 선으로 셉니다. 역사 지도 축척이나 현재 도로가 아니라 본문에서 이름을 새로 붙인 연결 구조입니다.",
+  "sourceUrl": "https://www.cantab.net/users/michael.behrend/repubs/maze_maths/pages/euler_en.html",
+  "sourceLabel": "Euler 원논문 번역과 자체 연결표",
+  "width": 640,
+  "height": 460,
+  "credit": "Biz2Lab 자체 도해 · 외부 그림 및 실제 실험 자료 복제 아님"
+},
+{
+  "slug": "radiocarbon-calendar",
+  "afterSection": "scene-4",
+  "title": "현대 탄소 혼합비와 단순 계산 연대",
+  "src": "/images/essays/radiocarbon-calendar/concept.svg",
+  "alt": "가상 시료 상대량 0.25에 현대 탄소를 0%, 1%, 5% 섞으면 5730년 반감기 계산값은 각각 11460년, 약 11216년, 약 10305년이다. 달력 보정 연대가 아니다.",
+  "caption": "혼입 비율은 최종 탄소량 기준이며 현대 성분의 상대량을 1로 둔 가상 계산입니다. 실측 오염률이나 실제 유물의 보정 결과가 아닙니다.",
+  "sourceUrl": "https://c14.arch.ox.ac.uk/calibration.html",
+  "sourceLabel": "Oxford 보정 안내와 본문 자체 가상 계산",
+  "width": 640,
+  "height": 460,
+  "credit": "Biz2Lab 자체 도해 · 외부 그림 및 실제 실험 자료 복제 아님"
+}
 ];
 
 export function getEssayMedia(slug: string) { return essayMedia.find(figure => figure.slug === slug); }

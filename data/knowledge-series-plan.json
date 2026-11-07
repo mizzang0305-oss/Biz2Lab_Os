@@ -443,6 +443,42 @@
         "shannon",
         "model-limits"
       ]
+    },
+    {
+      "order": 38,
+      "slug": "condorcet-agenda",
+      "title": "다수결인데 순서에 따라 승자가 바뀐다: 콩도르세 순환",
+      "question": "모두 일관되게 투표했는데도 회의의 표결 순서가 결론을 바꿀 수 있을까?",
+      "theme": "지식과 책임",
+      "related": [
+        "simpson-paradox",
+        "archives-silence",
+        "model-limits"
+      ]
+    },
+    {
+      "order": 39,
+      "slug": "euler-bridge-route",
+      "title": "모든 다리를 한 번씩 건널 수 있을까: 길 찾기 전에 세어 볼 것",
+      "question": "경로를 하나씩 시도하지 않고 모든 구간을 한 번씩 지나는 일이 가능한지 알 수 있을까?",
+      "theme": "기계와 연결",
+      "related": [
+        "telephone-exchange-scaling",
+        "turing-computation",
+        "model-limits"
+      ]
+    },
+    {
+      "order": 40,
+      "slug": "radiocarbon-calendar",
+      "title": "탄소 연대 5000년은 달력으로도 5000년 전일까",
+      "question": "방사성탄소 측정값을 오늘에서 빼면 유물이 만들어진 해를 알 수 있을까?",
+      "theme": "인간의 자리",
+      "related": [
+        "climate-ice",
+        "mars-climate-orbiter-units",
+        "model-limits"
+      ]
     }
   ]
 }

@@ -146,5 +146,17 @@
   "sampling-aliasing": {
     "sha256": "5ba90bf68f5814d064dba8824178e9e2fc4110e66d587c99121ca1bc4485eb40",
     "sourceCheckedAt": "2026-11-06"
+  },
+  "condorcet-agenda": {
+    "sha256": "763c976a8f43bbd8acec18762d5c3fa9dcd9e02288ac927e89f232b2b5306411",
+    "sourceCheckedAt": "2026-11-07"
+  },
+  "euler-bridge-route": {
+    "sha256": "d13527880a81ac9d405fd0258458ec487b592072d001142346d661399553db23",
+    "sourceCheckedAt": "2026-11-07"
+  },
+  "radiocarbon-calendar": {
+    "sha256": "c40e989509c997e91b6b976450e5cd01821eb9da876ecd9639c21ffe87f359d0",
+    "sourceCheckedAt": "2026-11-07"
   }
 }
